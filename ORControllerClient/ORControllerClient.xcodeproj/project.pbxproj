@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		9190D4DB17904CB500667A7C /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9190D4DC17904CB500667A7C /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				9190D4DF17904CBD00667A7C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
+		9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B61790140A00667A7C /* SenTestingKit.framework */; };
+		9190D4B91790140A00667A7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B81790140A00667A7C /* UIKit.framework */; };
+		9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
+		9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A41790140A00667A7C /* libORControllerClient.a */; };
+		9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9190D4C11790140A00667A7C /* InfoPlist.strings */; };
+		9190D4D11790143000667A7C /* ORLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D01790143000667A7C /* ORLabel.m */; };
+		9190D4D41790161900667A7C /* ORController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D31790161900667A7C /* ORController.m */; };
+		9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D91790172B00667A7C /* ORControllerAddress.m */; };
+		9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4E11790533A00667A7C /* ORControllerAddressTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9190D4BB1790140A00667A7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9190D49C1790140A00667A7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9190D4A31790140A00667A7C;
+			remoteInfo = ORControllerClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9190D4A21790140A00667A7C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9190D4A41790140A00667A7C /* libORControllerClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libORControllerClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9190D4A71790140A00667A7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORControllerClient-Prefix.pch"; sourceTree = "<group>"; };
+		9190D4B51790140A00667A7C /* ORControllerClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORControllerClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9190D4B61790140A00667A7C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9190D4B81790140A00667A7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ORControllerClientTests-Info.plist"; sourceTree = "<group>"; };
+		9190D4C21790140A00667A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9190D4CF1790143000667A7C /* ORLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLabel.h; sourceTree = "<group>"; };
+		9190D4D01790143000667A7C /* ORLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabel.m; sourceTree = "<group>"; };
+		9190D4D21790161900667A7C /* ORController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORController.h; sourceTree = "<group>"; };
+		9190D4D31790161900667A7C /* ORController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORController.m; sourceTree = "<group>"; };
+		9190D4D81790172B00667A7C /* ORControllerAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerAddress.h; sourceTree = "<group>"; };
+		9190D4D91790172B00667A7C /* ORControllerAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerAddress.m; sourceTree = "<group>"; };
+		9190D4E01790533A00667A7C /* ORControllerAddressTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerAddressTest.h; sourceTree = "<group>"; };
+		9190D4E11790533A00667A7C /* ORControllerAddressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerAddressTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9190D4A11790140A00667A7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9190D4B11790140A00667A7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
+				9190D4B91790140A00667A7C /* UIKit.framework in Frameworks */,
+				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
+				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9190D49B1790140A00667A7C = {
+			isa = PBXGroup;
+			children = (
+				9190D4A91790140A00667A7C /* ORControllerClient */,
+				9190D4BE1790140A00667A7C /* ORControllerClientTests */,
+				9190D4A61790140A00667A7C /* Frameworks */,
+				9190D4A51790140A00667A7C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9190D4A51790140A00667A7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4A41790140A00667A7C /* libORControllerClient.a */,
+				9190D4B51790140A00667A7C /* ORControllerClientTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9190D4A61790140A00667A7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4A71790140A00667A7C /* Foundation.framework */,
+				9190D4B61790140A00667A7C /* SenTestingKit.framework */,
+				9190D4B81790140A00667A7C /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9190D4A91790140A00667A7C /* ORControllerClient */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
+				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
+				9190D4D21790161900667A7C /* ORController.h */,
+				9190D4D31790161900667A7C /* ORController.m */,
+				9190D4CF1790143000667A7C /* ORLabel.h */,
+				9190D4D01790143000667A7C /* ORLabel.m */,
+				9190D4AA1790140A00667A7C /* Supporting Files */,
+			);
+			path = ORControllerClient;
+			sourceTree = "<group>";
+		};
+		9190D4AA1790140A00667A7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9190D4BE1790140A00667A7C /* ORControllerClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4BF1790140A00667A7C /* Supporting Files */,
+				9190D4E01790533A00667A7C /* ORControllerAddressTest.h */,
+				9190D4E11790533A00667A7C /* ORControllerAddressTest.m */,
+			);
+			path = ORControllerClientTests;
+			sourceTree = "<group>";
+		};
+		9190D4BF1790140A00667A7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */,
+				9190D4C11790140A00667A7C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9190D4A31790140A00667A7C /* ORControllerClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9190D4C91790140A00667A7C /* Build configuration list for PBXNativeTarget "ORControllerClient" */;
+			buildPhases = (
+				9190D4A01790140A00667A7C /* Sources */,
+				9190D4A11790140A00667A7C /* Frameworks */,
+				9190D4A21790140A00667A7C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ORControllerClient;
+			productName = ORControllerClient;
+			productReference = 9190D4A41790140A00667A7C /* libORControllerClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9190D4B41790140A00667A7C /* ORControllerClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9190D4CC1790140A00667A7C /* Build configuration list for PBXNativeTarget "ORControllerClientTests" */;
+			buildPhases = (
+				9190D4B01790140A00667A7C /* Sources */,
+				9190D4B11790140A00667A7C /* Frameworks */,
+				9190D4B21790140A00667A7C /* Resources */,
+				9190D4B31790140A00667A7C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9190D4BC1790140A00667A7C /* PBXTargetDependency */,
+			);
+			name = ORControllerClientTests;
+			productName = ORControllerClientTests;
+			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9190D49C1790140A00667A7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = OpenRemote;
+			};
+			buildConfigurationList = 9190D49F1790140A00667A7C /* Build configuration list for PBXProject "ORControllerClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9190D49B1790140A00667A7C;
+			productRefGroup = 9190D4A51790140A00667A7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9190D4A31790140A00667A7C /* ORControllerClient */,
+				9190D4B41790140A00667A7C /* ORControllerClientTests */,
+				9190D4DB17904CB500667A7C /* Documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9190D4B21790140A00667A7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9190D4B31790140A00667A7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		9190D4DF17904CBD00667A7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name ORControllerClient \\\n--project-company \"OpenRemote\" \\\n--company-id org.openremote \\\n--output doc \\\n--logformat xcode \\\n--keep-intermediate-files \\\nORControllerClient/*.h";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9190D4A01790140A00667A7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9190D4D11790143000667A7C /* ORLabel.m in Sources */,
+				9190D4D41790161900667A7C /* ORController.m in Sources */,
+				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9190D4B01790140A00667A7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9190D4BC1790140A00667A7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9190D4A31790140A00667A7C /* ORControllerClient */;
+			targetProxy = 9190D4BB1790140A00667A7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9190D4C11790140A00667A7C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9190D4C21790140A00667A7C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9190D4C71790140A00667A7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9190D4C81790140A00667A7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9190D4CA1790140A00667A7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ORControllerClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9190D4CB1790140A00667A7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ORControllerClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9190D4CD1790140A00667A7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9190D4CE1790140A00667A7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		9190D4DD17904CB500667A7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9190D4DE17904CB500667A7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9190D49F1790140A00667A7C /* Build configuration list for PBXProject "ORControllerClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9190D4C71790140A00667A7C /* Debug */,
+				9190D4C81790140A00667A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9190D4C91790140A00667A7C /* Build configuration list for PBXNativeTarget "ORControllerClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9190D4CA1790140A00667A7C /* Debug */,
+				9190D4CB1790140A00667A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9190D4CC1790140A00667A7C /* Build configuration list for PBXNativeTarget "ORControllerClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9190D4CD1790140A00667A7C /* Debug */,
+				9190D4CE1790140A00667A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9190D4DC17904CB500667A7C /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9190D4DD17904CB500667A7C /* Debug */,
+				9190D4DE17904CB500667A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9190D49C1790140A00667A7C /* Project object */;
+}
