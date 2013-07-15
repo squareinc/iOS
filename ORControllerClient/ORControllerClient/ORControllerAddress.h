@@ -34,6 +34,8 @@
  * This means the address will become invalid if e.g. controller changes IP or port.
  *
  * @param aURL full URL to controller root context
+ *
+ * @return An ORControllerAddress object initialized with given URL. If no URL was given, returns nil.
  */
 - (id)initWithPrimaryURL:(NSURL *)aURL;
 

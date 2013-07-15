@@ -33,7 +33,11 @@
 {
     self = [super init];
     if (self) {
-        self.primaryURL = aURL;
+        if (aURL) {
+            self.primaryURL = aURL;
+        } else {
+            return nil;
+        }
     }
     return self;
 }

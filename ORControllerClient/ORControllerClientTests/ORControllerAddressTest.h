@@ -23,4 +23,17 @@
 
 @interface ORControllerAddressTest : SenTestCase
 
+/**
+ * Initiliazes the ORControllerAddress with a valid primary URL.
+ * Validates that an ORControllerAddress instance is returned.
+ * Validates that its primaryURL property is equal to the URL used for instantiation.
+ */
+- (void)testCreateWithValidURL;
+
+/**
+ * Initiliazes the ORControllerAddress with nil as the URL parameter.
+ * Validates that an ORControllerAddress is not created in this case.
+ */
+- (void)testCreateWithNilURL;
+
 @end

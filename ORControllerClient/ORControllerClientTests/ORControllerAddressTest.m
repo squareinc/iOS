@@ -20,7 +20,22 @@
  */
 
 #import "ORControllerAddressTest.h"
+#import "ORControllerAddress.h"
 
 @implementation ORControllerAddressTest
+
+- (void)testCreateWithValidURL
+{
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8688/controller"];
+    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:url];
+    STAssertNotNil(address, @"Creating an ORControllerAddress with a valid URL should not possible");
+    STAssertEqualObjects(address.primaryURL, url, @"Address primaryURL should be the given URL");
+}
+
+- (void)testCreateWithNilURL
+{
+    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:nil];
+    STAssertNil(address, @"Creating an ORControllerAddress with no URL should not be possible");
+}
 
 @end
