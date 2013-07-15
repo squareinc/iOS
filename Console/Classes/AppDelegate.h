@@ -23,10 +23,6 @@
 #import "UpdateController.h"
 #import "DefaultViewController.h"
 
-#ifdef INCLUDE_SIP_SUPPORT
-@class SipController;
-#endif
-
 /*
  * This is the entrypoint of the application.
  *  After application have been started applicationDidFinishLaunching method will be called.
@@ -37,9 +33,6 @@
 	DefaultViewController *defaultViewController;
 	UpdateController *updateController;
 
-#ifdef INCLUDE_SIP_SUPPORT
-	SipController *sipController;
-#endif
 }
 
 @end

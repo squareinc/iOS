@@ -39,7 +39,7 @@
     return self;
 }
 
-- (NSArray *)getLabels
+- (NSArray *)getAllLabels
 {
     // Must register the labels with the appropriate sensors so that text values are updated
     // and in turn appropriate notifications are posted

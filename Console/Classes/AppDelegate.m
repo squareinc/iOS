@@ -30,10 +30,6 @@
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
-#ifdef INCLUDE_SIP_SUPPORT
-    #import "SipController.h"
-#endif
-
 //Private method declare
 @interface AppDelegate (Private)
 
@@ -62,12 +58,7 @@
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
 	updateController = [[UpdateController alloc] initWithDelegate:self];
-	
-    // TODO: this should be done only if controller does report SIP capabilities
-    #ifdef INCLUDE_SIP_SUPPORT
-        sipController = [[SipController alloc] init];
-    #endif
-	
+
     [updateController startup];
 }
 
@@ -148,9 +139,6 @@
 	[defaultViewController release];	
 	[window release];
 
-    #ifdef INCLUDE_SIP_SUPPORT
-        [sipController release];
-    #endif
 	[super dealloc];
 }
 

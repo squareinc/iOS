@@ -28,19 +28,62 @@
  */
 @interface ORController : NSObject
 
+/**
+ * Initializes the controller with the provided address.
+ * Does not try to connect to the controller.
+ * 
+ * @param anAddress address of the controller to connect to
+ *
+ * @return An ORController object initialized with the provided address. If no address is given, returns nil.
+ */
 - (id)initWithControllerAddress:(ORControllerAddress *)anAddress;
 
-// Q: methods for explicit connection management : connect, disconnect, isConnected ?
-// Might be useful to know if sensor updates will be received
+// TODO: add complete / error handlers to below methods
 
-// TODO: have a call to "read all configuration" with complete handlers and sync methods to retrieve from "cache"
+/**
+ * Tries to establish connection to the controller.
+ */
+- (void)connect;
+
+/**
+ */
+- (void)disconnect;
+
+/**
+ *
+ * @return
+ */
+- (BOOL)isConnected;
+
+
+/**
+ */
+- (void)readControllerConfiguration;
+// TODO: see how to make this work with the fact that configuration is actually split in separate panels and we only read one panel at once in the console
+
+
+// How about having an FixedUIController that provides higher granularity methods to perform actions required by the project.
+// This class can provide finer grained methods to make it compatible with current iOS console.
+// e.g. getAllLabels would iterate currently loaded panel for all labels
+// readControllerConfiguration would load the list of panels, then read the first panel in the list
+
+// TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
+// Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???
+
 
 /**
  * Returns all the labels known to this controller.
+ * If no configuration has been read for this controller, ?????
+ 
+ // TODO: how is caching implemented, how will this impact this method
+ 
  *
  * Given the current REST API with controller, it only returns the labels from the 1st panel
  * (but from all screens in all groups).
  */
-- (NSSet *)getLabels;
+- (NSSet *)getAllLabels;
+
+
+
 
 @end
