@@ -27,9 +27,11 @@
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
 		918604B41794435E005DBCD9 /* ORPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604B31794435E005DBCD9 /* ORPanel.m */; };
+		918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604B8179444D2005DBCD9 /* ORPanelsParser.m */; };
+		918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */; };
+		918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604BF17944828005DBCD9 /* ORPanelsParserTest.m */; };
 		9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
 		9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B61790140A00667A7C /* SenTestingKit.framework */; };
-		9190D4B91790140A00667A7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B81790140A00667A7C /* UIKit.framework */; };
 		9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
 		9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A41790140A00667A7C /* libORControllerClient.a */; };
 		9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9190D4C11790140A00667A7C /* InfoPlist.strings */; };
@@ -71,6 +73,11 @@
 		910B750417940D10005F41CF /* ORControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerTest.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
 		918604B31794435E005DBCD9 /* ORPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanel.m; sourceTree = "<group>"; };
+		918604B7179444D2005DBCD9 /* ORPanelsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanelsParser.h; sourceTree = "<group>"; };
+		918604B8179444D2005DBCD9 /* ORPanelsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanelsParser.m; sourceTree = "<group>"; };
+		918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RequestPanelIdentityListValidResponse.xml; sourceTree = "<group>"; };
+		918604BE17944828005DBCD9 /* ORPanelsParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanelsParserTest.h; sourceTree = "<group>"; };
+		918604BF17944828005DBCD9 /* ORPanelsParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanelsParserTest.m; sourceTree = "<group>"; };
 		9190D4A41790140A00667A7C /* libORControllerClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libORControllerClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4A71790140A00667A7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORControllerClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -103,7 +110,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
-				9190D4B91790140A00667A7C /* UIKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
 				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,
 			);
@@ -121,6 +127,40 @@
 				918604B31794435E005DBCD9 /* ORPanel.m */,
 			);
 			name = "Object Model";
+			sourceTree = "<group>";
+		};
+		918604B5179444B0005DBCD9 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				918604B6179444B8005DBCD9 /* Panels List */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		918604B6179444B8005DBCD9 /* Panels List */ = {
+			isa = PBXGroup;
+			children = (
+				918604B7179444D2005DBCD9 /* ORPanelsParser.h */,
+				918604B8179444D2005DBCD9 /* ORPanelsParser.m */,
+			);
+			name = "Panels List";
+			sourceTree = "<group>";
+		};
+		918604BC1794480B005DBCD9 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				918604BD17944816005DBCD9 /* Panels List */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		918604BD17944816005DBCD9 /* Panels List */ = {
+			isa = PBXGroup;
+			children = (
+				918604BE17944828005DBCD9 /* ORPanelsParserTest.h */,
+				918604BF17944828005DBCD9 /* ORPanelsParserTest.m */,
+			);
+			name = "Panels List";
 			sourceTree = "<group>";
 		};
 		9190D49B1790140A00667A7C = {
@@ -155,6 +195,7 @@
 		9190D4A91790140A00667A7C /* ORControllerClient */ = {
 			isa = PBXGroup;
 			children = (
+				918604B5179444B0005DBCD9 /* Parsers */,
 				918604B117944342005DBCD9 /* Object Model */,
 				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
 				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
@@ -177,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				9190D4BF1790140A00667A7C /* Supporting Files */,
+				918604BC1794480B005DBCD9 /* Parsers */,
 				9190D4E01790533A00667A7C /* ORControllerAddressTest.h */,
 				9190D4E11790533A00667A7C /* ORControllerAddressTest.m */,
 				910B750317940D10005F41CF /* ORControllerTest.h */,
@@ -192,6 +234,7 @@
 			children = (
 				9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */,
 				9190D4C11790140A00667A7C /* InfoPlist.strings */,
+				918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -269,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */,
+				918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +356,7 @@
 				9190D4D41790161900667A7C /* ORController.m in Sources */,
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
 				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
+				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +367,7 @@
 				9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */,
 				910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */,
 				910B750517940D10005F41CF /* ORControllerTest.m in Sources */,
+				918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
