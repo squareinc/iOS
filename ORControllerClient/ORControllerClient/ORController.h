@@ -38,12 +38,18 @@
  */
 - (id)initWithControllerAddress:(ORControllerAddress *)anAddress;
 
-// TODO: add complete / error handlers to below methods
-
 /**
  * Tries to establish connection to the controller.
+ * Reports success/error through provided handlers.
+ * successHandler is garanteed to be called after the connection has been established.
+ *
+ * @param successHandler
+ * @param errorHandler
  */
-- (void)connect;
+- (void)connectWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
+// TODO: what about authentication, specific handler for providing that when required ?
+// TODO: what about connection gets closed just after it is opened ?
 
 /**
  */
@@ -57,8 +63,9 @@
 
 
 /**
+ * First connects to the controller if it's not yet the case.
  */
-- (void)readControllerConfiguration;
+- (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 // TODO: see how to make this work with the fact that configuration is actually split in separate panels and we only read one panel at once in the console
 
 
@@ -67,13 +74,15 @@
 // e.g. getAllLabels would iterate currently loaded panel for all labels
 // readControllerConfiguration would load the list of panels, then read the first panel in the list
 
+// Or have a category for us to provide access to those methods
+
 // TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
 // Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???
 
 
 /**
  * Returns all the labels known to this controller.
- * If no configuration has been read for this controller, ?????
+ * If no configuration has been read for this controller, raises an exception.
  
  // TODO: how is caching implemented, how will this impact this method
  
@@ -81,7 +90,7 @@
  * Given the current REST API with controller, it only returns the labels from the 1st panel
  * (but from all screens in all groups).
  */
-- (NSSet *)getAllLabels;
+- (NSSet *)allLabels;
 
 
 

@@ -21,6 +21,9 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Unit tests for ORControllerAddress
+ */
 @interface ORControllerAddressTest : SenTestCase
 
 /**

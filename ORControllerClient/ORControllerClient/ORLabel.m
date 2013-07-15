@@ -29,4 +29,13 @@ NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
 // e.g. in the current iOS console, only sensors for currently displayed widgets are polled
 
 
+- (id)initWithText:(NSString *)someText
+{
+    self = [super init];
+    if (self) {
+        self.text = someText;
+    }
+    return self;
+}
+
 @end

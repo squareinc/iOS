@@ -22,9 +22,12 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 
+#import "ORLabel.h"
+
 @interface ORController ()
 
 @property (strong, nonatomic) ORControllerAddress *address;
+@property (nonatomic) BOOL connected;
 
 @end
 
@@ -34,17 +37,57 @@
 {
     self = [super init];
     if (self) {
-        self.address = anAddress;
+        if (anAddress) {
+            self.address = anAddress;
+        } else {
+            return nil;
+        }
     }
     return self;
 }
 
-- (NSArray *)getAllLabels
+- (void)connectWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+{
+    // In this first version, we actually do not try to connect at this stage but wait for read configuration request
+    
+    // TODO: in next version, could fetch group members
+    // TODO: in later version, this could be a good place to get the controller capabilities
+    // TODO: might also want to start the "polling / communication" loop 
+
+    self.connected = YES;
+    if (successHandler) {
+        successHandler();
+    }
+}
+
+- (void)disconnect
+{
+    // TODO: in later version, stop any communication with server e.g. polling loop
+    
+    self.connected = NO;
+}
+
+- (BOOL)isConnected
+{
+    return self.connected;
+}
+
+- (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+{
+    // TODO: need to fetch list of panels
+    // TODO: then fetch first panel
+    
+    if (successHandler) {
+        successHandler();
+    }
+}
+
+- (NSArray *)allLabels
 {
     // Must register the labels with the appropriate sensors so that text values are updated
     // and in turn appropriate notifications are posted
     
-    return nil;
+    return [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]];
 }
 
 @end

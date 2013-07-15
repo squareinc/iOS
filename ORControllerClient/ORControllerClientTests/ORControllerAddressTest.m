@@ -28,7 +28,7 @@
 {
     NSURL *url = [NSURL URLWithString:@"http://localhost:8688/controller"];
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:url];
-    STAssertNotNil(address, @"Creating an ORControllerAddress with a valid URL should not possible");
+    STAssertNotNil(address, @"Creating an ORControllerAddress with a valid URL should be possible");
     STAssertEqualObjects(address.primaryURL, url, @"Address primaryURL should be the given URL");
 }
 
