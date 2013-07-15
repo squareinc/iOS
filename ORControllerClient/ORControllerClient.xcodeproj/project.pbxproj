@@ -26,6 +26,7 @@
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
+		918604B41794435E005DBCD9 /* ORPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604B31794435E005DBCD9 /* ORPanel.m */; };
 		9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
 		9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B61790140A00667A7C /* SenTestingKit.framework */; };
 		9190D4B91790140A00667A7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B81790140A00667A7C /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 		910B750117940962005F41CF /* ORControllerClientOverallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerClientOverallTest.m; sourceTree = "<group>"; };
 		910B750317940D10005F41CF /* ORControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerTest.h; sourceTree = "<group>"; };
 		910B750417940D10005F41CF /* ORControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerTest.m; sourceTree = "<group>"; };
+		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
+		918604B31794435E005DBCD9 /* ORPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanel.m; sourceTree = "<group>"; };
 		9190D4A41790140A00667A7C /* libORControllerClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libORControllerClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4A71790140A00667A7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORControllerClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -109,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		918604B117944342005DBCD9 /* Object Model */ = {
+			isa = PBXGroup;
+			children = (
+				9190D4CF1790143000667A7C /* ORLabel.h */,
+				9190D4D01790143000667A7C /* ORLabel.m */,
+				918604B21794435E005DBCD9 /* ORPanel.h */,
+				918604B31794435E005DBCD9 /* ORPanel.m */,
+			);
+			name = "Object Model";
+			sourceTree = "<group>";
+		};
 		9190D49B1790140A00667A7C = {
 			isa = PBXGroup;
 			children = (
@@ -141,12 +155,11 @@
 		9190D4A91790140A00667A7C /* ORControllerClient */ = {
 			isa = PBXGroup;
 			children = (
+				918604B117944342005DBCD9 /* Object Model */,
 				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
 				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
 				9190D4D21790161900667A7C /* ORController.h */,
 				9190D4D31790161900667A7C /* ORController.m */,
-				9190D4CF1790143000667A7C /* ORLabel.h */,
-				9190D4D01790143000667A7C /* ORLabel.m */,
 				9190D4AA1790140A00667A7C /* Supporting Files */,
 			);
 			path = ORControllerClient;
@@ -298,6 +311,7 @@
 				9190D4D11790143000667A7C /* ORLabel.m in Sources */,
 				9190D4D41790161900667A7C /* ORController.m in Sources */,
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
+				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
