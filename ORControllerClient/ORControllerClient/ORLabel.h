@@ -26,6 +26,11 @@
  */
 extern NSString const *kORLabelTextValueChanged;
 
+/**
+ * Model object representing a Label element in the OR UI model domain.
+ *
+ * Provides a mechanism for clients to register and receive notifications when property values change.
+ */
 @interface ORLabel : NSObject
 
 - (id)initWithText:(NSString *)someText;

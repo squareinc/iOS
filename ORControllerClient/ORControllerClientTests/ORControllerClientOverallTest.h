@@ -21,6 +21,14 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Overall end to end testing to validate "black box" usage of the API by clients.
+ */
 @interface ORControllerClientOverallTest : SenTestCase
+
+/**
+ * Validates that it's possible to get a list of labels from a controller.
+ */
+- (void)testLabels;
 
 @end

@@ -21,6 +21,18 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Unit tests for ORPanelsParser
+ */
 @interface ORPanelsParserTest : SenTestCase
+
+/**
+ * Validates that, for a valid XML input, parsing does succeed.
+ * Validates that:
+ * - it does return a list
+ * - the list does contain only ORPanel instances (or subclasses)
+ * - the name of each panel is as expected and in the same order as in the XML input
+ */
+- (void)testValidResponseParsing;
 
 @end

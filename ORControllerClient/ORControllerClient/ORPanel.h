@@ -21,11 +21,19 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Model object representing a Panel element in the OR UI model domain.
+ * 
+ */
 @interface ORPanel : NSObject
 
 /**
  * The name of the panel.
  */
 @property (strong, nonatomic) NSString *name;
+
+
+// TODO: a panel should give access to the groups it contains
+// How to manage fact that panels might not have that information yet
 
 @end
