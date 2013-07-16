@@ -22,6 +22,7 @@
 #import <Foundation/Foundation.h>
 
 @class ORControllerAddress;
+@class ORSimpleUIConfiguration;
 
 /**
  * Represents an OpenRemote ORB
@@ -64,10 +65,15 @@
 
 /**
  * First connects to the controller if it's not yet the case.
+ *
+ * @param successHandler
+ * @param errorHandler
  */
 - (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 // TODO: see how to make this work with the fact that configuration is actually split in separate panels and we only read one panel at once in the console
 
+
+- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 // How about having an FixedUIController that provides higher granularity methods to perform actions required by the project.
 // This class can provide finer grained methods to make it compatible with current iOS console.
@@ -75,6 +81,9 @@
 // readControllerConfiguration would load the list of panels, then read the first panel in the list
 
 // Or have a category for us to provide access to those methods
+
+
+// Or have a readSimpleUIConfiguration method that returns a simple configuration object -> this object give direct access to labels ... without anything else
 
 // TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
 // Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???
@@ -90,6 +99,6 @@
  * Given the current REST API with controller, it only returns the labels from the 1st panel
  * (but from all screens in all groups).
  */
-- (NSSet *)allLabels;
+//- (NSSet *)allLabels;
 
 @end

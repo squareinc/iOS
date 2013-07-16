@@ -39,6 +39,8 @@
 		9190D4D41790161900667A7C /* ORController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D31790161900667A7C /* ORController.m */; };
 		9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D91790172B00667A7C /* ORControllerAddress.m */; };
 		9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4E11790533A00667A7C /* ORControllerAddressTest.m */; };
+		919332FE179562900086FEE7 /* ORSimpleUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */; };
+		919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */,
 				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */,
 				91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */,
 				917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */,
@@ -98,6 +101,8 @@
 		9190D4D91790172B00667A7C /* ORControllerAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerAddress.m; sourceTree = "<group>"; };
 		9190D4E01790533A00667A7C /* ORControllerAddressTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerAddressTest.h; sourceTree = "<group>"; };
 		9190D4E11790533A00667A7C /* ORControllerAddressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerAddressTest.m; sourceTree = "<group>"; };
+		919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSimpleUIConfiguration.h; sourceTree = "<group>"; };
+		919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSimpleUIConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +134,8 @@
 				9190D4D01790143000667A7C /* ORLabel.m */,
 				918604B21794435E005DBCD9 /* ORPanel.h */,
 				918604B31794435E005DBCD9 /* ORPanel.m */,
+				919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */,
+				919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -361,6 +368,7 @@
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
 				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
 				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
+				919332FE179562900086FEE7 /* ORSimpleUIConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

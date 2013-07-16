@@ -22,6 +22,7 @@
 #import "ORControllerClientOverallTest.h"
 #import "ORControllerAddress.h"
 #import "ORController.h"
+#import "ORSimpleUIConfiguration.h"
 #import "ORLabel.h"
 
 @implementation ORControllerClientOverallTest
@@ -32,9 +33,12 @@
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
         STAssertTrue([orb isConnected], @"ORB should now be connected");
-        [orb readControllerConfigurationWithSuccessHandler:^{
-            NSSet *labels = [orb allLabels];
+        [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
+            NSSet *labels = [configuration allLabels];
             STAssertNotNil(labels, @"ORB should return a collection of labels");
+            STAssertEquals([labels count], (NSUInteger)1, @"ORB should return one label in collection");
+            STAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
+            STAssertEqualObjects(((ORLabel *)[labels anyObject]).text, @"Test label 1", @"Text of label should be 'Test label 1'");
         } errorHandler:NULL];
     } errorHandler:NULL];
 }

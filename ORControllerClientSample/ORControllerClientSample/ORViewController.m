@@ -8,6 +8,7 @@
 
 #import "ORViewController.h"
 #import "ORControllerAddress.h"
+#import "ORSimpleUIConfiguration.h"
 #import "ORController.h"
 #import "ORLabel.h"
 
@@ -24,8 +25,8 @@
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"http://localhost:8688/controller"]];
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
-        [orb readControllerConfigurationWithSuccessHandler:^{
-            self.labels = [[orb allLabels] allObjects];
+        [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
+            self.labels = [[configuration allLabels] allObjects];
             [self.tableView reloadData];
         } errorHandler:NULL];
     } errorHandler:NULL];

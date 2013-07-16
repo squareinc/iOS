@@ -21,7 +21,7 @@
 
 #import "ORController.h"
 #import "ORControllerAddress.h"
-
+#import "ORSimpleUIConfiguration.h"
 #import "ORLabel.h"
 
 @interface ORController ()
@@ -72,6 +72,19 @@
     return self.connected;
 }
 
+- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    if (successHandler) {
+        // Must register the labels with the appropriate sensors so that text values are updated
+        // and in turn appropriate notifications are posted
+
+        
+        successHandler([[ORSimpleUIConfiguration alloc] init]);
+    }
+}
+
+
+
 - (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 {
     // TODO: need to fetch list of panels
@@ -80,14 +93,6 @@
     if (successHandler) {
         successHandler();
     }
-}
-
-- (NSArray *)allLabels
-{
-    // Must register the labels with the appropriate sensors so that text values are updated
-    // and in turn appropriate notifications are posted
-    
-    return [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]];
 }
 
 @end
