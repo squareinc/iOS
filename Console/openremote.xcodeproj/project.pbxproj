@@ -399,6 +399,7 @@
 		912721FC16C1127800E2D6B3 /* ORSliderWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F116C1127800E2D6B3 /* ORSliderWhite.png */; };
 		912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
+		91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA424C17953CDC001D39B9 /* libORControllerClient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -896,7 +897,8 @@
 		912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderWhite@2x.png"; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
-		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
+		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
+		91DA424C17953CDC001D39B9 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -920,6 +922,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */,
 				6068DEA513744ED0007746F1 /* SystemConfiguration.framework in Frameworks */,
 				6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */,
 				6068DE6D13744BF5007746F1 /* CoreGraphics.framework in Frameworks */,
@@ -968,6 +971,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				91DA424C17953CDC001D39B9 /* libORControllerClient.a */,
 				910B74FE1794075E005F41CF /* CoreData.framework */,
 				60C1DAA314504FE0005A44BD /* OpenRemote.entitlements */,
 				6068DEA413744ED0007746F1 /* SystemConfiguration.framework */,
@@ -1740,6 +1744,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
