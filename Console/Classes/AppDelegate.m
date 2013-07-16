@@ -51,7 +51,7 @@
 	window = [[GestureWindow alloc] initWithDelegate:defaultViewController];
 	[window makeKeyAndVisible];
 	
-	[window addSubview:defaultViewController.view];
+    window.rootViewController = defaultViewController;
 	
 	//Init UpdateController and set delegate to this class, it have three delegate methods
     // - (void)didUpdate;
