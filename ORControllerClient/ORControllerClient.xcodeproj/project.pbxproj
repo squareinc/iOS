@@ -39,6 +39,8 @@
 		9190D4D41790161900667A7C /* ORController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D31790161900667A7C /* ORController.m */; };
 		9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D91790172B00667A7C /* ORControllerAddress.m */; };
 		9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4E11790533A00667A7C /* ORControllerAddressTest.m */; };
+		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
+		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */,
+				91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */,
 				917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */,
 				917CC44017942B59007F2F2E /* ORController.h in CopyFiles */,
 				917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */,

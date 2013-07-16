@@ -14,8 +14,22 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9190D4A31790140A00667A7C"
+               BuildableName = "libORControllerClient.a"
+               BlueprintName = "ORControllerClient"
+               ReferencedContainer = "container:../ORControllerClient/ORControllerClient.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "60366B69144DCB9C004FED3B"
-               BuildableName = "OpenRemote copy.app"
+               BuildableName = "OpenRemote.app"
                BlueprintName = "OpenRemote"
                ReferencedContainer = "container:openremote.xcodeproj">
             </BuildableReference>
@@ -33,7 +47,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60366B69144DCB9C004FED3B"
-            BuildableName = "OpenRemote copy.app"
+            BuildableName = "OpenRemote.app"
             BlueprintName = "OpenRemote"
             ReferencedContainer = "container:openremote.xcodeproj">
          </BuildableReference>
@@ -44,7 +58,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Simulator 3.2"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -52,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60366B69144DCB9C004FED3B"
-            BuildableName = "OpenRemote copy.app"
+            BuildableName = "OpenRemote.app"
             BlueprintName = "OpenRemote"
             ReferencedContainer = "container:openremote.xcodeproj">
          </BuildableReference>
@@ -70,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60366B69144DCB9C004FED3B"
-            BuildableName = "OpenRemote copy.app"
+            BuildableName = "OpenRemote.app"
             BlueprintName = "OpenRemote"
             ReferencedContainer = "container:openremote.xcodeproj">
          </BuildableReference>

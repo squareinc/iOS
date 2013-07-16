@@ -25,30 +25,16 @@
 #import "ControllerException.h"
 #import "ORControllerConfig.h"
 
+#import "ORPanelsParser.h"
+
 @interface ORControllerPanelsFetcher ()
 
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 @property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) NSMutableArray *panels;
 
 @end
 
 @implementation ORControllerPanelsFetcher
-
-- (id)initWithController:(ORControllerConfig *)aController
-{
-    self = [super initWithController:aController];
-    if (self) {
-        self.panels = [NSMutableArray array];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    self.panels = nil;
-    [super dealloc];
-}
 
 - (BOOL)shouldExecuteNow
 {
@@ -64,25 +50,14 @@
     [self.controllerRequest getRequestWithPath:[ServerDefinition controllerFetchPanelsPathForController:self.controller]];
 }
 
-#pragma mark NSXMLParserDelegate implementation
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
-{
-	if ([elementName isEqualToString:@"panel"]) {
-		NSLog(@"panel logical id : %@",[attributeDict valueForKey:@"name"]);
-		[self.panels addObject:[attributeDict valueForKey:@"name"]]; 
-	}
-}
-
 #pragma mark ControllerRequestDelegate implementation
 
 - (void)controllerRequestDidFinishLoading:(NSData *)data
 {
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
-	[xmlParser setDelegate:self];
-	[xmlParser parse];
-	[xmlParser release];
-    [self.delegate fetchPanelsDidSucceedWithPanels:[NSArray arrayWithArray:self.panels]];
+    ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
+    NSArray *panels = [parser parsePanels];
+    [self.delegate fetchPanelsDidSucceedWithPanels:[panels valueForKey:@"name"]];
+    [parser release];
 }
 
 // optional TODO EBR is it required
@@ -111,6 +86,5 @@
 @synthesize controller;
 @synthesize delegate;
 @synthesize controllerRequest;
-@synthesize panels;
 
 @end
