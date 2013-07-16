@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORControllerCommandSender.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Component.h"
 #import "Definition.h"
 #import "ViewHelper.h"
@@ -29,7 +29,7 @@
 
 @interface ORControllerCommandSender ()
 
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 @property (nonatomic, retain) NSString *command;
 @property (nonatomic, retain) Component *component;
@@ -38,7 +38,7 @@
 
 @implementation ORControllerCommandSender
 
-- (id)initWithController:(ORController *)aController command:(NSString *)aCommand component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(Component *)aComponent
 {
     self = [super initWithController:aController];
     if (self) {

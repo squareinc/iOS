@@ -21,14 +21,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ORController;
+@class ORControllerConfig;
 
 @interface ORGroupMember : NSManagedObject {
 @private
 }
 
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) ORController * controller;
+@property (nonatomic, retain) ORControllerConfig * controller;
 
 
 @end

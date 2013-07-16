@@ -21,7 +21,7 @@
 #import "ClientSideRuntime.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Definition.h"
 #import "LocalController.h"
 #import "LocalCommand.h"
@@ -31,14 +31,14 @@
 
 @interface ClientSideRuntime()
 
-@property (nonatomic, assign) ORController *controller;
+@property (nonatomic, assign) ORControllerConfig *controller;
 @property (nonatomic, retain) ClientSideBeanManager *beanManager;
 
 @end
 
 @implementation ClientSideRuntime
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super init];
     if (self) {

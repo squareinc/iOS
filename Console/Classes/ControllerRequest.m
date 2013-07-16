@@ -21,26 +21,26 @@
 #import <UIKit/UIKit.h>
 #import "ControllerRequest.h"
 #import "NSURLRequest+ORAdditions.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORGroupMember.h"
 #import "NotificationConstant.h"
 #import "ControllerException.h"
 #import "ViewHelper.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @interface ControllerRequest ()
 
 @property (nonatomic, retain) ORGroupMember *usedGroupMember;
-@property (nonatomic, assign, readwrite) ORController *controller;
+@property (nonatomic, assign, readwrite) ORControllerConfig *controller;
 @property (nonatomic, assign) NSInteger httpResponseCode;
 
 @end
 
 @implementation ControllerRequest
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super init];
     if (self) {

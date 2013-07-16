@@ -31,7 +31,7 @@
 #import "NSString+ORAdditions.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ServerDefinition.h"
 
 @interface CheckNetwork ()
@@ -136,7 +136,7 @@
 	NSURL *url = [NSURL URLWithString:[[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]
                                             stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]; 
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:timeoutInterval];
-    ORController *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+    ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:activeController];
     [request setHTTPMethod:@"HEAD"];
 	URLConnectionHelper *connectionHelper = [[URLConnectionHelper alloc] init];

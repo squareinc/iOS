@@ -23,14 +23,14 @@
 
 @interface ORControllerSender()
 
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 
 @end
 
 @implementation ORControllerSender
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super init];
     if (self) {

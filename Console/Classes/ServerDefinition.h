@@ -23,7 +23,7 @@
 extern NSString *const kControllerFetchCapabilitiesPath;
 extern NSString *const kControllerFetchGroupMembersPath;
 
-@class ORController;
+@class ORControllerConfig;
 
 /**
  * Infomations about controller server panel client use.
@@ -31,10 +31,10 @@ extern NSString *const kControllerFetchGroupMembersPath;
 @interface ServerDefinition : NSObject {
 }
 
-+ (NSString *)controllerControlPathForController:(ORController *)aController;
-+ (NSString *)controllerStatusPathForController:(ORController *)aController;
-+ (NSString *)controllerPollingPathForController:(ORController *)aController;
-+ (NSString *)controllerFetchPanelsPathForController:(ORController *)aController;
++ (NSString *)controllerControlPathForController:(ORControllerConfig *)aController;
++ (NSString *)controllerStatusPathForController:(ORControllerConfig *)aController;
++ (NSString *)controllerPollingPathForController:(ORControllerConfig *)aController;
++ (NSString *)controllerFetchPanelsPathForController:(ORControllerConfig *)aController;
 
 /**
  * Get the qualified Resources url controller server provide, such as "http://192.168.100.100:8080/controller/resources" 
@@ -64,7 +64,7 @@ extern NSString *const kControllerFetchGroupMembersPath;
  * Get the qualified RESTful url of panel request, such as "http://192.168.100.100:8080/controller/rest/panel/{currentPanelID}"
  * or "https://192.168.100.100:8443/controller/rest/panel/{currentPanelID}" if the secured port user specified is 8443 and SSL is enabled.
  */
-+ (NSString *)panelXmlRESTUrlForController:(ORController *)aController;
++ (NSString *)panelXmlRESTUrlForController:(ORControllerConfig *)aController;
 
 /**
  * Get the host name or ip address of currrent controller server panel client use.

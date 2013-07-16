@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "CredentialUtil.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "NSStringAdditions.h"
 
 @implementation CredentialUtil
 
-+ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORController *)controller
++ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORControllerConfig *)controller
 {
     [self addCredentialToNSMutableURLRequest:request withUserName:controller.userName password:controller.password];
 }

@@ -22,12 +22,12 @@
 #import "ServerDefinition.h"
 #import "Definition.h"
 #import "PollingStatusParserDelegate.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ControllerException.h"
 
 @interface ORControllerPollOrStatusSender()
 
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) NSString *ids;
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 
@@ -35,7 +35,7 @@
 
 @implementation ORControllerPollOrStatusSender
 
-- (id)initWithController:(ORController *)aController ids:(NSString *)someIds
+- (id)initWithController:(ORControllerConfig *)aController ids:(NSString *)someIds
 {
     self = [super initWithController:aController];
     if (self) {

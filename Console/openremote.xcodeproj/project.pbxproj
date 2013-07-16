@@ -21,7 +21,7 @@
 		602418C9156E5528004E5860 /* ControllerSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED43E155A89D500F5C0CD /* ControllerSwitchParser.m */; };
 		602418CA156E5537004E5860 /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED442155A9AF800F5C0CD /* ControllerSliderParser.m */; };
 		602418CB156E5555004E5860 /* ControllerComponentCommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25BE155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m */; };
-		602418CC156E5580004E5860 /* ORController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORController.m */; };
+		602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORControllerConfig.m */; };
 		602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25B0155A5D3C0048A2BD /* ClientSideBeanManager.m */; };
 		602418D0156E6AB6004E5860 /* CapabilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418CF156E6AB6004E5860 /* CapabilitiesTest.m */; };
 		602418D3156E6BE4004E5860 /* CapabilitiesWithSettableConsoleVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418D2156E6BE4004E5860 /* CapabilitiesWithSettableConsoleVersions.m */; };
@@ -137,7 +137,7 @@
 		60366BD6144DCB9C004FED3B /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7A8E413696C8B00EA107A /* ColorPicker.m */; };
 		60366BD7144DCB9C004FED3B /* ColorPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7A8E613696C8B00EA107A /* ColorPickerImageView.m */; };
 		60366BD8144DCB9C004FED3B /* ORConsoleSettings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */; };
-		60366BD9144DCB9C004FED3B /* ORController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORController.m */; };
+		60366BD9144DCB9C004FED3B /* ORControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORControllerConfig.m */; };
 		60366BDA144DCB9C004FED3B /* ORGroupMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D97B136ADB8A009EECA3 /* ORGroupMember.m */; };
 		60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D97F136ADB8B009EECA3 /* ORConsoleSettings.m */; };
 		60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */; };
@@ -639,8 +639,8 @@
 		60C81D9B137BD55300B2A12A /* ORControllerPanelsFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPanelsFetcher.h; sourceTree = "<group>"; };
 		60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPanelsFetcher.m; sourceTree = "<group>"; };
 		60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings.xcdatamodel; sourceTree = "<group>"; };
-		60C9D976136ADB31009EECA3 /* ORController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORController.h; sourceTree = "<group>"; };
-		60C9D977136ADB31009EECA3 /* ORController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORController.m; sourceTree = "<group>"; };
+		60C9D976136ADB31009EECA3 /* ORControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerConfig.h; sourceTree = "<group>"; };
+		60C9D977136ADB31009EECA3 /* ORControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerConfig.m; sourceTree = "<group>"; };
 		60C9D97A136ADB89009EECA3 /* ORGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGroupMember.h; sourceTree = "<group>"; };
 		60C9D97B136ADB8A009EECA3 /* ORGroupMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGroupMember.m; sourceTree = "<group>"; };
 		60C9D97E136ADB8A009EECA3 /* ORConsoleSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleSettings.h; sourceTree = "<group>"; };
@@ -896,6 +896,7 @@
 		912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderWhite@2x.png"; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
+		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1667,8 +1668,8 @@
 				60C9D97F136ADB8B009EECA3 /* ORConsoleSettings.m */,
 				60C9D97A136ADB89009EECA3 /* ORGroupMember.h */,
 				60C9D97B136ADB8A009EECA3 /* ORGroupMember.m */,
-				60C9D976136ADB31009EECA3 /* ORController.h */,
-				60C9D977136ADB31009EECA3 /* ORController.m */,
+				60C9D976136ADB31009EECA3 /* ORControllerConfig.h */,
+				60C9D977136ADB31009EECA3 /* ORControllerConfig.m */,
 				8C460E711095555500C7A686 /* AppSettingsDefinition.h */,
 				8C460E721095555500C7A686 /* AppSettingsDefinition.m */,
 				8C460E731095555500C7A686 /* DirectoryDefinition.h */,
@@ -1935,7 +1936,7 @@
 				60366BD6144DCB9C004FED3B /* ColorPicker.m in Sources */,
 				60366BD7144DCB9C004FED3B /* ColorPickerImageView.m in Sources */,
 				60366BD8144DCB9C004FED3B /* ORConsoleSettings.xcdatamodeld in Sources */,
-				60366BD9144DCB9C004FED3B /* ORController.m in Sources */,
+				60366BD9144DCB9C004FED3B /* ORControllerConfig.m in Sources */,
 				60366BDA144DCB9C004FED3B /* ORGroupMember.m in Sources */,
 				60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */,
 				60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */,
@@ -2047,7 +2048,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */,
-				602418CC156E5580004E5860 /* ORController.m in Sources */,
+				602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */,
 				602418CB156E5555004E5860 /* ControllerComponentCommandDeferredBinding.m in Sources */,
 				602418CA156E5537004E5860 /* ControllerSliderParser.m in Sources */,
 				602418C9156E5528004E5860 /* ControllerSwitchParser.m in Sources */,
@@ -2514,9 +2515,10 @@
 		60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */,
 				60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */,
 			);
-			currentVersion = 60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */;
+			currentVersion = 918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */;
 			path = ORConsoleSettings.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -22,7 +22,7 @@
 #import "ControllerRequest.h"
 
 @class Component;
-@class ORController;
+@class ORControllerConfig;
 
 @protocol ORControllerCommandSenderDelegate <NSObject>
 
@@ -34,6 +34,6 @@
 
 @property (nonatomic, assign) NSObject <ORControllerCommandSenderDelegate> *delegate;
 
-- (id)initWithController:(ORController *)aController command:(NSString *)aCommand component:(Component *)aComponent;
+- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(Component *)aComponent;
 
 @end

@@ -20,7 +20,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@class ORController;
+@class ORControllerConfig;
 
 /**
  * Util for appending HTTP Basic Authentication header for request to http basic authenticate.
@@ -32,7 +32,7 @@
 /**
  * Append HTTP Basic Authentication header into request.
  */
-+ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORController *)controller;
++ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORControllerConfig *)controller;
 + (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request withUserName:(NSString *)userName password:(NSString *)password;
 
 

@@ -29,7 +29,7 @@
 #import "PanelDefinitionParser.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Definition.h"
 
 // Maximum number of operations executed concurrently

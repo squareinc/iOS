@@ -21,23 +21,23 @@
 #import <Foundation/Foundation.h>
 #import "DataCapturingNSURLConnectionDelegate.h"
 
-@class ORController;
+@class ORControllerConfig;
 
 @protocol ORControllerGroupMembersFetcherDelegate
 
 /**
  */
-- (void)controller:(ORController *)aController fetchGroupMembersDidSucceedWithMembers:(NSArray *)theMembers;
+- (void)controller:(ORControllerConfig *)aController fetchGroupMembersDidSucceedWithMembers:(NSArray *)theMembers;
 
 @optional
 
 /**
  */
-- (void)controller:(ORController *)aController fetchGroupMembersDidFailWithError:(NSError *)error;
+- (void)controller:(ORControllerConfig *)aController fetchGroupMembersDidFailWithError:(NSError *)error;
 
 /**
  */
-- (void)fetchGroupMembersRequiresAuthenticationForController:(ORController *)aController;
+- (void)fetchGroupMembersRequiresAuthenticationForController:(ORControllerConfig *)aController;
 
 @end
 
@@ -47,7 +47,7 @@
 
 @property (nonatomic, assign) NSObject <ORControllerGroupMembersFetcherDelegate> *delegate;
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 - (void)fetch;
 - (void)cancelFetch;
 

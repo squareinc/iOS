@@ -21,7 +21,7 @@
 #import "ORControllerSender.h"
 #import "ControllerRequest.h"
 
-@class ORController;
+@class ORControllerConfig;
 
 @protocol ORControllerPollingSenderDelegate <NSObject>
 
@@ -31,7 +31,7 @@
 - (void)pollingDidTimeout;
 - (void)pollingDidReceiveErrorResponse;
 
-- (void)controllerConfigurationUpdated:(ORController *)aController;
+- (void)controllerConfigurationUpdated:(ORControllerConfig *)aController;
 
 @end
 
@@ -39,6 +39,6 @@
 
 @property (nonatomic, assign) NSObject <ORControllerPollingSenderDelegate> *delegate;
 
-- (id)initWithController:(ORController *)aController ids:(NSString *)someIds;
+- (id)initWithController:(ORControllerConfig *)aController ids:(NSString *)someIds;
 
 @end

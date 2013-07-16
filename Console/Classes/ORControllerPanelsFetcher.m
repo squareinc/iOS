@@ -23,19 +23,19 @@
 #import "Definition.h"
 #import "ViewHelper.h"
 #import "ControllerException.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @interface ORControllerPanelsFetcher ()
 
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) NSMutableArray *panels;
 
 @end
 
 @implementation ORControllerPanelsFetcher
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super initWithController:aController];
     if (self) {

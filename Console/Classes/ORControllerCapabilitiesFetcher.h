@@ -21,7 +21,7 @@
 #import "ORControllerSender.h"
 #import "ControllerRequest.h"
 
-@class ORController;
+@class ORControllerConfig;
 @class Capabilities;
 
 @protocol ORControllerCapabilitiesFetcherDelegate

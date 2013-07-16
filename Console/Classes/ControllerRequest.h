@@ -22,7 +22,7 @@
 #import "DataCapturingNSURLConnectionDelegate.h"
 
 @class ORGroupMember;
-@class ORController;
+@class ORControllerConfig;
 @class ControllerRequest;
 
 @protocol ControllerRequestDelegate <NSObject>
@@ -58,9 +58,9 @@
 
 @property (nonatomic, retain) NSObject <ControllerRequestDelegate> *delegate;
 
-@property (nonatomic, assign, readonly) ORController *controller;
+@property (nonatomic, assign, readonly) ORControllerConfig *controller;
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 
 - (void)postRequestWithPath:(NSString *)path;
 - (void)getRequestWithPath:(NSString *)path;

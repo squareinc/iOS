@@ -23,7 +23,7 @@
 
 @interface ORControllerStatusRequestSender()
 
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) NSString *ids;
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 

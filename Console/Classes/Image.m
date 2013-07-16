@@ -23,7 +23,7 @@
 #import "SensorState.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Definition.h"
 #import "Sensor.h"
 #import "Label.h"

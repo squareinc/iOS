@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORGroupMember.h"
 #import "ORControllerProxy.h"
 #import "NotificationConstant.h"
@@ -35,7 +35,7 @@ NSString *kORControllerGroupMembersFetchRequiresAuthenticationNotification = @"k
 NSString *kORControllerCapabilitiesFetchStatusChange = @"kORControllerCapabilitiesFetchStatusChangeNotification";
 NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelIdentitiesFetchStatusChangeNotification";
 
-@interface ORController ()
+@interface ORControllerConfig ()
 
 - (void)addGroupMembersObject:(ORGroupMember *)value;
 - (void)removeGroupMembersObject:(ORGroupMember *)value;
@@ -53,7 +53,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 
 @end
 
-@implementation ORController
+@implementation ORControllerConfig
 
 @dynamic primaryURL;
 @dynamic selectedPanelIdentity;
@@ -99,7 +99,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     self.groupMembersFetcher = nil;
 }
 
-- (void)controller:(ORController *)aController fetchGroupMembersDidSucceedWithMembers:(NSArray *)theMembers
+- (void)controller:(ORControllerConfig *)aController fetchGroupMembersDidSucceedWithMembers:(NSArray *)theMembers
 {
     // TODO: do that in seperate MOC, save to DB and refresh in main MOC
     self.activeGroupMember = nil;
@@ -122,14 +122,14 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     // as maybe the primary controller is down but one of the group members is not
 }
 
-- (void)controller:(ORController *)aController fetchGroupMembersDidFailWithError:(NSError *)error
+- (void)controller:(ORControllerConfig *)aController fetchGroupMembersDidFailWithError:(NSError *)error
 {
     self.groupMembersFetchStatus = FetchFailed;    
     [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerGroupMembersFetchFailedNotification object:self];
     self.groupMembersFetcher = nil;
 }
 
-- (void)fetchGroupMembersRequiresAuthenticationForController:(ORController *)aController
+- (void)fetchGroupMembersRequiresAuthenticationForController:(ORControllerConfig *)aController
 {
 //    self.password = nil;
     self.groupMembersFetchStatus = FetchRequiresAuthentication;

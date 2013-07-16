@@ -21,7 +21,7 @@
 #import "ORControllerSender.h"
 #import "ControllerRequest.h"
 
-@class ORController;
+@class ORControllerConfig;
 
 @protocol ORControllerPanelsFetcherDelegate
 
@@ -37,6 +37,6 @@
 
 @property (nonatomic, assign) NSObject <ORControllerPanelsFetcherDelegate> *delegate;
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 
 @end

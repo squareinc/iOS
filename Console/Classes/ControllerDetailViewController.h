@@ -21,13 +21,13 @@
 
 #import "ORTableViewController.h"
 
-@class ORController;
+@class ORControllerConfig;
 
 @protocol ControllerDetailViewControllerDelegate <NSObject>
 
-- (void)didAddController:(ORController *)controller;
-- (void)didEditController:(ORController *)controller;
-- (void)didDeleteController:(ORController *)controller;
+- (void)didAddController:(ORControllerConfig *)controller;
+- (void)didEditController:(ORControllerConfig *)controller;
+- (void)didDeleteController:(ORControllerConfig *)controller;
 - (void)didFailToAddController;
 
 @end
@@ -38,7 +38,7 @@
 
 @property (nonatomic, retain) NSObject<ControllerDetailViewControllerDelegate> *delegate;
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;
 
 @end

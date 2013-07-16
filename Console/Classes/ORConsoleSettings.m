@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @interface ORConsoleSettings ()
 
-- (void)addUnorderedControllersObject:(ORController *)value;
-- (void)removeUnorderedControllersObject:(ORController *)value;
+- (void)addUnorderedControllersObject:(ORControllerConfig *)value;
+- (void)removeUnorderedControllersObject:(ORControllerConfig *)value;
 - (void)addUnorderedControllers:(NSSet *)value;
 - (void)removeUnorderedControllers:(NSSet *)value;
 
@@ -89,15 +89,15 @@
     return controllers;
 }
 
-- (void)addController:(ORController *)controller
+- (void)addController:(ORControllerConfig *)controller
 {
-    controller.index = [NSNumber numberWithInt:[((ORController *)[self.controllers lastObject]).index intValue] + 1];
+    controller.index = [NSNumber numberWithInt:[((ORControllerConfig *)[self.controllers lastObject]).index intValue] + 1];
     [self addUnorderedControllersObject:controller];
 }
 
-- (ORController *)addControllerForURL:(NSString *)url
+- (ORControllerConfig *)addControllerForURL:(NSString *)url
 {
-    ORController *controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORController" inManagedObjectContext:self.managedObjectContext];
+    ORControllerConfig *controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORControllerConfig" inManagedObjectContext:self.managedObjectContext];
     controller.primaryURL = url;
     [self addController:controller];
     if (!self.selectedController) {
@@ -108,7 +108,7 @@
 
 - (void)removeControllerAtIndex:(NSUInteger)index
 {
-    ORController *controller = [self.controllers objectAtIndex:index];
+    ORControllerConfig *controller = [self.controllers objectAtIndex:index];
     if (self.selectedController == controller) {
         self.selectedController = nil;
     }
@@ -116,7 +116,7 @@
 }
 
 
-- (void)addUnorderedControllersObject:(ORController *)value
+- (void)addUnorderedControllersObject:(ORControllerConfig *)value
 {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
@@ -125,7 +125,7 @@
     [changedObjects release];
 }
 
-- (void)removeUnorderedControllersObject:(ORController *)value
+- (void)removeUnorderedControllersObject:(ORControllerConfig *)value
 {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];

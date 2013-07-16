@@ -28,7 +28,7 @@
 #import "CheckNetworkException.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 #import "UIColor+ORAdditions.h"
 #import "ORControllerGroupMembersFetchStatusIconProvider.h"
@@ -244,7 +244,7 @@
 
 #pragma mark Delegate method of ServerAutoDiscoveryController
 
-- (void)onFindServer:(ORController *)aController {
+- (void)onFindServer:(ORControllerConfig *)aController {
     // TODO: check what happens when multiple controllers are discovered
     
     // TODO: aController has already been added to the ORConsoleSettings collection of controller by the ServerAutoDiscoveryController but the MOC hasn't been saved. Is this OK ? Should we add here ? I think not
@@ -392,7 +392,7 @@
             serverCell.entrySelected = NO;
             serverCell.indicatorView = nil;
 		} else {
-            ORController *controller = (ORController *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
+            ORControllerConfig *controller = (ORControllerConfig *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
 			serverCell.textLabel.text = controller.primaryURL;
 			serverCell.selectionStyle = UITableViewCellSelectionStyleNone;
             serverCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
@@ -423,7 +423,7 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == CONTROLLER_URLS_SECTION) {
-        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORController *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
+        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
         cdvc.delegate = self;
 		[[self navigationController] pushViewController:cdvc animated:YES];
 		[cdvc release];        
@@ -523,7 +523,7 @@
 
 #pragma mark ControllerDetailViewControllerDelegate implementation
 
-- (void)didAddController:(ORController *)controller
+- (void)didAddController:(ORControllerConfig *)controller
 {
     [settingsManager.consoleSettings addController:controller];
     [self.navigationController popViewControllerAnimated:YES];
@@ -532,14 +532,14 @@
     [controller fetchGroupMembers];
 }
 
-- (void)didEditController:(ORController *)controller
+- (void)didEditController:(ORControllerConfig *)controller
 {
     [self.navigationController popViewControllerAnimated:YES];
 //IPHONE-107 : was not there but if there is no reloadData in viewWillAppear, there should be a reload of the updated row here
     [controller fetchGroupMembers];
 }
 
-- (void)didDeleteController:(ORController *)controller
+- (void)didDeleteController:(ORControllerConfig *)controller
 {
     [self.navigationController popViewControllerAnimated:YES];
 
@@ -565,7 +565,7 @@
 
 - (void)orControllerPanelIdentitiesFetchStatusChanged:(NSNotification *)notification
 {
-    ORController *controller = [notification object];
+    ORControllerConfig *controller = [notification object];
     
     if (controller.panelIdentitiesFetchStatus == FetchSucceeded) {
         NSArray *panels = controller.panelIdentities;
@@ -598,10 +598,10 @@
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
 {
     id context = controller.context;
-    ORController *orController;
+    ORControllerConfig *orController;
     if ([context isMemberOfClass:[ControllerRequest class]]) {
         orController = ((ControllerRequest *)controller.context).controller;
-    } else if ([context isMemberOfClass:[ORController class]]) {
+    } else if ([context isMemberOfClass:[ORControllerConfig class]]) {
         orController = context;
     }
     if (!orController) {

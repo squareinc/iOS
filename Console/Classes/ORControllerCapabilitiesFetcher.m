@@ -24,11 +24,11 @@
 #import "ControllerException.h"
 #import "CapabilitiesParser.h"
 #import "Capabilities.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @interface ORControllerCapabilitiesFetcher ()
 
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) ControllerRequest *controllerRequest;
 @property (nonatomic, assign) int statusCode;
 

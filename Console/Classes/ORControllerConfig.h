@@ -52,7 +52,7 @@ enum {
 typedef NSInteger ORControllerFetchStatus;
 
 
-@interface ORController : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate, ORControllerPanelsFetcherDelegate> {
+@interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate, ORControllerPanelsFetcherDelegate> {
 @private
     ORGroupMember *activeGroupMember;
     ORControllerProxy *proxy;

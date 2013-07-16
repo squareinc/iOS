@@ -24,7 +24,7 @@
 #import "NotificationConstant.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @interface LoginViewController ()
 
@@ -139,7 +139,7 @@
 			[textField becomeFirstResponder];
 			self.usernameField = textField;
             
-            ORController *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+            ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
 			self.usernameField.text = activeController.userName; 
 		} else if (indexPath.row == 1) {
 			loginCell.textLabel.text = @"Password";

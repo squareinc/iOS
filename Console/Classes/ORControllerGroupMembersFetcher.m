@@ -25,13 +25,13 @@
 #import "NotificationConstant.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "NSURLRequest+ORAdditions.h"
 
 @interface ORControllerGroupMembersFetcher ()
 
 @property (nonatomic, retain) NSURLConnection *connection;
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic) BOOL lastRequestWasError;
 
 @end
@@ -41,7 +41,7 @@
  */
 @implementation ORControllerGroupMembersFetcher
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super init];
     if (self) {

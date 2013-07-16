@@ -29,7 +29,7 @@
 #import "Navigate.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "DirectoryDefinition.h"
 #import "NotificationConstant.h"
 #import "ORScrollView.h"

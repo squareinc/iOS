@@ -23,11 +23,11 @@
 @class LocalCommand;
 @class LocalSensor;
 @class SensorStatusCache;
-@class ORController;
+@class ORControllerConfig;
 
 @interface ClientSideRuntime : NSObject
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 
 - (void)executeCommands:(NSArray *)commands commandType:(NSString *)commandType;
 - (void)executeCommand:(LocalCommand *)command commandType:(NSString *)commandType;

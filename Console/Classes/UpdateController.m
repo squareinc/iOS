@@ -40,7 +40,7 @@
 #import "CredentialUtil.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORGroupMember.h"
 #import "DefinitionManager.h"
 
@@ -97,7 +97,7 @@
 - (void)startup
 {
     ORConsoleSettings *settings = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings;
-    ORController *selectedController = settings.selectedController;
+    ORControllerConfig *selectedController = settings.selectedController;
     
     if (selectedController) {
         // First try to use local cache so the user can directly interact with the UI, and trigger the check for update after that
@@ -160,7 +160,7 @@
  */
 - (void)refreshControllerInformation
 {
-    ORController *controller = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+    ORControllerConfig *controller = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
     [controller fetchGroupMembers];
     
     [controller fetchCapabilities];
@@ -321,7 +321,7 @@
 }
 
 #pragma mark delegate method of ServerAutoDiscoveryController
-- (void)onFindServer:(ORController *)aController {
+- (void)onFindServer:(ORControllerConfig *)aController {
 	NSLog(@"onFindServer %@", aController.primaryURL);
 	[self checkNetworkAndUpdateUsingTimeout:DEFAULT_TIMEOUT_DURATION];
 }

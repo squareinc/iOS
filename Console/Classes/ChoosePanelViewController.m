@@ -28,7 +28,7 @@
 #import "NotificationConstant.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 
 @interface ChoosePanelViewController ()
@@ -138,7 +138,7 @@
 
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
 {
-    ORController *orController = ((ControllerRequest *)controller.context).controller;
+    ORControllerConfig *orController = ((ControllerRequest *)controller.context).controller;
     if (!orController) {
         orController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
     }
@@ -178,7 +178,7 @@
 
 - (void)orControllerPanelIdentitiesFetchStatusChanged:(NSNotification *)notification
 {
-    ORController *controller = [notification object];
+    ORControllerConfig *controller = [notification object];
     
     if (controller.panelIdentitiesFetchStatus == FetchSucceeded) {        
         self.panels = controller.panelIdentities;

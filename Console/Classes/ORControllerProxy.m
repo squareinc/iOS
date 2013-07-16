@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORControllerProxy.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Component.h"
 
 @interface ORControllerProxy ()
 
-@property (nonatomic, assign) ORController *controller;
+@property (nonatomic, assign) ORControllerConfig *controller;
 @property (nonatomic, retain) NSMutableArray *commandsQueue;
 
 - (void)queueCommand:(ORControllerSender *)command;
@@ -34,7 +34,7 @@
 
 @implementation ORControllerProxy
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super init];
     if (self) {

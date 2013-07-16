@@ -21,20 +21,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ORController;
+@class ORControllerConfig;
 
 @interface ORConsoleSettings : NSManagedObject {
 @private
     NSArray *controllers;
 }
 
-- (void)addController:(ORController *)controller;
-- (ORController *)addControllerForURL:(NSString *)url;
+- (void)addController:(ORControllerConfig *)controller;
+- (ORControllerConfig *)addControllerForURL:(NSString *)url;
 - (void)removeControllerAtIndex:(NSUInteger)index;
 
 @property (nonatomic, assign, getter=isAutoDiscovery) BOOL autoDiscovery;
 @property (nonatomic, retain) NSSet *unorderedControllers;
-@property (nonatomic, retain) ORController *selectedController;
+@property (nonatomic, retain) ORControllerConfig *selectedController;
 
 @property (readonly) NSArray *controllers;
 

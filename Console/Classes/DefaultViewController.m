@@ -21,7 +21,7 @@
 #import "DefaultViewController.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "Definition.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
@@ -390,7 +390,7 @@
 
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
 {
-    ORController *orController = ((ControllerRequest *)controller.context).controller;
+    ORControllerConfig *orController = ((ControllerRequest *)controller.context).controller;
     if (!orController) {
         orController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
     }

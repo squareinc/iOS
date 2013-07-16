@@ -28,7 +28,7 @@
 #import "ORConsoleSettingsManager.h"
 #import "ORControllerProxy.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 //retry polling after half a second
 #define POLLING_RETRY_DELAY 0.5
@@ -50,7 +50,7 @@
     
 @implementation PollingHelper
 
-- (id)initWithController:(ORController *)controller componentIds:(NSString *)ids;
+- (id)initWithController:(ORControllerConfig *)controller componentIds:(NSString *)ids;
 {
     self = [super init];
 	if (self) {
@@ -154,7 +154,7 @@
     self.isPolling = NO;
 }
 
-- (void)controllerConfigurationUpdated:(ORController *)aController
+- (void)controllerConfigurationUpdated:(ORControllerConfig *)aController
 {
     if (!self.updateController) {
         UpdateController *tmpController = [[UpdateController alloc] initWithDelegate:self];

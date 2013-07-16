@@ -23,7 +23,7 @@
 #import "NSString+ORAdditions.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 NSString *const kControllerFetchCapabilitiesPath = @"rest/capabilities";
 NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
@@ -32,7 +32,7 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
 
 @implementation ServerDefinition
 
-+ (NSString *)controllerControlPathForController:(ORController *)aController
++ (NSString *)controllerControlPathForController:(ORControllerConfig *)aController
 {
     if ([aController.controllerAPIVersion isEqualToString:NO_VERSION_IN_REST_VERSION]) {
         return @"rest/control";
@@ -40,7 +40,7 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
     return [NSString stringWithFormat:@"rest/%@/control", aController.controllerAPIVersion];
 }
 
-+ (NSString *)controllerStatusPathForController:(ORController *)aController
++ (NSString *)controllerStatusPathForController:(ORControllerConfig *)aController
 {
     if ([aController.controllerAPIVersion isEqualToString:NO_VERSION_IN_REST_VERSION]) {
         return @"rest/status";
@@ -48,7 +48,7 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
     return [NSString stringWithFormat:@"rest/%@/status", aController.controllerAPIVersion];
 }
 
-+ (NSString *)controllerPollingPathForController:(ORController *)aController
++ (NSString *)controllerPollingPathForController:(ORControllerConfig *)aController
 {
     if ([aController.controllerAPIVersion isEqualToString:NO_VERSION_IN_REST_VERSION]) {
         return @"rest/polling";
@@ -56,7 +56,7 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
     return [NSString stringWithFormat:@"rest/%@/polling", aController.controllerAPIVersion];
 }
 
-+ (NSString *)controllerFetchPanelsPathForController:(ORController *)aController
++ (NSString *)controllerFetchPanelsPathForController:(ORControllerConfig *)aController
 {
     if ([aController.controllerAPIVersion isEqualToString:NO_VERSION_IN_REST_VERSION]) {
         return @"rest/panels";
@@ -65,10 +65,10 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
 }
 
 + (NSString *)serverUrl {
-    return ((ORController *)[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController).primaryURL;
+    return ((ORControllerConfig *)[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController).primaryURL;
 }
 
-+ (NSString *)panelXmlRESTUrlForController:(ORController *)aController {
++ (NSString *)panelXmlRESTUrlForController:(ORControllerConfig *)aController {
 	NSString *panelUrl;
 
     if ([aController.controllerAPIVersion isEqualToString:NO_VERSION_IN_REST_VERSION]) {

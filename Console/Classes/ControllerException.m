@@ -21,7 +21,7 @@
 #import "ControllerException.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 @implementation ControllerException
 

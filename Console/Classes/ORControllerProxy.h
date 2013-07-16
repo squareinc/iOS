@@ -27,7 +27,7 @@
 #import "ORControllerGroupMembersFetcher.h"
 
 @class Component;
-@class ORController;
+@class ORControllerConfig;
 
 /**
  * Represents a proxy to an ORController, acts as the communication channel with it.
@@ -42,6 +42,6 @@
 - (ORControllerPanelsFetcher *)fetchPanelsWithDelegate:(NSObject <ORControllerPanelsFetcherDelegate> *)delegate;
 - (ORControllerGroupMembersFetcher *)fetchGroupMembersWithDelegate:(NSObject <ORControllerGroupMembersFetcherDelegate> *)delegate;
 
-- (id)initWithController:(ORController *)aController;
+- (id)initWithController:(ORControllerConfig *)aController;
 
 @end

@@ -28,7 +28,7 @@
 
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 
 static AppSettingsDefinition *sharedAppSettingsDefinition = nil;
 

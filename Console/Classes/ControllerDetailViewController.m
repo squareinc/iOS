@@ -20,7 +20,7 @@
  */
 
 #import "ControllerDetailViewController.h"
-#import "ORController.h"
+#import "ORControllerConfig.h"
 #import "ORGroupMember.h"
 #import "TextFieldCell.h"
 #import "StyleValue1TextEntryCell.h"
@@ -46,7 +46,7 @@
 @interface ControllerDetailViewController()
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) ORController *controller;
+@property (nonatomic, retain) ORControllerConfig *controller;
 @property (nonatomic, retain) UITextField *usernameField;
 @property (nonatomic, retain) UITextField *passwordField;
 @property (nonatomic, retain) UITextField *urlField;
@@ -87,7 +87,7 @@
                                nil];
 }
 
-- (id)initWithController:(ORController *)aController
+- (id)initWithController:(ORControllerConfig *)aController
 {
 	self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
@@ -208,7 +208,7 @@
 		self.title = [NSString stringWithFormat:@"Editing %@", self.controller.primaryURL];
 	} else {
         NSAssert(self.managedObjectContext, @"If no controller was specified, a managed object context must be");
-        self.controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORController" inManagedObjectContext:self.managedObjectContext];
+        self.controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORControllerConfig" inManagedObjectContext:self.managedObjectContext];
         self.creating = YES;
 		self.title = @"Add a Controller";
 	}
