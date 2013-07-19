@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2013, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,12 +18,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "RuntimeUtils.h"
+
+#import "ORRuntimeUtils.h"
 #import <objc/runtime.h>
 
-@implementation RuntimeUtils
+@implementation ORRuntimeUtils
 
-+ (NSArray *)selectorsFromProtocol:(Protocol *)aProtocol
++ (NSArray *)instanceMethodsSelectorsFromProtocol:(Protocol *)aProtocol
 {
     NSMutableArray *tmp = [NSMutableArray array];
     unsigned int numMethods;
@@ -44,6 +45,5 @@
 
     return [NSArray arrayWithArray:tmp];
 }
-                            
 
 @end

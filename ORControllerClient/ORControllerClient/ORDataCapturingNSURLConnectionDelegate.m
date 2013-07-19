@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "DataCapturingNSURLConnectionDelegate.h"
-#import "RuntimeUtils.h"
+#import "ORDataCapturingNSURLConnectionDelegate.h"
+#import "ORRuntimeUtils.h"
 
 #define NUM_DELEGATE_METHODS 10
 
-@interface DataCapturingNSURLConnectionDelegate ()
+@interface ORDataCapturingNSURLConnectionDelegate ()
 
-@property (nonatomic, retain) NSObject <DataCapturingNSURLConnectionDelegateDelegate> *delegate;
-@property (nonatomic, retain) NSMutableData *receiveData;
+@property (nonatomic, strong) NSObject <ORDataCapturingNSURLConnectionDelegateDelegate> *delegate;
+@property (nonatomic, strong) NSMutableData *receivedData;
 
 @end
 
-@implementation DataCapturingNSURLConnectionDelegate
+@implementation ORDataCapturingNSURLConnectionDelegate
 
 static NSArray* connectionDelegateSelectors;
 
@@ -38,40 +38,26 @@ static NSArray* connectionDelegateSelectors;
 {
     NSMutableArray *tmp = [NSMutableArray array];
     
-    // TODO: NSURLConnectionDataDelegate extends NSURLConnectionDelegate, should be able to get methods from there
-    
-    // Doing a dynamic lookup of methods in the NSURLConnectionDelegate protocol did not work, adding them manually
-    [tmp addObject:[NSValue valueWithPointer:@selector(connection:didFailWithError:)]];
-    [tmp addObject:[NSValue valueWithPointer:@selector(connectionShouldUseCredentialStorage:)]];
-    [tmp addObject:[NSValue valueWithPointer:@selector(connection:willSendRequestForAuthenticationChallenge:)]];
-    [tmp addObject:[NSValue valueWithPointer:@selector(connection:canAuthenticateAgainstProtectionSpace:)]];
-    [tmp addObject:[NSValue valueWithPointer:@selector(connection:didReceiveAuthenticationChallenge:)]];
-    [tmp addObject:[NSValue valueWithPointer:@selector(connection:didCancelAuthenticationChallenge:)]];
-    
-    [tmp addObjectsFromArray:[RuntimeUtils selectorsFromProtocol:@protocol(NSURLConnectionDataDelegate)]];
+    // We'll intercept and forward methods in the NSURLConnectionDelegate
+    [tmp addObjectsFromArray:[ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(NSURLConnectionDelegate)]];
+    // and NSURLConnectionDataDelegate protocols
+    [tmp addObjectsFromArray:[ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(NSURLConnectionDataDelegate)]];
     
     // Make sure methods we do implement are not in that array otherwhise we might not get the call
     [tmp removeObject:[NSValue valueWithPointer:@selector(connection:didReceiveData:)]];
     [tmp removeObject:[NSValue valueWithPointer:@selector(connectionDidFinishLoading:)]];
     
-    connectionDelegateSelectors = [[NSArray arrayWithArray:tmp] retain];
+    connectionDelegateSelectors = [NSArray arrayWithArray:tmp];
 }
 
-- (id)initWithNSURLConnectionDelegate:(id <DataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
+- (id)initWithNSURLConnectionDelegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
 {
     self = [super init];
     if (self) {
         self.delegate = aDelegate;
-        self.receiveData = [NSMutableData dataWithCapacity:0];
+        self.receivedData = [NSMutableData dataWithCapacity:0];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    self.delegate = nil;
-    self.receiveData = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -91,12 +77,12 @@ static NSArray* connectionDelegateSelectors;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [self.receiveData appendData:data];
+    [self.receivedData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [self.delegate connectionDidFinishLoading:connection receivedData:self.receiveData];
+    [self.delegate connectionDidFinishLoading:connection receivedData:self.receivedData];
 }
 
 #pragma mark - Forwarded NSURLConnectionDelegate methods
@@ -186,6 +172,6 @@ static NSArray* connectionDelegateSelectors;
 }
 
 @synthesize delegate;
-@synthesize receiveData;
+@synthesize receivedData;
 
 @end

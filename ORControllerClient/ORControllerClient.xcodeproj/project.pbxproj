@@ -43,6 +43,12 @@
 		919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */; };
 		9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */; };
 		91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */; };
+		9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */; };
+		9193330E179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */; };
+		91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933310179982630086FEE7 /* ORRuntimeUtils.m */; };
+		91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933310179982630086FEE7 /* ORRuntimeUtils.m */; };
+		91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */; };
+		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
@@ -64,6 +70,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */,
 				91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */,
 				919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */,
 				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */,
@@ -108,6 +115,12 @@
 		919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSimpleUIConfiguration.m; sourceTree = "<group>"; };
 		9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_API.h; sourceTree = "<group>"; };
 		9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_API.m; sourceTree = "<group>"; };
+		9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDataCapturingNSURLConnectionDelegate.h; sourceTree = "<group>"; };
+		9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDataCapturingNSURLConnectionDelegate.m; sourceTree = "<group>"; };
+		9193330F179982630086FEE7 /* ORRuntimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRuntimeUtils.h; sourceTree = "<group>"; };
+		91933310179982630086FEE7 /* ORRuntimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtils.m; sourceTree = "<group>"; };
+		91933314179983FC0086FEE7 /* ORRuntimeUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRuntimeUtilsTest.h; sourceTree = "<group>"; };
+		91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtilsTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +224,7 @@
 		9190D4A91790140A00667A7C /* ORControllerClient */ = {
 			isa = PBXGroup;
 			children = (
+				9193330A1799822A0086FEE7 /* Utility */,
 				9193330017956B7E0086FEE7 /* Network Layer */,
 				918604B5179444B0005DBCD9 /* Parsers */,
 				918604B117944342005DBCD9 /* Object Model */,
@@ -234,6 +248,7 @@
 		9190D4BE1790140A00667A7C /* ORControllerClientTests */ = {
 			isa = PBXGroup;
 			children = (
+				91933313179983E80086FEE7 /* Utility */,
 				9190D4BF1790140A00667A7C /* Supporting Files */,
 				918604BC1794480B005DBCD9 /* Parsers */,
 				9190D4E01790533A00667A7C /* ORControllerAddressTest.h */,
@@ -263,6 +278,26 @@
 				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
 			);
 			name = "Network Layer";
+			sourceTree = "<group>";
+		};
+		9193330A1799822A0086FEE7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9193330F179982630086FEE7 /* ORRuntimeUtils.h */,
+				91933310179982630086FEE7 /* ORRuntimeUtils.m */,
+				9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */,
+				9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		91933313179983E80086FEE7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				91933314179983FC0086FEE7 /* ORRuntimeUtilsTest.h */,
+				91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +420,8 @@
 				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
 				919332FE179562900086FEE7 /* ORSimpleUIConfiguration.m in Sources */,
 				9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */,
+				9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
+				91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +433,9 @@
 				910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */,
 				910B750517940D10005F41CF /* ORControllerTest.m in Sources */,
 				918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */,
+				9193330E179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
+				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
+				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

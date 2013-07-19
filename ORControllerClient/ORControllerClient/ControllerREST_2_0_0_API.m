@@ -53,6 +53,9 @@
     
     // TODO: check if this API can handle authentication, https, ... as we have currently in console
     // If no, then keep  "old way", maybe encapsulate for blocks, ...
+    
+    // It seems that "the old way" has more flexibility in what we can control, use it for now
+    // -> migrate required components from iOS console to client library, add more tests and documentation and build on them
 }
 
 @end

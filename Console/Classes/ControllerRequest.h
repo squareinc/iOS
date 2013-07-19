@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
-#import "DataCapturingNSURLConnectionDelegate.h"
+#import "ORDataCapturingNSURLConnectionDelegate.h"
 
 @class ORGroupMember;
 @class ORControllerConfig;
@@ -44,7 +44,7 @@
  * It is retained and released when the connection is finished (after NSURLConnection sent
  * connectionDidFinishLoading: or connection:didFailWithError:
  */
-@interface ControllerRequest : NSObject <DataCapturingNSURLConnectionDelegateDelegate> {
+@interface ControllerRequest : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate> {
 
     NSString *requestPath;
     NSString *method;

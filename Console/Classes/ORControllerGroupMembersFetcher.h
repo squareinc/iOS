@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
-#import "DataCapturingNSURLConnectionDelegate.h"
+#import "ORDataCapturingNSURLConnectionDelegate.h"
 
 @class ORControllerConfig;
 
@@ -41,7 +41,7 @@
 
 @end
 
-@interface ORControllerGroupMembersFetcher : NSObject <NSXMLParserDelegate, DataCapturingNSURLConnectionDelegateDelegate> {
+@interface ORControllerGroupMembersFetcher : NSObject <NSXMLParserDelegate, ORDataCapturingNSURLConnectionDelegateDelegate> {
     NSMutableArray *members;
 }
 

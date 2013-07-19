@@ -118,7 +118,7 @@
         [connection cancel];
         [connection release];
     }
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:[[[DataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]];
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:[[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]];
 }
 
 - (void)requestWithPath:(NSString *)path

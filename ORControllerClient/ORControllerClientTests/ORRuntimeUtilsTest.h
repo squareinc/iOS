@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2013, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,23 +18,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
 
-@protocol DataCapturingNSURLConnectionDelegateDelegate <NSURLConnectionDataDelegate>
+#import <SenTestingKit/SenTestingKit.h>
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receiveData;
-
-@end
-
-/**
- * This is a Decorator to be used on objects setting themselves as delegate of NSURLConnection.
- * As data is received, it is captured and handled back in one go once connection is completed.
- * All other delegate methods are forwarded to encapsulated object.
- */
-@interface DataCapturingNSURLConnectionDelegate : NSObject <NSURLConnectionDataDelegate> {
-    
-}
-
-- (id)initWithNSURLConnectionDelegate:(id <DataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
+@interface ORRuntimeUtilsTest : SenTestCase
 
 @end

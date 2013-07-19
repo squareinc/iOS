@@ -66,7 +66,7 @@
     self.lastRequestWasError = NO;
     NSURLRequest *request = [NSURLRequest or_requestWithURLString:[self.controller.primaryURL stringByAppendingFormat:@"/%@", kControllerFetchGroupMembersPath]
                                                            method:@"GET" userName:self.controller.userName password:self.controller.password];
-    self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:[[[DataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]] autorelease];
+    self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:[[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]] autorelease];
 }
 
 - (void)cancelFetch

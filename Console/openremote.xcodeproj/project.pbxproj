@@ -151,7 +151,6 @@
 		60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */; };
 		60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
 		60366BE7144DCB9C004FED3B /* NSURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687D13CDC4A20035CC1A /* NSURLRequest+ORAdditions.m */; };
-		60366BE8144DCB9C004FED3B /* DataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055688113CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.m */; };
 		60366BE9144DCB9C004FED3B /* ControllerButtonAPI_v2_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14B713E9653E008ACE4A /* ControllerButtonAPI_v2_0.m */; };
 		60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14BB13E9673F008ACE4A /* ControllerButtonAPI_v2_1.m */; };
 		60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14C313E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.m */; };
@@ -206,7 +205,6 @@
 		60366C1E144DCB9C004FED3B /* SliderSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC86351410C68A003F5432 /* SliderSubController.m */; };
 		60366C1F144DCB9C004FED3B /* UIImage+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8A9CF143DCEBA00176004 /* UIImage+ORAdditions.m */; };
 		60366C20144DCB9C004FED3B /* UIScreen+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8A9D1143DCEBA00176004 /* UIScreen+ORAdditions.m */; };
-		60366C21144DCB9C004FED3B /* RuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 606281111446F5F6001123BD /* RuntimeUtils.m */; };
 		60366C27144DCB9C004FED3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB33E4D0FCA4AE400B010DF /* CoreGraphics.framework */; };
 		60366C28144DCB9C004FED3B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA75EC40F579B4C00ADF0C0 /* QuartzCore.framework */; };
 		60366C29144DCB9C004FED3B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7BE4F50FA0471F00F18AA1 /* SystemConfiguration.framework */; };
@@ -312,7 +310,6 @@
 		609C57E0137431280093C03A /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E7150F541FAB006CC0DF /* StringUtils.m */; };
 		609C57E1137431280093C03A /* NSString+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */; };
 		609C57E2137431310093C03A /* ClippedUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 338D2ED510D8AADB0043BFE9 /* ClippedUIImage.m */; };
-		60A2D2251403A90E00A529ED /* DataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055688113CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.m */; };
 		60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
 		60BC25971559682C0048A2BD /* ClientSideProtocols.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60BC25951559682C0048A2BD /* ClientSideProtocols.plist */; };
 		60BC259C15596E8D0048A2BD /* DeviceProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC259A15596E8D0048A2BD /* DeviceProtocol.m */; };
@@ -331,7 +328,6 @@
 		60F3867E15517AFE0089F8BD /* NSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3867C15517AFE0089F8BD /* NSURLHelper.m */; };
 		60F3867F15517AFE0089F8BD /* NSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3867C15517AFE0089F8BD /* NSURLHelper.m */; };
 		60F3868415517C030089F8BD /* NSURLHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3868315517C030089F8BD /* NSURLHelperTest.m */; };
-		60F3868A15517CFA0089F8BD /* RuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 606281111446F5F6001123BD /* RuntimeUtils.m */; };
 		60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD46F153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.m */; };
 		60F3868D15517D120089F8BD /* Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD47E154050B1008DA70E /* Capabilities.m */; };
 		60F3869D1552ACF00089F8BD /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3869B1552ACF00089F8BD /* LocalParser.m */; };
@@ -469,16 +465,12 @@
 		6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerGroupMembersFetcher.m; sourceTree = "<group>"; };
 		6055687C13CDC4A20035CC1A /* NSURLRequest+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ORAdditions.h"; sourceTree = "<group>"; };
 		6055687D13CDC4A20035CC1A /* NSURLRequest+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+ORAdditions.m"; sourceTree = "<group>"; };
-		6055688013CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCapturingNSURLConnectionDelegate.h; sourceTree = "<group>"; };
-		6055688113CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCapturingNSURLConnectionDelegate.m; sourceTree = "<group>"; };
 		6055688413CF184E0035CC1A /* ControllerOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerOK.png; sourceTree = "<group>"; };
 		6055688513CF184E0035CC1A /* ControllerOK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ControllerOK@2x.png"; sourceTree = "<group>"; };
 		6055688613CF184E0035CC1A /* ControllerNOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerNOK.png; sourceTree = "<group>"; };
 		6055688713CF184E0035CC1A /* ControllerNOK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ControllerNOK@2x.png"; sourceTree = "<group>"; };
 		6055689013CF188F0035CC1A /* ControllerRequiresAuthentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerRequiresAuthentication.png; sourceTree = "<group>"; };
 		6055689113CF188F0035CC1A /* ControllerRequiresAuthentication@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ControllerRequiresAuthentication@2x.png"; sourceTree = "<group>"; };
-		606281101446F5F6001123BD /* RuntimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeUtils.h; sourceTree = "<group>"; };
-		606281111446F5F6001123BD /* RuntimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeUtils.m; sourceTree = "<group>"; };
 		6068DE6A13744BC8007746F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6068DE6C13744BF5007746F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6068DEA113744EBB007746F1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -898,7 +890,7 @@
 		912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderWhite@2x.png"; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
-		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91DA424C17953CDC001D39B9 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -1421,14 +1413,10 @@
 				60950DA313CB153500B983E7 /* UIColor+ORAdditions.m */,
 				6055687C13CDC4A20035CC1A /* NSURLRequest+ORAdditions.h */,
 				6055687D13CDC4A20035CC1A /* NSURLRequest+ORAdditions.m */,
-				6055688013CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.h */,
-				6055688113CDCA280035CC1A /* DataCapturingNSURLConnectionDelegate.m */,
 				60F8A9CE143DCEBA00176004 /* UIImage+ORAdditions.h */,
 				60F8A9CF143DCEBA00176004 /* UIImage+ORAdditions.m */,
 				60F8A9D0143DCEBA00176004 /* UIScreen+ORAdditions.h */,
 				60F8A9D1143DCEBA00176004 /* UIScreen+ORAdditions.m */,
-				606281101446F5F6001123BD /* RuntimeUtils.h */,
-				606281111446F5F6001123BD /* RuntimeUtils.m */,
 				602418D4156E766C004E5860 /* ORTableViewController.h */,
 				602418D5156E766C004E5860 /* ORTableViewController.m */,
 				602418D9156E76BE004E5860 /* ORTableViewSectionDefinition.h */,
@@ -1959,7 +1947,6 @@
 				60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */,
 				60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */,
 				60366BE7144DCB9C004FED3B /* NSURLRequest+ORAdditions.m in Sources */,
-				60366BE8144DCB9C004FED3B /* DataCapturingNSURLConnectionDelegate.m in Sources */,
 				60366BE9144DCB9C004FED3B /* ControllerButtonAPI_v2_0.m in Sources */,
 				60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */,
 				60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */,
@@ -2014,7 +2001,6 @@
 				60366C1E144DCB9C004FED3B /* SliderSubController.m in Sources */,
 				60366C1F144DCB9C004FED3B /* UIImage+ORAdditions.m in Sources */,
 				60366C20144DCB9C004FED3B /* UIScreen+ORAdditions.m in Sources */,
-				60366C21144DCB9C004FED3B /* RuntimeUtils.m in Sources */,
 				60FAD471153EFCF8008DA70E /* ORControllerCapabilitiesFetcher.m in Sources */,
 				60FAD480154050B1008DA70E /* Capabilities.m in Sources */,
 				60FAD4851540571E008DA70E /* ControllerVersionSelectAPI.m in Sources */,
@@ -2064,7 +2050,6 @@
 				602418C8156E5505004E5860 /* CommandDeferredBinding.m in Sources */,
 				60F3868D15517D120089F8BD /* Capabilities.m in Sources */,
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
-				60F3868A15517CFA0089F8BD /* RuntimeUtils.m in Sources */,
 				608D985D14190956001A7534 /* DeferredBinding.m in Sources */,
 				608D985E14190956001A7534 /* LabelDeferredBinding.m in Sources */,
 				608D985F14190956001A7534 /* ScreenDeferredBinding.m in Sources */,
@@ -2098,7 +2083,6 @@
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
 				608D985C1419091E001A7534 /* PanelDefinitionParser.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
-				60A2D2251403A90E00A529ED /* DataCapturingNSURLConnectionDelegate.m in Sources */,
 				6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */,
 				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
 				6026CD8E138BE4E60062477F /* PollingStatusParserDelegate.m in Sources */,
