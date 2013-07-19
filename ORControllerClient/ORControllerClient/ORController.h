@@ -39,6 +39,12 @@
  */
 - (id)initWithControllerAddress:(ORControllerAddress *)anAddress;
 
+
+
+// TODO: need to have a connection manager injected ? It could then have a cache manager injected to it
+
+
+
 /**
  * Tries to establish connection to the controller.
  * Reports success/error through provided handlers.
@@ -62,6 +68,14 @@
  */
 - (BOOL)isConnected;
 
+- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
+
+
+
+// Below are more advanced features, required for iOS Console
+
+- (void)requestPanelIdentityListWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * First connects to the controller if it's not yet the case.
@@ -69,11 +83,9 @@
  * @param successHandler
  * @param errorHandler
  */
-- (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
-// TODO: see how to make this work with the fact that configuration is actually split in separate panels and we only read one panel at once in the console
+- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 
-- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 // How about having an FixedUIController that provides higher granularity methods to perform actions required by the project.
 // This class can provide finer grained methods to make it compatible with current iOS console.
@@ -82,8 +94,6 @@
 
 // Or have a category for us to provide access to those methods
 
-
-// Or have a readSimpleUIConfiguration method that returns a simple configuration object -> this object give direct access to labels ... without anything else
 
 // TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
 // Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???

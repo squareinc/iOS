@@ -74,6 +74,9 @@
 
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
+    // TODO: need to fetch list of panels
+    // TODO: then fetch first panel
+
     if (successHandler) {
         // Must register the labels with the appropriate sensors so that text values are updated
         // and in turn appropriate notifications are posted
@@ -87,8 +90,7 @@
 
 - (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 {
-    // TODO: need to fetch list of panels
-    // TODO: then fetch first panel
+    // TODO: should return some form of configuration, maybe for now Definition, from Console project (migrate here)
     
     if (successHandler) {
         successHandler();

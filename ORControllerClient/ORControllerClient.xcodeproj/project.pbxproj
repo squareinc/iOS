@@ -41,6 +41,8 @@
 		9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4E11790533A00667A7C /* ORControllerAddressTest.m */; };
 		919332FE179562900086FEE7 /* ORSimpleUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */; };
 		919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */; };
+		9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */; };
+		91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */,
 				919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */,
 				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */,
 				91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */,
@@ -103,6 +106,8 @@
 		9190D4E11790533A00667A7C /* ORControllerAddressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerAddressTest.m; sourceTree = "<group>"; };
 		919332FC1795628F0086FEE7 /* ORSimpleUIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSimpleUIConfiguration.h; sourceTree = "<group>"; };
 		919332FD179562900086FEE7 /* ORSimpleUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSimpleUIConfiguration.m; sourceTree = "<group>"; };
+		9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_API.h; sourceTree = "<group>"; };
+		9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_API.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +211,7 @@
 		9190D4A91790140A00667A7C /* ORControllerClient */ = {
 			isa = PBXGroup;
 			children = (
+				9193330017956B7E0086FEE7 /* Network Layer */,
 				918604B5179444B0005DBCD9 /* Parsers */,
 				918604B117944342005DBCD9 /* Object Model */,
 				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
@@ -248,6 +254,15 @@
 				918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9193330017956B7E0086FEE7 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */,
+				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
+			);
+			name = "Network Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +384,7 @@
 				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
 				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
 				919332FE179562900086FEE7 /* ORSimpleUIConfiguration.m in Sources */,
+				9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
