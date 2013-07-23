@@ -17,10 +17,6 @@
 		602418C3156E5383004E5860 /* CapabilitiesParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418C2156E5383004E5860 /* CapabilitiesParserTest.m */; };
 		602418C5156E53EB004E5860 /* CompleteCapabilities.xml in Resources */ = {isa = PBXBuildFile; fileRef = 602418C4156E53EB004E5860 /* CompleteCapabilities.xml */; };
 		602418C7156E5474004E5860 /* APIVersionsOnlyCapabilities.xml in Resources */ = {isa = PBXBuildFile; fileRef = 602418C6156E5474004E5860 /* APIVersionsOnlyCapabilities.xml */; };
-		602418C8156E5505004E5860 /* CommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC259E1559736D0048A2BD /* CommandDeferredBinding.m */; };
-		602418C9156E5528004E5860 /* ControllerSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED43E155A89D500F5C0CD /* ControllerSwitchParser.m */; };
-		602418CA156E5537004E5860 /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED442155A9AF800F5C0CD /* ControllerSliderParser.m */; };
-		602418CB156E5555004E5860 /* ControllerComponentCommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25BE155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m */; };
 		602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORControllerConfig.m */; };
 		602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25B0155A5D3C0048A2BD /* ClientSideBeanManager.m */; };
 		602418D0156E6AB6004E5860 /* CapabilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418CF156E6AB6004E5860 /* CapabilitiesTest.m */; };
@@ -128,38 +124,7 @@
 		60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14BB13E9673F008ACE4A /* ControllerButtonAPI_v2_1.m */; };
 		60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14C313E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.m */; };
 		60366BEC144DCB9C004FED3B /* StyleValue1TextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE3913FE7B47001E6AA9 /* StyleValue1TextEntryCell.m */; };
-		60366BED144DCB9C004FED3B /* DefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE7913FEB389001E6AA9 /* DefinitionParser.m */; };
-		60366BEE144DCB9C004FED3B /* ScreenParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE8D13FEB8D3001E6AA9 /* ScreenParser.m */; };
-		60366BEF144DCB9C004FED3B /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E4813FF071E00967DEA /* DefinitionElementParser.m */; };
-		60366BF0144DCB9C004FED3B /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E4C13FF0D7300967DEA /* DefinitionElementParserRegister.m */; };
-		60366BF1144DCB9C004FED3B /* PanelDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5013FF0DA000967DEA /* PanelDefinitionParser.m */; };
-		60366BF2144DCB9C004FED3B /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5413FF8DA300967DEA /* GroupParser.m */; };
-		60366BF3144DCB9C004FED3B /* TabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5813FF8DBC00967DEA /* TabBarParser.m */; };
-		60366BF5144DCB9C004FED3B /* AbsoluteLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6013FF8DE600967DEA /* AbsoluteLayoutContainerParser.m */; };
-		60366BF6144DCB9C004FED3B /* GridLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6413FF8E0400967DEA /* GridLayoutContainerParser.m */; };
-		60366BF7144DCB9C004FED3B /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6813FF8E1300967DEA /* GestureParser.m */; };
-		60366BF8144DCB9C004FED3B /* BackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6C13FF8E2200967DEA /* BackgroundParser.m */; };
-		60366BF9144DCB9C004FED3B /* LayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E70140157A300967DEA /* LayoutContainerParser.m */; };
-		60366BFA144DCB9C004FED3B /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E751401796D00967DEA /* GridCellParser.m */; };
-		60366BFB144DCB9C004FED3B /* LabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E7914017B3A00967DEA /* LabelParser.m */; };
-		60366BFC144DCB9C004FED3B /* ImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E7D14017B6C00967DEA /* ImageParser.m */; };
-		60366BFD144DCB9C004FED3B /* WebParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8114017B7900967DEA /* WebParser.m */; };
-		60366BFE144DCB9C004FED3B /* ButtonParserAPI_v2_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8514017BBE00967DEA /* ButtonParserAPI_v2_1.m */; };
-		60366BFF144DCB9C004FED3B /* SwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8914017BCF00967DEA /* SwitchParser.m */; };
-		60366C00144DCB9C004FED3B /* SliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8D14017BE100967DEA /* SliderParser.m */; };
-		60366C01144DCB9C004FED3B /* ColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9114017BF100967DEA /* ColorPickerParser.m */; };
-		60366C02144DCB9C004FED3B /* NavigateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E951402538800967DEA /* NavigateParser.m */; };
-		60366C03144DCB9C004FED3B /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9914025B7E00967DEA /* SensorLinkParser.m */; };
-		60366C04144DCB9C004FED3B /* SensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9D14025DB800967DEA /* SensorStateParser.m */; };
-		60366C05144DCB9C004FED3B /* LabelDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EA21402667600967DEA /* LabelDeferredBinding.m */; };
-		60366C06144DCB9C004FED3B /* ScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EB31402AA0E00967DEA /* ScreenDeferredBinding.m */; };
-		60366C07144DCB9C004FED3B /* TabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EB71402AD0600967DEA /* TabBarItemParser.m */; };
-		60366C08144DCB9C004FED3B /* SensorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EBB1402B09500967DEA /* SensorParser.m */; };
-		60366C09144DCB9C004FED3B /* CommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EBF1402B10600967DEA /* CommandParser.m */; };
 		60366C0B144DCB9C004FED3B /* DefinitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A2D263140662BA00A529ED /* DefinitionManager.m */; };
-		60366C0C144DCB9C004FED3B /* DeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A2D2671407BE4D00A529ED /* DeferredBinding.m */; };
-		60366C0D144DCB9C004FED3B /* ButtonParserAPI_v2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001B9A2140B6A3400B18E84 /* ButtonParserAPI_v2.m */; };
-		60366C0E144DCB9C004FED3B /* ButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001B9A7140B6F7900B18E84 /* ButtonParser.m */; };
 		60366C0F144DCB9C004FED3B /* ScreenSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7EB140E79320001B78F /* ScreenSubController.m */; };
 		60366C10144DCB9C004FED3B /* SubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7EF140E79400001B78F /* SubController.m */; };
 		60366C11144DCB9C004FED3B /* LayoutContainerSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7F3140E7E620001B78F /* LayoutContainerSubController.m */; };
@@ -209,39 +174,7 @@
 		6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DEA113744EBB007746F1 /* CFNetwork.framework */; };
 		6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCEE813729AA400A811D4 /* ControllerRequest.m */; };
 		6068DEA513744ED0007746F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DEA413744ED0007746F1 /* SystemConfiguration.framework */; };
-		6082FEAA139643C4005A75C2 /* ButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082FEA9139643C4005A75C2 /* ButtonTest.m */; };
 		608D985B1419091E001A7534 /* DefinitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A2D263140662BA00A529ED /* DefinitionManager.m */; };
-		608D985C1419091E001A7534 /* PanelDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5013FF0DA000967DEA /* PanelDefinitionParser.m */; };
-		608D985D14190956001A7534 /* DeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A2D2671407BE4D00A529ED /* DeferredBinding.m */; };
-		608D985E14190956001A7534 /* LabelDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EA21402667600967DEA /* LabelDeferredBinding.m */; };
-		608D985F14190956001A7534 /* ScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EB31402AA0E00967DEA /* ScreenDeferredBinding.m */; };
-		608D986014190956001A7534 /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E4C13FF0D7300967DEA /* DefinitionElementParserRegister.m */; };
-		608D986114190956001A7534 /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E4813FF071E00967DEA /* DefinitionElementParser.m */; };
-		608D986214190956001A7534 /* DefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE7913FEB389001E6AA9 /* DefinitionParser.m */; };
-		608D986314190956001A7534 /* ScreenParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE8D13FEB8D3001E6AA9 /* ScreenParser.m */; };
-		608D986414190956001A7534 /* LayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E70140157A300967DEA /* LayoutContainerParser.m */; };
-		608D986514190956001A7534 /* AbsoluteLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6013FF8DE600967DEA /* AbsoluteLayoutContainerParser.m */; };
-		608D986614190956001A7534 /* GridLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6413FF8E0400967DEA /* GridLayoutContainerParser.m */; };
-		608D986714190956001A7534 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E751401796D00967DEA /* GridCellParser.m */; };
-		608D986814190956001A7534 /* LabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E7914017B3A00967DEA /* LabelParser.m */; };
-		608D986914190956001A7534 /* ImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E7D14017B6C00967DEA /* ImageParser.m */; };
-		608D986A14190956001A7534 /* WebParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8114017B7900967DEA /* WebParser.m */; };
-		608D986B14190956001A7534 /* ButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001B9A7140B6F7900B18E84 /* ButtonParser.m */; };
-		608D986C14190956001A7534 /* ButtonParserAPI_v2_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8514017BBE00967DEA /* ButtonParserAPI_v2_1.m */; };
-		608D986D14190956001A7534 /* ButtonParserAPI_v2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001B9A2140B6A3400B18E84 /* ButtonParserAPI_v2.m */; };
-		608D986E14190956001A7534 /* SwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8914017BCF00967DEA /* SwitchParser.m */; };
-		608D986F14190956001A7534 /* SliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E8D14017BE100967DEA /* SliderParser.m */; };
-		608D987014190956001A7534 /* ColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9114017BF100967DEA /* ColorPickerParser.m */; };
-		608D987114190956001A7534 /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6813FF8E1300967DEA /* GestureParser.m */; };
-		608D987214190956001A7534 /* BackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E6C13FF8E2200967DEA /* BackgroundParser.m */; };
-		608D987314190956001A7534 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5413FF8DA300967DEA /* GroupParser.m */; };
-		608D987414190956001A7534 /* TabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E5813FF8DBC00967DEA /* TabBarParser.m */; };
-		608D987514190956001A7534 /* TabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EB71402AD0600967DEA /* TabBarItemParser.m */; };
-		608D987714190956001A7534 /* NavigateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E951402538800967DEA /* NavigateParser.m */; };
-		608D987814190956001A7534 /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9914025B7E00967DEA /* SensorLinkParser.m */; };
-		608D987914190956001A7534 /* SensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987E9D14025DB800967DEA /* SensorStateParser.m */; };
-		608D987A14190956001A7534 /* SensorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EBB1402B09500967DEA /* SensorParser.m */; };
-		608D987B14190956001A7534 /* CommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60987EBF1402B10600967DEA /* CommandParser.m */; };
 		609AAFCE156A5DBF000DA1F9 /* ORControllerPollOrStatusSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */; };
 		609AAFCF156A5DBF000DA1F9 /* ORControllerPollOrStatusSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */; };
 		609AAFD4156A5FA7000DA1F9 /* ORControllerStatusRequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 609AAFD2156A5FA6000DA1F9 /* ORControllerStatusRequestSender.m */; };
@@ -259,15 +192,11 @@
 		60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
 		60BC25971559682C0048A2BD /* ClientSideProtocols.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60BC25951559682C0048A2BD /* ClientSideProtocols.plist */; };
 		60BC259C15596E8D0048A2BD /* DeviceProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC259A15596E8D0048A2BD /* DeviceProtocol.m */; };
-		60BC25A01559736D0048A2BD /* CommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC259E1559736D0048A2BD /* CommandDeferredBinding.m */; };
 		60BC25A415598F2D0048A2BD /* DeviceProtocolDateTimeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25A215598F2C0048A2BD /* DeviceProtocolDateTimeCommand.m */; };
 		60BC25AE155A59F40048A2BD /* CommandCachingClientSideProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25AC155A59F40048A2BD /* CommandCachingClientSideProtocol.m */; };
 		60BC25B2155A5D3C0048A2BD /* ClientSideBeanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25B0155A5D3C0048A2BD /* ClientSideBeanManager.m */; };
 		60BC25BC155A693D0048A2BD /* DeviceProtocolBatteryLevelCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25BA155A693D0048A2BD /* DeviceProtocolBatteryLevelCommand.m */; };
-		60BC25C0155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BC25BE155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m */; };
 		60C2F95B135F39E7000824A5 /* panel_screenIdForOrientation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 60C2F959135F37FE000824A5 /* panel_screenIdForOrientation.xml */; };
-		60DED440155A89D500F5C0CD /* ControllerSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED43E155A89D500F5C0CD /* ControllerSwitchParser.m */; };
-		60DED444155A9AF800F5C0CD /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED442155A9AF800F5C0CD /* ControllerSliderParser.m */; };
 		60DED450155A9E0300F5C0CD /* DeviceProtocolBrightnessCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED44E155A9E0300F5C0CD /* DeviceProtocolBrightnessCommand.m */; };
 		60DED454155A9FE900F5C0CD /* ClientSideProtocolReadCommandBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED452155A9FE900F5C0CD /* ClientSideProtocolReadCommandBase.m */; };
 		60DED45D155AA80700F5C0CD /* DeviceProtocolSetBrightnessCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DED45B155AA80700F5C0CD /* DeviceProtocolSetBrightnessCommand.m */; };
@@ -276,12 +205,6 @@
 		60F3868415517C030089F8BD /* NSURLHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3868315517C030089F8BD /* NSURLHelperTest.m */; };
 		60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD46F153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.m */; };
 		60F3868D15517D120089F8BD /* Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD47E154050B1008DA70E /* Capabilities.m */; };
-		60F3869D1552ACF00089F8BD /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3869B1552ACF00089F8BD /* LocalParser.m */; };
-		60F3869E1552ACF00089F8BD /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3869B1552ACF00089F8BD /* LocalParser.m */; };
-		60F386C71553D0980089F8BD /* PropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386C51553D0970089F8BD /* PropertyParser.m */; };
-		60F386C81553D0980089F8BD /* PropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386C51553D0970089F8BD /* PropertyParser.m */; };
-		60F386CC1553D9BA0089F8BD /* ControllerButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386CA1553D9B90089F8BD /* ControllerButtonParser.m */; };
-		60F386CD1553D9BA0089F8BD /* ControllerButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386CA1553D9B90089F8BD /* ControllerButtonParser.m */; };
 		60F386E2155401AC0089F8BD /* ClientSideRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386E0155401AC0089F8BD /* ClientSideRuntime.m */; };
 		60F386E3155401AC0089F8BD /* ClientSideRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386E0155401AC0089F8BD /* ClientSideRuntime.m */; };
 		60F386E71554034D0089F8BD /* SIPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F386E51554034C0089F8BD /* SIPProtocol.m */; };
@@ -338,6 +261,7 @@
 		912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
+		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA424C17953CDC001D39B9 /* libORControllerClient.a */; };
 /* End PBXBuildFile section */
 
@@ -356,16 +280,8 @@
 		338D306A10D8DD000043BFE9 /* UIViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewUtil.h; sourceTree = "<group>"; };
 		338D306B10D8DD000043BFE9 /* UIViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewUtil.m; sourceTree = "<group>"; };
 		33981B3410B119BC0076DB59 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		6001B9A1140B6A3400B18E84 /* ButtonParserAPI_v2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonParserAPI_v2.h; sourceTree = "<group>"; };
-		6001B9A2140B6A3400B18E84 /* ButtonParserAPI_v2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonParserAPI_v2.m; sourceTree = "<group>"; };
-		6001B9A6140B6F7900B18E84 /* ButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonParser.h; sourceTree = "<group>"; };
-		6001B9A7140B6F7900B18E84 /* ButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonParser.m; sourceTree = "<group>"; };
 		6010DE3813FE7B46001E6AA9 /* StyleValue1TextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleValue1TextEntryCell.h; sourceTree = "<group>"; };
 		6010DE3913FE7B47001E6AA9 /* StyleValue1TextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleValue1TextEntryCell.m; sourceTree = "<group>"; };
-		6010DE7813FEB389001E6AA9 /* DefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionParser.h; sourceTree = "<group>"; };
-		6010DE7913FEB389001E6AA9 /* DefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionParser.m; sourceTree = "<group>"; };
-		6010DE8C13FEB8D3001E6AA9 /* ScreenParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenParser.h; sourceTree = "<group>"; };
-		6010DE8D13FEB8D3001E6AA9 /* ScreenParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenParser.m; sourceTree = "<group>"; };
 		602418B0156E4D0F004E5860 /* Capability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capability.h; sourceTree = "<group>"; };
 		602418B1156E4D0F004E5860 /* Capability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capability.m; sourceTree = "<group>"; };
 		602418B6156E4D2D004E5860 /* APISecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APISecurity.h; sourceTree = "<group>"; };
@@ -419,8 +335,6 @@
 		6068DEA413744ED0007746F1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6079C2B713CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellWithSelectionAndIndicator.h; sourceTree = "<group>"; };
 		6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellWithSelectionAndIndicator.m; sourceTree = "<group>"; };
-		6082FEA8139643C4005A75C2 /* ButtonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonTest.h; path = ../ButtonEnhancement/iPad_Console_2_0_0_Betas_ButtonEnhancement/Test/ButtonTest.h; sourceTree = "<group>"; };
-		6082FEA9139643C4005A75C2 /* ButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonTest.m; path = ../ButtonEnhancement/iPad_Console_2_0_0_Betas_ButtonEnhancement/Test/ButtonTest.m; sourceTree = "<group>"; };
 		608FBB9D131FF9C300C9089F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		60950D9613CB115400B983E7 /* CheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMark.png; sourceTree = "<group>"; };
 		60950D9713CB115400B983E7 /* CheckMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMark@2x.png"; sourceTree = "<group>"; };
@@ -432,58 +346,6 @@
 		60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerDetailViewController.m; sourceTree = "<group>"; };
 		6097DAEE1378099D00E22AA8 /* ORControllerPollingSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPollingSender.h; sourceTree = "<group>"; };
 		6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPollingSender.m; sourceTree = "<group>"; };
-		60987E4313FF048B00967DEA /* DefinitionElementParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionElementParser.h; sourceTree = "<group>"; };
-		60987E4813FF071E00967DEA /* DefinitionElementParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionElementParser.m; sourceTree = "<group>"; };
-		60987E4B13FF0D7300967DEA /* DefinitionElementParserRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionElementParserRegister.h; sourceTree = "<group>"; };
-		60987E4C13FF0D7300967DEA /* DefinitionElementParserRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionElementParserRegister.m; sourceTree = "<group>"; };
-		60987E4F13FF0DA000967DEA /* PanelDefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDefinitionParser.h; sourceTree = "<group>"; };
-		60987E5013FF0DA000967DEA /* PanelDefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelDefinitionParser.m; sourceTree = "<group>"; };
-		60987E5313FF8DA300967DEA /* GroupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParser.h; sourceTree = "<group>"; };
-		60987E5413FF8DA300967DEA /* GroupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupParser.m; sourceTree = "<group>"; };
-		60987E5713FF8DBC00967DEA /* TabBarParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarParser.h; sourceTree = "<group>"; };
-		60987E5813FF8DBC00967DEA /* TabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarParser.m; sourceTree = "<group>"; };
-		60987E5F13FF8DE600967DEA /* AbsoluteLayoutContainerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsoluteLayoutContainerParser.h; sourceTree = "<group>"; };
-		60987E6013FF8DE600967DEA /* AbsoluteLayoutContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsoluteLayoutContainerParser.m; sourceTree = "<group>"; };
-		60987E6313FF8E0300967DEA /* GridLayoutContainerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayoutContainerParser.h; sourceTree = "<group>"; };
-		60987E6413FF8E0400967DEA /* GridLayoutContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayoutContainerParser.m; sourceTree = "<group>"; };
-		60987E6713FF8E1200967DEA /* GestureParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureParser.h; sourceTree = "<group>"; };
-		60987E6813FF8E1300967DEA /* GestureParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureParser.m; sourceTree = "<group>"; };
-		60987E6B13FF8E2000967DEA /* BackgroundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundParser.h; sourceTree = "<group>"; };
-		60987E6C13FF8E2200967DEA /* BackgroundParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundParser.m; sourceTree = "<group>"; };
-		60987E6F140157A200967DEA /* LayoutContainerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainerParser.h; sourceTree = "<group>"; };
-		60987E70140157A300967DEA /* LayoutContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainerParser.m; sourceTree = "<group>"; };
-		60987E741401796B00967DEA /* GridCellParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCellParser.h; sourceTree = "<group>"; };
-		60987E751401796D00967DEA /* GridCellParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCellParser.m; sourceTree = "<group>"; };
-		60987E7814017B3100967DEA /* LabelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelParser.h; sourceTree = "<group>"; };
-		60987E7914017B3A00967DEA /* LabelParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelParser.m; sourceTree = "<group>"; };
-		60987E7C14017B6B00967DEA /* ImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageParser.h; sourceTree = "<group>"; };
-		60987E7D14017B6C00967DEA /* ImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageParser.m; sourceTree = "<group>"; };
-		60987E8014017B7800967DEA /* WebParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebParser.h; sourceTree = "<group>"; };
-		60987E8114017B7900967DEA /* WebParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebParser.m; sourceTree = "<group>"; };
-		60987E8414017BBC00967DEA /* ButtonParserAPI_v2_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonParserAPI_v2_1.h; sourceTree = "<group>"; };
-		60987E8514017BBE00967DEA /* ButtonParserAPI_v2_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonParserAPI_v2_1.m; sourceTree = "<group>"; };
-		60987E8814017BCE00967DEA /* SwitchParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchParser.h; sourceTree = "<group>"; };
-		60987E8914017BCF00967DEA /* SwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchParser.m; sourceTree = "<group>"; };
-		60987E8C14017BDE00967DEA /* SliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderParser.h; sourceTree = "<group>"; };
-		60987E8D14017BE100967DEA /* SliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderParser.m; sourceTree = "<group>"; };
-		60987E9014017BEE00967DEA /* ColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerParser.h; sourceTree = "<group>"; };
-		60987E9114017BF100967DEA /* ColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerParser.m; sourceTree = "<group>"; };
-		60987E941402538500967DEA /* NavigateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigateParser.h; sourceTree = "<group>"; };
-		60987E951402538800967DEA /* NavigateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigateParser.m; sourceTree = "<group>"; };
-		60987E9814025B7800967DEA /* SensorLinkParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorLinkParser.h; sourceTree = "<group>"; };
-		60987E9914025B7E00967DEA /* SensorLinkParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorLinkParser.m; sourceTree = "<group>"; };
-		60987E9C14025DB300967DEA /* SensorStateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorStateParser.h; sourceTree = "<group>"; };
-		60987E9D14025DB800967DEA /* SensorStateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorStateParser.m; sourceTree = "<group>"; };
-		60987EA11402667600967DEA /* LabelDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelDeferredBinding.h; sourceTree = "<group>"; };
-		60987EA21402667600967DEA /* LabelDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDeferredBinding.m; sourceTree = "<group>"; };
-		60987EB21402AA0E00967DEA /* ScreenDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenDeferredBinding.h; sourceTree = "<group>"; };
-		60987EB31402AA0E00967DEA /* ScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenDeferredBinding.m; sourceTree = "<group>"; };
-		60987EB61402ACFC00967DEA /* TabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarItemParser.h; sourceTree = "<group>"; };
-		60987EB71402AD0600967DEA /* TabBarItemParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItemParser.m; sourceTree = "<group>"; };
-		60987EBA1402B08D00967DEA /* SensorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorParser.h; sourceTree = "<group>"; };
-		60987EBB1402B09500967DEA /* SensorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorParser.m; sourceTree = "<group>"; };
-		60987EBE1402B0FE00967DEA /* CommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandParser.h; sourceTree = "<group>"; };
-		60987EBF1402B10600967DEA /* CommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandParser.m; sourceTree = "<group>"; };
 		609AAFCB156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPollOrStatusSender.h; sourceTree = "<group>"; };
 		609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPollOrStatusSender.m; sourceTree = "<group>"; };
 		609AAFD1156A5FA6000DA1F9 /* ORControllerStatusRequestSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerStatusRequestSender.h; sourceTree = "<group>"; };
@@ -492,8 +354,6 @@
 		609AAFD7156A61F6000DA1F9 /* ORControllerSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerSender.m; sourceTree = "<group>"; };
 		60A2D262140662B500A529ED /* DefinitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionManager.h; sourceTree = "<group>"; };
 		60A2D263140662BA00A529ED /* DefinitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionManager.m; sourceTree = "<group>"; };
-		60A2D2661407BE4C00A529ED /* DeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeferredBinding.h; sourceTree = "<group>"; };
-		60A2D2671407BE4D00A529ED /* DeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeferredBinding.m; sourceTree = "<group>"; };
 		60A619591354A24900A7C87E /* NSString+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ORAdditions.h"; sourceTree = "<group>"; };
 		60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ORAdditions.m"; sourceTree = "<group>"; };
 		60A619601354A92600A7C87E /* NSString+ORAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ORAdditionsTest.h"; path = "Test/NSString+ORAdditionsTest.h"; sourceTree = "<group>"; };
@@ -547,8 +407,6 @@
 		60BC25951559682C0048A2BD /* ClientSideProtocols.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ClientSideProtocols.plist; sourceTree = "<group>"; };
 		60BC259915596E8D0048A2BD /* DeviceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceProtocol.h; sourceTree = "<group>"; };
 		60BC259A15596E8D0048A2BD /* DeviceProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceProtocol.m; sourceTree = "<group>"; };
-		60BC259D1559736C0048A2BD /* CommandDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandDeferredBinding.h; sourceTree = "<group>"; };
-		60BC259E1559736D0048A2BD /* CommandDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandDeferredBinding.m; sourceTree = "<group>"; };
 		60BC25A115598F2C0048A2BD /* DeviceProtocolDateTimeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceProtocolDateTimeCommand.h; sourceTree = "<group>"; };
 		60BC25A215598F2C0048A2BD /* DeviceProtocolDateTimeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceProtocolDateTimeCommand.m; sourceTree = "<group>"; };
 		60BC25AB155A59F40048A2BD /* CommandCachingClientSideProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandCachingClientSideProtocol.h; sourceTree = "<group>"; };
@@ -560,8 +418,6 @@
 		60BC25B5155A66A30048A2BD /* ClientSideProtocolWriteCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSideProtocolWriteCommand.h; sourceTree = "<group>"; };
 		60BC25B9155A693D0048A2BD /* DeviceProtocolBatteryLevelCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceProtocolBatteryLevelCommand.h; sourceTree = "<group>"; };
 		60BC25BA155A693D0048A2BD /* DeviceProtocolBatteryLevelCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceProtocolBatteryLevelCommand.m; sourceTree = "<group>"; };
-		60BC25BD155A71EE0048A2BD /* ControllerComponentCommandDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerComponentCommandDeferredBinding.h; sourceTree = "<group>"; };
-		60BC25BE155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerComponentCommandDeferredBinding.m; sourceTree = "<group>"; };
 		60C1DAA314504FE0005A44BD /* OpenRemote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OpenRemote.entitlements; sourceTree = "<group>"; };
 		60C2F956135F3748000824A5 /* ScreenTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenTest.h; sourceTree = "<group>"; };
 		60C2F957135F3748000824A5 /* ScreenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenTest.m; sourceTree = "<group>"; };
@@ -583,10 +439,6 @@
 		60DEC3C9140FC080000FF863 /* WebSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSubController.m; sourceTree = "<group>"; };
 		60DEC3CC140FC882000FF863 /* SwitchSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchSubController.h; sourceTree = "<group>"; };
 		60DEC3CD140FC883000FF863 /* SwitchSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchSubController.m; sourceTree = "<group>"; };
-		60DED43D155A89D500F5C0CD /* ControllerSwitchParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSwitchParser.h; sourceTree = "<group>"; };
-		60DED43E155A89D500F5C0CD /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
-		60DED441155A9AF800F5C0CD /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
-		60DED442155A9AF800F5C0CD /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
 		60DED44D155A9E0300F5C0CD /* DeviceProtocolBrightnessCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceProtocolBrightnessCommand.h; sourceTree = "<group>"; };
 		60DED44E155A9E0300F5C0CD /* DeviceProtocolBrightnessCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceProtocolBrightnessCommand.m; sourceTree = "<group>"; };
 		60DED451155A9FE800F5C0CD /* ClientSideProtocolReadCommandBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSideProtocolReadCommandBase.h; sourceTree = "<group>"; };
@@ -603,12 +455,6 @@
 		60F3867C15517AFE0089F8BD /* NSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLHelper.m; sourceTree = "<group>"; };
 		60F3868215517C030089F8BD /* NSURLHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLHelperTest.h; sourceTree = "<group>"; };
 		60F3868315517C030089F8BD /* NSURLHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLHelperTest.m; sourceTree = "<group>"; };
-		60F3869A1552ACF00089F8BD /* LocalParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalParser.h; sourceTree = "<group>"; };
-		60F3869B1552ACF00089F8BD /* LocalParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalParser.m; sourceTree = "<group>"; };
-		60F386C41553D0960089F8BD /* PropertyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyParser.h; sourceTree = "<group>"; };
-		60F386C51553D0970089F8BD /* PropertyParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyParser.m; sourceTree = "<group>"; };
-		60F386C91553D9B70089F8BD /* ControllerButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerButtonParser.h; sourceTree = "<group>"; };
-		60F386CA1553D9B90089F8BD /* ControllerButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerButtonParser.m; sourceTree = "<group>"; };
 		60F386DE1554017B0089F8BD /* ClientSideProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSideProtocol.h; sourceTree = "<group>"; };
 		60F386DF155401AC0089F8BD /* ClientSideRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSideRuntime.h; sourceTree = "<group>"; };
 		60F386E0155401AC0089F8BD /* ClientSideRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientSideRuntime.m; sourceTree = "<group>"; };
@@ -801,6 +647,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */,
 				91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */,
 				6068DEA513744ED0007746F1 /* SystemConfiguration.framework in Frameworks */,
 				6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */,
@@ -986,73 +833,6 @@
 		6010DE7713FEB35B001E6AA9 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				60987EA01402658C00967DEA /* DeferredBinding */,
-				60987E4F13FF0DA000967DEA /* PanelDefinitionParser.h */,
-				60987E5013FF0DA000967DEA /* PanelDefinitionParser.m */,
-				60987E4B13FF0D7300967DEA /* DefinitionElementParserRegister.h */,
-				60987E4C13FF0D7300967DEA /* DefinitionElementParserRegister.m */,
-				60987E4313FF048B00967DEA /* DefinitionElementParser.h */,
-				60987E4813FF071E00967DEA /* DefinitionElementParser.m */,
-				6010DE7813FEB389001E6AA9 /* DefinitionParser.h */,
-				6010DE7913FEB389001E6AA9 /* DefinitionParser.m */,
-				6010DE8C13FEB8D3001E6AA9 /* ScreenParser.h */,
-				6010DE8D13FEB8D3001E6AA9 /* ScreenParser.m */,
-				60987E6F140157A200967DEA /* LayoutContainerParser.h */,
-				60987E70140157A300967DEA /* LayoutContainerParser.m */,
-				60987E5F13FF8DE600967DEA /* AbsoluteLayoutContainerParser.h */,
-				60987E6013FF8DE600967DEA /* AbsoluteLayoutContainerParser.m */,
-				60987E6313FF8E0300967DEA /* GridLayoutContainerParser.h */,
-				60987E6413FF8E0400967DEA /* GridLayoutContainerParser.m */,
-				60987E741401796B00967DEA /* GridCellParser.h */,
-				60987E751401796D00967DEA /* GridCellParser.m */,
-				60987E7814017B3100967DEA /* LabelParser.h */,
-				60987E7914017B3A00967DEA /* LabelParser.m */,
-				60987E7C14017B6B00967DEA /* ImageParser.h */,
-				60987E7D14017B6C00967DEA /* ImageParser.m */,
-				60987E8014017B7800967DEA /* WebParser.h */,
-				60987E8114017B7900967DEA /* WebParser.m */,
-				6001B9A6140B6F7900B18E84 /* ButtonParser.h */,
-				6001B9A7140B6F7900B18E84 /* ButtonParser.m */,
-				60987E8414017BBC00967DEA /* ButtonParserAPI_v2_1.h */,
-				60987E8514017BBE00967DEA /* ButtonParserAPI_v2_1.m */,
-				6001B9A1140B6A3400B18E84 /* ButtonParserAPI_v2.h */,
-				6001B9A2140B6A3400B18E84 /* ButtonParserAPI_v2.m */,
-				60987E8814017BCE00967DEA /* SwitchParser.h */,
-				60987E8914017BCF00967DEA /* SwitchParser.m */,
-				60987E8C14017BDE00967DEA /* SliderParser.h */,
-				60987E8D14017BE100967DEA /* SliderParser.m */,
-				60987E9014017BEE00967DEA /* ColorPickerParser.h */,
-				60987E9114017BF100967DEA /* ColorPickerParser.m */,
-				60987E6713FF8E1200967DEA /* GestureParser.h */,
-				60987E6813FF8E1300967DEA /* GestureParser.m */,
-				60987E6B13FF8E2000967DEA /* BackgroundParser.h */,
-				60987E6C13FF8E2200967DEA /* BackgroundParser.m */,
-				60987E5313FF8DA300967DEA /* GroupParser.h */,
-				60987E5413FF8DA300967DEA /* GroupParser.m */,
-				60987E5713FF8DBC00967DEA /* TabBarParser.h */,
-				60987E5813FF8DBC00967DEA /* TabBarParser.m */,
-				60987EB61402ACFC00967DEA /* TabBarItemParser.h */,
-				60987EB71402AD0600967DEA /* TabBarItemParser.m */,
-				60987E941402538500967DEA /* NavigateParser.h */,
-				60987E951402538800967DEA /* NavigateParser.m */,
-				60987E9814025B7800967DEA /* SensorLinkParser.h */,
-				60987E9914025B7E00967DEA /* SensorLinkParser.m */,
-				60987E9C14025DB300967DEA /* SensorStateParser.h */,
-				60987E9D14025DB800967DEA /* SensorStateParser.m */,
-				60F3869A1552ACF00089F8BD /* LocalParser.h */,
-				60F3869B1552ACF00089F8BD /* LocalParser.m */,
-				60987EBE1402B0FE00967DEA /* CommandParser.h */,
-				60987EBF1402B10600967DEA /* CommandParser.m */,
-				60F386C41553D0960089F8BD /* PropertyParser.h */,
-				60F386C51553D0970089F8BD /* PropertyParser.m */,
-				60987EBA1402B08D00967DEA /* SensorParser.h */,
-				60987EBB1402B09500967DEA /* SensorParser.m */,
-				60F386C91553D9B70089F8BD /* ControllerButtonParser.h */,
-				60F386CA1553D9B90089F8BD /* ControllerButtonParser.m */,
-				60DED43D155A89D500F5C0CD /* ControllerSwitchParser.h */,
-				60DED43E155A89D500F5C0CD /* ControllerSwitchParser.m */,
-				60DED441155A9AF800F5C0CD /* ControllerSliderParser.h */,
-				60DED442155A9AF800F5C0CD /* ControllerSliderParser.m */,
 				602418BB156E531C004E5860 /* CapabilitiesParser.h */,
 				602418BC156E531C004E5860 /* CapabilitiesParser.m */,
 			);
@@ -1072,23 +852,6 @@
 				602418D2156E6BE4004E5860 /* CapabilitiesWithSettableConsoleVersions.m */,
 			);
 			name = capabilities;
-			sourceTree = "<group>";
-		};
-		60987EA01402658C00967DEA /* DeferredBinding */ = {
-			isa = PBXGroup;
-			children = (
-				60A2D2661407BE4C00A529ED /* DeferredBinding.h */,
-				60A2D2671407BE4D00A529ED /* DeferredBinding.m */,
-				60987EA11402667600967DEA /* LabelDeferredBinding.h */,
-				60987EA21402667600967DEA /* LabelDeferredBinding.m */,
-				60987EB21402AA0E00967DEA /* ScreenDeferredBinding.h */,
-				60987EB31402AA0E00967DEA /* ScreenDeferredBinding.m */,
-				60BC259D1559736C0048A2BD /* CommandDeferredBinding.h */,
-				60BC259E1559736D0048A2BD /* CommandDeferredBinding.m */,
-				60BC25BD155A71EE0048A2BD /* ControllerComponentCommandDeferredBinding.h */,
-				60BC25BE155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m */,
-			);
-			name = DeferredBinding;
 			sourceTree = "<group>";
 		};
 		60AA14B413E9651D008ACE4A /* API Implementation */ = {
@@ -1267,8 +1030,6 @@
 				602418C0156E536B004E5860 /* capabilities */,
 				60F3874115590F840089F8BD /* OCMock */,
 				60F3868115517BEB0089F8BD /* helper */,
-				6082FEA8139643C4005A75C2 /* ButtonTest.h */,
-				6082FEA9139643C4005A75C2 /* ButtonTest.m */,
 				8CEFDAEF11BF444100CEDC24 /* util */,
 				338C3CD210D60F3F0029D62B /* view */,
 				8CEB4E7810B27F3700A67721 /* panelxml */,
@@ -1750,38 +1511,7 @@
 				60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */,
 				60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */,
 				60366BEC144DCB9C004FED3B /* StyleValue1TextEntryCell.m in Sources */,
-				60366BED144DCB9C004FED3B /* DefinitionParser.m in Sources */,
-				60366BEE144DCB9C004FED3B /* ScreenParser.m in Sources */,
-				60366BEF144DCB9C004FED3B /* DefinitionElementParser.m in Sources */,
-				60366BF0144DCB9C004FED3B /* DefinitionElementParserRegister.m in Sources */,
-				60366BF1144DCB9C004FED3B /* PanelDefinitionParser.m in Sources */,
-				60366BF2144DCB9C004FED3B /* GroupParser.m in Sources */,
-				60366BF3144DCB9C004FED3B /* TabBarParser.m in Sources */,
-				60366BF5144DCB9C004FED3B /* AbsoluteLayoutContainerParser.m in Sources */,
-				60366BF6144DCB9C004FED3B /* GridLayoutContainerParser.m in Sources */,
-				60366BF7144DCB9C004FED3B /* GestureParser.m in Sources */,
-				60366BF8144DCB9C004FED3B /* BackgroundParser.m in Sources */,
-				60366BF9144DCB9C004FED3B /* LayoutContainerParser.m in Sources */,
-				60366BFA144DCB9C004FED3B /* GridCellParser.m in Sources */,
-				60366BFB144DCB9C004FED3B /* LabelParser.m in Sources */,
-				60366BFC144DCB9C004FED3B /* ImageParser.m in Sources */,
-				60366BFD144DCB9C004FED3B /* WebParser.m in Sources */,
-				60366BFE144DCB9C004FED3B /* ButtonParserAPI_v2_1.m in Sources */,
-				60366BFF144DCB9C004FED3B /* SwitchParser.m in Sources */,
-				60366C00144DCB9C004FED3B /* SliderParser.m in Sources */,
-				60366C01144DCB9C004FED3B /* ColorPickerParser.m in Sources */,
-				60366C02144DCB9C004FED3B /* NavigateParser.m in Sources */,
-				60366C03144DCB9C004FED3B /* SensorLinkParser.m in Sources */,
-				60366C04144DCB9C004FED3B /* SensorStateParser.m in Sources */,
-				60366C05144DCB9C004FED3B /* LabelDeferredBinding.m in Sources */,
-				60366C06144DCB9C004FED3B /* ScreenDeferredBinding.m in Sources */,
-				60366C07144DCB9C004FED3B /* TabBarItemParser.m in Sources */,
-				60366C08144DCB9C004FED3B /* SensorParser.m in Sources */,
-				60366C09144DCB9C004FED3B /* CommandParser.m in Sources */,
 				60366C0B144DCB9C004FED3B /* DefinitionManager.m in Sources */,
-				60366C0C144DCB9C004FED3B /* DeferredBinding.m in Sources */,
-				60366C0D144DCB9C004FED3B /* ButtonParserAPI_v2.m in Sources */,
-				60366C0E144DCB9C004FED3B /* ButtonParser.m in Sources */,
 				60366C0F144DCB9C004FED3B /* ScreenSubController.m in Sources */,
 				60366C10144DCB9C004FED3B /* SubController.m in Sources */,
 				60366C11144DCB9C004FED3B /* LayoutContainerSubController.m in Sources */,
@@ -1804,20 +1534,13 @@
 				60FAD480154050B1008DA70E /* Capabilities.m in Sources */,
 				60FAD4851540571E008DA70E /* ControllerVersionSelectAPI.m in Sources */,
 				60F3867F15517AFE0089F8BD /* NSURLHelper.m in Sources */,
-				60F3869E1552ACF00089F8BD /* LocalParser.m in Sources */,
-				60F386C81553D0980089F8BD /* PropertyParser.m in Sources */,
-				60F386CD1553D9BA0089F8BD /* ControllerButtonParser.m in Sources */,
 				60F386E3155401AC0089F8BD /* ClientSideRuntime.m in Sources */,
 				60F386ED15541CE90089F8BD /* SensorStatusCache.m in Sources */,
 				60BC259C15596E8D0048A2BD /* DeviceProtocol.m in Sources */,
-				60BC25A01559736D0048A2BD /* CommandDeferredBinding.m in Sources */,
 				60BC25A415598F2D0048A2BD /* DeviceProtocolDateTimeCommand.m in Sources */,
 				60BC25AE155A59F40048A2BD /* CommandCachingClientSideProtocol.m in Sources */,
 				60BC25B2155A5D3C0048A2BD /* ClientSideBeanManager.m in Sources */,
 				60BC25BC155A693D0048A2BD /* DeviceProtocolBatteryLevelCommand.m in Sources */,
-				60BC25C0155A71EF0048A2BD /* ControllerComponentCommandDeferredBinding.m in Sources */,
-				60DED440155A89D500F5C0CD /* ControllerSwitchParser.m in Sources */,
-				60DED444155A9AF800F5C0CD /* ControllerSliderParser.m in Sources */,
 				60DED450155A9E0300F5C0CD /* DeviceProtocolBrightnessCommand.m in Sources */,
 				60DED454155A9FE900F5C0CD /* ClientSideProtocolReadCommandBase.m in Sources */,
 				60DED45D155AA80700F5C0CD /* DeviceProtocolSetBrightnessCommand.m in Sources */,
@@ -1841,44 +1564,9 @@
 			files = (
 				602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */,
 				602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */,
-				602418CB156E5555004E5860 /* ControllerComponentCommandDeferredBinding.m in Sources */,
-				602418CA156E5537004E5860 /* ControllerSliderParser.m in Sources */,
-				602418C9156E5528004E5860 /* ControllerSwitchParser.m in Sources */,
-				602418C8156E5505004E5860 /* CommandDeferredBinding.m in Sources */,
 				60F3868D15517D120089F8BD /* Capabilities.m in Sources */,
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
-				608D985D14190956001A7534 /* DeferredBinding.m in Sources */,
-				608D985E14190956001A7534 /* LabelDeferredBinding.m in Sources */,
-				608D985F14190956001A7534 /* ScreenDeferredBinding.m in Sources */,
-				608D986014190956001A7534 /* DefinitionElementParserRegister.m in Sources */,
-				608D986114190956001A7534 /* DefinitionElementParser.m in Sources */,
-				608D986214190956001A7534 /* DefinitionParser.m in Sources */,
-				608D986314190956001A7534 /* ScreenParser.m in Sources */,
-				608D986414190956001A7534 /* LayoutContainerParser.m in Sources */,
-				608D986514190956001A7534 /* AbsoluteLayoutContainerParser.m in Sources */,
-				608D986614190956001A7534 /* GridLayoutContainerParser.m in Sources */,
-				608D986714190956001A7534 /* GridCellParser.m in Sources */,
-				608D986814190956001A7534 /* LabelParser.m in Sources */,
-				608D986914190956001A7534 /* ImageParser.m in Sources */,
-				608D986A14190956001A7534 /* WebParser.m in Sources */,
-				608D986B14190956001A7534 /* ButtonParser.m in Sources */,
-				608D986C14190956001A7534 /* ButtonParserAPI_v2_1.m in Sources */,
-				608D986D14190956001A7534 /* ButtonParserAPI_v2.m in Sources */,
-				608D986E14190956001A7534 /* SwitchParser.m in Sources */,
-				608D986F14190956001A7534 /* SliderParser.m in Sources */,
-				608D987014190956001A7534 /* ColorPickerParser.m in Sources */,
-				608D987114190956001A7534 /* GestureParser.m in Sources */,
-				608D987214190956001A7534 /* BackgroundParser.m in Sources */,
-				608D987314190956001A7534 /* GroupParser.m in Sources */,
-				608D987414190956001A7534 /* TabBarParser.m in Sources */,
-				608D987514190956001A7534 /* TabBarItemParser.m in Sources */,
-				608D987714190956001A7534 /* NavigateParser.m in Sources */,
-				608D987814190956001A7534 /* SensorLinkParser.m in Sources */,
-				608D987914190956001A7534 /* SensorStateParser.m in Sources */,
-				608D987A14190956001A7534 /* SensorParser.m in Sources */,
-				608D987B14190956001A7534 /* CommandParser.m in Sources */,
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
-				608D985C1419091E001A7534 /* PanelDefinitionParser.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
 				6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */,
 				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
@@ -1912,12 +1600,8 @@
 				609C57DD137430F60093C03A /* ClippedUIImageViewTest.m in Sources */,
 				609C57DE137430F60093C03A /* PanelXMLParsingTests.m in Sources */,
 				609C57DF137430F60093C03A /* ScreenTest.m in Sources */,
-				6082FEAA139643C4005A75C2 /* ButtonTest.m in Sources */,
 				60F3867E15517AFE0089F8BD /* NSURLHelper.m in Sources */,
 				60F3868415517C030089F8BD /* NSURLHelperTest.m in Sources */,
-				60F3869D1552ACF00089F8BD /* LocalParser.m in Sources */,
-				60F386C71553D0980089F8BD /* PropertyParser.m in Sources */,
-				60F386CC1553D9BA0089F8BD /* ControllerButtonParser.m in Sources */,
 				60F386E2155401AC0089F8BD /* ClientSideRuntime.m in Sources */,
 				60F386E71554034D0089F8BD /* SIPProtocol.m in Sources */,
 				60F386EC15541CE90089F8BD /* SensorStatusCache.m in Sources */,
@@ -2038,6 +1722,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/OCMock\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2121,6 +1806,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/OCMock\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
