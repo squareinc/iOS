@@ -22,7 +22,8 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 #import "ORSimpleUIConfiguration.h"
-#import "ORLabel.h"
+
+#import "ControllerREST_2_0_0_API.h"
 
 @interface ORController ()
 
@@ -74,9 +75,22 @@
 
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
-    // TODO: need to fetch list of panels
-    // TODO: then fetch first panel
+    /*
+    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+    
+    [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
+                                  withSuccessHandler:^(NSArray *panels) {
+                                      
+                                      // Get full definition of 1st panel, if there's one
+                                      
+                                  }
+                                        errorHandler:^(NSError *error) {
+                                            // TODO: encapsulate error ?
+                                            errorHandler(error);
+                                        }];
+    
 
+    */
     if (successHandler) {
         // Must register the labels with the appropriate sensors so that text values are updated
         // and in turn appropriate notifications are posted
@@ -87,14 +101,28 @@
 }
 
 
+#pragma mark - Advanced iOS console only features
 
-- (void)readControllerConfigurationWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    // TODO: later based on information gathered during connect, would select the appropriate API/Object Model version
+    
+    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+    
+    [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
+                                  withSuccessHandler:^(NSArray *panels) {
+                                      successHandler(panels);
+                                  }
+                                        errorHandler:^(NSError *error) {
+                                            // TODO: encapsulate error ?
+                                            errorHandler(error);
+                                        }];
+}
+
+- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     // TODO: should return some form of configuration, maybe for now Definition, from Console project (migrate here)
-    
-    if (successHandler) {
-        successHandler();
-    }
+   
 }
 
 @end

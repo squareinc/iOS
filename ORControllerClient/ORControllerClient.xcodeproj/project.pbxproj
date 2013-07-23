@@ -51,6 +51,65 @@
 		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
 		9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
+		91933357179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */; };
+		91933358179E9BCF0086FEE7 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933320179E9BCF0086FEE7 /* Background.m */; };
+		91933359179E9BCF0086FEE7 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933322179E9BCF0086FEE7 /* Button.m */; };
+		9193335A179E9BD00086FEE7 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ColorPicker.m */; };
+		9193335B179E9BD00086FEE7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933326179E9BCF0086FEE7 /* Component.m */; };
+		9193335C179E9BD00086FEE7 /* Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933328179E9BCF0086FEE7 /* Control.m */; };
+		9193335D179E9BD00086FEE7 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332A179E9BCF0086FEE7 /* Definition.m */; };
+		9193335E179E9BD00086FEE7 /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332C179E9BCF0086FEE7 /* Gesture.m */; };
+		9193335F179E9BD00086FEE7 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332E179E9BCF0086FEE7 /* GridCell.m */; };
+		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
+		91933361179E9BD00086FEE7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933332179E9BCF0086FEE7 /* Group.m */; };
+		91933362179E9BD00086FEE7 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933334179E9BCF0086FEE7 /* Image.m */; };
+		91933363179E9BD00086FEE7 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933336179E9BCF0086FEE7 /* Label.m */; };
+		91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* LayoutContainer.m */; };
+		91933365179E9BD00086FEE7 /* Navigate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333A179E9BCF0086FEE7 /* Navigate.m */; };
+		91933366179E9BD00086FEE7 /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333C179E9BCF0086FEE7 /* Screen.m */; };
+		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
+		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
+		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
+		9193336A179E9BD00086FEE7 /* Slider.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933344179E9BCF0086FEE7 /* Slider.m */; };
+		9193336B179E9BD00086FEE7 /* Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933346179E9BCF0086FEE7 /* Switch.m */; };
+		9193336C179E9BD00086FEE7 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* TabBar.m */; };
+		9193336D179E9BD00086FEE7 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334A179E9BCF0086FEE7 /* TabBarItem.m */; };
+		9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334C179E9BCF0086FEE7 /* XMLEntity.m */; };
+		9193336F179E9BD00086FEE7 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334E179E9BCF0086FEE7 /* Web.m */; };
+		91933370179E9BD00086FEE7 /* LocalSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933350179E9BCF0086FEE7 /* LocalSensor.m */; };
+		91933371179E9BD00086FEE7 /* LocalCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933352179E9BCF0086FEE7 /* LocalCommand.m */; };
+		91933372179E9BD00086FEE7 /* LocalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933354179E9BCF0086FEE7 /* LocalController.m */; };
+		91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933356179E9BCF0086FEE7 /* ControllerComponent.m */; };
+		91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
+		91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* LayoutContainer.h */; };
+		91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */; };
+		91933378179E9EB10086FEE7 /* Background.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331F179E9BCF0086FEE7 /* Background.h */; };
+		91933379179E9EB10086FEE7 /* Button.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933321179E9BCF0086FEE7 /* Button.h */; };
+		9193337A179E9EB10086FEE7 /* ColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ColorPicker.h */; };
+		9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933325179E9BCF0086FEE7 /* Component.h */; };
+		9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933327179E9BCF0086FEE7 /* Control.h */; };
+		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
+		9193337E179E9EB10086FEE7 /* Gesture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332B179E9BCF0086FEE7 /* Gesture.h */; };
+		9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* GridCell.h */; };
+		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
+		91933381179E9EB10086FEE7 /* Group.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933331179E9BCF0086FEE7 /* Group.h */; };
+		91933382179E9EB10086FEE7 /* Image.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933333179E9BCF0086FEE7 /* Image.h */; };
+		91933383179E9EB10086FEE7 /* Label.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933335179E9BCF0086FEE7 /* Label.h */; };
+		91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933339179E9BCF0086FEE7 /* Navigate.h */; };
+		91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333B179E9BCF0086FEE7 /* Screen.h */; };
+		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
+		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
+		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
+		91933389179E9EB10086FEE7 /* Slider.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933343179E9BCF0086FEE7 /* Slider.h */; };
+		9193338A179E9EB10086FEE7 /* Switch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933345179E9BCF0086FEE7 /* Switch.h */; };
+		9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* TabBar.h */; };
+		9193338C179E9EB10086FEE7 /* TabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* TabBarItem.h */; };
+		9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
+		9193338E179E9EB10086FEE7 /* Web.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* Web.h */; };
+		9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334F179E9BCF0086FEE7 /* LocalSensor.h */; };
+		91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933351179E9BCF0086FEE7 /* LocalCommand.h */; };
+		91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933353179E9BCF0086FEE7 /* LocalController.h */; };
+		91933392179E9EB10086FEE7 /* ControllerComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933355179E9BCF0086FEE7 /* ControllerComponent.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
@@ -72,6 +131,35 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */,
+				91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */,
+				91933378179E9EB10086FEE7 /* Background.h in CopyFiles */,
+				91933379179E9EB10086FEE7 /* Button.h in CopyFiles */,
+				9193337A179E9EB10086FEE7 /* ColorPicker.h in CopyFiles */,
+				9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */,
+				9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */,
+				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
+				9193337E179E9EB10086FEE7 /* Gesture.h in CopyFiles */,
+				9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */,
+				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
+				91933381179E9EB10086FEE7 /* Group.h in CopyFiles */,
+				91933382179E9EB10086FEE7 /* Image.h in CopyFiles */,
+				91933383179E9EB10086FEE7 /* Label.h in CopyFiles */,
+				91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */,
+				91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */,
+				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
+				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
+				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
+				91933389179E9EB10086FEE7 /* Slider.h in CopyFiles */,
+				9193338A179E9EB10086FEE7 /* Switch.h in CopyFiles */,
+				9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */,
+				9193338C179E9EB10086FEE7 /* TabBarItem.h in CopyFiles */,
+				9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */,
+				9193338E179E9EB10086FEE7 /* Web.h in CopyFiles */,
+				9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */,
+				91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */,
+				91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */,
+				91933392179E9EB10086FEE7 /* ControllerComponent.h in CopyFiles */,
 				919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */,
 				91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */,
 				919332FF179565F70086FEE7 /* ORSimpleUIConfiguration.h in CopyFiles */,
@@ -125,6 +213,65 @@
 		91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtilsTest.m; sourceTree = "<group>"; };
 		91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelIdentityListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelIdentityListResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsoluteLayoutContainer.h; sourceTree = "<group>"; };
+		9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsoluteLayoutContainer.m; sourceTree = "<group>"; };
+		9193331F179E9BCF0086FEE7 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
+		91933320179E9BCF0086FEE7 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
+		91933321179E9BCF0086FEE7 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		91933322179E9BCF0086FEE7 /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
+		91933323179E9BCF0086FEE7 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
+		91933324179E9BCF0086FEE7 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
+		91933325179E9BCF0086FEE7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		91933326179E9BCF0086FEE7 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		91933327179E9BCF0086FEE7 /* Control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Control.h; sourceTree = "<group>"; };
+		91933328179E9BCF0086FEE7 /* Control.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Control.m; sourceTree = "<group>"; };
+		91933329179E9BCF0086FEE7 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		9193332A179E9BCF0086FEE7 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
+		9193332B179E9BCF0086FEE7 /* Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gesture.h; sourceTree = "<group>"; };
+		9193332C179E9BCF0086FEE7 /* Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gesture.m; sourceTree = "<group>"; };
+		9193332D179E9BCF0086FEE7 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		9193332E179E9BCF0086FEE7 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
+		9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayoutContainer.h; sourceTree = "<group>"; };
+		91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayoutContainer.m; sourceTree = "<group>"; };
+		91933331179E9BCF0086FEE7 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		91933332179E9BCF0086FEE7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		91933333179E9BCF0086FEE7 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		91933334179E9BCF0086FEE7 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		91933335179E9BCF0086FEE7 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
+		91933336179E9BCF0086FEE7 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Label.m; sourceTree = "<group>"; };
+		91933337179E9BCF0086FEE7 /* LayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainer.h; sourceTree = "<group>"; };
+		91933338179E9BCF0086FEE7 /* LayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainer.m; sourceTree = "<group>"; };
+		91933339179E9BCF0086FEE7 /* Navigate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navigate.h; sourceTree = "<group>"; };
+		9193333A179E9BCF0086FEE7 /* Navigate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Navigate.m; sourceTree = "<group>"; };
+		9193333B179E9BCF0086FEE7 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
+		9193333C179E9BCF0086FEE7 /* Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Screen.m; sourceTree = "<group>"; };
+		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
+		9193333E179E9BCF0086FEE7 /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
+		9193333F179E9BCF0086FEE7 /* SensorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorComponent.h; sourceTree = "<group>"; };
+		91933340179E9BCF0086FEE7 /* SensorComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorComponent.m; sourceTree = "<group>"; };
+		91933341179E9BCF0086FEE7 /* SensorState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorState.h; sourceTree = "<group>"; };
+		91933342179E9BCF0086FEE7 /* SensorState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorState.m; sourceTree = "<group>"; };
+		91933343179E9BCF0086FEE7 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
+		91933344179E9BCF0086FEE7 /* Slider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slider.m; sourceTree = "<group>"; };
+		91933345179E9BCF0086FEE7 /* Switch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Switch.h; sourceTree = "<group>"; };
+		91933346179E9BCF0086FEE7 /* Switch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Switch.m; sourceTree = "<group>"; };
+		91933347179E9BCF0086FEE7 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		91933348179E9BCF0086FEE7 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
+		91933349179E9BCF0086FEE7 /* TabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarItem.h; sourceTree = "<group>"; };
+		9193334A179E9BCF0086FEE7 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
+		9193334B179E9BCF0086FEE7 /* XMLEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLEntity.h; sourceTree = "<group>"; };
+		9193334C179E9BCF0086FEE7 /* XMLEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLEntity.m; sourceTree = "<group>"; };
+		9193334D179E9BCF0086FEE7 /* Web.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Web.h; sourceTree = "<group>"; };
+		9193334E179E9BCF0086FEE7 /* Web.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Web.m; sourceTree = "<group>"; };
+		9193334F179E9BCF0086FEE7 /* LocalSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalSensor.h; sourceTree = "<group>"; };
+		91933350179E9BCF0086FEE7 /* LocalSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalSensor.m; sourceTree = "<group>"; };
+		91933351179E9BCF0086FEE7 /* LocalCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCommand.h; sourceTree = "<group>"; };
+		91933352179E9BCF0086FEE7 /* LocalCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalCommand.m; sourceTree = "<group>"; };
+		91933353179E9BCF0086FEE7 /* LocalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalController.h; sourceTree = "<group>"; };
+		91933354179E9BCF0086FEE7 /* LocalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalController.m; sourceTree = "<group>"; };
+		91933355179E9BCF0086FEE7 /* ControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerComponent.h; sourceTree = "<group>"; };
+		91933356179E9BCF0086FEE7 /* ControllerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerComponent.m; sourceTree = "<group>"; };
+		91933374179E9E7E0086FEE7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */,
 				9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +300,7 @@
 		918604B117944342005DBCD9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
+				9193331C179E9BAC0086FEE7 /* Legacy */,
 				9190D4CF1790143000667A7C /* ORLabel.h */,
 				9190D4D01790143000667A7C /* ORLabel.m */,
 				918604B21794435E005DBCD9 /* ORPanel.h */,
@@ -199,6 +348,7 @@
 		9190D49B1790140A00667A7C = {
 			isa = PBXGroup;
 			children = (
+				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A91790140A00667A7C /* ORControllerClient */,
 				9190D4BE1790140A00667A7C /* ORControllerClientTests */,
 				9190D4A61790140A00667A7C /* Frameworks */,
@@ -304,6 +454,71 @@
 				91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		9193331C179E9BAC0086FEE7 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				91933337179E9BCF0086FEE7 /* LayoutContainer.h */,
+				91933338179E9BCF0086FEE7 /* LayoutContainer.m */,
+				9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */,
+				9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */,
+				9193331F179E9BCF0086FEE7 /* Background.h */,
+				91933320179E9BCF0086FEE7 /* Background.m */,
+				91933321179E9BCF0086FEE7 /* Button.h */,
+				91933322179E9BCF0086FEE7 /* Button.m */,
+				91933323179E9BCF0086FEE7 /* ColorPicker.h */,
+				91933324179E9BCF0086FEE7 /* ColorPicker.m */,
+				91933325179E9BCF0086FEE7 /* Component.h */,
+				91933326179E9BCF0086FEE7 /* Component.m */,
+				91933327179E9BCF0086FEE7 /* Control.h */,
+				91933328179E9BCF0086FEE7 /* Control.m */,
+				91933329179E9BCF0086FEE7 /* Definition.h */,
+				9193332A179E9BCF0086FEE7 /* Definition.m */,
+				9193332B179E9BCF0086FEE7 /* Gesture.h */,
+				9193332C179E9BCF0086FEE7 /* Gesture.m */,
+				9193332D179E9BCF0086FEE7 /* GridCell.h */,
+				9193332E179E9BCF0086FEE7 /* GridCell.m */,
+				9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */,
+				91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */,
+				91933331179E9BCF0086FEE7 /* Group.h */,
+				91933332179E9BCF0086FEE7 /* Group.m */,
+				91933333179E9BCF0086FEE7 /* Image.h */,
+				91933334179E9BCF0086FEE7 /* Image.m */,
+				91933335179E9BCF0086FEE7 /* Label.h */,
+				91933336179E9BCF0086FEE7 /* Label.m */,
+				91933339179E9BCF0086FEE7 /* Navigate.h */,
+				9193333A179E9BCF0086FEE7 /* Navigate.m */,
+				9193333B179E9BCF0086FEE7 /* Screen.h */,
+				9193333C179E9BCF0086FEE7 /* Screen.m */,
+				9193333D179E9BCF0086FEE7 /* Sensor.h */,
+				9193333E179E9BCF0086FEE7 /* Sensor.m */,
+				9193333F179E9BCF0086FEE7 /* SensorComponent.h */,
+				91933340179E9BCF0086FEE7 /* SensorComponent.m */,
+				91933341179E9BCF0086FEE7 /* SensorState.h */,
+				91933342179E9BCF0086FEE7 /* SensorState.m */,
+				91933343179E9BCF0086FEE7 /* Slider.h */,
+				91933344179E9BCF0086FEE7 /* Slider.m */,
+				91933345179E9BCF0086FEE7 /* Switch.h */,
+				91933346179E9BCF0086FEE7 /* Switch.m */,
+				91933347179E9BCF0086FEE7 /* TabBar.h */,
+				91933348179E9BCF0086FEE7 /* TabBar.m */,
+				91933349179E9BCF0086FEE7 /* TabBarItem.h */,
+				9193334A179E9BCF0086FEE7 /* TabBarItem.m */,
+				9193334B179E9BCF0086FEE7 /* XMLEntity.h */,
+				9193334C179E9BCF0086FEE7 /* XMLEntity.m */,
+				9193334D179E9BCF0086FEE7 /* Web.h */,
+				9193334E179E9BCF0086FEE7 /* Web.m */,
+				9193334F179E9BCF0086FEE7 /* LocalSensor.h */,
+				91933350179E9BCF0086FEE7 /* LocalSensor.m */,
+				91933351179E9BCF0086FEE7 /* LocalCommand.h */,
+				91933352179E9BCF0086FEE7 /* LocalCommand.m */,
+				91933353179E9BCF0086FEE7 /* LocalController.h */,
+				91933354179E9BCF0086FEE7 /* LocalController.m */,
+				91933355179E9BCF0086FEE7 /* ControllerComponent.h */,
+				91933356179E9BCF0086FEE7 /* ControllerComponent.m */,
+			);
+			name = Legacy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +644,35 @@
 				9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
 				91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
+				91933357179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m in Sources */,
+				91933358179E9BCF0086FEE7 /* Background.m in Sources */,
+				91933359179E9BCF0086FEE7 /* Button.m in Sources */,
+				9193335A179E9BD00086FEE7 /* ColorPicker.m in Sources */,
+				9193335B179E9BD00086FEE7 /* Component.m in Sources */,
+				9193335C179E9BD00086FEE7 /* Control.m in Sources */,
+				9193335D179E9BD00086FEE7 /* Definition.m in Sources */,
+				9193335E179E9BD00086FEE7 /* Gesture.m in Sources */,
+				9193335F179E9BD00086FEE7 /* GridCell.m in Sources */,
+				91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */,
+				91933361179E9BD00086FEE7 /* Group.m in Sources */,
+				91933362179E9BD00086FEE7 /* Image.m in Sources */,
+				91933363179E9BD00086FEE7 /* Label.m in Sources */,
+				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
+				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
+				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
+				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
+				91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */,
+				91933369179E9BD00086FEE7 /* SensorState.m in Sources */,
+				9193336A179E9BD00086FEE7 /* Slider.m in Sources */,
+				9193336B179E9BD00086FEE7 /* Switch.m in Sources */,
+				9193336C179E9BD00086FEE7 /* TabBar.m in Sources */,
+				9193336D179E9BD00086FEE7 /* TabBarItem.m in Sources */,
+				9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */,
+				9193336F179E9BD00086FEE7 /* Web.m in Sources */,
+				91933370179E9BD00086FEE7 /* LocalSensor.m in Sources */,
+				91933371179E9BD00086FEE7 /* LocalCommand.m in Sources */,
+				91933372179E9BD00086FEE7 /* LocalController.m in Sources */,
+				91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

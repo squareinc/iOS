@@ -75,7 +75,7 @@
 
 // Below are more advanced features, required for iOS Console
 
-- (void)requestPanelIdentityListWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * First connects to the controller if it's not yet the case.
