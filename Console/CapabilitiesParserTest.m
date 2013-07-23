@@ -44,7 +44,10 @@
 
 - (void)testCompleteCapabilitiesXML
 {
-    Capabilities *capabilities = [self.parser parseXMLData:[NSData dataWithContentsOfFile:@"CompleteCapabilities.xml"]];
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"CompleteCapabilities" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+
+    Capabilities *capabilities = [self.parser parseXMLData:data];
     STAssertNotNil(capabilities, @"Valid XML should return capabilities object");
     
     STAssertNotNil(capabilities.supportedVersions, @"Given XML contains versions information");
@@ -74,7 +77,10 @@
 
 - (void)testVersionsOnlyCapabilitiesXML
 {
-    Capabilities *capabilities = [self.parser parseXMLData:[NSData dataWithContentsOfFile:@"APIVersionsOnlyCapabilities.xml"]];
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"APIVersionsOnlyCapabilities" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    Capabilities *capabilities = [self.parser parseXMLData:data];
     STAssertNotNil(capabilities, @"Valid XML should return capabilities object");
     STAssertNotNil(capabilities.supportedVersions, @"Given XML should contain versions information");
     STAssertEquals([capabilities.supportedVersions count], (NSUInteger)2, @"Given XML should contain 2 versions");
