@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ORDataCapturingNSURLConnectionDelegate.h"
 
-@interface PanelIdentityListResponseHandler_2_0_0 : NSObject
+@interface PanelIdentityListResponseHandler_2_0_0 : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
+
+// TODO: doc
+- (id)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 @end
