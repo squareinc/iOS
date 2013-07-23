@@ -49,6 +49,8 @@
 		91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933310179982630086FEE7 /* ORRuntimeUtils.m */; };
 		91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */; };
 		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
+		9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
+		9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 /* End PBXBuildFile section */
@@ -121,6 +123,8 @@
 		91933310179982630086FEE7 /* ORRuntimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtils.m; sourceTree = "<group>"; };
 		91933314179983FC0086FEE7 /* ORRuntimeUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRuntimeUtilsTest.h; sourceTree = "<group>"; };
 		91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtilsTest.m; sourceTree = "<group>"; };
+		91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelIdentityListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelIdentityListResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,8 @@
 			children = (
 				9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */,
 				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
+				91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */,
+				91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */,
 				9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
 				91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
+				9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +443,7 @@
 				9193330E179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
+				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

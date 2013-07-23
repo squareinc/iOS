@@ -20,42 +20,23 @@
  */
 
 #import "ControllerREST_2_0_0_API.h"
-
-#import "ORPanelsParser.h"
+#import "PanelIdentityListResponseHandler_2_0_0.h"
 
 @implementation ControllerREST_2_0_0_API
 
 - (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
+                       withSuccessHandler:(void (^)(NSArray *))successHandler
+                             errorHandler:(void (^)(NSError *))errorHandler
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:@"/rest/panels"]];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSLog(@"response %@", response);
-        NSLog(@"code %d", [((NSHTTPURLResponse *)response) statusCode]);
-        
-        ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
-        NSLog(@"data %@", [parser parsePanels]);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:@"/rest/panels"]];
 
-        
-        NSLog(@"error %@", error);
-        
-        /*
-         If protected resource : 
-         2013-07-16 15:05:44.191 ORControllerClientSample[7289:c07] error Error Domain=NSURLErrorDomain Code=-1012 "The operation couldn’t be completed. (NSURLErrorDomain error -1012.)" UserInfo=0x889bd20 {NSErrorFailingURLKey=http://localhost:8688/controller/rest/panels, NSErrorFailingURLStringKey=http://localhost:8688/controller/rest/panels, NSUnderlyingError=0x889aaf0 "The operation couldn’t be completed. (kCFErrorDomainCFNetwork error -1012.)"}
+    
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
 
-         see URL Loading System Error Codes in https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Constants/Reference/reference.html
-         */
-        
-        
-        // TODO: check on self signed https URL
-        
-    }];
-    
-    // TODO: check if this API can handle authentication, https, ... as we have currently in console
-    // If no, then keep  "old way", maybe encapsulate for blocks, ...
-    
-    // It seems that "the old way" has more flexibility in what we can control, use it for now
-    // -> migrate required components from iOS console to client library, add more tests and documentation and build on them
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    (void) [[NSURLConnection alloc] initWithRequest:request delegate:
+                                   [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:[[PanelIdentityListResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]]];
 }
 
 @end

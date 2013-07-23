@@ -35,6 +35,8 @@
 // TODO: how to specify URL -> param to all methods ...atBaseURL:(NSURL *)baseURL
 // how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors
-- (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL;
+- (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
+                       withSuccessHandler:(void (^)(NSArray *))successHandler
+                             errorHandler:(void (^)(NSError *))errorHandler;
 
 @end
