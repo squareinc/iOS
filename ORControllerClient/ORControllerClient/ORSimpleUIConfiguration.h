@@ -24,8 +24,8 @@
 @interface ORSimpleUIConfiguration : NSObject
 
 /**
- * Returns all the labels in this configuration, as last read from the controller.
+ * All the labels in this configuration, as last read from the controller.
  */
-- (NSSet *)allLabels;
+@property (nonatomic, strong) NSSet *labels;
 
 @end

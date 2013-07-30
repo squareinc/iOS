@@ -26,7 +26,7 @@
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
         [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
-            self.labels = [[configuration allLabels] allObjects];
+            self.labels = [configuration.labels allObjects];
             [self.tableView reloadData];
         } errorHandler:NULL];
     } errorHandler:NULL];

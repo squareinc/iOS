@@ -24,6 +24,7 @@
 
 @implementation ORSimpleUIConfiguration
 
+/*
 - (NSSet *)allLabels
 {
     // Must register the labels with the appropriate sensors so that text values are updated
@@ -36,5 +37,6 @@
     
     return [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]];
 }
+*/
 
 @end

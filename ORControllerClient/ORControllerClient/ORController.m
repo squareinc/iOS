@@ -23,6 +23,8 @@
 #import "ORControllerAddress.h"
 #import "ORSimpleUIConfiguration.h"
 
+#import "ORLabel.h"
+
 #import "ControllerREST_2_0_0_API.h"
 
 @interface ORController ()
@@ -95,8 +97,9 @@
         // Must register the labels with the appropriate sensors so that text values are updated
         // and in turn appropriate notifications are posted
 
-        
-        successHandler([[ORSimpleUIConfiguration alloc] init]);
+        ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
+        config.labels = [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]]; // TODO : real data
+        successHandler(config);
     }
 }
 
