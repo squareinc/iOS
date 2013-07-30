@@ -33,7 +33,7 @@
 
 @end
 
-@interface ORControllerPanelsFetcher : ORControllerSender <ControllerRequestDelegate>
+@interface ORControllerPanelsFetcher : ORControllerSender
 
 @property (nonatomic, assign) NSObject <ORControllerPanelsFetcherDelegate> *delegate;
 

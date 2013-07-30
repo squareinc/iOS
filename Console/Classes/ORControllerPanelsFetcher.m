@@ -25,11 +25,10 @@
 #import "ControllerException.h"
 #import "ORControllerConfig.h"
 
-#import "ORPanelsParser.h"
+#import "ControllerREST_2_0_0_API.h"
 
 @interface ORControllerPanelsFetcher ()
 
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
 @property (nonatomic, retain) ORControllerConfig *controller;
 
 @end
@@ -41,32 +40,35 @@
     return [self.controller hasCapabilities];
 }
 
+// Note: cancel is not possible anymore, is this important ? If yes, how can we re-implement
+
+
 - (void)send
 {
-    NSAssert(!self.controllerRequest, @"ORControllerPanelsFetcher can only be used to send a request once");
+    // TODO: there was a test to prevent re-use. Do we need to prevent that or is it now OK ?
+//    NSAssert(!self.controllerRequest, @"ORControllerPanelsFetcher can only be used to send a request once");
 
+    /*
     self.controllerRequest = [[[ControllerRequest alloc] initWithController:self.controller] autorelease];
     self.controllerRequest.delegate = self;
     [self.controllerRequest getRequestWithPath:[ServerDefinition controllerFetchPanelsPathForController:self.controller]];
+     */
+    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+    
+    [controllerAPI requestPanelIdentityListAtBaseURL:[NSURL URLWithString:self.controller.primaryURL]
+                                  withSuccessHandler:^(NSArray *panels) {
+                                      [self.delegate fetchPanelsDidSucceedWithPanels:[panels valueForKey:@"name"]];
+                                  }
+                                        errorHandler:^(NSError *error) {
+                                            if ([self.delegate respondsToSelector:@selector(fetchPanelsDidFailWithError:)]) {
+                                                [self.delegate fetchPanelsDidFailWithError:error];
+                                            }
+                                        }];
 }
 
 #pragma mark ControllerRequestDelegate implementation
 
-- (void)controllerRequestDidFinishLoading:(NSData *)data
-{
-    ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
-    NSArray *panels = [parser parsePanels];
-    [self.delegate fetchPanelsDidSucceedWithPanels:[panels valueForKey:@"name"]];
-    [parser release];
-}
-
-// optional TODO EBR is it required
-- (void)controllerRequestDidFailWithError:(NSError *)error
-{
-    if ([self.delegate respondsToSelector:@selector(fetchPanelsDidFailWithError:)]) {
-        [self.delegate fetchPanelsDidFailWithError:error];
-    }
-}
+// TODO: these 2 must be taken care of by new API
 
 - (void)controllerRequestDidReceiveResponse:(NSURLResponse *)response
 {
@@ -85,6 +87,5 @@
 
 @synthesize controller;
 @synthesize delegate;
-@synthesize controllerRequest;
 
 @end
