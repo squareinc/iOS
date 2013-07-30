@@ -127,7 +127,13 @@
 			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = landscapePaginationController;
-		[self setView:landscapePaginationController.view];
+        
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        // Resize view to fill screen in appropriate orientation
+        CGRect b = [UIScreen mainScreen].bounds;
+        self.view.frame = CGRectMake(0.0, 0.0, MAX(b.size.width, b.size.height), MIN(b.size.width, b.size.height));
+        [self.view addSubview:landscapePaginationController.view];
+
 
         // By setting view above, on 1st time, view bounds got reset to "portrait". Force it back to "landscape"
         self.view.bounds = [UIScreen or_fullFrameForInterfaceOrientation:UIInterfaceOrientationLandscapeLeft];
@@ -140,7 +146,13 @@
 			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = portraitPaginationController;
-		[self setView:portraitPaginationController.view];
+        
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        // Resize view to fill screen in appropriate orientation
+        CGRect b = [UIScreen mainScreen].bounds;
+        self.view.frame = CGRectMake(0.0, 0.0, MIN(b.size.width, b.size.height), MAX(b.size.width, b.size.height));
+        [self.view addSubview:portraitPaginationController.view];
+        
 		[[landscapePaginationController currentScreenViewController] stopPolling];
 		[[portraitPaginationController currentScreenViewController] startPolling];
 	}
