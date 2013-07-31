@@ -99,6 +99,9 @@
                                                                                 [orLabels addObject:[[ORLabel alloc] initWithText:label.text]];
                                                                             }
                                                                             config.labels = [NSSet setWithSet:orLabels];
+                                                                            
+                                                                            // TODO: while iterating collect the sensor ids and start the initial status request + polling loop
+                                                                            // TODO: when would the loop be stopped -> on disconnect at least
 
                                                                             successHandler(config);
 
