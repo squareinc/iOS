@@ -79,61 +79,47 @@
     return self.connected;
 }
 
-- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler
+                                       errorHandler:(void (^)(NSError *))errorHandler
 {
     ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
     
-    [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
-                                  withSuccessHandler:^(NSArray *panels) {
-                                      // Get full definition of 1st panel, if there's one
-                                      if ([panels count]) {
-                                          [controllerAPI requestPanelLayoutWithLogicalName:((ORPanel *)[panels objectAtIndex:0]).name
-                                                                                 atBaseURL:self.address.primaryURL
-                                                                        withSuccessHandler:^(Definition *panelDefinition) {
-                                                                            ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
-                                                                            
-                                                                            // In this version, transorm all legacy Label objects to ORLabel
-                                                                            // In the future, parsing should directly produce ORLabel instances
-                                                                            NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.labels count]];
-                                                                            for (Label *label in panelDefinition.labels) {
-                                                                                [orLabels addObject:[[ORLabel alloc] initWithText:label.text]];
-                                                                            }
-                                                                            config.labels = [NSSet setWithSet:orLabels];
-                                                                            
-                                                                            // TODO: while iterating collect the sensor ids and start the initial status request + polling loop
-                                                                            // TODO: when would the loop be stopped -> on disconnect at least
-
-                                                                            successHandler(config);
-
-                                                                        }
-                                                                              errorHandler:^(NSError *error) {
-                                                                                  // TODO: encapsulate error ?
-                                                                                  errorHandler(error);
-                                                                              }];
-                                      } else {
-                                          if (successHandler) {
-                                              successHandler([[ORSimpleUIConfiguration alloc] init]);
-                                          }
-                                      }
+    [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL withSuccessHandler:^(NSArray *panels) {
+        // Get full definition of 1st panel, if there's one
+        if ([panels count]) {
+            [controllerAPI requestPanelLayoutWithLogicalName:((ORPanel *)[panels objectAtIndex:0]).name atBaseURL:self.address.primaryURL
+                              withSuccessHandler:^(Definition *panelDefinition) {
+                                  ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
+                                  
+                                  // In this version, transorm all legacy Label objects to ORLabel
+                                  // In the future, parsing should directly produce ORLabel instances
+                                  NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.labels count]];
+                                  for (Label *label in panelDefinition.labels) {
+                                      [orLabels addObject:[[ORLabel alloc] initWithText:label.text]];
                                   }
-                                        errorHandler:^(NSError *error) {
-                                            // TODO: encapsulate error ?
-                                            errorHandler(error);
-                                        }];
-    
-
-    /* Mock implementation
-    if (successHandler) {
-        // Must register the labels with the appropriate sensors so that text values are updated
-        // and in turn appropriate notifications are posted
-
-        ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
-        config.labels = [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]]; // TODO : real data
-        successHandler(config);
+                                  config.labels = [NSSet setWithSet:orLabels];
+                                  
+                                  // TODO: while iterating collect the sensor ids and start the initial status request + polling loop
+                                  // TODO: when would the loop be stopped -> on disconnect at least
+                                  
+                                  successHandler(config);
+                                  
+                              }
+                                    errorHandler:^(NSError *error) {
+                                        // TODO: encapsulate error ?
+                                        errorHandler(error);
+                                    }];
+        } else {
+            if (successHandler) {
+                successHandler([[ORSimpleUIConfiguration alloc] init]);
+            }
+        }
     }
-     */
+    errorHandler:^(NSError *error) {
+        // TODO: encapsulate error ?
+        errorHandler(error);
+    }];
 }
-
 
 #pragma mark - Advanced iOS console only features
 
