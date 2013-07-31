@@ -23,6 +23,10 @@
 #import "ORControllerAddress.h"
 #import "ORSimpleUIConfiguration.h"
 
+#import "ORPanel.h"
+#import "Definition.h"
+#import "Label.h"
+
 #import "ORLabel.h"
 
 #import "ControllerREST_2_0_0_API.h"
@@ -77,14 +81,37 @@
 
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
-    /*
     ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
     
     [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(NSArray *panels) {
-                                      
                                       // Get full definition of 1st panel, if there's one
-                                      
+                                      if ([panels count]) {
+                                          [controllerAPI requestPanelLayoutWithLogicalName:((ORPanel *)[panels objectAtIndex:0]).name
+                                                                                 atBaseURL:self.address.primaryURL
+                                                                        withSuccessHandler:^(Definition *panelDefinition) {
+                                                                            ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
+                                                                            
+                                                                            // In this version, transorm all legacy Label objects to ORLabel
+                                                                            // In the future, parsing should directly produce ORLabel instances
+                                                                            NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.labels count]];
+                                                                            for (Label *label in panelDefinition.labels) {
+                                                                                [orLabels addObject:[[ORLabel alloc] initWithText:label.text]];
+                                                                            }
+                                                                            config.labels = [NSSet setWithSet:orLabels];
+
+                                                                            successHandler(config);
+
+                                                                        }
+                                                                              errorHandler:^(NSError *error) {
+                                                                                  // TODO: encapsulate error ?
+                                                                                  errorHandler(error);
+                                                                              }];
+                                      } else {
+                                          if (successHandler) {
+                                              successHandler([[ORSimpleUIConfiguration alloc] init]);
+                                          }
+                                      }
                                   }
                                         errorHandler:^(NSError *error) {
                                             // TODO: encapsulate error ?
@@ -92,7 +119,7 @@
                                         }];
     
 
-    */
+    /* Mock implementation
     if (successHandler) {
         // Must register the labels with the appropriate sensors so that text values are updated
         // and in turn appropriate notifications are posted
@@ -101,6 +128,7 @@
         config.labels = [NSSet setWithArray:@[[[ORLabel alloc] initWithText:@"Test label 1"]]]; // TODO : real data
         successHandler(config);
     }
+     */
 }
 
 
