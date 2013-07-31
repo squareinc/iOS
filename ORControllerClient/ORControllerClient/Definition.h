@@ -67,13 +67,20 @@
 - (void) addLabel:(Label *)label;
 
 /**
- * Get a label instance with lable id.
+ * Get a label instance with label id.
  */
 - (Label *)findLabelById:(int)labelId;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;
-@property (nonatomic, strong) NSMutableArray *labels;
+
+/**
+ * All the labels in this panel configuration
+ *
+ * Implementation note: this is currently filled in by parser during parsing
+ */
+@property (nonatomic, strong, readonly) NSMutableArray *labels;
+
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;
 @property (nonatomic, strong, readonly) NSMutableArray *imageNames;

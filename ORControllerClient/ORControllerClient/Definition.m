@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong, readwrite) NSMutableArray *groups;
 @property (nonatomic, strong, readwrite) NSMutableArray *screens;
+@property (nonatomic, strong, readwrite) NSMutableArray *labels;
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
 @end
