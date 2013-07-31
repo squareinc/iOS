@@ -20,7 +20,6 @@
  */
 
 #import "ORSimpleUIConfiguration.h"
-#import "ORLabel.h"
 
 @implementation ORSimpleUIConfiguration
 
