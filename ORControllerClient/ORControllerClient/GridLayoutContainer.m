@@ -67,6 +67,15 @@
 	return ids;
 }
 
+- (NSSet *)components
+{
+    NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];
+	for (GridCell *cell in self.cells) {
+        [components addObject:cell.component];
+    }
+    return [NSSet setWithSet:components];
+}
+
 @synthesize cells, rows, cols;
 @synthesize left,top,width,height;
 

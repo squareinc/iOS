@@ -27,6 +27,12 @@
 	return nil;
 }
 
+- (NSSet *)components
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
+}
+
 @synthesize left, top, width, height;
 
 @end

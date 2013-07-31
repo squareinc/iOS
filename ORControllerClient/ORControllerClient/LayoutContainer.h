@@ -37,4 +37,9 @@
  */
 - (NSArray *)pollingComponentsIds;
 
+/**
+ * Returns all the components (widgets) this layout contains.
+ */
+- (NSSet *)components;
+
 @end

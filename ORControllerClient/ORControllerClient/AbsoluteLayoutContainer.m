@@ -61,6 +61,11 @@
 	return ids;
 }
 
+- (NSSet *)components
+{
+    return [NSSet setWithObject:self.component];
+}
+
 @synthesize component;
 @synthesize left, top, width, height;
 
