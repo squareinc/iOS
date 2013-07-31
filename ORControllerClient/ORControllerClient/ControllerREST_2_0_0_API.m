@@ -22,6 +22,7 @@
 #import "ControllerREST_2_0_0_API.h"
 #import "PanelIdentityListResponseHandler_2_0_0.h"
 #import "PanelLayoutResponseHandler_2_0_0.h"
+#import "SensorValuesResponseHandler_2_0_0.h"
 
 @implementation ControllerREST_2_0_0_API
 
@@ -59,6 +60,31 @@
     (void) [[NSURLConnection alloc] initWithRequest:request delegate:
             [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:[[PanelLayoutResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]]];
 
+}
+
+- (void)statusForSensors:(NSArray *)sensorIds
+               atBaseURL:(NSURL *)baseURL
+      withSuccessHandler:(void (^)(NSDictionary *))successHandler
+            errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[baseURL URLByAppendingPathComponent:@"/rest/status/"]
+                                                                        URLByAppendingPathComponent:[sensorIds componentsJoinedByString:@","]]];
+    
+    (void) [[NSURLConnection alloc] initWithRequest:request delegate:
+            [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]]];
+}
+
+- (void)pollSensors:(NSArray *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+          atBaseURL:(NSURL *)baseURL
+ withSuccessHandler:(void (^)(NSDictionary *))successHandler
+       errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[[baseURL URLByAppendingPathComponent:@"/rest/polling/"]
+                                                                        URLByAppendingPathComponent:deviceIdentifier]
+                                                                        URLByAppendingPathComponent:[sensorIds componentsJoinedByString:@","]]];
+
+    (void) [[NSURLConnection alloc] initWithRequest:request delegate:
+            [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]]];
 }
 
 @end
