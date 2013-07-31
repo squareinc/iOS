@@ -24,6 +24,8 @@
 @class ORControllerAddress;
 @class ORSimpleUIConfiguration;
 
+@class Definition;
+
 /**
  * Represents an OpenRemote ORB
  */
@@ -83,7 +85,7 @@
  * @param successHandler
  * @param errorHandler
  */
-- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 
 

@@ -150,10 +150,22 @@
                                         }];
 }
 
-- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler
+- (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
-    // TODO: should return some form of configuration, maybe for now Definition, from Console project (migrate here)
-   
+    
+    // TODO: this might be where the caching and resource fetching can take place ?
+    
+    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+    
+    [controllerAPI requestPanelLayoutWithLogicalName:panelName
+                                           atBaseURL:self.address.primaryURL
+                                  withSuccessHandler:^(Definition *panelDefinition) {
+                                      successHandler(panelDefinition);
+                                  }
+                                        errorHandler:^(NSError *error) {
+                                            // TODO: encapsulate error ?
+                                            errorHandler(error);
+                                        }];
 }
 
 @end
