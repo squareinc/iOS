@@ -34,7 +34,7 @@
     [orb connectWithSuccessHandler:^{
         STAssertTrue([orb isConnected], @"ORB should now be connected");
         [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
-            NSSet *labels = [configuration allLabels];
+            NSSet *labels = [configuration labels];
             STAssertNotNil(labels, @"ORB should return a collection of labels");
             STAssertEquals([labels count], (NSUInteger)1, @"ORB should return one label in collection");
             STAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
