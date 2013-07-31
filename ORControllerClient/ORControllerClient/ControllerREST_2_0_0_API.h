@@ -21,6 +21,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Definition;
+
 /**
  * Encapsulates the REST API for a specific version.
  * Will always connect to the provided URL, does not know anything about group members.
@@ -32,11 +34,15 @@
 @interface ControllerREST_2_0_0_API : NSObject
 
 
-// TODO: how to specify URL -> param to all methods ...atBaseURL:(NSURL *)baseURL
-// how to specify credentials -> inject an authentication manager, has to authenticate request before sending
+// TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors
 - (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
                        withSuccessHandler:(void (^)(NSArray *))successHandler
+                             errorHandler:(void (^)(NSError *))errorHandler;
+
+- (void)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
+                                atBaseURL:(NSURL *)baseURL
+                       withSuccessHandler:(void (^)(Definition *))successHandler
                              errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

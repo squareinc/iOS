@@ -151,6 +151,8 @@
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
+		91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
+		91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -388,6 +390,8 @@
 		919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
 		919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
+		91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelLayoutResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelLayoutResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +553,8 @@
 				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
 				91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */,
 				91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */,
+				91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */,
+				91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -920,6 +926,7 @@
 				9193340E179EA2DE0086FEE7 /* ControllerButtonParser.m in Sources */,
 				9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */,
 				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
+				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +942,7 @@
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
+				91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,7 +992,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1007,7 +1015,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1020,6 +1028,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
@@ -1034,6 +1043,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
