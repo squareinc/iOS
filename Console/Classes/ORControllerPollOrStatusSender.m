@@ -21,9 +21,10 @@
 #import "ORControllerPollOrStatusSender.h"
 #import "ServerDefinition.h"
 #import "Definition.h"
-#import "PollingStatusParserDelegate.h"
 #import "ORControllerConfig.h"
 #import "ControllerException.h"
+#import "StatusValuesParser_2_0_0.h"
+#import "SensorStatusCache.h"
 
 @interface ORControllerPollOrStatusSender()
 
@@ -86,16 +87,15 @@
 
 - (void)controllerRequestDidFinishLoading:(NSData *)data
 {
-	NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	
-	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
-	PollingStatusParserDelegate *parserDelegate = [[PollingStatusParserDelegate alloc] initWithSensorStatusCache:self.controller.sensorStatusCache];
-	[xmlParser setDelegate:parserDelegate];
-	[xmlParser parse];
-	
-	[xmlParser release];
-	[result release];
-	[parserDelegate release];
+    StatusValuesParser_2_0_0 *parser = [[StatusValuesParser_2_0_0 alloc] initWithData:data];
+    NSDictionary *values = [parser parseValues];
+    
+    [values enumerateKeysAndObjectsUsingBlock:^(id sensorId, id sensorValue, BOOL *stop) {
+        if (![@"" isEqualToString:sensorValue]) {
+            NSLog(@"change %@ to %@  !!!", sensorId, sensorValue);
+            [self.controller.sensorStatusCache publishNewValue:sensorValue forSensorId:[sensorId intValue]];
+        }
+    }];
 }
 
 - (void)controllerRequestDidReceiveResponse:(NSURLResponse *)response

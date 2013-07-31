@@ -29,7 +29,6 @@
 		602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418E4156FAC6D004E5860 /* UITableViewHelper.m */; };
 		602418EB156FAD40004E5860 /* UITableViewHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418EA156FAD40004E5860 /* UITableViewHelperTest.m */; };
 		6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
-		6026CD8E138BE4E60062477F /* PollingStatusParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C65FDF41096F33C006FC19F /* PollingStatusParserDelegate.m */; };
 		6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */; };
 		60366B6B144DCB9C004FED3B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */; };
 		60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CFDB2760FBBBF4500D204CB /* appSettings.plist */; };
@@ -87,7 +86,6 @@
 		60366BA4144DCB9C004FED3B /* CheckNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F2B109562D200C7A686 /* CheckNetwork.m */; };
 		60366BA5144DCB9C004FED3B /* NotificationConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F3F109563E100C7A686 /* NotificationConstant.m */; };
 		60366BA6144DCB9C004FED3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F5B109564D000C7A686 /* AppDelegate.m */; };
-		60366BA7144DCB9C004FED3B /* PollingStatusParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C65FDF41096F33C006FC19F /* PollingStatusParserDelegate.m */; };
 		60366BA8144DCB9C004FED3B /* PollingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6502E1109809EC006FC19F /* PollingHelper.m */; };
 		60366BA9144DCB9C004FED3B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEB81A10A6B25B0051C827 /* LoginViewController.m */; };
 		60366BAA144DCB9C004FED3B /* LogoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB4E7E10B2827200A67721 /* LogoutHelper.m */; };
@@ -562,8 +560,6 @@
 		8C5796F5116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = panel_relative_screen_backgroundimage.xml; path = Test/fixture/xml/panel_relative_screen_backgroundimage.xml; sourceTree = "<group>"; };
 		8C6502E0109809EC006FC19F /* PollingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollingHelper.h; sourceTree = "<group>"; };
 		8C6502E1109809EC006FC19F /* PollingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PollingHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8C65FDF31096F33C006FC19F /* PollingStatusParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollingStatusParserDelegate.h; sourceTree = "<group>"; };
-		8C65FDF41096F33C006FC19F /* PollingStatusParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollingStatusParserDelegate.m; sourceTree = "<group>"; };
 		8C6682470F53FFF5007C45D4 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		8C6682480F53FFF5007C45D4 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		8C72E7140F541FAB006CC0DF /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
@@ -1090,8 +1086,6 @@
 		8CC6364210BD35E2009C25C9 /* delegate */ = {
 			isa = PBXGroup;
 			children = (
-				8C65FDF31096F33C006FC19F /* PollingStatusParserDelegate.h */,
-				8C65FDF41096F33C006FC19F /* PollingStatusParserDelegate.m */,
 			);
 			name = delegate;
 			sourceTree = "<group>";
@@ -1474,7 +1468,6 @@
 				60366BA4144DCB9C004FED3B /* CheckNetwork.m in Sources */,
 				60366BA5144DCB9C004FED3B /* NotificationConstant.m in Sources */,
 				60366BA6144DCB9C004FED3B /* AppDelegate.m in Sources */,
-				60366BA7144DCB9C004FED3B /* PollingStatusParserDelegate.m in Sources */,
 				60366BA8144DCB9C004FED3B /* PollingHelper.m in Sources */,
 				60366BA9144DCB9C004FED3B /* LoginViewController.m in Sources */,
 				60366BAA144DCB9C004FED3B /* LogoutHelper.m in Sources */,
@@ -1570,7 +1563,6 @@
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
 				6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */,
 				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
-				6026CD8E138BE4E60062477F /* PollingStatusParserDelegate.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
 				6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */,
 				6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */,

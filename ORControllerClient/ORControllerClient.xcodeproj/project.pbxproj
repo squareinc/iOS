@@ -157,6 +157,7 @@
 		91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */; };
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
+		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */,
 				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */,
 				91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */,
 				91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */,
