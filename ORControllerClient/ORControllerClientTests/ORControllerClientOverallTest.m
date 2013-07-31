@@ -25,11 +25,15 @@
 #import "ORSimpleUIConfiguration.h"
 #import "ORLabel.h"
 
+#import "ORBMockURLProtocol.h"
+
 @implementation ORControllerClientOverallTest
 
 - (void)testLabels
 {
-    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"http://localhost:8688/controller"]];
+    [NSURLProtocol registerClass:[ORBMockURLProtocol class]];
+    
+    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"orbmock://controller"]];
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
         STAssertTrue([orb isConnected], @"ORB should now be connected");
@@ -39,8 +43,12 @@
             STAssertEquals([labels count], (NSUInteger)1, @"ORB should return one label in collection");
             STAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
             STAssertEqualObjects(((ORLabel *)[labels anyObject]).text, @"Test label 1", @"Text of label should be 'Test label 1'");
-        } errorHandler:NULL];
-    } errorHandler:NULL];
+        } errorHandler:^(NSError *error) {
+            STFail(@"Test failed with error %@", error);
+        }];
+    } errorHandler:^(NSError *error) {
+        STFail(@"Test failed with error %@", error);
+    }];
 }
 
 @end

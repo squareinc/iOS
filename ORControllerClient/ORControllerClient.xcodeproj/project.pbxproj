@@ -153,6 +153,7 @@
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 		91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
+		91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E117A9301900FE9E83 /* ORBMockURLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,6 +393,8 @@
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
 		91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelLayoutResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelLayoutResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		91E794E017A9301900FE9E83 /* ORBMockURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBMockURLProtocol.h; sourceTree = "<group>"; };
+		91E794E117A9301900FE9E83 /* ORBMockURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORBMockURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +526,7 @@
 		9190D4BE1790140A00667A7C /* ORControllerClientTests */ = {
 			isa = PBXGroup;
 			children = (
+				91E794D917A9152E00FE9E83 /* Mocks */,
 				91933313179983E80086FEE7 /* Utility */,
 				9190D4BF1790140A00667A7C /* Supporting Files */,
 				918604BC1794480B005DBCD9 /* Parsers */,
@@ -736,6 +740,15 @@
 			path = ../../Console/Classes;
 			sourceTree = "<group>";
 		};
+		91E794D917A9152E00FE9E83 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				91E794E017A9301900FE9E83 /* ORBMockURLProtocol.h */,
+				91E794E117A9301900FE9E83 /* ORBMockURLProtocol.m */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -943,6 +956,7 @@
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
+				91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
