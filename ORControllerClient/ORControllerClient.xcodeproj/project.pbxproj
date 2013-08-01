@@ -158,6 +158,9 @@
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
+		91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
+		91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
+		91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -404,6 +407,10 @@
 		91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorValuesResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0.h; sourceTree = "<group>"; };
 		91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0.m; sourceTree = "<group>"; };
+		91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistry.h; sourceTree = "<group>"; };
+		91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
+		91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistryTest.h; sourceTree = "<group>"; };
+		91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistryTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +528,8 @@
 				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
 				9190D4D21790161900667A7C /* ORController.h */,
 				9190D4D31790161900667A7C /* ORController.m */,
+				91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */,
+				91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */,
 				9190D4AA1790140A00667A7C /* Supporting Files */,
 			);
 			path = ORControllerClient;
@@ -547,6 +556,8 @@
 				910B750417940D10005F41CF /* ORControllerTest.m */,
 				910B750017940962005F41CF /* ORControllerClientOverallTest.h */,
 				910B750117940962005F41CF /* ORControllerClientOverallTest.m */,
+				91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */,
+				91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */,
 			);
 			path = ORControllerClientTests;
 			sourceTree = "<group>";
@@ -955,6 +966,7 @@
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
 				91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
+				91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,6 +985,8 @@
 				91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */,
 				91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
+				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
+				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
