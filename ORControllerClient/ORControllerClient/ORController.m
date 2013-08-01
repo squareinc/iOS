@@ -106,8 +106,10 @@
                                   
                               }
                                     errorHandler:^(NSError *error) {
-                                        // TODO: encapsulate error ?
-                                        errorHandler(error);
+                                        if (errorHandler) {
+                                            // TODO: encapsulate error ?
+                                            errorHandler(error);
+                                        }
                                     }];
         } else {
             if (successHandler) {
@@ -116,8 +118,10 @@
         }
     }
     errorHandler:^(NSError *error) {
-        // TODO: encapsulate error ?
-        errorHandler(error);
+        if (errorHandler) {
+            // TODO: encapsulate error ?
+            errorHandler(error);
+        }
     }];
 }
 
@@ -134,8 +138,10 @@
                                       successHandler(panels);
                                   }
                                         errorHandler:^(NSError *error) {
-                                            // TODO: encapsulate error ?
-                                            errorHandler(error);
+                                            if (errorHandler) {
+                                                // TODO: encapsulate error ?
+                                                errorHandler(error);
+                                            }
                                         }];
 }
 
@@ -152,8 +158,10 @@
                                       successHandler(panelDefinition);
                                   }
                                         errorHandler:^(NSError *error) {
-                                            // TODO: encapsulate error ?
-                                            errorHandler(error);
+                                            if (errorHandler) {
+                                                // TODO: encapsulate error ?
+                                                errorHandler(error);
+                                            }
                                         }];
 }
 
