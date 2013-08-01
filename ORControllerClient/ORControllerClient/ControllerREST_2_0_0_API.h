@@ -45,12 +45,12 @@
                        withSuccessHandler:(void (^)(Definition *))successHandler
                              errorHandler:(void (^)(NSError *))errorHandler;
 
-- (void)statusForSensors:(NSArray *)sensorIds
+- (void)statusForSensorIds:(NSSet *)sensorIds
                atBaseURL:(NSURL *)baseURL
       withSuccessHandler:(void (^)(NSDictionary *))successHandler
             errorHandler:(void (^)(NSError *))errorHandler;
 
-- (void)pollSensors:(NSArray *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+- (void)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
           atBaseURL:(NSURL *)baseURL
  withSuccessHandler:(void (^)(NSDictionary *))successHandler
        errorHandler:(void (^)(NSError *))errorHandler;
