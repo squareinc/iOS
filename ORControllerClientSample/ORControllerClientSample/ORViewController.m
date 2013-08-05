@@ -27,10 +27,27 @@
     [orb connectWithSuccessHandler:^{
         [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
             self.labels = [configuration.labels allObjects];
+            // Register on all model objects to observe any change on their value
+            [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [obj addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
+            }];
             [self.tableView reloadData];
         } errorHandler:NULL];
     } errorHandler:NULL];
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    // If we did register previously to observe on model objects, un-register
+    if (self.labels) {
+        [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [obj removeObserver:self];
+        }];
+    }
+    self.labels = nil;
 }
 
 - (id)init
@@ -58,6 +75,11 @@
     }
     cell.textLabel.text = ((ORLabel *)[self.labels objectAtIndex:indexPath.row]).text;
     return cell;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.tableView reloadData];
 }
 
 @end
