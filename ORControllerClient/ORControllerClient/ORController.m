@@ -22,7 +22,7 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 #import "ORSimpleUIConfiguration.h"
-
+#import "ORSensorRegistry.h"
 #import "ORPanel.h"
 #import "Definition.h"
 #import "Label.h"
@@ -35,6 +35,8 @@
 
 @property (strong, nonatomic) ORControllerAddress *address;
 @property (nonatomic) BOOL connected;
+
+@property (nonatomic, strong) ORSensorRegistry *sensorRegistry;
 
 @end
 
@@ -49,6 +51,7 @@
         } else {
             return nil;
         }
+        self.sensorRegistry = [[ORSensorRegistry alloc] init];
     }
     return self;
 }
@@ -82,6 +85,10 @@
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler
                                        errorHandler:(void (^)(NSError *))errorHandler
 {
+    
+    // TODO: if we already had a configuration and sensor polling going, we need to stop it
+    // Maybe wait to have received new configuration before doing it ?
+    
     ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
     
     [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL withSuccessHandler:^(NSArray *panels) {
@@ -90,16 +97,84 @@
             [controllerAPI requestPanelLayoutWithLogicalName:((ORPanel *)[panels objectAtIndex:0]).name atBaseURL:self.address.primaryURL
                               withSuccessHandler:^(Definition *panelDefinition) {
                                   ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
-                                  
                                   // In this version, transorm all legacy Label objects to ORLabel
                                   // In the future, parsing should directly produce ORLabel instances
                                   NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.labels count]];
+                                  [self.sensorRegistry clearRegistry];
                                   for (Label *label in panelDefinition.labels) {
-                                      [orLabels addObject:[[ORLabel alloc] initWithText:label.text]];
+                                      ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
+                                      [orLabels addObject:orLabel];
+                                      
+                                      if (label.sensor) {
+                                          [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel];
+                                      }
                                   }
                                   config.labels = [NSSet setWithSet:orLabels];
                                   
-                                  // TODO: while iterating collect the sensor ids and start the initial status request + polling loop
+                                  [controllerAPI statusForSensorIds:[self.sensorRegistry sensorIds]
+                                                          atBaseURL:self.address.primaryURL
+                                                 withSuccessHandler:^(NSDictionary *sensorValues) {
+                                                     // Update text of labels
+                                                     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
+                                                         NSSet *components = [self.sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
+                                                         [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
+                                                             [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
+                                                         }];
+                                                     }];
+                                                     
+                                                     __block void (^sensorPollingBlock)() = ^{
+                                                         [controllerAPI pollSensorIds:[self.sensorRegistry sensorIds]
+                                                             fromDeviceWithIdentifier:@"TODO"
+                                                                            atBaseURL:self.address.primaryURL
+                                                                   withSuccessHandler:^(NSDictionary *sensorValues) {
+                                                                       
+                                                                       [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
+                                                                           NSSet *components = [self.sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
+                                                                           [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
+                                                                               [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
+                                                                           }];
+                                                                       }];
+                                                                       
+                                                                       NSLog(@"poll got values");
+                                                                       
+                                                                       // TODO: fix the memory management issue
+                                                                       
+                                                                       sensorPollingBlock();
+                                                                   } errorHandler:^(NSError *error) {
+                                                                       
+                                                                       NSLog(@"poll error %@", error);
+                                                                       
+                                                                       // TODO: if timeout, should call same block
+                                                                       
+                                                                       if (errorHandler) {
+                                                                           // TODO: encapsulate error ?
+                                                                           errorHandler(error);
+                                                                       }
+                                                                   }];
+
+                                                     };
+                                                     
+                                                     sensorPollingBlock();
+                                                     
+                                                     // TODO: should also start the polling
+                                                     
+                                                     
+                                                     
+                                                     
+                                                     
+                                                     
+                                                     
+                                                     
+                                                     
+                                               }
+                                                       errorHandler:^(NSError *error) {
+                                                         if (errorHandler) {
+                                                             // TODO: encapsulate error ?
+                                                             errorHandler(error);
+                                                         }
+                                                     }];
+                                  
+                                  // TODO: start the initial status request + polling loop
                                   // TODO: when would the loop be stopped -> on disconnect at least
                                   
                                   successHandler(config);
