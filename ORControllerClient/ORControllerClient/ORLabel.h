@@ -26,6 +26,10 @@
  */
 extern NSString const *kORLabelTextValueChanged;
 
+// TODO: In current sample application, we're using KVO for this purpose
+// Would adding this notification provide any value ? Simpler code ?
+// Using central notification center to register/unregister might be simpler for our clients.
+
 /**
  * Model object representing a Label element in the OR UI model domain.
  *
