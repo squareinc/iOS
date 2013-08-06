@@ -85,6 +85,8 @@
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler
                                        errorHandler:(void (^)(NSError *))errorHandler
 {
+    // TODO: what if not connected, how to handle that: either report as an error or try to connect
+    // but define it, document it and test/handle as appropriate in this implementation
     
     // TODO: if we already had a configuration and sensor polling going, we need to stop it
     // Maybe wait to have received new configuration before doing it ?
