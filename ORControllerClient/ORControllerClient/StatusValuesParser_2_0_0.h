@@ -21,6 +21,12 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Parses XML returned by "Sensor Status Request" or "Sensor Polling Request" REST API v 2.0.0
+ *
+ * @see http://openremote.org/display/docs/Controller+2.0+HTTP-REST-XML#Controller2.0HTTP-REST-XML-SensorStatusRequest
+ * and http://openremote.org/display/docs/Controller+2.0+HTTP-REST-XML#Controller2.0HTTP-REST-XML-SensorPollingRequest
+ */
 @interface StatusValuesParser_2_0_0 : NSObject <NSXMLParserDelegate>
 
 /**
@@ -34,7 +40,7 @@
 
 /**
  * Parses the sensor values data and returns it.
- * Values are returned in a dictionary, key is sensorId.
+ * Values are returned in a dictionary, key is sensorId (as an NSString *).
  *
  * @return A dictionary with sensor values
  */

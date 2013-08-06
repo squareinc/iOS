@@ -22,9 +22,21 @@
 #import <Foundation/Foundation.h>
 #import "ORDataCapturingNSURLConnectionDelegate.h"
 
+/**
+ * Class in charge of handling the response (and error) of the REST call to retrieve panel identity list.
+ * This applies for REST API v2.0.0
+ */
 @interface PanelIdentityListResponseHandler_2_0_0 : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
 
-// TODO: doc
+/**
+ * Initializes the response handler with the provided blocks for success and error handling.
+ * 
+ * @param successHandler A block object to be executed once call has successfully returned and the response data has been parsed.
+ * This block has no return value and takes a single NSArray * argument with all the panel identities.
+ * The elements of the array are ORPanel instances.
+ * @param errorHandler A block object to be executed if call failed or response data can not be processed.
+ * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ */
 - (id)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 @end
