@@ -48,12 +48,14 @@
 
 
 /**
- * Tries to establish connection to the controller.
+ * Establishes connection to the controller.
  * Reports success/error through provided handlers.
  * successHandler is garanteed to be called after the connection has been established.
  *
- * @param successHandler
- * @param errorHandler
+ * @param successHandler A block object to be executed once connection to the controller has been established.
+ * This block has no return value and does not take any parameter.
+ * @param errorHandler A block object to be executed if connection to the controller fails.
+ * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
  */
 - (void)connectWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
@@ -61,26 +63,54 @@
 // TODO: what about connection gets closed just after it is opened ?
 
 /**
+ * Closes the connection to the controller.
+ * After calling this method, properties of the data model will not be updated anymore (e.g. when linked to a sensor).
+ *
+ * If the connection was not established, this method does nothing.
  */
 - (void)disconnect;
 
 /**
+ * Returns a Boolean value indicating whether a connection is currently established to the controller.
  *
- * @return
+ * @return YES if a connection is currently established to the controller; otherwise, NO.
  */
 - (BOOL)isConnected;
 
+/**
+ * Reads the configuration from the controller and provides it in a simplified format.
+ * This format does not provide all information about the detailed panels layout but only simple lists of key UI widgets.
+ * After this call, the properties of the returned data model will be updated based on controller feedback,
+ * for as long as connection to the controller stays open.
+ * 
+ * Also important to note is that a controller can contain the configuration for multiple panels.
+ * This call only provides access to the configuration of the first panel.
+ *
+ * @param successHandler A block object to be executed once the controller configuration has been succesfully read.
+ * This block has no return value and takes a single ORSimpleUIConfiguration * argument representing the controller configuration.
+ * @param errorHandler A block object to be executed if the controller configuration cannot be retrieved.
+ * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ */
 - (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
-
 
 
 
 // Below are more advanced features, required for iOS Console
 
+/**
+ * Requests the list of panel identities in the configuration of this controller.
+ *
+ * @param successHandler A block object to be executed once the controller configuration has been succesfully read.
+ * This block has no return value and takes a single NSArray * argument with all the panel identities.
+ * The elements of the array are ORPanel instances.
+ * @param errorHandler A block object to be executed if the controller configuration cannot be retrieved.
+ * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ */
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
- * First connects to the controller if it's not yet the case.
+ * First connects to the controller if it's not yet the case. ???
+ * TODO
  *
  * @param successHandler
  * @param errorHandler
@@ -89,28 +119,9 @@
 
 
 
-// How about having an FixedUIController that provides higher granularity methods to perform actions required by the project.
-// This class can provide finer grained methods to make it compatible with current iOS console.
-// e.g. getAllLabels would iterate currently loaded panel for all labels
-// readControllerConfiguration would load the list of panels, then read the first panel in the list
-
-// Or have a category for us to provide access to those methods
-
 
 // TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
 // Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???
-
-
-/**
- * Returns all the labels known to this controller.
- * If no configuration has been read for this controller, raises an exception.
+// TODO: how is caching implemented, how will this impact this method
  
- // TODO: how is caching implemented, how will this impact this method
- 
- *
- * Given the current REST API with controller, it only returns the labels from the 1st panel
- * (but from all screens in all groups).
- */
-//- (NSSet *)allLabels;
-
 @end
