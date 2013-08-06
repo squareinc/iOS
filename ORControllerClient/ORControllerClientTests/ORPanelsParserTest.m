@@ -34,6 +34,7 @@
     NSArray *panels = [parser parsePanels];
     
     STAssertNotNil(panels, @"Should provide list of panels when passed in valid data");
+    STAssertTrue([panels isKindOfClass:[NSArray class]], @"Parsing result should be an NSArray");
     STAssertEquals([panels count], (NSUInteger)3, @"Fixture declares 3 panels");
     for (ORPanel *panel in panels) {
         STAssertTrue([panel isKindOfClass:[ORPanel class]], @"Elements of the returned array should be ORPanel objects");

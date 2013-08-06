@@ -28,8 +28,12 @@
 
 /**
  * Validates that, for a valid XML input, parsing does succeed.
+ * Data file used is RequestPanelIdentityListValidResponse.xml, that is a copy from the one used as documentation in the Wiki at
+ * http://openremote.org/display/docs/Controller+2.0+HTTP-REST-XML#Controller2.0HTTP-REST-XML-RequestPanelIdentityList
+ *
  * Validates that:
- * - it does return a list
+ * - it does return a list as an NSArray
+ * - the list contains the correct number of panels
  * - the list does contain only ORPanel instances (or subclasses)
  * - the name of each panel is as expected and in the same order as in the XML input
  */
