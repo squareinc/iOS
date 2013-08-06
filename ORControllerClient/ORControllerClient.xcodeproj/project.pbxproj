@@ -151,6 +151,8 @@
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
+		91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */; };
+		91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */; };
 		91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 		91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 		91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E117A9301900FE9E83 /* ORBMockURLProtocol.m */; };
@@ -399,6 +401,9 @@
 		919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
 		919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
+		91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0Test.h; sourceTree = "<group>"; };
+		91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0Test.m; sourceTree = "<group>"; };
+		91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SensorValuesValidResponse_2_0_0.xml; sourceTree = "<group>"; };
 		91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelLayoutResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelLayoutResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		91E794E017A9301900FE9E83 /* ORBMockURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBMockURLProtocol.h; sourceTree = "<group>"; };
@@ -474,6 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				918604BD17944816005DBCD9 /* Panels List */,
+				91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */,
+				91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -568,6 +575,7 @@
 				9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */,
 				9190D4C11790140A00667A7C /* InfoPlist.strings */,
 				918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */,
+				91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -847,6 +855,7 @@
 			files = (
 				9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */,
 				918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */,
+				91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +996,7 @@
 				91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
 				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
+				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
