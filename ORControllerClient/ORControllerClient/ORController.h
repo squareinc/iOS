@@ -109,14 +109,16 @@
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
- * First connects to the controller if it's not yet the case. ???
- * TODO
+ * Requests the full panel layout definition of a given panel.
+ * TODO: First connects to the controller if it's not yet the case. ??? really ?
  *
- * @param successHandler
- * @param errorHandler
+ * @param panelName Logical name of panel to get layout definition of
+ * @param successHandler A block object to be executed once the panel layout definition has been succesfully read from the controller.
+ * This block has no return value and takes a single Definition * argument that provides panel layout information.
+ * @param errorHandler A block object to be executed if the definition cannot be retrieved from controller.
+ * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
  */
 - (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
-
 
 
 
