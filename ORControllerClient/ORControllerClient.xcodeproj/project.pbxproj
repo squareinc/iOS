@@ -153,6 +153,7 @@
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */; };
 		91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */; };
+		91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16A17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m */; };
 		91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 		91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */; };
 		91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E117A9301900FE9E83 /* ORBMockURLProtocol.m */; };
@@ -404,6 +405,8 @@
 		91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0Test.h; sourceTree = "<group>"; };
 		91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0Test.m; sourceTree = "<group>"; };
 		91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SensorValuesValidResponse_2_0_0.xml; sourceTree = "<group>"; };
+		91E5B16917B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelIdentityListResponseHandler_2_0_0Test.h; sourceTree = "<group>"; };
+		91E5B16A17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelIdentityListResponseHandler_2_0_0Test.m; sourceTree = "<group>"; };
 		91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelLayoutResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelLayoutResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		91E794E017A9301900FE9E83 /* ORBMockURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBMockURLProtocol.h; sourceTree = "<group>"; };
@@ -555,6 +558,7 @@
 			children = (
 				91E794D917A9152E00FE9E83 /* Mocks */,
 				91933313179983E80086FEE7 /* Utility */,
+				91E5B16817B125E3007EB305 /* Network Layer */,
 				9190D4BF1790140A00667A7C /* Supporting Files */,
 				918604BC1794480B005DBCD9 /* Parsers */,
 				9190D4E01790533A00667A7C /* ORControllerAddressTest.h */,
@@ -770,6 +774,15 @@
 			);
 			name = DeferredBinding;
 			path = ../../Console/Classes;
+			sourceTree = "<group>";
+		};
+		91E5B16817B125E3007EB305 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				91E5B16917B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.h */,
+				91E5B16A17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m */,
+			);
+			name = "Network Layer";
 			sourceTree = "<group>";
 		};
 		91E794D917A9152E00FE9E83 /* Mocks */ = {
@@ -997,6 +1010,7 @@
 				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,
+				91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
