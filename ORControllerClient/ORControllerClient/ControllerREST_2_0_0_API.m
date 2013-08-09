@@ -23,19 +23,22 @@
 #import "PanelIdentityListResponseHandler_2_0_0.h"
 #import "PanelLayoutResponseHandler_2_0_0.h"
 #import "SensorValuesResponseHandler_2_0_0.h"
+#import "ORRESTCall_Private.h"
 
 @interface ControllerREST_2_0_0_API ()
 
-- (NSURLConnection *)connectionForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate;
+- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate;
 
 @end
 
 @implementation ControllerREST_2_0_0_API
 
 // Encapsulate delegate in ORDataCapturingNSURLConnectionDelegate before passing to created connection
-- (NSURLConnection *)connectionForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate
+- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate
 {
-    return [[NSURLConnection alloc] initWithRequest:request delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:delegate]];
+    return [[ORRESTCall alloc] initWithNSURLConnection:
+            [[NSURLConnection alloc] initWithRequest:request
+                                            delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:delegate]]];
 }
 
 // TODO: these methods might still return some form of Operation object
@@ -43,21 +46,20 @@
 // cancel is important e.g. for panel layout, as it fetches all the images
 // can also be used to check operation status
 
-- (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
+- (ORRESTCall *)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
                        withSuccessHandler:(void (^)(NSArray *))successHandler
                              errorHandler:(void (^)(NSError *))errorHandler
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:@"/rest/panels"]];
-
     
 // TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
 
     // TODO: check for nil return value -> error
     // TODO: should someone keep the connection pointer and "nilify" when done ?
-    (void) [self connectionForRequest:request delegate:[[PanelIdentityListResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+    return [self callForRequest:request delegate:[[PanelIdentityListResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
-- (void)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
+- (ORRESTCall *)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
                                 atBaseURL:(NSURL *)baseURL
                        withSuccessHandler:(void (^)(Definition *))successHandler
                              errorHandler:(void (^)(NSError *))errorHandler
@@ -68,10 +70,10 @@
     // TODO: same as above method
     // TODO: how about caching and resources ??? These should not be at this level, this is pure REST API facade
     
-    (void) [self connectionForRequest:request delegate:[[PanelLayoutResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+    return [self callForRequest:request delegate:[[PanelLayoutResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
-- (void)statusForSensorIds:(NSSet *)sensorIds
+- (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
                atBaseURL:(NSURL *)baseURL
       withSuccessHandler:(void (^)(NSDictionary *))successHandler
             errorHandler:(void (^)(NSError *))errorHandler
@@ -79,10 +81,10 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[baseURL URLByAppendingPathComponent:@"/rest/status/"]
                                                                         URLByAppendingPathComponent:[[sensorIds allObjects] componentsJoinedByString:@","]]];
     
-    (void) [self connectionForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+    return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
-- (void)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+- (ORRESTCall *)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
           atBaseURL:(NSURL *)baseURL
  withSuccessHandler:(void (^)(NSDictionary *))successHandler
        errorHandler:(void (^)(NSError *))errorHandler
@@ -91,7 +93,7 @@
                                                                         URLByAppendingPathComponent:deviceIdentifier]
                                                                         URLByAppendingPathComponent:[[sensorIds allObjects] componentsJoinedByString:@","]]];
 
-    (void) [self connectionForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+    return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
 @end

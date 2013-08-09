@@ -21,14 +21,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORRESTCall;
 @class Definition;
 
 /**
  * Encapsulates the REST API for a specific version.
- * Will always connect to the provided URL, does not know anything about group members.
- * Does not know anything about return data type and how to parse it.
- // TODO: does this last statement make sense ? Knows about how to encode parameters on way in, why not about return data
- -> indeed, would make more sense that this gets encapsulated here too
+ * It always connects to the provided URL, does not know anything about group members.
+ *
  // What about return codes (e.g. specific code for refresh -> 506, it's an error code, same as unauthorized)
  */
 @interface ControllerREST_2_0_0_API : NSObject
@@ -36,23 +35,23 @@
 
 // TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors
-- (void)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
-                       withSuccessHandler:(void (^)(NSArray *))successHandler
-                             errorHandler:(void (^)(NSError *))errorHandler;
+- (ORRESTCall *)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
+                               withSuccessHandler:(void (^)(NSArray *))successHandler
+                                     errorHandler:(void (^)(NSError *))errorHandler;
 
-- (void)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
-                                atBaseURL:(NSURL *)baseURL
-                       withSuccessHandler:(void (^)(Definition *))successHandler
-                             errorHandler:(void (^)(NSError *))errorHandler;
+- (ORRESTCall *)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
+                                        atBaseURL:(NSURL *)baseURL
+                               withSuccessHandler:(void (^)(Definition *))successHandler
+                                     errorHandler:(void (^)(NSError *))errorHandler;
 
-- (void)statusForSensorIds:(NSSet *)sensorIds
-               atBaseURL:(NSURL *)baseURL
-      withSuccessHandler:(void (^)(NSDictionary *))successHandler
-            errorHandler:(void (^)(NSError *))errorHandler;
+- (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
+                         atBaseURL:(NSURL *)baseURL
+                withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                      errorHandler:(void (^)(NSError *))errorHandler;
 
-- (void)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
-          atBaseURL:(NSURL *)baseURL
- withSuccessHandler:(void (^)(NSDictionary *))successHandler
-       errorHandler:(void (^)(NSError *))errorHandler;
+- (ORRESTCall *)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+                    atBaseURL:(NSURL *)baseURL
+           withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                 errorHandler:(void (^)(NSError *))errorHandler;
 
 @end
