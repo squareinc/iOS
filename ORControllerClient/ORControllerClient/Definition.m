@@ -23,10 +23,18 @@
 #import "Group.h"
 #import "Screen.h"
 
+#import "ORLabel.h"
+
 @interface Definition ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *groups;
 @property (nonatomic, strong, readwrite) NSMutableArray *screens;
+
+/**
+ * All the labels in this panel configuration
+ *
+ * Implementation note: this is currently filled in by parser during parsing
+ */
 @property (nonatomic, strong, readwrite) NSMutableArray *legacyLabels;
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
@@ -126,6 +134,16 @@
     [self.legacyLabels removeAllObjects];
     [self.imageNames removeAllObjects];
     self.tabBar = nil;
+}
+
+- (NSSet *)labels
+{
+    NSMutableSet *orLabels;
+    for (Label *label in self.legacyLabels) {
+        ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
+        [orLabels addObject:orLabel];
+    }
+    return [NSSet setWithSet:orLabels];
 }
 
 @synthesize groups, screens, legacyLabels, tabBar, localController, imageNames;
