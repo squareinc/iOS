@@ -113,9 +113,8 @@
     DefinitionParser *parser = [[[self.depRegistry parserClassForTag:@"openremote"] alloc] initWithRegister:self.depRegistry attributes:nil];
     [xmlParser setDelegate:parser];
     [xmlParser parse];
-    Definition *definition = ((DefinitionParser *)parser).definition; // TODO: this was retained then autoreleased, is there anything to do for ARC
     [self.depRegistry performDeferredBindings];
-    return definition;
+    return parser.definition;
 }
 
 @synthesize depRegistry;
