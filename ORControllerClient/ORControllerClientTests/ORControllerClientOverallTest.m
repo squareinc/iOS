@@ -22,8 +22,8 @@
 #import "ORControllerClientOverallTest.h"
 #import "ORControllerAddress.h"
 #import "ORController.h"
-#import "ORSimpleUIConfiguration.h"
 #import "ORLabel.h"
+#import "Definition.h"
 
 #import "ORBMockURLProtocol.h"
 
@@ -37,8 +37,8 @@
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
         STAssertTrue([orb isConnected], @"ORB should now be connected");
-        [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
-            NSSet *labels = [configuration labels];
+        [orb requestPanelUILayout:@"toto" successHandler:^(Definition *definition) {
+            NSSet *labels = definition.labels;
             STAssertNotNil(labels, @"ORB should return a collection of labels");
             STAssertEquals([labels count], (NSUInteger)1, @"ORB should return one label in collection");
             STAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
