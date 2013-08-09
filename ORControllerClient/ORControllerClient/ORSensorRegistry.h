@@ -31,7 +31,7 @@
 @interface ORSensorRegistry : NSObject
 
 /**
- * Fully clear the registry of all information it contains.
+ * Fully clears the registry of all information it contains.
  */
 - (void)clearRegistry;
 
