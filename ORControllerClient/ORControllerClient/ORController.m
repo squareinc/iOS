@@ -21,7 +21,6 @@
 
 #import "ORController.h"
 #import "ORControllerAddress.h"
-#import "ORSimpleUIConfiguration.h"
 #import "ORSensorRegistry.h"
 #import "ORPanel.h"
 #import "Definition.h"
@@ -77,11 +76,6 @@
 - (BOOL)isConnected
 {
     return self.connected;
-}
-
-- (void)readSimpleUIConfigurationWithSuccessHandler:(void (^)(ORSimpleUIConfiguration *))successHandler
-                                       errorHandler:(void (^)(NSError *))errorHandler
-{
 }
 
 - (void)startPollingForSensorsIds:(ORSensorRegistry *)sensorRegistry
