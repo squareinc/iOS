@@ -132,8 +132,6 @@
   // TODO: when would the loop be stopped -> on disconnect at least
 }
 
-#pragma mark - Advanced iOS console only features
-
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     // TODO: later based on information gathered during connect, would select the appropriate API/Object Model version
