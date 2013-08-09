@@ -8,9 +8,9 @@
 
 #import "ORViewController.h"
 #import "ORControllerAddress.h"
-#import "ORSimpleUIConfiguration.h"
 #import "ORController.h"
 #import "ORLabel.h"
+#import "Definition.h"
 
 @interface ORViewController ()
 
@@ -25,14 +25,17 @@
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"http://localhost:8688/controller"]];
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
-        [orb readSimpleUIConfigurationWithSuccessHandler:^(ORSimpleUIConfiguration *configuration) {
-            self.labels = [configuration.labels allObjects];
+        [orb requestPanelUILayout:@"panel1" successHandler:^(Definition *definition) {
+            self.labels = [definition.labels allObjects];
             // Register on all model objects to observe any change on their value
             [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 [obj addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
             }];
             [self.tableView reloadData];
-        } errorHandler:NULL];
+
+        } errorHandler:^(NSError *error) {
+            // TODO
+        }];
     } errorHandler:NULL];
     [super viewWillAppear:animated];
 }
