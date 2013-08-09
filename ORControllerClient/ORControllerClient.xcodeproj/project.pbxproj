@@ -28,6 +28,7 @@
 		915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024BB17B515FF005D8A02 /* ORRestCallMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B917B515FF005D8A02 /* ORRestCallMock.m */; };
 		915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */; };
+		915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024C017B5279E005D8A02 /* ORSensorPollingManager.m */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -243,6 +244,8 @@
 		915024B917B515FF005D8A02 /* ORRestCallMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRestCallMock.m; sourceTree = "<group>"; };
 		915024BC17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_API_NonConnectingMock.h; sourceTree = "<group>"; };
 		915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_API_NonConnectingMock.m; sourceTree = "<group>"; };
+		915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorPollingManager.h; sourceTree = "<group>"; };
+		915024C017B5279E005D8A02 /* ORSensorPollingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorPollingManager.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
 		918604B31794435E005DBCD9 /* ORPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanel.m; sourceTree = "<group>"; };
 		918604B7179444D2005DBCD9 /* ORPanelsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanelsParser.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */,
 				91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */,
 				9190D4AA1790140A00667A7C /* Supporting Files */,
+				915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */,
+				915024C017B5279E005D8A02 /* ORSensorPollingManager.m */,
 			);
 			path = ORControllerClient;
 			sourceTree = "<group>";
@@ -1005,6 +1010,7 @@
 				91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
 				91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
+				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

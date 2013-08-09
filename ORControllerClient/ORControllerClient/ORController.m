@@ -22,6 +22,7 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 #import "ORSensorRegistry.h"
+#import "ORSensorPollingManager.h"
 #import "ORPanel.h"
 #import "Definition.h"
 #import "Label.h"
@@ -34,6 +35,8 @@
 
 @property (strong, nonatomic) ORControllerAddress *address;
 @property (nonatomic) BOOL connected;
+
+@property (nonatomic, strong) ORSensorPollingManager *pollingManager;
 
 @end
 
@@ -69,6 +72,9 @@
 - (void)disconnect
 {
     // TODO: in later version, stop any communication with server e.g. polling loop
+    if (self.pollingManager) {
+        [self.pollingManager stop];
+    }
     
     self.connected = NO;
 }
@@ -76,60 +82,6 @@
 - (BOOL)isConnected
 {
     return self.connected;
-}
-
-- (void)startPollingForSensorsIds:(ORSensorRegistry *)sensorRegistry
-{
-    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-  [controllerAPI statusForSensorIds:[sensorRegistry sensorIds]
-                          atBaseURL:self.address.primaryURL
-                 withSuccessHandler:^(NSDictionary *sensorValues) {
-                     // Update text of labels
-                     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-                         NSSet *components = [sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
-                         [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
-                             [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
-                         }];
-                     }];
-                     
-                     __block void (^sensorPollingBlock)() = ^{
-                         [controllerAPI pollSensorIds:[sensorRegistry sensorIds]
-                             fromDeviceWithIdentifier:@"TODO"
-                                            atBaseURL:self.address.primaryURL
-                                   withSuccessHandler:^(NSDictionary *sensorValues) {
-                                       
-                                       [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-                                           NSSet *components = [sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
-                                           [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
-                                               [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
-                                           }];
-                                       }];
-                                       
-                                       NSLog(@"poll got values");
-                                       
-                                       // TODO: fix the memory management issue
-                                       
-                                       sensorPollingBlock();
-                                   } errorHandler:^(NSError *error) {
-                                       
-                                       NSLog(@"poll error %@", error);
-                                       
-                                       // TODO: if timeout, should call same block
-                                       
-                                   }];
-
-                     };
-                     
-                     sensorPollingBlock();
-                     
-                     // TODO: should also start the polling
-                     
-               }
-                       errorHandler:^(NSError *error) {
-                     }];
-  
-  // TODO: start the initial status request + polling loop
-  // TODO: when would the loop be stopped -> on disconnect at least
 }
 
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
@@ -173,8 +125,11 @@
     [controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
-
-                                      [self startPollingForSensorsIds:panelDefinition.sensorRegistry];
+                                      if (self.pollingManager) {
+                                          [self.pollingManager stop];
+                                      }
+                                      self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAddress:self.address sensorRegistry:panelDefinition.sensorRegistry];
+                                      [self.pollingManager start];
                                       
                                       successHandler(panelDefinition);
                                   }
