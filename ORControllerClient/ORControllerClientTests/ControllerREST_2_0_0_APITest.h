@@ -21,6 +21,12 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Unit tests for ControllerREST_2_0_0_API
+ * The tests validate that the REST call URL is as expected per the specification.
+ * It does not execute the call, validates how the returned data is processed or how how errors are handled,
+ * those aspects are covered by individual tests on the ResponseHandlers objects.
+ */
 @interface ControllerREST_2_0_0_APITest : SenTestCase
 
 @end
