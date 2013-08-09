@@ -36,6 +36,12 @@
  * Implementation note: this is currently filled in by parser during parsing
  */
 @property (nonatomic, strong, readwrite) NSMutableArray *legacyLabels;
+
+/**
+ * ORLabel instances, maintained in // with legacyLabels version
+ */
+@property (nonatomic, strong) NSMutableArray *_labels;
+
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
 @end
@@ -49,6 +55,7 @@
         self.groups = [NSMutableArray array];
 		self.screens = [NSMutableArray array];
 		self.legacyLabels = [NSMutableArray array];
+        self._labels = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
 	}
 	return self;
@@ -100,10 +107,12 @@
 		Label *tempLabel = [self.legacyLabels objectAtIndex:i];
 		if (tempLabel.componentId == label.componentId) {
 			[self.legacyLabels replaceObjectAtIndex:i withObject:label];
+            [self._labels replaceObjectAtIndex:i withObject:[[ORLabel alloc] initWithText:label.text]];
 			return;
 		}
 	}
 	[self.legacyLabels addObject:label];
+    [self._labels addObject:[[ORLabel alloc] initWithText:label.text]];
 }
 
 - (Label *)findLabelById:(int)labelId {
@@ -132,19 +141,14 @@
     [self.groups removeAllObjects];
     [self.screens removeAllObjects];
     [self.legacyLabels removeAllObjects];
+    [self._labels removeAllObjects];
     [self.imageNames removeAllObjects];
     self.tabBar = nil;
 }
 
-// TODO: This re-creates different ORLabel instances on each call, might cause issues when observing values, looking up widgets in sensor registry, ...
 - (NSSet *)labels
 {
-    NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[self.legacyLabels count]];
-    for (Label *label in self.legacyLabels) {
-        ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
-        [orLabels addObject:orLabel];
-    }
-    return [NSSet setWithSet:orLabels];
+    return [NSSet setWithArray:self._labels];
 }
 
 @synthesize groups, screens, legacyLabels, tabBar, localController, imageNames;
