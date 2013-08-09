@@ -136,9 +136,10 @@
     self.tabBar = nil;
 }
 
+// TODO: This re-creates different ORLabel instances on each call, might cause issues when observing values, looking up widgets in sensor registry, ...
 - (NSSet *)labels
 {
-    NSMutableSet *orLabels;
+    NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[self.legacyLabels count]];
     for (Label *label in self.legacyLabels) {
         ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
         [orLabels addObject:orLabel];
