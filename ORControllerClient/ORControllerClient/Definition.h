@@ -26,6 +26,8 @@
 @class Screen;
 @class LocalController;
 
+@class ORSensorRegistry;
+
 /**
  * This class is responsible for storing some models data (groups, screens, labels, tabBar, images and local controllers)
  */
@@ -79,5 +81,7 @@
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;
 @property (nonatomic, strong, readonly) NSMutableArray *imageNames;
+
+@property (nonatomic, strong, readonly) ORSensorRegistry *sensorRegistry;
 
 @end

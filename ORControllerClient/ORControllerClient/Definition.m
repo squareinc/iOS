@@ -22,6 +22,7 @@
 #import "Label.h"
 #import "Group.h"
 #import "Screen.h"
+#import "ORSensorRegistry.h"
 
 #import "ORLabel.h"
 
@@ -42,6 +43,8 @@
  */
 @property (nonatomic, strong) NSMutableArray *_labels;
 
+@property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
+
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
 @end
@@ -57,6 +60,7 @@
 		self.legacyLabels = [NSMutableArray array];
         self._labels = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
+        self.sensorRegistry = [[ORSensorRegistry alloc] init];
 	}
 	return self;
 }
@@ -103,16 +107,24 @@
 }
 
 - (void) addLabel:(Label *)label {
+    // TODO: why can this happen, adding multiple time a label with same id ??? -> document or assert can't happen
 	for (int i = 0; i < self.legacyLabels.count; i++) {
 		Label *tempLabel = [self.legacyLabels objectAtIndex:i];
 		if (tempLabel.componentId == label.componentId) {
 			[self.legacyLabels replaceObjectAtIndex:i withObject:label];
             [self._labels replaceObjectAtIndex:i withObject:[[ORLabel alloc] initWithText:label.text]];
+            
+            // TODO: handle sensorRegistry operation for this specific case
+            
 			return;
 		}
 	}
 	[self.legacyLabels addObject:label];
-    [self._labels addObject:[[ORLabel alloc] initWithText:label.text]];
+    ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
+    [self._labels addObject:orLabel];
+    if (label.sensor) {
+        [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel];
+    }
 }
 
 - (Label *)findLabelById:(int)labelId {
@@ -142,6 +154,7 @@
     [self.screens removeAllObjects];
     [self.legacyLabels removeAllObjects];
     [self._labels removeAllObjects];
+    [self.sensorRegistry clearRegistry];
     [self.imageNames removeAllObjects];
     self.tabBar = nil;
 }
