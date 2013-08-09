@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong, readwrite) NSMutableArray *groups;
 @property (nonatomic, strong, readwrite) NSMutableArray *screens;
-@property (nonatomic, strong, readwrite) NSMutableArray *labels;
+@property (nonatomic, strong, readwrite) NSMutableArray *legacyLabels;
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
 @end
@@ -40,7 +40,7 @@
     if (self) {
         self.groups = [NSMutableArray array];
 		self.screens = [NSMutableArray array];
-		self.labels = [NSMutableArray array];
+		self.legacyLabels = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
 	}
 	return self;
@@ -88,18 +88,18 @@
 }
 
 - (void) addLabel:(Label *)label {
-	for (int i = 0; i < self.labels.count; i++) {
-		Label *tempLabel = [self.labels objectAtIndex:i];
+	for (int i = 0; i < self.legacyLabels.count; i++) {
+		Label *tempLabel = [self.legacyLabels objectAtIndex:i];
 		if (tempLabel.componentId == label.componentId) {
-			[self.labels replaceObjectAtIndex:i withObject:label];
+			[self.legacyLabels replaceObjectAtIndex:i withObject:label];
 			return;
 		}
 	}
-	[self.labels addObject:label];
+	[self.legacyLabels addObject:label];
 }
 
 - (Label *)findLabelById:(int)labelId {
-	for (Label *tempLabel in self.labels) {
+	for (Label *tempLabel in self.legacyLabels) {
 		if (tempLabel.componentId == labelId) {
 			return tempLabel;
 		}
@@ -123,11 +123,11 @@
 {
     [self.groups removeAllObjects];
     [self.screens removeAllObjects];
-    [self.labels removeAllObjects];
+    [self.legacyLabels removeAllObjects];
     [self.imageNames removeAllObjects];
     self.tabBar = nil;
 }
 
-@synthesize groups, screens, labels, tabBar, localController, imageNames;
+@synthesize groups, screens, legacyLabels, tabBar, localController, imageNames;
 
 @end

@@ -101,9 +101,9 @@
                                   ORSimpleUIConfiguration *config = [[ORSimpleUIConfiguration alloc] init];
                                   // In this version, transorm all legacy Label objects to ORLabel
                                   // In the future, parsing should directly produce ORLabel instances
-                                  NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.labels count]];
+                                  NSMutableSet *orLabels = [NSMutableSet setWithCapacity:[panelDefinition.legacyLabels count]];
                                   [self.sensorRegistry clearRegistry];
-                                  for (Label *label in panelDefinition.labels) {
+                                  for (Label *label in panelDefinition.legacyLabels) {
                                       ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
                                       [orLabels addObject:orLabel];
                                       

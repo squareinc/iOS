@@ -79,7 +79,7 @@
  *
  * Implementation note: this is currently filled in by parser during parsing
  */
-@property (nonatomic, strong, readonly) NSMutableArray *labels;
+@property (nonatomic, strong, readonly) NSMutableArray *legacyLabels;
 
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;

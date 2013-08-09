@@ -766,7 +766,7 @@
 							
 							// assert include
 							Label *includedLabel = theImage.label;
-							for (Label *tempLabel in definition.labels) {
+							for (Label *tempLabel in definition.legacyLabels) {
 								if (tempLabel.componentId == includedLabel.componentId) {
 									includedLabel = tempLabel;
 									break;
@@ -885,7 +885,7 @@
 						
 						// assert include
 						Label *includedLabel = theImage.label;
-						for (Label *tempLabel in definition.labels) {
+						for (Label *tempLabel in definition.legacyLabels) {
 							if (tempLabel.componentId == includedLabel.componentId) {
 								includedLabel = tempLabel;
 								break;
