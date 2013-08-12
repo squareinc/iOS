@@ -22,6 +22,7 @@
 #import "ORSensorPollingManager.h"
 #import "ORControllerAddress.h"
 #import "ORSensorRegistry.h"
+#import "ORSensorLink.h"
 #import "ORRESTCall.h"
 
 @interface ORSensorPollingManager ()
@@ -93,9 +94,9 @@
 {
     // Update text of labels
     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-        NSSet *components = [self._sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
-        [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
-            [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
+        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
+        [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
+            [link.component setValue:sensorValue forKey:link.propertyName];
             
             // TODO: must take state information from sensor into account to perform potential "translation"
             

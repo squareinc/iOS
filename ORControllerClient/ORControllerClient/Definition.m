@@ -123,7 +123,7 @@
     ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
     [self._labels addObject:orLabel];
     if (label.sensor) {
-        [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel];
+        [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel property:@"text"];
     }
 }
 

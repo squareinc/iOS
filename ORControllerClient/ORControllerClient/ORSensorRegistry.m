@@ -20,16 +20,16 @@
  */
 
 #import "ORSensorRegistry.h"
+#import "ORSensorLink.h"
 #import "Sensor.h"
 
 @interface ORSensorRegistry ()
 
 @property (nonatomic, strong) NSMutableSet *_sensors;
-@property (nonatomic, strong) NSMutableDictionary *_componentsPerSensorId;
+@property (nonatomic, strong) NSMutableDictionary *_sensorsPerId;
+@property (nonatomic, strong) NSMutableDictionary *_linksPerSensorId;
 
 @end
-
-// TODO: in a later version, the link is not only to 1 component but also to a specific property of a component
 
 @implementation ORSensorRegistry
 
@@ -38,41 +38,44 @@
     self = [super init];
     if (self) {
         self._sensors = [NSMutableSet set];
-        self._componentsPerSensorId = [NSMutableDictionary dictionary];
+        self._linksPerSensorId = [NSMutableDictionary dictionary];
+        self._sensorsPerId = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 - (void)clearRegistry
 {
-    [self._componentsPerSensorId removeAllObjects];
+    [self._linksPerSensorId removeAllObjects];
+    [self._sensorsPerId removeAllObjects];
     [self._sensors removeAllObjects];
 }
 
-- (void)registerSensor:(Sensor *)sensor linkedToComponent:(NSObject *)component
+- (void)registerSensor:(Sensor *)sensor linkedToComponent:(NSObject *)component property:(NSString *)propertyName
 {
     [self._sensors addObject:sensor];
-    NSMutableArray *components = [self._componentsPerSensorId objectForKey:[NSNumber numberWithInt:sensor.sensorId]];
+    [self._sensorsPerId setObject:sensor forKey:[NSNumber numberWithInt:sensor.sensorId]];
+    NSMutableArray *components = [self._linksPerSensorId objectForKey:[NSNumber numberWithInt:sensor.sensorId]];
     if (!components) {
-        components = [NSMutableArray arrayWithCapacity:1];
-        [self._componentsPerSensorId setObject:components forKey:[NSNumber numberWithInt:sensor.sensorId]];
+        components = [NSMutableSet setWithCapacity:1];
+        [self._linksPerSensorId setObject:components forKey:[NSNumber numberWithInt:sensor.sensorId]];
     }
-    [components addObject:component];
+    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName]];
 }
 
-- (NSSet *)componentsLinkedToSensorId:(NSNumber *)sensorId
+- (NSSet *)sensorLinksForSensorId:(NSNumber *)sensorId
 {
-    return [NSSet setWithArray:[self._componentsPerSensorId objectForKey:sensorId]];
+    return [NSSet setWithSet:[self._linksPerSensorId objectForKey:sensorId]];
+}
+
+- (Sensor *)sensorWithId:(NSNumber *)sensorId
+{
+    return [self._sensorsPerId objectForKey:sensorId];
 }
 
 - (NSSet *)sensorIds
 {
-    NSMutableSet *allIds = [NSMutableSet setWithCapacity:[self._sensors count]];
-    [self._sensors enumerateObjectsUsingBlock:^(Sensor *sensor, BOOL *stop) {
-        [allIds addObject:[NSNumber numberWithInt:sensor.sensorId]];
-    }];
-    
-    return allIds;
+    return [NSSet setWithArray:[self._sensorsPerId allKeys]];
 }
 
 @end
