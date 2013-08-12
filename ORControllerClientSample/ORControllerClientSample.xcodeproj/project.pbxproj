@@ -20,6 +20,23 @@
 		910B75401794269D005F41CF /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B753F1794269D005F41CF /* libORControllerClient.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		917104CC17B91954005F9BA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9190D4A41790140A00667A7C;
+			remoteInfo = ORControllerClient;
+		};
+		917104CE17B91954005F9BA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9190D4B51790140A00667A7C;
+			remoteInfo = ORControllerClientTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		910B750F17941030005F41CF /* ORControllerClientSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORControllerClientSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		910B751217941030005F41CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -36,7 +53,8 @@
 		910B752817941030005F41CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		910B752A17941030005F41CF /* ORViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORViewController.h; sourceTree = "<group>"; };
 		910B752B17941030005F41CF /* ORViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORViewController.m; sourceTree = "<group>"; };
-		910B753F1794269D005F41CF /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		910B753F1794269D005F41CF /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORControllerClient.xcodeproj; path = ../ORControllerClient/ORControllerClient.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +79,7 @@
 				910B751817941030005F41CF /* ORControllerClientSample */,
 				910B751117941030005F41CF /* Frameworks */,
 				910B751017941030005F41CF /* Products */,
+				917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +127,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		917104C717B91954005F9BA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				917104CD17B91954005F9BA4 /* libORControllerClient.a */,
+				917104CF17B91954005F9BA4 /* ORControllerClientTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,12 +176,35 @@
 			mainGroup = 910B750617941030005F41CF;
 			productRefGroup = 910B751017941030005F41CF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 917104C717B91954005F9BA4 /* Products */;
+					ProjectRef = 917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				910B750E17941030005F41CF /* ORControllerClientSample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		917104CD17B91954005F9BA4 /* libORControllerClient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libORControllerClient.a;
+			remoteRef = 917104CC17B91954005F9BA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		917104CF17B91954005F9BA4 /* ORControllerClientTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ORControllerClientTests.octest;
+			remoteRef = 917104CE17B91954005F9BA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		910B750D17941030005F41CF /* Resources */ = {
@@ -257,7 +308,7 @@
 				GCC_PREFIX_HEADER = "ORControllerClientSample/ORControllerClientSample-Prefix.pch";
 				INFOPLIST_FILE = "ORControllerClientSample/ORControllerClientSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ./**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -269,7 +320,7 @@
 				GCC_PREFIX_HEADER = "ORControllerClientSample/ORControllerClientSample-Prefix.pch";
 				INFOPLIST_FILE = "ORControllerClientSample/ORControllerClientSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ./**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
