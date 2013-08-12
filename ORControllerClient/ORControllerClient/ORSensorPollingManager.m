@@ -22,11 +22,15 @@
 #import "ORSensorPollingManager.h"
 #import "ORControllerAddress.h"
 #import "ORSensorRegistry.h"
+#import "ORRESTCall.h"
 
 @interface ORSensorPollingManager ()
 
-@property (nonatomic, weak) ORControllerAddress *_controllerAddress;
+// TODO: weak on address -> nil in poll block -> investigate why
+@property (nonatomic, strong) ORControllerAddress *_controllerAddress;
 @property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
+
+@property (nonatomic, strong) ORRESTCall *_currentCall;
 
 @end
 
@@ -45,7 +49,7 @@
 - (void)start
 {
     ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-    [controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
+    self._currentCall = [controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
                        // Update text of labels
@@ -60,7 +64,7 @@
                        }];
                        
                        __block void (^sensorPollingBlock)() = ^{
-                           [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
+                           self._currentCall = [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
                                fromDeviceWithIdentifier:@"TODO"
                                               atBaseURL:self._controllerAddress.primaryURL
                                      withSuccessHandler:^(NSDictionary *sensorValues) {
@@ -100,6 +104,8 @@
 
 - (void)stop
 {
+    [self._currentCall cancel];
+    self._currentCall = nil;
     // TODO : cancel pending operation + make sure we don't loop -> first might be enough if we have a Cancelled error
 }
 
