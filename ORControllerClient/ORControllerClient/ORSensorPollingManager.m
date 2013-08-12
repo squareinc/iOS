@@ -49,33 +49,33 @@
 - (void)start
 {
     ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+    
+    __block void (^sensorPollingBlock)() = ^{
+        self._currentCall = [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
+                                fromDeviceWithIdentifier:@"TODO"
+                                               atBaseURL:self._controllerAddress.primaryURL
+                                      withSuccessHandler:^(NSDictionary *sensorValues) {
+                                          
+                                          [self updateComponentsWithSensorValues:sensorValues];
+                                          
+                                          NSLog(@"poll got values");
+                                          
+                                          // TODO: fix the memory management issue
+                                          
+                                          sensorPollingBlock();
+                                      } errorHandler:^(NSError *error) {
+                                          
+                                          NSLog(@"poll error %@", error);
+                                          
+                                          // TODO: if timeout, should call same block
+                                          
+                                      }];
+    };
+
     self._currentCall = [controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
                        [self updateComponentsWithSensorValues:sensorValues];
-                       
-                       __block void (^sensorPollingBlock)() = ^{
-                           self._currentCall = [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
-                               fromDeviceWithIdentifier:@"TODO"
-                                              atBaseURL:self._controllerAddress.primaryURL
-                                     withSuccessHandler:^(NSDictionary *sensorValues) {
-                                         
-                                         [self updateComponentsWithSensorValues:sensorValues];
-                                         
-                                         NSLog(@"poll got values");
-                                         
-                                         // TODO: fix the memory management issue
-                                         
-                                         sensorPollingBlock();
-                                     } errorHandler:^(NSError *error) {
-                                         
-                                         NSLog(@"poll error %@", error);
-                                         
-                                         // TODO: if timeout, should call same block
-                                         
-                                     }];                           
-                       };
-                       
                        sensorPollingBlock();
                    }
                          errorHandler:^(NSError *error) {
