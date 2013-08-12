@@ -91,22 +91,16 @@
                        };
                        
                        sensorPollingBlock();
-                       
-                       // TODO: should also start the polling
-                       
                    }
                          errorHandler:^(NSError *error) {
                          }];
-    
-    // TODO: start the initial status request + polling loop
-    // TODO: when would the loop be stopped -> on disconnect at least
 }
 
 - (void)stop
 {
     [self._currentCall cancel];
     self._currentCall = nil;
-    // TODO : cancel pending operation + make sure we don't loop -> first might be enough if we have a Cancelled error
+    // TODO: make sure we don't loop -> cancel might be enough if we make sure we don't restart polling (e.g. have a Cancelled error)
 }
 
 @end
