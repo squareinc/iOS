@@ -38,7 +38,14 @@
  */
 - (id)initWithComponent:(NSObject *)aComponent propertyName:(NSString *)aPropertyName;
 
+/**
+ * Component sensor is linked to.
+ */
 @property (nonatomic, strong, readonly) NSObject *component;
+
+/**
+ * Name of property that gets updated with sensor value.
+ */
 @property (nonatomic, strong, readonly) NSString *propertyName;
 
 @end

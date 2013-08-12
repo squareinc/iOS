@@ -21,6 +21,9 @@
 
 #import "ORSensorLink.h"
 
+#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
+#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
+
 @interface ORSensorLink ()
 
 @property (nonatomic, strong, readwrite) NSObject *component;
@@ -38,6 +41,21 @@
         self.propertyName = aPropertyName;
     }
     return self;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[ORSensorLink class]]) {
+        return NO;
+    }
+    ORSensorLink *other = (ORSensorLink *)object;
+    return ([other.component isEqual:self.component] &&
+            [other.propertyName isEqualToString:self.propertyName]);
+}
+
+- (NSUInteger)hash
+{
+    return NSUINTROTATE([self.component hash], NSUINT_BIT / 2) ^ [self.propertyName hash];
 }
 
 @end
