@@ -52,16 +52,7 @@
     self._currentCall = [controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
-                       // Update text of labels
-                       [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-                           NSSet *components = [self._sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
-                           [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
-                               [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
-                               
-                               // TODO: must take state information from sensor into account to perform potential "translation"
-                               
-                           }];
-                       }];
+                       [self updateComponentsWithSensorValues:sensorValues];
                        
                        __block void (^sensorPollingBlock)() = ^{
                            self._currentCall = [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
@@ -69,12 +60,7 @@
                                               atBaseURL:self._controllerAddress.primaryURL
                                      withSuccessHandler:^(NSDictionary *sensorValues) {
                                          
-                                         [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-                                             NSSet *components = [self._sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
-                                             [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
-                                                 [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
-                                             }];
-                                         }];
+                                         [self updateComponentsWithSensorValues:sensorValues];
                                          
                                          NSLog(@"poll got values");
                                          
@@ -101,6 +87,20 @@
     [self._currentCall cancel];
     self._currentCall = nil;
     // TODO: make sure we don't loop -> cancel might be enough if we make sure we don't restart polling (e.g. have a Cancelled error)
+}
+
+- (void)updateComponentsWithSensorValues:(NSDictionary *)sensorValues
+{
+    // Update text of labels
+    [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
+        NSSet *components = [self._sensorRegistry componentsLinkedToSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
+        [components enumerateObjectsUsingBlock:^(NSObject * component, BOOL *stop) {
+            [component setValue:sensorValue forKey:@"text"]; // TODO: this is OK for labels, might not always be that property
+            
+            // TODO: must take state information from sensor into account to perform potential "translation"
+            
+        }];
+    }];
 }
 
 @end
