@@ -61,7 +61,8 @@
     
     // TODO: in next version, could fetch group members
     // TODO: in later version, this could be a good place to get the controller capabilities
-    // TODO: might also want to start the "polling / communication" loop 
+    // TODO: might also want to start the "polling / communication" loop -> no, too soon, need to hade the configuration downloaded for that
+    // (unless we have something in cache)
 
     self.connected = YES;
     if (successHandler) {
@@ -103,7 +104,7 @@
 }
 
 
-// The returned Defintion (should rename to PanelUILayout or something) will be connected to controller
+// The returned Definition (should rename to PanelUILayout or something) will be connected to controller
 // and update dynamically as required / instructed by controller.
 // => this call should start the polling loop -> ORController object has responsibility for that -> should be a specific call for it / object dedicated to handling that
 // Sensor registry is part of the PanelUILayout as it's a passive register, it basically maintains links
