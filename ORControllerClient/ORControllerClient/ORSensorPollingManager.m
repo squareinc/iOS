@@ -23,6 +23,7 @@
 #import "ORControllerAddress.h"
 #import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
+#import "Sensor.h"
 #import "ORRESTCall.h"
 
 @interface ORSensorPollingManager ()
@@ -92,14 +93,19 @@
 
 - (void)updateComponentsWithSensorValues:(NSDictionary *)sensorValues
 {
-    // Update text of labels
+    // Update properties of linked element
     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorId:[NSNumber numberWithInt:[sensorId intValue]]];
+        NSNumber *sensorIdAsNumber = [NSNumber numberWithInt:[sensorId intValue]];
+        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorId:sensorIdAsNumber];
+        Sensor *sensor = [self._sensorRegistry sensorWithId:sensorIdAsNumber];
+        // "Map" given sensor value according to defined sensor states
+        NSString *mappedSensorValue = [sensor stateValueForName:sensorValue];
+        // If no mapping, use received sensor value as is
+        if (!mappedSensorValue) {
+            mappedSensorValue = sensorValue;
+        }
         [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
-            [link.component setValue:sensorValue forKey:link.propertyName];
-            
-            // TODO: must take state information from sensor into account to perform potential "translation"
-            
+            [link.component setValue:mappedSensorValue forKey:link.propertyName];
         }];
     }];
 }
