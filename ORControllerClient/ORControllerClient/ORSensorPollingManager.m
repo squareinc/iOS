@@ -28,7 +28,6 @@
 
 @interface ORSensorPollingManager ()
 
-// TODO: weak on address -> nil in poll block -> investigate why
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
 @property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
 
