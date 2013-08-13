@@ -25,31 +25,32 @@
 #import "ORLabel.h"
 #import "Definition.h"
 
+#define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
 @interface ORViewController ()
 
 @property (nonatomic, strong) NSArray *labels;
+@property (nonatomic, strong) ORController *orb;
 
 @end
 
 @implementation ORViewController
 
+- (void)viewDidLoad
+{
+    self.title = CONTROLLER_ADDRESS;
+    self.toolbarItems = @[[[UIBarButtonItem alloc] initWithTitle:@"Start" style:UIBarButtonItemStyleBordered target:self action:@selector(startPolling)],
+    [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStyleBordered target:self action:@selector(stopPolling)]];
+    self.navigationController.toolbarHidden = NO;
+    
+    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:CONTROLLER_ADDRESS]];
+    self.orb = [[ORController alloc] initWithControllerAddress:address];
+
+    [super viewDidLoad];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"http://localhost:8688/controller"]];
-    ORController *orb = [[ORController alloc] initWithControllerAddress:address];
-    [orb connectWithSuccessHandler:^{
-        [orb requestPanelUILayout:@"panel1" successHandler:^(Definition *definition) {
-            self.labels = [definition.labels allObjects];
-            // Register on all model objects to observe any change on their value
-            [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [obj addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
-            }];
-            [self.tableView reloadData];
-
-        } errorHandler:^(NSError *error) {
-            // TODO
-        }];
-    } errorHandler:NULL];
+    [self startPolling];
     [super viewWillAppear:animated];
 }
 
@@ -58,11 +59,7 @@
     [super viewDidDisappear:animated];
     
     // If we did register previously to observe on model objects, un-register
-    if (self.labels) {
-        [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [obj removeObserver:self];
-        }];
-    }
+    [self stopObservingLabelChanges];
     self.labels = nil;
 }
 
@@ -96,6 +93,38 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [self.tableView reloadData];
+}
+
+- (void)stopObservingLabelChanges
+{
+    if (self.labels) {
+        [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [obj removeObserver:self forKeyPath:@"text"];
+        }];
+    }
+}
+
+- (void)startPolling
+{
+    [self.orb connectWithSuccessHandler:^{
+        [self.orb requestPanelUILayout:@"panel1" successHandler:^(Definition *definition) {
+            self.labels = [definition.labels allObjects];
+            // Register on all model objects to observe any change on their value
+            [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [obj addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
+            }];
+            [self.tableView reloadData];
+            
+        } errorHandler:^(NSError *error) {
+            // TODO
+        }];
+    } errorHandler:NULL];
+}
+
+- (void)stopPolling
+{
+    [self stopObservingLabelChanges];
+    [self.orb disconnect];
 }
 
 @end

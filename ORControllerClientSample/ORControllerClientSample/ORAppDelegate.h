@@ -21,12 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class ORViewController;
-
 @interface ORAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) ORViewController *viewController;
+@property (strong, nonatomic) UINavigationController *viewController;
 
 @end
