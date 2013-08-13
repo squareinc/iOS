@@ -562,9 +562,9 @@
 				91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */,
 				917104BF17B8DC34005F9BA4 /* ORSensorLink.h */,
 				917104C017B8DC34005F9BA4 /* ORSensorLink.m */,
-				9190D4AA1790140A00667A7C /* Supporting Files */,
 				915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */,
 				915024C017B5279E005D8A02 /* ORSensorPollingManager.m */,
+				9190D4AA1790140A00667A7C /* Supporting Files */,
 			);
 			path = ORControllerClient;
 			sourceTree = "<group>";
