@@ -25,6 +25,7 @@
 #import "ORSensorLink.h"
 #import "Sensor.h"
 #import "ORRESTCall.h"
+#import "ControllerREST_2_0_0_API.h"
 
 @interface ORSensorPollingManager ()
 

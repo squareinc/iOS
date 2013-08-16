@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ControllerREST_2_0_0_API.h"
+#import <Foundation/Foundation.h>
 
 @class ORControllerAddress;
 @class ORSensorRegistry;
@@ -31,7 +31,7 @@
  * Sensors polled are the one registered in the sensor registry.
  * Information on what/how to update is taken from provided Sensor Registry.
  */
-@interface ORSensorPollingManager : ControllerREST_2_0_0_API
+@interface ORSensorPollingManager : NSObject
 
 /**
  * Initializes the manager to poll from controller at given address and use provided registry to update object model.
