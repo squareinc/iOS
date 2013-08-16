@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORControllerRESTAPI.h"
 
 @class ORRESTCall;
 @class Definition;
@@ -30,8 +30,7 @@
  *
  // What about return codes (e.g. specific code for refresh -> 506, it's an error code, same as unauthorized)
  */
-@interface ControllerREST_2_0_0_API : NSObject
-
+@interface ControllerREST_2_0_0_API : ORControllerRESTAPI
 
 // TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors

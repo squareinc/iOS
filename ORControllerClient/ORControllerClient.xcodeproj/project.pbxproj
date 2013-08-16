@@ -159,6 +159,8 @@
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
+		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
+		91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
 		91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */; };
 		91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */; };
 		91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16A17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m */; };
@@ -424,6 +426,8 @@
 		919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
 		919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
+		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
+		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
 		91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0Test.h; sourceTree = "<group>"; };
 		91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0Test.m; sourceTree = "<group>"; };
 		91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SensorValuesValidResponse_2_0_0.xml; sourceTree = "<group>"; };
@@ -618,6 +622,8 @@
 				915024B317B50D2D005D8A02 /* ORRESTCall.h */,
 				915024B417B50D2D005D8A02 /* ORRESTCall.m */,
 				915024B717B50F2A005D8A02 /* ORRESTCall_Private.h */,
+				91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */,
+				91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */,
 				9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */,
 				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
 				91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */,
@@ -1028,6 +1034,7 @@
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
 				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
 				917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
+				91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1064,7 @@
 				917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
 				917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */,
 				9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */,
+				91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
