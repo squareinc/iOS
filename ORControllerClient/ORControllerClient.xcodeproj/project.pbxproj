@@ -161,6 +161,7 @@
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
 		91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
+		91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC691117BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m */; };
 		91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */; };
 		91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */; };
 		91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E5B16A17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m */; };
@@ -428,6 +429,8 @@
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
 		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
 		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
+		91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI_ScriptableMock.h; sourceTree = "<group>"; };
+		91DC691117BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI_ScriptableMock.m; sourceTree = "<group>"; };
 		91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0Test.h; sourceTree = "<group>"; };
 		91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0Test.m; sourceTree = "<group>"; };
 		91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SensorValuesValidResponse_2_0_0.xml; sourceTree = "<group>"; };
@@ -833,6 +836,8 @@
 				915024B917B515FF005D8A02 /* ORRestCallMock.m */,
 				915024BC17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.h */,
 				915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */,
+				91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */,
+				91DC691117BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -1065,6 +1070,7 @@
 				917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */,
 				9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */,
 				91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
+				91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

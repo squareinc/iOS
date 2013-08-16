@@ -26,6 +26,7 @@
 #import "Sensor.h"
 #import "SensorState.h"
 #import "ControllerREST_2_0_0_API.h"
+#import "ORControllerRESTAPI_ScriptableMock.h"
 
 @interface ORSensorPollingManager ()
 
@@ -60,6 +61,28 @@
 
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"on"}];
     STAssertEqualObjects(@"On Value", label.text, @"Label text should be state value when sensor state matches sensor value");
+}
+
+
+- (void)testAppropriateAPIMethodsCalledOnStart
+{
+    ORControllerRESTAPI_ScriptableMock *api = [[ORControllerRESTAPI_ScriptableMock alloc] init];
+    api.sensorStatusResult = @{@"1": @"on"};
+    api.sensorPollResult = @{@"1": @"on"};
+    api.sensorPollMaxCall = 3;
+    
+    Sensor *sensor = [[Sensor alloc] initWithId:1];
+    ORLabel *label = [[ORLabel alloc] initWithText:@"Initial text"];
+    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
+                                                                                 controllerAddress:nil
+                                                                                    sensorRegistry:registry];
+    
+    [pollingManager start];
+    
+    STAssertEquals((NSUInteger)1, api.sensorStatusCallCount, @"Status request should have been called once");
+    STAssertEquals((NSUInteger)3, api.sensorPollCallCount, @"Poll request should have been called once");
 }
 
 @end

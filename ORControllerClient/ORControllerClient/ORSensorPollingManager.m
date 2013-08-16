@@ -52,6 +52,10 @@
     return self;
 }
 
+// TODO: Q ? how are error reported on start, during poll ?
+// delegate ?
+// do we also have some isPolling flag ?
+
 - (void)start
 {
     __block void (^sensorPollingBlock)() = ^{

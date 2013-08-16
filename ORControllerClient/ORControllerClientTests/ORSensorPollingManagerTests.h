@@ -23,4 +23,15 @@
 
 @interface ORSensorPollingManagerTests : SenTestCase
 
+/*
+ * Test that when starting the poll manager:
+ * - the status request method is called once
+ * - in case of success, the poll method is called repeatedly
+ *
+ TODO: assert that appropriate sensor id is passed as parameter to call
+ */
+- (void)testAppropriateAPIMethodsCalledOnStart;
+
+// TODO: Should also test that when calling stop, the poll method is not called again
+
 @end
