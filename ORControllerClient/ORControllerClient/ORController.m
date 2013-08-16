@@ -129,7 +129,9 @@
                                       if (self.pollingManager) {
                                           [self.pollingManager stop];
                                       }
-                                      self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAddress:self.address sensorRegistry:panelDefinition.sensorRegistry];
+                                      self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:controllerAPI
+                                                                                                controllerAddress:self.address
+                                                                                                   sensorRegistry:panelDefinition.sensorRegistry];
                                       [self.pollingManager start];
                                       
                                       successHandler(panelDefinition);

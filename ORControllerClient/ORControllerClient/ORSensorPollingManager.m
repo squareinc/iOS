@@ -25,10 +25,11 @@
 #import "ORSensorLink.h"
 #import "Sensor.h"
 #import "ORRESTCall.h"
-#import "ControllerREST_2_0_0_API.h"
+#import "ORControllerRESTAPI.h"
 
 @interface ORSensorPollingManager ()
 
+@property (nonatomic, strong) ORControllerRESTAPI *_controllerAPI;
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
 @property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
 
@@ -38,10 +39,13 @@
 
 @implementation ORSensorPollingManager
 
-- (id)initWithControllerAddress:(ORControllerAddress *)controllerAddress sensorRegistry:(ORSensorRegistry *)sensorRegistry
+- (id)initWithControllerAPI:(ORControllerRESTAPI *)api
+          controllerAddress:(ORControllerAddress *)controllerAddress
+             sensorRegistry:(ORSensorRegistry *)sensorRegistry
 {
     self = [super init];
     if (self) {
+        self._controllerAPI = api;
         self._controllerAddress = controllerAddress;
         self._sensorRegistry = sensorRegistry;
     }
@@ -50,10 +54,8 @@
 
 - (void)start
 {
-    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-    
     __block void (^sensorPollingBlock)() = ^{
-        self._currentCall = [controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
+        self._currentCall = [self._controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
                                 fromDeviceWithIdentifier:@"TODO"
                                                atBaseURL:self._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
@@ -74,7 +76,7 @@
                                       }];
     };
 
-    self._currentCall = [controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
+    self._currentCall = [self._controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
                        [self updateComponentsWithSensorValues:sensorValues];

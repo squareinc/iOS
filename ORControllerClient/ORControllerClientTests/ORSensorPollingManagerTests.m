@@ -25,6 +25,7 @@
 #import "ORLabel.h"
 #import "Sensor.h"
 #import "SensorState.h"
+#import "ControllerREST_2_0_0_API.h"
 
 @interface ORSensorPollingManager ()
 
@@ -40,7 +41,9 @@
     ORLabel *label = [[ORLabel alloc] initWithText:@"Initial text"];
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text"];
-    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAddress:nil sensorRegistry:registry];
+    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:[[ControllerREST_2_0_0_API alloc] init]
+                                                                                 controllerAddress:nil
+                                                                                    sensorRegistry:registry];
     
     STAssertEqualObjects(@"Initial text", label.text, @"Label text should be its initial value before any sensor update has been done");
  

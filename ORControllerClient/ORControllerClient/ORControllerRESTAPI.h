@@ -21,13 +21,32 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORRESTCall;
+@class Definition;
+
 /**
  * Encapsulates the REST API for talking to the ORB.
  * Subclasses will provide implementation for specific versions of the API.
- *
- * At this stage, this class is mainly a marker as it does not enforce a specific protocol for callers.
- */
-
+*/
 @interface ORControllerRESTAPI : NSObject
+
+- (ORRESTCall *)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
+                               withSuccessHandler:(void (^)(NSArray *))successHandler
+                                     errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
+                                        atBaseURL:(NSURL *)baseURL
+                               withSuccessHandler:(void (^)(Definition *))successHandler
+                                     errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
+                         atBaseURL:(NSURL *)baseURL
+                withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                      errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+                    atBaseURL:(NSURL *)baseURL
+           withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                 errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

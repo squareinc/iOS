@@ -21,9 +21,6 @@
 
 #import "ORControllerRESTAPI.h"
 
-@class ORRESTCall;
-@class Definition;
-
 /**
  * Encapsulates the REST API for a specific version.
  * It always connects to the provided URL, does not know anything about group members.
@@ -34,23 +31,5 @@
 
 // TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors
-- (ORRESTCall *)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL
-                               withSuccessHandler:(void (^)(NSArray *))successHandler
-                                     errorHandler:(void (^)(NSError *))errorHandler;
-
-- (ORRESTCall *)requestPanelLayoutWithLogicalName:(NSString *)panelLogicalName
-                                        atBaseURL:(NSURL *)baseURL
-                               withSuccessHandler:(void (^)(Definition *))successHandler
-                                     errorHandler:(void (^)(NSError *))errorHandler;
-
-- (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
-                         atBaseURL:(NSURL *)baseURL
-                withSuccessHandler:(void (^)(NSDictionary *))successHandler
-                      errorHandler:(void (^)(NSError *))errorHandler;
-
-- (ORRESTCall *)pollSensorIds:(NSSet *)sensorIds fromDeviceWithIdentifier:(NSString *)deviceIdentifier
-                    atBaseURL:(NSURL *)baseURL
-           withSuccessHandler:(void (^)(NSDictionary *))successHandler
-                 errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

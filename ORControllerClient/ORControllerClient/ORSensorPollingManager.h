@@ -23,6 +23,7 @@
 
 @class ORControllerAddress;
 @class ORSensorRegistry;
+@class ORControllerRESTAPI;
 
 /**
  * Manages the sensor polling loop with an OpenRemote controller.
@@ -36,12 +37,15 @@
 /**
  * Initializes the manager to poll from controller at given address and use provided registry to update object model.
  *
+ * @param api controller api to use to talk to controller
  * @param controllerAddress address of the controller to connect to
  * @param sensorRegistry registry defining what information in the object model needs updating (and how to update)
  *
  * @return An ORSensorPollingManager object initialized with the provided address and registry.
  */
-- (id)initWithControllerAddress:(ORControllerAddress *)controllerAddress sensorRegistry:(ORSensorRegistry *)sensorRegistry;
+- (id)initWithControllerAPI:(ORControllerRESTAPI *)api
+          controllerAddress:(ORControllerAddress *)controllerAddress
+             sensorRegistry:(ORSensorRegistry *)sensorRegistry;
 
 /*
  * Requests current value of sensors registered in registry, then polling mechanism to receive updates to those value.
