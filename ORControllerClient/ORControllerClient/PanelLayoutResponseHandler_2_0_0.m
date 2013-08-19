@@ -21,16 +21,11 @@
 
 #import "PanelLayoutResponseHandler_2_0_0.h"
 #import "PanelDefinitionParser.h"
-#import "ORControllerRESTAPI.h"
-#import "ORRESTErrorParser.h"
-#import "ORRESTError.h"
+#import "ORResponseHandler_Private.h"
 
 @interface PanelLayoutResponseHandler_2_0_0 ()
 
 @property (strong, nonatomic) void (^_successHandler)(Definition *);
-@property (strong, nonatomic) void (^_errorHandler)(NSError *);
-
-@property (nonatomic) NSInteger _errorCode;
 
 @end
 
@@ -46,51 +41,17 @@
     return self;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receivedData
+- (void)processValidResponseData:(NSData *)receivedData
 {
-    if (self._errorCode) {
-        NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:1];
-        if (STATUS_CODE_OR_SPECIFIC(self._errorCode)) {
-            // OR specific errors code to provide an error message as the returned XML data
-            ORRESTErrorParser *errorParser = [[ORRESTErrorParser alloc] initWithData:receivedData];
-            ORRESTError *receivedError = [errorParser parseRESTError];
-            
-            [userInfo setObject:receivedError.message forKey:NSLocalizedDescriptionKey];
-        } else {
-            [userInfo setObject:@"Generic HTTP error" forKey:NSLocalizedDescriptionKey];
-        }
-        NSURL *url = [[connection currentRequest] URL];
-        [userInfo setObject:url forKey:NSURLErrorFailingURLErrorKey];
-        [userInfo setObject:[url absoluteString] forKey:NSURLErrorFailingURLStringErrorKey];
+    PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
+    Definition *definition = [parser parseDefinitionFromXML:receivedData];
+//    if (definition) {
+        self._successHandler(definition);
+// TODO: handle parsing errors -> error handler
 
-        self._errorHandler([NSError errorWithDomain:kORClientErrorDomain code:self._errorCode userInfo:userInfo]);
-    } else {
-        PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
-        self._successHandler([parser parseDefinitionFromXML:receivedData]);
-        
-        // TODO: handle parsing errors -> error handler
-    }
+//    } else {
+//        self._errorHandler(parser.parseError);
+//    }
 }
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    self._errorCode = 0;
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        int responseCode = [((NSHTTPURLResponse *)response) statusCode];
-        if (responseCode != 200) {
-            self._errorCode = responseCode;
-        }
-    } else {
-        // Handle as error, as this handler is only used for HTTP(S) communication
-
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // Framework reported error, just pass upwards
-    self._errorHandler(error);
-}
-
 
 @end

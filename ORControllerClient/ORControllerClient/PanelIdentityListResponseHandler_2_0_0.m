@@ -20,13 +20,12 @@
  */
 
 #import "PanelIdentityListResponseHandler_2_0_0.h"
-
 #import "ORPanelsParser.h"
+#import "ORResponseHandler_Private.h"
 
 @interface PanelIdentityListResponseHandler_2_0_0 ()
 
 @property (strong, nonatomic) void (^_successHandler)(NSArray *);
-@property (strong, nonatomic) void (^_errorHandler)(NSError *);
 
 @end
 
@@ -42,23 +41,12 @@
     return self;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receivedData
+- (void)processValidResponseData:(NSData *)receivedData
 {
     ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:receivedData];
     self._successHandler([parser parsePanels]);
 
     // TODO: handle parsing errors -> error handler
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    // TODO: is this required, what should we do here
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // Framework reported error, just pass upwards
-    self._errorHandler(error);
 }
 
 @end

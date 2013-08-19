@@ -21,11 +21,11 @@
 
 #import "SensorValuesResponseHandler_2_0_0.h"
 #import "StatusValuesParser_2_0_0.h"
+#import "ORResponseHandler_Private.h"
 
 @interface SensorValuesResponseHandler_2_0_0 ()
 
 @property (strong, nonatomic) void (^_successHandler)(NSDictionary *);
-@property (strong, nonatomic) void (^_errorHandler)(NSError *);
 
 @end
 
@@ -41,23 +41,12 @@
     return self;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receivedData
+- (void)processValidResponseData:(NSData *)receivedData
 {
     StatusValuesParser_2_0_0 *parser = [[StatusValuesParser_2_0_0 alloc] initWithData:receivedData];
     self._successHandler([parser parseValues]);
     
     // TODO: handle parsing errors -> error handler
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    // TODO: is this required, what should we do here
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // Framework reported error, just pass upwards
-    self._errorHandler(error);
 }
 
 @end

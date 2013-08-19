@@ -19,13 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORResponseHandler.h"
+#import <Foundation/Foundation.h>
+#import "ORDataCapturingNSURLConnectionDelegate.h"
 
-@class Definition;
-
-@interface PanelLayoutResponseHandler_2_0_0 : ORResponseHandler
-
-// TODO: doc
-- (id)initWithSuccessHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+/**
+ * Parent class for all ResponseHandler objects, encapsulating common behaviour.
+ *
+ * A ReponseHandler is the class implementing ORDataCapturingNSURLConnectionDelegateDelegate protocol
+ * for a specific HTTP REST call and processing the response appropriately (e.g. parsing the returned XML).
+ */
+@interface ORResponseHandler : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
 
 @end

@@ -19,11 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORResponseHandler.h"
 
-#import "ORDataCapturingNSURLConnectionDelegate.h"
-
-@interface SensorValuesResponseHandler_2_0_0 : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
+@interface SensorValuesResponseHandler_2_0_0 : ORResponseHandler
 
 // TODO: doc
 - (id)initWithSuccessHandler:(void (^)(NSDictionary *))successHandler errorHandler:(void (^)(NSError *))errorHandler;

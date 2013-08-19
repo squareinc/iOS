@@ -19,14 +19,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
-#import "ORDataCapturingNSURLConnectionDelegate.h"
+#import "ORResponseHandler.h"
 
 /**
  * Class in charge of handling the response (and error) of the REST call to retrieve panel identity list.
  * This applies for REST API v2.0.0
  */
-@interface PanelIdentityListResponseHandler_2_0_0 : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
+@interface PanelIdentityListResponseHandler_2_0_0 : ORResponseHandler
 
 /**
  * Initializes the response handler with the provided blocks for success and error handling.

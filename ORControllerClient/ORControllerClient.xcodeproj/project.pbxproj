@@ -165,6 +165,7 @@
 		91CD6A3C17C240A800D5EEE6 /* ORRESTErrorParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */; };
 		91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3D17C249E300D5EEE6 /* InvalidXML.xml */; };
 		91CD6A4117C252D900D5EEE6 /* ORParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4017C252D900D5EEE6 /* ORParser.m */; };
+		91CD6A4717C26AAC00D5EEE6 /* ORResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4617C26AAC00D5EEE6 /* ORResponseHandler.m */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
@@ -446,6 +447,9 @@
 		91CD6A3F17C252D800D5EEE6 /* ORParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORParser.h; sourceTree = "<group>"; };
 		91CD6A4017C252D900D5EEE6 /* ORParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORParser.m; sourceTree = "<group>"; };
 		91CD6A4217C254BA00D5EEE6 /* ORParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORParser_Private.h; sourceTree = "<group>"; };
+		91CD6A4517C26AAC00D5EEE6 /* ORResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORResponseHandler.h; sourceTree = "<group>"; };
+		91CD6A4617C26AAC00D5EEE6 /* ORResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORResponseHandler.m; sourceTree = "<group>"; };
+		91CD6A4817C26CB800D5EEE6 /* ORResponseHandler_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORResponseHandler_Private.h; sourceTree = "<group>"; };
 		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
 		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
 		91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI_ScriptableMock.h; sourceTree = "<group>"; };
@@ -659,12 +663,7 @@
 				91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */,
 				9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */,
 				9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */,
-				91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */,
-				91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */,
-				91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */,
-				91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */,
-				91E794E317A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.h */,
-				91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */,
+				91CD6A4417C26A9B00D5EEE6 /* Response Handler */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -844,6 +843,22 @@
 			);
 			name = DeferredBinding;
 			path = ../../Console/Classes;
+			sourceTree = "<group>";
+		};
+		91CD6A4417C26A9B00D5EEE6 /* Response Handler */ = {
+			isa = PBXGroup;
+			children = (
+				91CD6A4517C26AAC00D5EEE6 /* ORResponseHandler.h */,
+				91CD6A4617C26AAC00D5EEE6 /* ORResponseHandler.m */,
+				91CD6A4817C26CB800D5EEE6 /* ORResponseHandler_Private.h */,
+				91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */,
+				91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */,
+				91E794D517A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.h */,
+				91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */,
+				91E794E317A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.h */,
+				91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */,
+			);
+			name = "Response Handler";
 			sourceTree = "<group>";
 		};
 		91E5B16817B125E3007EB305 /* Network Layer */ = {
@@ -1075,6 +1090,7 @@
 				91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
 				91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */,
 				91CD6A4117C252D900D5EEE6 /* ORParser.m in Sources */,
+				91CD6A4717C26AAC00D5EEE6 /* ORResponseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

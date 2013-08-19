@@ -21,11 +21,10 @@
 
 #import "ORResponseHandler.h"
 
-@class Definition;
+@interface ORResponseHandler ()
 
-@interface PanelLayoutResponseHandler_2_0_0 : ORResponseHandler
+@property (strong, nonatomic) void (^_errorHandler)(NSError *);
 
-// TODO: doc
-- (id)initWithSuccessHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+@property (nonatomic) NSInteger _errorCode;
 
 @end
