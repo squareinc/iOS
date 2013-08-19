@@ -116,7 +116,11 @@
             [self.tableView reloadData];
             
         } errorHandler:^(NSError *error) {
-            // TODO
+            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %d", [error code]]
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:@"OK", nil] show];
         }];
     } errorHandler:NULL];
 }
