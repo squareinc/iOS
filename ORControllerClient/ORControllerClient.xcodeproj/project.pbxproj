@@ -157,6 +157,12 @@
 		9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */; };
 		91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */; };
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
+		91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */; };
+		91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
+		91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
+		91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */; };
+		91CD6A3917C23C9300D5EEE6 /* ORRESTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */; };
+		91CD6A3C17C240A800D5EEE6 /* ORRESTErrorParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
@@ -427,6 +433,13 @@
 		919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
 		919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
+		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
+		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
+		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
+		91CD6A3617C23C9300D5EEE6 /* ORRESTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTError.h; sourceTree = "<group>"; };
+		91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTError.m; sourceTree = "<group>"; };
+		91CD6A3A17C240A800D5EEE6 /* ORRESTErrorParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParserTest.h; sourceTree = "<group>"; };
+		91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParserTest.m; sourceTree = "<group>"; };
 		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
 		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
 		91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI_ScriptableMock.h; sourceTree = "<group>"; };
@@ -481,6 +494,8 @@
 				9190D4D01790143000667A7C /* ORLabel.m */,
 				918604B21794435E005DBCD9 /* ORPanel.h */,
 				918604B31794435E005DBCD9 /* ORPanel.m */,
+				91CD6A3617C23C9300D5EEE6 /* ORRESTError.h */,
+				91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -492,6 +507,8 @@
 				918604B6179444B8005DBCD9 /* Panels List */,
 				91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */,
 				91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */,
+				91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */,
+				91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -511,6 +528,8 @@
 				918604BD17944816005DBCD9 /* Panels List */,
 				91E5B16317B111C3007EB305 /* StatusValuesParser_2_0_0Test.h */,
 				91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */,
+				91CD6A3A17C240A800D5EEE6 /* ORRESTErrorParserTest.h */,
+				91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -615,6 +634,7 @@
 				9190D4C11790140A00667A7C /* InfoPlist.strings */,
 				918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */,
 				91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */,
+				91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -917,6 +937,7 @@
 				9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */,
 				918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */,
 				91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */,
+				91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1061,8 @@
 				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
 				917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
 				91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
+				91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
+				91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1094,9 @@
 				9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */,
 				91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
 				91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */,
+				91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
+				91CD6A3917C23C9300D5EEE6 /* ORRESTError.m in Sources */,
+				91CD6A3C17C240A800D5EEE6 /* ORRESTErrorParserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
