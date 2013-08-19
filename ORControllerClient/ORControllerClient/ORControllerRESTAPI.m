@@ -21,6 +21,8 @@
 
 #import "ORControllerRESTAPI.h"
 
+NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
+
 @implementation ORControllerRESTAPI
 
 - (ORRESTCall *)requestPanelIdentityListAtBaseURL:(NSURL *)baseURL

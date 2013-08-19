@@ -25,6 +25,11 @@
 @class Definition;
 
 /**
+ * Error domain used for NSError specific to the ORClient library.
+ */
+extern NSString *const kORClientErrorDomain;
+
+/**
  * Encapsulates the REST API for talking to the ORB.
  * Subclasses will provide implementation for specific versions of the API.
 */

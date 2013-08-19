@@ -21,11 +21,14 @@
 
 #import "PanelLayoutResponseHandler_2_0_0.h"
 #import "PanelDefinitionParser.h"
+#import "ORControllerRESTAPI.h"
 
 @interface PanelLayoutResponseHandler_2_0_0 ()
 
 @property (strong, nonatomic) void (^_successHandler)(Definition *);
 @property (strong, nonatomic) void (^_errorHandler)(NSError *);
+
+@property (nonatomic) NSInteger _errorCode;
 
 @end
 
@@ -46,7 +49,7 @@
     if (self._errorCode) {
         // TODO: for certain error codes, we can parse XML and use that to build NSError
         // TODO: put appropriate information in userInfo dictionary
-        self._errorHandler([NSError errorWithDomain:@"todo" code:self._errorCode userInfo:nil]);
+        self._errorHandler([NSError errorWithDomain:kORClientErrorDomain code:self._errorCode userInfo:nil]);
     } else {
         PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
         self._successHandler([parser parseDefinitionFromXML:receivedData]);
