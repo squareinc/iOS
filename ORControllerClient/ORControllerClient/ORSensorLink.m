@@ -21,9 +21,6 @@
 
 #import "ORSensorLink.h"
 
-#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
-#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
-
 @interface ORSensorLink ()
 
 @property (nonatomic, strong, readwrite) NSObject *component;
