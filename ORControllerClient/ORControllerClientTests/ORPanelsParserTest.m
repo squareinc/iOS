@@ -47,6 +47,33 @@
     STAssertEqualObjects(NSXMLParserErrorDomain, [parser.parseError domain], @"Underlying XML parser error is propagated for malformed XML");
 }
 
+/*
+ 
+ TODO: Ideal solution would be to validate XML structure based on schema to ensure it's what is expected for this call
+ Schema validation is not that easy to perform on iOS and/or might be costly
+ Best solution would be to generate ObjC classes that "compile" the schema into fast validation (along with parsing if possible)
+ Haven't found tool (with appropriate license to do that)
+
+- (void)testParsingValidXMLOtherThanExpectedOne
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SensorValuesValidResponse_2_0_0" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
+    NSArray *panels = [parser parsePanels];
+    
+    STAssertNil(panels, @"Unexpected XML should not return any panels");
+    STAssertNotNil(parser.parseError, @"A parsing error should be reported for unexpected XML");
+    
+    STAssertEqualObjects(kORClientErrorDomain, [parser.parseError domain], @"OR specific errors belong to OR specific domain");
+
+    STAssertEqual(1, [parser.parseError code], @"TODO");
+}
+
+ // TODO : also test panels response with missing element e.g. name
+
+*/
+
 - (void)assertValidResponse:(id)panels
 {
     STAssertNotNil(panels, @"Should provide list of panels when passed in valid data");
