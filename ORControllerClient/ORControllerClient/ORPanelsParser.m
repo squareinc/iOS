@@ -21,36 +21,21 @@
 
 #import "ORPanelsParser.h"
 #import "ORPanel.h"
+#import "ORParser_Private.h"
 
 @interface ORPanelsParser ()
 
-@property (nonatomic, strong) NSData *_data;
 @property (nonatomic, strong) NSMutableArray *_panels;
-@property (nonatomic, strong, readwrite) NSError *parseError;
 
 @end
 
 @implementation ORPanelsParser
 
-- (id)initWithData:(NSData *)data
-{
-    self = [super init];
-    if (self) {
-        self._data = data;
-        self.parseError = nil;
-    }
-    return self;
-}
-
 - (NSArray *)parsePanels
 {
     self._panels = [NSMutableArray arrayWithCapacity:1];
-    self.parseError = nil;
     
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:self._data];
-	[xmlParser setDelegate:self];
-	if (![xmlParser parse]) {
-        self.parseError = [xmlParser parserError];
+    if (![self doParsing]) {
         return nil;
     }
     

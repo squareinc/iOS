@@ -19,23 +19,27 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORParser.h"
+#import <Foundation/Foundation.h>
 
 /**
- * Parses XML returned by "Request Panel Identity List" REST API.
- *
- * @see http://openremote.org/display/docs/Controller+2.0+HTTP-REST-XML#Controller2.0HTTP-REST-XML-RequestPanelIdentityList
+ * Parent class of all OR parsers, providing common functionality:
+ * - initializing the parser with data to parse
+ * - providing access to parsing error
  */
-@interface ORPanelsParser : ORParser
+@interface ORParser : NSObject <NSXMLParserDelegate>
 
 /**
- * Parses the panel data and returns list of panel it describes.
- * Panels in the returned collection are in the same ordered as in the XML structure.
+ * Initializes a parser with data to parse.
  *
- * If parsing fails, this method returns nil and the parseError property provides the error.
+ * @param data Data with XML to parse
  *
- * @return A list of ORPanel objects or nil if parsing failed
+ * @return an ORParser instance initialized with the provided data
  */
-- (NSArray *)parsePanels;
+- (id)initWithData:(NSData *)data;
+
+/**
+ * Error that occured during parsing or nil if none occured or no parsing has been done.
+ */
+@property (nonatomic, strong, readonly) NSError *parseError;
 
 @end
