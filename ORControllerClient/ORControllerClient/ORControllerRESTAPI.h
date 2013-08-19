@@ -29,6 +29,9 @@
  */
 extern NSString *const kORClientErrorDomain;
 
+#define STATUS_CODE_OR_SPECIFIC(statusCode) ((statusCode == EINVALID_PANEL_XML) \
+                                            || (statusCode == EPANEL_XML_NOT_DEPLOYED) \
+                                            || (statusCode == EPANEL_NAME_NOT_FOUND))
 /**
  * Encapsulates the REST API for talking to the ORB.
  * Subclasses will provide implementation for specific versions of the API.
