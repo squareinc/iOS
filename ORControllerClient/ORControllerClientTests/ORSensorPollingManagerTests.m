@@ -85,4 +85,22 @@
     STAssertEquals((NSUInteger)3, api.sensorPollCallCount, @"Poll request should have been called once");
 }
 
+- (void)testNoAPICallWhenNoRegisteredSensors
+{
+    ORControllerRESTAPI_ScriptableMock *api = [[ORControllerRESTAPI_ScriptableMock alloc] init];
+    api.sensorStatusResult = @{@"1": @"on"};
+    api.sensorPollResult = @{@"1": @"on"};
+    api.sensorPollMaxCall = 3;
+    
+    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
+                                                                                 controllerAddress:nil
+                                                                                    sensorRegistry:registry];
+
+    [pollingManager start];
+    
+    STAssertEquals((NSUInteger)0, api.sensorStatusCallCount, @"Status request should not have been called when no sensor registered");
+    STAssertEquals((NSUInteger)0, api.sensorPollCallCount, @"Poll request should not have been called when no sensor registered");
+}
+
 @end

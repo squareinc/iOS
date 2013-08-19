@@ -58,6 +58,10 @@
 
 - (void)start
 {
+    // Only poll if there are sensors to poll
+    if (![[self._sensorRegistry sensorIds] count]) {
+        return;
+    }
     __block void (^sensorPollingBlock)() = ^{
         self._currentCall = [self._controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
                                 fromDeviceWithIdentifier:@"TODO"
