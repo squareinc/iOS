@@ -31,10 +31,24 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     ORRESTErrorParser *parser = [[ORRESTErrorParser alloc] initWithData:data];
-    ORRESTError *error = [parser parseError];
+    ORRESTError *error = [parser parseRESTError];
+
+    STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
     STAssertNotNil(error, @"Should return parsed error when provided with valid XML data");
     STAssertEquals(EPANEL_NAME_NOT_FOUND, error.code, @"Parsed error code should be 528");
     STAssertEqualObjects(@"No such Panel :NAME = panel  1", error.message, @"Parsed error message should be valid");
+}
+
+- (void)testInvalidXMLParsing
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"InvalidXML" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    ORRESTErrorParser *parser = [[ORRESTErrorParser alloc] initWithData:data];
+    ORRESTError *error = [parser parseRESTError];
+    STAssertNil(error, @"Invalid XML should not return any panels");
+    STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
+    STAssertEqualObjects(NSXMLParserErrorDomain, [parser.parseError domain], @"Underlying XML parser error is propagated for malformed XML");
 }
 
 @end

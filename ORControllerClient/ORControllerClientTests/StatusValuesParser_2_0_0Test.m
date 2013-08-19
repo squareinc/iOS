@@ -31,6 +31,7 @@
     StatusValuesParser_2_0_0 *parser = [[StatusValuesParser_2_0_0 alloc] initWithData:data];
     NSDictionary *values = [parser parseValues];
     
+    STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
     STAssertNotNil(values, @"Should provide parsed values when passed in valid data");
     STAssertTrue([values isKindOfClass:[NSDictionary class]], @"Parsing result should be an NSDictionary");
     STAssertEquals([values count], (NSUInteger)2, @"Fixture declares 2 sensors");
@@ -44,6 +45,19 @@
     value = [values objectForKey:@"2"];
     STAssertNotNil(value, @"There should be a value for sensor with id 2");
     STAssertEqualObjects(value, @"off", @"Value for sensor with id 2 should be off");
+}
+
+- (void)testInvalidXMLParsing
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"InvalidXML" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    StatusValuesParser_2_0_0 *parser = [[StatusValuesParser_2_0_0 alloc] initWithData:data];
+    NSDictionary *values = [parser parseValues];
+
+    STAssertNil(values, @"Invalid XML should not return any panels");
+    STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
+    STAssertEqualObjects(NSXMLParserErrorDomain, [parser.parseError domain], @"Underlying XML parser error is propagated for malformed XML");
 }
 
 @end

@@ -21,10 +21,9 @@
 
 #import "ORRESTErrorParser.h"
 #import "ORRESTError.h"
+#import "ORParser_Private.h"
 
 @interface ORRESTErrorParser ()
-
-@property (nonatomic, strong) NSData *_data;
 
 @property (nonatomic, strong) NSMutableString *_currentValue;
 
@@ -35,21 +34,12 @@
 
 @implementation ORRESTErrorParser
 
-- (id)initWithData:(NSData *)data
+- (ORRESTError *)parseRESTError
 {
-    self = [super init];
-    if (self) {
-        self._data = data;
+    if (![self doParsing]) {
+        return nil;
     }
-    return self;
-}
 
-- (ORRESTError *)parseError
-{
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:self._data];
-	[xmlParser setDelegate:self];
-	[xmlParser parse];
-    
     return [[ORRESTError alloc] initWithMessage:self._message code:self._code];
 }
 

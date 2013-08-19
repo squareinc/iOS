@@ -20,10 +20,10 @@
  */
 
 #import "StatusValuesParser_2_0_0.h"
+#import "ORParser_Private.h"
 
 @interface StatusValuesParser_2_0_0 ()
 
-@property (nonatomic, strong) NSData *_data;
 @property (nonatomic, strong) NSMutableDictionary *_sensorValues;
 
 @property (nonatomic, strong) NSMutableString *_currentValue;
@@ -33,22 +33,13 @@
 
 @implementation StatusValuesParser_2_0_0
 
-- (id)initWithData:(NSData *)data
-{
-    self = [super init];
-    if (self) {
-        self._data = data;
-    }
-    return self;
-}
-
 - (NSDictionary *)parseValues
 {
     self._sensorValues = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:self._data];
-	[xmlParser setDelegate:self];
-	[xmlParser parse];
+    if (![self doParsing]) {
+        return nil;
+    }
     
     return [NSDictionary dictionaryWithDictionary:self._sensorValues];
 }

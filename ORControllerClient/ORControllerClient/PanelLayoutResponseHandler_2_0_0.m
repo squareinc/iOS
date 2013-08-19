@@ -53,7 +53,7 @@
         if (STATUS_CODE_OR_SPECIFIC(self._errorCode)) {
             // OR specific errors code to provide an error message as the returned XML data
             ORRESTErrorParser *errorParser = [[ORRESTErrorParser alloc] initWithData:receivedData];
-            ORRESTError *receivedError = [errorParser parseError];
+            ORRESTError *receivedError = [errorParser parseRESTError];
             
             [userInfo setObject:receivedError.message forKey:NSLocalizedDescriptionKey];
         } else {

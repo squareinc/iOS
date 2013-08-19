@@ -32,6 +32,7 @@
     
     ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
     NSArray *panels = [parser parsePanels];
+    STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
     [self assertValidResponse:panels];
 }
 

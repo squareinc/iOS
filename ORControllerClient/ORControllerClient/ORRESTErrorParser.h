@@ -19,26 +19,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORParser.h"
 
 @class ORRESTError;
 
-@interface ORRESTErrorParser : NSObject <NSXMLParserDelegate>
-
-/**
- * Initializes a parser with data representing an error message.
- *
- * @param data Data with XML representing an error message
- *
- * @return a ORRESTErrorParser instance initialized with the provided error message data
- */
-- (id)initWithData:(NSData *)data;
+@interface ORRESTErrorParser : ORParser
 
 /**
  * Parses the error message data and returns it.
  *
  * @return An ORRESTError with error code and message
  */
-- (ORRESTError *)parseError;
+- (ORRESTError *)parseRESTError;
 
 @end
