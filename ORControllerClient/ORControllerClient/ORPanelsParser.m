@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) NSData *_data;
 @property (nonatomic, strong) NSMutableArray *_panels;
+@property (nonatomic, strong, readwrite) NSError *parseError;
 
 @end
 
@@ -36,6 +37,7 @@
     self = [super init];
     if (self) {
         self._data = data;
+        self.parseError = nil;
     }
     return self;
 }
@@ -43,10 +45,14 @@
 - (NSArray *)parsePanels
 {
     self._panels = [NSMutableArray arrayWithCapacity:1];
+    self.parseError = nil;
     
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:self._data];
 	[xmlParser setDelegate:self];
-	[xmlParser parse];
+	if (![xmlParser parse]) {
+        self.parseError = [xmlParser parserError];
+        return nil;
+    }
     
     return [NSArray arrayWithArray:self._panels];
 }

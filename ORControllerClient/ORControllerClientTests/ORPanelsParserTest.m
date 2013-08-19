@@ -35,6 +35,18 @@
     [self assertValidResponse:panels];
 }
 
+- (void)testInvalidXMLParsing
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"InvalidXML" withExtension:@"xml"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
+    NSArray *panels = [parser parsePanels];
+    STAssertNil(panels, @"Invalid XML should not return any panels");
+    STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
+    STAssertEqualObjects(NSXMLParserErrorDomain, [parser.parseError domain], @"Underlying XML parser error is propagated for malformed XML");
+}
+
 - (void)assertValidResponse:(id)panels
 {
     STAssertNotNil(panels, @"Should provide list of panels when passed in valid data");

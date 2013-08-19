@@ -41,10 +41,15 @@
  * Parses the panel data and returns list of panel it describes.
  * Panels in the returned collection are in the same ordered as in the XML structure.
  *
- * @return A list of ORPanel objects
+ * If parsing fails, this method returns nil and the parseError property provides the error.
+ *
+ * @return A list of ORPanel objects or nil if parsing failed
  */
 - (NSArray *)parsePanels;
 
-// TODO: how about error handling, raises exception ?
+/**
+ * Error that occured during parsing or nil if none occured or no parsing has been done.
+ */
+@property (nonatomic, strong, readonly) NSError *parseError;
 
 @end

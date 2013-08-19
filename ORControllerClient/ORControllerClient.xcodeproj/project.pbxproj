@@ -163,6 +163,7 @@
 		91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */; };
 		91CD6A3917C23C9300D5EEE6 /* ORRESTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */; };
 		91CD6A3C17C240A800D5EEE6 /* ORRESTErrorParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */; };
+		91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3D17C249E300D5EEE6 /* InvalidXML.xml */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
@@ -440,6 +441,7 @@
 		91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTError.m; sourceTree = "<group>"; };
 		91CD6A3A17C240A800D5EEE6 /* ORRESTErrorParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParserTest.h; sourceTree = "<group>"; };
 		91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParserTest.m; sourceTree = "<group>"; };
+		91CD6A3D17C249E300D5EEE6 /* InvalidXML.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidXML.xml; sourceTree = "<group>"; };
 		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
 		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
 		91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI_ScriptableMock.h; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 				918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */,
 				91E5B16617B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml */,
 				91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */,
+				91CD6A3D17C249E300D5EEE6 /* InvalidXML.xml */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -938,6 +941,7 @@
 				918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */,
 				91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */,
 				91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */,
+				91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
