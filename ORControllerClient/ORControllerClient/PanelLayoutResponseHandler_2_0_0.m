@@ -43,20 +43,35 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receivedData
 {
-    PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
-    self._successHandler([parser parseDefinitionFromXML:receivedData]);
-    
-    // TODO: handle parsing errors -> error handler
+    if (self._errorCode) {
+        // TODO: for certain error codes, we can parse XML and use that to build NSError
+        // TODO: put appropriate information in userInfo dictionary
+        self._errorHandler([NSError errorWithDomain:@"todo" code:self._errorCode userInfo:nil]);
+    } else {
+        PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
+        self._successHandler([parser parseDefinitionFromXML:receivedData]);
+        
+        // TODO: handle parsing errors -> error handler
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    // TODO: is this required, what should we do here
+    self._errorCode = 0;
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        int responseCode = [((NSHTTPURLResponse *)response) statusCode];
+        if (responseCode != 200) {
+            self._errorCode = responseCode;
+        }
+    } else {
+        // Handle as error, as this handler is only used for HTTP(S) communication
+
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    // TODO: do we want to encapsulate the error in one of our own ?
+    // Framework reported error, just pass upwards
     self._errorHandler(error);
 }
 

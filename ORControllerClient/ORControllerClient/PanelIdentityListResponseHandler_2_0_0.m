@@ -57,7 +57,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    // TODO: do we want to encapsulate the error in one of our own ?
+    // Framework reported error, just pass upwards
     self._errorHandler(error);
 }
 
