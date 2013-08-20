@@ -169,6 +169,8 @@
 		91CD6A4B17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
 		91CD6A4C17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
 		91CD6A5017C35D5E00D5EEE6 /* ORObjectIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4F17C35D5E00D5EEE6 /* ORObjectIdentifierTest.m */; };
+		91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */; };
+		91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CD6A3F17C252D800D5EEE6 /* ORParser.h */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
@@ -206,6 +208,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */,
+				91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */,
 				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */,
 				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */,
 				91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */,
