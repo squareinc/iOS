@@ -166,9 +166,9 @@
 		91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3D17C249E300D5EEE6 /* InvalidXML.xml */; };
 		91CD6A4117C252D900D5EEE6 /* ORParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4017C252D900D5EEE6 /* ORParser.m */; };
 		91CD6A4717C26AAC00D5EEE6 /* ORResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4617C26AAC00D5EEE6 /* ORResponseHandler.m */; };
-		91CD6A4B17C271C600D5EEE6 /* ORId.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORId.m */; };
-		91CD6A4C17C271C600D5EEE6 /* ORId.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORId.m */; };
-		91CD6A5017C35D5E00D5EEE6 /* ORIdTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4F17C35D5E00D5EEE6 /* ORIdTest.m */; };
+		91CD6A4B17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
+		91CD6A4C17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
+		91CD6A5017C35D5E00D5EEE6 /* ORObjectIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4F17C35D5E00D5EEE6 /* ORObjectIdentifierTest.m */; };
 		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
 		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
@@ -453,10 +453,10 @@
 		91CD6A4517C26AAC00D5EEE6 /* ORResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORResponseHandler.h; sourceTree = "<group>"; };
 		91CD6A4617C26AAC00D5EEE6 /* ORResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORResponseHandler.m; sourceTree = "<group>"; };
 		91CD6A4817C26CB800D5EEE6 /* ORResponseHandler_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORResponseHandler_Private.h; sourceTree = "<group>"; };
-		91CD6A4917C271C500D5EEE6 /* ORId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORId.h; sourceTree = "<group>"; };
-		91CD6A4A17C271C500D5EEE6 /* ORId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORId.m; sourceTree = "<group>"; };
-		91CD6A4E17C35D5E00D5EEE6 /* ORIdTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORIdTest.h; sourceTree = "<group>"; };
-		91CD6A4F17C35D5E00D5EEE6 /* ORIdTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORIdTest.m; sourceTree = "<group>"; };
+		91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORObjectIdentifier.h; sourceTree = "<group>"; };
+		91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORObjectIdentifier.m; sourceTree = "<group>"; };
+		91CD6A4E17C35D5E00D5EEE6 /* ORObjectIdentifierTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORObjectIdentifierTest.h; sourceTree = "<group>"; };
+		91CD6A4F17C35D5E00D5EEE6 /* ORObjectIdentifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORObjectIdentifierTest.m; sourceTree = "<group>"; };
 		91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI.h; sourceTree = "<group>"; };
 		91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerRESTAPI.m; sourceTree = "<group>"; };
 		91DC691017BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerRESTAPI_ScriptableMock.h; sourceTree = "<group>"; };
@@ -513,8 +513,8 @@
 				918604B31794435E005DBCD9 /* ORPanel.m */,
 				91CD6A3617C23C9300D5EEE6 /* ORRESTError.h */,
 				91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */,
-				91CD6A4917C271C500D5EEE6 /* ORId.h */,
-				91CD6A4A17C271C500D5EEE6 /* ORId.m */,
+				91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */,
+				91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -874,8 +874,8 @@
 		91CD6A4D17C35D4B00D5EEE6 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
-				91CD6A4E17C35D5E00D5EEE6 /* ORIdTest.h */,
-				91CD6A4F17C35D5E00D5EEE6 /* ORIdTest.m */,
+				91CD6A4E17C35D5E00D5EEE6 /* ORObjectIdentifierTest.h */,
+				91CD6A4F17C35D5E00D5EEE6 /* ORObjectIdentifierTest.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1110,7 +1110,7 @@
 				91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */,
 				91CD6A4117C252D900D5EEE6 /* ORParser.m in Sources */,
 				91CD6A4717C26AAC00D5EEE6 /* ORResponseHandler.m in Sources */,
-				91CD6A4B17C271C600D5EEE6 /* ORId.m in Sources */,
+				91CD6A4B17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,8 +1145,8 @@
 				91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
 				91CD6A3917C23C9300D5EEE6 /* ORRESTError.m in Sources */,
 				91CD6A3C17C240A800D5EEE6 /* ORRESTErrorParserTest.m in Sources */,
-				91CD6A4C17C271C600D5EEE6 /* ORId.m in Sources */,
-				91CD6A5017C35D5E00D5EEE6 /* ORIdTest.m in Sources */,
+				91CD6A4C17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */,
+				91CD6A5017C35D5E00D5EEE6 /* ORObjectIdentifierTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

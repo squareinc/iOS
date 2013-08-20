@@ -19,15 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORIdTest.h"
-#import "ORId.h"
+#import "ORObjectIdentifierTest.h"
+#import "ORObjectIdentifier.h"
 
-@implementation ORIdTest
+@implementation ORObjectIdentifierTest
 
 - (void)testIdsWithSameIntegerIdAreEqualAndHaveSameHash
 {
-    ORId *id1 = [[ORId alloc] initWithIntegerId:1];
-    ORId *id2 = [[ORId alloc] initWithIntegerId:1];
+    ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     
     STAssertEqualObjects(id1, id2, @"Ids with same integer id should be equal");
     STAssertTrue([id1 hash] == [id2 hash], @"Ids with same integer id should have same hash");
@@ -35,8 +35,8 @@
 
 - (void)testIdsWithDifferentIntegerIdsAreNotEqual
 {
-    ORId *id1 = [[ORId alloc] initWithIntegerId:1];
-    ORId *id2 = [[ORId alloc] initWithIntegerId:2];
+    ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithIntegerId:2];
 
     STAssertFalse([id1 isEqual:id2], @"Ids with different integer id should not be equal");
 }

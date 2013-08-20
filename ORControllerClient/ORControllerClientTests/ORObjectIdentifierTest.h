@@ -22,6 +22,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface ORIdTest : SenTestCase
+@interface ORObjectIdentifierTest : SenTestCase
 
 @end

@@ -19,15 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORId.h"
+#import "ORObjectIdentifier.h"
 
-@interface ORId ()
+@interface ORObjectIdentifier ()
 
 @property (nonatomic) NSInteger _id;
 
 @end
 
-@implementation ORId
+@implementation ORObjectIdentifier
 
 - (id)initWithIntegerId:(NSInteger)intId
 {
@@ -45,10 +45,10 @@
 
 - (BOOL)isEqual:(id)object
 {
-    if (![object isKindOfClass:[ORId class]]) {
+    if (![object isKindOfClass:[ORObjectIdentifier class]]) {
         return NO;
     }
-    ORId *other = (ORId *)object;
+    ORObjectIdentifier *other = (ORObjectIdentifier *)object;
     return other._id == self._id;
 }
 

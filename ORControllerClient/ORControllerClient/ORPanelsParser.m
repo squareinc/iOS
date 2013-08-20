@@ -21,7 +21,7 @@
 
 #import "ORPanelsParser.h"
 #import "ORPanel.h"
-#import "ORId.h"
+#import "ORObjectIdentifier.h"
 #import "ORParser_Private.h"
 
 @interface ORPanelsParser ()
@@ -50,7 +50,7 @@
 	if ([elementName isEqualToString:@"panel"]) {
         ORPanel *panel = [[ORPanel alloc] init];
         panel.name = [attributeDict valueForKey:@"name"];
-        panel.id = [[ORId alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
+        panel.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
 		[self._panels addObject:panel];
 	}
 }

@@ -25,7 +25,7 @@
  * Represents unique identifier assigned to object model.
  * Using this class instead of an actual "primitive" type shields the object model from the exact implementation of the identifier.
  */
-@interface ORId : NSObject
+@interface ORObjectIdentifier : NSObject
 
 - (id)initWithIntegerId:(NSInteger)intId;
 
