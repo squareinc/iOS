@@ -41,4 +41,19 @@
     STAssertFalse([id1 isEqual:id2], @"Ids with different integer id should not be equal");
 }
 
+- (void)testIntegerAndStringInitEquivalentForSameInput
+{
+    ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithStringId:@"1"];
+    
+    STAssertEqualObjects(id1, id2, @"Ids with same id should be equal");
+    STAssertTrue([id1 hash] == [id2 hash], @"Ids with same id should have same hash");
+}
+
+- (void)testInvalidStringIdReturnsZeroId
+{
+    ORObjectIdentifier *zeroId = [[ORObjectIdentifier alloc] initWithStringId:@"invalid"];
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:0], zeroId, @"Id initiliazed with invalid string should be 0");
+}
+
 @end

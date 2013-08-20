@@ -27,8 +27,24 @@
  */
 @interface ORObjectIdentifier : NSObject
 
+/**
+ * Initializes the identifier with an integer id.
+ *
+ * @param intId integer id to use as identifier
+ *
+ * @return An ORObjectIdentifier object initialized with the provided value.
+ */
 - (id)initWithIntegerId:(NSInteger)intId;
 
+/**
+ * Initializes the identifier with a integer id given as a string.
+ * This methods tries to convert to string to an integer.
+ * If that fails, the resulting id will be initiliazed to 0.
+ *
+ * @param stringId string id to use as identifier
+ *
+ * @return An ORObjectIdentifier object initialized with the provided value.
+ */
 - (id)initWithStringId:(NSString *)stringId;
 
 @end
