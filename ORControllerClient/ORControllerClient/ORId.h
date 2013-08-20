@@ -29,4 +29,6 @@
 
 - (id)initWithIntegerId:(NSInteger)intId;
 
+- (id)initWithStringId:(NSString *)stringId;
+
 @end

@@ -22,6 +22,7 @@
 #import "ORPanelsParserTest.h"
 #import "ORPanelsParser.h"
 #import "ORPanel.h"
+#import "ORId.h"
 
 @implementation ORPanelsParserTest
 
@@ -86,12 +87,23 @@
     STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).name,
                          @"Dad's iPhone",
                          @"Name of first panel should be equal to the one defined in the fixture");
+    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).id,
+                         [[ORId alloc] initWithIntegerId:1],
+                         @"Id of first panel should be equal to the one defined in the fixture");
+    
     STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).name,
                          @"Mom's iPad",
                          @"Name of second panel should be equal to the one defined in the fixture");
+    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).id,
+                         [[ORId alloc] initWithIntegerId:141],
+                         @"Id of second panel should be equal to the one defined in the fixture");
+    
     STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).name,
                          @"My iPod touch",
                          @"Name of third panel should be equal to the one defined in the fixture");
+    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).id,
+                         [[ORId alloc] initWithIntegerId:263],
+                         @"Id of third panel should be equal to the one defined in the fixture");
 }
 
 @end

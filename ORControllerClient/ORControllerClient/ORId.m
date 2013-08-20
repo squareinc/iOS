@@ -38,6 +38,11 @@
     return self;
 }
 
+- (id)initWithStringId:(NSString *)stringId
+{
+    return [self initWithIntegerId:[stringId integerValue]];
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[ORId class]]) {

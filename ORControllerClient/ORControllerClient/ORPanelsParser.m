@@ -21,6 +21,7 @@
 
 #import "ORPanelsParser.h"
 #import "ORPanel.h"
+#import "ORId.h"
 #import "ORParser_Private.h"
 
 @interface ORPanelsParser ()
@@ -47,9 +48,9 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
 	if ([elementName isEqualToString:@"panel"]) {
-        // TODO: take id into account
         ORPanel *panel = [[ORPanel alloc] init];
         panel.name = [attributeDict valueForKey:@"name"];
+        panel.id = [[ORId alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
 		[self._panels addObject:panel];
 	}
 }
