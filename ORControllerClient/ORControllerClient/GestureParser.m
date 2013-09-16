@@ -53,7 +53,7 @@
     if (self) {
         [self addKnownTag:NAVIGATE];
         NSString *type = [attributeDict objectForKey:TYPE];
-        GestureSwipeType swipeType;
+        GestureSwipeType swipeType = GestureSwipeTypeRightToLeft; // Arbitrary default value, shouldn't be used unless data consistency issue
         if ([type isEqualToString:@"swipe-top-to-bottom"]) {
             swipeType = GestureSwipeTypeTopToBottom;
         } else if ([type isEqualToString:@"swipe-bottom-to-top"]) {
