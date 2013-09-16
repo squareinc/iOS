@@ -55,7 +55,7 @@
 {
     [self._sensors addObject:sensor];
     [self._sensorsPerId setObject:sensor forKey:[NSNumber numberWithInt:sensor.sensorId]];
-    NSMutableArray *components = [self._linksPerSensorId objectForKey:[NSNumber numberWithInt:sensor.sensorId]];
+    NSMutableSet *components = [self._linksPerSensorId objectForKey:[NSNumber numberWithInt:sensor.sensorId]];
     if (!components) {
         components = [NSMutableSet setWithCapacity:1];
         [self._linksPerSensorId setObject:components forKey:[NSNumber numberWithInt:sensor.sensorId]];
