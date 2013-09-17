@@ -76,11 +76,14 @@
                                           
                                           sensorPollingBlock();
                                       } errorHandler:^(NSError *error) {
-                                          
-                                          NSLog(@"poll error %@", error);
-                                          
-                                          // TODO: if timeout, should call same block
-                                          
+                                          // Timeout is "mechanism" used by server push, simply poll again
+                                          if ([kORClientErrorDomain isEqualToString:error.domain]) {
+                                              if (error.code == 504) { // HTTP timeout
+                                                  sensorPollingBlock();
+                                              }
+                                          } else {
+                                              NSLog(@"poll error %@", error);
+                                          }
                                       }];
     };
 
