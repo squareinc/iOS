@@ -36,6 +36,7 @@
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
+		9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183056C17E8AC40002E9EF7 /* ORWidget.m */; };
 		918604B41794435E005DBCD9 /* ORPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604B31794435E005DBCD9 /* ORPanel.m */; };
 		918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604B8179444D2005DBCD9 /* ORPanelsParser.m */; };
 		918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */; };
@@ -276,6 +277,8 @@
 		917104C017B8DC34005F9BA4 /* ORSensorLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLink.m; sourceTree = "<group>"; };
 		917104C317B8F513005F9BA4 /* ORSensorLinkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkTest.h; sourceTree = "<group>"; };
 		917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLinkTest.m; sourceTree = "<group>"; };
+		9183056B17E8AC40002E9EF7 /* ORWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget.h; sourceTree = "<group>"; };
+		9183056C17E8AC40002E9EF7 /* ORWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidget.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
 		918604B31794435E005DBCD9 /* ORPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanel.m; sourceTree = "<group>"; };
 		918604B7179444D2005DBCD9 /* ORPanelsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanelsParser.h; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */,
 				91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */,
 				91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */,
+				9183056B17E8AC40002E9EF7 /* ORWidget.h */,
+				9183056C17E8AC40002E9EF7 /* ORWidget.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1055,6 +1060,7 @@
 				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
 				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
 				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
+				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
 				91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */,
 				91933369179E9BD00086FEE7 /* SensorState.m in Sources */,
 				9193336A179E9BD00086FEE7 /* Slider.m in Sources */,
