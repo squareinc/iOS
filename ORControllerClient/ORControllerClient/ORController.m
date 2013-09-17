@@ -61,8 +61,6 @@
     
     // TODO: in next version, could fetch group members
     // TODO: in later version, this could be a good place to get the controller capabilities
-    // TODO: might also want to start the "polling / communication" loop -> no, too soon, need to hade the configuration downloaded for that
-    // (unless we have something in cache)
 
     self.connected = YES;
     if (successHandler) {
@@ -72,7 +70,6 @@
 
 - (void)disconnect
 {
-    // TODO: in later version, stop any communication with server e.g. polling loop
     if (self.pollingManager) {
         [self.pollingManager stop];
     }
