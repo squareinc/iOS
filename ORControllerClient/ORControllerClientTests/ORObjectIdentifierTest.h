@@ -19,9 +19,33 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Unit tests for ORObjectIdentifier
+ */
 @interface ORObjectIdentifierTest : SenTestCase
+
+/**
+ * Validates that 2 ORObjectIdentifier instances initiliazed with the same integer id are considered equal
+ * and have the same hash value.
+ */
+- (void)testIdsWithSameIntegerIdAreEqualAndHaveSameHash;
+
+/**
+ * Validates that 2 ORObjectIdentifier instances initiliazed with different integer values are not considered equal.
+ */
+- (void)testIdsWithDifferentIntegerIdsAreNotEqual;
+
+/**
+ * Validates that 2 ORObjectIdentifier instances initiliazed with the value, once passed in as string,
+ * once passed in as integer, are considered equal and have the same hash value.
+ */
+- (void)testIntegerAndStringInitEquivalentForSameInput;
+
+/**
+ * Validates that an ORObjectIdentifier instance initiliazed with an invalid id does have an id of 0.
+ */
+- (void)testInvalidStringIdReturnsZeroId;
 
 @end
