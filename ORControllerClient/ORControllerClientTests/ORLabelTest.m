@@ -20,6 +20,7 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 
 #define SOME_TEXT @"Some text"
@@ -35,7 +36,7 @@
 
 - (void)setUp
 {
-    self.label = [[ORLabel alloc] initWithText:SOME_TEXT];
+    self.label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1] text:SOME_TEXT];
 }
 
 - (void)tearDown

@@ -24,6 +24,7 @@
 #import "Screen.h"
 #import "ORSensorRegistry.h"
 
+#import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 
 @interface Definition ()
@@ -112,7 +113,8 @@
 		Label *tempLabel = [self.legacyLabels objectAtIndex:i];
 		if (tempLabel.componentId == label.componentId) {
 			[self.legacyLabels replaceObjectAtIndex:i withObject:label];
-            [self._labels replaceObjectAtIndex:i withObject:[[ORLabel alloc] initWithText:label.text]];
+            [self._labels replaceObjectAtIndex:i withObject:[[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:label.componentId]
+                                                                                           text:label.text]];
             
             // TODO: handle sensorRegistry operation for this specific case
             
@@ -120,7 +122,8 @@
 		}
 	}
 	[self.legacyLabels addObject:label];
-    ORLabel *orLabel = [[ORLabel alloc] initWithText:label.text];
+    ORLabel *orLabel = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:label.componentId]
+                                                      text:label.text];
     [self._labels addObject:orLabel];
     if (label.sensor) {
         [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel property:@"text"];

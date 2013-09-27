@@ -38,7 +38,7 @@ extern NSString const *kORLabelTextValueChanged;
  */
 @interface ORLabel : ORWidget
 
-- (id)initWithText:(NSString *)someText;
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
 
 // Q : should we have an id ? If yes, encapsulate in ORObjectIdentifier class -> can change from int to something meaningfull later
 

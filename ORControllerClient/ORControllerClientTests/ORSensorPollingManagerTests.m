@@ -22,6 +22,7 @@
 #import "ORSensorPollingManagerTests.h"
 #import "ORSensorPollingManager.h"
 #import "ORSensorRegistry.h"
+#import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 #import "Sensor.h"
 #import "SensorState.h"
@@ -39,7 +40,7 @@
 - (void)testUpdateComponentsWithSensorValues
 {
     Sensor *sensor = [[Sensor alloc] initWithId:1];
-    ORLabel *label = [[ORLabel alloc] initWithText:@"Initial text"];
+    ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:11] text:@"Initial text"];
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text"];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:[[ControllerREST_2_0_0_API alloc] init]
@@ -72,7 +73,7 @@
     api.sensorPollMaxCall = 3;
     
     Sensor *sensor = [[Sensor alloc] initWithId:1];
-    ORLabel *label = [[ORLabel alloc] initWithText:@"Initial text"];
+    ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] text:@"Initial text"];
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text"];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
