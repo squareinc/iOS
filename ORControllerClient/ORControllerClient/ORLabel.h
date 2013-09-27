@@ -20,6 +20,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "ORWidget.h"
 
 /**
  * Name of notification indicating that label text value has been changed by an external event (sensor update).
@@ -35,7 +36,7 @@ extern NSString const *kORLabelTextValueChanged;
  *
  * Provides a mechanism for clients to register and receive notifications when property values change.
  */
-@interface ORLabel : NSObject
+@interface ORLabel : ORWidget
 
 - (id)initWithText:(NSString *)someText;
 

@@ -31,7 +31,7 @@ NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
 
 - (id)initWithText:(NSString *)someText
 {
-    self = [super init];
+    self = [super initWithIdentifier:nil]; // TODO
     if (self) {
         self.text = someText;
     }
