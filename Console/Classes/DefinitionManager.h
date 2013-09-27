@@ -41,11 +41,6 @@
 - (void)update;
 
 /**
- * Check the downloaded data is ready.
- */
-- (BOOL)isDataReady;
-
-/**
  * Use local cache in handset side.
  */
 - (void)useLocalCacheDirectly;

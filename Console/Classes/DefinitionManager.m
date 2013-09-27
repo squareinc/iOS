@@ -54,11 +54,6 @@
 // For now, take all the functionality that is about loading / triggering parsing / caching ... the definition
 // from the Definition class and bring it here
 
-- (BOOL)isDataReady {
-	//need to implement
-	return YES;
-}
-
 - (BOOL)canUseLocalCache {
 	return [[NSFileManager defaultManager] fileExistsAtPath:[[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]]]];
 }
