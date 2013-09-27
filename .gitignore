@@ -1,3 +1,7 @@
 doc
 *.xcuserstate
 Breakpoints.xcbkptlist
+Console/openremote.xcodeproj/xcuserdata/ebariaux.xcuserdatad/xcschemes/OpenRemote.xcscheme
+Console/openremote.xcodeproj/xcuserdata/ebariaux.xcuserdatad/xcschemes/UnitTest.xcscheme
+ORControllerClient/ORControllerClient.xcodeproj/xcuserdata/ebariaux.xcuserdatad/xcschemes/Documentation.xcscheme
+ORControllerClient/ORControllerClient.xcodeproj/xcuserdata/ebariaux.xcuserdatad/xcschemes/ORControllerClient.xcscheme
