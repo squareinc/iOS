@@ -22,7 +22,6 @@
 
 @interface DefinitionManager : NSObject {
     BOOL isUpdating;
-	NSDate *lastUpdateTime;
 	NSInvocationOperation *updateOperation;
 	NSOperationQueue *updateOperationQueue; 
 	UILabel *loading;
@@ -52,7 +51,6 @@
 - (void)useLocalCacheDirectly;
 
 @property (nonatomic,readonly) BOOL isUpdating;
-@property (nonatomic,readonly) NSDate *lastUpdateTime;
 @property (nonatomic,retain) UILabel *loading;
 
 @end

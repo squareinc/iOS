@@ -81,13 +81,7 @@
 		return;
 	}
 	isUpdating = YES;
-	
-	if (lastUpdateTime) {
-		[lastUpdateTime release];
-	}
-	
-	lastUpdateTime = [[NSDate date] retain];
-	
+
 	//define Operations
 	NSInvocationOperation *downloadXmlOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadXml) object:nil];
 	NSInvocationOperation *parseXmlOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(parseXMLData) object:nil];
@@ -224,6 +218,6 @@
 	NSLog(@"post nofication done");
 }
 
-@synthesize isUpdating, lastUpdateTime, loading;
+@synthesize isUpdating, loading;
 
 @end
