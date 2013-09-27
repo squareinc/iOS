@@ -60,6 +60,11 @@
 
 
 - (void)update {
+    if (isUpdating) {
+		return;
+	}
+	isUpdating = YES;
+    
 	if (updateOperationQueue) {
 		[updateOperationQueue release];
 	}
@@ -72,11 +77,6 @@
 	isUpdating = NO;
 	
 	
-	if (isUpdating) {
-		return;
-	}
-	isUpdating = YES;
-
 	//define Operations
 	NSInvocationOperation *downloadXmlOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadXml) object:nil];
 	NSInvocationOperation *parseXmlOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(parseXMLData) object:nil];
