@@ -22,7 +22,6 @@
 #import <CoreData/CoreData.h>
 #import "ORControllerGroupMembersFetcher.h"
 #import "ORControllerCapabilitiesFetcher.h"
-#import "ORControllerPanelsFetcher.h"
 
 @class ORConsoleSettings;
 @class ORGroupMember;
@@ -31,6 +30,8 @@
 @class SensorStatusCache;
 @class ClientSideRuntime;
 @class Capabilities;
+
+@class ORController;
 
 // TODO: do we really need to have those different notifications, can't we just pass the status as param to the notification
 
@@ -52,7 +53,7 @@ enum {
 typedef NSInteger ORControllerFetchStatus;
 
 
-@interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate, ORControllerPanelsFetcherDelegate> {
+@interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate> {
 @private
     ORGroupMember *activeGroupMember;
     ORControllerProxy *proxy;
@@ -77,6 +78,8 @@ typedef NSInteger ORControllerFetchStatus;
 @property (nonatomic, retain) NSArray *panelIdentities;
 
 @property (nonatomic, readonly, retain) ORControllerProxy *proxy;
+
+@property (nonatomic, readonly, strong) ORController *controller;
 
 @property (nonatomic, readonly) ORControllerFetchStatus groupMembersFetchStatus;
 @property (nonatomic, readonly) ORControllerFetchStatus capabilitiesFetchStatus;

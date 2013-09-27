@@ -27,6 +27,10 @@
 #import "SensorStatusCache.h"
 #import "ClientSideRuntime.h"
 
+// From ORControllerClient library
+#import "ORController.h"
+#import "ORControllerAddress.h"
+
 NSString *kORControllerGroupMembersFetchingNotification = @"kORControllerGroupMembersFetchingNotification";
 NSString *kORControllerGroupMembersFetchSucceededNotification = @"kORControllerGroupMembersFetchSucceededNotification";
 NSString *kORControllerGroupMembersFetchFailedNotification = @"kORControllerGroupMembersFetchFailedNotification";
@@ -192,34 +196,29 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     self.panelIdentitiesFetchStatus = Fetching;
     [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
-    [self.proxy fetchPanelsWithDelegate:self];
+
+    [self.controller requestPanelIdentityListWithSuccessHandler:^(NSArray *panels) {
+        self.panelIdentities = [panels valueForKey:@"name"];
+        NSLog(@"Got panel identities %@", self.panelIdentities);
+        // TODO change state, notification
+        self.panelIdentitiesFetchStatus = FetchSucceeded;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
+    } errorHandler:^(NSError *error) {
+        self.panelIdentities = nil;
+        // TODO
+        self.panelIdentitiesFetchStatus = FetchFailed;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
+    }];
 }
 
-#pragma mark - ORControllerPanelsFetcherDelegate
-
-- (void)fetchPanelsDidSucceedWithPanels:(NSArray *)thePanels
-{
-    self.panelIdentities = thePanels;
-    
-    NSLog(@"Got panel identities %@", thePanels);
-    // TODO change state, notification
-    self.panelIdentitiesFetchStatus = FetchSucceeded;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
-}
-
-- (void)fetchPanelsDidFailWithError:(NSError *)error
-{
-    self.panelIdentities = nil;
-    // TODO
-    self.panelIdentitiesFetchStatus = FetchFailed;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
-}
-
+// TODO: this is not yet handled by client library
+/*
 - (void)fetchPanelsRequiresAuthenticationForControllerRequest:(ControllerRequest *)controllerRequest
 {
     self.panelIdentitiesFetchStatus = FetchRequiresAuthentication;
     [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerPanelIdentitiesFetchStatusChange object:self];
 }
+*/
 
 #pragma mark -
 
@@ -242,6 +241,9 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 
 - (void)didTurnIntoFault
 {
+    [controller release];
+    controller = nil;
+    
     [proxy release];
     proxy = nil;
     self.groupMembersFetcher = nil;
@@ -250,6 +252,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     self.controllerAPIVersion = nil;
     self.sensorStatusCache = nil;
     self.panelIdentities = nil;
+    
     [super didTurnIntoFault];
 }
 
@@ -262,6 +265,18 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     }
     return proxy;
 }
+
+#pragma mark -
+
+- (ORController *)controller
+{
+    if (!controller) {
+        controller = [[ORController alloc] initWithControllerAddress:
+                      [[[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.primaryURL]] autorelease]];
+    }
+    return controller;
+}
+
 #pragma mark -
 
 - (NSString *)selectedPanelIdentityDisplayString
@@ -321,5 +336,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 @synthesize panelIdentities;
 @synthesize sensorStatusCache;
 @synthesize clientSideRuntime;
+
+@synthesize controller;
 
 @end
