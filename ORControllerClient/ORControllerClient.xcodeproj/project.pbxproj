@@ -1242,6 +1242,7 @@
 		9190D4CA1790140A00667A7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DSTROOT = /tmp/ORControllerClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
@@ -1257,6 +1258,7 @@
 		9190D4CB1790140A00667A7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DSTROOT = /tmp/ORControllerClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
