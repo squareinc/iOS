@@ -64,7 +64,7 @@
 		return;
 	}
 	isUpdating = YES;
-    
+
 	if (updateOperationQueue) {
 		[updateOperationQueue release];
 	}
@@ -74,8 +74,6 @@
 		[updateOperation release];
 	}
 	updateOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(postNotificationToMainThread:) object:DefinitionUpdateDidFinishNotification];
-	isUpdating = NO;
-	
 	
 	//define Operations
 	NSInvocationOperation *downloadXmlOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadXml) object:nil];
