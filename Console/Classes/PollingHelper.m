@@ -46,24 +46,28 @@
 @property (nonatomic, assign) SensorStatusCache *sensorStatusCache;
 @property (nonatomic, assign) ClientSideRuntime *clientSideRuntime;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @end
     
 @implementation PollingHelper
 
-- (id)initWithController:(ORControllerConfig *)controller componentIds:(NSString *)ids;
+- (id)initWithController:(ORControllerConfig *)aController componentIds:(NSString *)ids;
 {
     self = [super init];
 	if (self) {
 		self.isPolling = NO;
 		self.isError = NO;
         
-        self.sensorStatusCache = controller.sensorStatusCache;
-        self.clientSideRuntime = controller.clientSideRuntime;
+        self.controller = aController;
+
+        self.sensorStatusCache = self.controller.sensorStatusCache;
+        self.clientSideRuntime = self.controller.clientSideRuntime;
 		
 		NSMutableArray *remoteSensors = [NSMutableArray array];
 		NSMutableArray *tempLocalSensors = [NSMutableArray array];
 		for (NSString *anId in [ids componentsSeparatedByString:@","]) {
-			LocalSensor *sensor = [controller.definition.localController sensorForId:[anId intValue]];
+			LocalSensor *sensor = [self.controller.definition.localController sensorForId:[anId intValue]];
 			if (sensor) {
 				[tempLocalSensors addObject:sensor];
 			} else {
@@ -88,7 +92,7 @@
 	
 	// Only if remote sensors
 	if (self.pollingStatusIds) {
-        self.pollingSender = [[ORConsoleSettingsManager sharedORConsoleSettingsManager].currentController requestStatusForIds:self.pollingStatusIds delegate:self];
+        self.pollingSender = [self.controller.proxy requestStatusForIds:self.pollingStatusIds delegate:self];
 	}
 	
 	for (LocalSensor *sensor in self.localSensors) {
@@ -97,7 +101,7 @@
 }
 
 - (void)doPolling {
-    self.pollingSender = [[ORConsoleSettingsManager sharedORConsoleSettingsManager].currentController requestPollingForIds:self.pollingStatusIds delegate:self];
+    self.pollingSender = [self.controller.proxy requestPollingForIds:self.pollingStatusIds delegate:self];
 }
 
 - (void)cancelLocalSensors {
