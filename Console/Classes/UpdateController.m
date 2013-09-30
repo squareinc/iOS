@@ -51,6 +51,8 @@
 
 @interface UpdateController ()
 
+@property (nonatomic, strong) ORConsoleSettings *settings;
+
 - (void)checkNetworkAndUpdateUsingTimeout:(NSTimeInterval)timeoutInterval;
 - (void)findServer;
 - (void)updateFailOrUseLocalCache:(NSString *)errorMessage;
@@ -61,19 +63,20 @@
 
 @implementation UpdateController
 
-- (id)init
+- (id)initWithSettings:(ORConsoleSettings *)theSettings
 {
     self = [super init];
 	if (self) {
+        self.settings = theSettings;
         definitionManager = [[DefinitionManager alloc] init];
 		retryTimes = 1;
 	}
 	return self;
 }
 
-- (id)initWithDelegate:(id)aDelegate
+- (id)initWithSettings:(ORConsoleSettings *)theSettings delegate:(NSObject <UpdateControllerDelegate> *)aDelegate
 {
-    self = [self init];
+    self = [self initWithSettings:theSettings];
 	if (self) {
 		self.delegate = aDelegate;
 	}
@@ -96,8 +99,7 @@
 // For now just extract behaviour to startup application
 - (void)startup
 {
-    ORConsoleSettings *settings = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings;
-    ORControllerConfig *selectedController = settings.selectedController;
+    ORControllerConfig *selectedController = self.settings.selectedController;
     
     if (selectedController) {
         // First try to use local cache so the user can directly interact with the UI, and trigger the check for update after that
@@ -120,8 +122,8 @@
         
 
     } else {
-        if ([settings.controllers count] == 1) {
-            settings.selectedController = [settings.controllers lastObject];
+        if ([self.settings.controllers count] == 1) {
+            self.settings.selectedController = [self.settings.controllers lastObject];
             
             
             // TODO: next step of process is to contact controller
@@ -136,7 +138,7 @@
             // MUST WORK ON THIS TO HAVE CLEAN SOLUTION
             [self.delegate didUpdate];
             
-        } else if ([settings.controllers count] == 0) {
+        } else if ([self.settings.controllers count] == 0) {
             // Launch auto-discovery
             
             // TODO: should notify user of process and allow to cancel
@@ -160,7 +162,7 @@
  */
 - (void)refreshControllerInformation
 {
-    ORControllerConfig *controller = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+    ORControllerConfig *controller = self.settings.selectedController;
     [controller fetchGroupMembers];
     
     [controller fetchCapabilities];
@@ -205,7 +207,7 @@
     
     // TODO EBR: On start-up, definition is nil as it's never been loaded from controller
     // Should have this loaded from cache if present -> !time to parse, if too big, have some lazy loading
-	if ([[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.groups.count > 0) {
+	if (self.settings.selectedController.definition.groups.count > 0) {
         
         // Should not display loading indicator if the UI is already displayed
         
@@ -214,7 +216,7 @@
 	NSLog(@"check config");
 
     // If there is a selected controller (auto-discovered or configured), try to use it
-	if ([[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController) {
+	if (self.settings.selectedController) {
 		[self checkNetworkAndUpdateUsingTimeout:timeoutInterval];
 	} else {
         
@@ -222,7 +224,7 @@
         // TODO: this part should not be here
         
 		NSLog(@"No selected controller found in configuration");
-		if ([[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].autoDiscovery) {
+		if (self.settings.autoDiscovery) {
 			[self findServer];
 		} else {
 			[self updateFailOrUseLocalCache:@"Can't find server url configuration. You can turn on auto-discovery or specify a server url in settings."];
@@ -282,7 +284,7 @@
 // Use local cache if update fail and local cache exists.
 - (void)updateFailOrUseLocalCache:(NSString *)errorMessage {
 	NSLog(@"updateFailOrUseLocalCache");
-	NSString *path = [[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]]];
+	NSString *path = [[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:self.settings.selectedController]]];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
 		[self didUseLocalCache:errorMessage];
 	} else {

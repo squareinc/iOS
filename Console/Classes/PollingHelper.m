@@ -157,7 +157,7 @@
 - (void)controllerConfigurationUpdated:(ORControllerConfig *)aController
 {
     if (!self.updateController) {
-        UpdateController *tmpController = [[UpdateController alloc] initWithDelegate:self];
+        UpdateController *tmpController = [[UpdateController alloc] initWithSettings:aController.settingsForSelectedController delegate:self];
         self.updateController = tmpController;
         [tmpController release];
     }

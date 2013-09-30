@@ -239,7 +239,7 @@
 			[updateController release];
 			updateController = nil;
 		}
-		updateController = [[UpdateController alloc] initWithDelegate:self];
+		updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings delegate:self];
 		[updateController checkConfigAndUpdate];
 	}	
 }

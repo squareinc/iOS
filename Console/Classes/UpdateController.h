@@ -22,6 +22,7 @@
 #import "ServerAutoDiscoveryController.h"
 
 @class DefinitionManager;
+@class ORConsoleSettings;
 
 @protocol UpdateControllerDelegate <NSObject>
 
@@ -55,7 +56,8 @@
 // TODO EBR : should this be assign instead of retain
 @property (nonatomic, retain) NSObject <UpdateControllerDelegate> *delegate;
 
-- (id)initWithDelegate:(NSObject <UpdateControllerDelegate> *)aDelegate;
+- (id)initWithSettings:(ORConsoleSettings *)theSettings;
+- (id)initWithSettings:(ORConsoleSettings *)theSettings delegate:(NSObject <UpdateControllerDelegate> *)aDelegate;
 
 
 - (void)startup;

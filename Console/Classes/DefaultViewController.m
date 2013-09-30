@@ -26,6 +26,12 @@
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
+@interface DefaultViewController ()
+
+@property (nonatomic, strong) ORConsoleSettingsManager *settingsManager;
+
+@end
+
 @interface DefaultViewController (Private)
 
 - (void)navigateFromNotification:(NSNotification *)notification;
@@ -46,10 +52,11 @@
 
 @implementation DefaultViewController
 
-- (id)initWithDelegate:(id)delegate
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(id)delegate
 {
     self = [super init];
-    if (self) {	
+    if (self) {
+        self.settingsManager = aSettingsManager;
 			theDelegate = delegate;
 			navigationHistory = [[NSMutableArray alloc] init];
 			
@@ -135,7 +142,7 @@
  *    to the destination described by groupId and screenId.
  */
 - (GroupController *)recoverLastOrCreateGroup {
-	NSArray *groups = [[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition groups];
+	NSArray *groups = [[self.settingsManager consoleSettings].selectedController.definition groups];
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	GroupController *gc = nil;
 	if ([userDefaults objectForKey:@"lastGroupId"]) {
@@ -162,7 +169,7 @@
 	[errorViewController.view removeFromSuperview];
 	[initViewController.view removeFromSuperview];
 	
-    Definition *definition = [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition;
+    Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 	NSArray *groups = [definition groups];
 	NSLog(@"groups count is %d",groups.count);
 	
@@ -275,7 +282,7 @@
 	BOOL isAnotherGroup = groupId != [currentGroupController groupId];
 	
     
-    Definition *definition = [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition;
+    Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 
 	//if screenId is specified, and is not in current group, jump to that group
 	if (groupId > 0 && isAnotherGroup) {
@@ -309,7 +316,7 @@
 
 //logout only when password is saved.
 - (void)logout {
-	if ([ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.password) {
+	if (self.settingsManager.consoleSettings.selectedController.password) {
 		LogoutHelper *logout = [[LogoutHelper alloc] init];
 		[logout requestLogout];
 		[logout release];
@@ -348,7 +355,7 @@
 }
 
 - (void)populateSettingsView:(id)sender {
-	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:[ORConsoleSettingsManager sharedORConsoleSettingsManager]];
+	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager];
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentModalViewController:settingNavController animated:YES];
 	[settingController release];
@@ -392,13 +399,13 @@
 {
     ORControllerConfig *orController = ((ControllerRequest *)controller.context).controller;
     if (!orController) {
-        orController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+        orController = self.settingsManager.consoleSettings.selectedController;
     }
     orController.userName = username;
 	orController.password = password;
     
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
+    [self.settingsManager saveConsoleSettings];
     
 	[self dismissModalViewControllerAnimated:YES];
     

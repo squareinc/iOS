@@ -28,6 +28,8 @@
 #import "NotificationConstant.h"
 #import "URLConnectionHelper.h"
 
+#import "ORConsoleSettingsManager.h"
+
 #define STARTUP_UPDATE_TIMEOUT 10
 
 //Private method declare
@@ -45,7 +47,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
-	defaultViewController = [[DefaultViewController alloc] initWithDelegate:self];
+    ORConsoleSettingsManager *settingsManager = [ORConsoleSettingsManager sharedORConsoleSettingsManager];
+    
+	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
 
 	// Default window for the app
 	window = [[GestureWindow alloc] initWithDelegate:defaultViewController];
@@ -57,7 +61,7 @@
     // - (void)didUpdate;
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
-	updateController = [[UpdateController alloc] initWithDelegate:self];
+	updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings delegate:self];
 
     [updateController startup];
 }

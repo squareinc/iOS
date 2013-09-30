@@ -46,7 +46,7 @@
 	UpdateController *updateController;
 }
 
-- (id)initWithDelegate:(id)delegate;
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(id)delegate;
 
 - (void)initGroups;
 
