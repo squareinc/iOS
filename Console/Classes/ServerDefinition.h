@@ -55,12 +55,6 @@ extern NSString *const kControllerFetchGroupMembersPath;
 + (NSString *)logoutUrl;
 
 /**
- * Get the qualified RESTful url of panels request, such as "http://192.168.100.100:8080/controller/rest/panels"
- * or "https://192.168.100.100:8443/controller/rest/panels" if the secured port user specified is 8443 and SSL is enabled.
- */
-+ (NSString *)panelsRESTUrl;
-
-/**
  * Get the qualified RESTful url of panel request, such as "http://192.168.100.100:8080/controller/rest/panel/{currentPanelID}"
  * or "https://192.168.100.100:8443/controller/rest/panel/{currentPanelID}" if the secured port user specified is 8443 and SSL is enabled.
  */

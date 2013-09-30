@@ -100,11 +100,6 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
 	return [[self securedOrRawServerUrl] stringByAppendingPathComponent:@"logout"];
 }
 
-+ (NSString *)panelsRESTUrl {
-	NSString *url = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.primaryURL;
-	return [url stringByAppendingPathComponent:@"rest/panels"];
-}
-
 + (NSString *)hostName {
 	return [[self serverUrl] hostOfURL];
 }
