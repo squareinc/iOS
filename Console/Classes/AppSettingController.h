@@ -43,4 +43,6 @@
 	UITextField *portField;	
 }
 
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
+
 @end

@@ -72,11 +72,11 @@
 
 @implementation AppSettingController
 
-- (id)init
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
-        self.settingsManager = [ORConsoleSettingsManager sharedORConsoleSettingsManager];
+        self.settingsManager = aSettingsManager;
         
 		[self setTitle:@"Settings"];
 		isEditing = NO;
