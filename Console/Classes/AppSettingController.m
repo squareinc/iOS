@@ -218,7 +218,7 @@
 
 // Cancle(Dismiss) appSettings view.
 - (void)cancelView:(id)sender {
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager] cancelConsoleSettingsChanges];
+    [settingsManager cancelConsoleSettingsChanges];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -231,7 +231,7 @@
 		done.enabled = NO;
 		cancel.enabled = NO;
 		
-        [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
+        [settingsManager saveConsoleSettings];
 
 		if (updateController) {
 			[updateController release];
@@ -477,7 +477,7 @@
 			return;
 		}
 		ChoosePanelViewController *choosePanelViewController = [[ChoosePanelViewController alloc]
-                                                                initWithController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController];
+                                                                initWithController:settingsManager.consoleSettings.selectedController];
         choosePanelViewController.delegate = self;
 		[[self navigationController] pushViewController:choosePanelViewController animated:YES];
 		[choosePanelViewController release];
@@ -558,7 +558,7 @@
 
 - (void)didSelectPanelIdentity:(NSString *)identity
 {
-    [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentity = identity;
+    settingsManager.consoleSettings.selectedController.selectedPanelIdentity = identity;
     [self.navigationController popViewControllerAnimated:YES];    
 }
 
@@ -606,13 +606,13 @@
         orController = context;
     }
     if (!orController) {
-        orController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+        orController = settingsManager.consoleSettings.selectedController;
     }
     orController.userName = username;
 	orController.password = password;
     
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
+    [settingsManager saveConsoleSettings];
     
 	[self dismissModalViewControllerAnimated:YES];
     
