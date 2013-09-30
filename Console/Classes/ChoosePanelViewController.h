@@ -32,6 +32,8 @@
  */
 @interface ChoosePanelViewController : UITableViewController <LoginViewControllerDelegate>
 
+- (id)initWithCurrentlyChosenPanel:(NSString *)panelName;
+
 @property (nonatomic, assign) NSObject <ChoosePanelViewControllerDelegate> *delegate;
 
 @end

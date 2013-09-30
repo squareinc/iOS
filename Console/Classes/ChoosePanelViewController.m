@@ -42,12 +42,12 @@
 
 @implementation ChoosePanelViewController
 
-- (id)init
+- (id)initWithCurrentlyChosenPanel:(NSString *)panelName
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
 		[self setTitle:@"Panel List"];
-		self.chosenPanel = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentityDisplayString;
+		self.chosenPanel = panelName;
 		[self requestPanelList];
 	}
 	return self;

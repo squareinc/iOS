@@ -476,7 +476,8 @@
 			cell.selected = NO;
 			return;
 		}
-		ChoosePanelViewController *choosePanelViewController = [[ChoosePanelViewController alloc] init];
+		ChoosePanelViewController *choosePanelViewController = [[ChoosePanelViewController alloc]
+                                                                initWithCurrentlyChosenPanel:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentityDisplayString];
         choosePanelViewController.delegate = self;
 		[[self navigationController] pushViewController:choosePanelViewController animated:YES];
 		[choosePanelViewController release];
