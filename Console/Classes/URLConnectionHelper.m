@@ -176,10 +176,11 @@
 //Helper for NSURLConnection async or sync request. use HTTPS self-certificate. 
 //switch to another server when connection fail.
 @interface URLConnectionHelper (Private)
+
 - (void) removeBadCurrentServerURL;
 - (void) swithToGroupMemberServer;
 - (NSString *) checkGroupMemberServers;
-- (void) updateControllerWith:(NSString *)groupMemberUrl;
+
 @end
 
 // a static flag for WIFI activity.
@@ -271,16 +272,6 @@ static BOOL isWifiActive = NO;
     [conn release];
 	data = [[collector _data] retain];
   return [data autorelease];
-}
-
-
-#pragma mark Instance method
-
-- (void) updateControllerWith:(NSString *)groupMemberUrl {
-	NSLog(@"Switching to groupmember controller server %@, please wait...", groupMemberUrl);
-	UpdateController *updateController = [[UpdateController alloc] initWithDelegate:self];
-	[updateController checkConfigAndUpdate];
-    [updateController release];
 }
 
 #pragma mark delegate method of NSURLConnection
