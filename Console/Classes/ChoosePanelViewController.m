@@ -35,19 +35,20 @@
 
 @property (nonatomic, retain) NSArray *panels;
 @property (nonatomic, retain) NSString *chosenPanel;
-
+@property (nonatomic, assign) ORControllerConfig *controller;
 - (void)requestPanelList;
 
 @end
 
 @implementation ChoosePanelViewController
 
-- (id)initWithCurrentlyChosenPanel:(NSString *)panelName
+- (id)initWithController:(ORControllerConfig *)aController
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
 		[self setTitle:@"Panel List"];
-		self.chosenPanel = panelName;
+        self.controller = aController;
+		self.chosenPanel = self.controller.selectedPanelIdentityDisplayString;
 		[self requestPanelList];
 	}
 	return self;
@@ -77,7 +78,7 @@
 // Load panel list from remote controller server.
 - (void)requestPanelList {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController fetchPanels];
+    [self.controller fetchPanels];
     
     // TODO EBR : cancel fetch when user going back
 }
@@ -141,7 +142,7 @@
 {
     ORControllerConfig *orController = ((ControllerRequest *)controller.context).controller;
     if (!orController) {
-        orController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+        orController = self.controller;
     }
     orController.userName = username;
 	orController.password = password;

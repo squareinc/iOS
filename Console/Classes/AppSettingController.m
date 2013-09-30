@@ -477,7 +477,7 @@
 			return;
 		}
 		ChoosePanelViewController *choosePanelViewController = [[ChoosePanelViewController alloc]
-                                                                initWithCurrentlyChosenPanel:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentityDisplayString];
+                                                                initWithController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController];
         choosePanelViewController.delegate = self;
 		[[self navigationController] pushViewController:choosePanelViewController animated:YES];
 		[choosePanelViewController release];

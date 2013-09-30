@@ -27,12 +27,14 @@
 
 @end
 
+@class ORControllerConfig;
+
 /**
  * It's responsible for Controlling presentation of choosing panel view.
  */
 @interface ChoosePanelViewController : UITableViewController <LoginViewControllerDelegate>
 
-- (id)initWithCurrentlyChosenPanel:(NSString *)panelName;
+- (id)initWithController:(ORControllerConfig *)aController;
 
 @property (nonatomic, assign) NSObject <ChoosePanelViewControllerDelegate> *delegate;
 
