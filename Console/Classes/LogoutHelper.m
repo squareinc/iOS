@@ -36,7 +36,7 @@
 
 
 - (void)requestLogout {
-	NSURL *url = [[NSURL alloc] initWithString:[ServerDefinition logoutUrl]];
+	NSURL *url = [[NSURL alloc] initWithString:[ServerDefinition logoutUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]];
 	
 	//assemble put request 
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

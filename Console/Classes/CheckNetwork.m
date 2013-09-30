@@ -66,7 +66,7 @@
      */
     
 	// Extract host from server URL to use in reachability test
-    NSString *host = [[ServerDefinition serverUrl] hostOfURL];
+    NSString *host = [[ServerDefinition serverUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] hostOfURL];
     NSLog(@"Will check IP address %@", host);
     if ([host isValidIPAddress]) {
         [[Reachability sharedReachability] setAddress:host];

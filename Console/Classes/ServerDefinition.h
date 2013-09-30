@@ -40,19 +40,19 @@ extern NSString *const kControllerFetchGroupMembersPath;
  * Get the qualified Resources url controller server provide, such as "http://192.168.100.100:8080/controller/resources" 
  * or "https://192.168.100.100:8443/controller/resources" if the secured port user specified is 8443 and SSL is enabled.
  */
-+ (NSString *)imageUrl;
++ (NSString *)imageUrlForController:(ORControllerConfig *)controller;
 
 /**
  * Get the qualified url of controller server, such as "http://192.169.100.100:8080/controller"
  * or "https://192.169.100.100:8443/controller" if the secured port user specified is 8443 and SSL is enabled.
  */
-+ (NSString *)serverUrl;
++ (NSString *)serverUrlForController:(ORControllerConfig *)controller;
 
 /**
  * Get the qualified url of logout action, such as "http://192.168.100.100:8080/controller/logout"
  * or "https://192.168.100.100:8443/controller/logout" if the secured port user specified is 8443 and SSL is enabled.
  */
-+ (NSString *)logoutUrl;
++ (NSString *)logoutUrlForController:(ORControllerConfig *)controller;
 
 /**
  * Get the qualified RESTful url of panel request, such as "http://192.168.100.100:8080/controller/rest/panel/{currentPanelID}"
@@ -61,23 +61,16 @@ extern NSString *const kControllerFetchGroupMembersPath;
 + (NSString *)panelXmlRESTUrlForController:(ORControllerConfig *)aController;
 
 /**
- * Get the host name or ip address of currrent controller server panel client use.
- * It means if the qualified url of current controller server is "http://192.168.100.100:8080/controller" or "http://myhomecontroller.com:8080",
- * the host name "192.168.100.100" or "myhomecontroller.com" will be returned.
- */
-+ (NSString *)hostName;
-
-/**
  * Get the qualified RESTful url of severs request, such as "http://192.168.100.100:8080/controller/rest/servers"
  * or "http://192.168.100.100:8080/controller/rest/servers" if the secured port user specified is 8443 and SSL is enabled.
  */
-+ (NSString *)serversXmlRESTUrl;
++ (NSString *)serversXmlRESTUrlForController:(ORControllerConfig *)controller;
 
 /**
  * Get the secured qualifed server url or raw qualified server url.
  * For example, secured qualified server url is like "https://192.168.100.100:8443/contoller, if the secured port user specified is 8443 and SSL is enabled.
  * And raw qualified server url is like "http://192.168.100.100:8080/controller".
  */
-+ (NSString *)securedOrRawServerUrl;
++ (NSString *)securedOrRawServerUrlForController:(ORControllerConfig *)controller;
 
 @end

@@ -21,8 +21,6 @@
 #import "ServerDefinition.h"
 #import "AppSettingsDefinition.h"
 #import "NSString+ORAdditions.h"
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
 NSString *const kControllerFetchCapabilitiesPath = @"rest/capabilities";
@@ -64,8 +62,8 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
     return [NSString stringWithFormat:@"rest/%@/panels", aController.controllerAPIVersion];
 }
 
-+ (NSString *)serverUrl {
-    return ((ORControllerConfig *)[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController).primaryURL;
++ (NSString *)serverUrlForController:(ORControllerConfig *)controller {
+    return controller.primaryURL;
 }
 
 + (NSString *)panelXmlRESTUrlForController:(ORControllerConfig *)aController {
@@ -77,31 +75,27 @@ NSString *const kControllerFetchGroupMembersPath = @"rest/servers";
         panelUrl = [NSString stringWithFormat:@"rest/%@/panel/%@", aController.controllerAPIVersion, aController.selectedPanelIdentity];
     }
     
-	NSString *panelXmlUrl = [[self securedOrRawServerUrl] stringByAppendingPathComponent:panelUrl];
+	NSString *panelXmlUrl = [[self securedOrRawServerUrlForController:aController] stringByAppendingPathComponent:panelUrl];
 	return panelXmlUrl;
 }
 
 //Round-Robin (failover) servers
-+ (NSString *)serversXmlRESTUrl {
-	NSString *serversXmlUrl = [[self securedOrRawServerUrl] stringByAppendingPathComponent:@"rest/servers"];
++ (NSString *)serversXmlRESTUrlForController:(ORControllerConfig *)controller {
+	NSString *serversXmlUrl = [[self securedOrRawServerUrlForController:controller] stringByAppendingPathComponent:@"rest/servers"];
 	return serversXmlUrl;
 }
 
-+ (NSString *)imageUrl {
-	return [[self securedOrRawServerUrl] stringByAppendingPathComponent:@"resources"];
++ (NSString *)imageUrlForController:(ORControllerConfig *)controller {
+	return [[self securedOrRawServerUrlForController:controller] stringByAppendingPathComponent:@"resources"];
 }
 
 //returns serverUrl, if SSL is enabled, use secured server url.
-+ (NSString *)securedOrRawServerUrl {
-	return [self serverUrl];
++ (NSString *)securedOrRawServerUrlForController:(ORControllerConfig *)controller {
+	return [self serverUrlForController:controller];
 }
 
-+ (NSString *)logoutUrl {
-	return [[self securedOrRawServerUrl] stringByAppendingPathComponent:@"logout"];
-}
-
-+ (NSString *)hostName {
-	return [[self serverUrl] hostOfURL];
++ (NSString *)logoutUrlForController:(ORControllerConfig *)controller {
+	return [[self securedOrRawServerUrlForController:controller] stringByAppendingPathComponent:@"logout"];
 }
 
 @end

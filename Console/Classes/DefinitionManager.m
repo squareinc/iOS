@@ -123,7 +123,7 @@
 	NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 	[self changeLoadingMessage:msg];
 	NSLog(@"%@", msg);
-	[FileUtils downloadFromURL:[[ServerDefinition imageUrl] stringByAppendingPathComponent:imageName]  path:[DirectoryDefinition imageCacheFolder]];
+	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
 	[imageName release];
 	[msg release];
 }
@@ -134,7 +134,7 @@
 		NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 		[self changeLoadingMessage:msg];
 		NSLog(@"%@", msg);
-		[FileUtils downloadFromURL:[[ServerDefinition imageUrl] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
+		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
 		[msg release];
 	}
 }
