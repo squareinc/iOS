@@ -29,8 +29,6 @@
 #import "ControllerException.h"
 #import "URLConnectionHelper.h"
 #import "NSString+ORAdditions.h"
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ServerDefinition.h"
 
@@ -39,7 +37,17 @@
 /**
  * Check if the url of panel RESTful request if available. If it isn't, this method will throw CheckNetworkException.
  */
-+ (void)checkPanelXmlUsingTimeout:(NSTimeInterval)timeoutInterval;
++ (void)checkPanelXmlForController:(ORControllerConfig *)controller timeout:(NSTimeInterval)timeoutInterval;
+
+/**
+ * Check if ip address of controller server is available. If it isn't, this method will throw CheckNetworkException.
+ */
++ (void)checkIPAddressForController:(ORControllerConfig *)controller;
+
+/**
+ * Check if controller server's url is available. If it isn't, this method will throw CheckNetworkException.
+ */
++ (void)checkControllerAvailable:(ORControllerConfig *)controller;
 
 @end
 
@@ -51,7 +59,7 @@
 	}
 }
 
-+ (void)checkIPAddress {
++ (void)checkIPAddressForController:(ORControllerConfig *)controller {
     /*
      TODO EBR 6-Jul-2011
      Do not use this for now as this does not take mobile data connection into account
@@ -66,7 +74,7 @@
      */
     
 	// Extract host from server URL to use in reachability test
-    NSString *host = [[ServerDefinition serverUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] hostOfURL];
+    NSString *host = [[ServerDefinition serverUrlForController:controller] hostOfURL];
     NSLog(@"Will check IP address %@", host);
     if ([host isValidIPAddress]) {
         [[Reachability sharedReachability] setAddress:host];
@@ -81,9 +89,9 @@
 	}
 }
 
-+ (void)checkControllerAvailable {
++ (void)checkControllerAvailable:(ORControllerConfig *)controller {
 	@try {
-		[CheckNetwork checkIPAddress];
+		[CheckNetwork checkIPAddressForController:controller];
 	}
 	@catch (CheckNetworkException * e) {
 		@throw e;
@@ -120,9 +128,10 @@
      */
 }
 
-+ (void)checkPanelXmlUsingTimeout:(NSTimeInterval)timeoutInterval {
++ (void)checkPanelXmlForController:(ORControllerConfig *)controller timeout:(NSTimeInterval)timeoutInterval
+{
 	@try {
-		[CheckNetwork checkControllerAvailable];
+		[CheckNetwork checkControllerAvailable:controller];
 	}
 	@catch (NSException * e) {
 		@throw e;
@@ -133,10 +142,10 @@
     
 	NSHTTPURLResponse *resp = nil;
 	NSError *error = nil;
-	NSURL *url = [NSURL URLWithString:[[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]
+	NSURL *url = [NSURL URLWithString:[[ServerDefinition panelXmlRESTUrlForController:controller]
                                             stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]; 
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:timeoutInterval];
-    ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+    ORControllerConfig *activeController = controller;
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:activeController];
     [request setHTTPMethod:@"HEAD"];
 	URLConnectionHelper *connectionHelper = [[URLConnectionHelper alloc] init];
@@ -156,9 +165,10 @@
 	}
 }
 
-+ (void)checkAllUsingTimeout:(NSTimeInterval)timeoutInterval {
++ (void)checkAllForController:(ORControllerConfig *)controller timeout:(NSTimeInterval)timeoutInterval
+{
 	@try {
-		[CheckNetwork checkPanelXmlUsingTimeout:timeoutInterval];
+		[CheckNetwork checkPanelXmlForController:controller timeout:timeoutInterval];
 	}
 	@catch (NSException * e) {
 		@throw e;

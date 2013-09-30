@@ -257,7 +257,7 @@
 	NSLog(@"checkNetworkAndUpdate");
 	@try {
 		// this method will throw CheckNetworkException if the check failed.
-		[CheckNetwork checkAllUsingTimeout:timeoutInterval];
+		[CheckNetwork checkAllForController:self.settings.selectedController timeout:timeoutInterval];
 
 		// TODO: check what we really want to do 
 //		[self getRoundRobinGroupMembers];

@@ -24,6 +24,8 @@
  */
 #import <Foundation/Foundation.h>
 
+@class ORControllerConfig;
+
 @interface CheckNetwork : NSObject {
 }
 
@@ -33,18 +35,8 @@
 + (void)checkWhetherNetworkAvailable;
 
 /**
- * Check if ip address of controller server is available. If it isn't, this method will throw CheckNetworkException.
- */
-+ (void)checkIPAddress;
-
-/**
- * Check if controller server's url is available. If it isn't, this method will throw CheckNetworkException.
- */
-+ (void)checkControllerAvailable;
-
-/**
  * Call previous checking method.
  */
-+ (void)checkAllUsingTimeout:(NSTimeInterval)timeoutInterval;
++ (void)checkAllForController:(ORControllerConfig *)controller timeout:(NSTimeInterval)timeoutInterval;
 
 @end
