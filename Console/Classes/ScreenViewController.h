@@ -33,6 +33,8 @@
 	CGPoint    gestureStartPoint;
 }
 
+- (id)initWithController:(ORControllerConfig *)aController;
+
 /**
  * Start polling of all sensor components in screenView.
  */

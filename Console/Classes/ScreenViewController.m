@@ -25,8 +25,7 @@
 #import "ServerDefinition.h"
 #import "CredentialUtil.h"
 #import "ControllerException.h"
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
+#import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 #import "ScreenSubController.h"
 
@@ -36,10 +35,20 @@
 - (void)doNavigate:(Navigate *)navi;
 
 @property (nonatomic, retain) ScreenSubController *screenSubController;
+@property (nonatomic, assign) ORControllerConfig *controller;
 
 @end
 
 @implementation ScreenViewController
+
+- (id)initWithController:(ORControllerConfig *)aController
+{
+    self = [super init];
+    if (self) {
+        self.controller = aController;
+    }
+    return self;
+}
 
 /**
  * Assign parameter screen model data to screenViewController.
@@ -49,7 +58,7 @@
 	[screen release];
 	screen = s;
 	if ([[screen pollingComponentsIds] count] > 0 ) {
-		polling = [[PollingHelper alloc] initWithController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController
+		polling = [[PollingHelper alloc] initWithController:self.controller
                                                componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
 	}
 }
@@ -92,7 +101,7 @@
 // Send control command for gesture actions.
 - (void)sendCommandRequest:(Component *)component
 {
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager].currentController sendCommand:@"swipe" forComponent:component delegate:nil];
+    [self.controller.proxy sendCommand:@"swipe" forComponent:component delegate:nil];
 }
 
 - (void)doNavigate:(Navigate *)navi {
@@ -103,6 +112,7 @@
     [polling release];
 	//[screen release];
 	self.screenSubController = nil;
+    self.controller = nil;
 	[super dealloc];
 }
 

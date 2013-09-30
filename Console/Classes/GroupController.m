@@ -102,7 +102,7 @@
 	
 	for (Screen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
-		ScreenViewController *viewController = [[ScreenViewController alloc]init];
+		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController];
 		[viewController setScreen:screen];
 		[viewControllers addObject:viewController];
 		[viewController release];
