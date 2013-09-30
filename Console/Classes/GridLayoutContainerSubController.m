@@ -26,6 +26,9 @@
 
 @interface GridLayoutContainerSubController()
 
+// TODO: have properties from superclass in specific .h
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @property (nonatomic, readwrite, retain) UIView *view;
 @property (nonatomic, retain) NSMutableArray *cells;
 
@@ -46,7 +49,7 @@
         for (GridCell *cell in container.cells) {
             Component *aComponent = cell.component;
             ComponentSubController *ctrl;
-            ctrl = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithComponent:aComponent];
+            ctrl = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller component:aComponent];
             [self.cells addObject:ctrl];
             ctrl.view.frame = CGRectMake(cell.x * w, cell.y * h, w * cell.colspan, h * cell.rowspan);
             [self.view addSubview:ctrl.view];

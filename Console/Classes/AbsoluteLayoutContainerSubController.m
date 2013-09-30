@@ -25,7 +25,10 @@
 
 @interface AbsoluteLayoutContainerSubController()
 
+// TODO: have properties from superclass in specific .h
 @property (nonatomic, retain) LayoutContainer *layoutContainer;
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @property (nonatomic, retain) ComponentSubController *componentSubController;
 
 @end
@@ -37,7 +40,7 @@
     self = [super initWithController:aController layoutContainer:aLayoutContainer];
     if (self) {
         Component *aComponent = ((AbsoluteLayoutContainer *)aLayoutContainer).component;
-        self.componentSubController = [[[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithComponent:aComponent] autorelease];
+        self.componentSubController = [[[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller component:aComponent] autorelease];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }
     

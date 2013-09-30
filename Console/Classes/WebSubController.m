@@ -36,9 +36,9 @@
 
 @implementation WebSubController
 
-- (id)initWithComponent:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
 {
-    self = [super initWithComponent:aComponent];
+    self = [super initWithController:aController component:aComponent];
     if (self) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         self.view = webView;

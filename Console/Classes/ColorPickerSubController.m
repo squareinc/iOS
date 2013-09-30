@@ -33,9 +33,9 @@
 
 @implementation ColorPickerSubController
 
-- (id)initWithComponent:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
 {
-    self = [super initWithComponent:aComponent];
+    self = [super initWithController:aController component:aComponent];
     if (self) {
         UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.colorPicker.image.src]];
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:uiImage];

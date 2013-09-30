@@ -95,9 +95,9 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @implementation SliderSubController
 
-- (id)initWithComponent:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
 {
-    self = [super initWithComponent:aComponent];
+    self = [super initWithController:aController component:aComponent];
     if (self) {
         ORSlider *uiSlider = [[ORSlider alloc] initWithFrame:CGRectZero];
         

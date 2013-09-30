@@ -21,12 +21,13 @@
 #import "SubController.h"
 
 @class Component;
+@class ORControllerConfig;
 
 @interface ComponentSubController : SubController
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithComponent:(Component *)aComponent;
+- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent;
 
 @property (nonatomic, readonly, retain) Component *component;
 

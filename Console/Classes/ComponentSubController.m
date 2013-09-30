@@ -38,6 +38,7 @@
 @interface ComponentSubController()
 
 @property (nonatomic, readwrite, retain) Component *component;
+@property (nonatomic, assign) ORControllerConfig *controller;
 
 @end
 
@@ -59,10 +60,11 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               nil];
 }
 
-- (id)initWithComponent:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
 {
     self = [super init];
     if (self) {
+        self.controller = aController;
         self.component = [aComponent retain];
     }
     return self;
@@ -70,7 +72,8 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
 
 - (void)dealloc
 {
-    self.component = nil;;
+    self.component = nil;
+    self.controller = nil;
     [super dealloc];
 }
 
