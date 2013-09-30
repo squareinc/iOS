@@ -41,6 +41,8 @@
 
 @property (nonatomic, retain) NSIndexPath *currentSelectedServerIndex;
 
+@property (nonatomic, assign) ORConsoleSettingsManager *settingsManager;
+
 - (void)autoDiscoverChanged:(id)sender;
 - (void)saveSettings;
 - (void)updatePanelIdentityView;
@@ -74,7 +76,7 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
-        settingsManager = [ORConsoleSettingsManager sharedORConsoleSettingsManager];
+        self.settingsManager = [ORConsoleSettingsManager sharedORConsoleSettingsManager];
         
 		[self setTitle:@"Settings"];
 		isEditing = NO;
@@ -111,7 +113,7 @@
 
 // Hide spinner
 - (void)forceHideSpinner:(BOOL)force {
-	if (spinner && ([settingsManager.consoleSettings.controllers count] > 0 || force)) {
+	if (spinner && ([self.settingsManager.consoleSettings.controllers count] > 0 || force)) {
 		[spinner removeFromSuperview];
 		spinner = nil;
 	}
@@ -146,7 +148,7 @@
  */
 - (BOOL)isControllerRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (indexPath.section == CONTROLLER_URLS_SECTION && indexPath.row < [settingsManager.consoleSettings.controllers count]);
+    return (indexPath.section == CONTROLLER_URLS_SECTION && indexPath.row < [self.settingsManager.consoleSettings.controllers count]);
 }
 
 /**
@@ -154,12 +156,12 @@
  */
 - (BOOL)isAddCustomServerRow:(NSIndexPath *)indexPath
 {
-	return (indexPath.row >= [settingsManager.consoleSettings.controllers count] && indexPath.section == CONTROLLER_URLS_SECTION);
+	return (indexPath.row >= [self.settingsManager.consoleSettings.controllers count] && indexPath.section == CONTROLLER_URLS_SECTION);
 }
 
 - (void)autoDiscoverChanged:(id)sender
 {
-    settingsManager.consoleSettings.autoDiscovery = ((UISwitch *)sender).on;
+    self.settingsManager.consoleSettings.autoDiscovery = ((UISwitch *)sender).on;
 
     // Irrelevant of the choice, first cancel the current auto-discovery process
     if (autoDiscoverController) {
@@ -211,27 +213,27 @@
 	identityCell.textLabel.text = @"None";
     
     // !!! Panels won't fetch until capabilities are, this can cause issues of message blocked in queue
-    [settingsManager.consoleSettings.selectedController fetchPanels];
+    [self.settingsManager.consoleSettings.selectedController fetchPanels];
     
     // TODO EBR : this might need to be cancelled some time
 }
 
 // Cancle(Dismiss) appSettings view.
 - (void)cancelView:(id)sender {
-    [settingsManager cancelConsoleSettingsChanges];
+    [self.settingsManager cancelConsoleSettingsChanges];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
 // Persists settings info into appSettings.plist .
 - (void)saveSettings {
-	if ([settingsManager.consoleSettings.controllers count] == 0) {
+	if ([self.settingsManager.consoleSettings.controllers count] == 0) {
 		[ViewHelper showAlertViewWithTitle:@"Warning" Message:@"No Controller. Please configure Controller URL manually."];
 	} else {
 		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
 		done.enabled = NO;
 		cancel.enabled = NO;
 		
-        [settingsManager saveConsoleSettings];
+        [self.settingsManager saveConsoleSettings];
 
 		if (updateController) {
 			[updateController release];
@@ -299,9 +301,9 @@
 {
     // IPHONE-107    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[settingsManager.consoleSettings.controllers indexOfObject:[notification object]] inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationNone];
 
-    NSLog(@"controllers %d", [settingsManager.consoleSettings.controllers count]);
-    if (!settingsManager.consoleSettings.selectedController && [settingsManager.consoleSettings.controllers count] == 1) {
-        settingsManager.consoleSettings.selectedController = [notification object];
+    NSLog(@"controllers %d", [self.settingsManager.consoleSettings.controllers count]);
+    if (!self.settingsManager.consoleSettings.selectedController && [self.settingsManager.consoleSettings.controllers count] == 1) {
+        self.settingsManager.consoleSettings.selectedController = [notification object];
     }
  
     [self.tableView reloadData];
@@ -327,7 +329,7 @@
 {
 	if (section == CONTROLLER_URLS_SECTION) {
 //        NSLog(@"Number of rows in table view controller section %d", [settingsManager.consoleSettings.controllers count] + 1);
-		return [settingsManager.consoleSettings.controllers count] + 1; // custom URLs need extra cell 'Add url >'
+		return [self.settingsManager.consoleSettings.controllers count] + 1; // custom URLs need extra cell 'Add url >'
 	}
 	return 1;
 }
@@ -381,7 +383,7 @@
 	if ([self isAutoDiscoverySection:indexPath]) {
 		switchCell.textLabel.text = [[[AppSettingsDefinition sharedAppSettingsDefinition] getAutoDiscoveryDic] objectForKey:@"name"];
 		UISwitch *switchView = (UISwitch *)switchCell.accessoryView;
-		[switchView setOn:settingsManager.consoleSettings.autoDiscovery];
+		[switchView setOn:self.settingsManager.consoleSettings.autoDiscovery];
 		[switchView addTarget:self action:@selector(autoDiscoverChanged:) forControlEvents:UIControlEventValueChanged];
 		return switchCell;
 	} else if (indexPath.section == CONTROLLER_URLS_SECTION) {
@@ -392,12 +394,12 @@
             serverCell.entrySelected = NO;
             serverCell.indicatorView = nil;
 		} else {
-            ORControllerConfig *controller = (ORControllerConfig *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
+            ORControllerConfig *controller = (ORControllerConfig *)[self.settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
 			serverCell.textLabel.text = controller.primaryURL;
 			serverCell.selectionStyle = UITableViewCellSelectionStyleNone;
             serverCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 
-			if (controller == settingsManager.consoleSettings.selectedController) {
+			if (controller == self.settingsManager.consoleSettings.selectedController) {
 				self.currentSelectedServerIndex = indexPath;
                 serverCell.entrySelected = YES;
 			} else {
@@ -407,7 +409,7 @@
 		}
 		return serverCell;
 	} else if (indexPath.section == PANEL_IDENTITY_SECTION) {
-		panelCell.textLabel.text = settingsManager.consoleSettings.selectedController.selectedPanelIdentityDisplayString;
+		panelCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentityDisplayString;
 		panelCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		panelCell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		return panelCell;
@@ -423,7 +425,7 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == CONTROLLER_URLS_SECTION) {
-        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *)[settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
+        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *)[self.settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
         cdvc.delegate = self;
 		[[self navigationController] pushViewController:cdvc animated:YES];
 		[cdvc release];        
@@ -437,7 +439,7 @@
 
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [settingsManager.consoleSettings removeControllerAtIndex:indexPath.row];
+        [self.settingsManager.consoleSettings removeControllerAtIndex:indexPath.row];
 		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 }
@@ -465,19 +467,19 @@
 	}
 	
 	if ([self isAddCustomServerRow:indexPath]) {
-        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithManagedObjectContext:settingsManager.managedObjectContext];
+        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithManagedObjectContext:self.settingsManager.managedObjectContext];
         cdvc.delegate = self;
 		[[self navigationController] pushViewController:cdvc animated:YES];
 		[cdvc release];
 		return;
 	} else if (indexPath.section == PANEL_IDENTITY_SECTION) {
-		if (!settingsManager.consoleSettings.selectedController) {
+		if (!self.settingsManager.consoleSettings.selectedController) {
 			[ViewHelper showAlertViewWithTitle:@"Warning" Message:@"No Controller. Please configure Controller URL manually."];
 			cell.selected = NO;
 			return;
 		}
 		ChoosePanelViewController *choosePanelViewController = [[ChoosePanelViewController alloc]
-                                                                initWithController:settingsManager.consoleSettings.selectedController];
+                                                                initWithController:self.settingsManager.consoleSettings.selectedController];
         choosePanelViewController.delegate = self;
 		[[self navigationController] pushViewController:choosePanelViewController animated:YES];
 		[choosePanelViewController release];
@@ -492,16 +494,16 @@
  		}
         ((TableViewCellWithSelectionAndIndicator *)cell).entrySelected = YES;
 
-        settingsManager.consoleSettings.selectedController = [settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
+        self.settingsManager.consoleSettings.selectedController = [self.settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row];
         
         self.askUserForCredentials = YES;
         
         // TODO: might not be required if update of panel identities trigger this
-        [settingsManager.consoleSettings.selectedController fetchGroupMembers];
+        [self.settingsManager.consoleSettings.selectedController fetchGroupMembers];
 
 		if (self.currentSelectedServerIndex && self.currentSelectedServerIndex.row != indexPath.row) {            
             // !!! Panels won't fetch until capabilities are, this can cause issues of message blocked in queue
-            [settingsManager.consoleSettings.selectedController fetchCapabilities];
+            [self.settingsManager.consoleSettings.selectedController fetchCapabilities];
             
             // TODO: review how this gets updated
 			[self updatePanelIdentityView];
@@ -526,7 +528,7 @@
 
 - (void)didAddController:(ORControllerConfig *)controller
 {
-    [settingsManager.consoleSettings addController:controller];
+    [self.settingsManager.consoleSettings addController:controller];
     [self.navigationController popViewControllerAnimated:YES];
 //IPHONE-107    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[settingsManager.consoleSettings.controllers count] - 1 inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
     
@@ -544,8 +546,8 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 
-    NSUInteger controllerIndex = [settingsManager.consoleSettings.controllers indexOfObject:controller];
-    [settingsManager.consoleSettings removeControllerAtIndex:controllerIndex];
+    NSUInteger controllerIndex = [self.settingsManager.consoleSettings.controllers indexOfObject:controller];
+    [self.settingsManager.consoleSettings removeControllerAtIndex:controllerIndex];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:controllerIndex inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -558,7 +560,7 @@
 
 - (void)didSelectPanelIdentity:(NSString *)identity
 {
-    settingsManager.consoleSettings.selectedController.selectedPanelIdentity = identity;
+    self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = identity;
     [self.navigationController popViewControllerAnimated:YES];    
 }
 
@@ -575,11 +577,11 @@
         // If there is only one panel available, it is automatically selected.
         UITableViewCell *identityCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:PANEL_IDENTITY_SECTION]];
         if (panels.count == 1) {
-            settingsManager.consoleSettings.selectedController.selectedPanelIdentity = [panels objectAtIndex:0];
-            identityCell.textLabel.text = settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
+            self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = [panels objectAtIndex:0];
+            identityCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
         } else {
-            if (![panels containsObject:settingsManager.consoleSettings.selectedController.selectedPanelIdentity]) {
-                settingsManager.consoleSettings.selectedController.selectedPanelIdentity = nil;
+            if (![panels containsObject:self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity]) {
+                self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = nil;
                 identityCell.textLabel.text = @"None";
             }
         }
@@ -606,13 +608,13 @@
         orController = context;
     }
     if (!orController) {
-        orController = settingsManager.consoleSettings.selectedController;
+        orController = self.settingsManager.consoleSettings.selectedController;
     }
     orController.userName = username;
 	orController.password = password;
     
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
-    [settingsManager saveConsoleSettings];
+    [self.settingsManager saveConsoleSettings];
     
 	[self dismissModalViewControllerAnimated:YES];
     
@@ -629,7 +631,7 @@
         // TODO: put appropriate info in context so that correct call can be performed
         
         // TODO: the controller should be passed back in the message
-        [settingsManager.consoleSettings.selectedController fetchGroupMembers];
+        [self.settingsManager.consoleSettings.selectedController fetchGroupMembers];
     }
 }
 
@@ -641,7 +643,7 @@
  */
 - (void)autodiscoverControllersIfRequired
 {
-    if (settingsManager.consoleSettings.autoDiscovery) {
+    if (self.settingsManager.consoleSettings.autoDiscovery) {
         // TODO: Disabled for now, see IPHONE-111 [self showSpinner];
 
         if (autoDiscoverController) {
@@ -655,13 +657,13 @@
 
 - (void)fetchGroupMembersForAllControllers
 {
-    NSLog(@">>fetchGroupMembersForAllControllers -> settingsManager.consoleSettings.controllers: %d", [settingsManager.consoleSettings.controllers count]);
-    [settingsManager.consoleSettings.controllers makeObjectsPerformSelector:@selector(fetchGroupMembers)];
+    NSLog(@">>fetchGroupMembersForAllControllers -> settingsManager.consoleSettings.controllers: %d", [self.settingsManager.consoleSettings.controllers count]);
+    [self.settingsManager.consoleSettings.controllers makeObjectsPerformSelector:@selector(fetchGroupMembers)];
 }
 
 - (void)cancelFetchGroupMembers
 {
-    [settingsManager.consoleSettings.controllers makeObjectsPerformSelector:@selector(cancelGroupMembersFetch)];
+    [self.settingsManager.consoleSettings.controllers makeObjectsPerformSelector:@selector(cancelGroupMembersFetch)];
 }
 
 @synthesize askUserForCredentials;

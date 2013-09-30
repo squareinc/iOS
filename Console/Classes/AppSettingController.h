@@ -32,8 +32,6 @@
  * Render the UI of AppSetting view and provide functions of setting about panel client.
  */
 @interface AppSettingController : UITableViewController <UITextFieldDelegate, ServerAutoDiscoveryControllerDelagate, ControllerDetailViewControllerDelegate, ChoosePanelViewControllerDelegate, UpdateControllerDelegate, LoginViewControllerDelegate> {
-    
-    ORConsoleSettingsManager *settingsManager;
 
 	ServerAutoDiscoveryController *autoDiscoverController;
 	UIBarButtonItem *done;
