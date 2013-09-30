@@ -20,6 +20,8 @@
  */
 #import <Foundation/Foundation.h>
 
+@class ORControllerConfig;
+
 @interface DefinitionManager : NSObject {
     BOOL isUpdating;
 	NSInvocationOperation *updateOperation;
@@ -27,6 +29,8 @@
 	UILabel *loading;
 
 }
+
+- (id)initWithController:(ORControllerConfig *)aController;
 
 /**
  * Parses the XML panel configuration file at the provided path and populates the receiver with the parsed configuration.

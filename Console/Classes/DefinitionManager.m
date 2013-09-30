@@ -27,8 +27,6 @@
 #import "NotificationConstant.h"
 #import "CheckNetwork.h"
 #import "PanelDefinitionParser.h"
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "Definition.h"
 
@@ -47,15 +45,32 @@
 - (void)parseXml;
 - (void)changeLoadingMessage:(NSString *)msg;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @end
 
 @implementation DefinitionManager
+
+- (id)initWithController:(ORControllerConfig *)aController
+{
+    self = [super init];
+    if (self) {
+        self.controller = aController;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    self.controller = nil;
+    [super dealloc];
+}
 
 // For now, take all the functionality that is about loading / triggering parsing / caching ... the definition
 // from the Definition class and bring it here
 
 - (BOOL)canUseLocalCache {
-	return [[NSFileManager defaultManager] fileExistsAtPath:[[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]]]];
+	return [[NSFileManager defaultManager] fileExistsAtPath:[[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:self.controller]]]];
 }
 
 
@@ -113,8 +128,8 @@
 - (void)downloadXml {
 	NSLog(@"start download xml");
 	[self changeLoadingMessage:@"download panel.xml ..."];
-	NSLog(@"download panel.xml from %@", [ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]);
-	[FileUtils downloadFromURL:[ServerDefinition panelXmlRESTUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]  path:[DirectoryDefinition xmlCacheFolder]];
+	NSLog(@"download panel.xml from %@", [ServerDefinition panelXmlRESTUrlForController:self.controller]);
+	[FileUtils downloadFromURL:[ServerDefinition panelXmlRESTUrlForController:self.controller] path:[DirectoryDefinition xmlCacheFolder]];
 	NSLog(@"xml file downloaded.");
 }
 
@@ -123,7 +138,7 @@
 	NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 	[self changeLoadingMessage:msg];
 	NSLog(@"%@", msg);
-	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
+	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
 	[imageName release];
 	[msg release];
 }
@@ -134,7 +149,7 @@
 		NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 		[self changeLoadingMessage:msg];
 		NSLog(@"%@", msg);
-		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
+		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
 		[msg release];
 	}
 }
@@ -143,14 +158,14 @@
 {
     PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
     NSData *data = [[NSData alloc] initWithContentsOfFile:configurationFilePath];
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition = [parser parseDefinitionFromXML:data];
+    self.controller.definition = [parser parseDefinitionFromXML:data];
     [data release];
     [parser release];
 }
 
 - (void)parseXml
 {
-    [self parsePanelConfigurationFileAtPath:[[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentity]];
+    [self parsePanelConfigurationFileAtPath:[[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:self.controller.selectedPanelIdentity]];
 }
 
 //Parses xml
@@ -169,7 +184,7 @@
         // TODO: why that check at this stage
 		[CheckNetwork checkWhetherNetworkAvailable];
 		
-		for (NSString *imageName in [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.imageNames) {
+		for (NSString *imageName in self.controller.definition.imageNames) {
 			if (imageName) {
 				[self addDownloadImageOperationWithImageName:imageName];
 			}				

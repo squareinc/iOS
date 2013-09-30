@@ -68,7 +68,7 @@
     self = [super init];
 	if (self) {
         self.settings = theSettings;
-        definitionManager = [[DefinitionManager alloc] init];
+        definitionManager = [[DefinitionManager alloc] initWithController:self.settings.selectedController];
 		retryTimes = 1;
 	}
 	return self;
