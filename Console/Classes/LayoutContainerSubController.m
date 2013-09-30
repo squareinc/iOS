@@ -27,16 +27,18 @@
 
 @interface LayoutContainerSubController()
 
+@property (nonatomic, assign) ORControllerConfig *controller;
 @property (nonatomic, retain) LayoutContainer *layoutContainer;
 
 @end
 
 @implementation LayoutContainerSubController
 
-- (id)initWithLayoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController layoutContainer:(LayoutContainer *)aLayoutContainer
 {
     self = [super init];
     if (self) {
+        self.controller = aController;
         self.layoutContainer = aLayoutContainer;
     }    
     return self;
@@ -45,6 +47,7 @@
 - (void)dealloc
 {
     self.layoutContainer = nil;
+    self.controller = nil;
     [super dealloc];
 }
 

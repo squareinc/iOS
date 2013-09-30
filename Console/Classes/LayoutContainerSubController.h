@@ -21,11 +21,12 @@
 #import "SubController.h"
 
 @class LayoutContainer;
+@class ORControllerConfig;
 
 @interface LayoutContainerSubController : SubController
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithLayoutContainer:(LayoutContainer *)aLayoutContainer;
+- (id)initWithController:(ORControllerConfig *)aController layoutContainer:(LayoutContainer *)aLayoutContainer;
 
 @end

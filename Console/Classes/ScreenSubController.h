@@ -21,9 +21,10 @@
 #import "SubController.h"
 
 @class Screen;
+@class ORControllerConfig;
 
 @interface ScreenSubController : SubController
 
-- (id)initWithScreen:(Screen *)aScreen;
+- (id)initWithController:(ORControllerConfig *)aController screen:(Screen *)aScreen;
 
 @end

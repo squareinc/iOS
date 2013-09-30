@@ -32,9 +32,9 @@
 
 @implementation AbsoluteLayoutContainerSubController
 
-- (id)initWithLayoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController layoutContainer:(LayoutContainer *)aLayoutContainer
 {
-    self = [super initWithLayoutContainer:aLayoutContainer];
+    self = [super initWithController:aController layoutContainer:aLayoutContainer];
     if (self) {
         Component *aComponent = ((AbsoluteLayoutContainer *)aLayoutContainer).component;
         self.componentSubController = [[[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithComponent:aComponent] autorelease];

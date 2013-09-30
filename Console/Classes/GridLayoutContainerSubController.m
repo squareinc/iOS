@@ -33,9 +33,9 @@
 
 @implementation GridLayoutContainerSubController
 
-- (id)initWithLayoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController layoutContainer:(LayoutContainer *)aLayoutContainer
 {
-    self = [super initWithLayoutContainer:aLayoutContainer];
+    self = [super initWithController:aController layoutContainer:aLayoutContainer];
     if (self) {
         GridLayoutContainer *container = (GridLayoutContainer *)aLayoutContainer;
         self.view = [[[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)] autorelease];

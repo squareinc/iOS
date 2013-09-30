@@ -35,6 +35,8 @@
 @property (nonatomic, retain) Screen *screen;
 @property (nonatomic, retain) NSMutableArray *layoutContainers;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 - (void)createView;
 - (void)createSubControllersForLayoutContainers;
 
@@ -42,10 +44,11 @@
 
 @implementation ScreenSubController
 
-- (id)initWithScreen:(Screen *)aScreen
+- (id)initWithController:(ORControllerConfig *)aController screen:(Screen *)aScreen
 {
     self = [super init];
     if (self) {
+        self.controller = aController;
         self.screen = aScreen;
         [self createView];
         [self createSubControllersForLayoutContainers];
@@ -56,6 +59,7 @@
 - (void)dealloc
 {
     self.screen = nil;
+    self.controller = nil;
     self.layoutContainers = nil;
     [super dealloc];
 }
@@ -64,7 +68,7 @@
 {
     self.layoutContainers = [NSMutableArray arrayWithCapacity:[self.screen.layouts count]];
     for (LayoutContainer *layout in self.screen.layouts) {
-        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithLayoutContainer:layout];
+        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithController:self.controller layoutContainer:layout];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];
         [ctrl release];
