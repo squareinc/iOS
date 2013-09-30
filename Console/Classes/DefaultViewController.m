@@ -155,12 +155,15 @@
 			}
 		}
 		if (lastGroup) {
-			gc = [[GroupController alloc] initWithGroup:lastGroup parentViewController:self];
+			gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                       group:lastGroup parentViewController:self];
 		} else {
-			gc = [[GroupController alloc] initWithGroup:((Group *)[groups objectAtIndex:0]) parentViewController:self];
+			gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                       group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
 		}
 	} else {
-		gc = [[GroupController alloc] initWithGroup:((Group *)[groups objectAtIndex:0]) parentViewController:self];
+		gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                   group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
 	}
 	return [gc autorelease];
 }
@@ -289,7 +292,8 @@
 		if (targetGroupController == nil) {
 			Group *group = [definition findGroupById:groupId];
 			if (group) {
-				targetGroupController = [[[GroupController alloc] initWithGroup:group parentViewController:self] autorelease];
+				targetGroupController = [[[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                               group:group parentViewController:self] autorelease];
 			} else {
 				return NO;
 			}

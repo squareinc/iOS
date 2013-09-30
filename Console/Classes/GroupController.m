@@ -25,9 +25,6 @@
 #import "ScreenViewController.h"
 #import "UIScreen+ORAdditions.h"
 #import "UIImage+ORAdditions.h"
-
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "Definition.h"
 
@@ -42,14 +39,17 @@
 
 @property (retain) UIView *maskView;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @end
 
 @implementation GroupController
 
-- (id)initWithGroup:(Group *)newGroup parentViewController:(UIViewController *)aVC
+- (id)initWithController:(ORControllerConfig *)aController group:(Group *)newGroup parentViewController:(UIViewController *)aVC
 {
     self = [super init];
 	if (self) {
+        self.controller = aController;
 		self.group = newGroup;
         self.parentViewController = aVC;
 	}
@@ -64,6 +64,7 @@
     self.group = nil;
     self.parentViewController = nil;
 	self.maskView = nil;
+    self.controller = nil;
 	[super dealloc];
 }
 
@@ -102,7 +103,7 @@
 	
 	for (Screen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
-		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController];
+		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:self.controller];
 		[viewController setScreen:screen];
 		[viewControllers addObject:viewController];
 		[viewController release];
@@ -129,7 +130,7 @@
 	if (isLandscape) {
 		if (landscapePaginationController == nil) {
 			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                 tabBar:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.tabBar];
+                                                                                 tabBar:self.controller.definition.tabBar];
 			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = landscapePaginationController;
@@ -149,7 +150,7 @@
 	} else {
 		if (portraitPaginationController == nil) {
 			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                tabBar:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.tabBar];
+                                                                                tabBar:self.controller.definition.tabBar];
 			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = portraitPaginationController;

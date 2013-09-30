@@ -37,7 +37,7 @@
 /**
  * Construct group controller with group model data.
  */
-- (id)initWithGroup:(Group *)newGroup parentViewController:(UIViewController *)aVC;
+- (id)initWithController:(ORControllerConfig *)aController group:(Group *)newGroup parentViewController:(UIViewController *)aVC;
 
 /**
  * Start polling of groupController's rendering screenView.
