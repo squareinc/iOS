@@ -26,6 +26,11 @@
 #import "UIScreen+ORAdditions.h"
 #import "UIImage+ORAdditions.h"
 
+#import "ORConsoleSettingsManager.h"
+#import "ORConsoleSettings.h"
+#import "ORControllerConfig.h"
+#import "Definition.h"
+
 @interface GroupController ()
 
 - (NSArray *)viewControllersForScreens:(NSArray *)screens;
@@ -123,7 +128,8 @@
 	
 	if (isLandscape) {
 		if (landscapePaginationController == nil) {
-			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group];
+			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
+                                                                                 tabBar:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.tabBar];
 			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = landscapePaginationController;
@@ -142,7 +148,8 @@
 		[[landscapePaginationController currentScreenViewController] startPolling];
 	} else {
 		if (portraitPaginationController == nil) {
-			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group];
+			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
+                                                                                tabBar:[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.tabBar];
 			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = portraitPaginationController;

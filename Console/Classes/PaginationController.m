@@ -58,7 +58,7 @@
 
 @implementation PaginationController
 
-- (id)initWithGroup:(Group *)aGroup
+- (id)initWithGroup:(Group *)aGroup tabBar:(TabBar *)aTabBar
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -66,10 +66,7 @@
         if (self.group.tabBar) {
             self.tabBar = self.group.tabBar;
         } else {
-            Definition *definition = [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition;
-            if ([definition tabBar]) {
-                self.tabBar = [definition tabBar];
-            }
+            self.tabBar = aTabBar;
         }
     }
     return self;

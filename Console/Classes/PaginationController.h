@@ -22,6 +22,7 @@
 #import "ScreenViewController.h"
 
 @class Group;
+@class TabBar;
 
 /**
  * This class is mainly responsible for switching screenView in groupController's screenViews.
@@ -42,7 +43,7 @@
 @property(nonatomic,copy) NSArray *viewControllers;
 @property(nonatomic,readonly) NSUInteger selectedIndex;
 
-- (id)initWithGroup:(Group *)aGroup;
+- (id)initWithGroup:(Group *)aGroup tabBar:(TabBar *)aTabBar;
 
 /**
  * Switch to the specified screen with screen id.
