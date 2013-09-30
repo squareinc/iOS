@@ -34,6 +34,7 @@
 @interface ChoosePanelViewController ()
 
 @property (nonatomic, retain) NSArray *panels;
+@property (nonatomic, retain) NSString *chosenPanel;
 
 - (void)requestPanelList;
 
@@ -46,7 +47,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
 		[self setTitle:@"Panel List"];
-		chosenPanel = [[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentityDisplayString retain];
+		self.chosenPanel = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentityDisplayString;
 		[self requestPanelList];
 	}
 	return self;
@@ -54,7 +55,7 @@
 
 - (void)dealloc
 {
-	[chosenPanel release];
+    self.chosenPanel = nil;
     self.panels = nil;
 
 	[super dealloc];
@@ -112,7 +113,7 @@
 	panelCell.textLabel.text = [self.panels objectAtIndex:indexPath.row];
 	panelCell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
-	if ([panelCell.textLabel.text isEqualToString:chosenPanel]) {
+	if ([panelCell.textLabel.text isEqualToString:self.chosenPanel]) {
 		panelCell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 	return panelCell;

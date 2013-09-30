@@ -30,12 +30,7 @@
 /**
  * It's responsible for Controlling presentation of choosing panel view.
  */
-@interface ChoosePanelViewController : UITableViewController <LoginViewControllerDelegate> {
-	
-    NSObject <ChoosePanelViewControllerDelegate> *delegate;
-    
-	NSString *chosenPanel;
-}
+@interface ChoosePanelViewController : UITableViewController <LoginViewControllerDelegate>
 
 @property (nonatomic, assign) NSObject <ChoosePanelViewControllerDelegate> *delegate;
 
