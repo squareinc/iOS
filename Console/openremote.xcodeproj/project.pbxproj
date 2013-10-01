@@ -1622,8 +1622,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: OpenRemote Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: OpenRemote Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: TInSys (379876AT9T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: TInSys (379876AT9T)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1645,8 +1645,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = OpenRemote;
-				PROVISIONING_PROFILE = "5776A2A7-B55A-4176-8E96-75765D4CBA97";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5776A2A7-B55A-4176-8E96-75765D4CBA97";
+				PROVISIONING_PROFILE = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
@@ -1658,8 +1658,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: OpenRemote Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: OpenRemote Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: TInSys (379876AT9T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: TInSys (379876AT9T)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1681,8 +1681,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = OpenRemote;
-				PROVISIONING_PROFILE = "8309A90D-947F-4777-953C-9AA8D049D2D7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8309A90D-947F-4777-953C-9AA8D049D2D7";
+				PROVISIONING_PROFILE = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
