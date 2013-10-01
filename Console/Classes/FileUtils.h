@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class ORControllerConfig;
+
 // DENNIS: Maybe you can add these helper methods as an Objective-C category to the NSFileManager class? (Make sure to use a precise and unique name for your methods.)
 /**
  * Uitls about file operations.
@@ -33,7 +35,7 @@
 /**
  * Download resouce file from specified url and save into the specified path.
  */
-+ (void) downloadFromURL:(NSString *)URLString  path:(NSString *)p;
++ (void)downloadFromURL:(NSString *)URLString path:(NSString *)p forController:(ORControllerConfig *)controller;
 
 /**
  * Delete folder with specified path.

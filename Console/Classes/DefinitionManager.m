@@ -129,7 +129,9 @@
 	NSLog(@"start download xml");
 	[self changeLoadingMessage:@"download panel.xml ..."];
 	NSLog(@"download panel.xml from %@", [ServerDefinition panelXmlRESTUrlForController:self.controller]);
-	[FileUtils downloadFromURL:[ServerDefinition panelXmlRESTUrlForController:self.controller] path:[DirectoryDefinition xmlCacheFolder]];
+	[FileUtils downloadFromURL:[ServerDefinition panelXmlRESTUrlForController:self.controller]
+                          path:[DirectoryDefinition xmlCacheFolder]
+                 forController:self.controller];
 	NSLog(@"xml file downloaded.");
 }
 
@@ -138,7 +140,9 @@
 	NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 	[self changeLoadingMessage:msg];
 	NSLog(@"%@", msg);
-	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
+	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName]
+                          path:[DirectoryDefinition imageCacheFolder]
+                 forController:self.controller];
 	[imageName release];
 	[msg release];
 }
@@ -149,7 +153,9 @@
 		NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 		[self changeLoadingMessage:msg];
 		NSLog(@"%@", msg);
-		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName] path:[DirectoryDefinition imageCacheFolder]];
+		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName]
+                              path:[DirectoryDefinition imageCacheFolder]
+                     forController:self.controller];
 		[msg release];
 	}
 }

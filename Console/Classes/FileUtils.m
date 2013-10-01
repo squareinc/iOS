@@ -46,7 +46,7 @@ NSFileManager *fileManager;
 	}
 }
 
-+ (void)downloadFromURL:(NSString *)URLString  path:(NSString *)p {
++ (void)downloadFromURL:(NSString *)URLString path:(NSString *)p forController:(ORControllerConfig *)controller {
 	[self makeSurePathExists:p];
 	NSError *error = nil;
 	NSURLResponse *response = nil;
@@ -55,8 +55,7 @@ NSFileManager *fileManager;
     [encodedUrl release];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:DOWNLOAD_TIMEOUT_INTERVAL];
     [url release];
-    ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
-	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:activeController];
+	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:controller];
     
     URLConnectionHelper *connectionHelper = [[URLConnectionHelper alloc] init];
 	NSData *data = [connectionHelper sendSynchronousRequest:request returningResponse:&response error:&error];
