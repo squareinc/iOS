@@ -20,6 +20,7 @@
  */
 #import "ORControllerPollingSender.h"
 #import "ServerDefinition.h"
+#import "UIDevice+UDID.h"
 
 @interface ORControllerPollingSender ()
 
@@ -35,7 +36,7 @@
 {
     NSAssert(!self.controllerRequest, @"ORControllerPollingSender can only be used to send a request once");
     
-    NSString *deviceId = [[UIDevice currentDevice] uniqueIdentifier];
+    NSString *deviceId = [[UIDevice currentDevice] uniqueID];
     NSString *urlPath = [[ServerDefinition controllerPollingPathForController:self.controller] stringByAppendingFormat:@"/%@/%@", deviceId, self.ids];
     self.controllerRequest = [[[ControllerRequest alloc] initWithController:self.controller] autorelease];
     self.controllerRequest.delegate = self;

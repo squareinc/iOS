@@ -259,6 +259,7 @@
 		912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
+		91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA424C17953CDC001D39B9 /* libORControllerClient.a */; };
 /* End PBXBuildFile section */
@@ -618,6 +619,8 @@
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
+		91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
+		91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
 		91DA424C17953CDC001D39B9 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
@@ -1064,6 +1067,8 @@
 				602418DA156E76BE004E5860 /* ORTableViewSectionDefinition.m */,
 				602418E3156FAC6D004E5860 /* UITableViewHelper.h */,
 				602418E4156FAC6D004E5860 /* UITableViewHelper.m */,
+				91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */,
+				91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -1542,6 +1547,7 @@
 				609AAFDA156A61F7000DA1F9 /* ORControllerSender.m in Sources */,
 				602418B4156E4D0F004E5860 /* Capability.m in Sources */,
 				602418BA156E4D2D004E5860 /* APISecurity.m in Sources */,
+				91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */,
 				602418BF156E531C004E5860 /* CapabilitiesParser.m in Sources */,
 				602418D8156E766C004E5860 /* ORTableViewController.m in Sources */,
 				602418DD156E76BE004E5860 /* ORTableViewSectionDefinition.m in Sources */,
