@@ -260,6 +260,7 @@
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
 		91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */; };
+		91B5A0F717FAD15800F4BA8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA424C17953CDC001D39B9 /* libORControllerClient.a */; };
 /* End PBXBuildFile section */
@@ -621,6 +622,7 @@
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
 		91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
+		91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		91DA424C17953CDC001D39B9 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 				8C49736D11B2288D0039A293 /* Icon.png */,
 				8C3DE3001163492C00DD4EE7 /* btn_green.png */,
 				8C3DE3011163492C00DD4EE7 /* button.png */,
+				91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */,
 				8C3DE3021163492C00DD4EE7 /* Default.png */,
 				8C3DE3031163492C00DD4EE7 /* global.logo.png */,
 				8C3DE3041163492C00DD4EE7 /* iPhoneAppIcon.png */,
@@ -1344,6 +1347,7 @@
 				60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */,
 				60366B6E144DCB9C004FED3B /* database.db in Resources */,
 				60366B6F144DCB9C004FED3B /* btn_green.png in Resources */,
+				91B5A0F717FAD15800F4BA8B /* Default-568h@2x.png in Resources */,
 				60366B70144DCB9C004FED3B /* button.png in Resources */,
 				60366B71144DCB9C004FED3B /* Default.png in Resources */,
 				60366B72144DCB9C004FED3B /* global.logo.png in Resources */,
