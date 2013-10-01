@@ -67,7 +67,8 @@
         
 
         // TODO/ comment
-        self.controllerButtonAPI = (id <ControllerButtonAPI>)[[[ControllerVersionSelectAPI alloc] initWithAPIProtocol:@protocol(ControllerButtonAPI)] autorelease];
+        self.controllerButtonAPI = (id <ControllerButtonAPI>)[[[ControllerVersionSelectAPI alloc] initWithController:aController
+                                                                                                         APIProtocol:@protocol(ControllerButtonAPI)] autorelease];
         
     }
     return self;

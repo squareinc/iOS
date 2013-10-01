@@ -17,15 +17,17 @@
 @property (nonatomic, retain) id implementingObject;
 @property (nonatomic, copy) NSString *versionUsed;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
 @end
 
 @implementation ControllerVersionSelectAPI
 
-- (id)initWithAPIProtocol:(Protocol *)protocol;
+- (id)initWithController:(ORControllerConfig *)aController APIProtocol:(Protocol *)protocol
 {
     self = [super init];
     if (self) {
         self.apiProtocol = protocol;
+        self.controller = aController;
     }
     return self;
 }
@@ -35,12 +37,13 @@
     self.apiProtocol = nil;
     self.implementingObject = nil;
     self.versionUsed = nil;
+    self.controller = nil;
     [super dealloc];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    NSString *version = [[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.controllerAPIVersion;
+    NSString *version = self.controller.controllerAPIVersion;
     if (![self.versionUsed isEqualToString:version] || !self.implementingObject) {
         
         

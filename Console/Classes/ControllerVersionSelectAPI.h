@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORControllerConfig;
+
 @interface ControllerVersionSelectAPI : NSObject
 
-- (id)initWithAPIProtocol:(Protocol *)protocol;
+- (id)initWithController:(ORControllerConfig *)aController APIProtocol:(Protocol *)protocol;
 
 @end
