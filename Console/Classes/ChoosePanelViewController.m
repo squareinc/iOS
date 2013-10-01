@@ -147,8 +147,8 @@
     orController.userName = username;
 	orController.password = password;
     
-    // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
-    [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
+    // TODO: we used to save here, is it OK not to, maybe need to save in dedicated MOC
+    // [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
     
 	[self dismissModalViewControllerAnimated:YES];
     
