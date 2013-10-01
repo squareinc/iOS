@@ -22,8 +22,6 @@
 #import "Definition.h"
 #import "ViewHelper.h"
 #import "NotificationConstant.h"
-#import "ORConsoleSettingsManager.h"
-#import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
 @interface LoginViewController ()
@@ -34,18 +32,20 @@
 @property (nonatomic, retain) UITextField *passwordField;
 @property (nonatomic, assign) NSObject <LoginViewControllerDelegate> *delegate;
 @property (nonatomic, retain, readwrite) id context;
- 
+
+@property (nonatomic, assign) ORControllerConfig *controller;
 @end
 
 @implementation LoginViewController
 
-- (id)initWithDelegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext
+- (id)initWithController:(ORControllerConfig *)aController delegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
 		[self setTitle:@"Sign in"];
         self.delegate = aDelegate;
         self.context = aContext;
+        self.controller = aController;
 	}
 	return self;
 }
@@ -55,7 +55,8 @@
     self.delegate = nil;
     self.context = nil;
     self.usernameField = nil;
-    self.passwordField = nil;	
+    self.passwordField = nil;
+    self.controller = nil;
 	[super dealloc];
 }
 
@@ -138,9 +139,7 @@
 			loginCell.textLabel.text = @"Username";
 			[textField becomeFirstResponder];
 			self.usernameField = textField;
-            
-            ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
-			self.usernameField.text = activeController.userName; 
+			self.usernameField.text = self.controller.userName;
 		} else if (indexPath.row == 1) {
 			loginCell.textLabel.text = @"Password";
 			[textField setSecureTextEntry:YES];

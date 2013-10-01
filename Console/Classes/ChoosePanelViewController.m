@@ -126,7 +126,7 @@
 
 - (void)presentLoginRequestForControllerRequest:(ControllerRequest *)controllerRequest
 {
-	LoginViewController *loginController = [[LoginViewController alloc] initWithDelegate:self context:controllerRequest];
+	LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.controller delegate:self context:controllerRequest];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:YES];
 	[loginController release];

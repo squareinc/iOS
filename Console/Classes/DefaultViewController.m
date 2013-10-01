@@ -351,7 +351,9 @@
 
 //prompts the user to enter a valid user name and password
 - (void)populateLoginView:(NSNotification *)notification {
-	LoginViewController *loginController = [[LoginViewController alloc] initWithDelegate:self context:[notification.userInfo objectForKey:kAuthenticationRequiredControllerRequest]];
+	LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                                  delegate:self
+                                                                                   context:[notification.userInfo objectForKey:kAuthenticationRequiredControllerRequest]];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:NO];
 	[loginController release];

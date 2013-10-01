@@ -21,6 +21,7 @@
 #import <UIKit/UIKit.h>
 
 @class LoginViewController;
+@class ORControllerConfig;
 
 @protocol LoginViewControllerDelegate <NSObject>
 
@@ -34,7 +35,7 @@
  */
 @interface LoginViewController : UITableViewController <UITextFieldDelegate>
 
-- (id)initWithDelegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext;
+- (id)initWithController:(ORControllerConfig *)aController delegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext;
 
 @property (nonatomic, retain, readonly) id context;
 

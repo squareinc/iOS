@@ -130,7 +130,9 @@
 
 - (void)presentLoginRequestWithContext:(id)context
 {
-	LoginViewController *loginController = [[LoginViewController alloc] initWithDelegate:self context:context];
+	LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                                  delegate:self
+                                                                                   context:context];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:NO];
 	[loginController release];
