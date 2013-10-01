@@ -31,6 +31,8 @@
 
 @interface ServerAutoDiscoveryController ()
 
+@property (nonatomic, assign) ORConsoleSettings *settings;
+
 - (void)checkFindServerFail;
 
 @end
@@ -39,10 +41,11 @@
 
 //Setup autodiscovery and start. 
 // Needn't call annother method to send upd and start tcp server.
-- (id)initWithDelegate:(id)aDelegate
+- (id)initWithConsoleSettings:(ORConsoleSettings *)theSettings delegate:(id <ServerAutoDiscoveryControllerDelagate>)aDelegate
 {
     self = [super init];
 	if (self) {
+        self.settings = theSettings;
         self.delegate = aDelegate;
 
 		isReceiveServerUrl = NO;
@@ -72,11 +75,6 @@
 	return self;
 }
 
-- (id)init
-{
-    return [self initWithDelegate:nil];
-}
-
 - (void)dealloc
 {
 	if (tcpTimer && [tcpTimer isValid])  {
@@ -91,6 +89,8 @@
 	[tcpSever release];
 	[udpSocket release];
 	[delegate release];
+    
+    self.settings = nil;
     
 	[super dealloc];	
 }

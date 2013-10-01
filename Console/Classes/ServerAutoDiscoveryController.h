@@ -23,6 +23,7 @@
 #import "AsyncUdpSocket.h"
 
 @class ORControllerConfig;
+@class ORConsoleSettings;
 
 @protocol ServerAutoDiscoveryControllerDelagate <NSObject>
 
@@ -43,8 +44,7 @@
 	BOOL isReceiveServerUrl;
 	NSTimer	 *tcpTimer;
 }
-
-- (id)initWithDelegate:(id <ServerAutoDiscoveryControllerDelagate>)aDelegate;
+- (id)initWithConsoleSettings:(ORConsoleSettings *)theSettings delegate:(id <ServerAutoDiscoveryControllerDelagate>)aDelegate;
 
 // TODO EBR : is it OK to have this delegate assign instead of retain ?
 @property (nonatomic, retain) id <ServerAutoDiscoveryControllerDelagate>delegate;

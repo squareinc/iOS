@@ -246,7 +246,7 @@
 		//ServerAutoDiscoveryController have  tow delegate methods
 		// - (void)onFindServer:(NSString *)serverUrl;
 		// - (void)onFindServerFail:(NSString *)errorMessage;
-		serverAutoDiscoveryController = [[ServerAutoDiscoveryController alloc] initWithDelegate:self];
+		serverAutoDiscoveryController = [[ServerAutoDiscoveryController alloc] initWithConsoleSettings:self.settings delegate:self];
 	} else {
 		[self updateFailOrUseLocalCache:@"Can't find OpenRemote controller automatically."];
 	}	

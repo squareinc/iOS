@@ -651,7 +651,7 @@
             [autoDiscoverController release]; // This will cancel connections if any
             autoDiscoverController = nil;
         }
-		autoDiscoverController = [[ServerAutoDiscoveryController alloc] initWithDelegate:self];
+		autoDiscoverController = [[ServerAutoDiscoveryController alloc] initWithConsoleSettings:self.settingsManager.consoleSettings delegate:self];
 	}
 }
 
