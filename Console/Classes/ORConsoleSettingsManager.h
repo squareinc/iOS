@@ -39,8 +39,6 @@
 
 @property (nonatomic, readonly) ORControllerProxy *currentController;
 
-+ (ORConsoleSettingsManager *)sharedORConsoleSettingsManager;
-
 - (ORConsoleSettings *)consoleSettings;
 - (void)saveConsoleSettings;
 - (void)cancelConsoleSettingsChanges;

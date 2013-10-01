@@ -47,7 +47,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
-    ORConsoleSettingsManager *settingsManager = [ORConsoleSettingsManager sharedORConsoleSettingsManager];
+    ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
 	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
 
@@ -64,6 +64,9 @@
 	updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings delegate:self];
 
     [updateController startup];
+    
+    // settings manager is not retained by this class, objects using it must have a strong reference to it
+    [settingsManager release];
 }
 
 // when it's launched by other apps.

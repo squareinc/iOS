@@ -24,49 +24,10 @@
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 
-static ORConsoleSettingsManager *sharedORConsoleSettingsManager = nil;
 
 // TODO: error handling
 
 @implementation ORConsoleSettingsManager
-
-+ (ORConsoleSettingsManager *)sharedORConsoleSettingsManager
-{
-    if (sharedORConsoleSettingsManager == nil) {
-        sharedORConsoleSettingsManager = [[super allocWithZone:NULL] init];
-    }
-    return sharedORConsoleSettingsManager;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [[self sharedORConsoleSettingsManager] retain];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return NSUIntegerMax;  //denotes an object that cannot be released
-}
-
-- (oneway void)release
-{
-    //do nothing
-}
-
-- (id)autorelease
-{
-    return self;
-}
 
 - (void)dealloc
 {
