@@ -76,6 +76,8 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @interface SliderSubController()
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @property (nonatomic, readwrite, retain) UIView *view;
 @property (nonatomic, readonly) Slider *slider;
 @property (nonatomic, assign) int currentValue;
@@ -219,7 +221,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
 {
-	return [[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.localController commandsForComponentId:self.component.componentId action:@"setValue"];
+	return [self.controller.definition.localController commandsForComponentId:self.component.componentId action:@"setValue"];
 }
 
 #pragma mark Private methods

@@ -34,6 +34,8 @@
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType;
 
+@property (nonatomic, assign) ORControllerConfig *controller;
+
 @end
 
 @implementation ControlSubController
@@ -44,15 +46,15 @@
 	// Check for local command first
 	NSArray *localCommands = [self localCommandsForCommandType:commandType];
     if (localCommands && ([localCommands count] > 0)) {
-        [[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.clientSideRuntime executeCommands:localCommands commandType:commandType];
+        [self.controller.clientSideRuntime executeCommands:localCommands commandType:commandType];
 	} else {
-        [[ORConsoleSettingsManager sharedORConsoleSettingsManager].currentController sendCommand:commandType forComponent:self.component delegate:nil];
+        [self.controller.proxy sendCommand:commandType forComponent:self.component delegate:nil];
 	}
 }
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
 {
-	return [[[ORConsoleSettingsManager sharedORConsoleSettingsManager] consoleSettings].selectedController.definition.localController commandsForComponentId:self.component.componentId action:commandType];
+	return [self.controller.definition.localController commandsForComponentId:self.component.componentId action:commandType];
 }
 
 #pragma mark ORControllerCommandSenderDelegate implementation
