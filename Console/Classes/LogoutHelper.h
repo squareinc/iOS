@@ -21,12 +21,16 @@
 #import <Foundation/Foundation.h>
 #import "URLConnectionHelper.h"
 
+@class ORConsoleSettingsManager;
+
 /**
  * Helper for logout.
  */
 @interface LogoutHelper : NSObject <URLConnectionHelperDelegate> {
 
 }
+
+- (id)initWithConsoleSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
 
 /**
  * Send logout request to controller server.

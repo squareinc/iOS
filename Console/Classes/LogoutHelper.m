@@ -27,16 +27,31 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
-@interface LogoutHelper (Private)
+@interface LogoutHelper ()
 
+@property (nonatomic, assign) ORConsoleSettingsManager *settingsManager;
 @end
 
 
 @implementation LogoutHelper
 
+- (id)initWithConsoleSettingsManager:(ORConsoleSettingsManager *)aSettingsManager
+{
+    self = [super init];
+    if (self) {
+        self.settingsManager = aSettingsManager;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    self.settingsManager = nil;
+    [super dealloc];
+}
 
 - (void)requestLogout {
-	NSURL *url = [[NSURL alloc] initWithString:[ServerDefinition logoutUrlForController:[ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController]];
+	NSURL *url = [[NSURL alloc] initWithString:[ServerDefinition logoutUrlForController:self.settingsManager.consoleSettings.selectedController]];
 	
 	//assemble put request 
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -56,11 +71,11 @@
 		switch (statusCode) {
 			case UNAUTHORIZED://logout succuessful
             {
-                ORControllerConfig *activeController = [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController;
+                ORControllerConfig *activeController = self.settingsManager.consoleSettings.selectedController;
 				NSLog(@"%@ logged out successfully", activeController.userName);
 				[ViewHelper showAlertViewWithTitle:@"" Message:[NSString stringWithFormat:@"%@ logged out successfully", activeController.userName]];
                 activeController.password = nil;
-                [[ORConsoleSettingsManager sharedORConsoleSettingsManager] saveConsoleSettings];
+                [self.settingsManager saveConsoleSettings];
 				return;
             }
 		} 		
