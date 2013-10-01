@@ -77,7 +77,7 @@
 - (void)handleServerResponseWithStatusCode:(int)statusCode
 {
 	if (statusCode != 200) {
-		[ViewHelper showAlertViewWithTitle:@"Command failed" Message:[ControllerException exceptionMessageOfCode:statusCode]];
+		[ViewHelper showAlertViewWithTitle:@"Command failed" Message:[ControllerException controller:self.controller exceptionMessageOfCode:statusCode]];
 
         // TODO EBR we should sure pass some params e.g. for handling multiple command send ...
         if ([self.delegate respondsToSelector:@selector(commandSendFailed)]) {

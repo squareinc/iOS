@@ -79,7 +79,8 @@
 				return;
             }
 		} 		
-		[ViewHelper showAlertViewWithTitle:@"Send Request Error" Message:[ControllerException exceptionMessageOfCode:statusCode]];	
+		[ViewHelper showAlertViewWithTitle:@"Send Request Error" Message:[ControllerException controller:self.settingsManager.consoleSettings.selectedController
+                                                                                  exceptionMessageOfCode:statusCode]];
 	} 
 	
 }

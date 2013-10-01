@@ -78,7 +78,7 @@
         // Controller does not support /rest/capabilities call -> return nil capabilities
         [self.delegate fetchCapabilitiesDidSucceedWithCapabilities:nil];
     } else if (self.statusCode != 200) {
-		[ViewHelper showAlertViewWithTitle:@"Panel List Error" Message:[ControllerException exceptionMessageOfCode:statusCode]];	
+		[ViewHelper showAlertViewWithTitle:@"Panel List Error" Message:[ControllerException controller:self.controller exceptionMessageOfCode:statusCode]];
 	}
 }
 

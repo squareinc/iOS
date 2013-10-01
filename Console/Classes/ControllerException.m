@@ -25,7 +25,7 @@
 
 @implementation ControllerException
 
-+ (NSString *)exceptionMessageOfCode:(int)code {
++ (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(int)code {
 	NSString *errorMessage = nil;
 	if (code != 200) {
 		switch (code) {
@@ -66,11 +66,11 @@
 				errorMessage = @"Invalid panel.xml.";
 				break;
 			case NO_SUCH_PANEL://428
-				if (![ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentity) {
+				if (!controller.selectedPanelIdentity) {
 					errorMessage = @"Welcome, please choose your own panel identity in Settings";
 				} else {
 					errorMessage = [NSString stringWithFormat:@"Current panel identity ‘%@’ isn't available. Please choose again in Settings.", 
-                                        [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.selectedPanelIdentity];
+                                        controller.selectedPanelIdentity];
 				}				
 				break;
 			case INVALID_ELEMENT://429

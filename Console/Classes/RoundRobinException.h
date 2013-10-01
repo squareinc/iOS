@@ -45,7 +45,4 @@
 
 }
 
-//convenient method to find concrete exception message by error code.
-+ (NSString *)exceptionMessageOfCode:(int)code;
-
 @end

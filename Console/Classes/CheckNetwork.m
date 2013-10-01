@@ -159,7 +159,7 @@
 		if ([resp statusCode] == UNAUTHORIZED) {			
 			@throw [CheckNetworkException exceptionWithTitle:@"" message:@"401"];
 		} else {
-			@throw [CheckNetworkException exceptionWithTitle:@"" message:[ControllerException exceptionMessageOfCode:[resp statusCode]]];
+			@throw [CheckNetworkException exceptionWithTitle:@"" message:[ControllerException controller:controller exceptionMessageOfCode:[resp statusCode]]];
 		} 
 		
 	}

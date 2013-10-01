@@ -74,7 +74,7 @@
         }
         // [ViewHelper showAlertViewWithTitle:@"Polling Failed" Message:[ControllerException exceptionMessageOfCode:statusCode]];
         // Don't bother user with this, for now simply log
-        NSLog(@"Polling failed %@", [ControllerException exceptionMessageOfCode:statusCode]);
+        NSLog(@"Polling failed %@", [ControllerException controller:self.controller exceptionMessageOfCode:statusCode]);
         // TODO: user should be notified in an unobstrusive way that the polling did stop and there should be a way to restart it
 	} else {
         if ([self.delegate respondsToSelector:@selector(pollingDidSucceed)]) {

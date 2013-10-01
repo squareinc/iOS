@@ -20,6 +20,8 @@
  */
 #import <Foundation/Foundation.h>
 
+@class ORControllerConfig;
+
 /********************* Standard Client error *********************/ 
 
 #define UNAUTHORIZED              401 //unauthorized by Controller, should login.
@@ -58,6 +60,6 @@
 }
 
 //convenient method to find concrete exception message by error code.
-+ (NSString *)exceptionMessageOfCode:(int)code;
++ (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(int)code;
 
 @end

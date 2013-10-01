@@ -23,7 +23,7 @@
 
 @implementation RoundRobinException
 
-+ (NSString *)exceptionMessageOfCode:(int)code {
++ (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(int)code {
 	NSString *errorMessage = nil;
 	if (code != 200) {
 		switch (code) {
