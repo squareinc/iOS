@@ -99,7 +99,10 @@
 
 - (void)forgetAllImages
 {
-    
+    NSArray *images = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.cachePath error:NULL];
+    for (NSString *image in images) {
+        [[NSFileManager defaultManager] removeItemAtPath:[self.cachePath stringByAppendingPathComponent:image] error:NULL];
+    }
 }
 
 @end

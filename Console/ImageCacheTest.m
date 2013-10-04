@@ -103,6 +103,17 @@
     STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting forgotten image should return nil");
     STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Forgotten image should be reported as not available");
 }
+
+- (void)testForgetAllResources
+{
+    [self.cache storeImage:self.image1 named:IMAGE_NAME1];
+    UIImage *anotherImage = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[ImageCacheTest class]] pathForResource:@"Icon" ofType:@"png"]];
+    [self.cache storeImage:anotherImage named:IMAGE_NAME2];
+    STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting existing image should not return nil");
+    STAssertNotNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting existing image should not return nil");
+    [self.cache forgetAllImages];
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting forgotten image should return nil");
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting forgotten image should return nil");
 }
 
 //- (void)forgetAllResources;
