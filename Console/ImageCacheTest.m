@@ -8,13 +8,13 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "ImageCache.h"
-#import "DirectoryDefinition.h"
 
 #define IMAGE_NAME1 @"Image1"
 #define IMAGE_NAME2 @"Image2"
 
 @interface ImageCacheTest : SenTestCase
 
+@property (nonatomic, retain) NSString *cachePath;
 @property (nonatomic, retain) ImageCache *cache;
 @property (nonatomic, retain) UIImage *image1;
 
@@ -24,7 +24,8 @@
 
 - (void)setUp
 {
-    self.cache = [[[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]] autorelease];
+    self.cachePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d", arc4random()]];
+    self.cache = [[[ImageCache alloc] initWithCachePath:self.cachePath] autorelease];
     self.image1 = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[ImageCacheTest class]] pathForResource:@"Default" ofType:@"png"]];
 }
 
@@ -32,7 +33,8 @@
 {
     self.image1 = nil;
     self.cache = nil;
-    [[NSFileManager defaultManager] removeItemAtPath:[DirectoryDefinition imageCacheFolder] error:NULL];
+    [[NSFileManager defaultManager] removeItemAtPath:self.cachePath error:NULL];
+    self.cachePath = nil;
 }
 
 - (void)testInitWithNonExistentCachePath
@@ -81,31 +83,26 @@
 
 - (void)testGetNonAvailableResource
 {
-    ImageCache *mgr = [[ImageCache alloc] init];
-    STAssertNil([mgr getImageNamed:IMAGE_NAME1], @"Getting non image resource should return nil");
-    STAssertFalse([mgr isImageAvailableNamed:IMAGE_NAME1], @"Non image resource should be reported as such");
-    [mgr release];
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting non image resource should return nil");
+    STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Non image resource should be reported as such");
 }
 
 - (void)testStoreAndRetrieveResource
 {
-    ImageCache *mgr = [[ImageCache alloc] init];
-    [mgr storeImage:self.image1 named:IMAGE_NAME1];
-    STAssertNotNil([mgr getImageNamed:IMAGE_NAME1], @"Getting existing image should not return nil");
-    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation([mgr getImageNamed:IMAGE_NAME1]), @"Retrieved image should be registered one");
-    STAssertTrue([mgr isImageAvailableNamed:IMAGE_NAME1], @"Available image should be reported as such");
-    STAssertNil([mgr getImageNamed:IMAGE_NAME2], @"Getting non available image should return nil");
-    [mgr release];
+    [self.cache storeImage:self.image1 named:IMAGE_NAME1];
+    STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting existing image should not return nil");
+    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation([self.cache getImageNamed:IMAGE_NAME1]), @"Retrieved image should be registered one");
+    STAssertTrue([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Available image should be reported as such");
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting non available image should return nil");
 }
 
 - (void)testForgetResource
 {
-    ImageCache *mgr = [[ImageCache alloc] init];
-    [mgr storeImage:self.image1 named:IMAGE_NAME1];
-    [mgr forgetImageNamed:IMAGE_NAME1];
-    STAssertNil([mgr getImageNamed:IMAGE_NAME1], @"Getting forgotten image should return nil");
-    STAssertFalse([mgr isImageAvailableNamed:IMAGE_NAME1], @"Forgotten image should be reported as not available");
-    [mgr release];
+    [self.cache storeImage:self.image1 named:IMAGE_NAME1];
+    [self.cache forgetImageNamed:IMAGE_NAME1];
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting forgotten image should return nil");
+    STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Forgotten image should be reported as not available");
+}
 }
 
 //- (void)forgetAllResources;

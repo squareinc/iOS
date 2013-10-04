@@ -20,7 +20,6 @@
  */
 
 #import "ImageCache.h"
-#import "DirectoryDefinition.h"
 #import "FileUtils.h"
 
 @interface ImageCache ()
@@ -56,6 +55,7 @@
 - (void)dealloc
 {
     self.loader = nil;
+    self.cachePath = nil;
     [super dealloc];
 }
 
@@ -63,14 +63,14 @@
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?
 - (void)storeImage:(UIImage *)image named:(NSString *)name
 {
-    NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:name];
+    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
     [UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
 }
 
 - (UIImage *)getImageNamed:(NSString *)name
 {
 
-	NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:name];
+	NSString *path = [self.cachePath stringByAppendingPathComponent:name];
 	if (![FileUtils checkFileExistsWithPath:path]) {
         return nil;
     }
@@ -84,13 +84,13 @@
 
 - (BOOL)isImageAvailableNamed:(NSString *)name
 {
-    NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:name];
+    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
     return [FileUtils checkFileExistsWithPath:path];
 }
 
 - (void)forgetImageNamed:(NSString *)name
 {
-    NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:name];
+    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
     
     // TODO: handle error
     
