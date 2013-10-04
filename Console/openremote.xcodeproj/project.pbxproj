@@ -259,6 +259,9 @@
 		912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
+		916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
+		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
+		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */; };
 		91B5A0F717FAD15800F4BA8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
@@ -619,6 +622,9 @@
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheTest.m; sourceTree = "<group>"; };
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
 		91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
@@ -978,6 +984,7 @@
 				60F3868315517C030089F8BD /* NSURLHelperTest.m */,
 				602418E9156FAD40004E5860 /* UITableViewHelperTest.h */,
 				602418EA156FAD40004E5860 /* UITableViewHelperTest.m */,
+				916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1101,6 +1108,8 @@
 		8CC6364B10BD3774009C25C9 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				916B6B9917FDC298000CB0CA /* ImageCache.h */,
+				916B6B9A17FDC298000CB0CA /* ImageCache.m */,
 				799CC3CC0F4D4EEA006195BD /* URLConnectionHelper.h */,
 				799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */,
 				8C7BE4210FA0395F00F18AA1 /* ViewHelper.h */,
@@ -1476,6 +1485,7 @@
 				60366BA3144DCB9C004FED3B /* UpdateController.m in Sources */,
 				60366BA4144DCB9C004FED3B /* CheckNetwork.m in Sources */,
 				60366BA5144DCB9C004FED3B /* NotificationConstant.m in Sources */,
+				916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */,
 				60366BA6144DCB9C004FED3B /* AppDelegate.m in Sources */,
 				60366BA8144DCB9C004FED3B /* PollingHelper.m in Sources */,
 				60366BA9144DCB9C004FED3B /* LoginViewController.m in Sources */,
@@ -1565,6 +1575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */,
 				602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */,
 				602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */,
 				60F3868D15517D120089F8BD /* Capabilities.m in Sources */,
@@ -1581,6 +1592,7 @@
 				6068DE9C13744E77007746F1 /* RoundRobinException.m in Sources */,
 				6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */,
 				6068DE9A13744E5B007746F1 /* NotificationConstant.m in Sources */,
+				916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */,
 				6068DE9913744E46007746F1 /* UpdateController.m in Sources */,
 				6068DE9513744E21007746F1 /* URLConnectionHelper.m in Sources */,
 				6068DE9413744E0E007746F1 /* CredentialUtil.m in Sources */,
