@@ -81,13 +81,13 @@
     [[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
 }
 
-- (void)testGetNonAvailableResource
+- (void)testGetNonAvailableImage
 {
     STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting non image resource should return nil");
     STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Non image resource should be reported as such");
 }
 
-- (void)testStoreAndRetrieveResource
+- (void)testStoreAndRetrieveImage
 {
     [self.cache storeImage:self.image1 named:IMAGE_NAME1];
     STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting existing image should not return nil");
@@ -96,7 +96,7 @@
     STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting non available image should return nil");
 }
 
-- (void)testForgetResource
+- (void)testForgetImage
 {
     [self.cache storeImage:self.image1 named:IMAGE_NAME1];
     [self.cache forgetImageNamed:IMAGE_NAME1];
@@ -104,7 +104,7 @@
     STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Forgotten image should be reported as not available");
 }
 
-- (void)testForgetAllResources
+- (void)testForgetAllImages
 {
     [self.cache storeImage:self.image1 named:IMAGE_NAME1];
     UIImage *anotherImage = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[ImageCacheTest class]] pathForResource:@"Icon" ofType:@"png"]];
@@ -115,9 +115,5 @@
     STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting forgotten image should return nil");
     STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting forgotten image should return nil");
 }
-
-//- (void)forgetAllResources;
-
-
 
 @end
