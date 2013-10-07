@@ -73,7 +73,6 @@
 
 - (UIImage *)getImageNamed:(NSString *)name
 {
-
 	NSString *path = [self cacheFilePathForName:name];
 	if (![FileUtils checkFileExistsWithPath:path]) {
         return nil;
@@ -96,8 +95,9 @@
                 [self storeImage:image named:name];
                 availableBlock(image);
             }];
+        } else {
+            // TODO: should there be an error if loader can not provide image ? -> at least should be logged
         }
-        // TODO: should there be an error if loader can not provide image ?
     }
     return nil;
 }
@@ -109,7 +109,7 @@
 
 - (void)forgetImageNamed:(NSString *)name
 {
-    // TODO: handle error
+    // TODO: handle error -> later, will have to log
     
     [[NSFileManager defaultManager] removeItemAtPath:[self cacheFilePathForName:name] error:NULL];
 }
