@@ -132,6 +132,7 @@
 		if (landscapePaginationController == nil) {
 			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                                  tabBar:self.controller.definition.tabBar];
+            landscapePaginationController.imageCache = self.imageCache;
 			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = landscapePaginationController;
@@ -152,6 +153,7 @@
 		if (portraitPaginationController == nil) {
 			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                                 tabBar:self.controller.definition.tabBar];
+            portraitPaginationController.imageCache = self.imageCache;
 			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
         self.currentPaginationController = portraitPaginationController;

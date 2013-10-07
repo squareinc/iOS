@@ -23,6 +23,7 @@
 
 @class Group;
 @class TabBar;
+@class ImageCache;
 
 /**
  * This class is mainly responsible for switching screenView in groupController's screenViews.
@@ -79,5 +80,7 @@
  * Switch the current screen view of paginationController to the first screen view.
  */
 - (BOOL)switchToFirstScreen;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
