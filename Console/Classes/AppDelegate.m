@@ -32,8 +32,7 @@
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
-//Private method declare
-@interface AppDelegate (Private)
+@interface AppDelegate ()
 
 - (void)updateDidFinished;
 - (void)didUpdate;
