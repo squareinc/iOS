@@ -22,12 +22,13 @@
 
 @class Component;
 @class ORControllerConfig;
+@class ImageCache;
 
 @interface ComponentSubController : SubController
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent;
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent;
 
 @property (nonatomic, readonly, retain) Component *component;
 

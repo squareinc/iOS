@@ -37,6 +37,8 @@
 
 @property (nonatomic, assign) ORControllerConfig *controller;
 
+@property (nonatomic, assign) ImageCache *imageCache;
+
 - (void)createView;
 - (void)createSubControllersForLayoutContainers;
 
@@ -44,12 +46,13 @@
 
 @implementation ScreenSubController
 
-- (id)initWithController:(ORControllerConfig *)aController screen:(Screen *)aScreen
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(Screen *)aScreen
 {
     self = [super init];
     if (self) {
         self.controller = aController;
         self.screen = aScreen;
+        self.imageCache = aCache;
         [self createView];
         [self createSubControllersForLayoutContainers];
     }    
@@ -61,6 +64,7 @@
     self.screen = nil;
     self.controller = nil;
     self.layoutContainers = nil;
+    self.imageCache = nil;
     [super dealloc];
 }
 
@@ -68,7 +72,7 @@
 {
     self.layoutContainers = [NSMutableArray arrayWithCapacity:[self.screen.layouts count]];
     for (LayoutContainer *layout in self.screen.layouts) {
-        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithController:self.controller layoutContainer:layout];
+        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithController:self.controller imageCache:self.imageCache layoutContainer:layout];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];
         [ctrl release];

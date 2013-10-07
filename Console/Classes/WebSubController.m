@@ -36,9 +36,9 @@
 
 @implementation WebSubController
 
-- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
 {
-    self = [super initWithController:aController component:aComponent];
+    self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         self.view = webView;

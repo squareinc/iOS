@@ -37,9 +37,9 @@
 
 @implementation ImageSubController
 
-- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
 {
-    self = [super initWithController:aController component:aComponent];
+    self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
         UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.image.src]];

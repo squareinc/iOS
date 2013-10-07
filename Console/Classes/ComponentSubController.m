@@ -39,6 +39,7 @@
 
 @property (nonatomic, readwrite, retain) Component *component;
 @property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
 
@@ -60,12 +61,13 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               nil];
 }
 
-- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
 {
     self = [super init];
     if (self) {
         self.controller = aController;
         self.component = [aComponent retain];
+        self.imageCache = aCache;
     }
     return self;
 }
@@ -74,6 +76,7 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
 {
     self.component = nil;
     self.controller = nil;
+    self.imageCache = nil;
     [super dealloc];
 }
 

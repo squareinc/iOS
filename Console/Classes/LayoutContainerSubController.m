@@ -29,17 +29,19 @@
 
 @property (nonatomic, assign) ORControllerConfig *controller;
 @property (nonatomic, retain) LayoutContainer *layoutContainer;
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
 
 @implementation LayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController layoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(LayoutContainer *)aLayoutContainer
 {
     self = [super init];
     if (self) {
         self.controller = aController;
         self.layoutContainer = aLayoutContainer;
+        self.imageCache = aCache;
     }    
     return self;
 }
@@ -48,6 +50,7 @@
 {
     self.layoutContainer = nil;
     self.controller = nil;
+    self.imageCache = nil;
     [super dealloc];
 }
 

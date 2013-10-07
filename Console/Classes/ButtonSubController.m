@@ -49,9 +49,9 @@
 
 @implementation ButtonSubController
 
-- (id)initWithController:(ORControllerConfig *)aController component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
 {
-    self = [super initWithController:aController component:aComponent];
+    self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         UIButton *uiButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [uiButton addTarget:self action:@selector(controlButtonDown:) forControlEvents:UIControlEventTouchDown];	
