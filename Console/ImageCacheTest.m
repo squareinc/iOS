@@ -83,8 +83,8 @@
 
 - (void)testGetNonAvailableImage
 {
-    STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting non image resource should return nil");
-    STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Non image resource should be reported as such");
+    STAssertNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting non available image should return nil");
+    STAssertFalse([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Non available image should be reported as such");
 }
 
 - (void)testStoreAndRetrieveImage
