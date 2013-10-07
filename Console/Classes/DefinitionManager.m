@@ -136,18 +136,6 @@
 	NSLog(@"xml file downloaded.");
 }
 
-
-- (void)downloadImageIgnoreCacheWithName:(NSString *)imageName {
-	NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
-	[self changeLoadingMessage:msg];
-	NSLog(@"%@", msg);
-	[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName]
-                          path:[DirectoryDefinition imageCacheFolder]
-                 forController:self.controller];
-	[imageName release];
-	[msg release];
-}
-
 - (void)downloadImageWithName:(NSString *)imageName {
 	NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:imageName];
 	if ([FileUtils checkFileExistsWithPath:path] == NO) {
