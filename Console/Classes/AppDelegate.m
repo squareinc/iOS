@@ -66,6 +66,7 @@
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
 	updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings delegate:self];
+    updateController.imageCache = self.imageCache;
 
     [updateController startup];
     

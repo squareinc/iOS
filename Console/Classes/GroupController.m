@@ -105,6 +105,7 @@
 	for (Screen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
 		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:self.controller];
+        viewController.imageCache = self.imageCache;
 		[viewController setScreen:screen];
 		[viewControllers addObject:viewController];
 		[viewController release];

@@ -60,6 +60,7 @@
 	if ([[screen pollingComponentsIds] count] > 0 ) {
 		polling = [[PollingHelper alloc] initWithController:self.controller
                                                componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
+        polling.imageCache = self.imageCache;
 	}
 }
 
@@ -113,6 +114,7 @@
 	//[screen release];
 	self.screenSubController = nil;
     self.controller = nil;
+    self.imageCache = nil;
 	[super dealloc];
 }
 

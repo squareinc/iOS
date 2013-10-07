@@ -162,6 +162,7 @@
 {
     if (!self.updateController) {
         UpdateController *tmpController = [[UpdateController alloc] initWithSettings:aController.settingsForSelectedController delegate:self];
+        updateController.imageCache = self.imageCache;
         self.updateController = tmpController;
         [tmpController release];
     }
@@ -177,6 +178,7 @@
 	[self cancelLocalSensors];
     self.localSensors = nil;
     self.updateController = nil;
+    self.imageCache = nil;
 	[super dealloc];
 }
 

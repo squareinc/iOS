@@ -22,6 +22,8 @@
 #import "ORControllerPollOrStatusSender.h"
 #import "UpdateController.h"
 
+@class ImageCache;
+
 /**
  * Setup a polling connection to detect the component status changes and 
  * notificate the new status to component on screen.
@@ -47,5 +49,7 @@
 @property(nonatomic, readonly) BOOL isPolling;
 @property(nonatomic, readonly) BOOL isError;
 @property(nonatomic, retain, readonly) NSString *pollingStatusIds;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end

@@ -338,6 +338,7 @@
 	[delegate release];
 	[serverAutoDiscoveryController release];
     [definitionManager release];
+    self.imageCache = nil;
 	[super dealloc];
 }
 

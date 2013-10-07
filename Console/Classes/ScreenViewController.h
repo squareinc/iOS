@@ -24,6 +24,8 @@
 #import "Gesture.h"
 #import "ORControllerCommandSender.h"
 
+@class ImageCache;
+
 /**
  * It's responsible for control render of screenView with screen model data.
  */
@@ -48,5 +50,7 @@
 
 @property(nonatomic,retain) Screen *screen;
 @property(nonatomic,retain) PollingHelper *polling;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end

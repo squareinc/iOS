@@ -244,6 +244,7 @@
 			updateController = nil;
 		}
 		updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings delegate:self];
+        updateController.imageCache = self.imageCache;
 		[updateController checkConfigAndUpdate];
 	}	
 }
