@@ -24,6 +24,11 @@
 
 @interface ImageCache ()
 
+/**
+ * Returns full path to cached file for a given image name.
+ */
+- (NSString *)cacheFilePathForName:(NSString *)name;
+
 @property (nonatomic, retain) NSString *cachePath;
 
 @end
@@ -63,14 +68,13 @@
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?
 - (void)storeImage:(UIImage *)image named:(NSString *)name
 {
-    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
-    [UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
+    [UIImagePNGRepresentation(image) writeToFile:[self cacheFilePathForName:name] atomically:YES];
 }
 
 - (UIImage *)getImageNamed:(NSString *)name
 {
 
-	NSString *path = [self.cachePath stringByAppendingPathComponent:name];
+	NSString *path = [self cacheFilePathForName:name];
 	if (![FileUtils checkFileExistsWithPath:path]) {
         return nil;
     }
@@ -84,7 +88,7 @@
     }
     if (self.loader) {
         if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
-            [self.loader loadImageNamed:name toPath:[self.cachePath stringByAppendingPathComponent:name] available:^{
+            [self.loader loadImageNamed:name toPath:[self cacheFilePathForName:name] available:^{
                 availableBlock([self getImageNamed:name]);
             }];
         } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
@@ -100,25 +104,27 @@
 
 - (BOOL)isImageAvailableNamed:(NSString *)name
 {
-    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
-    return [FileUtils checkFileExistsWithPath:path];
+    return [FileUtils checkFileExistsWithPath:[self cacheFilePathForName:name]];
 }
 
 - (void)forgetImageNamed:(NSString *)name
 {
-    NSString *path = [self.cachePath stringByAppendingPathComponent:name];
-    
     // TODO: handle error
     
-    [[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
+    [[NSFileManager defaultManager] removeItemAtPath:[self cacheFilePathForName:name] error:NULL];
 }
 
 - (void)forgetAllImages
 {
     NSArray *images = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.cachePath error:NULL];
     for (NSString *image in images) {
-        [[NSFileManager defaultManager] removeItemAtPath:[self.cachePath stringByAppendingPathComponent:image] error:NULL];
+        [[NSFileManager defaultManager] removeItemAtPath:[self cacheFilePathForName:image] error:NULL];
     }
+}
+
+- (NSString *)cacheFilePathForName:(NSString *)name
+{
+    return [self.cachePath stringByAppendingPathComponent:name];
 }
 
 @end
