@@ -27,8 +27,9 @@
 #import "AppDelegate.h"
 #import "NotificationConstant.h"
 #import "URLConnectionHelper.h"
-
+#import "DirectoryDefinition.h"
 #import "ORConsoleSettingsManager.h"
+#import "ImageCache.h"
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
@@ -40,12 +41,15 @@
 - (void)didUpdateFail:(NSString *)errorMessage;
 - (void)checkConfigAndUpdate;
 
+@property (nonatomic, retain) ImageCache *imageCache;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+    self.imageCache = [[[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]] autorelease];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
 	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
@@ -144,6 +148,7 @@
 	[updateController release];
 	[defaultViewController release];	
 	[window release];
+    self.imageCache = nil;
 
 	[super dealloc];
 }
