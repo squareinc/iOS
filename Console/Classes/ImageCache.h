@@ -23,9 +23,19 @@
 
 @protocol ImageCacheLoader <NSObject>
 
+@optional
+
 /**
- * Go and load asyncrhonously the resource with the given name.
- * Once resource is available, provide it through the callback block.
+ * Go and load asynchronously the image with the given name, storing it at the given path.
+ * Once the image is available, notify using callback block.
+ *
+ * This is the prefered method to populate the cache, as it avoids unnecessary file manipulations.
+ */
+- (void)loadImageNamed:(NSString *)name toPath:(NSString *)path available:(void (^)(void))availableBlock;
+
+/**
+ * Go and load asynchronously the image with the given name.
+ * Once the image is available, provide it through the callback block.
  */
 - (void)loadImageNamed:(NSString *)name available:(void (^)(UIImage *))availableBlock;
 

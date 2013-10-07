@@ -8,6 +8,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "ImageCache.h"
+#import "MockImageLoaderWithNoStorageToFile.h"
+#import "MockImageLoaderStoringToFile.h"
 
 #define IMAGE_NAME1 @"Image1"
 #define IMAGE_NAME2 @"Image2"
@@ -94,6 +96,46 @@
     STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation([self.cache getImageNamed:IMAGE_NAME1]), @"Retrieved image should be registered one");
     STAssertTrue([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Available image should be reported as such");
     STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting non available image should return nil");
+}
+
+- (void)testGetNotYetCachedImageLoadedViaLoader
+{
+    MockImageLoaderWithNoStorageToFile *loader = [[MockImageLoaderWithNoStorageToFile alloc] init];
+    loader.imageToReturn = self.image1;
+    self.cache.loader = loader;
+    
+    __block UIImage *providedImage = nil;
+    UIImage *initialImage = [self.cache getImageNamed:IMAGE_NAME1 finalImageAvailable:^(UIImage *image) {
+        providedImage = image;
+    }];
+    STAssertNil(initialImage, @"Getting non available image should initially return nil");
+    STAssertNotNil(providedImage, @"Once image has been loaded, it should not be nil");
+    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation(providedImage), @"Retrieved image should be loaded one");
+    STAssertTrue([self.cache isImageAvailableNamed:IMAGE_NAME1], @"After being loaded, image should be reported as available");
+    STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"After being loaded, image should be returned imediately when requested");
+    
+    self.cache.loader = nil;
+    [loader dealloc];
+}
+
+- (void)testGetNotYetCachedImageLoadedViaLoaderWithFileStorage
+{
+    MockImageLoaderStoringToFile *loader = [[MockImageLoaderStoringToFile alloc] init];
+    loader.imageToReturn = self.image1;
+    self.cache.loader = loader;
+    
+    __block UIImage *providedImage = nil;
+    UIImage *initialImage = [self.cache getImageNamed:IMAGE_NAME1 finalImageAvailable:^(UIImage *image) {
+        providedImage = image;
+    }];
+    STAssertNil(initialImage, @"Getting non available image should initially return nil");
+    STAssertNotNil(providedImage, @"Once image has been loaded, it should not be nil");
+    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation(providedImage), @"Retrieved image should be loaded one");
+    STAssertTrue([self.cache isImageAvailableNamed:IMAGE_NAME1], @"After being loaded, image should be reported as available");
+    STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"After being loaded, image should be returned imediately when requested");
+    
+    self.cache.loader = nil;
+    [loader dealloc];
 }
 
 - (void)testForgetImage

@@ -258,6 +258,8 @@
 		912721FC16C1127800E2D6B3 /* ORSliderWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F116C1127800E2D6B3 /* ORSliderWhite.png */; };
 		912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */; };
 		9141988117FF179800DE3AD6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C49736D11B2288D0039A293 /* Icon.png */; };
+		914198841802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */; };
+		914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
 		916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
@@ -620,6 +622,10 @@
 		912721F016C1127800E2D6B3 /* ORSliderThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderThumb@2x.png"; sourceTree = "<group>"; };
 		912721F116C1127800E2D6B3 /* ORSliderWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ORSliderWhite.png; sourceTree = "<group>"; };
 		912721F216C1127800E2D6B3 /* ORSliderWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderWhite@2x.png"; sourceTree = "<group>"; };
+		914198821802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockImageLoaderWithNoStorageToFile.h; sourceTree = "<group>"; };
+		914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockImageLoaderWithNoStorageToFile.m; sourceTree = "<group>"; };
+		914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockImageLoaderStoringToFile.h; sourceTree = "<group>"; };
+		914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockImageLoaderStoringToFile.m; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
@@ -986,6 +992,10 @@
 				602418E9156FAD40004E5860 /* UITableViewHelperTest.h */,
 				602418EA156FAD40004E5860 /* UITableViewHelperTest.m */,
 				916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */,
+				914198821802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.h */,
+				914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */,
+				914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */,
+				914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1587,6 +1597,7 @@
 				6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */,
 				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
+				914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */,
 				6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */,
 				6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */,
 				6068DE9E13744E8D007746F1 /* ORControllerCommandSender.m in Sources */,
@@ -1608,6 +1619,7 @@
 				6068DE7A13744D27007746F1 /* ServerDefinition.m in Sources */,
 				6068DE7913744D1E007746F1 /* DirectoryDefinition.m in Sources */,
 				6068DE6E13744C11007746F1 /* UIViewUtil.m in Sources */,
+				914198841802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m in Sources */,
 				609C57E2137431310093C03A /* ClippedUIImage.m in Sources */,
 				609C57E0137431280093C03A /* StringUtils.m in Sources */,
 				609C57E1137431280093C03A /* NSString+ORAdditions.m in Sources */,

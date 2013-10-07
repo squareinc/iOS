@@ -79,6 +79,22 @@
 
 - (UIImage *)getImageNamed:(NSString *)name finalImageAvailable:(void (^)(UIImage *))availableBlock
 {
+    if ([self isImageAvailableNamed:name]) {
+        return [self getImageNamed:name];
+    }
+    if (self.loader) {
+        if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
+            [self.loader loadImageNamed:name toPath:[self.cachePath stringByAppendingPathComponent:name] available:^{
+                availableBlock([self getImageNamed:name]);
+            }];
+        } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
+            [self.loader loadImageNamed:name available:^(UIImage *image) {
+                [self storeImage:image named:name];
+                availableBlock(image);
+            }];
+        }
+        // TODO: should there be an error if loader can not provide image ?
+    }
     return nil;
 }
 
