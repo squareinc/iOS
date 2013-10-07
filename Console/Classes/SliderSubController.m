@@ -21,7 +21,6 @@
 #import "SliderSubController.h"
 #import "Slider.h"
 #import "Image.h"
-#import "DirectoryDefinition.h"
 #import "SensorStatusCache.h"
 #import "Sensor.h"
 #import "ORConsoleSettingsManager.h"
@@ -31,6 +30,7 @@
 #import "LocalController.h"
 #import "NotificationConstant.h"
 #import "ORSlider.h"
+#import "ImageCache.h"
 
 #define MIN_SLIDE_VARIANT 1
 
@@ -82,6 +82,8 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 @property (nonatomic, readonly) Slider *slider;
 @property (nonatomic, assign) int currentValue;
 @property (nonatomic, retain) UIImageView *sliderTip;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 - (int)sliderValue:(ORSlider *)sender;
 - (void)sliderValueChanged:(UISlider *)sender;
@@ -197,8 +199,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 // Get Image from image cache directory with image name.
 - (UIImage *)getImageFromCacheByName:(NSString *)name {
-	UIImage *img = [[[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:name]] autorelease];
-	return [self transformToHorizontalWhenVertical:img];
+	return [self transformToHorizontalWhenVertical:[self.imageCache getImageNamed:name]];
 }
 
 // Rotate the specified image from horizontal to vertical.

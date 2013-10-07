@@ -21,7 +21,7 @@
 #import "SwitchSubController.h"
 #import "Switch.h"
 #import "Image.h"
-#import "DirectoryDefinition.h"
+#import "ImageCache.h"
 #import "SensorStatusCache.h"
 #import "Sensor.h"
 #import "NotificationConstant.h"
@@ -34,6 +34,8 @@
 @property (nonatomic) BOOL isOn;
 @property (nonatomic, retain) UIImage *onUIImage;
 @property (nonatomic, retain) UIImage *offUIImage;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 - (void)setOn:(BOOL)on;
 - (void)stateChanged:(id)sender;
@@ -54,8 +56,8 @@
         self.canUseImage = onImage && offImage;
 
         if (self.canUseImage) {
-            self.onUIImage = [[[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:onImage]] autorelease];
-            self.offUIImage = [[[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:offImage]] autorelease];
+            self.onUIImage = [self.imageCache getImageNamed:onImage];
+            self.offUIImage = [self.imageCache getImageNamed:offImage];
             [button.imageView setContentMode:UIViewContentModeCenter];
         } else {
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];

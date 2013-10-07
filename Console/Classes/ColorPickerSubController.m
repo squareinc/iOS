@@ -22,12 +22,13 @@
 #import "ColorPicker.h"
 #import "Image.h"
 #import "ColorPickerImageView.h"
-#import "DirectoryDefinition.h"
+#import "ImageCache.h"
 
 @interface ColorPickerSubController()
 
 @property (nonatomic, readwrite, retain) UIView *view;
 @property (nonatomic, readonly) ColorPicker *colorPicker;
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
 
@@ -37,7 +38,7 @@
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
-        UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.colorPicker.image.src]];
+        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src];
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:uiImage];
         imageView.pickedColorDelegate = self;
         self.view = imageView;

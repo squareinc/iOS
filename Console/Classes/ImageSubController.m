@@ -21,17 +21,18 @@
 #import "ImageSubController.h"
 #import "Image.h"
 #import "Label.h"
-#import "DirectoryDefinition.h"
 #import "SensorStatusCache.h"
 #import "SensorState.h"
 #import "Sensor.h"
 #import "ORImageView.h"
 #import "UIColor+ORAdditions.h"
+#import "ImageCache.h"
 
 @interface ImageSubController()
 
 @property (nonatomic, readwrite, retain) UIView *view;
 @property (nonatomic, readonly) Image *image;
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
 
@@ -42,7 +43,7 @@
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
-        UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.image.src]];
+        UIImage *uiImage = [self.imageCache getImageNamed:self.image.src];
         imageView.image.image = uiImage;
         [uiImage release];
         imageView.label.font = [UIFont fontWithName:@"Arial" size:self.image.label.fontSize];
@@ -69,7 +70,7 @@
 	
     NSString *stateValue = [self.image.sensor stateValueForName:newStatus];
     if (stateValue) {
-        UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:stateValue]];
+        UIImage *uiImage = [self.imageCache getImageNamed:stateValue];
         imageView.image.image = uiImage;
         [uiImage release];
         [imageView showImage];

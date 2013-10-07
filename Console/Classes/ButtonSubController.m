@@ -24,6 +24,7 @@
 #import "Image.h"
 #import "ClippedUIImage.h"
 #import "NotificationConstant.h"
+#import "ImageCache.h"
 
 #import "ControllerVersionSelectAPI.h"
 
@@ -37,6 +38,8 @@
 @property (nonatomic, retain) NSTimer *buttonRepeatTimer;
 @property (nonatomic, retain) NSTimer *longPressTimer;
 @property (nonatomic, getter=isLongPress, setter=setLongPress:) BOOL longPress;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 - (void)cancelTimers;
 
@@ -83,12 +86,12 @@
     if (object == self.view) {        
         UIButton *uiButton = (UIButton *)self.view;
         if (self.button.defaultImage) {
-            UIImage *uiImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.button.defaultImage.src]];
+            UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src];
             ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:uiImage withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];		
             [uiImage release];
             [uiButton setBackgroundImage:clippedUIImage forState:UIControlStateNormal];
             [clippedUIImage release];
-            UIImage *uiImagePressed = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:self.button.pressedImage.src]];
+            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src];
             if (uiImagePressed) {
                 ClippedUIImage *clippedUIImagePressed = [[ClippedUIImage alloc] initWithUIImage:uiImagePressed withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
                 [uiButton setBackgroundImage:clippedUIImagePressed forState:UIControlStateHighlighted];

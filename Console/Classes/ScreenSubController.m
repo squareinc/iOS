@@ -22,7 +22,7 @@
 #import "Screen.h"
 #import "Background.h"
 #import "Image.h"
-#import "DirectoryDefinition.h"
+#import "ImageCache.h"
 #import "FileUtils.h"
 #import "UIViewUtil.h"
 #import "ClippedUIImage.h"
@@ -92,8 +92,8 @@
         screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.height;
     }
 
-	if ([[[self.screen background] backgroundImage] src] && [[NSFileManager defaultManager] fileExistsAtPath:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:[[[self.screen background] backgroundImage] src]]]) {
-		UIImage *backgroundImage = [[UIImage alloc] initWithContentsOfFile:[[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:[[[self.screen background] backgroundImage] src]]];
+	if ([[[self.screen background] backgroundImage] src] && [self.imageCache isImageAvailableNamed:[[[self.screen background] backgroundImage] src]]) {
+		UIImage *backgroundImage = [self.imageCache getImageNamed:[[[self.screen background] backgroundImage] src]];
         if (backgroundImage) { // File might exist but not be an image, only proceed if we have an image
             UIImageView *backgroundImageView = [[UIImageView alloc] init];
             // fillscreen is false
