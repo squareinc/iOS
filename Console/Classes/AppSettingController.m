@@ -33,6 +33,7 @@
 #import "UIColor+ORAdditions.h"
 #import "ORControllerGroupMembersFetchStatusIconProvider.h"
 #import "TableViewCellWithSelectionAndIndicator.h"
+#import "ImageCache.h"
 
 @interface AppSettingController ()
 
@@ -96,6 +97,7 @@
 	[done release];
 	[cancel release];
 	self.currentSelectedServerIndex = nil;
+    self.imageCache = nil;
 	[super dealloc];
 }
 
@@ -518,7 +520,7 @@
 #pragma mark alert delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-		[FileUtils deleteFolderWithPath:[DirectoryDefinition imageCacheFolder]];
+        [self.imageCache forgetAllImages];
 	} 
 }
 
