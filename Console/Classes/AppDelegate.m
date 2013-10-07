@@ -53,6 +53,7 @@
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
 	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
+    defaultViewController.imageCache = self.imageCache;
 
 	// Default window for the app
 	window = [[GestureWindow alloc] initWithDelegate:defaultViewController];

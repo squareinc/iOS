@@ -32,6 +32,8 @@
 #import "UpdateController.h"
 #import "InitViewController.h"
 
+@class ImageCache;
+
 /**
  * It's responsible for controlling rendering of all views related to client.
  * Its view is the root view container of all views related to client.
@@ -86,5 +88,7 @@
  * Check if the downloading panel.xml and parsing process are finished.
  */
 - (BOOL)isAppLaunching;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end

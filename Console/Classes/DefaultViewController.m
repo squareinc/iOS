@@ -77,6 +77,8 @@
     
 	[errorViewController release];
 	[updateController release];
+    
+    self.imageCache = nil;
 	
 	[super dealloc];
 }
@@ -362,6 +364,7 @@
 
 - (void)populateSettingsView:(id)sender {
 	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager];
+    settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentModalViewController:settingNavController animated:YES];
 	[settingController release];
