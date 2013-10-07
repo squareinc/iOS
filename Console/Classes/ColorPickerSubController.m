@@ -43,7 +43,6 @@
         imageView.pickedColorDelegate = self;
         self.view = imageView;
         [imageView release];
-        [uiImage release];
     }
     return self;
 }

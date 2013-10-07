@@ -45,7 +45,6 @@
         ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
         UIImage *uiImage = [self.imageCache getImageNamed:self.image.src];
         imageView.image.image = uiImage;
-        [uiImage release];
         imageView.label.font = [UIFont fontWithName:@"Arial" size:self.image.label.fontSize];
         imageView.label.textColor = [UIColor or_ColorWithRGBString:[self.image.label.color substringFromIndex:1]];
         self.view = imageView;
@@ -70,9 +69,7 @@
 	
     NSString *stateValue = [self.image.sensor stateValueForName:newStatus];
     if (stateValue) {
-        UIImage *uiImage = [self.imageCache getImageNamed:stateValue];
-        imageView.image.image = uiImage;
-        [uiImage release];
+        imageView.image.image = [self.imageCache getImageNamed:stateValue];
         [imageView showImage];
     } else {
         if (self.image.label) {

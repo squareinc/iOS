@@ -88,7 +88,6 @@
         if (self.button.defaultImage) {
             UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src];
             ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:uiImage withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];		
-            [uiImage release];
             [uiButton setBackgroundImage:clippedUIImage forState:UIControlStateNormal];
             [clippedUIImage release];
             UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src];
@@ -97,7 +96,6 @@
                 [uiButton setBackgroundImage:clippedUIImagePressed forState:UIControlStateHighlighted];
                 [clippedUIImagePressed release];
             }
-            [uiImagePressed release];
         } else {
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
             [uiButton setBackgroundImage:buttonImage forState:UIControlStateNormal];

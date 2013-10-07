@@ -141,7 +141,6 @@
             [backgroundImageView setUserInteractionEnabled:YES];
             self.view = backgroundImageView;
             [backgroundImageView release];
-            [backgroundImage release];
         }
     }
     // If for some reason something went wrong in creating the background with the image, just add a view with requested dimensions
