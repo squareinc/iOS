@@ -69,6 +69,7 @@
 	if (self) {
         self.settings = theSettings;
         definitionManager = [[DefinitionManager alloc] initWithController:self.settings.selectedController];
+        definitionManager.imageCache = self.imageCache;
 		retryTimes = 1;
 	}
 	return self;

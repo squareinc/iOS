@@ -63,6 +63,7 @@
 - (void)dealloc
 {
     self.controller = nil;
+    self.imageCache = nil;
     [super dealloc];
 }
 
