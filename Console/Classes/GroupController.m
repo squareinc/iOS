@@ -65,6 +65,7 @@
     self.parentViewController = nil;
 	self.maskView = nil;
     self.controller = nil;
+    self.imageCache = nil;
 	[super dealloc];
 }
 

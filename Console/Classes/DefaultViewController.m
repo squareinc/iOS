@@ -167,6 +167,7 @@
 		gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
                                                    group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
 	}
+    gc.imageCache = self.imageCache;
 	return [gc autorelease];
 }
 
@@ -296,6 +297,7 @@
 			if (group) {
 				targetGroupController = [[[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
                                                                                group:group parentViewController:self] autorelease];
+                targetGroupController.imageCache = self.imageCache;
 			} else {
 				return NO;
 			}

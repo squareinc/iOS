@@ -24,6 +24,8 @@
 #import "ErrorViewController.h"
 #import "Screen.h"
 
+@class ImageCache;
+
 /**
  * Control presentation of group view with group model data.
  */
@@ -93,5 +95,7 @@
 - (CGRect)getFullFrame;
 
 @property (nonatomic, retain) Group *group;
+
+@property (nonatomic, assign) ImageCache *imageCache;
 
 @end
