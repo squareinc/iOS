@@ -31,6 +31,8 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 
+static void * const ORControllerConfigKVOContext = (void*)&ORControllerConfigKVOContext;
+
 NSString *kORControllerGroupMembersFetchingNotification = @"kORControllerGroupMembersFetchingNotification";
 NSString *kORControllerGroupMembersFetchSucceededNotification = @"kORControllerGroupMembersFetchSucceededNotification";
 NSString *kORControllerGroupMembersFetchFailedNotification = @"kORControllerGroupMembersFetchFailedNotification";
@@ -77,6 +79,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     self.controllerAPIVersion = DEFAULT_CONTROLLER_API_VERSION;
     self.sensorStatusCache = [[[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]] autorelease];
     self.clientSideRuntime = [[[ClientSideRuntime alloc] initWithController:self] autorelease];
+    
+    [self addObserver:self forKeyPath:@"primaryURL" options:NULL context:ORControllerConfigKVOContext];
 }
 
 - (void)awakeFromInsert
@@ -85,6 +89,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     self.controllerAPIVersion = DEFAULT_CONTROLLER_API_VERSION;
     self.sensorStatusCache = [[[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]] autorelease];
     self.clientSideRuntime = [[[ClientSideRuntime alloc] initWithController:self] autorelease];
+
+    [self addObserver:self forKeyPath:@"primaryURL" options:NULL context:ORControllerConfigKVOContext];
 }
 
 - (void)fetchGroupMembers
@@ -241,6 +247,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 
 - (void)didTurnIntoFault
 {
+    [self removeObserver:self forKeyPath:@"primaryURL"];
+    
     [controller release];
     controller = nil;
     
@@ -275,6 +283,20 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
                       [[[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.primaryURL]] autorelease]];
     }
     return controller;
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == ORControllerConfigKVOContext) {
+        if ([@"primaryURL" isEqualToString:keyPath]) {
+            [controller release];
+            controller = nil;
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #pragma mark -
