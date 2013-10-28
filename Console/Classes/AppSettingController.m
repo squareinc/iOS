@@ -68,9 +68,6 @@
 // The section of table cell where selected panel identity is in.
 #define PANEL_IDENTITY_SECTION 2
 
-// The section of table cell where clearCache table cell is in.
-#define CLEAR_CACHE_SECTION 3
-
 @implementation AppSettingController
 
 - (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
@@ -175,6 +172,35 @@
     }
 
     [self autodiscoverControllersIfRequired];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UIView *footerView  = [[UIView alloc] init];
+    footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 70);
+    
+    UIButton *clearImageCacheButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [clearImageCacheButton setTitle:@"Clear image cache" forState:UIControlStateNormal];
+    [clearImageCacheButton sizeToFit];
+    [clearImageCacheButton addTarget:self action:@selector(clearImageCache) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:clearImageCacheButton];
+    clearImageCacheButton.center = CGPointMake(footerView.center.x, footerView.frame.origin.y + clearImageCacheButton.frame.size.height / 2);
+    
+    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    versionLabel.text = [NSString stringWithFormat:@"OpenRemote iOS Console version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+    versionLabel.textAlignment = UITextAlignmentCenter;
+    versionLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    versionLabel.textColor = [UIColor darkGrayColor];
+    versionLabel.backgroundColor = [UIColor clearColor];
+    [versionLabel sizeToFit];
+    [footerView addSubview:versionLabel];
+    versionLabel.center = CGPointMake(footerView.center.x, footerView.frame.origin.y + footerView.frame.size.height - (versionLabel.frame.size.height / 2));
+    [versionLabel release];
+    
+    self.tableView.tableFooterView = footerView;
+    [footerView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -326,7 +352,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return [[AppSettingsDefinition sharedAppSettingsDefinition].settingsDefinition count] - 1;
+	return [[AppSettingsDefinition sharedAppSettingsDefinition].settingsDefinition count] - 2;
 }
 
 // Customize the number of rows in the table view.
@@ -341,9 +367,6 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-	if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-		return [NSString stringWithFormat:@"Version %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-	} 
 	return [[AppSettingsDefinition sharedAppSettingsDefinition] getSectionFooterWithIndex:section];
 }
 
@@ -361,12 +384,10 @@
 	static NSString *switchCellIdentifier = @"switchCell";
 	static NSString *serverCellIdentifier = @"serverCell";
 	static NSString *panelCellIdentifier = @"panelCell";
-	static NSString *buttonCellIdentifier = @"buttonCell";
 	
 	UITableViewCell *switchCell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
 	TableViewCellWithSelectionAndIndicator *serverCell = (TableViewCellWithSelectionAndIndicator *)[tableView dequeueReusableCellWithIdentifier:serverCellIdentifier];
 	UITableViewCell *panelCell = [tableView dequeueReusableCellWithIdentifier:panelCellIdentifier];
-	UITableViewCell *buttonCell = [tableView dequeueReusableCellWithIdentifier:buttonCellIdentifier];
 	
 	if (switchCell == nil) {
 		switchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier] autorelease];
@@ -380,9 +401,6 @@
 	}
 	if (panelCell == nil) {
 		panelCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:panelCellIdentifier] autorelease];
-	}
-	if (buttonCell == nil) {
-		buttonCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonCellIdentifier] autorelease];
 	}
 	
 	if ([self isAutoDiscoverySection:indexPath]) {
@@ -418,11 +436,6 @@
 		panelCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		panelCell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		return panelCell;
-	} else if (indexPath.section == CLEAR_CACHE_SECTION) {
-		buttonCell.textLabel.text = @"Clear Image Cache";
-		buttonCell.textLabel.textAlignment = UITextAlignmentCenter;
-		buttonCell.selectionStyle = UITableViewCellSelectionStyleGray;
-		return buttonCell;
 	}
 	return nil;
 }
@@ -462,15 +475,6 @@
 		return;
 	} 
 	
-	if (indexPath.section == CLEAR_CACHE_SECTION) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Are you sure you want to clear image cache?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:nil];
-		[alert addButtonWithTitle:@"YES"];
-		[alert show];
-		[alert autorelease];
-		cell.selected = NO;
-		return;
-	}
-	
 	if ([self isAddCustomServerRow:indexPath]) {
         ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithManagedObjectContext:self.settingsManager.managedObjectContext];
         cdvc.delegate = self;
@@ -490,7 +494,6 @@
 		[choosePanelViewController release];
 		return;
 	}
-	
 	
 	if (indexPath.section == CONTROLLER_URLS_SECTION) {        
 		if (self.currentSelectedServerIndex) {
@@ -518,7 +521,22 @@
 	
 }
 
+#pragma mark - ImageCache
+
+- (void)clearImageCache
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:@"Are you sure you want to clear image cache ?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"NO"
+                                          otherButtonTitles:nil];
+    [alert addButtonWithTitle:@"YES"];
+    [alert show];
+    [alert autorelease];
+}
+
 #pragma mark alert delegate
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
         [self.imageCache forgetAllImages];
