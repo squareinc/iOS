@@ -29,6 +29,7 @@
 #import "PanelDefinitionParser.h"
 #import "ORControllerConfig.h"
 #import "Definition.h"
+#import "ImageCache.h"
 
 // Maximum number of operations executed concurrently
 #define MAX_CONCURRENT_OPERATIONS   3
@@ -137,7 +138,7 @@
 }
 
 - (void)downloadImageWithName:(NSString *)imageName {
-	NSString *path = [[DirectoryDefinition imageCacheFolder] stringByAppendingPathComponent:imageName];
+	NSString *path = [self.imageCache cacheFilePathForName:imageName];
 	if ([FileUtils checkFileExistsWithPath:path] == NO) {
 		NSString *msg = [[NSMutableString alloc] initWithFormat:@"download %@...", imageName];
 		[self changeLoadingMessage:msg];

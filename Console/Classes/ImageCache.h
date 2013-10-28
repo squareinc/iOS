@@ -94,6 +94,11 @@
 - (void)forgetAllImages;
 
 /**
+ * Returns full path to cached file for a given image name.
+ */
+- (NSString *)cacheFilePathForName:(NSString *)name;
+
+/**
  * Loader to use to get not yet registered images.
  */
 @property (nonatomic, retain) NSObject<ImageCacheLoader> *loader;

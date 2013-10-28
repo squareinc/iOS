@@ -24,11 +24,6 @@
 
 @interface ImageCache ()
 
-/**
- * Returns full path to cached file for a given image name.
- */
-- (NSString *)cacheFilePathForName:(NSString *)name;
-
 @property (nonatomic, retain) NSString *cachePath;
 
 @end
