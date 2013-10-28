@@ -150,7 +150,8 @@
     [deleteInstallBtn setBackgroundImage:deleteGradient forState:UIControlStateNormal];    
     [footerView addSubview:deleteInstallBtn];
     deleteInstallBtn.center = footerView.center;
-    self.tableView.tableFooterView = footerView;    
+    self.tableView.tableFooterView = footerView;
+    [footerView release];
     
     [self updateTableViewHeaderForGroupMemberFetchStatus];
 }
