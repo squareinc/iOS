@@ -32,8 +32,7 @@
 
 - (id)initWithErrorTitle:(NSString *)title message:(NSString *)message
 {
-	BOOL isIPad = [UIScreen mainScreen].bounds.size.width == 768;
-	if (self = [super initWithNibName: isIPad ? @"ErrorViewController~iPad" : @"ErrorViewController~iPhone" bundle:nil]) {
+	if (self = [super initWithNibName: UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"ErrorViewController~iPad" : @"ErrorViewController~iPhone" bundle:nil]) {
 		UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
 		[toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 

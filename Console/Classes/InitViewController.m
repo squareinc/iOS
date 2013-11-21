@@ -24,8 +24,7 @@
 @implementation InitViewController
 
 - (id)init {
-	int isIPad = [UIScreen mainScreen].bounds.size.width == 768;
-	if (self = [super  initWithNibName:isIPad ? @"InitViewController~iPad" : @"InitViewController~iPhone" bundle:nil]) {
+	if (self = [super  initWithNibName:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"InitViewController~iPad" : @"InitViewController~iPhone" bundle:nil]) {
 		
 	}
 	return self;
