@@ -21,25 +21,28 @@
 #import "ErrorViewController.h"
 #import "NotificationConstant.h"
 
-@interface ErrorViewController (Private)
+@interface ErrorViewController ()
+
 - (void)gotoSettings:(id)sender;
 - (void)goBack:(id)sender;
+
 @end
 
 @implementation ErrorViewController
 
-- (id)initWithErrorTitle:(NSString *)title message:(NSString *)message{
+- (id)initWithErrorTitle:(NSString *)title message:(NSString *)message
+{
 	BOOL isIPad = [UIScreen mainScreen].bounds.size.width == 768;
 	if (self = [super initWithNibName: isIPad ? @"ErrorViewController~iPad" : @"ErrorViewController~iPhone" bundle:nil]) {
 		UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
 		[toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 		items = [[NSMutableArray alloc] init];
 		
-		UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Settings" 
-																														 style:UIBarButtonItemStyleBordered 
-																														target:self 
-																														action:@selector(gotoSettings:)];
-		[items addObject: item];
+		UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+                                                                 style:UIBarButtonItemStyleBordered
+                                                                target:self
+                                                                action:@selector(gotoSettings:)];
+		[items addObject:item];
 		[item release];
 		
 		[toolbar setItems:items];
@@ -54,33 +57,36 @@
 	return self;
 }
 
-- (void)setTitle:(NSString *)title message:(NSString *)message {
+- (void)setTitle:(NSString *)title message:(NSString *)message
+{
 	[titleLabel setText:title];
 	[msgLabel setText:message];
 }
 
 // To appSetting View with clicking setting button in errorView.
-- (void)gotoSettings:(id)sender {
+- (void)gotoSettings:(id)sender
+{
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationPopulateSettingsView object:nil];
 }
 
-- (void)goBack:(id)sender {
+- (void)goBack:(id)sender
+{
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateBack object:nil];
 }
 
 // Enable rotating of errorView.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
 	return YES;
 }
 
-
-- (void)dealloc {
+- (void)dealloc
+{
 	[items release];
 	[titleLabel release];
 	[msgLabel release];
 	
 	[super dealloc];
 }
-
 
 @end
