@@ -187,6 +187,7 @@
     [clearImageCacheButton addTarget:self action:@selector(clearImageCache) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:clearImageCacheButton];
     clearImageCacheButton.center = CGPointMake(footerView.center.x, footerView.frame.origin.y + clearImageCacheButton.frame.size.height / 2);
+    clearImageCacheButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
     UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     versionLabel.text = [NSString stringWithFormat:@"OpenRemote iOS Console version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
@@ -197,6 +198,7 @@
     [versionLabel sizeToFit];
     [footerView addSubview:versionLabel];
     versionLabel.center = CGPointMake(footerView.center.x, footerView.frame.origin.y + footerView.frame.size.height - (versionLabel.frame.size.height / 2));
+    versionLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [versionLabel release];
     
     self.tableView.tableFooterView = footerView;
