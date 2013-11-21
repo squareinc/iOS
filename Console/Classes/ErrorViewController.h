@@ -29,8 +29,6 @@
 	
 	IBOutlet UILabel *titleLabel;
 	IBOutlet UILabel *msgLabel;
-	NSMutableArray *items;
-
 }
 
 /**

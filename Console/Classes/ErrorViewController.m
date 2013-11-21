@@ -36,16 +36,13 @@
 	if (self = [super initWithNibName: isIPad ? @"ErrorViewController~iPad" : @"ErrorViewController~iPhone" bundle:nil]) {
 		UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
 		[toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-		items = [[NSMutableArray alloc] init];
-		
+
 		UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:self
                                                                 action:@selector(gotoSettings:)];
-		[items addObject:item];
+		[toolbar setItems:@[item]];
 		[item release];
-		
-		[toolbar setItems:items];
 		
 		[titleLabel setText:title];
 		[msgLabel setText:message];
@@ -82,7 +79,6 @@
 
 - (void)dealloc
 {
-	[items release];
 	[titleLabel release];
 	[msgLabel release];
 	
