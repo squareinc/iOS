@@ -19,9 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <UIKit/UIKit.h>
-#import "Screen.h"
+#import "ORControllerClient/Screen.h"
 #import "PollingHelper.h"
-#import "Gesture.h"
+#import "ORControllerClient/Gesture.h"
 #import "ORControllerCommandSender.h"
 
 @class ImageCache;

@@ -24,7 +24,7 @@
 #import "AppSettingsDefinition.h"
 #import "ControllerException.h"
 #import "CredentialUtil.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "NotificationConstant.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"

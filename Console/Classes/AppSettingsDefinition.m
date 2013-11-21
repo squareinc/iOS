@@ -20,7 +20,7 @@
  */
 #import "AppSettingsDefinition.h"
 #import "DirectoryDefinition.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "NotificationConstant.h"
 #import "CheckNetwork.h"

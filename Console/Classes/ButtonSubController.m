@@ -20,8 +20,8 @@
  */
 #import "ButtonSubController.h"
 #import "DirectoryDefinition.h"
-#import "Button.h"
-#import "Image.h"
+#import "ORControllerClient/Button.h"
+#import "ORControllerClient/Image.h"
 #import "ClippedUIImage.h"
 #import "NotificationConstant.h"
 #import "ImageCache.h"

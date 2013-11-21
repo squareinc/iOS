@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "LabelSubController.h"
-#import "Component.h"
-#import "Label.h"
+#import "ORControllerClient/Component.h"
+#import "ORControllerClient/Label.h"
 #import "UIColor+ORAdditions.h"
 #import "SensorStatusCache.h"
-#import "SensorState.h"
-#import "Sensor.h"
+#import "ORControllerClient/SensorState.h"
+#import "ORControllerClient/Sensor.h"
 
 @interface LabelSubController()
 

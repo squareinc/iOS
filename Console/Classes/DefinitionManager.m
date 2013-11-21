@@ -26,9 +26,9 @@
 #import "ViewHelper.h"
 #import "NotificationConstant.h"
 #import "CheckNetwork.h"
-#import "PanelDefinitionParser.h"
+#import "ORControllerClient/PanelDefinitionParser.h"
 #import "ORControllerConfig.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "ImageCache.h"
 
 // Maximum number of operations executed concurrently

@@ -20,8 +20,8 @@
  */
 #import "ORControllerCommandSender.h"
 #import "ORControllerConfig.h"
-#import "Component.h"
-#import "Definition.h"
+#import "ORControllerClient/Component.h"
+#import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "ControllerException.h"
 #import "NotificationConstant.h"

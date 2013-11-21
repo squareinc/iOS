@@ -22,8 +22,8 @@
 #import "ClientSideBeanManager.h"
 #import "ClientSideProtocolReadCommand.h"
 #import "ClientSideProtocolWriteCommand.h"
-#import "LocalCommand.h"
-#import "LocalSensor.h"
+#import "ORControllerClient/LocalCommand.h"
+#import "ORControllerClient/LocalSensor.h"
 
 @interface CommandCachingClientSideProtocol()
 

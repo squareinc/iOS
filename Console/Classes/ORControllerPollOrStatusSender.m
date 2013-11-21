@@ -20,10 +20,10 @@
  */
 #import "ORControllerPollOrStatusSender.h"
 #import "ServerDefinition.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "ORControllerConfig.h"
 #import "ControllerException.h"
-#import "StatusValuesParser_2_0_0.h"
+#import "ORControllerClient/StatusValuesParser_2_0_0.h"
 #import "SensorStatusCache.h"
 
 @interface ORControllerPollOrStatusSender()

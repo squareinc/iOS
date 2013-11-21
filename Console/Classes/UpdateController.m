@@ -30,7 +30,7 @@
 #import "AppSettingsDefinition.h"
 #import "CheckNetwork.h"
 #import "CheckNetworkException.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "NotificationConstant.h"
 #import "StringUtils.h"
 #import "ServerDefinition.h"

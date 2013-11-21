@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "InitViewController.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 
 @implementation InitViewController
 

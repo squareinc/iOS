@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "SensorySubController.h"
-#import "SensorComponent.h"
+#import "ORControllerClient/SensorComponent.h"
 #import "NotificationConstant.h"
 
 @interface SensorySubController()

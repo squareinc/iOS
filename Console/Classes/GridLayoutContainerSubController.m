@@ -19,9 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "GridLayoutContainerSubController.h"
-#import "GridLayoutContainer.h"
-#import "GridCell.h"
-#import "Component.h"
+#import "ORControllerClient/GridLayoutContainer.h"
+#import "ORControllerClient/GridCell.h"
+#import "ORControllerClient/Component.h"
 #import "ComponentSubController.h"
 
 @interface GridLayoutContainerSubController()

@@ -19,21 +19,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ComponentSubController.h"
-#import "Component.h"
+#import "ORControllerClient/Component.h"
 #import "LabelSubController.h"
-#import "Label.h"
+#import "ORControllerClient/Label.h"
 #import "ImageSubController.h"
-#import "Image.h"
+#import "ORControllerClient/Image.h"
 #import "ButtonSubController.h"
-#import "Button.h"
+#import "ORControllerClient/Button.h"
 #import "SwitchSubController.h"
-#import "Switch.h"
+#import "ORControllerClient/Switch.h"
 #import "WebSubController.h"
-#import "Web.h"
+#import "ORControllerClient/Web.h"
 #import "ColorPickerSubController.h"
-#import "ColorPicker.h"
+#import "ORControllerClient/ColorPicker.h"
 #import "SliderSubController.h"
-#import "Slider.h"
+#import "ORControllerClient/Slider.h"
 
 @interface ComponentSubController()
 

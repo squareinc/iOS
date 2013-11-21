@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ClippedUIImage.h"
-#import	"XMLEntity.h"
+#import	"ORControllerClient/XMLEntity.h"
 
 // MyCreateBitmapContext: Source based on Apple Sample Code
 CGContextRef MyCreateBitmapContext (int pixelsWide,	int pixelsHigh) {

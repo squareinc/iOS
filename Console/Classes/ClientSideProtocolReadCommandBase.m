@@ -21,7 +21,7 @@
 #import "ClientSideProtocolReadCommandBase.h"
 #import "ClientSideRuntime.h"
 #import "SensorStatusCache.h"
-#import "LocalSensor.h"
+#import "ORControllerClient/LocalSensor.h"
 
 @interface ClientSideProtocolReadCommandBase ()
 

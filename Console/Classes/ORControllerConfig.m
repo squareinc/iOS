@@ -22,14 +22,14 @@
 #import "ORGroupMember.h"
 #import "ORControllerProxy.h"
 #import "NotificationConstant.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "Capabilities.h"
 #import "SensorStatusCache.h"
 #import "ClientSideRuntime.h"
 
 // From ORControllerClient library
-#import "ORController.h"
-#import "ORControllerAddress.h"
+#import "ORControllerClient/ORController.h"
+#import "ORControllerClient/ORControllerAddress.h"
 
 static void * const ORControllerConfigKVOContext = (void*)&ORControllerConfigKVOContext;
 

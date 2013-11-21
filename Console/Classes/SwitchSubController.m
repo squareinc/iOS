@@ -19,11 +19,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "SwitchSubController.h"
-#import "Switch.h"
-#import "Image.h"
+#import "ORControllerClient/Switch.h"
+#import "ORControllerClient/Image.h"
 #import "ImageCache.h"
 #import "SensorStatusCache.h"
-#import "Sensor.h"
+#import "ORControllerClient/Sensor.h"
 #import "NotificationConstant.h"
 
 @interface SwitchSubController()

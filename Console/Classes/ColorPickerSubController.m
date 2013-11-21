@@ -19,8 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ColorPickerSubController.h"
-#import "ColorPicker.h"
-#import "Image.h"
+#import "ORControllerClient/ColorPicker.h"
+#import "ORControllerClient/Image.h"
 #import "ColorPickerImageView.h"
 #import "ImageCache.h"
 

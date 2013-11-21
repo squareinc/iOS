@@ -20,7 +20,7 @@
  */
 #import "ORControllerProxy.h"
 #import "ORControllerConfig.h"
-#import "Component.h"
+#import "ORControllerClient/Component.h"
 
 @interface ORControllerProxy ()
 

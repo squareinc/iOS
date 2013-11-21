@@ -20,12 +20,12 @@
  */
 #import "ORControllerPanelsFetcher.h"
 #import "ServerDefinition.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "ControllerException.h"
 #import "ORControllerConfig.h"
 
-#import "ControllerREST_2_0_0_API.h"
+#import "ORControllerClient/ControllerREST_2_0_0_API.h"
 
 @interface ORControllerPanelsFetcher ()
 

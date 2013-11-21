@@ -19,10 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <UIKit/UIKit.h>
-#import "Group.h"
+#import "ORControllerClient/Group.h"
 #import "PaginationController.h"
 #import "ErrorViewController.h"
-#import "Screen.h"
+#import "ORControllerClient/Screen.h"
 
 @class ImageCache;
 

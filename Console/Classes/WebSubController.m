@@ -19,10 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "WebSubController.h"
-#import "Web.h"
+#import "ORControllerClient/Web.h"
 #import "NSStringAdditions.h"
 #import "SensorStatusCache.h"
-#import "Sensor.h"
+#import "ORControllerClient/Sensor.h"
 
 @interface WebSubController()
 

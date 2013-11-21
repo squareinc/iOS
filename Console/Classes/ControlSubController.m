@@ -19,13 +19,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ControlSubController.h"
-#import "LocalController.h"
-#import "LocalCommand.h"
+#import "ORControllerClient/LocalController.h"
+#import "ORControllerClient/LocalCommand.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
-#import "Definition.h"
-#import "Component.h"
+#import "ORControllerClient/Definition.h"
+#import "ORControllerClient/Component.h"
 #import "AppDelegate.h"
 #import "ClientSideRuntime.h"
 #import "ORControllerProxy.h"

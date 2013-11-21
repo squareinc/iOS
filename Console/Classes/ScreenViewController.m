@@ -20,7 +20,7 @@
  */
 #import "ScreenViewController.h"
 #import "ViewHelper.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "NotificationConstant.h"
 #import "ServerDefinition.h"
 #import "CredentialUtil.h"

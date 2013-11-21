@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "LoginViewController.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "NotificationConstant.h"
 #import "ORControllerConfig.h"

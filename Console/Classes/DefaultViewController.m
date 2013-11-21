@@ -22,7 +22,7 @@
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 

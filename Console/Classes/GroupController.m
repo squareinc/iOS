@@ -21,12 +21,12 @@
 #import "GroupController.h"
 #import "NotificationConstant.h"
 #import "PaginationController.h"
-#import "Screen.h"
+#import "ORControllerClient/Screen.h"
 #import "ScreenViewController.h"
 #import "UIScreen+ORAdditions.h"
 #import "UIImage+ORAdditions.h"
 #import "ORControllerConfig.h"
-#import "Definition.h"
+#import "ORControllerClient/Definition.h"
 
 @interface GroupController ()
 

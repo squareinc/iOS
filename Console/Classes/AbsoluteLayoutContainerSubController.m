@@ -19,8 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "AbsoluteLayoutContainerSubController.h"
-#import "AbsoluteLayoutContainer.h"
-#import "Component.h"
+#import "ORControllerClient/AbsoluteLayoutContainer.h"
+#import "ORControllerClient/Component.h"
 #import "ComponentSubController.h"
 
 @interface AbsoluteLayoutContainerSubController()
