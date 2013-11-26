@@ -23,15 +23,6 @@
 #import "ORWidget.h"
 
 /**
- * Name of notification indicating that label text value has been changed by an external event (sensor update).
- */
-extern NSString const *kORLabelTextValueChanged;
-
-// TODO: In current sample application, we're using KVO for this purpose
-// Would adding this notification provide any value ? Simpler code ?
-// Using central notification center to register/unregister might be simpler for our clients.
-
-/**
  * Model object representing a Label element in the OR UI model domain.
  *
  * Provides a mechanism for clients to register and receive notifications when property values change.
@@ -39,8 +30,6 @@ extern NSString const *kORLabelTextValueChanged;
 @interface ORLabel : ORWidget
 
 - (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
-
-// Q : should we have an id ? If yes, encapsulate in ORObjectIdentifier class -> can change from int to something meaningfull later
 
 /**
  * The current text value of this label.
