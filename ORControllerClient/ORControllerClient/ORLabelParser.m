@@ -23,6 +23,7 @@
 #import "ORSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 
+#import "UIColor+ORAdditions.h"
 #import "SensorLinkParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
@@ -55,10 +56,8 @@
         [self addKnownTag:LINK];
         self.label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
                                                     text:[attributeDict objectForKey:TEXT]];
-/*
-                                      fontSize:[[attributeDict objectForKey:FONT_SIZE] intValue]
-                                         color:[attributeDict objectForKey:COLOR]
- */
+        self.label.textColor = [UIColor or_ColorWithRGBString:[[attributeDict objectForKey:COLOR] substringFromIndex:1]];
+        self.label.font = [UIFont fontWithName:@"Arial" size:[[attributeDict objectForKey:FONT_SIZE] intValue]];
     }
     return self;
 }

@@ -113,7 +113,6 @@
 		60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCEE813729AA400A811D4 /* ControllerRequest.m */; };
 		60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
 		60366BE1144DCB9C004FED3B /* ORControllerPanelsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */; };
-		60366BE3144DCB9C004FED3B /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60950DA313CB153500B983E7 /* UIColor+ORAdditions.m */; };
 		60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */; };
 		60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */; };
 		60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
@@ -346,8 +345,6 @@
 		60950D9713CB115400B983E7 /* CheckMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMark@2x.png"; sourceTree = "<group>"; };
 		60950D9C13CB127100B983E7 /* CheckMarkBlankPlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMarkBlankPlaceHolder.png; sourceTree = "<group>"; };
 		60950D9D13CB127100B983E7 /* CheckMarkBlankPlaceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkBlankPlaceHolder@2x.png"; sourceTree = "<group>"; };
-		60950DA213CB153500B983E7 /* UIColor+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ORAdditions.h"; sourceTree = "<group>"; };
-		60950DA313CB153500B983E7 /* UIColor+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ORAdditions.m"; sourceTree = "<group>"; };
 		60950E1413CB3A6100B983E7 /* ControllerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerDetailViewController.h; sourceTree = "<group>"; };
 		60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerDetailViewController.m; sourceTree = "<group>"; };
 		6097DAEE1378099D00E22AA8 /* ORControllerPollingSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPollingSender.h; sourceTree = "<group>"; };
@@ -1074,8 +1071,6 @@
 				338D306B10D8DD000043BFE9 /* UIViewUtil.m */,
 				60A619591354A24900A7C87E /* NSString+ORAdditions.h */,
 				60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */,
-				60950DA213CB153500B983E7 /* UIColor+ORAdditions.h */,
-				60950DA313CB153500B983E7 /* UIColor+ORAdditions.m */,
 				6055687C13CDC4A20035CC1A /* NSURLRequest+ORAdditions.h */,
 				6055687D13CDC4A20035CC1A /* NSURLRequest+ORAdditions.m */,
 				60F8A9CE143DCEBA00176004 /* UIImage+ORAdditions.h */,
@@ -1526,7 +1521,6 @@
 				60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */,
 				60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */,
 				60366BE1144DCB9C004FED3B /* ORControllerPanelsFetcher.m in Sources */,
-				60366BE3144DCB9C004FED3B /* UIColor+ORAdditions.m in Sources */,
 				60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */,
 				60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */,
 				60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */,

@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "ORWidget.h"
 
 /**
@@ -35,6 +35,16 @@
  * The current text value of this label.
  */
 @property (strong, nonatomic) NSString *text;
+
+/**
+ * The current color of the text of this label.
+ */
+@property (strong, nonatomic) UIColor *textColor;
+
+/**
+ * The current font of the text of this label.
+ */
+@property (strong, nonatomic) UIFont *font;
 
 /**
  * Indicates if any property of this label can be dynamically updated by a sensor linked to it.

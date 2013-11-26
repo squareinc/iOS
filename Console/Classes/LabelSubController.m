@@ -21,7 +21,6 @@
 #import "LabelSubController.h"
 #import "ORControllerClient/Component.h"
 #import "ORControllerClient/Label.h"
-#import "UIColor+ORAdditions.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
@@ -51,8 +50,8 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
         uiLabel.text = self.label.text;
         
         [self.label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:LabelSubControllerKVOContext];
-/*        uiLabel.font = [UIFont fontWithName:@"Arial" size:self.label.fontSize];
-        uiLabel.textColor = [UIColor or_ColorWithRGBString:[self.label.color substringFromIndex:1]];*/
+        uiLabel.font = self.label.font;
+        uiLabel.textColor = self.label.textColor;
         self.view = uiLabel;
         [uiLabel release];
     }

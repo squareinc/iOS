@@ -20,7 +20,7 @@
  */
 
 #import "TableViewCellWithSelectionAndIndicator.h"
-#import "UIColor+ORAdditions.h"
+#import "ORControllerClient/UIColor+ORAdditions.h"
 
 @implementation TableViewCellWithSelectionAndIndicator
 

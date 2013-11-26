@@ -30,7 +30,6 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
-#import "UIColor+ORAdditions.h"
 #import "ORControllerGroupMembersFetchStatusIconProvider.h"
 #import "TableViewCellWithSelectionAndIndicator.h"
 #import "ImageCache.h"
