@@ -36,6 +36,13 @@
 
 @interface DefinitionManager ()
 
+/**
+ * Parses the XML panel configuration file at the provided path and populates the receiver with the parsed configuration.
+ *
+ * @param NSString * full path of the XML file containing the panel configuration to parse
+ */
+- (void)parsePanelConfigurationFileAtPath:(NSString *)configurationFilePath;
+
 - (void)postNotificationToMainThread:(NSString *)notificationName;
 - (void)downloadXml;
 - (void)parseXMLData;
