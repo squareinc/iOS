@@ -29,6 +29,7 @@
 #import "ORControllerClient/PanelDefinitionParser.h"
 #import "ORControllerConfig.h"
 #import "ORControllerClient/Definition.h"
+#import "ORControllerClient/ORController.h"
 #import "ImageCache.h"
 
 // Maximum number of operations executed concurrently
@@ -105,13 +106,25 @@
 	
 	//define Operation dependency and add it to OperationQueue
 	[parseXmlOperation addDependency:downloadXmlOperation];
-	[updateOperationQueue addOperation:downloadXmlOperation];
 	[updateOperationQueue addOperation:parseXmlOperation];
 	
 	[updateOperation addDependency:parseXmlOperation];
 	
-	[downloadXmlOperation release];
 	[parseXmlOperation release];
+    
+    [self.controller.controller connectWithSuccessHandler:^{
+        [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
+            self.controller.definition = definition;
+            
+            // For now, once done, trigger download again so "old mechanism" and image download will happen
+            [updateOperationQueue addOperation:downloadXmlOperation];
+            [downloadXmlOperation release];
+        } errorHandler:^(NSError *error) {
+            // TODO
+        }];
+    } errorHandler:^(NSError *error) {
+        // TODO
+    }];
     
     // TODO - EBR : check what needs to be added to queue e.g. updateOperation is not here
     // updateOperation added to queue in parseXMLData method, why ?
@@ -172,8 +185,8 @@
 }
 
 //Parses xml
-- (void)parseXMLData {	
-	[self parseXml];
+- (void)parseXMLData {
+//	[self parseXml]; // Don't parse XML anymore, already been done by requestPanel call on ORController
 	[self downloadImages];
 	NSLog(@"images download done");
 	
