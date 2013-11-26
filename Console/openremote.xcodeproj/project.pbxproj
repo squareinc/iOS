@@ -1674,6 +1674,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = OpenRemote;
 				PROVISIONING_PROFILE = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
@@ -1710,6 +1711,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = OpenRemote;
 				PROVISIONING_PROFILE = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42B1EF35-8420-46B4-87CE-2844FA95E6B2";
