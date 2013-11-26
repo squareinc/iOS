@@ -39,6 +39,7 @@
 		9178DF981844D46500E862DF /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF971844D46500E862DF /* UIColor+ORAdditions.m */; };
 		9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF971844D46500E862DF /* UIColor+ORAdditions.m */; };
 		9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DF961844D46500E862DF /* UIColor+ORAdditions.h */; };
+		9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -509,6 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */,
 				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
 				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,

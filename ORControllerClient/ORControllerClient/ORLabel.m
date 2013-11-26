@@ -34,6 +34,8 @@ NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
     self = [super initWithIdentifier:anIdentifier];
     if (self) {
         self.text = someText;
+        self.textColor = [UIColor whiteColor];
+        self.font = [UIFont fontWithName:@"Arial" size:14.0];
     }
     return self;
 }

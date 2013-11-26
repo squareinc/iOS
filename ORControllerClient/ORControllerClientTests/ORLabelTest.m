@@ -54,6 +54,16 @@
 }
 
 /**
+ * Validates that initializer does return object with properties other then text set to default values.
+ */
+- (void)testInitDoesSetDefaultValuesCorrectly
+{
+    STAssertNotNil(self.label, @"Label should have been instantied correctly");
+    STAssertEqualObjects([UIColor whiteColor], self.label.textColor, @"Default textColor should be white");
+    STAssertEqualObjects([UIFont fontWithName:@"Arial" size:14.0], self.label.font, @"Default font should be Arial 14pt");
+}
+
+/**
  * Validates that KVO is triggered with appropriate value when label text property is changed.
  */
 - (void)testKVOWhenSettingLabelText
@@ -63,11 +73,38 @@
     [self.label removeObserver:self forKeyPath:@"text"];
 }
 
+/**
+ * Validates that KVO is triggered with appropriate value when label textColor property is changed.
+ */
+- (void)testKVOWhenSettingLabelTextColor
+{
+    [self.label addObserver:self forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:NULL];
+    self.label.textColor = [UIColor redColor];
+    [self.label removeObserver:self forKeyPath:@"textColor"];
+}
+
+/**
+ * Validates that KVO is triggered with appropriate value when label font property is changed.
+ */
+- (void)testKVOWhenSettingLabelFont
+{
+    [self.label addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:NULL];
+    self.label.font = [UIFont fontWithName:@"Helvetica" size:2.0];
+    [self.label removeObserver:self forKeyPath:@"font"];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     STAssertEqualObjects(self.label, object, @"Should observe change for label");
     if ([@"text" isEqualToString:keyPath]) {
-        STAssertEqualObjects(SOME_OTHER_TEXT, [change valueForKey:NSKeyValueChangeNewKey], @"Observed new value should be newly set label text");
+        STAssertEqualObjects(SOME_OTHER_TEXT, [change valueForKey:NSKeyValueChangeNewKey],
+                             @"Observed new value should be newly set label text");
+    } else if ([@"textColor" isEqualToString:keyPath]) {
+        STAssertEqualObjects([UIColor redColor], [change valueForKey:NSKeyValueChangeNewKey],
+                             @"Observed new value should be newly set label textColor");
+    } else if ([@"font" isEqualToString:keyPath]) {
+        STAssertEqualObjects([UIFont fontWithName:@"Helvetica" size:2.0], [change valueForKey:NSKeyValueChangeNewKey],
+                             @"Observed new value should be newly set label font");
     }
 }
 
