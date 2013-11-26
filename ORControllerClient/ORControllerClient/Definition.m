@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "Definition.h"
-#import "Label.h"
 #import "Group.h"
 #import "Screen.h"
 #import "ORSensorRegistry.h"
@@ -37,11 +36,6 @@
  *
  * Implementation note: this is currently filled in by parser during parsing
  */
-@property (nonatomic, strong, readwrite) NSMutableArray *legacyLabels;
-
-/**
- * ORLabel instances, maintained in // with legacyLabels version
- */
 @property (nonatomic, strong) NSMutableArray *_labels;
 
 @property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
@@ -58,7 +52,6 @@
     if (self) {
         self.groups = [NSMutableArray array];
 		self.screens = [NSMutableArray array];
-		self.legacyLabels = [NSMutableArray array];
         self._labels = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
         self.sensorRegistry = [[ORSensorRegistry alloc] init];
@@ -107,32 +100,25 @@
 	[self.screens addObject:screen];
 }
 
-- (void) addLabel:(Label *)label {
+- (void)addLabel:(ORLabel *)label {
     // TODO: why can this happen, adding multiple time a label with same id ??? -> document or assert can't happen
-	for (int i = 0; i < self.legacyLabels.count; i++) {
-		Label *tempLabel = [self.legacyLabels objectAtIndex:i];
-		if (tempLabel.componentId == label.componentId) {
-			[self.legacyLabels replaceObjectAtIndex:i withObject:label];
-            [self._labels replaceObjectAtIndex:i withObject:[[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:label.componentId]
-                                                                                           text:label.text]];
+	for (int i = 0; i < self._labels.count; i++) {
+		ORLabel *tempLabel = [self._labels objectAtIndex:i];
+		if ([tempLabel.identifier isEqual:label.identifier]) {
+            [self._labels replaceObjectAtIndex:i withObject:label];
             
-            // TODO: handle sensorRegistry operation for this specific case
+            // TODO: handle sensorRegistry operation for this specific case ???
             
 			return;
 		}
 	}
-	[self.legacyLabels addObject:label];
-    ORLabel *orLabel = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:label.componentId]
-                                                      text:label.text];
-    [self._labels addObject:orLabel];
-    if (label.sensor) {
-        [self.sensorRegistry registerSensor:label.sensor linkedToComponent:orLabel property:@"text"];
-    }
+    [self._labels addObject:label];
 }
 
-- (Label *)findLabelById:(int)labelId {
-	for (Label *tempLabel in self.legacyLabels) {
-		if (tempLabel.componentId == labelId) {
+- (ORLabel *)findLabelById:(int)labelId {
+    ORObjectIdentifier *searchedId = [[ORObjectIdentifier alloc] initWithIntegerId:labelId];
+	for (ORLabel *tempLabel in self._labels) {
+		if ([tempLabel.identifier isEqual:searchedId]) {
 			return tempLabel;
 		}
 	}
@@ -155,7 +141,6 @@
 {
     [self.groups removeAllObjects];
     [self.screens removeAllObjects];
-    [self.legacyLabels removeAllObjects];
     [self._labels removeAllObjects];
     [self.sensorRegistry clearRegistry];
     [self.imageNames removeAllObjects];
@@ -167,6 +152,6 @@
     return [NSSet setWithArray:self._labels];
 }
 
-@synthesize groups, screens, legacyLabels, tabBar, localController, imageNames;
+@synthesize groups, screens, tabBar, localController, imageNames;
 
 @end

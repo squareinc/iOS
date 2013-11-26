@@ -33,6 +33,9 @@
 		917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */; };
+		9178DF8D1844A31A00E862DF /* ORLabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF8C1844A31A00E862DF /* ORLabelParser.m */; };
+		9178DF8E1844A31A00E862DF /* ORLabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF8C1844A31A00E862DF /* ORLabelParser.m */; };
+		9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9183056B17E8AC40002E9EF7 /* ORWidget.h */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -211,6 +214,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */,
 				91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */,
 				91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */,
 				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */,
@@ -278,6 +282,8 @@
 		917104C017B8DC34005F9BA4 /* ORSensorLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLink.m; sourceTree = "<group>"; };
 		917104C317B8F513005F9BA4 /* ORSensorLinkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkTest.h; sourceTree = "<group>"; };
 		917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLinkTest.m; sourceTree = "<group>"; };
+		9178DF8B1844A31A00E862DF /* ORLabelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLabelParser.h; sourceTree = "<group>"; };
+		9178DF8C1844A31A00E862DF /* ORLabelParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabelParser.m; sourceTree = "<group>"; };
 		9183056B17E8AC40002E9EF7 /* ORWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget.h; sourceTree = "<group>"; };
 		9183056C17E8AC40002E9EF7 /* ORWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidget.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
@@ -544,6 +550,8 @@
 				91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */,
 				91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */,
 				91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */,
+				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
+				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1041,6 +1049,7 @@
 				9190D4D41790161900667A7C /* ORController.m in Sources */,
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
 				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
+				9178DF8D1844A31A00E862DF /* ORLabelParser.m in Sources */,
 				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
 				9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */,
 				9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
@@ -1158,6 +1167,7 @@
 				917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */,
 				9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */,
 				91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
+				9178DF8E1844A31A00E862DF /* ORLabelParser.m in Sources */,
 				91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */,
 				91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
 				91CD6A3917C23C9300D5EEE6 /* ORRESTError.m in Sources */,

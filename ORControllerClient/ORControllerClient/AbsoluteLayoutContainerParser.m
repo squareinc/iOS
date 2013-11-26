@@ -20,7 +20,7 @@
  */
 #import "AbsoluteLayoutContainerParser.h"
 #import "AbsoluteLayoutContainer.h"
-#import "LabelParser.h"
+#import "ORLabelParser.h"
 #import "ImageParser.h"
 #import "WebParser.h"
 #import "ButtonParser.h"
@@ -66,7 +66,7 @@
     return self;
 }
 
-- (void)endLabelElement:(LabelParser *)parser
+- (void)endLabelElement:(ORLabelParser *)parser
 {
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.label;    
     [self.depRegister.definition addLabel:parser.label];

@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 
 @class TabBar;
-@class Label;
+@class ORLabel;
 @class Group;
 @class Screen;
 @class LocalController;
@@ -66,12 +66,12 @@
 /**
  * Add a label instance for caching.
  */
-- (void) addLabel:(Label *)label;
+- (void) addLabel:(ORLabel *)label;
 
 /**
  * Get a label instance with label id.
  */
-- (Label *)findLabelById:(int)labelId;
+- (ORLabel *)findLabelById:(int)labelId;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;

@@ -45,8 +45,11 @@
         ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
         UIImage *uiImage = [self.imageCache getImageNamed:self.image.src];
         imageView.image.image = uiImage;
+        /*
+         TODO: re-add font and color properties
         imageView.label.font = [UIFont fontWithName:@"Arial" size:self.image.label.fontSize];
         imageView.label.textColor = [UIColor or_ColorWithRGBString:[self.image.label.color substringFromIndex:1]];
+         */
         self.view = imageView;
         [imageView release];
     }
@@ -72,6 +75,9 @@
         imageView.image.image = [self.imageCache getImageNamed:stateValue];
         [imageView showImage];
     } else {
+        /*
+         
+         TODO: replace with KVO on label
         if (self.image.label) {
             [imageView showLabel];
             stateValue = [self.image.label.sensor stateValueForName:newStatus];
@@ -81,6 +87,7 @@
                 imageView.label.text = newStatus;
             }
         }
+         */
     }
 }
 

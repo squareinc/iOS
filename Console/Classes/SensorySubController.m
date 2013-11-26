@@ -21,6 +21,7 @@
 #import "SensorySubController.h"
 #import "ORControllerClient/SensorComponent.h"
 #import "NotificationConstant.h"
+#import "ORLabel.h"
 
 @interface SensorySubController()
 
@@ -48,6 +49,11 @@
 // Add notification observer for polling
 - (void)addPollingNotificationObserver
 {
+    /* TODO: remove later, whole polling notification should be reviewed / go away */
+    if ([self.component isKindOfClass:[ORLabel class]]) {
+        return;
+    }
+        
 	int sensorId = ((SensorComponent *)self.component).sensorId;
     if (sensorId > 0 ) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:nil];

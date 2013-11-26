@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2013, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -25,11 +25,14 @@
 #import "SensorStatusCache.h"
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
+#import "ORControllerClient/ORLabel.h"
+
+static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVOContext;
 
 @interface LabelSubController()
 
 @property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Label *label;
+@property (nonatomic, readonly) ORLabel *label;
 
 @end
 
@@ -46,35 +49,36 @@
         uiLabel.lineBreakMode = UILineBreakModeWordWrap;
         uiLabel.numberOfLines = 50;
         uiLabel.text = self.label.text;
-        uiLabel.font = [UIFont fontWithName:@"Arial" size:self.label.fontSize];
-        uiLabel.textColor = [UIColor or_ColorWithRGBString:[self.label.color substringFromIndex:1]];
+        
+        [self.label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:LabelSubControllerKVOContext];
+/*        uiLabel.font = [UIFont fontWithName:@"Arial" size:self.label.fontSize];
+        uiLabel.textColor = [UIColor or_ColorWithRGBString:[self.label.color substringFromIndex:1]];*/
         self.view = uiLabel;
         [uiLabel release];
     }
     return self;
 }
 
-- (Label *)label
+- (void)dealloc
 {
-    return (Label *)self.component;
+    [self.label removeObserver:self forKeyPath:@"text"];
+    [super dealloc];
 }
 
-- (void)setPollingStatus:(NSNotification *)notification
+- (ORLabel *)label
 {
-	SensorStatusCache *statusCache = (SensorStatusCache *)[notification object];
-	int sensorId = self.label.sensorId;
-	NSString *newStatus = [statusCache valueForSensorId:sensorId];
-	
-    UILabel *uiLabel = (UILabel *)self.view;
-    NSString *stateValue = [self.label.sensor stateValueForName:newStatus];
-    if (stateValue) {
-        uiLabel.text = stateValue;
-    } else {
-        if (newStatus && ![newStatus isEqualToString:@""]) {
-            uiLabel.text = newStatus;
-        } else {
+    return (ORLabel *)self.component;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == LabelSubControllerKVOContext) {
+        if ([@"text" isEqualToString:keyPath]) {
+            UILabel *uiLabel = (UILabel *)self.view;
             uiLabel.text = self.label.text;
         }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 

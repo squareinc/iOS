@@ -20,6 +20,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "Component.h"
 
 @class ORObjectIdentifier;
 
@@ -28,7 +29,7 @@
  * 
  * Provides management of the identifier property that all widgets have.
  */
-@interface ORWidget : NSObject
+@interface ORWidget : Component /* temporary while transitoning between legacy and new object model, should be NSObject */
 
 /**
  * Initializes the widget with the given identifier.

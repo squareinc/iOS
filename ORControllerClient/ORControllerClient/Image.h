@@ -20,13 +20,13 @@
  */
 #import "SensorComponent.h"
 
-@class Label;
+@class ORLabel;
 
 @interface Image : SensorComponent
 
 @property (nonatomic, readwrite, copy) NSString *src;
 @property (nonatomic, readwrite, copy) NSString *style;
-@property (nonatomic, readwrite, strong) Label *label;
+@property (nonatomic, readwrite, strong) ORLabel *label;
 
 - (id)initWithId:(int)anId src:(NSString *)srcValue style:(NSString *)styleValue;
 

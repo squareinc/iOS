@@ -21,7 +21,7 @@
 #import "ComponentSubController.h"
 #import "ORControllerClient/Component.h"
 #import "LabelSubController.h"
-#import "ORControllerClient/Label.h"
+#import "ORControllerClient/ORLabel.h"
 #import "ImageSubController.h"
 #import "ORControllerClient/Image.h"
 #import "ButtonSubController.h"
@@ -51,7 +51,7 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
 {
     [super initialize];
     modelObjectToSubControllerClassMapping = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                              [LabelSubController class], [Label class],
+                                              [LabelSubController class], [ORLabel class],
                                               [ImageSubController class], [Image class],
                                               [ButtonSubController class], [Button class],
                                               [SwitchSubController class], [Switch class],

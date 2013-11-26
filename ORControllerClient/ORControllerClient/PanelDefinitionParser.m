@@ -30,7 +30,7 @@
 #import "GestureParser.h"
 #import "BackgroundParser.h"
 #import "GridCellParser.h"
-#import "LabelParser.h"
+#import "ORLabelParser.h"
 #import "ImageParser.h"
 #import "WebParser.h"
 #import "SwitchParser.h"
@@ -81,7 +81,7 @@
         [self.depRegistry registerParserClass:[NavigateParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
         [self.depRegistry registerParserClass:[BackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];        
         [self.depRegistry registerParserClass:[GridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
-        [self.depRegistry registerParserClass:[LabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];
+        [self.depRegistry registerParserClass:[ORLabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];
         [self.depRegistry registerParserClass:[ImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
         [self.depRegistry registerParserClass:[SensorLinkParser class] endSelector:@selector(endSensorLinkElement:) forTag:LINK];
         [self.depRegistry registerParserClass:[SensorStateParser class] endSelector:@selector(endSensorStateElement:) forTag:STATE];
