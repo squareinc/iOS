@@ -25,7 +25,6 @@
 #import "ORSensorPollingManager.h"
 #import "ORPanel.h"
 #import "Definition.h"
-#import "Label.h"
 
 #import "ORLabel.h"
 

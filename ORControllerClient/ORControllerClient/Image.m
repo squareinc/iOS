@@ -23,7 +23,6 @@
 #import "SensorState.h"
 #import "Definition.h"
 #import "Sensor.h"
-#import "Label.h"
 
 @implementation Image
 

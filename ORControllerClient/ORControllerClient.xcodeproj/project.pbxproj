@@ -75,7 +75,6 @@
 		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
 		91933361179E9BD00086FEE7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933332179E9BCF0086FEE7 /* Group.m */; };
 		91933362179E9BD00086FEE7 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933334179E9BCF0086FEE7 /* Image.m */; };
-		91933363179E9BD00086FEE7 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933336179E9BCF0086FEE7 /* Label.m */; };
 		91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* LayoutContainer.m */; };
 		91933365179E9BD00086FEE7 /* Navigate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333A179E9BCF0086FEE7 /* Navigate.m */; };
 		91933366179E9BD00086FEE7 /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333C179E9BCF0086FEE7 /* Screen.m */; };
@@ -106,7 +105,6 @@
 		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
 		91933381179E9EB10086FEE7 /* Group.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933331179E9BCF0086FEE7 /* Group.h */; };
 		91933382179E9EB10086FEE7 /* Image.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933333179E9BCF0086FEE7 /* Image.h */; };
-		91933383179E9EB10086FEE7 /* Label.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933335179E9BCF0086FEE7 /* Label.h */; };
 		91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933339179E9BCF0086FEE7 /* Navigate.h */; };
 		91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333B179E9BCF0086FEE7 /* Screen.h */; };
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
@@ -136,7 +134,6 @@
 		919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BB179EA2D60086FEE7 /* AbsoluteLayoutContainerParser.m */; };
 		919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */; };
 		919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BF179EA2D70086FEE7 /* GridCellParser.m */; };
-		919333F9179EA2DE0086FEE7 /* LabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C1179EA2D80086FEE7 /* LabelParser.m */; };
 		919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C3179EA2D80086FEE7 /* ImageParser.m */; };
 		919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* WebParser.m */; };
 		919333FC179EA2DE0086FEE7 /* ButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C7179EA2D80086FEE7 /* ButtonParser.m */; };
@@ -232,7 +229,6 @@
 				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
 				91933381179E9EB10086FEE7 /* Group.h in CopyFiles */,
 				91933382179E9EB10086FEE7 /* Image.h in CopyFiles */,
-				91933383179E9EB10086FEE7 /* Label.h in CopyFiles */,
 				91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */,
 				91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */,
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
@@ -343,8 +339,6 @@
 		91933332179E9BCF0086FEE7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		91933333179E9BCF0086FEE7 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		91933334179E9BCF0086FEE7 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		91933335179E9BCF0086FEE7 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
-		91933336179E9BCF0086FEE7 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Label.m; sourceTree = "<group>"; };
 		91933337179E9BCF0086FEE7 /* LayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainer.h; sourceTree = "<group>"; };
 		91933338179E9BCF0086FEE7 /* LayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainer.m; sourceTree = "<group>"; };
 		91933339179E9BCF0086FEE7 /* Navigate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navigate.h; sourceTree = "<group>"; };
@@ -406,8 +400,6 @@
 		919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayoutContainerParser.m; sourceTree = "<group>"; };
 		919333BE179EA2D70086FEE7 /* GridCellParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCellParser.h; sourceTree = "<group>"; };
 		919333BF179EA2D70086FEE7 /* GridCellParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCellParser.m; sourceTree = "<group>"; };
-		919333C0179EA2D80086FEE7 /* LabelParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelParser.h; sourceTree = "<group>"; };
-		919333C1179EA2D80086FEE7 /* LabelParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelParser.m; sourceTree = "<group>"; };
 		919333C2179EA2D80086FEE7 /* ImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageParser.h; sourceTree = "<group>"; };
 		919333C3179EA2D80086FEE7 /* ImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageParser.m; sourceTree = "<group>"; };
 		919333C4179EA2D80086FEE7 /* WebParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebParser.h; sourceTree = "<group>"; };
@@ -748,8 +740,6 @@
 				91933332179E9BCF0086FEE7 /* Group.m */,
 				91933333179E9BCF0086FEE7 /* Image.h */,
 				91933334179E9BCF0086FEE7 /* Image.m */,
-				91933335179E9BCF0086FEE7 /* Label.h */,
-				91933336179E9BCF0086FEE7 /* Label.m */,
 				91933339179E9BCF0086FEE7 /* Navigate.h */,
 				9193333A179E9BCF0086FEE7 /* Navigate.m */,
 				9193333B179E9BCF0086FEE7 /* Screen.h */,
@@ -805,8 +795,6 @@
 				919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */,
 				919333BE179EA2D70086FEE7 /* GridCellParser.h */,
 				919333BF179EA2D70086FEE7 /* GridCellParser.m */,
-				919333C0179EA2D80086FEE7 /* LabelParser.h */,
-				919333C1179EA2D80086FEE7 /* LabelParser.m */,
 				919333C2179EA2D80086FEE7 /* ImageParser.h */,
 				919333C3179EA2D80086FEE7 /* ImageParser.m */,
 				919333C4179EA2D80086FEE7 /* WebParser.h */,
@@ -1067,7 +1055,6 @@
 				91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */,
 				91933361179E9BD00086FEE7 /* Group.m in Sources */,
 				91933362179E9BD00086FEE7 /* Image.m in Sources */,
-				91933363179E9BD00086FEE7 /* Label.m in Sources */,
 				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
 				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
 				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
@@ -1099,7 +1086,6 @@
 				919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */,
 				919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */,
 				919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */,
-				919333F9179EA2DE0086FEE7 /* LabelParser.m in Sources */,
 				919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */,
 				919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */,
 				919333FC179EA2DE0086FEE7 /* ButtonParser.m in Sources */,
