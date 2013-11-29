@@ -27,6 +27,7 @@
 @class LocalController;
 
 @class ORSensorRegistry;
+@class ORController;
 
 /**
  * This class is responsible for storing some models data (groups, screens, labels, tabBar, images and local controllers)
@@ -83,5 +84,12 @@
 @property (nonatomic, strong, readonly) NSMutableArray *imageNames;
 
 @property (nonatomic, strong, readonly) ORSensorRegistry *sensorRegistry;
+
+/**
+ * Controller the Definition is attached to.
+ * Values of widgets are only updated when the Definition is attached to a controller.
+ * Property is nil when Definition is not attached to any controller.
+ */
+@property (nonatomic, weak, readonly) ORController *controller;
 
 @end

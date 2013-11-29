@@ -287,6 +287,7 @@
 		9178DF8C1844A31A00E862DF /* ORLabelParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabelParser.m; sourceTree = "<group>"; };
 		9178DF961844D46500E862DF /* UIColor+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ORAdditions.h"; sourceTree = "<group>"; };
 		9178DF971844D46500E862DF /* UIColor+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ORAdditions.m"; sourceTree = "<group>"; };
+		9178DF9C1848E7E900E862DF /* Definition_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition_Private.h; sourceTree = "<group>"; };
 		9183056B17E8AC40002E9EF7 /* ORWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget.h; sourceTree = "<group>"; };
 		9183056C17E8AC40002E9EF7 /* ORWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidget.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
@@ -740,6 +741,7 @@
 				91933328179E9BCF0086FEE7 /* Control.m */,
 				91933329179E9BCF0086FEE7 /* Definition.h */,
 				9193332A179E9BCF0086FEE7 /* Definition.m */,
+				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
 				9193332B179E9BCF0086FEE7 /* Gesture.h */,
 				9193332C179E9BCF0086FEE7 /* Gesture.m */,
 				9193332D179E9BCF0086FEE7 /* GridCell.h */,

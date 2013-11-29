@@ -152,6 +152,6 @@
     return [NSSet setWithArray:self._labels];
 }
 
-@synthesize groups, screens, tabBar, localController, imageNames;
+@synthesize groups, screens, tabBar, localController, imageNames, controller;
 
 @end

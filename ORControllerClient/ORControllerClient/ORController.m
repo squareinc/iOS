@@ -25,6 +25,7 @@
 #import "ORSensorPollingManager.h"
 #import "ORPanel.h"
 #import "Definition.h"
+#import "Definition_Private.h"
 
 #import "ORLabel.h"
 
@@ -37,6 +38,7 @@
 
 @property (nonatomic, strong) ORSensorPollingManager *pollingManager;
 
+@property (nonatomic, strong) Definition *lastPanelDefinition;
 @end
 
 @implementation ORController
@@ -122,6 +124,11 @@
     [controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
+                                      if (self.lastPanelDefinition) {
+                                          self.lastPanelDefinition.controller = nil;
+                                      }
+                                      self.lastPanelDefinition = panelDefinition;
+                                      panelDefinition.controller = self;
                                       if (self.pollingManager) {
                                           [self.pollingManager stop];
                                       }
