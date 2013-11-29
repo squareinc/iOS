@@ -39,6 +39,9 @@
 @property (nonatomic, strong) ORSensorPollingManager *pollingManager;
 
 @property (nonatomic, strong) Definition *lastPanelDefinition;
+
+@property (nonatomic, strong) ControllerREST_2_0_0_API *controllerAPI;
+
 @end
 
 @implementation ORController
@@ -49,6 +52,10 @@
     if (self) {
         if (anAddress) {
             self.address = anAddress;
+
+            // TODO: later based on information gathered during connect, would select the appropriate API/Object Model version
+            // at that time, this should move to connect method
+            self.controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
         } else {
             return nil;
         }
@@ -85,11 +92,7 @@
 
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
-    // TODO: later based on information gathered during connect, would select the appropriate API/Object Model version
-    
-    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-    
-    [controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
+    [self.controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(NSArray *panels) {
                                       successHandler(panels);
                                   }
@@ -119,9 +122,7 @@
     
     // TODO: this might be where the caching and resource fetching can take place ?
     
-    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-    
-    [controllerAPI requestPanelLayoutWithLogicalName:panelName
+    [self.controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
                                       [self attachPanelDefinition:panelDefinition];
@@ -137,8 +138,6 @@
 
 - (void)attachPanelDefinition:(Definition *)panelDefinition
 {
-    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
-
     if (self.lastPanelDefinition) {
         self.lastPanelDefinition.controller = nil;
     }
@@ -147,7 +146,7 @@
     if (self.pollingManager) {
         [self.pollingManager stop];
     }
-    self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:controllerAPI
+    self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
                                                               controllerAddress:self.address
                                                                  sensorRegistry:panelDefinition.sensorRegistry];
     [self.pollingManager start];
