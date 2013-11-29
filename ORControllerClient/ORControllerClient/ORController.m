@@ -124,19 +124,7 @@
     [controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
-                                      if (self.lastPanelDefinition) {
-                                          self.lastPanelDefinition.controller = nil;
-                                      }
-                                      self.lastPanelDefinition = panelDefinition;
-                                      panelDefinition.controller = self;
-                                      if (self.pollingManager) {
-                                          [self.pollingManager stop];
-                                      }
-                                      self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:controllerAPI
-                                                                                                controllerAddress:self.address
-                                                                                                   sensorRegistry:panelDefinition.sensorRegistry];
-                                      [self.pollingManager start];
-                                      
+                                      [self attachPanelDefinition:panelDefinition];
                                       successHandler(panelDefinition);
                                   }
                                         errorHandler:^(NSError *error) {
@@ -145,6 +133,24 @@
                                                 errorHandler(error);
                                             }
                                         }];
+}
+
+- (void)attachPanelDefinition:(Definition *)panelDefinition
+{
+    ControllerREST_2_0_0_API *controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+
+    if (self.lastPanelDefinition) {
+        self.lastPanelDefinition.controller = nil;
+    }
+    self.lastPanelDefinition = panelDefinition;
+    panelDefinition.controller = self;
+    if (self.pollingManager) {
+        [self.pollingManager stop];
+    }
+    self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:controllerAPI
+                                                              controllerAddress:self.address
+                                                                 sensorRegistry:panelDefinition.sensorRegistry];
+    [self.pollingManager start];
 }
 
 @end
