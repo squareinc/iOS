@@ -105,5 +105,16 @@
 // TODO: if there is caching, should be able to indicate if configuration is up to date or not, ...
 // Maybe need a specific object to manage configuration -> will getLabels be on that object or is this hidden ???
 // TODO: how is caching implemented, how will this impact this method
- 
+
+
+/**
+ * Attaches the panel layout definition to this controller, restarting polling for object model changes.
+ * Dettaches it from previous controller if it was already attached.
+ *
+ * @param panelDefinition The panel layout definition to attach to this controller.
+ *
+ * TODO: currently, polling is started even if not connected to controller, is that OK ?
+ */
+- (void)attachPanelDefinition:(Definition *)panelDefinition;
+
 @end
