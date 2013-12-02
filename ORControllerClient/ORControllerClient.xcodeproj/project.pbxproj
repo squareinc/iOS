@@ -43,6 +43,8 @@
 		9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
 		9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
 		9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */; };
+		9178DFA8184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
+		9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -294,6 +296,8 @@
 		9178DF9C1848E7E900E862DF /* Definition_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition_Private.h; sourceTree = "<group>"; };
 		9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+ORAdditions.h"; sourceTree = "<group>"; };
+		9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+ORAdditions.m"; sourceTree = "<group>"; };
 		9183056B17E8AC40002E9EF7 /* ORWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget.h; sourceTree = "<group>"; };
 		9183056C17E8AC40002E9EF7 /* ORWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidget.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
@@ -717,6 +721,8 @@
 				9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */,
 				9178DF961844D46500E862DF /* UIColor+ORAdditions.h */,
 				9178DF971844D46500E862DF /* UIColor+ORAdditions.m */,
+				9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */,
+				9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1107,6 +1113,7 @@
 				919333F5179EA2DE0086FEE7 /* LayoutContainerParser.m in Sources */,
 				919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */,
 				919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */,
+				9178DFA8184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
 				919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */,
 				919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */,
 				919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */,
@@ -1165,6 +1172,7 @@
 				91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */,
 				9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */,
 				91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
+				9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
 				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,
