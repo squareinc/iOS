@@ -75,4 +75,18 @@
     self._errorHandler(error);
 }
 
+/*
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if ([NSURLAuthenticationMethodHTTPBasic isEqualToString:[[challenge protectionSpace] authenticationMethod]]) {
+        //    [[challenge sender] useCredential:[NSURLCredential credentialWithUser:@"or" password:@"or" persistence:NSURLCredentialPersistenceNone] forAuthenticationChallenge:challenge];
+    } else {
+        [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
+    
+    // Note : Empty implementation of this -> no 401 reported -> must call continueWithoutCred...
+    // Will it eventually time out or can this be kept pending for a while ? seems no timeout
+}
+*/
+
 @end
