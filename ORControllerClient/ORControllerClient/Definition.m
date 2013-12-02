@@ -25,6 +25,8 @@
 
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
+// Import of private is required even if not directly use to make sure setController: is synthetized
+#import "Definition_Private.h"
 
 @interface Definition ()
 
