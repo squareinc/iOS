@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "NSURLRequest+ORAdditions.h"
-#import "CredentialUtil.h"
+#import "ORControllerclient/NSMutableURLRequest+ORAdditions.h"
 
 @implementation NSURLRequest (NSURLRequest_ORAdditions)
 
@@ -32,7 +32,7 @@
     [url release];
     [request setHTTPMethod:method];
     
-    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+    [request or_setUserName:userName password:password];
 
     return [request autorelease];
 }

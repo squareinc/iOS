@@ -33,7 +33,6 @@
  * Append HTTP Basic Authentication header into request.
  */
 + (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORControllerConfig *)controller;
-+ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request withUserName:(NSString *)userName password:(NSString *)password;
 
 
 @end

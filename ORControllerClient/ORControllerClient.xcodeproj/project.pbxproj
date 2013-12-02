@@ -45,6 +45,7 @@
 		9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */; };
 		9178DFA8184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
 		9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
+		9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -220,6 +221,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in CopyFiles */,
 				9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */,
 				9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */,
 				9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */,

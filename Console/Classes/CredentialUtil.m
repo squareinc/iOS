@@ -20,21 +20,13 @@
  */
 #import "CredentialUtil.h"
 #import "ORControllerConfig.h"
-#import "ORControllerClient/NSStringAdditions.h"
+#import "ORControllerClient/NSMutableURLRequest+ORAdditions.h"
 
 @implementation CredentialUtil
 
 + (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request forController:(ORControllerConfig *)controller
 {
-    [self addCredentialToNSMutableURLRequest:request withUserName:controller.userName password:controller.password];
-}
-
-+ (void)addCredentialToNSMutableURLRequest:(NSMutableURLRequest *)request withUserName:(NSString *)userName password:(NSString *)password
-{
-	NSString *format = [NSString stringWithFormat:@"%@:%@", userName, password];
-	NSData *utf8Data = [format dataUsingEncoding:NSUTF8StringEncoding];
-	NSString *base64String = [NSString base64StringFromData:utf8Data length:[utf8Data length]];
-	[request setValue:[NSString stringWithFormat:@"Basic %@", base64String] forHTTPHeaderField:@"Authorization"];	
+    [request or_setUserName:controller.userName password:controller.password];
 }
 
 @end
