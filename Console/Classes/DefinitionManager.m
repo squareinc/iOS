@@ -177,6 +177,8 @@
     self.controller.definition = [parser parseDefinitionFromXML:data];
     [data release];
     [parser release];
+    
+    [self.controller.controller attachPanelDefinition:self.controller.definition];
 }
 
 - (void)parseXml
