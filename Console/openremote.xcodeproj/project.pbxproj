@@ -92,7 +92,6 @@
 		60366BAB144DCB9C004FED3B /* ChoosePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5341E10B64C1900C52FB0 /* ChoosePanelViewController.m */; };
 		60366BAC144DCB9C004FED3B /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF539AA10B9359F00C52FB0 /* ErrorViewController.m */; };
 		60366BAD144DCB9C004FED3B /* CredentialUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC6364D10BD37D8009C25C9 /* CredentialUtil.m */; };
-		60366BAE144DCB9C004FED3B /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC636CF10BD4DCC009C25C9 /* NSStringAdditions.m */; };
 		60366BAF144DCB9C004FED3B /* ControllerException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7EBE310BE773600E15487 /* ControllerException.m */; };
 		60366BB0144DCB9C004FED3B /* GestureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE3FF710C39D1F0096CAC9 /* GestureWindow.m */; };
 		60366BB1144DCB9C004FED3B /* ClippedUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 338D2ED510D8AADB0043BFE9 /* ClippedUIImage.m */; };
@@ -588,8 +587,6 @@
 		8CC1E07D10DB491400155CC0 /* DefaultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultViewController.m; sourceTree = "<group>"; };
 		8CC6364C10BD37D8009C25C9 /* CredentialUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialUtil.h; sourceTree = "<group>"; };
 		8CC6364D10BD37D8009C25C9 /* CredentialUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialUtil.m; sourceTree = "<group>"; };
-		8CC636CE10BD4DCC009C25C9 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
-		8CC636CF10BD4DCC009C25C9 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		8CDE3FF610C39D1F0096CAC9 /* GestureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureWindow.h; sourceTree = "<group>"; };
 		8CDE3FF710C39D1F0096CAC9 /* GestureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureWindow.m; sourceTree = "<group>"; };
 		8CE7EBE310BE773600E15487 /* ControllerException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerException.m; sourceTree = "<group>"; };
@@ -1057,8 +1054,6 @@
 		8C72E7130F541F8C006CC0DF /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				8CC636CE10BD4DCC009C25C9 /* NSStringAdditions.h */,
-				8CC636CF10BD4DCC009C25C9 /* NSStringAdditions.m */,
 				8C460F2A109562D200C7A686 /* CheckNetwork.h */,
 				8C460F2B109562D200C7A686 /* CheckNetwork.m */,
 				8C6682470F53FFF5007C45D4 /* FileUtils.h */,
@@ -1500,7 +1495,6 @@
 				60366BAB144DCB9C004FED3B /* ChoosePanelViewController.m in Sources */,
 				60366BAC144DCB9C004FED3B /* ErrorViewController.m in Sources */,
 				60366BAD144DCB9C004FED3B /* CredentialUtil.m in Sources */,
-				60366BAE144DCB9C004FED3B /* NSStringAdditions.m in Sources */,
 				60366BAF144DCB9C004FED3B /* ControllerException.m in Sources */,
 				60366BB0144DCB9C004FED3B /* GestureWindow.m in Sources */,
 				60366BB1144DCB9C004FED3B /* ClippedUIImage.m in Sources */,

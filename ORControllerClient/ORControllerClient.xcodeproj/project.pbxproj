@@ -40,6 +40,9 @@
 		9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF971844D46500E862DF /* UIColor+ORAdditions.m */; };
 		9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DF961844D46500E862DF /* UIColor+ORAdditions.h */; };
 		9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
+		9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
+		9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
+		9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */; };
 		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
 		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
 		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
@@ -215,6 +218,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */,
 				9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */,
 				9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */,
 				91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */,
@@ -288,6 +292,8 @@
 		9178DF961844D46500E862DF /* UIColor+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ORAdditions.h"; sourceTree = "<group>"; };
 		9178DF971844D46500E862DF /* UIColor+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ORAdditions.m"; sourceTree = "<group>"; };
 		9178DF9C1848E7E900E862DF /* Definition_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition_Private.h; sourceTree = "<group>"; };
+		9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		9183056B17E8AC40002E9EF7 /* ORWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget.h; sourceTree = "<group>"; };
 		9183056C17E8AC40002E9EF7 /* ORWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidget.m; sourceTree = "<group>"; };
 		918604B21794435E005DBCD9 /* ORPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel.h; sourceTree = "<group>"; };
@@ -703,6 +709,8 @@
 		9193330A1799822A0086FEE7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */,
+				9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */,
 				9193330F179982630086FEE7 /* ORRuntimeUtils.h */,
 				91933310179982630086FEE7 /* ORRuntimeUtils.m */,
 				9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */,
@@ -1071,6 +1079,7 @@
 				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
 				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
 				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
+				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
 				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
 				91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */,
@@ -1151,6 +1160,7 @@
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
+				9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91E794D817A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E217A9301900FE9E83 /* ORBMockURLProtocol.m in Sources */,
 				9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */,

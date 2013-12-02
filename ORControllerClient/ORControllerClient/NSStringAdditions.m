@@ -2,7 +2,6 @@
 // Sample code originally posted on 
 // http://stackoverflow.com/questions/392464/any-base64-library-on-iphone-sdk
 
-
 #import "NSStringAdditions.h"
 
 static char base64EncodingTable[64] = {

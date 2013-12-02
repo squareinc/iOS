@@ -20,9 +20,9 @@
  */
 #import "WebSubController.h"
 #import "ORControllerClient/Web.h"
-#import "NSStringAdditions.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/Sensor.h"
+#import "ORControllerClient/NSStringAdditions.h"
 
 @interface WebSubController()
 

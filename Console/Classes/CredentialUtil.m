@@ -20,7 +20,7 @@
  */
 #import "CredentialUtil.h"
 #import "ORControllerConfig.h"
-#import "NSStringAdditions.h"
+#import "ORControllerClient/NSStringAdditions.h"
 
 @implementation CredentialUtil
 
