@@ -148,10 +148,8 @@
     ORControllerConfig *activeController = controller;
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:activeController];
     [request setHTTPMethod:@"HEAD"];
-	URLConnectionHelper *connectionHelper = [[URLConnectionHelper alloc] init];
-    [connectionHelper sendSynchronousRequest:request returningResponse:&resp error:&error];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&error];
 	[request release];
-    [connectionHelper release];
     
 	if ([resp statusCode] != 200 ){
 		NSLog(@"CheckNetworkException statusCode=%d, errorCode=%d, %@, %@", [resp statusCode], [error code], url,[error localizedDescription]);

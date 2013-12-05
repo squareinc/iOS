@@ -59,9 +59,6 @@
 + (BOOL)isWifiActive;                     // get a flag that indicates WIFI is active or not.
 + (void)setWifiActive:(BOOL)active;       // set a flag that indicates WIFI is active or not.
 
-//reimplement +[NSURLConnection sendSynchronousRequest:returningResponse:error:]
-- (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
-
 @property(nonatomic,retain) id <URLConnectionHelperDelegate> delegate;
 @property(nonatomic,retain) NSURLConnection *connection;
 @property(nonatomic,retain) NSError *errorMsg;

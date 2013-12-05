@@ -57,10 +57,8 @@ NSFileManager *fileManager;
     [url release];
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:controller];
     
-    URLConnectionHelper *connectionHelper = [[URLConnectionHelper alloc] init];
-	NSData *data = [connectionHelper sendSynchronousRequest:request returningResponse:&response error:&error];
-    [request release];	
-    [connectionHelper release];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    [request release];
 
 	if (error) {
 		NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
