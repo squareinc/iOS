@@ -66,6 +66,8 @@
     } else {
         // Handle as error, as this handler is only used for HTTP(S) communication
         
+        
+        // TODO
     }
 }
 

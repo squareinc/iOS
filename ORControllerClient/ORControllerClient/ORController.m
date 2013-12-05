@@ -122,6 +122,11 @@
     
     // TODO: this might be where the caching and resource fetching can take place ?
     
+    // Following call returns an ORRestCall
+    // -> it could return it but not start it
+    // -> we can queue it, then start it ourself
+    // -> we can also return to caller -> they can cancel call
+    
     [self.controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
