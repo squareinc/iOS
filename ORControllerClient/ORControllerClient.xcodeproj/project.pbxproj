@@ -285,6 +285,7 @@
 		913699921850A4F50087A55B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		913699931850A4F50087A55B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		913699951850A4F50087A55B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		913699971850B15F0087A55B /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = "<group>"; };
 		915024B017B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_APITest.h; sourceTree = "<group>"; };
 		915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_APITest.m; sourceTree = "<group>"; };
 		915024B317B50D2D005D8A02 /* ORRESTCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTCall.h; sourceTree = "<group>"; };
@@ -659,7 +660,7 @@
 		9190D49B1790140A00667A7C = {
 			isa = PBXGroup;
 			children = (
-				91933374179E9E7E0086FEE7 /* UIKit.framework */,
+				913699971850B15F0087A55B /* CHANGES.txt */,
 				9190D4A91790140A00667A7C /* ORControllerClient */,
 				9190D4BE1790140A00667A7C /* ORControllerClientTests */,
 				9136998A1850A4DA0087A55B /* OCMock */,
@@ -680,6 +681,7 @@
 		9190D4A61790140A00667A7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A71790140A00667A7C /* Foundation.framework */,
 				9190D4B61790140A00667A7C /* SenTestingKit.framework */,
 				9190D4B81790140A00667A7C /* UIKit.framework */,

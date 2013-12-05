@@ -1,0 +1,12 @@
+Version 0.1.1
+=============
+
+Some internal refactoring, that lead to inclusion of categories in the client library.
+This implies that clients using the library must now force loading of those categories e.g. using the -all_load flag (or -force_load).
+
+Updated ORLabel to include font and color in addition to text.
+
+Version 0.1.0
+=============
+
+Initial public release
