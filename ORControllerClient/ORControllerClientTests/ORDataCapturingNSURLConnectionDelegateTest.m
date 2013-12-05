@@ -20,28 +20,8 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <OCMock/OCMock.h>
 #import "ORDataCapturingNSURLConnectionDelegate.h"
-
-@interface NSURLConnectionDelegateMock : NSObject <NSURLConnectionDataDelegate, ORDataCapturingNSURLConnectionDelegateDelegate>
-
-@property (nonatomic, strong,readonly) NSData *collectedData;
-
-@end
-
-@interface NSURLConnectionDelegateMock ()
-
-@property (nonatomic, strong, readwrite) NSData *collectedData;
-
-@end
-
-@implementation NSURLConnectionDelegateMock
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection receivedData:(NSData *)receivedData
-{
-    self.collectedData = receivedData;
-}
-
-@end
 
 @interface ORDataCapturingNSURLConnectionDelegateTest : SenTestCase
 
@@ -51,13 +31,17 @@
 
 - (void)testReceivedDataIsCaptured
 {
-    NSURLConnectionDelegateMock *mockDelegate = [[NSURLConnectionDelegateMock alloc] init];
+    NSURLConnection *connection = [[NSURLConnection alloc] init];
+    id mockDelegate = [OCMockObject mockForProtocol:@protocol(ORDataCapturingNSURLConnectionDelegateDelegate)];
+    [[mockDelegate expect] connectionDidFinishLoading:connection receivedData:[@"ABCDEF" dataUsingEncoding:NSUTF8StringEncoding]];
+    
     ORDataCapturingNSURLConnectionDelegate *capturingDelegate = [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:mockDelegate];
-    [capturingDelegate connection:nil didReceiveData:[@"ABC" dataUsingEncoding:NSUTF8StringEncoding]];
-    [capturingDelegate connection:nil didReceiveData:[@"DEF" dataUsingEncoding:NSUTF8StringEncoding]];
-    [capturingDelegate connectionDidFinishLoading:nil];
-    STAssertEqualObjects(@"ABCDEF", [[NSString alloc] initWithData:mockDelegate.collectedData encoding:NSUTF8StringEncoding],
-                         @"delegate should have received all data (ABCDEF) when connection finished loading");
+    
+    [capturingDelegate connection:connection didReceiveData:[@"ABC" dataUsingEncoding:NSUTF8StringEncoding]];
+    [capturingDelegate connection:connection didReceiveData:[@"DEF" dataUsingEncoding:NSUTF8StringEncoding]];
+    [capturingDelegate connectionDidFinishLoading:connection];
+    
+    [mockDelegate verify];
 }
 
 @end
