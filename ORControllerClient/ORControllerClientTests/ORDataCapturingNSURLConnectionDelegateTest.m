@@ -44,4 +44,62 @@
     [mockDelegate verify];
 }
 
+- (void)testStandardNSURLConnectionDelegateMethodsAreForwarded
+{
+    NSURLConnection *connection = [[NSURLConnection alloc] init];
+    id mockDelegate = [OCMockObject mockForProtocol:@protocol(ORDataCapturingNSURLConnectionDelegateDelegate)];
+    ORDataCapturingNSURLConnectionDelegate *capturingDelegate = [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:mockDelegate];
+    
+    [[mockDelegate expect] connection:connection didFailWithError:[OCMArg any]];
+    [capturingDelegate connection:connection didFailWithError:NULL];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connectionShouldUseCredentialStorage:connection];
+    [capturingDelegate connectionShouldUseCredentialStorage:connection];
+    [mockDelegate verify];
+
+    [[mockDelegate expect] connection:connection willSendRequestForAuthenticationChallenge:[OCMArg any]];
+    [capturingDelegate connection:connection willSendRequestForAuthenticationChallenge:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection canAuthenticateAgainstProtectionSpace:[OCMArg any]];
+    [capturingDelegate connection:connection canAuthenticateAgainstProtectionSpace:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection didReceiveAuthenticationChallenge:[OCMArg any]];
+    [capturingDelegate connection:connection didReceiveAuthenticationChallenge:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection didCancelAuthenticationChallenge:[OCMArg any]];
+    [capturingDelegate connection:connection didCancelAuthenticationChallenge:nil];
+    [mockDelegate verify];
+}
+
+- (void)testStandardNSURLConnectionDataDelegateMethodsAreForwarded
+{
+    NSURLConnection *connection = [[NSURLConnection alloc] init];
+    id mockDelegate = [OCMockObject mockForProtocol:@protocol(ORDataCapturingNSURLConnectionDelegateDelegate)];
+    ORDataCapturingNSURLConnectionDelegate *capturingDelegate = [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:mockDelegate];
+    
+    [[mockDelegate expect] connection:connection willSendRequest:[OCMArg any] redirectResponse:[OCMArg any]];
+    [capturingDelegate connection:connection willSendRequest:nil redirectResponse:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection didReceiveResponse:[OCMArg any]];
+    [capturingDelegate connection:connection didReceiveResponse:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection needNewBodyStream:[OCMArg any]];
+    [capturingDelegate connection:connection needNewBodyStream:nil];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection didSendBodyData:1 totalBytesWritten:2 totalBytesExpectedToWrite:3];
+    [capturingDelegate connection:connection didSendBodyData:1 totalBytesWritten:2 totalBytesExpectedToWrite:3];
+    [mockDelegate verify];
+    
+    [[mockDelegate expect] connection:connection willCacheResponse:[OCMArg any]];
+    [capturingDelegate connection:connection willCacheResponse:nil];
+    [mockDelegate verify];
+}
+
 @end
