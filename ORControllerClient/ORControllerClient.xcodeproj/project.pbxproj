@@ -24,6 +24,7 @@
 		9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9108160817BA5D3000BAB9CE /* ORSensorPollingManagerTests.m */; };
 		910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750117940962005F41CF /* ORControllerClientOverallTest.m */; };
 		910B750517940D10005F41CF /* ORControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750417940D10005F41CF /* ORControllerTest.m */; };
+		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
 		915024B217B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */; };
 		915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
@@ -277,6 +278,13 @@
 		910B750117940962005F41CF /* ORControllerClientOverallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerClientOverallTest.m; sourceTree = "<group>"; };
 		910B750317940D10005F41CF /* ORControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerTest.h; sourceTree = "<group>"; };
 		910B750417940D10005F41CF /* ORControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerTest.m; sourceTree = "<group>"; };
+		9136998E1850A4F50087A55B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		9136998F1850A4F50087A55B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		913699901850A4F50087A55B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		913699911850A4F50087A55B /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		913699921850A4F50087A55B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		913699931850A4F50087A55B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		913699951850A4F50087A55B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		915024B017B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_APITest.h; sourceTree = "<group>"; };
 		915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_APITest.m; sourceTree = "<group>"; };
 		915024B317B50D2D005D8A02 /* ORRESTCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTCall.h; sourceTree = "<group>"; };
@@ -529,12 +537,59 @@
 				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
 				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,
+				913699961850A4F50087A55B /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9136998A1850A4DA0087A55B /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				9136998B1850A4F50087A55B /* usr */,
+			);
+			name = OCMock;
+			sourceTree = "<group>";
+		};
+		9136998B1850A4F50087A55B /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				9136998C1850A4F50087A55B /* include */,
+				913699941850A4F50087A55B /* lib */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		9136998C1850A4F50087A55B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9136998D1850A4F50087A55B /* OCMock */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9136998D1850A4F50087A55B /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				9136998E1850A4F50087A55B /* NSNotificationCenter+OCMAdditions.h */,
+				9136998F1850A4F50087A55B /* OCMArg.h */,
+				913699901850A4F50087A55B /* OCMConstraint.h */,
+				913699911850A4F50087A55B /* OCMock.h */,
+				913699921850A4F50087A55B /* OCMockObject.h */,
+				913699931850A4F50087A55B /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		913699941850A4F50087A55B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				913699951850A4F50087A55B /* libOCMock.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		918604B117944342005DBCD9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +662,7 @@
 				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A91790140A00667A7C /* ORControllerClient */,
 				9190D4BE1790140A00667A7C /* ORControllerClientTests */,
+				9136998A1850A4DA0087A55B /* OCMock */,
 				9190D4A61790140A00667A7C /* Frameworks */,
 				9190D4A51790140A00667A7C /* Products */,
 			);
@@ -1320,7 +1376,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/usr/include\"",
+				);
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ebariaux/Development/OpenRemote/github/iOS/ORControllerClient/usr/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1335,7 +1404,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/usr/include\"",
+				);
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ebariaux/Development/OpenRemote/github/iOS/ORControllerClient/usr/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
