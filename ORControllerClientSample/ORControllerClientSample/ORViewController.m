@@ -24,12 +24,18 @@
 #import "ORController.h"
 #import "ORLabel.h"
 #import "Definition.h"
+#import "LoginViewController.h"
+#import "ORControllerClient/ORUserPasswordCredential.h"
 
 #define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
 @interface ORViewController ()
 
 @property (nonatomic, strong) NSArray *labels;
 @property (nonatomic, strong) ORController *orb;
+
+@property (atomic) BOOL gotLogin;
+@property (atomic, strong) NSObject <ORCredential> *_credentials;
+@property (atomic, strong) NSCondition *loginCondition;
 
 @end
 
@@ -44,13 +50,14 @@
     
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:CONTROLLER_ADDRESS]];
     self.orb = [[ORController alloc] initWithControllerAddress:address];
-
+    self.orb.authenticationManager = self;
+    
     [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self startPolling];
+//    [self performSelector:@selector(startPolling) withObject:nil afterDelay:2.01];
     [super viewWillAppear:animated];
 }
 
@@ -129,6 +136,48 @@
 {
     [self stopObservingLabelChanges];
     [self.orb disconnect];
+}
+
+- (NSObject <ORCredential> *)credential
+{
+    self.gotLogin = NO;
+    self.loginCondition = [[NSCondition alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        LoginViewController *lvc = [[LoginViewController alloc] initWithDelegate:self context:nil];
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:lvc];
+        [self presentViewController:nc animated:NO completion:NULL];
+    });
+    
+    [self.loginCondition lock];
+    if (!self.gotLogin) {
+        [self.loginCondition wait];
+    }
+    [self.loginCondition unlock];
+    self.loginCondition = nil;
+    
+    return self._credentials;
+}
+
+- (void)loginViewControllerDidCancelLogin:(LoginViewController *)controller
+{
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self.loginCondition lock];
+        self.gotLogin = YES;
+        self._credentials = nil;
+        [self.loginCondition signal];
+        [self.loginCondition unlock];
+    }];
+}
+
+- (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
+{
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self.loginCondition lock];
+        self._credentials = [[ORUserPasswordCredential alloc] initWithUsername:username password:password];
+        self.gotLogin = YES;
+        [self.loginCondition signal];
+        [self.loginCondition unlock];
+    }];
 }
 
 @end
