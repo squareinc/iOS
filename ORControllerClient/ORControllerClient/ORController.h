@@ -20,6 +20,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "ORAuthenticationManager.h"
 
 @class ORControllerAddress;
 
@@ -116,5 +117,10 @@
  * TODO: currently, polling is started even if not connected to controller, is that OK ?
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
+
+/**
+ * The authentication manager that can provide credential during calls.
+ */
+@property (nonatomic, strong) NSObject <ORAuthenticationManager> *authenticationManager;
 
 @end

@@ -27,18 +27,19 @@
 
 @interface ControllerREST_2_0_0_API ()
 
-- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate;
+- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(ORResponseHandler *)handler;
 
 @end
 
 @implementation ControllerREST_2_0_0_API
 
 // Encapsulate delegate in ORDataCapturingNSURLConnectionDelegate before passing to created connection
-- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)delegate
+- (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(ORResponseHandler *)handler
 {
+    handler.authenticationManager = self.authenticationManager;
     return [[ORRESTCall alloc] initWithNSURLConnection:
             [[NSURLConnection alloc] initWithRequest:request
-                                            delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:delegate]]];
+                                            delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:handler]]];
 }
 
 // TODO: these methods might still return some form of Operation object
@@ -69,7 +70,6 @@
     
     // TODO: same as above method
     // TODO: how about caching and resources ??? These should not be at this level, this is pure REST API facade
-    
     return [self callForRequest:request delegate:[[PanelLayoutResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 

@@ -92,6 +92,9 @@
 
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
     [self.controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(NSArray *panels) {
                                       successHandler(panels);
@@ -127,6 +130,9 @@
     // -> we can queue it, then start it ourself
     // -> we can also return to caller -> they can cancel call
     
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+    
     [self.controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
@@ -151,6 +157,9 @@
     if (self.pollingManager) {
         [self.pollingManager stop];
     }
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
     self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
                                                               controllerAddress:self.address
                                                                  sensorRegistry:panelDefinition.sensorRegistry];

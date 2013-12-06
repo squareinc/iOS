@@ -21,6 +21,8 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ORAuthenticationManager;
+
 @class ORRESTCall;
 @class Definition;
 
@@ -56,5 +58,10 @@ extern NSString *const kORClientErrorDomain;
                     atBaseURL:(NSURL *)baseURL
            withSuccessHandler:(void (^)(NSDictionary *))successHandler
                  errorHandler:(void (^)(NSError *))errorHandler;
+
+/**
+ * The authentication manager that can provide credential during calls.
+ */
+@property (nonatomic, strong) NSObject <ORAuthenticationManager> *authenticationManager;
 
 @end

@@ -24,6 +24,8 @@
 #import "ORControllerRESTAPI.h"
 #import "ORRESTErrorParser.h"
 #import "ORRESTError.h"
+#import "ORAuthenticationManager.h"
+#import "ORCredential.h"
 
 @implementation ORResponseHandler
 
@@ -77,18 +79,28 @@
     self._errorHandler(error);
 }
 
-/*
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     if ([NSURLAuthenticationMethodHTTPBasic isEqualToString:[[challenge protectionSpace] authenticationMethod]]) {
-        //    [[challenge sender] useCredential:[NSURLCredential credentialWithUser:@"or" password:@"or" persistence:NSURLCredentialPersistenceNone] forAuthenticationChallenge:challenge];
+        if (!self.authenticationManager) {
+            [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+        }
+        
+        // Make sure request of credentials is done on thread other than main
+        // This allows authentication manager to block while getting credentials from user
+        dispatch_async(dispatch_queue_create("org.openremote.handler.authentication", NULL), ^{
+            NSObject <ORCredential> *credential = self.authenticationManager.credential;
+            if (credential) {
+                [[challenge sender] useCredential:[credential URLCredential] forAuthenticationChallenge:challenge];
+            } else {
+                [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+            }
+        });
     } else {
         [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
     }
-    
     // Note : Empty implementation of this -> no 401 reported -> must call continueWithoutCred...
     // Will it eventually time out or can this be kept pending for a while ? seems no timeout
 }
-*/
 
 @end

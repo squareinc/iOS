@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 #import "ORDataCapturingNSURLConnectionDelegate.h"
 
+@protocol ORAuthenticationManager;
+
 /**
  * Parent class for all ResponseHandler objects, encapsulating common behaviour.
  *
@@ -29,5 +31,10 @@
  * for a specific HTTP REST call and processing the response appropriately (e.g. parsing the returned XML).
  */
 @interface ORResponseHandler : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
+
+/**
+ * The authentication manager that can provide credential during calls.
+ */
+@property (nonatomic, strong) NSObject <ORAuthenticationManager> *authenticationManager;
 
 @end
