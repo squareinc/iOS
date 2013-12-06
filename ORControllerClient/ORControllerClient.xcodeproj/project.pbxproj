@@ -25,12 +25,16 @@
 		910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750117940962005F41CF /* ORControllerClientOverallTest.m */; };
 		910B750517940D10005F41CF /* ORControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750417940D10005F41CF /* ORControllerTest.m */; };
 		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
+		913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 913699A01850BF310087A55B /* ORUserPasswordCredential.m */; };
+		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
+		913699A71850C28D0087A55B /* ORAuthenticationManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 913699A21850BF6E0087A55B /* ORAuthenticationManager.h */; };
 		915024B217B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */; };
 		915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024BB17B515FF005D8A02 /* ORRestCallMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B917B515FF005D8A02 /* ORRestCallMock.m */; };
 		915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */; };
 		915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024C017B5279E005D8A02 /* ORSensorPollingManager.m */; };
+		916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 916D22AC18522158004D9CF4 /* ORCredential.h */; };
 		917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */; };
@@ -223,6 +227,9 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */,
+				913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */,
+				913699A71850C28D0087A55B /* ORAuthenticationManager.h in CopyFiles */,
 				9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in CopyFiles */,
 				9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */,
 				9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */,
@@ -286,6 +293,9 @@
 		913699931850A4F50087A55B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		913699951850A4F50087A55B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		913699971850B15F0087A55B /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = "<group>"; };
+		9136999F1850BF310087A55B /* ORUserPasswordCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORUserPasswordCredential.h; sourceTree = "<group>"; };
+		913699A01850BF310087A55B /* ORUserPasswordCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORUserPasswordCredential.m; sourceTree = "<group>"; };
+		913699A21850BF6E0087A55B /* ORAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAuthenticationManager.h; sourceTree = "<group>"; };
 		915024B017B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerREST_2_0_0_APITest.h; sourceTree = "<group>"; };
 		915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_APITest.m; sourceTree = "<group>"; };
 		915024B317B50D2D005D8A02 /* ORRESTCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTCall.h; sourceTree = "<group>"; };
@@ -297,6 +307,7 @@
 		915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerREST_2_0_0_API_NonConnectingMock.m; sourceTree = "<group>"; };
 		915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorPollingManager.h; sourceTree = "<group>"; };
 		915024C017B5279E005D8A02 /* ORSensorPollingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorPollingManager.m; sourceTree = "<group>"; };
+		916D22AC18522158004D9CF4 /* ORCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCredential.h; sourceTree = "<group>"; };
 		917104BF17B8DC34005F9BA4 /* ORSensorLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLink.h; sourceTree = "<group>"; };
 		917104C017B8DC34005F9BA4 /* ORSensorLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLink.m; sourceTree = "<group>"; };
 		917104C317B8F513005F9BA4 /* ORSensorLinkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkTest.h; sourceTree = "<group>"; };
@@ -591,6 +602,17 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		916D22AB18522139004D9CF4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				913699A21850BF6E0087A55B /* ORAuthenticationManager.h */,
+				916D22AC18522158004D9CF4 /* ORCredential.h */,
+				9136999F1850BF310087A55B /* ORUserPasswordCredential.h */,
+				913699A01850BF310087A55B /* ORUserPasswordCredential.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
 		918604B117944342005DBCD9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +718,7 @@
 				9193330017956B7E0086FEE7 /* Network Layer */,
 				918604B5179444B0005DBCD9 /* Parsers */,
 				918604B117944342005DBCD9 /* Object Model */,
+				916D22AB18522139004D9CF4 /* Authentication */,
 				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
 				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
 				9190D4D21790161900667A7C /* ORController.h */,
@@ -1199,6 +1222,7 @@
 				9193340C179EA2DE0086FEE7 /* PropertyParser.m in Sources */,
 				9193340D179EA2DE0086FEE7 /* SensorParser.m in Sources */,
 				9193340E179EA2DE0086FEE7 /* ControllerButtonParser.m in Sources */,
+				913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */,
 				9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */,
 				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
