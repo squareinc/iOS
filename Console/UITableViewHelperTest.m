@@ -25,15 +25,13 @@
 
 - (void)testIndexPathsGoingFromLessToMoreRows
 {
-    NSArray *expectedArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:2 inSection:1],
-                              [NSIndexPath indexPathForRow:3 inSection:1], nil];
+    NSArray *expectedArray = @[[NSIndexPath indexPathForRow:2 inSection:1], [NSIndexPath indexPathForRow:3 inSection:1]];
     STAssertEqualObjects([UITableViewHelper indexPathsForRowCountGoingFrom:2 to:4 section:1], expectedArray, @"Rows 2 and 3 should be added");
 }
 
 - (void)testIndexPahtsGoingFromMoreToLessRows
 {
-    NSArray *expectedArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:2 inSection:1],
-                              [NSIndexPath indexPathForRow:3 inSection:1], nil];
+    NSArray *expectedArray = @[[NSIndexPath indexPathForRow:2 inSection:1], [NSIndexPath indexPathForRow:3 inSection:1]];
     STAssertEqualObjects([UITableViewHelper indexPathsForRowCountGoingFrom:4 to:2 section:1], expectedArray, @"Rows 2 and 3 should be removed");
 }
 

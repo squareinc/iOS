@@ -558,7 +558,7 @@
 
     NSUInteger controllerIndex = [self.settingsManager.consoleSettings.controllers indexOfObject:controller];
     [self.settingsManager.consoleSettings removeControllerAtIndex:controllerIndex];
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:controllerIndex inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:controllerIndex inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)didFailToAddController

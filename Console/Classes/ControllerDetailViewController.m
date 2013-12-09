@@ -77,14 +77,12 @@
 
 - (void)initTableViewSections
 {
-    self.sectionDefinitions = [NSArray arrayWithObjects:
-                               // Section header for controller URL is handled by custom view so error message can be displayed
+    self.sectionDefinitions = @[// Section header for controller URL is handled by custom view so error message can be displayed
                                [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionControllerURL sectionHeader:nil sectionFooter:@"Sample:192.168.1.2:8080/controller"],
                                [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionLogin sectionHeader:@"Login:" sectionFooter:nil],
                                [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionPanelIdentities sectionHeader:@"Panel identities:" sectionFooter:nil],
                                [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionRoundrobinMembers sectionHeader:@"Roundrobin group members:" sectionFooter:nil],
-                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionCapabilities sectionHeader:@"Controller capabilities:" sectionFooter:nil],
-                               nil];
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionCapabilities sectionHeader:@"Controller capabilities:" sectionFooter:nil]];
 }
 
 - (id)initWithController:(ORControllerConfig *)aController
@@ -496,7 +494,7 @@
              [self.tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationFade];
          }
     }
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:section]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:section]] withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
 }
 

@@ -52,7 +52,7 @@
     
     STAssertNotNil(capabilities.supportedVersions, @"Given XML contains versions information");
     STAssertEquals([capabilities.supportedVersions count], (NSUInteger)2, @"Given XML contains 2 versions");
-    NSArray *expectedVersions = [NSArray arrayWithObjects:@"2.0", @"2.1", nil];
+    NSArray *expectedVersions = @[@"2.0", @"2.1"];
     STAssertEqualObjects(capabilities.supportedVersions, expectedVersions, @"Given XML contains 2.0 and 2.1 versions");
 
     STAssertNotNil(capabilities.apiSecurities, @"Given XML should contain API security information");
@@ -84,7 +84,7 @@
     STAssertNotNil(capabilities, @"Valid XML should return capabilities object");
     STAssertNotNil(capabilities.supportedVersions, @"Given XML should contain versions information");
     STAssertEquals([capabilities.supportedVersions count], (NSUInteger)2, @"Given XML should contain 2 versions");
-    NSArray *expectedVersions = [NSArray arrayWithObjects:@"2.0", @"2.1", nil];
+    NSArray *expectedVersions = @[@"2.0", @"2.1"];
     STAssertEqualObjects(capabilities.supportedVersions, expectedVersions, @"Given XML should contain 2.0 and 2.1 versions");
     STAssertNil(capabilities.apiSecurities, @"No API security information should be defined in the given XML");
     STAssertNil(capabilities.capabilities, @"No other capabilities information should be defined in the given XML");

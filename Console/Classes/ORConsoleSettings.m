@@ -80,8 +80,7 @@
 {
     if (controllers == nil) {
         NSMutableArray *temp = [NSMutableArray arrayWithArray:[self.unorderedControllers allObjects]];
-        NSSortDescriptor *indexSort = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
-		[temp sortUsingDescriptors:[NSArray arrayWithObject:indexSort]];
+		[temp sortUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES]]];
         controllers = [[NSArray alloc] initWithArray:temp];
     }
     return controllers;

@@ -722,7 +722,7 @@ static void MyCFWriteStreamCallback(CFWriteStreamRef stream, CFStreamEventType t
 		theContext.copyDescription = nil;
 		
 		// Default run loop modes
-		theRunLoopModes = [NSArray arrayWithObject:NSDefaultRunLoopMode];
+		theRunLoopModes = @[NSDefaultRunLoopMode];
 	}
 	return self;
 }

@@ -34,7 +34,7 @@ static NSArray *iosConsoleSupportedVersions;
 
 + (void)initialize
 {
-    iosConsoleSupportedVersions = [NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"2.1"], [NSDecimalNumber decimalNumberWithString:@"2.0"], nil];
+    iosConsoleSupportedVersions = @[[NSDecimalNumber decimalNumberWithString:@"2.1"], [NSDecimalNumber decimalNumberWithString:@"2.0"]];
 }
 
 - (id)initWithSupportedVersions:(NSArray *)versions apiSecurities:(NSArray *)securities capabilities:(NSArray *)someCapabilities
@@ -62,7 +62,7 @@ static NSArray *iosConsoleSupportedVersions;
     
     [versions intersectSet:[NSSet setWithArray:[[self class] iosConsoleSupportedVersions]]];
 
-    NSArray *sortedNumberVersions = [[versions allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO]]];
+    NSArray *sortedNumberVersions = [[versions allObjects] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO]]];
      
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     [f setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
