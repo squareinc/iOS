@@ -41,8 +41,6 @@
  console should switch to another Controller in the same group.
  */
 
-@interface RoundRobinException : ControllerException {
-
-}
+@interface RoundRobinException : ControllerException
 
 @end

@@ -23,12 +23,9 @@
 
 @class ORControllerConfig;
 
-@interface ORGroupMember : NSManagedObject {
-@private
-}
+@interface ORGroupMember : NSManagedObject
 
 @property (nonatomic, strong) NSString * url;
 @property (nonatomic, strong) ORControllerConfig * controller;
-
 
 @end

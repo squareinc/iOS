@@ -32,8 +32,7 @@
 /**
  * Represents a proxy to an ORController, acts as the communication channel with it.
  */
-@interface ORControllerProxy : NSObject {
-}
+@interface ORControllerProxy : NSObject
 
 - (ORControllerCapabilitiesFetcher *)fetchCapabilitiesWithDelegate:(NSObject <ORControllerCapabilitiesFetcherDelegate> *)delegate;
 - (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(Component *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate;

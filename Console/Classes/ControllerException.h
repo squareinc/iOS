@@ -55,9 +55,7 @@
 /*
  Includes all exceptions happens in Controller server, not this console.
  */
-@interface ControllerException : NSObject {
-
-}
+@interface ControllerException : NSObject
 
 //convenient method to find concrete exception message by error code.
 + (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(int)code;
