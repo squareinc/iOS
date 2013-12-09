@@ -30,52 +30,7 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
-static AppSettingsDefinition *sharedAppSettingsDefinition = nil;
-
 @implementation AppSettingsDefinition
-
-+ (AppSettingsDefinition *)sharedAppSettingsDefinition
-{
-    if (sharedAppSettingsDefinition == nil) {
-        sharedAppSettingsDefinition = [[super allocWithZone:NULL] init];
-    }
-    return sharedAppSettingsDefinition;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [[self sharedAppSettingsDefinition] retain];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return NSUIntegerMax;  //denotes an object that cannot be released
-}
-
-- (oneway void)release
-{
-    //do nothing
-}
-
-- (id)autorelease
-{
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (NSArray *)settingsDefinition
 {

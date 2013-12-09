@@ -43,6 +43,8 @@
 
 @property (nonatomic, assign) ORConsoleSettingsManager *settingsManager;
 
+@property (nonatomic, strong) AppSettingsDefinition *settingsDefinition;
+
 - (void)autoDiscoverChanged:(id)sender;
 - (void)saveSettings;
 - (void)updatePanelIdentityView;
@@ -74,7 +76,9 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
         self.settingsManager = aSettingsManager;
-        
+
+        self.settingsDefinition = [[AppSettingsDefinition alloc] init];
+
 		[self setTitle:@"Settings"];
 		isEditing = NO;
         
@@ -94,6 +98,7 @@
 	[cancel release];
 	self.currentSelectedServerIndex = nil;
     self.imageCache = nil;
+    self.settingsDefinition = nil;
 	[super dealloc];
 }
 
@@ -353,7 +358,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return [[AppSettingsDefinition sharedAppSettingsDefinition].settingsDefinition count] - 2;
+	return [self.settingsDefinition.settingsDefinition count] - 2;
 }
 
 // Customize the number of rows in the table view.
@@ -368,7 +373,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-	return [[AppSettingsDefinition sharedAppSettingsDefinition] getSectionFooterWithIndex:section];
+	return [self.settingsDefinition getSectionFooterWithIndex:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -376,7 +381,7 @@
 	if(section >= PANEL_IDENTITY_SECTION) {
 		section++;
 	} 
-	return [[AppSettingsDefinition sharedAppSettingsDefinition] getSectionHeaderWithIndex:section];
+	return [self.settingsDefinition getSectionHeaderWithIndex:section];
 }
 
 // Customize the appearance of table view cells.
@@ -405,7 +410,7 @@
 	}
 	
 	if ([self isAutoDiscoverySection:indexPath]) {
-		switchCell.textLabel.text = [[[AppSettingsDefinition sharedAppSettingsDefinition] getAutoDiscoveryDic] objectForKey:@"name"];
+		switchCell.textLabel.text = [[self.settingsDefinition getAutoDiscoveryDic] objectForKey:@"name"];
 		UISwitch *switchView = (UISwitch *)switchCell.accessoryView;
 		[switchView setOn:self.settingsManager.consoleSettings.autoDiscovery];
 		[switchView addTarget:self action:@selector(autoDiscoverChanged:) forControlEvents:UIControlEventValueChanged];

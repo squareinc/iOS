@@ -37,8 +37,6 @@
 
 @property (nonatomic, readonly) NSArray *settingsDefinition;
 
-+ (AppSettingsDefinition *)sharedAppSettingsDefinition;
-
 /**
  * Get specified setting informations with index from all the setting information about current panel .
  */
