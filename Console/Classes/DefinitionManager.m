@@ -200,7 +200,9 @@
 - (void)downloadImages {
 	@try {
         // TODO: why that check at this stage
-		[CheckNetwork checkWhetherNetworkAvailable];
+        // This might have been to only download images on WiFi, not cellular
+        // Get rid of this for now, will check how to implement that better in the future
+//		[CheckNetwork checkWhetherNetworkAvailable];
 		
 		for (NSString *imageName in self.controller.definition.imageNames) {
 			if (imageName) {

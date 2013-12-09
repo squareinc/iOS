@@ -30,11 +30,6 @@
 }
 
 /**
- * Check if wifi network is available. If wifi network isn't available, this method will throw CheckNetworkException.
- */
-+ (void)checkWhetherNetworkAvailable;
-
-/**
  * Call previous checking method.
  */
 + (void)checkAllForController:(ORControllerConfig *)controller timeout:(NSTimeInterval)timeoutInterval;

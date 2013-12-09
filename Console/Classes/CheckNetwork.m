@@ -53,12 +53,6 @@
 
 @implementation CheckNetwork
 
-+(void)checkWhetherNetworkAvailable {
-	if ([[Reachability sharedReachability] localWiFiConnectionStatus] == NotReachable) {
-		@throw [CheckNetworkException exceptionWithTitle:@"Check Network Fail" message:@"Please connect your device to network."];
-	}
-}
-
 + (void)checkIPAddressForController:(ORControllerConfig *)controller {
     /*
      TODO EBR 6-Jul-2011
