@@ -538,7 +538,6 @@
                                           otherButtonTitles:nil];
     [alert addButtonWithTitle:@"YES"];
     [alert show];
-    [alert autorelease];
 }
 
 #pragma mark alert delegate

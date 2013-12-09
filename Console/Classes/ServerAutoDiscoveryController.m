@@ -171,7 +171,6 @@
 	NSLog(@"receive data from server");
 	NSString *serverUrl = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	NSLog(@"read server url from controller %@", serverUrl);	
-	[serverUrl autorelease];
 	[self onFindServer:serverUrl];
 }
 

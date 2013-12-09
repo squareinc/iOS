@@ -60,9 +60,10 @@
 
 	URLConnectionHelper *connection = [[URLConnectionHelper alloc] initWithRequest:request delegate:self];
 	
+    // TODO: validate how this should be implemented, creating a connection here, not retained by anycode might be trouble
+    
 	[url release];
 	[request release];
-	[connection autorelease];
 }
 
 // Handle the server response which are from controller server with status code.
