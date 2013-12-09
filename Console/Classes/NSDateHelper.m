@@ -31,7 +31,6 @@
 	NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
 	[inputFormatter setDateFormat:[NSDate dbFormatString]];
 	NSDate *date = [inputFormatter dateFromString:string];
-	[inputFormatter release];
 	return date;
 }
 
@@ -39,7 +38,6 @@
 	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	[outputFormatter setDateFormat:format];
 	NSString *timestamp_str = [outputFormatter stringFromDate:date];
-	[outputFormatter release];
 	return timestamp_str;
 }
 

@@ -41,11 +41,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.path = nil;
-    [super dealloc];
-}
 
 + (NSString *)securityTypeStringFromEnum:(SecurityType)securityType
 {

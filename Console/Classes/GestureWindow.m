@@ -61,10 +61,8 @@
 }
 
 - (void)dealloc {
-    [loading release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-    [super dealloc];
 }
 
 //To detect gestures, intercept touch events
@@ -88,12 +86,10 @@
 					//left to right -->
 					Gesture *g = [[Gesture alloc] initWithGestureSwipeType:GestureSwipeTypeLeftToRight orientation:[[UIDevice currentDevice] orientation]];
 					[theDelegate performSelector:@selector(performGesture:) withObject:g];
-                    [g release];
 				} else if (previousTouchLocation.x > location.x) {
 					//right to left <--
 					Gesture *g = [[Gesture alloc] initWithGestureSwipeType:GestureSwipeTypeRightToLeft orientation:[[UIDevice currentDevice] orientation]];
 					[theDelegate performSelector:@selector(performGesture:) withObject:g];
-                    [g release];
 				}
 			} 
 			
@@ -104,13 +100,11 @@
 					//up to down V
 					Gesture *g = [[Gesture alloc] initWithGestureSwipeType:GestureSwipeTypeTopToBottom orientation:[[UIDevice currentDevice] orientation]];
 					[theDelegate performSelector:@selector(performGesture:) withObject:g];
-                    [g release];
 				} else if (previousTouchLocation.y > location.y) {
 					//donw to up ^
 					//           |
 					Gesture *g = [[Gesture alloc] initWithGestureSwipeType:GestureSwipeTypeBottomToTop orientation:[[UIDevice currentDevice] orientation]];
 					[theDelegate performSelector:@selector(performGesture:) withObject:g];
-                    [g release];
 				}
 			}
 		} else if (touch.phase == UITouchPhaseMoved) {

@@ -34,12 +34,12 @@
 - (void)showErrorView;
 - (void)fixGeometryForInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 
-@property (assign) PaginationController *currentPaginationController;
-@property (assign) UIViewController *parentViewController;
+@property (weak) PaginationController *currentPaginationController;
+@property (weak) UIViewController *parentViewController;
 
-@property (retain) UIView *maskView;
+@property (strong) UIView *maskView;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @end
 
@@ -58,15 +58,9 @@
 
 - (void)dealloc
 {
-	[landscapePaginationController release];
-	[portraitPaginationController release];
-	[errorViewController release];
-    self.group = nil;
     self.parentViewController = nil;
-	self.maskView = nil;
     self.controller = nil;
     self.imageCache = nil;
-	[super dealloc];
 }
 
 - (void)debugLogGeometry
@@ -108,7 +102,6 @@
         viewController.imageCache = self.imageCache;
 		[viewController setScreen:screen];
 		[viewControllers addObject:viewController];
-		[viewController release];
 	}
 	return [NSArray arrayWithArray:viewControllers];
 }
@@ -294,7 +287,6 @@
 {
     UIImageView *tmpView = [[UIImageView alloc] initWithImage:[UIImage or_screenshotForWindow:self.view.window]];
     self.maskView = tmpView;
-    [tmpView release];
     [self.view.window addSubview:self.maskView];
 }
 

@@ -24,7 +24,7 @@
 
 @interface ImageCache ()
 
-@property (nonatomic, retain) NSString *cachePath;
+@property (nonatomic, strong) NSString *cachePath;
 
 @end
 
@@ -52,12 +52,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.loader = nil;
-    self.cachePath = nil;
-    [super dealloc];
-}
 
 
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?

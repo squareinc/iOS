@@ -51,7 +51,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	CGAffineTransform t = CGAffineTransformMakeRotation(DegreesToRadians(degrees));
 	rotatedViewBox.transform = t;
 	CGSize rotatedSize = rotatedViewBox.frame.size;
-	[rotatedViewBox release];
 	
 	// Create the bitmap context
 	UIGraphicsBeginImageContext(rotatedSize);
@@ -76,14 +75,14 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @interface SliderSubController()
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Slider *slider;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) Slider *slider;
 @property (nonatomic, assign) int currentValue;
-@property (nonatomic, retain) UIImageView *sliderTip;
+@property (nonatomic, strong) UIImageView *sliderTip;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (int)sliderValue:(ORSlider *)sender;
 - (void)sliderValueChanged:(UISlider *)sender;
@@ -173,7 +172,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         }
         
         self.view = uiSlider;
-        [uiSlider release];
         
         int sensorId = ((SensorComponent *)self.component).sensorId;
         if (sensorId > 0 ) {
@@ -188,8 +186,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.sliderTip = nil;
-    [super dealloc];
 }
 
 - (Slider *)slider
@@ -256,7 +252,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 // Render the bubble tip while tapping slider thumb image.
 -(void) refreshTip {
     if (!self.sliderTip) {
-        self.sliderTip = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slider_tip.png"]] autorelease];        
+        self.sliderTip = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slider_tip.png"]];        
         [self.view.superview addSubview:self.sliderTip];
         // TODO: superview might clip us anyway, better to add to window or to top view in window
         //        self.view.window.
@@ -315,7 +311,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	tipText.textAlignment = UITextAlignmentCenter;
 	tipText.text = [NSString stringWithFormat:@"%d", [self sliderValue:uiSlider]];
 	[self.sliderTip addSubview:tipText];
-    [tipText release];
 }
 
 - (void)clearSliderTipSubviews:(UIImageView *)sliderTipParam {

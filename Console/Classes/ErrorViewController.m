@@ -41,14 +41,12 @@
                                                                 target:self
                                                                 action:@selector(gotoSettings:)];
 		[toolbar setItems:@[item]];
-		[item release];
 		
 		[titleLabel setText:title];
 		[msgLabel setText:message];
 
 		[self.view addSubview:toolbar];
 		
-		[toolbar release];
 	}
 	return self;
 }
@@ -76,12 +74,5 @@
 	return YES;
 }
 
-- (void)dealloc
-{
-	[titleLabel release];
-	[msgLabel release];
-	
-	[super dealloc];
-}
 
 @end

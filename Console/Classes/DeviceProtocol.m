@@ -28,7 +28,7 @@
 
 @interface DeviceProtocol()
 
-@property (nonatomic, retain) ClientSideBeanManager *beanManager;
+@property (nonatomic, strong) ClientSideBeanManager *beanManager;
 
 @end
 

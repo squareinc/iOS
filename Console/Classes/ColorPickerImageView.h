@@ -20,8 +20,8 @@
 	id pickedColorDelegate;
 }
 
-@property (nonatomic, retain) UIColor* lastColor;
-@property (nonatomic, retain) id pickedColorDelegate;
+@property (nonatomic, strong) UIColor* lastColor;
+@property (nonatomic, strong) id pickedColorDelegate;
 
 
 - (UIColor*) getPixelColorAtLocation:(CGPoint)point;

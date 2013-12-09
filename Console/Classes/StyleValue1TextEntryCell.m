@@ -33,7 +33,6 @@
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.contentView addSubview:textField];
-        [textField release];
     }
     return self;
 }

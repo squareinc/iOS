@@ -33,9 +33,9 @@
 
 @interface ChoosePanelViewController ()
 
-@property (nonatomic, retain) NSArray *panels;
-@property (nonatomic, retain) NSString *chosenPanel;
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, strong) NSArray *panels;
+@property (nonatomic, strong) NSString *chosenPanel;
+@property (nonatomic, weak) ORControllerConfig *controller;
 - (void)requestPanelList;
 
 @end
@@ -54,13 +54,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-    self.chosenPanel = nil;
-    self.panels = nil;
-
-	[super dealloc];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -108,7 +101,7 @@
 	UITableViewCell *panelCell = [tableView dequeueReusableCellWithIdentifier:panelCellIdentifier];
 	
 	if (panelCell == nil) {
-		panelCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:panelCellIdentifier] autorelease];
+		panelCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:panelCellIdentifier];
 	}
 	
 	panelCell.textLabel.text = [self.panels objectAtIndex:indexPath.row];
@@ -129,8 +122,6 @@
 	LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.controller delegate:self context:controllerRequest];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:YES];
-	[loginController release];
-	[loginNavController release];
 }
 
 - (void)loginViewControllerDidCancelLogin:(LoginViewController *)controller
@@ -165,7 +156,6 @@
 	[self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
 	[self.tableView endUpdates];
 	
-	[insertIndexPaths release];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

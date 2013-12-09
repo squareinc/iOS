@@ -24,8 +24,8 @@
 
 @interface ORControllerProxy ()
 
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, retain) NSMutableArray *commandsQueue;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, strong) NSMutableArray *commandsQueue;
 
 - (void)queueCommand:(ORControllerSender *)command;
 - (void)processQueue;
@@ -51,9 +51,7 @@
 
 - (void)dealloc
 {
-    self.commandsQueue = nil;
     self.controller = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -97,7 +95,7 @@
     commandSender.delegate = delegate;
     [self queueCommand:commandSender];
     [self processQueue];
-    return [commandSender autorelease];
+    return commandSender;
 }
 
 - (ORControllerStatusRequestSender *)requestStatusForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate
@@ -106,7 +104,7 @@
     statusRequestSender.delegate = delegate;
     [self queueCommand:statusRequestSender];
     [self processQueue];
-    return [statusRequestSender autorelease];
+    return statusRequestSender;
 }
 
 - (ORControllerPollingSender *)requestPollingForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate
@@ -115,7 +113,7 @@
     pollingSender.delegate = delegate;
     [self queueCommand:pollingSender];
     [self processQueue];
-    return [pollingSender autorelease];
+    return pollingSender;
 }
 
 - (ORControllerPanelsFetcher *)fetchPanelsWithDelegate:(NSObject <ORControllerPanelsFetcherDelegate> *)delegate
@@ -124,7 +122,7 @@
     panelsFetcher.delegate = delegate;
     [self queueCommand:panelsFetcher];
     [self processQueue];
-    return [panelsFetcher autorelease];
+    return panelsFetcher;
 }
 
 - (ORControllerCapabilitiesFetcher *)fetchCapabilitiesWithDelegate:(NSObject <ORControllerCapabilitiesFetcherDelegate> *)delegate
@@ -133,7 +131,7 @@
     capabilitiesFetcher.delegate = delegate;
     [self queueCommand:capabilitiesFetcher];
     [self processQueue];
-    return [capabilitiesFetcher autorelease];
+    return capabilitiesFetcher;
 }
 
 
@@ -146,7 +144,7 @@
     ORControllerGroupMembersFetcher *groupMembersFetcher = [[ORControllerGroupMembersFetcher alloc] initWithController:self.controller];
     groupMembersFetcher.delegate = delegate;
     [groupMembersFetcher fetch];
-    return [groupMembersFetcher autorelease];
+    return groupMembersFetcher;
 }
 
 @synthesize controller;

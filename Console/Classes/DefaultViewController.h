@@ -89,6 +89,6 @@
  */
 - (BOOL)isAppLaunching;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

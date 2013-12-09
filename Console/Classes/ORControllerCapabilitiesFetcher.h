@@ -36,6 +36,6 @@
 
 @interface ORControllerCapabilitiesFetcher : ORControllerSender <ControllerRequestDelegate>
 
-@property (nonatomic, assign) NSObject <ORControllerCapabilitiesFetcherDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ORControllerCapabilitiesFetcherDelegate> *delegate;
 
 @end

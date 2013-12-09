@@ -26,9 +26,9 @@
 
 @interface ColorPickerSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) ColorPicker *colorPicker;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) ColorPicker *colorPicker;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
@@ -42,7 +42,6 @@
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:uiImage];
         imageView.pickedColorDelegate = self;
         self.view = imageView;
-        [imageView release];
     }
     return self;
 }

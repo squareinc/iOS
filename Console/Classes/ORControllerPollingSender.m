@@ -24,9 +24,9 @@
 
 @interface ORControllerPollingSender ()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) NSString *ids;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
 
 @end
 
@@ -38,7 +38,7 @@
     
     NSString *deviceId = [[UIDevice currentDevice] uniqueID];
     NSString *urlPath = [[ServerDefinition controllerPollingPathForController:self.controller] stringByAppendingFormat:@"/%@/%@", deviceId, self.ids];
-    self.controllerRequest = [[[ControllerRequest alloc] initWithController:self.controller] autorelease];
+    self.controllerRequest = [[ControllerRequest alloc] initWithController:self.controller];
     self.controllerRequest.delegate = self;
     [self.controllerRequest getRequestWithPath:urlPath];
 }

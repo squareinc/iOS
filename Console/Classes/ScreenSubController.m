@@ -31,13 +31,13 @@
 
 @interface ScreenSubController() 
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, retain) Screen *screen;
-@property (nonatomic, retain) NSMutableArray *layoutContainers;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (nonatomic, strong) Screen *screen;
+@property (nonatomic, strong) NSMutableArray *layoutContainers;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (void)createView;
 - (void)createSubControllersForLayoutContainers;
@@ -61,11 +61,8 @@
 
 - (void)dealloc
 {
-    self.screen = nil;
     self.controller = nil;
-    self.layoutContainers = nil;
     self.imageCache = nil;
-    [super dealloc];
 }
 
 - (void)createSubControllersForLayoutContainers
@@ -75,7 +72,6 @@
         LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithController:self.controller imageCache:self.imageCache layoutContainer:layout];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];
-        [ctrl release];
     }
 }
 
@@ -140,7 +136,6 @@
             NSLog(@"Added width: %d, height: %d backgroundImageView", screenBackgroundImageViewWidth, screenBackgroundImageViewHeight);
             [backgroundImageView setUserInteractionEnabled:YES];
             self.view = backgroundImageView;
-            [backgroundImageView release];
         }
     }
     // If for some reason something went wrong in creating the background with the image, just add a view with requested dimensions
@@ -148,7 +143,6 @@
         UIView *aView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
         aView.backgroundColor = [UIColor blackColor];
         self.view = aView;
-        [aView release];
     }
 }
 

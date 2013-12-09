@@ -29,10 +29,10 @@
 
 @interface ORControllerCommandSender ()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
-@property (nonatomic, retain) NSString *command;
-@property (nonatomic, retain) Component *component;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) NSString *command;
+@property (nonatomic, strong) Component *component;
 
 @end
 
@@ -48,12 +48,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.command = nil;
-    self.component = nil;
-    [super dealloc];
-}
 
 #pragma mark -
 
@@ -67,7 +61,7 @@
     NSAssert(!self.controllerRequest, @"ORControllerCommandSender can only be used to send a request once");
     
     NSString *commandURLPath = [[ServerDefinition controllerControlPathForController:self.controller] stringByAppendingFormat:@"/%d/%@", self.component.componentId, self.command];
-    self.controllerRequest = [[[ControllerRequest alloc] initWithController:self.controller] autorelease];
+    self.controllerRequest = [[ControllerRequest alloc] initWithController:self.controller];
     self.controllerRequest.delegate = self;
     [self.controllerRequest postRequestWithPath:commandURLPath];
 }

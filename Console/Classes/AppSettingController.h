@@ -44,7 +44,7 @@
 	UITextField *portField;	
 }
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
 

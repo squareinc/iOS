@@ -39,9 +39,9 @@
 // Indicates if a login window must be presented to user for entering credentials when a controller says authentication is required
 @property (nonatomic, assign) BOOL askUserForCredentials;
 
-@property (nonatomic, retain) NSIndexPath *currentSelectedServerIndex;
+@property (nonatomic, strong) NSIndexPath *currentSelectedServerIndex;
 
-@property (nonatomic, assign) ORConsoleSettingsManager *settingsManager;
+@property (nonatomic, weak) ORConsoleSettingsManager *settingsManager;
 
 @property (nonatomic, strong) AppSettingsDefinition *settingsDefinition;
 
@@ -90,21 +90,12 @@
 
 - (void)dealloc
 {
-	if (autoDiscoverController) {
-		[autoDiscoverController release];
-	}
-	[updateController release];
-	[done release];
-	[cancel release];
-	self.currentSelectedServerIndex = nil;
     self.imageCache = nil;
-    self.settingsDefinition = nil;
-	[super dealloc];
 }
 
 // Show spinner after title of "Choose Controller" while auto discovery running.
 - (void)showSpinner {
-	spinner = [[[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(210, 113, 44, 44)] autorelease];
+	spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(210, 113, 44, 44)];
 	[spinner startAnimating];
 	spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
 	spinner.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
@@ -138,8 +129,6 @@
                                                                                    context:context];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:NO];
-	[loginController release];
-	[loginNavController release];
 }
 
 // Check if the section parameter indexPath specified is auto discovery section.
@@ -171,7 +160,7 @@
     // Irrelevant of the choice, first cancel the current auto-discovery process
     if (autoDiscoverController) {
         [autoDiscoverController setDelegate:nil];
-        [autoDiscoverController release]; // This will cancel connections if any
+         // This will cancel connections if any
         autoDiscoverController = nil;
     }
 
@@ -203,10 +192,8 @@
     [footerView addSubview:versionLabel];
     versionLabel.center = CGPointMake(footerView.center.x, footerView.frame.origin.y + footerView.frame.size.height - (versionLabel.frame.size.height / 2));
     versionLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [versionLabel release];
     
     self.tableView.tableFooterView = footerView;
-    [footerView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -272,7 +259,6 @@
         [self.settingsManager saveConsoleSettings];
 
 		if (updateController) {
-			[updateController release];
 			updateController = nil;
 		}
 		updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings delegate:self];
@@ -396,17 +382,16 @@
 	UITableViewCell *panelCell = [tableView dequeueReusableCellWithIdentifier:panelCellIdentifier];
 	
 	if (switchCell == nil) {
-		switchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier] autorelease];
+		switchCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier];
 		switchCell.selectionStyle = UITableViewCellSelectionStyleNone;
 		UISwitch *switchView = [[UISwitch alloc]init];
 		switchCell.accessoryView = switchView;
-		[switchView release];
 	}
 	if (serverCell == nil) {
-		serverCell = [[[TableViewCellWithSelectionAndIndicator alloc] initWithReuseIdentifier:serverCellIdentifier] autorelease];
+		serverCell = [[TableViewCellWithSelectionAndIndicator alloc] initWithReuseIdentifier:serverCellIdentifier];
 	}
 	if (panelCell == nil) {
-		panelCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:panelCellIdentifier] autorelease];
+		panelCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:panelCellIdentifier];
 	}
 	
 	if ([self isAutoDiscoverySection:indexPath]) {
@@ -452,7 +437,6 @@
         ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *)[self.settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
         cdvc.delegate = self;
 		[[self navigationController] pushViewController:cdvc animated:YES];
-		[cdvc release];        
     }
 }
 
@@ -485,7 +469,6 @@
         ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithManagedObjectContext:self.settingsManager.managedObjectContext];
         cdvc.delegate = self;
 		[[self navigationController] pushViewController:cdvc animated:YES];
-		[cdvc release];
 		return;
 	} else if (indexPath.section == PANEL_IDENTITY_SECTION) {
 		if (!self.settingsManager.consoleSettings.selectedController) {
@@ -497,7 +480,6 @@
                                                                 initWithController:self.settingsManager.consoleSettings.selectedController];
         choosePanelViewController.delegate = self;
 		[[self navigationController] pushViewController:choosePanelViewController animated:YES];
-		[choosePanelViewController release];
 		return;
 	}
 	
@@ -676,7 +658,7 @@
 
         if (autoDiscoverController) {
             [autoDiscoverController setDelegate:nil];
-            [autoDiscoverController release]; // This will cancel connections if any
+             // This will cancel connections if any
             autoDiscoverController = nil;
         }
 		autoDiscoverController = [[ServerAutoDiscoveryController alloc] initWithConsoleSettings:self.settingsManager.consoleSettings delegate:self];

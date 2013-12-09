@@ -48,8 +48,8 @@
 
 @property(nonatomic, readonly) BOOL isPolling;
 @property(nonatomic, readonly) BOOL isError;
-@property(nonatomic, retain, readonly) NSString *pollingStatusIds;
+@property(nonatomic, strong, readonly) NSString *pollingStatusIds;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

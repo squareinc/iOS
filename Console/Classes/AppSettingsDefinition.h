@@ -35,7 +35,7 @@
     
 }
 
-@property (nonatomic, readonly) NSArray *settingsDefinition;
+@property (weak, nonatomic, readonly) NSArray *settingsDefinition;
 
 /**
  * Get specified setting informations with index from all the setting information about current panel .

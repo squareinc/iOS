@@ -241,7 +241,6 @@
 	if (retryTimes <= MAX_RETRY_TIMES) {		
 		retryTimes++;
 		if (serverAutoDiscoveryController) {
-			[serverAutoDiscoveryController release];
 			serverAutoDiscoveryController = nil;
 		}
 		//ServerAutoDiscoveryController have  tow delegate methods
@@ -336,11 +335,7 @@
 
 -(void)dealloc
 {
-	[delegate release];
-	[serverAutoDiscoveryController release];
-    [definitionManager release];
     self.imageCache = nil;
-	[super dealloc];
 }
 
 @synthesize delegate;

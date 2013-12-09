@@ -30,9 +30,9 @@
 
 @interface ImageSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Image *image;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) Image *image;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
@@ -51,7 +51,6 @@
         imageView.label.textColor = [UIColor or_ColorWithRGBString:[self.image.label.color substringFromIndex:1]];
          */
         self.view = imageView;
-        [imageView release];
     }
     return self;
 }

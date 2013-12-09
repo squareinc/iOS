@@ -55,7 +55,7 @@
 }
 
 // TODO EBR : should this be assign instead of retain
-@property (nonatomic, retain) NSObject <UpdateControllerDelegate> *delegate;
+@property (nonatomic, strong) NSObject <UpdateControllerDelegate> *delegate;
 
 - (id)initWithSettings:(ORConsoleSettings *)theSettings;
 - (id)initWithSettings:(ORConsoleSettings *)theSettings delegate:(NSObject <UpdateControllerDelegate> *)aDelegate;
@@ -71,6 +71,6 @@
 
 - (void)useLocalCache;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

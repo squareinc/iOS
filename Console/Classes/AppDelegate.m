@@ -41,7 +41,7 @@
 - (void)didUpdateFail:(NSString *)errorMessage;
 - (void)checkConfigAndUpdate;
 
-@property (nonatomic, retain) ImageCache *imageCache;
+@property (nonatomic, strong) ImageCache *imageCache;
 
 @end
 
@@ -49,7 +49,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
-    self.imageCache = [[[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]] autorelease];
+    self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
 	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
@@ -71,7 +71,6 @@
     [updateController startup];
     
     // settings manager is not retained by this class, objects using it must have a strong reference to it
-    [settingsManager release];
 }
 
 // when it's launched by other apps.
@@ -127,7 +126,6 @@
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Warning" Message:[errorMessage stringByAppendingString:@" Using cached content."]];
-		[viewHelper release];
 		[self updateDidFinished];
 	}
 	
@@ -140,19 +138,10 @@
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Update Failed" Message:errorMessage];		
-		[viewHelper release];
 		[self updateDidFinished];
 	}
 	
 }
 
-- (void)dealloc {
-	[updateController release];
-	[defaultViewController release];	
-	[window release];
-    self.imageCache = nil;
-
-	[super dealloc];
-}
 
 @end

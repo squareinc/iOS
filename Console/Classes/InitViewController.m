@@ -41,12 +41,6 @@
 	return YES;
 }
 
-- (void)dealloc {
-	[label release];
-	[version release];
-	
-	[super dealloc];
-}
 
 
 @end

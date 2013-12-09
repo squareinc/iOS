@@ -28,9 +28,9 @@
 
 @interface ORControllerPollOrStatusSender()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) NSString *ids;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
 
 @end
 
@@ -47,9 +47,7 @@
 
 - (void)dealloc
 {
-    self.ids = nil;
     self.delegate = nil;
-    [super dealloc];
 }
 
 - (BOOL)shouldExecuteNow

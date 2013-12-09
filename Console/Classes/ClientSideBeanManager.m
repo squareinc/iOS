@@ -23,9 +23,9 @@
 
 @interface ClientSideBeanManager()
 
-@property (nonatomic, retain) ClientSideRuntime *clientSideRuntime;
-@property (nonatomic, retain) NSMutableDictionary *classRegistry;
-@property (nonatomic, retain) NSMutableDictionary *beanRegistry;
+@property (nonatomic, strong) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong) NSMutableDictionary *classRegistry;
+@property (nonatomic, strong) NSMutableDictionary *beanRegistry;
 
 @end
 
@@ -42,13 +42,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.clientSideRuntime = nil;
-    self.classRegistry = nil;
-    self.beanRegistry = nil;
-    [super dealloc];
-}
 
 - (void)loadRegistrationFromPropertyFile:(NSString *)propertyFilePath
 {
@@ -82,7 +75,6 @@
     bean = [[clazz alloc] initWithRuntime:self.clientSideRuntime];
     if (bean) {
         [self.beanRegistry setObject:bean forKey:key];
-        [bean release];
     }
     return bean;
 }

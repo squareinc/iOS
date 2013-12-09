@@ -37,9 +37,9 @@
 
 @interface ComponentSubController()
 
-@property (nonatomic, readwrite, retain) Component *component;
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, readwrite, strong) Component *component;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
@@ -66,7 +66,7 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
     self = [super init];
     if (self) {
         self.controller = aController;
-        self.component = [aComponent retain];
+        self.component = aComponent;
         self.imageCache = aCache;
     }
     return self;
@@ -74,10 +74,8 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
 
 - (void)dealloc
 {
-    self.component = nil;
     self.controller = nil;
     self.imageCache = nil;
-    [super dealloc];
 }
 
 + (Class)subControllerClassForModelObject:(id)modelObject

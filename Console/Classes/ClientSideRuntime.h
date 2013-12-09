@@ -35,6 +35,6 @@
 - (void)startUpdatingSensor:(LocalSensor *)sensor;
 - (void)stopUpdatingSensor:(LocalSensor *)sensor;
 
-@property (nonatomic, readonly) SensorStatusCache *sensorStatusCache;
+@property (weak, nonatomic, readonly) SensorStatusCache *sensorStatusCache;
 
 @end

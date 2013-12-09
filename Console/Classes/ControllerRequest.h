@@ -56,9 +56,9 @@
     NSObject <ControllerRequestDelegate> *delegate;
 }
 
-@property (nonatomic, retain) NSObject <ControllerRequestDelegate> *delegate;
+@property (nonatomic, strong) NSObject <ControllerRequestDelegate> *delegate;
 
-@property (nonatomic, assign, readonly) ORControllerConfig *controller;
+@property (nonatomic, weak, readonly) ORControllerConfig *controller;
 
 - (id)initWithController:(ORControllerConfig *)aController;
 

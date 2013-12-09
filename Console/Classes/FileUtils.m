@@ -50,21 +50,17 @@ NSFileManager *fileManager;
 	[self makeSurePathExists:p];
 	NSError *error = nil;
 	NSURLResponse *response = nil;
-	NSString *encodedUrl = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)URLString, NULL, (CFStringRef)@"", kCFStringEncodingUTF8);
+	NSString *encodedUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)URLString, NULL, (CFStringRef)@"", kCFStringEncodingUTF8));
     NSURL *url = [[NSURL alloc] initWithString:encodedUrl];
-    [encodedUrl release];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:DOWNLOAD_TIMEOUT_INTERVAL];
-    [url release];
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:controller];
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    [request release];
 
 	if (error) {
 		NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"[%d]%@",[httpResp statusCode], [error localizedDescription]] message:URLString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 		return;
 	}
 	

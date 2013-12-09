@@ -31,6 +31,6 @@
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 
 @property (nonatomic) BOOL entrySelected;
-@property (nonatomic, retain) UIView *indicatorView;
+@property (nonatomic, strong) UIView *indicatorView;
 
 @end

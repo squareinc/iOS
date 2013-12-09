@@ -29,7 +29,7 @@
 
 @interface LogoutHelper ()
 
-@property (nonatomic, assign) ORConsoleSettingsManager *settingsManager;
+@property (nonatomic, weak) ORConsoleSettingsManager *settingsManager;
 @end
 
 
@@ -47,7 +47,6 @@
 - (void)dealloc
 {
     self.settingsManager = nil;
-    [super dealloc];
 }
 
 - (void)requestLogout {
@@ -62,8 +61,6 @@
 	
     // TODO: validate how this should be implemented, creating a connection here, not retained by anycode might be trouble
     
-	[url release];
-	[request release];
 }
 
 // Handle the server response which are from controller server with status code.

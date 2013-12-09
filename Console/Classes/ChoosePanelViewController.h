@@ -36,6 +36,6 @@
 
 - (id)initWithController:(ORControllerConfig *)aController;
 
-@property (nonatomic, assign) NSObject <ChoosePanelViewControllerDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ChoosePanelViewControllerDelegate> *delegate;
 
 @end

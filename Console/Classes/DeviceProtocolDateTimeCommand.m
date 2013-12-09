@@ -24,7 +24,7 @@
 
 - (void)refresh:(NSTimer *)timer;
 
-@property (nonatomic, retain) NSTimer *refreshTimer;
+@property (nonatomic, strong) NSTimer *refreshTimer;
 
 @end
 
@@ -33,8 +33,6 @@
 - (void)dealloc
 {
     [self.refreshTimer invalidate];
-    self.refreshTimer = nil;
-    [super dealloc];
 }
 
 - (void)startUpdating
@@ -59,7 +57,6 @@
 	[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
 	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
 	NSString *dateTimeString = [dateFormatter stringFromDate:[NSDate date]];
-	[dateFormatter release];
     return dateTimeString;
 }
 

@@ -25,29 +25,18 @@
 
 @interface CapabilitiesParser()
 
-@property (nonatomic, retain) NSMutableString *temporaryXMLElementContent;
-@property (nonatomic, retain) NSMutableArray *versions;
-@property (nonatomic, retain) NSMutableArray *securities;
-@property (nonatomic, retain) APISecurity *security;
-@property (nonatomic, retain) NSMutableArray *capabilities;
-@property (nonatomic, retain) NSString *capabilityName;
-@property (nonatomic, retain) NSMutableDictionary *properties;
+@property (nonatomic, strong) NSMutableString *temporaryXMLElementContent;
+@property (nonatomic, strong) NSMutableArray *versions;
+@property (nonatomic, strong) NSMutableArray *securities;
+@property (nonatomic, strong) APISecurity *security;
+@property (nonatomic, strong) NSMutableArray *capabilities;
+@property (nonatomic, strong) NSString *capabilityName;
+@property (nonatomic, strong) NSMutableDictionary *properties;
 
 @end
 
 @implementation CapabilitiesParser
 
-- (void)dealloc
-{
-    self.temporaryXMLElementContent = nil;
-    self.versions = nil;
-    self.securities = nil;
-    self.security = nil;
-    self.capabilities = nil;
-    self.capabilityName = nil;
-    self.properties = nil;
-    [super dealloc];
-}
 
 #pragma mark -
 
@@ -60,11 +49,10 @@
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:xmlData];
 	[xmlParser setDelegate:self];
 	[xmlParser parse];
-	[xmlParser release];
     
-    return [[[Capabilities alloc] initWithSupportedVersions:[NSArray arrayWithArray:self.versions]
+    return [[Capabilities alloc] initWithSupportedVersions:[NSArray arrayWithArray:self.versions]
                                               apiSecurities:self.securities?[NSArray arrayWithArray:self.securities]:nil
-                                               capabilities:self.capabilities?[NSArray arrayWithArray:self.capabilities]:nil] autorelease];
+                                               capabilities:self.capabilities?[NSArray arrayWithArray:self.capabilities]:nil];
 }
 
 #pragma mark NSXMLParserDelegate implementation
@@ -82,7 +70,7 @@
 	} else if ([elementName isEqualToString:@"api"]) {
         // TODO: parsing error if security is not a know enum type
         
-        self.security = [[[APISecurity alloc] initWithPath:[attributeDict valueForKey:@"path"] security:[APISecurity securityTypeFromString:[attributeDict valueForKey:@"security"]] sslEnabled:[[attributeDict valueForKey:@"ssl-enabled"] boolValue]] autorelease];
+        self.security = [[APISecurity alloc] initWithPath:[attributeDict valueForKey:@"path"] security:[APISecurity securityTypeFromString:[attributeDict valueForKey:@"security"]] sslEnabled:[[attributeDict valueForKey:@"ssl-enabled"] boolValue]];
     } else if ([elementName isEqualToString:@"capability"]) {
         self.capabilityName = [attributeDict valueForKey:@"name"];
         self.properties = [NSMutableDictionary dictionary];
@@ -105,7 +93,7 @@
         [self.securities addObject:self.security];
         self.security = nil;
     } else if ([elementName isEqualToString:@"capability"]) {
-        [self.capabilities addObject:[[[Capability alloc] initWithName:self.capabilityName properties:self.properties] autorelease]];
+        [self.capabilities addObject:[[Capability alloc] initWithName:self.capabilityName properties:self.properties]];
         self.capabilityName = nil;
         self.properties = nil;
     }

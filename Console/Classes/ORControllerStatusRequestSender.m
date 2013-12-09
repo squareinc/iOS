@@ -23,9 +23,9 @@
 
 @interface ORControllerStatusRequestSender()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) NSString *ids;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
 
 @end
 
@@ -36,7 +36,7 @@
     NSAssert(!self.controllerRequest, @"ORControllerPollingSender can only be used to send a request once");
     
     NSString *urlPath = [[ServerDefinition controllerStatusPathForController:self.controller] stringByAppendingFormat:@"/%@", self.ids];
-    self.controllerRequest = [[[ControllerRequest alloc] initWithController:self.controller] autorelease];
+    self.controllerRequest = [[ControllerRequest alloc] initWithController:self.controller];
     self.controllerRequest.delegate = self;
     [self.controllerRequest getRequestWithPath:urlPath];
 }

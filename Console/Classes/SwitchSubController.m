@@ -28,14 +28,14 @@
 
 @interface SwitchSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Switch *sswitch;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) Switch *sswitch;
 @property (nonatomic) BOOL canUseImage;
 @property (nonatomic) BOOL isOn;
-@property (nonatomic, retain) UIImage *onUIImage;
-@property (nonatomic, retain) UIImage *offUIImage;
+@property (nonatomic, strong) UIImage *onUIImage;
+@property (nonatomic, strong) UIImage *offUIImage;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (void)setOn:(BOOL)on;
 - (void)stateChanged:(id)sender;
@@ -80,9 +80,6 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.onUIImage = nil;
-    self.offUIImage = nil;
-    [super dealloc];
 }
 
 - (Switch *)sswitch

@@ -27,8 +27,8 @@
 @private
 }
 
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) ORControllerConfig * controller;
+@property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) ORControllerConfig * controller;
 
 
 @end

@@ -37,7 +37,7 @@
 
 @interface ORControllerPollOrStatusSender : ORControllerSender <ControllerRequestDelegate>
 
-@property (nonatomic, assign) NSObject <ORControllerPollingSenderDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ORControllerPollingSenderDelegate> *delegate;
 
 - (id)initWithController:(ORControllerConfig *)aController ids:(NSString *)someIds;
 

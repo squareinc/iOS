@@ -22,8 +22,8 @@
 
 @interface ORImageView()
 
-@property (nonatomic, readwrite, retain) UIImageView *image;
-@property (nonatomic, readwrite, retain) UILabel *label;
+@property (nonatomic, readwrite, strong) UIImageView *image;
+@property (nonatomic, readwrite, strong) UILabel *label;
 
 @end
 
@@ -33,11 +33,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.image = [[[UIImageView alloc] initWithFrame:frame] autorelease];
+        self.image = [[UIImageView alloc] initWithFrame:frame];
         self.image.contentMode = UIViewContentModeTopLeft;
         [self addSubview:self.image];
         
-        self.label = [[[UILabel alloc] initWithFrame:frame] autorelease];
+        self.label = [[UILabel alloc] initWithFrame:frame];
         self.label.hidden = YES;
         self.label.backgroundColor = [UIColor clearColor];
         self.label.textAlignment = UITextAlignmentCenter;
@@ -46,12 +46,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.image = nil;
-    self.label = nil;
-    [super dealloc];
-}
 
 - (void)layoutSubviews
 {

@@ -59,9 +59,9 @@
 + (BOOL)isWifiActive;                     // get a flag that indicates WIFI is active or not.
 + (void)setWifiActive:(BOOL)active;       // set a flag that indicates WIFI is active or not.
 
-@property(nonatomic,retain) id <URLConnectionHelperDelegate> delegate;
-@property(nonatomic,retain) NSURLConnection *connection;
-@property(nonatomic,retain) NSError *errorMsg;
-@property(nonatomic,retain) NSTimer *getAutoServersTimer;
+@property(nonatomic,strong) id <URLConnectionHelperDelegate> delegate;
+@property(nonatomic,strong) NSURLConnection *connection;
+@property(nonatomic,strong) NSError *errorMsg;
+@property(nonatomic,strong) NSTimer *getAutoServersTimer;
 
 @end

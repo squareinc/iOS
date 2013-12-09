@@ -25,8 +25,8 @@
  */
 @interface ORImageView : UIView
 
-@property (nonatomic, readonly, retain) UIImageView *image;
-@property (nonatomic, readonly, retain) UILabel *label;
+@property (nonatomic, readonly, strong) UIImageView *image;
+@property (nonatomic, readonly, strong) UILabel *label;
 
 - (void)showImage;
 - (void)showLabel;

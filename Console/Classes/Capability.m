@@ -39,12 +39,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.name = nil;
-    self.properties = nil;
-    [super dealloc];
-}
 
 - (NSString *)description
 {

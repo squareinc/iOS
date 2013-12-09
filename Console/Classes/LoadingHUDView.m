@@ -49,9 +49,7 @@
 								linebreak:(UILineBreakMode)lineBreakMode{
 	
 	
-	[withFont retain];
 	CGSize suggestedSize = [self sizeWithFont:withFont constrainedToSize:CGSizeMake(width, FLT_MAX) lineBreakMode:lineBreakMode];
-	[withFont release];
 	
 	return suggestedSize;
 }
@@ -171,7 +169,6 @@
 
 
 - (void) setTitle:(NSString*)str{
-	[_title release];
 	_title = [str copy];
 	//[self updateHeight];
 	[self setNeedsDisplay];
@@ -181,7 +178,6 @@
 }
 
 - (void) setMessage:(NSString*)str{
-	[_message release];
 	_message = [str copy];
 	[self setNeedsDisplay];
 }
@@ -234,11 +230,5 @@
 }
 
 
-- (void) dealloc{
-	[_activity release];
-	[_title release];
-	[_message release];
-	[super dealloc];
-}
 
 @end

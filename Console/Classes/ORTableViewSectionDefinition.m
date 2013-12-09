@@ -44,12 +44,6 @@
     return [self initWithSectionIdentifier:identifier sectionHeader:nil sectionFooter:nil];
 }
 
-- (void)dealloc
-{
-    self.sectionHeader = nil;
-    self.sectionFooter = nil;
-    [super dealloc];
-}
 
 @synthesize sectionIdentifier;
 @synthesize sectionHeader;

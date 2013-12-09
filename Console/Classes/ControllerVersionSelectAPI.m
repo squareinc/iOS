@@ -13,11 +13,11 @@
 
 @interface ControllerVersionSelectAPI ()
 
-@property (nonatomic, retain) Protocol *apiProtocol;
-@property (nonatomic, retain) id implementingObject;
+@property (nonatomic, strong) Protocol *apiProtocol;
+@property (nonatomic, strong) id implementingObject;
 @property (nonatomic, copy) NSString *versionUsed;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 @end
 
 @implementation ControllerVersionSelectAPI
@@ -34,11 +34,7 @@
 
 - (void)dealloc
 {
-    self.apiProtocol = nil;
-    self.implementingObject = nil;
-    self.versionUsed = nil;
     self.controller = nil;
-    [super dealloc];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
@@ -54,7 +50,7 @@
         NSLog(@"Using class name %@", className);
         
         Class clazz = NSClassFromString(className);
-        self.implementingObject = [[[clazz alloc] init] autorelease];        
+        self.implementingObject = [[clazz alloc] init];        
     }
     if ([self.implementingObject respondsToSelector:aSelector]) {
         return [self.implementingObject methodSignatureForSelector:aSelector];

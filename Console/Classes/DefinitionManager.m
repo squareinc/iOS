@@ -54,7 +54,7 @@
 - (void)parseXml;
 - (void)changeLoadingMessage:(NSString *)msg;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @end
 
@@ -73,7 +73,6 @@
 {
     self.controller = nil;
     self.imageCache = nil;
-    [super dealloc];
 }
 
 // For now, take all the functionality that is about loading / triggering parsing / caching ... the definition
@@ -90,14 +89,8 @@
 	}
 	isUpdating = YES;
 
-	if (updateOperationQueue) {
-		[updateOperationQueue release];
-	}
 	updateOperationQueue = [[NSOperationQueue alloc] init];
     updateOperationQueue.maxConcurrentOperationCount = MAX_CONCURRENT_OPERATIONS;
-	if (updateOperation) {
-		[updateOperation release];
-	}
 	updateOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(postNotificationToMainThread:) object:DefinitionUpdateDidFinishNotification];
 	
 	//define Operations
@@ -110,7 +103,6 @@
 	
 	[updateOperation addDependency:parseXmlOperation];
 	
-	[parseXmlOperation release];
     
     [self.controller.controller connectWithSuccessHandler:^{
         [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
@@ -118,7 +110,6 @@
             
             // For now, once done, trigger download again so "old mechanism" and image download will happen
             [updateOperationQueue addOperation:downloadXmlOperation];
-            [downloadXmlOperation release];
         } errorHandler:^(NSError *error) {
             // TODO
         }];
@@ -166,7 +157,6 @@
 		[FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self.controller] stringByAppendingPathComponent:imageName]
                               path:[DirectoryDefinition imageCacheFolder]
                      forController:self.controller];
-		[msg release];
 	}
 }
 
@@ -175,8 +165,6 @@
     PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
     NSData *data = [[NSData alloc] initWithContentsOfFile:configurationFilePath];
     self.controller.definition = [parser parseDefinitionFromXML:data];
-    [data release];
-    [parser release];
     
     [self.controller.controller attachPanelDefinition:self.controller.definition];
 }
@@ -220,7 +208,6 @@
 	NSInvocationOperation *downloadControlIconOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadImageWithName:) object:imageName];
 	[updateOperation addDependency:downloadControlIconOperation];
 	[updateOperationQueue addOperation:downloadControlIconOperation];
-	[downloadControlIconOperation release];
 }
 
 
@@ -228,7 +215,6 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR OCCUR" message:error.localizedDescription  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
-	[alert release];
 }
 
 #pragma mark post notification 

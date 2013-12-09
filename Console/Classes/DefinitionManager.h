@@ -44,8 +44,8 @@
 - (void)useLocalCacheDirectly;
 
 @property (nonatomic,readonly) BOOL isUpdating;
-@property (nonatomic,retain) UILabel *loading;
+@property (nonatomic,strong) UILabel *loading;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

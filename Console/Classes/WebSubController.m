@@ -26,9 +26,9 @@
 
 @interface WebSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Web *web;
-@property (nonatomic, retain) NSString *oldStatus;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) Web *web;
+@property (nonatomic, strong) NSString *oldStatus;
 
 - (void)loadRequestForURL:(NSString *)url;
 
@@ -42,18 +42,12 @@
     if (self) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         self.view = webView;
-        [webView release];
         [self loadRequestForURL:self.web.src];
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    self.oldStatus = nil;
-    [super dealloc];
-}
 
 - (Web *)web
 {

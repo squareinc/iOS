@@ -26,11 +26,11 @@
 @interface AbsoluteLayoutContainerSubController()
 
 // TODO: have properties from superclass in specific .h
-@property (nonatomic, retain) LayoutContainer *layoutContainer;
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, strong) LayoutContainer *layoutContainer;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, weak) ImageCache *imageCache;
 
-@property (nonatomic, retain) ComponentSubController *componentSubController;
+@property (nonatomic, strong) ComponentSubController *componentSubController;
 
 @end
 
@@ -41,19 +41,13 @@
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
         Component *aComponent = ((AbsoluteLayoutContainer *)aLayoutContainer).component;
-        self.componentSubController = [[[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent] autorelease];
+        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    self.layoutContainer = nil;
-    self.componentSubController = nil;
-    [super dealloc];
-}
 
 - (UIView *)view
 {

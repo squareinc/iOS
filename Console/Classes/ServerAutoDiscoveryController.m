@@ -31,7 +31,7 @@
 
 @interface ServerAutoDiscoveryController ()
 
-@property (nonatomic, assign) ORConsoleSettings *settings;
+@property (nonatomic, weak) ORConsoleSettings *settings;
 
 - (void)checkFindServerFail;
 
@@ -70,7 +70,7 @@
 		[tcpSever acceptOnPort:serverPort error:NULL];
 		
 		//Set a timer with 3 interval.
-		tcpTimer = [[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO] retain];		
+		tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO];		
 	}
 	return self;
 }
@@ -79,20 +79,14 @@
 {
 	if (tcpTimer && [tcpTimer isValid])  {
 		[tcpTimer invalidate];
-		[tcpTimer release];
 	}
 
 	NSLog(@"clients count is %d", [clients count]);    
     [clients makeObjectsPerformSelector:@selector(disconnect)];
-    [clients release];
 	
-	[tcpSever release];
-	[udpSocket release];
-	[delegate release];
     
     self.settings = nil;
     
-	[super dealloc];	
 }
 
 //after find server		
@@ -109,7 +103,6 @@
 		[[clients objectAtIndex:i] disconnect];
 		[clients removeObjectAtIndex:i];
 	}
-	[clients release];
 	clients = nil;
 	
 	[tcpSever disconnectAfterReading];

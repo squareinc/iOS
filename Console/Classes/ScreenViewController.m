@@ -34,8 +34,8 @@
 - (void)sendCommandRequest:(Component *)component;
 - (void)doNavigate:(Navigate *)navi;
 
-@property (nonatomic, retain) ScreenSubController *screenSubController;
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, strong) ScreenSubController *screenSubController;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @end
 
@@ -54,8 +54,6 @@
  * Assign parameter screen model data to screenViewController.
  */
 - (void)setScreen:(Screen *)s {
-	[s retain];
-	[screen release];
 	screen = s;
 	if ([[screen pollingComponentsIds] count] > 0 ) {
 		polling = [[PollingHelper alloc] initWithController:self.controller
@@ -81,7 +79,7 @@
 
 // Implement loadView to create a view hierarchy programmatically.
 - (void)loadView {
-    self.screenSubController = [[[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:screen] autorelease];
+    self.screenSubController = [[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:screen];
     self.view = self.screenSubController.view;    
 }
 
@@ -110,12 +108,10 @@
 }
 
 - (void)dealoc {
-    [polling release];
 	//[screen release];
 	self.screenSubController = nil;
     self.controller = nil;
     self.imageCache = nil;
-	[super dealloc];
 }
 
 #pragma mark ORControllerCommandSenderDelegate implementation

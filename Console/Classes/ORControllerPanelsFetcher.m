@@ -29,7 +29,7 @@
 
 @interface ORControllerPanelsFetcher ()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
+@property (nonatomic, strong) ORControllerConfig *controller;
 
 @end
 

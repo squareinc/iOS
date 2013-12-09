@@ -31,8 +31,8 @@
 
 @interface ClientSideRuntime()
 
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, retain) ClientSideBeanManager *beanManager;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, strong) ClientSideBeanManager *beanManager;
 
 @end
 
@@ -43,7 +43,7 @@
     self = [super init];
     if (self) {
         self.controller = aController;
-        self.beanManager = [[[ClientSideBeanManager alloc] initWithRuntime:self] autorelease];
+        self.beanManager = [[ClientSideBeanManager alloc] initWithRuntime:self];
         [self.beanManager loadRegistrationFromPropertyFile:[[NSBundle mainBundle] pathForResource:@"ClientSideProtocols" ofType:@"plist"]];
     }
     return self;
@@ -52,8 +52,6 @@
 - (void)dealloc
 {
     self.controller = nil;
-    self.beanManager = nil;
-    [super dealloc];
 }
 
 - (void)executeCommands:(NSArray *)commands commandType:(NSString *)commandType

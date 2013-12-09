@@ -27,16 +27,14 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
-	[alert release];
 }
 
 - (void)showAlertViewWithTitleAndSettingNavigation:(NSString *)title Message:(NSString *)message  {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
-    [self retain]; // We want to stick around as we set ourself as delegate
+     // We want to stick around as we set ourself as delegate
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert addButtonWithTitle:@"Settings"];
 	[alert show];
-	[alert release];
 }
 
 // Delegate method of UIAlertViewDelegate.
@@ -49,7 +47,6 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     alertView.delegate = nil; // Make sure we won't receive any further message after we release ourself
-    [self release];
 }
 
 @end

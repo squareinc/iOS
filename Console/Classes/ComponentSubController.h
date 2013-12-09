@@ -30,6 +30,6 @@
 
 - (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent;
 
-@property (nonatomic, readonly, retain) Component *component;
+@property (nonatomic, readonly, strong) Component *component;
 
 @end

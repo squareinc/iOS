@@ -22,17 +22,12 @@
 
 @interface SubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
+@property (nonatomic, readwrite, strong) UIView *view;
 
 @end
 
 @implementation SubController
 
-- (void)dealloc
-{
-    self.view = nil;
-    [super dealloc];
-}
 
 @synthesize view;
 

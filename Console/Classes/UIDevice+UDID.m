@@ -36,7 +36,7 @@
         uniqueIdentifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"identiferForVendor"];
         if (!uniqueIdentifier) {
             CFUUIDRef uuid = CFUUIDCreate(NULL);
-            uniqueIdentifier = (NSString *)CFUUIDCreateString(NULL, uuid);
+            uniqueIdentifier = (NSString *)CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
             CFRelease(uuid);
             [[NSUserDefaults standardUserDefaults] setObject:uniqueIdentifier forKey:@"identifierForVendor"];
             [[NSUserDefaults standardUserDefaults] synchronize];

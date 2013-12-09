@@ -27,11 +27,11 @@
 @interface GridLayoutContainerSubController()
 
 // TODO: have properties from superclass in specific .h
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, weak) ImageCache *imageCache;
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, retain) NSMutableArray *cells;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (nonatomic, strong) NSMutableArray *cells;
 
 @end
 
@@ -42,9 +42,9 @@
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
         GridLayoutContainer *container = (GridLayoutContainer *)aLayoutContainer;
-        self.view = [[[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)] autorelease];
+        self.view = [[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)];
         self.view.backgroundColor = [UIColor clearColor];
-        self.cells = [[[NSMutableArray alloc] initWithCapacity:[container.cells count]] autorelease];
+        self.cells = [[NSMutableArray alloc] initWithCapacity:[container.cells count]];
         int h = container.height / container.rows;				
         int w = container.width / container.cols;
         for (GridCell *cell in container.cells) {
@@ -54,17 +54,11 @@
             [self.cells addObject:ctrl];
             ctrl.view.frame = CGRectMake(cell.x * w, cell.y * h, w * cell.colspan, h * cell.rowspan);
             [self.view addSubview:ctrl.view];
-            [ctrl release];
         }
     }
     return self;
 }
 
-- (void)dealloc
-{
-    self.cells = nil;
-    [super dealloc];
-}
 
 @synthesize view;
 @synthesize cells;

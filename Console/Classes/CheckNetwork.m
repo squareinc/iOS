@@ -144,7 +144,6 @@
 	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:activeController];
     [request setHTTPMethod:@"HEAD"];
     [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&error];
-	[request release];
     
 	if ([resp statusCode] != 200 ){
 		NSLog(@"CheckNetworkException statusCode=%d, errorCode=%d, %@, %@", [resp statusCode], [error code], url,[error localizedDescription]);

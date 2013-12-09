@@ -37,7 +37,6 @@
         textField.returnKeyType = UIReturnKeyDone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self addSubview:textField];
-        [textField release];
     }
     return self;
 }

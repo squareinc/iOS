@@ -51,9 +51,9 @@
 - (BOOL)switchToScreen:(int)screenId withAnimation:(BOOL) withAnimation;
 - (void)updateTabBarItemSelection;
 
-@property (nonatomic, retain) Group *group;
-@property (nonatomic, retain) TabBar *tabBar;
-@property (nonatomic, assign) UITabBar *uiTabBar;
+@property (nonatomic, strong) Group *group;
+@property (nonatomic, strong) TabBar *tabBar;
+@property (nonatomic, weak) UITabBar *uiTabBar;
 
 @end
 
@@ -75,13 +75,9 @@
 
 - (void)dealloc
 {
-	[viewControllers release];
-    self.group = nil;
-	self.tabBar = nil;
     self.uiTabBar.delegate = nil;
     self.uiTabBar = nil;
     self.imageCache = nil;
-	[super dealloc];
 }
 
 /**
@@ -97,8 +93,7 @@
 		[view removeFromSuperview];
 	}
 	
-	[viewControllers release];
-	viewControllers = [newViewControllers retain];
+	viewControllers = newViewControllers;
 	
 	//Recover last screen
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -296,7 +291,6 @@
 	[scrollView setFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
 	[scrollView setBackgroundColor:[UIColor blackColor]];
 	[self.view addSubview:scrollView];
-	[scrollView release];
 	pageControl = [[UIPageControl alloc] init];
 	if (viewControllers.count > 1) {
 		[pageControl setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
@@ -305,7 +299,6 @@
 		[pageControl setOpaque:NO];
 		[pageControl addTarget:self action:@selector(pageControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
 		[self.view addSubview:pageControl];
-		[pageControl release];
 	}
     // Tab bar added latest so it sits on top of other views
     if (self.tabBar) {
@@ -321,7 +314,6 @@
         }
         self.uiTabBar.items = tmpItems;
         self.uiTabBar.delegate = self;
-        [tmpBar release];
     }
 
     [self initView];

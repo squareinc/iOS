@@ -35,7 +35,6 @@
 - (void)dealloc
 {
     self.indicatorView = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -72,8 +71,7 @@
 {
     if (indicatorView != aView) {
         [indicatorView removeFromSuperview];
-        [indicatorView release];
-        indicatorView = [aView retain];
+        indicatorView = aView;
         [self.contentView addSubview:indicatorView];
         [self setNeedsLayout];
     }

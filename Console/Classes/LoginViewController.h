@@ -37,6 +37,6 @@
 
 - (id)initWithController:(ORControllerConfig *)aController delegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext;
 
-@property (nonatomic, retain, readonly) id context;
+@property (nonatomic, strong, readonly) id context;
 
 @end

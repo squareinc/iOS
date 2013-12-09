@@ -68,7 +68,6 @@ static BOOL isWifiActive = NO;
 		
 		//the initWithRequest constractor will invoke the request
 		connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-		[request release];
 	}
 	return self;
 }
@@ -90,7 +89,6 @@ static BOOL isWifiActive = NO;
 		NSLog(@"Connection exists, will cancel it");
 		[connection cancel];
 		if (connection) {
-			[connection release];
 			connection = nil;
 		}
 	}
@@ -127,7 +125,6 @@ static BOOL isWifiActive = NO;
 	} else {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Occured" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 	}
 }
 
@@ -166,11 +163,5 @@ static BOOL isWifiActive = NO;
 {
 }
 
-- (void)dealloc {
-	[receivedData release];
-	[connection release];
-	[getAutoServersTimer release];
-	[super dealloc];
-}
 
 @end

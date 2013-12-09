@@ -45,15 +45,15 @@
 
 @interface ControllerDetailViewController()
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) UITextField *usernameField;
-@property (nonatomic, retain) UITextField *passwordField;
-@property (nonatomic, retain) UITextField *urlField;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) UITextField *usernameField;
+@property (nonatomic, strong) UITextField *passwordField;
+@property (nonatomic, strong) UITextField *urlField;
 // We're using this group member property instead of accessing controller.groupMembers directly
 // because we want an array to have an order to display in table view
 // We observe controller.groupMembers to keep this on in sync
-@property (nonatomic, retain) NSArray *groupMembers;
+@property (nonatomic, strong) NSArray *groupMembers;
 
 @property (nonatomic, assign) NSInteger currentNumberOfCapabilitiesRow;
 @property (nonatomic, assign) NSInteger currentNumberOfPanelIdentitiesRow;
@@ -61,11 +61,11 @@
 // Used to indicate that the done button has been clicked -> cancel management because no target/action on back button
 @property (nonatomic, assign) BOOL doneAction;
 @property (nonatomic, assign) BOOL creating;
-@property (nonatomic, retain) NSUndoManager *previousUndoManager;
-@property (nonatomic, retain) UIColor *originalTextColor;
+@property (nonatomic, strong) NSUndoManager *previousUndoManager;
+@property (nonatomic, strong) UIColor *originalTextColor;
 
-@property (nonatomic, retain) UIView *controllerSectionHeaderView;
-@property (nonatomic, retain) UILabel *controllerErrorLabel;
+@property (nonatomic, strong) UIView *controllerSectionHeaderView;
+@property (nonatomic, strong) UILabel *controllerErrorLabel;
 
 - (void)updateTableViewHeaderForGroupMemberFetchStatus;
 - (void)refreshCapabilitiesTableViewSection;
@@ -79,11 +79,11 @@
 {
     self.sectionDefinitions = [NSArray arrayWithObjects:
                                // Section header for controller URL is handled by custom view so error message can be displayed
-                               [[[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionControllerURL sectionHeader:nil sectionFooter:@"Sample:192.168.1.2:8080/controller"] autorelease],
-                               [[[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionLogin sectionHeader:@"Login:" sectionFooter:nil] autorelease],
-                               [[[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionPanelIdentities sectionHeader:@"Panel identities:" sectionFooter:nil] autorelease],
-                               [[[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionRoundrobinMembers sectionHeader:@"Roundrobin group members:" sectionFooter:nil] autorelease],
-                               [[[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionCapabilities sectionHeader:@"Controller capabilities:" sectionFooter:nil] autorelease],
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionControllerURL sectionHeader:nil sectionFooter:@"Sample:192.168.1.2:8080/controller"],
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionLogin sectionHeader:@"Login:" sectionFooter:nil],
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionPanelIdentities sectionHeader:@"Panel identities:" sectionFooter:nil],
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionRoundrobinMembers sectionHeader:@"Roundrobin group members:" sectionFooter:nil],
+                               [[ORTableViewSectionDefinition alloc] initWithSectionIdentifier:kSectionCapabilities sectionHeader:@"Controller capabilities:" sectionFooter:nil],
                                nil];
 }
 
@@ -107,19 +107,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-    self.controller = nil;
-    self.managedObjectContext = nil;
-    self.urlField = nil;
-    self.usernameField = nil;
-    self.passwordField = nil;
-    self.previousUndoManager = nil;
-    self.originalTextColor = nil;
-    self.controllerSectionHeaderView = nil;
-    self.controllerErrorLabel = nil;
-    [super dealloc];
-}
 
 #pragma mark - View lifecycle
 
@@ -136,7 +123,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerCapabilitiesFetchStatusChanged:) name:kORControllerCapabilitiesFetchStatusChange object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerPanelIdentitiesFetchStatusChanged:) name:kORControllerPanelIdentitiesFetchStatusChange object:nil];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
         
     UIView *footerView  = [[UIView alloc] init];
     footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 50);
@@ -151,7 +138,6 @@
     [footerView addSubview:deleteInstallBtn];
     deleteInstallBtn.center = footerView.center;
     self.tableView.tableFooterView = footerView;
-    [footerView release];
     
     [self updateTableViewHeaderForGroupMemberFetchStatus];
 }
@@ -214,7 +200,7 @@
 		self.title = @"Add a Controller";
 	}
     self.previousUndoManager = self.managedObjectContext.undoManager;
-    self.managedObjectContext.undoManager = [[[NSUndoManager alloc] init] autorelease];
+    self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];
     [self.managedObjectContext.undoManager beginUndoGrouping];
     
     self.groupMembers = [self.controller.groupMembers allObjects];
@@ -330,7 +316,7 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kControllerUrlCellIdentifier];
             if (cell == nil) {
-                cell = [[[TextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kControllerUrlCellIdentifier] autorelease];
+                cell = [[TextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kControllerUrlCellIdentifier];
                 self.urlField = ((TextFieldCell *)cell).textField;
                 self.urlField.delegate = self;
                 self.originalTextColor = self.urlField.textColor;
@@ -342,7 +328,7 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kGroupMemberCellIdentifier];
             if (cell == nil) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGroupMemberCellIdentifier] autorelease];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGroupMemberCellIdentifier];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }            
             cell.textLabel.text = ((ORGroupMember *)[self.groupMembers objectAtIndex:row]).url;
@@ -354,7 +340,7 @@
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:kUsernameCellIdentifier];
                     if (!cell) {
-                        cell = [[[StyleValue1TextEntryCell alloc] initWithReuseIdentifier:kUsernameCellIdentifier] autorelease];
+                        cell = [[StyleValue1TextEntryCell alloc] initWithReuseIdentifier:kUsernameCellIdentifier];
                         self.usernameField = ((TextFieldCell *)cell).textField;
                         self.usernameField.delegate = self;
                     }
@@ -364,7 +350,7 @@
                 case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:kPasswordCellIdentifier];
                     if (!cell) {
-                        cell = [[[StyleValue1TextEntryCell alloc] initWithReuseIdentifier:kPasswordCellIdentifier] autorelease];
+                        cell = [[StyleValue1TextEntryCell alloc] initWithReuseIdentifier:kPasswordCellIdentifier];
                         self.passwordField = ((TextFieldCell *)cell).textField;
                         self.passwordField.secureTextEntry = YES;
                         
@@ -381,7 +367,7 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kAPIVersionsCellIdentifier];
             if (!cell) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kAPIVersionsCellIdentifier] autorelease];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kAPIVersionsCellIdentifier];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             if (row == 0) {
@@ -409,7 +395,7 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kPanelIdentityCellIdentifier];
             if (!cell) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kPanelIdentityCellIdentifier] autorelease];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kPanelIdentityCellIdentifier];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             NSString *identity = [self.controller.panelIdentities objectAtIndex:row];
@@ -445,7 +431,6 @@
             l.textColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.0];
             l.backgroundColor = [UIColor clearColor];
             [v addSubview:l];
-            [l release];
             l = [[UILabel alloc] initWithFrame:CGRectMake(totalWidth / 2.0, 11.0, (totalWidth / 2.0) - 54.0, 21.0)];
             l.font = [UIFont boldSystemFontOfSize:17];
             l.textColor = [UIColor redColor];
@@ -453,9 +438,7 @@
             l.textAlignment = UITextAlignmentRight;
             [v addSubview:l];
             self.controllerErrorLabel = l;
-            [l release];
             self.controllerSectionHeaderView = v;
-            [v release];
         }
         return self.controllerSectionHeaderView;
     }
@@ -498,7 +481,6 @@
     statusView.frame = CGRectMake(sectionBounds.size.width - statusView.frame.size.width - 44.0, (int)(12.0 + (aView.frame.size.height - statusView.frame.size.height)/ 2.0), statusView.frame.size.width, statusView.frame.size.height);
     [aView addSubview:statusView];
     self.tableView.tableHeaderView = aView;
-    [aView release];    
 }
 
 - (void)refreshCapabilitiesTableViewSection
@@ -538,7 +520,6 @@
 {
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Delete controller" message:@"Are you sure you want to delete this controller?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [av show];
-    [av release];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -570,8 +551,7 @@
         int oldCount = [groupMembers count];
         int newCount = [theGroupMembers count];
         
-        [groupMembers release];
-        groupMembers = [theGroupMembers retain];
+        groupMembers = theGroupMembers;
         
         [self.tableView beginUpdates];
         NSArray *rows = [UITableViewHelper indexPathsForRowCountGoingFrom:oldCount to:newCount section:[self sectionWithIdentifier:kSectionRoundrobinMembers]];

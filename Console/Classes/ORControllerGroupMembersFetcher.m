@@ -30,8 +30,8 @@
 
 @interface ORControllerGroupMembersFetcher ()
 
-@property (nonatomic, retain) NSURLConnection *connection;
-@property (nonatomic, retain) ORControllerConfig *controller;
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) ORControllerConfig *controller;
 @property (nonatomic) BOOL lastRequestWasError;
 
 @end
@@ -53,11 +53,7 @@
 
 - (void)dealloc
 {
-    [members release];
     [self.connection cancel];
-    self.connection = nil;
-    self.controller = nil;
-    [super dealloc];
 }
 
 - (void)fetch
@@ -66,7 +62,7 @@
     self.lastRequestWasError = NO;
     NSURLRequest *request = [NSURLRequest or_requestWithURLString:[self.controller.primaryURL stringByAppendingFormat:@"/%@", kControllerFetchGroupMembersPath]
                                                            method:@"GET" userName:self.controller.userName password:self.controller.password];
-    self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:[[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]] autorelease];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self]];
 }
 
 - (void)cancelFetch
@@ -82,7 +78,6 @@
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:receivedData];
         [xmlParser setDelegate:self];
         [xmlParser parse];
-        [xmlParser release];
         [self.delegate controller:self.controller fetchGroupMembersDidSucceedWithMembers:[NSArray arrayWithArray:members]];
     }
 }
@@ -97,7 +92,6 @@
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Occured" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 

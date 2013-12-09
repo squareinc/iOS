@@ -22,6 +22,6 @@
 
 @interface SubController : NSObject
 
-@property (nonatomic, readonly, retain) UIView *view;
+@property (nonatomic, readonly, strong) UIView *view;
 
 @end

@@ -25,8 +25,8 @@
 
 @interface ClientSideProtocolReadCommandBase ()
 
-@property (nonatomic, retain) NSMutableSet *sensorIds;
-@property (nonatomic, retain) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong) NSMutableSet *sensorIds;
+@property (nonatomic, strong) ClientSideRuntime *clientSideRuntime;
 
 - (void)startUpdating;
 - (void)stopUpdating;
@@ -46,12 +46,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.sensorIds = nil;
-    self.clientSideRuntime = nil;
-    [super dealloc];
-}
 
 - (void)startUpdatingSensor:(LocalSensor *)sensor
 {

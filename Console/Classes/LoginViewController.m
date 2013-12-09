@@ -28,12 +28,12 @@
 
 - (void)goBack:(id)sender;
 
-@property (nonatomic, retain) UITextField *usernameField;
-@property (nonatomic, retain) UITextField *passwordField;
-@property (nonatomic, assign) NSObject <LoginViewControllerDelegate> *delegate;
-@property (nonatomic, retain, readwrite) id context;
+@property (nonatomic, strong) UITextField *usernameField;
+@property (nonatomic, strong) UITextField *passwordField;
+@property (nonatomic, weak) NSObject <LoginViewControllerDelegate> *delegate;
+@property (nonatomic, strong, readwrite) id context;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 @end
 
 @implementation LoginViewController
@@ -53,18 +53,14 @@
 - (void)dealloc
 {
     self.delegate = nil;
-    self.context = nil;
-    self.usernameField = nil;
-    self.passwordField = nil;
     self.controller = nil;
-	[super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)] autorelease];
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
 }
 
 - (void)viewDidUnload
@@ -117,7 +113,7 @@
 	UITableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:loginCellIdentifier];
 
 	if (loginCell == nil) {
-		loginCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loginCellIdentifier] autorelease];
+		loginCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loginCellIdentifier];
 		loginCell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 
@@ -145,7 +141,6 @@
 			[textField setSecureTextEntry:YES];
 			self.passwordField = textField;
 		}
-        [textField release];
 	} else if (indexPath.section == 1) {
 		UIButton *signinButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		

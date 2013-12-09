@@ -23,8 +23,8 @@
 
 @interface ORControllerSender()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
 
 @end
 
@@ -39,11 +39,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.controllerRequest = nil;
-    [super dealloc];
-}
 
 - (void)cancel
 {

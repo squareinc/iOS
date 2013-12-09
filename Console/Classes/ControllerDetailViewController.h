@@ -36,7 +36,7 @@
     
 }
 
-@property (nonatomic, retain) NSObject<ControllerDetailViewControllerDelegate> *delegate;
+@property (nonatomic, strong) NSObject<ControllerDetailViewControllerDelegate> *delegate;
 
 - (id)initWithController:(ORControllerConfig *)aController;
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;

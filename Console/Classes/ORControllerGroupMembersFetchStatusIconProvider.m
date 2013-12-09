@@ -29,19 +29,19 @@
         {
             UIActivityIndicatorView *aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [aiv startAnimating];
-            return [aiv autorelease];
+            return aiv;
         }
         case FetchSucceeded:
         {
-            return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerOK"]] autorelease];
+            return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerOK"]];
         }
         case FetchFailed:
         {
-            return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerNOK"]] autorelease];
+            return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerNOK"]];
         }
         case FetchRequiresAuthentication:
         {
-            return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerRequiresAuthentication"]] autorelease];
+            return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ControllerRequiresAuthentication"]];
         }
         default:
             return nil;

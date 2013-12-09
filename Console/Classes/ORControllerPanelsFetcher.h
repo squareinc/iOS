@@ -35,6 +35,6 @@
 
 @interface ORControllerPanelsFetcher : ORControllerSender
 
-@property (nonatomic, assign) NSObject <ORControllerPanelsFetcherDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ORControllerPanelsFetcherDelegate> *delegate;
 
 @end

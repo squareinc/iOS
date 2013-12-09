@@ -50,14 +50,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	if ([keyPath isEqualToString:@"unorderedControllers"]) {
-		[controllers release];
 		controllers = nil;
 	}
 }
 
 - (void)didTurnInfoFault
 {
-	[controllers dealloc]; // TODO: check that ???? should be release ???
+	 // TODO: check that ???? should be release ???
 	controllers = nil;
     [self removeObserver:nil forKeyPath:@"unorderedControllers"];
 }
@@ -83,7 +82,6 @@
         NSMutableArray *temp = [NSMutableArray arrayWithArray:[self.unorderedControllers allObjects]];
         NSSortDescriptor *indexSort = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
 		[temp sortUsingDescriptors:[NSArray arrayWithObject:indexSort]];
-		[indexSort release];
         controllers = [[NSArray alloc] initWithArray:temp];
     }
     return controllers;
@@ -122,7 +120,6 @@
     [self willChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"unorderedControllers"] addObject:value];
     [self didChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)removeUnorderedControllersObject:(ORControllerConfig *)value
@@ -131,7 +128,6 @@
     [self willChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"unorderedControllers"] removeObject:value];
     [self didChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)addUnorderedControllers:(NSSet *)value

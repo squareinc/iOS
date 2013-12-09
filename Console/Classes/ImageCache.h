@@ -101,6 +101,6 @@
 /**
  * Loader to use to get not yet registered images.
  */
-@property (nonatomic, retain) NSObject<ImageCacheLoader> *loader;
+@property (nonatomic, strong) NSObject<ImageCacheLoader> *loader;
 
 @end

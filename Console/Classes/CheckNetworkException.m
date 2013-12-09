@@ -27,7 +27,6 @@
 	CheckNetworkException *e = [[CheckNetworkException alloc] initWithName:@"checkNetworkException" reason:@"Check Network Fail" userInfo:nil];
 	e.title = t;
 	e.message = msg;
-	[e autorelease];
 	return e;
 }
 

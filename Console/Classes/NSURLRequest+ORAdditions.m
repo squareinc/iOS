@@ -29,12 +29,11 @@
     
     NSURL *url = [[NSURL alloc] initWithString:location];
     [request setURL:url];
-    [url release];
     [request setHTTPMethod:method];
     
     [request or_setUserName:userName password:password];
 
-    return [request autorelease];
+    return request;
 }
 
 @end

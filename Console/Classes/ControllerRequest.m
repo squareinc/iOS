@@ -32,8 +32,8 @@
 
 @interface ControllerRequest ()
 
-@property (nonatomic, retain) ORGroupMember *usedGroupMember;
-@property (nonatomic, assign, readwrite) ORControllerConfig *controller;
+@property (nonatomic, strong) ORGroupMember *usedGroupMember;
+@property (nonatomic, weak, readwrite) ORControllerConfig *controller;
 @property (nonatomic, assign) NSInteger httpResponseCode;
 
 @end
@@ -53,12 +53,7 @@
 {
     // Cancel the connection first, so we can nicely clean
     [self cancel];
-    [connection release];
-    [requestPath release];
-    [usedGroupMember release];
-    [potentialGroupMembers release];
     self.controller = nil;
-    [super dealloc];
 }
 
 /**
@@ -116,16 +111,12 @@
     
     if (connection) {
         [connection cancel];
-        [connection release];
     }
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:[[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self] autorelease]];
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:self]];
 }
 
 - (void)requestWithPath:(NSString *)path
 {
-    if (requestPath) {
-        [requestPath release];
-    }
     requestPath = [path copy];
     
     if (![self selectNextGroupMemberToTry]) {
@@ -169,7 +160,6 @@
     if (self.httpResponseCode != UNAUTHORIZED) {
         self.controller.activeGroupMember = self.usedGroupMember;
         [delegate controllerRequestDidFinishLoading:receivedData];
-        [delegate release];
         delegate = nil;
     }
 }
@@ -190,9 +180,7 @@
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Occured" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            [alert release];
         }
-        [delegate release];
         delegate = nil;
     }
 }

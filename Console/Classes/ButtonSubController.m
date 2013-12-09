@@ -30,16 +30,16 @@
 
 @interface ButtonSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) Button *button;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) Button *button;
 
-@property (nonatomic, retain) id<ControllerButtonAPI> controllerButtonAPI;
+@property (nonatomic, strong) id<ControllerButtonAPI> controllerButtonAPI;
 
-@property (nonatomic, retain) NSTimer *buttonRepeatTimer;
-@property (nonatomic, retain) NSTimer *longPressTimer;
+@property (nonatomic, strong) NSTimer *buttonRepeatTimer;
+@property (nonatomic, strong) NSTimer *longPressTimer;
 @property (nonatomic, getter=isLongPress, setter=setLongPress:) BOOL longPress;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (void)cancelTimers;
 
@@ -70,8 +70,8 @@
         
 
         // TODO/ comment
-        self.controllerButtonAPI = (id <ControllerButtonAPI>)[[[ControllerVersionSelectAPI alloc] initWithController:aController
-                                                                                                         APIProtocol:@protocol(ControllerButtonAPI)] autorelease];
+        self.controllerButtonAPI = (id <ControllerButtonAPI>)[[ControllerVersionSelectAPI alloc] initWithController:aController
+                                                                                                         APIProtocol:@protocol(ControllerButtonAPI)];
         
     }
     return self;
@@ -89,12 +89,10 @@
             UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src];
             ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:uiImage withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];		
             [uiButton setBackgroundImage:clippedUIImage forState:UIControlStateNormal];
-            [clippedUIImage release];
             UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src];
             if (uiImagePressed) {
                 ClippedUIImage *clippedUIImagePressed = [[ClippedUIImage alloc] initWithUIImage:uiImagePressed withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
                 [uiButton setBackgroundImage:clippedUIImagePressed forState:UIControlStateHighlighted];
-                [clippedUIImagePressed release];
             }
         } else {
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
@@ -106,9 +104,7 @@
 - (void)dealloc
 {
     [self.view removeObserver:self forKeyPath:@"frame"];
-    self.controllerButtonAPI = nil;
     [self cancelTimers];
-    [super dealloc];
 }
 
 - (Button *)button

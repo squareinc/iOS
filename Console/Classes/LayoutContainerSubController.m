@@ -27,9 +27,9 @@
 
 @interface LayoutContainerSubController()
 
-@property (nonatomic, assign) ORControllerConfig *controller;
-@property (nonatomic, retain) LayoutContainer *layoutContainer;
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, strong) LayoutContainer *layoutContainer;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
@@ -48,10 +48,8 @@
 
 - (void)dealloc
 {
-    self.layoutContainer = nil;
     self.controller = nil;
     self.imageCache = nil;
-    [super dealloc];
 }
 
 + (Class)subControllerClassForModelObject:(id)modelObject

@@ -55,29 +55,29 @@ typedef NSInteger ORControllerFetchStatus;
 
 @interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate> {
 @private
-    ORGroupMember *activeGroupMember;
+    ORGroupMember *__weak activeGroupMember;
     ORControllerProxy *proxy;
     ORControllerFetchStatus groupMembersFetchStatus;
 }
 
-@property (nonatomic, retain) NSString * primaryURL;
-@property (nonatomic, retain) NSString *selectedPanelIdentity;
-@property (nonatomic, retain) NSNumber * index;
-@property (nonatomic, retain) NSString *userName;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSSet* groupMembers;
-@property (nonatomic, retain) ORConsoleSettings * settingsForControllers;
-@property (nonatomic, retain) ORConsoleSettings * settingsForSelectedController;
+@property (nonatomic, strong) NSString * primaryURL;
+@property (nonatomic, strong) NSString *selectedPanelIdentity;
+@property (nonatomic, strong) NSNumber * index;
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSSet* groupMembers;
+@property (nonatomic, strong) ORConsoleSettings * settingsForControllers;
+@property (nonatomic, strong) ORConsoleSettings * settingsForSelectedController;
 
-@property (nonatomic, readonly) NSString *selectedPanelIdentityDisplayString;
+@property (weak, nonatomic, readonly) NSString *selectedPanelIdentityDisplayString;
 
-@property (nonatomic, assign) ORGroupMember *activeGroupMember;
+@property (nonatomic, weak) ORGroupMember *activeGroupMember;
 
-@property (nonatomic, retain) Capabilities *capabilities;
-@property (nonatomic, retain) NSString *controllerAPIVersion;
-@property (nonatomic, retain) NSArray *panelIdentities;
+@property (nonatomic, strong) Capabilities *capabilities;
+@property (nonatomic, strong) NSString *controllerAPIVersion;
+@property (nonatomic, strong) NSArray *panelIdentities;
 
-@property (nonatomic, readonly, retain) ORControllerProxy *proxy;
+@property (nonatomic, readonly, strong) ORControllerProxy *proxy;
 
 @property (nonatomic, readonly, strong) ORController *controller;
 
@@ -100,9 +100,9 @@ typedef NSInteger ORControllerFetchStatus;
 
 // TODO: re-check in model vs property
 // TODO: this is not persisted but should be lazy loaded (! parsing is required -> we want to be able to notifiy user of progress and let him cancel)
-@property (nonatomic, retain) Definition *definition;
+@property (nonatomic, strong) Definition *definition;
 
-@property (nonatomic, retain, readonly) SensorStatusCache *sensorStatusCache;
-@property (nonatomic, retain, readonly) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong, readonly) SensorStatusCache *sensorStatusCache;
+@property (nonatomic, strong, readonly) ClientSideRuntime *clientSideRuntime;
 
 @end

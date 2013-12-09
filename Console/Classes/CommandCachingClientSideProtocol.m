@@ -27,8 +27,8 @@
 
 @interface CommandCachingClientSideProtocol()
 
-@property (nonatomic, retain) ClientSideRuntime *clientSideRuntime;
-@property (nonatomic, retain) ClientSideBeanManager *beanManager;
+@property (nonatomic, strong) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong) ClientSideBeanManager *beanManager;
 
 @end
 
@@ -39,17 +39,11 @@
     self = [super init];
     if (self) {
         self.clientSideRuntime = runtime;
-        self.beanManager = [[[ClientSideBeanManager alloc] initWithRuntime:self.clientSideRuntime] autorelease];
+        self.beanManager = [[ClientSideBeanManager alloc] initWithRuntime:self.clientSideRuntime];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    self.clientSideRuntime = nil;
-    self.beanManager = nil;
-    [super dealloc];
-}
 
 - (void)executeCommand:(LocalCommand *)command commandType:(NSString *)commandType
 {

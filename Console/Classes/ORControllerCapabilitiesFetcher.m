@@ -28,8 +28,8 @@
 
 @interface ORControllerCapabilitiesFetcher ()
 
-@property (nonatomic, retain) ORControllerConfig *controller;
-@property (nonatomic, retain) ControllerRequest *controllerRequest;
+@property (nonatomic, strong) ORControllerConfig *controller;
+@property (nonatomic, strong) ControllerRequest *controllerRequest;
 @property (nonatomic, assign) int statusCode;
 
 @end
@@ -48,7 +48,6 @@
     ControllerRequest *request = [[ControllerRequest alloc] initWithController:self.controller];
     request.delegate = self;
     self.controllerRequest = request;
-    [request release];
     [self.controllerRequest getRequestWithPath:kControllerFetchCapabilitiesPath];
 }
 
@@ -59,7 +58,6 @@
     if (self.statusCode == 200) {
         CapabilitiesParser *parser = [[CapabilitiesParser alloc] init];
         [self.delegate fetchCapabilitiesDidSucceedWithCapabilities:[parser parseXMLData:data]];
-        [parser release];
     }
 }
 

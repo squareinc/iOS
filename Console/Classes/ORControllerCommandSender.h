@@ -32,7 +32,7 @@
 
 @interface ORControllerCommandSender : ORControllerSender <ControllerRequestDelegate>
 
-@property (nonatomic, assign) NSObject <ORControllerCommandSenderDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ORControllerCommandSenderDelegate> *delegate;
 
 - (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(Component *)aComponent;
 

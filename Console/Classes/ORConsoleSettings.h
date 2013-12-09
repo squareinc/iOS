@@ -33,9 +33,9 @@
 - (void)removeControllerAtIndex:(NSUInteger)index;
 
 @property (nonatomic, assign, getter=isAutoDiscovery) BOOL autoDiscovery;
-@property (nonatomic, retain) NSSet *unorderedControllers;
-@property (nonatomic, retain) ORControllerConfig *selectedController;
+@property (nonatomic, strong) NSSet *unorderedControllers;
+@property (nonatomic, strong) ORControllerConfig *selectedController;
 
-@property (readonly) NSArray *controllers;
+@property (weak, readonly) NSArray *controllers;
 
 @end

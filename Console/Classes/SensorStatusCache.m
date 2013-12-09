@@ -11,8 +11,8 @@
 
 @interface SensorStatusCache()
 
-@property (nonatomic, retain) NSMutableDictionary *statusCache;
-@property (nonatomic, retain) NSNotificationCenter *notificationCenter;
+@property (nonatomic, strong) NSMutableDictionary *statusCache;
+@property (nonatomic, strong) NSNotificationCenter *notificationCenter;
 @end
 
 @implementation SensorStatusCache
@@ -27,12 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.notificationCenter = nil;
-    self.statusCache = nil;
-    [super dealloc];
-}
 
 - (void)publishNewValue:(NSString *)status forSensorId:(NSUInteger)sensorId
 {

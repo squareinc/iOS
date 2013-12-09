@@ -48,14 +48,14 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 - (void)addGroupMembers:(NSSet *)value;
 - (void)removeGroupMembers:(NSSet *)value;
 
-@property (nonatomic, retain) ORControllerGroupMembersFetcher *groupMembersFetcher;
+@property (nonatomic, strong) ORControllerGroupMembersFetcher *groupMembersFetcher;
 
 @property (nonatomic, readwrite) ORControllerFetchStatus groupMembersFetchStatus;
 @property (nonatomic, readwrite) ORControllerFetchStatus capabilitiesFetchStatus;
 @property (nonatomic, readwrite) ORControllerFetchStatus panelIdentitiesFetchStatus;
 
-@property (nonatomic, retain, readwrite) SensorStatusCache *sensorStatusCache;
-@property (nonatomic, retain, readwrite) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong, readwrite) SensorStatusCache *sensorStatusCache;
+@property (nonatomic, strong, readwrite) ClientSideRuntime *clientSideRuntime;
 
 @end
 
@@ -77,8 +77,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     [super awakeFromFetch];
     self.controllerAPIVersion = DEFAULT_CONTROLLER_API_VERSION;
-    self.sensorStatusCache = [[[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]] autorelease];
-    self.clientSideRuntime = [[[ClientSideRuntime alloc] initWithController:self] autorelease];
+    self.sensorStatusCache = [[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
+    self.clientSideRuntime = [[ClientSideRuntime alloc] initWithController:self];
     
     [self addObserver:self forKeyPath:@"primaryURL" options:NULL context:ORControllerConfigKVOContext];
 }
@@ -87,8 +87,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     [super awakeFromInsert];
     self.controllerAPIVersion = DEFAULT_CONTROLLER_API_VERSION;
-    self.sensorStatusCache = [[[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]] autorelease];
-    self.clientSideRuntime = [[[ClientSideRuntime alloc] initWithController:self] autorelease];
+    self.sensorStatusCache = [[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
+    self.clientSideRuntime = [[ClientSideRuntime alloc] initWithController:self];
 
     [self addObserver:self forKeyPath:@"primaryURL" options:NULL context:ORControllerConfigKVOContext];
 }
@@ -249,10 +249,8 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     [self removeObserver:self forKeyPath:@"primaryURL"];
     
-    [controller release];
     controller = nil;
     
-    [proxy release];
     proxy = nil;
     self.groupMembersFetcher = nil;
     self.definition = nil;
@@ -280,7 +278,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     if (!controller) {
         controller = [[ORController alloc] initWithControllerAddress:
-                      [[[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.primaryURL]] autorelease]];
+                      [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.primaryURL]]];
     }
     return controller;
 }
@@ -291,7 +289,6 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 {
     if (context == ORControllerConfigKVOContext) {
         if ([@"primaryURL" isEqualToString:keyPath]) {
-            [controller release];
             controller = nil;
         }
     } else {
@@ -323,7 +320,6 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     [self willChangeValueForKey:@"groupMembers" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"groupMembers"] addObject:value];
     [self didChangeValueForKey:@"groupMembers" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)removeGroupMembersObject:(ORGroupMember *)value {
@@ -331,7 +327,6 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     [self willChangeValueForKey:@"groupMembers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"groupMembers"] removeObject:value];
     [self didChangeValueForKey:@"groupMembers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)addGroupMembers:(NSSet *)value {    

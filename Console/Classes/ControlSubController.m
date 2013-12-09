@@ -34,7 +34,7 @@
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @end
 

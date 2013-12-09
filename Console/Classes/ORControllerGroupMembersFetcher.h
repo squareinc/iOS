@@ -45,7 +45,7 @@
     NSMutableArray *members;
 }
 
-@property (nonatomic, assign) NSObject <ORControllerGroupMembersFetcherDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ORControllerGroupMembersFetcherDelegate> *delegate;
 
 - (id)initWithController:(ORControllerConfig *)aController;
 - (void)fetch;

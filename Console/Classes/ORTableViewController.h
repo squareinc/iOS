@@ -39,6 +39,6 @@
  */
 - (NSInteger)sectionIdentifierForSection:(NSInteger)section;
 
-@property (nonatomic, retain) NSArray *sectionDefinitions;
+@property (nonatomic, strong) NSArray *sectionDefinitions;
 
 @end

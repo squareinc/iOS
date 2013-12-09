@@ -41,7 +41,7 @@
             // If command originated from a slider, commandType will contain slider value. So if commandType validates as a number, use it as parameter
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-            [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
+            [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
             NSNumber *result = nil;
             NSError *error = nil;
             NSRange range = NSMakeRange(0, commandType.length);

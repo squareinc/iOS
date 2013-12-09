@@ -70,17 +70,12 @@
 }
 
 - (void)dealloc {
-	[navigationHistory release];
     
     // TODO: recheck release of those, what about on view unload in case of low memory condition
-    [currentGroupController release];
     
-	[errorViewController release];
-	[updateController release];
     
     self.imageCache = nil;
 	
-	[super dealloc];
 }
 
 - (void)viewDidLoad
@@ -168,7 +163,7 @@
                                                    group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
 	}
     gc.imageCache = self.imageCache;
-	return [gc autorelease];
+	return gc;
 }
 
 - (void)initGroups {
@@ -181,7 +176,7 @@
 	
 	if (groups.count > 0) {
 		GroupController *gc = [self recoverLastOrCreateGroup];
-		currentGroupController = [gc retain];
+		currentGroupController = gc;
 		[self.view addSubview:currentGroupController.view];
 		[self saveLastGroupIdAndScreenId];
 	} else {		
@@ -211,7 +206,6 @@
 		NSLog(@"navigate from group %d, screen %d", historyNavigate.fromGroup, historyNavigate.fromScreen);
 		[navigationHistory addObject:historyNavigate];
 	}
-    [historyNavigate release];
 	
 	NSLog(@"navi history count = %d", navigationHistory.count);
 }
@@ -276,10 +270,7 @@
 
 	[self.view addSubview:v];
 
-    if (currentGroupController) {
-        [currentGroupController release];
-    }
-	currentGroupController = [targetGroupController retain];
+	currentGroupController = targetGroupController;
 }
 
 - (BOOL)navigateToGroup:(int)groupId toScreen:(int)screenId {
@@ -295,8 +286,8 @@
 		if (targetGroupController == nil) {
 			Group *group = [definition findGroupById:groupId];
 			if (group) {
-				targetGroupController = [[[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                                               group:group parentViewController:self] autorelease];
+				targetGroupController = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                               group:group parentViewController:self];
                 targetGroupController.imageCache = self.imageCache;
 			} else {
 				return NO;
@@ -327,7 +318,6 @@
 	if (self.settingsManager.consoleSettings.selectedController.password) {
 		LogoutHelper *logout = [[LogoutHelper alloc] init];
 		[logout requestLogout];
-		[logout release];
 	}	
 }
 
@@ -360,8 +350,6 @@
                                                                                    context:[notification.userInfo objectForKey:kAuthenticationRequiredControllerRequest]];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 	[self presentModalViewController:loginNavController animated:NO];
-	[loginController release];
-	[loginNavController release];
 }
 
 - (void)populateSettingsView:(id)sender {
@@ -369,8 +357,6 @@
     settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentModalViewController:settingNavController animated:YES];
-	[settingController release];
-	[settingNavController release];
 }
 
 - (void)refreshView:(id)sender {
@@ -381,7 +367,6 @@
 	
 	if (currentGroupController) {
 		[currentGroupController stopPolling];
-        [currentGroupController release];
         currentGroupController = nil;
 	}
 	

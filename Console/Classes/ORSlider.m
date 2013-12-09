@@ -28,17 +28,17 @@
 
 @interface ORSlider ()
 
-@property (nonatomic, retain) UIView *minTrackView;
-@property (nonatomic, retain) UIView *maxTrackView;
-@property (nonatomic, retain) UIView *thumbView;
+@property (nonatomic, strong) UIView *minTrackView;
+@property (nonatomic, strong) UIView *maxTrackView;
+@property (nonatomic, strong) UIView *thumbView;
 
-@property (nonatomic, retain) UIImageView *minTrackImageView;
-@property (nonatomic, retain) UIImageView *maxTrackImageView;
+@property (nonatomic, strong) UIImageView *minTrackImageView;
+@property (nonatomic, strong) UIImageView *maxTrackImageView;
 
-@property (nonatomic, retain) UIImageView *minValueImageView;
-@property (nonatomic, retain) UIImageView *maxValueImageView;
+@property (nonatomic, strong) UIImageView *minValueImageView;
+@property (nonatomic, strong) UIImageView *maxValueImageView;
 
-@property (nonatomic, retain) UIImageView *thumbImageView;
+@property (nonatomic, strong) UIImageView *thumbImageView;
 
 @property (nonatomic) CGPoint previousTouch;
 @property (nonatomic) BOOL userMovingSlider;
@@ -68,13 +68,13 @@ void printBounds(NSString *comment, UIView *v)
         self.value = 0.0;
         self.minimumValue = 0.0;
         self.maximumValue = 1.0;
-        self.minTrackView = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)] autorelease];
+        self.minTrackView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
         self.minTrackView.clipsToBounds = YES;
         [self addSubview:self.minTrackView];
-        self.maxTrackView = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)] autorelease];
+        self.maxTrackView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
         self.maxTrackView.clipsToBounds = YES;
         [self addSubview:self.maxTrackView];
-        self.thumbView = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 23.0, 23.0)] autorelease];
+        self.thumbView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 23.0, 23.0)];
         self.thumbView.clipsToBounds = YES;
         [self addSubview:self.thumbView];
         
@@ -96,18 +96,6 @@ void printBounds(NSString *comment, UIView *v)
     return self;
 }
 
-- (void)dealloc
-{
-    self.minTrackView = nil;
-    self.minTrackImageView = nil;
-    self.maxTrackView = nil;
-    self.maxTrackImageView = nil;
-    self.minValueImageView = nil;
-    self.maxValueImageView = nil;
-    self.thumbImageView = nil;
-    self.thumbView = nil;
-    [super dealloc];
-}
 
 - (void)layoutSubviews
 {
@@ -228,13 +216,12 @@ void printBounds(NSString *comment, UIView *v)
 - (void)setMinimumTrackImage:(UIImage *)minimumTrackImage
 {
     if (_minimumTrackImage != minimumTrackImage) {
-        [_minimumTrackImage release];
-        _minimumTrackImage = [minimumTrackImage retain];
+        _minimumTrackImage = minimumTrackImage;
         
         if (self.minTrackImageView) {
             [self.minTrackImageView removeFromSuperview];
         }
-        self.minTrackImageView = [[[UIImageView alloc] initWithImage:minimumTrackImage] autorelease];
+        self.minTrackImageView = [[UIImageView alloc] initWithImage:minimumTrackImage];
         [self.minTrackView addSubview:self.minTrackImageView];
         [self setNeedsLayout];
     }
@@ -243,13 +230,12 @@ void printBounds(NSString *comment, UIView *v)
 - (void)setMaximumTrackImage:(UIImage *)maximumTrackImage
 {
     if (_maximumTrackImage != maximumTrackImage) {
-        [_maximumTrackImage release];
-        _maximumTrackImage = [maximumTrackImage retain];
+        _maximumTrackImage = maximumTrackImage;
         
         if (self.maxTrackImageView) {
             [self.maxTrackImageView removeFromSuperview];
         }
-        self.maxTrackImageView = [[[UIImageView alloc] initWithImage:maximumTrackImage] autorelease];
+        self.maxTrackImageView = [[UIImageView alloc] initWithImage:maximumTrackImage];
         [self.maxTrackView addSubview:self.maxTrackImageView];
         [self setNeedsLayout];
     }
@@ -258,13 +244,12 @@ void printBounds(NSString *comment, UIView *v)
 - (void)setMinimumValueImage:(UIImage *)minimumValueImage
 {
     if (_minimumValueImage != minimumValueImage) {
-        [_minimumValueImage release];
-        _minimumValueImage = [minimumValueImage retain];
+        _minimumValueImage = minimumValueImage;
         
         if (self.minValueImageView) {
             [self.minValueImageView removeFromSuperview];
         }
-        self.minValueImageView = [[[UIImageView alloc] initWithImage:minimumValueImage] autorelease];
+        self.minValueImageView = [[UIImageView alloc] initWithImage:minimumValueImage];
         [self addSubview:self.minValueImageView];
         [self setNeedsLayout];
     }
@@ -273,13 +258,12 @@ void printBounds(NSString *comment, UIView *v)
 - (void)setMaximumValueImage:(UIImage *)maximumValueImage
 {
     if (_maximumValueImage != maximumValueImage) {
-        [_maximumValueImage release];
-        _maximumValueImage = [maximumValueImage retain];
+        _maximumValueImage = maximumValueImage;
         
         if (self.maxValueImageView) {
             [self.maxValueImageView removeFromSuperview];
         }
-        self.maxValueImageView = [[[UIImageView alloc] initWithImage:maximumValueImage] autorelease];
+        self.maxValueImageView = [[UIImageView alloc] initWithImage:maximumValueImage];
         [self addSubview:self.maxValueImageView];
         [self setNeedsLayout];
     }
@@ -288,13 +272,12 @@ void printBounds(NSString *comment, UIView *v)
 - (void)setThumbImage:(UIImage *)thumbImage
 {
     if (_thumbImage != thumbImage) {
-        [_thumbImage release];
-        _thumbImage = [thumbImage retain];
+        _thumbImage = thumbImage;
         
         if (self.thumbImageView) {
             [self.thumbImageView removeFromSuperview];
         }
-        self.thumbImageView = [[[UIImageView alloc] initWithImage:thumbImage] autorelease];
+        self.thumbImageView = [[UIImageView alloc] initWithImage:thumbImage];
         [self.thumbView addSubview:self.thumbImageView];
         [self setNeedsLayout];
     }

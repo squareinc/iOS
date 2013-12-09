@@ -94,8 +94,8 @@
  */
 - (CGRect)getFullFrame;
 
-@property (nonatomic, retain) Group *group;
+@property (nonatomic, strong) Group *group;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

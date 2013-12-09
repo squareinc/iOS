@@ -81,6 +81,6 @@
  */
 - (BOOL)switchToFirstScreen;
 
-@property (nonatomic, assign) ImageCache *imageCache;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

@@ -37,16 +37,16 @@
 
 @property(nonatomic, readwrite) BOOL isPolling;
 @property(nonatomic, readwrite) BOOL isError;
-@property(nonatomic, retain, readwrite) NSString *pollingStatusIds;
-@property (nonatomic, retain) NSArray *localSensors;
-@property (nonatomic, retain) ORControllerPollOrStatusSender *pollingSender;
+@property(nonatomic, strong, readwrite) NSString *pollingStatusIds;
+@property (nonatomic, strong) NSArray *localSensors;
+@property (nonatomic, strong) ORControllerPollOrStatusSender *pollingSender;
 
-@property (nonatomic, retain) UpdateController *updateController;
+@property (nonatomic, strong) UpdateController *updateController;
 
-@property (nonatomic, assign) SensorStatusCache *sensorStatusCache;
-@property (nonatomic, assign) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, weak) SensorStatusCache *sensorStatusCache;
+@property (nonatomic, weak) ClientSideRuntime *clientSideRuntime;
 
-@property (nonatomic, assign) ORControllerConfig *controller;
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @end
     
@@ -164,7 +164,6 @@
         UpdateController *tmpController = [[UpdateController alloc] initWithSettings:aController.settingsForSelectedController delegate:self];
         updateController.imageCache = self.imageCache;
         self.updateController = tmpController;
-        [tmpController release];
     }
     [self.updateController checkConfigAndUpdate];
 }
@@ -173,13 +172,8 @@
 {
     self.sensorStatusCache = nil;
     self.clientSideRuntime = nil;
-	self.pollingSender = nil;
-    self.pollingStatusIds = nil;
 	[self cancelLocalSensors];
-    self.localSensors = nil;
-    self.updateController = nil;
     self.imageCache = nil;
-	[super dealloc];
 }
 
 #pragma mark Delegate method of UpdateController
@@ -215,8 +209,7 @@
 {
     if (pollingSender != aPollingSender) {
         pollingSender.delegate = nil;
-        [pollingSender release];
-        pollingSender = [aPollingSender retain];
+        pollingSender = aPollingSender;
     }
 }
 

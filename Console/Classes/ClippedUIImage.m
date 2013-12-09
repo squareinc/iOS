@@ -106,7 +106,7 @@ NSString *const IMAGE_ABSOLUTE_ALIGN_TO_VIEW = @"ABSOLUTE";
             free(CGBitmapContextGetData(context));
             CGContextRelease(context);
             
-            [self initWithCGImage:myRef];
+            if (!(self = [self initWithCGImage:myRef])) return nil;
             CGImageRelease(myRef);
 		} else {
 			return nil;

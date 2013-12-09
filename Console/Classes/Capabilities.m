@@ -34,7 +34,7 @@ static NSArray *iosConsoleSupportedVersions;
 
 + (void)initialize
 {
-    iosConsoleSupportedVersions = [[NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"2.1"], [NSDecimalNumber decimalNumberWithString:@"2.0"], nil] retain];
+    iosConsoleSupportedVersions = [NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"2.1"], [NSDecimalNumber decimalNumberWithString:@"2.0"], nil];
 }
 
 - (id)initWithSupportedVersions:(NSArray *)versions apiSecurities:(NSArray *)securities capabilities:(NSArray *)someCapabilities
@@ -48,13 +48,6 @@ static NSArray *iosConsoleSupportedVersions;
     return self;
 }
 
-- (void)dealloc
-{
-    self.supportedVersions = nil;
-    self.apiSecurities = nil;
-    self.capabilities = nil;
-    [super dealloc];
-}
 
 /**
  * Returns the versions that are defined in this Capabilities instance and supported by the iOSConsole, in descending order.
@@ -72,13 +65,12 @@ static NSArray *iosConsoleSupportedVersions;
     NSArray *sortedNumberVersions = [[versions allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO]]];
      
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-    [f setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
+    [f setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     f.minimumFractionDigits = 1; // Ensures 2 is converted to "2.0" string
     NSMutableArray *sortedStringVersions = [NSMutableArray arrayWithCapacity:[sortedNumberVersions count]];
     for (NSDecimalNumber *versionNumber in sortedNumberVersions) {
         [sortedStringVersions addObject:[f stringFromNumber:versionNumber]];
     }
-    [f release];
     
     return [NSArray arrayWithArray:sortedStringVersions];
 }

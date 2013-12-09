@@ -30,8 +30,8 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 
 @interface LabelSubController()
 
-@property (nonatomic, readwrite, retain) UIView *view;
-@property (nonatomic, readonly) ORLabel *label;
+@property (nonatomic, readwrite, strong) UIView *view;
+@property (weak, nonatomic, readonly) ORLabel *label;
 
 @end
 
@@ -53,7 +53,6 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
         uiLabel.font = self.label.font;
         uiLabel.textColor = self.label.textColor;
         self.view = uiLabel;
-        [uiLabel release];
     }
     return self;
 }
@@ -61,7 +60,6 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 - (void)dealloc
 {
     [self.label removeObserver:self forKeyPath:@"text"];
-    [super dealloc];
 }
 
 - (ORLabel *)label

@@ -29,14 +29,6 @@
 
 @implementation ORConsoleSettingsManager
 
-- (void)dealloc
-{
-    [consoleSettings release];
-	[managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
-    [super dealloc];
-}
 
 #pragma mark
 
@@ -54,8 +46,7 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         fetchRequest.entity = [NSEntityDescription entityForName:@"ORConsoleSettings" inManagedObjectContext:self.managedObjectContext];
         NSError *error = nil;
-        consoleSettings = [[[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject] retain];
-        [fetchRequest release];
+        consoleSettings = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
         if (error) {
             NSLog(@"Error reading %@", error);
             // TODO: handle error
@@ -64,7 +55,7 @@
         NSLog(@"auto discover %d ", consoleSettings.autoDiscovery);
         if (!consoleSettings) {
             NSLog(@"Console settings non existant in DB, creating one");
-            consoleSettings = [[NSEntityDescription insertNewObjectForEntityForName:@"ORConsoleSettings" inManagedObjectContext:self.managedObjectContext] retain];
+            consoleSettings = [NSEntityDescription insertNewObjectForEntityForName:@"ORConsoleSettings" inManagedObjectContext:self.managedObjectContext];
 
             // We add the public default controller to the list but we don't select it
             // For now, we let the user choose the controller to use
