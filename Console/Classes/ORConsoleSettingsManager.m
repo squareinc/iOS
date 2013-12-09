@@ -142,8 +142,9 @@
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil URL:storeUrl
-														options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-																 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil] error:&error]) {
+														options:@{NSMigratePersistentStoresAutomaticallyOption : [NSNumber numberWithBool:YES],
+                                                                  NSInferMappingModelAutomaticallyOption : [NSNumber numberWithBool:YES]}
+                                                          error:&error]) {
 
                                                             NSLog(@"Error %@", error);
                                                         // TODO

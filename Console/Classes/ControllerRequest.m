@@ -208,7 +208,9 @@
 
 //          [ORConsoleSettingsManager sharedORConsoleSettingsManager].consoleSettings.selectedController.password = nil; // TODO: move to specific cases, don't always get rid of password
             [[NSNotificationCenter defaultCenter] postNotification:
-             [NSNotification notificationWithName:NotificationPopulateCredentialView object:nil userInfo:[NSDictionary dictionaryWithObject:self forKey:kAuthenticationRequiredControllerRequest]]];
+             [NSNotification notificationWithName:NotificationPopulateCredentialView
+                                           object:nil
+                                         userInfo:@{kAuthenticationRequiredControllerRequest : self}]];
             break;
         }
         default:
