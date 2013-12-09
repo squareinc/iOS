@@ -69,15 +69,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    // TODO: recheck release of those, what about on view unload in case of low memory condition
-    
-    
-    self.imageCache = nil;
-	
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
