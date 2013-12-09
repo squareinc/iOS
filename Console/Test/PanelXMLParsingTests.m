@@ -75,7 +75,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -96,10 +95,7 @@
 								expectedPressedImageName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + image_index++];
 								STAssertTrue([but.pressedImage.src isEqualToString:expectedPressedImageName],@"expected %@, but %@",expectedPressedImageName,but.pressedImage.src);
 							}
-							
-							[expectedDefaultImageName release];
-							[expectedPressedImageName release];
-						}	
+                        }
 					}
 				}				
 			}
@@ -156,11 +152,6 @@
 	STAssertTrue(((Button *)[buts objectAtIndex:8]).navigate.isBack == YES,@"expected %d",YES);
 	STAssertTrue(((Button *)[buts objectAtIndex:9]).navigate.isLogin == YES,@"expected %d",YES);
 	STAssertTrue(((Button *)[buts objectAtIndex:10]).navigate.isLogout == YES,@"expected %d",YES);
-	
-	[cells release];
-    
-    [data release];
-    [parser release];
 }
 
 // panel_grid_switch.xml test
@@ -186,7 +177,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -198,8 +188,6 @@
 							STAssertTrue([theSwitch.onImage.src isEqualToString:expectedOnName],@"expected %@, but %@",expectedOnName,theSwitch.onImage.src);
 							NSString *expectedOffName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];
 							STAssertTrue([theSwitch.offImage.src isEqualToString:expectedOffName],@"expected %@, but %@",expectedOffName,theSwitch.offImage.src);
-							[expectedOnName release];
-							[expectedOffName release];
 							
 							// assert sensor
 							for (int i = 0; i < [theSwitch.sensor.states count]; i++) {
@@ -251,11 +239,6 @@
     NSSet *ids = [NSSet setWithArray:[screen1 pollingComponentsIds]];
     NSSet *expectedIds = [NSSet setWithObjects:@"59", @"60", @"61", @"62", nil];
     STAssertEqualObjects(expectedIds, ids, @"expected 59,60,61,62, but got %@",ids);	
-	
-	[cells release];
-    
-    [data release];
-    [parser release];
 }
 
 // panel_absolute_switch.xml test
@@ -281,7 +264,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Switch class]]) {
 						Switch *theSwitch = (Switch *)abso.component;
@@ -291,9 +273,7 @@
 						STAssertTrue([theSwitch.onImage.src isEqualToString:expectedOnName],@"expected %@, but %@",expectedOnName,theSwitch.onImage.src);
 						NSString *expectedOffName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];
 						STAssertTrue([theSwitch.offImage.src isEqualToString:expectedOffName],@"expected %@, but %@",expectedOffName,theSwitch.offImage.src);
-						[expectedOnName release];
-						[expectedOffName release];
-						
+
 						// assert sensor
 						for (int i = 0; i < [theSwitch.sensor.states count]; i++) {
 							NSString *expectedStateName;
@@ -334,9 +314,6 @@
 	Screen *screen1 = (Screen *)[screens objectAtIndex:0];
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
-    
-    [data release];
-    [parser release];
 }
 
 // panel_grid_slider.xml test
@@ -361,7 +338,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -431,10 +407,6 @@
     NSSet *ids = [NSSet setWithArray:[screen1 pollingComponentsIds]];
     NSSet *expectedIds = [NSSet setWithObjects:@"59", @"60", @"61", @"62", nil];
     STAssertEqualObjects(expectedIds, ids, @"expected 59,60,61,62, but got %@",ids);	
-	[cells release];
-
-    [data release];
-    [parser release];
 
 	NSLog(@"End testParsePanelGridSliderXML");
 }
@@ -460,7 +432,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Slider class]]) {
 						Slider *theSlider = (Slider *)abso.component;
@@ -520,9 +491,6 @@
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
 	
-    [data release];
-    [parser release];
-
 	NSLog(@"End testParsePanelAbsoluteSliderXML");
 }
 
@@ -549,7 +517,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -618,11 +585,6 @@
 	STAssertTrue(((GridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
 	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
 	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
-	
-	[cells release];
-
-    [data release];
-    [parser release];
 
 	NSLog(@"End testParsePanelGridLabelXML");
 }
@@ -649,7 +611,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[ORLabel class]]) {
 						ORLabel *theLabel= (ORLabel *)abso.component;
@@ -709,9 +670,6 @@
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
 	
-    [data release];
-    [parser release];
-
 	NSLog(@"End testParsePanelAbsoluteLabelXML");
 }
 
@@ -739,7 +697,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 
 					NSLog(@"Grid cells count is : %d", grid.cells.count);
 					for (GridCell *cell in grid.cells) {			
@@ -835,11 +792,6 @@
 	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:3]).colspan);
 	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:4]).colspan);
 	
-	[cells release];
-
-    [data release];
-    [parser release];
-
 	NSLog(@"End testParsePanelGridImageXML");
 }
 
@@ -865,7 +817,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
 						Image *theImage= (Image *)abso.component;
@@ -948,9 +899,6 @@
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
 	
-    [data release];
-    [parser release];
-
 	NSLog(@"End testParsePanelAbsoluteImageXML");
 }
 
@@ -1006,7 +954,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
 						Image *theImage= (Image *)abso.component;
@@ -1039,9 +986,6 @@
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
     
-    [data release];
-    [parser release];
-	
 	NSLog(@"End testParsePanelAbsoluteScreenBackgroundimageXML");
 }
 
@@ -1098,7 +1042,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
 						Image *theImage= (Image *)abso.component;
@@ -1130,9 +1073,6 @@
 		STAssertTrue([[groupNames objectAtIndex:i] isEqualToString:[[groups objectAtIndex:i] name]],@"expected %@, but %@",[groupNames objectAtIndex:i],[[groups objectAtIndex:i] name]);
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
-	
-    [data release];
-    [parser release];
 
 	NSLog(@"End testParsePanelRelativeScreenBackgroundimageXML");
 }
@@ -1185,7 +1125,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					if ([abso.component isKindOfClass:[Slider class]]) {
 						Slider *theSlider = (Slider *)abso.component;
@@ -1222,9 +1161,6 @@
 	Screen *screen1 = (Screen *)[screens objectAtIndex:0];
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
-    
-    [data release];
-    [parser release];
 }
 
 // panel_global_tabbar.xml test
@@ -1327,7 +1263,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -1362,9 +1297,6 @@
 		STAssertTrue([[groupNames objectAtIndex:i] isEqualToString:[[groups objectAtIndex:i] name]],@"expected %@, but %@",[groupNames objectAtIndex:i],[[groups objectAtIndex:i] name]);
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
-	
-    [data release];
-    [parser release];
 
 	NSLog(@"End testParsePanelTabbarXML");
 }
@@ -1469,7 +1401,6 @@
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
-					[layoutAttrs release];
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
@@ -1505,9 +1436,6 @@
 		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
 	}
 	
-    [data release];
-    [parser release];
-
 	NSLog(@"End testParsePanelTabbarXML");
 }
 
@@ -1548,9 +1476,6 @@
 	
 	NSLog(@"groups count = %d",[groups count]);
 	NSLog(@"screens count = %d",[screens count]);
-
-    [data release];
-    [parser release];
 
 	NSLog(@"xml parse done");
 }

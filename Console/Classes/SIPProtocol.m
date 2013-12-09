@@ -23,7 +23,7 @@
 
 @interface SIPProtocol()
 
-@property (nonatomic, retain) ClientSideRuntime *clientSideRuntime;
+@property (nonatomic, strong) ClientSideRuntime *clientSideRuntime;
 
 @end
 
@@ -36,12 +36,6 @@
         self.clientSideRuntime = runtime;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    self.clientSideRuntime = nil;
-    [super dealloc];
 }
 
 - (void)executeCommand:(LocalCommand *)command commandType:(NSString *)commandType

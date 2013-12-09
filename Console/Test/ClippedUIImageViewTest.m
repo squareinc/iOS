@@ -52,7 +52,7 @@ static NSString *assertImageHeightString = @"expected image height is %f, but ac
 /* The tearDown method is called automatically after each test-case method (methods whose name starts with 'test').
  */
 - (void) tearDown {
-	[uiView release];
+	uiView = nil;
 }
 
 - (UIImage *) readUIImage:(NSString *) fileName {

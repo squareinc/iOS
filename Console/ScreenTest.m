@@ -65,8 +65,6 @@
     STAssertEquals([dualScreenLandscapeVersion screenIdForOrientation:UIInterfaceOrientationLandscapeRight], 6, @"Landscape version (6) should be used for landscape orientations");
     STAssertEquals([dualScreenLandscapeVersion screenIdForOrientation:UIInterfaceOrientationPortrait], 5, @"Portrait version (5) should be used for portrait orientations");
     STAssertEquals([dualScreenLandscapeVersion screenIdForOrientation:UIInterfaceOrientationPortraitUpsideDown], 5, @"Portrait version (5) should be used for portrait orientations");
-    [data release];
-    [parser release];
 }
 
 @end

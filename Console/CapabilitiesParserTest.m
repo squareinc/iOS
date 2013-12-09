@@ -26,7 +26,7 @@
 
 @interface CapabilitiesParserTest()
 
-@property (nonatomic, retain) CapabilitiesParser *parser;
+@property (nonatomic, strong) CapabilitiesParser *parser;
 
 @end
 
@@ -34,7 +34,7 @@
 
 - (void)setUp
 {
-    self.parser = [[[CapabilitiesParser alloc] init] autorelease];
+    self.parser = [[CapabilitiesParser alloc] init];
 }
 
 - (void)tearDown

@@ -19,15 +19,9 @@
 
 @implementation SensorStatusCacheTest
 
-- (void)dealloc
-{
-    self.statusCache = nil;
-    [super dealloc];
-}
-
 - (void)setUp
 {
-    self.statusCache = [[[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]] autorelease];
+    self.statusCache = [[SensorStatusCache alloc] initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
 }
 
 - (void)tearDown
@@ -42,7 +36,6 @@
     [[mockCenter expect] postNotificationName:[NSString stringWithFormat:NotificationPollingStatusIdFormat, 1] object:cache];
     [cache publishNewValue:@"Value1" forSensorId:1];
     [mockCenter verify];
-    [cache release];
 }
 
 - (void)testReadingValueFromCache

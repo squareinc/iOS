@@ -24,6 +24,6 @@
 
 @interface MockImageLoaderStoringToFile : NSObject <ImageCacheLoader>
 
-@property (nonatomic, retain) UIImage *imageToReturn;
+@property (nonatomic, strong) UIImage *imageToReturn;
 
 @end

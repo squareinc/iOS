@@ -23,12 +23,6 @@
 
 @implementation MockImageLoaderWithNoStorageToFile
 
--(void)dealloc
-{
-    self.imageToReturn = nil;
-    [super dealloc];
-}
-
 - (void)loadImageNamed:(NSString *)name available:(void (^)(UIImage *))availableBlock
 {
     availableBlock(self.imageToReturn);

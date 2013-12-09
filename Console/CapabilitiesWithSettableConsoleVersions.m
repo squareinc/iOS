@@ -27,7 +27,6 @@ static NSArray *consoleVersionsToReport;
 + (void)setConsoleVersionsToReport:(NSArray *)versions
 {
     if (consoleVersionsToReport != versions) {
-        [consoleVersionsToReport release];
         consoleVersionsToReport = [versions copy];
     }
 }

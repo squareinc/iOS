@@ -40,7 +40,7 @@
 - (void)setUp
 {
     self.cachePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d", arc4random()]];
-    self.cache = [[[ImageCache alloc] initWithCachePath:self.cachePath] autorelease];
+    self.cache = [[ImageCache alloc] initWithCachePath:self.cachePath];
     self.image1 = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[ImageCacheTest class]] pathForResource:@"Default" ofType:@"png"]];
 }
 
@@ -128,7 +128,6 @@
     STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"After being loaded, image should be returned imediately when requested");
     
     self.cache.loader = nil;
-    [loader dealloc];
 }
 
 - (void)testGetNotYetCachedImageLoadedViaLoaderWithFileStorage
@@ -148,7 +147,6 @@
     STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"After being loaded, image should be returned imediately when requested");
     
     self.cache.loader = nil;
-    [loader dealloc];
 }
 
 - (void)testForgetImage
