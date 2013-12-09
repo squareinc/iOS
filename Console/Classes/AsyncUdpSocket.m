@@ -258,7 +258,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		theRunLoop = CFRunLoopGetCurrent();
 		
 		// Set default run loop modes
-		theRunLoopModes = @[NSDefaultRunLoopMode];
+		theRunLoopModes = [NSArray arrayWithObject:NSDefaultRunLoopMode];
 		
 		// Attach the sockets to the run loop
 		
