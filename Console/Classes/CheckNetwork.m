@@ -70,13 +70,14 @@
 	// Extract host from server URL to use in reachability test
     NSString *host = [[ServerDefinition serverUrlForController:controller] hostOfURL];
     NSLog(@"Will check IP address %@", host);
-    if ([host isValidIPAddress]) {
-        [[Reachability sharedReachability] setAddress:host];
-    } else {
-        [[Reachability sharedReachability] setHostName:host];
-    }
+    Reachability *reachability = nil;
+//    if ([host isValidIPAddress]) {
+//        reachability = [Reachability reachabilityWithAddress:host];
+//    } else {
+        reachability = [Reachability reachabilityWithHostName:host];
+//    }
 
-    NetworkStatus remoteHostReachability = [[Reachability sharedReachability] remoteHostStatus];
+    NetworkStatus remoteHostReachability = [reachability currentReachabilityStatus];
 	if (remoteHostReachability == NotReachable) {
 		NSLog(@"checkIPAddress status is %d", remoteHostReachability);
 		@throw [CheckNetworkException exceptionWithTitle:@"Check controller ip address Fail" message:@"Your server address is wrong, please check your settings"];
