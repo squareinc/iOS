@@ -23,10 +23,7 @@
 
 @class ORControllerConfig;
 
-@interface ORConsoleSettings : NSManagedObject {
-@private
-    NSArray *controllers;
-}
+@interface ORConsoleSettings : NSManagedObject
 
 - (void)addController:(ORControllerConfig *)controller;
 - (ORControllerConfig *)addControllerForURL:(NSString *)url;

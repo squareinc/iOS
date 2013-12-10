@@ -23,6 +23,8 @@
 
 @interface ORConsoleSettings ()
 
+@property (nonatomic, strong) NSArray *_controllers;
+
 - (void)addUnorderedControllersObject:(ORControllerConfig *)value;
 - (void)removeUnorderedControllersObject:(ORControllerConfig *)value;
 - (void)addUnorderedControllers:(NSSet *)value;
@@ -50,14 +52,14 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	if ([keyPath isEqualToString:@"unorderedControllers"]) {
-		controllers = nil;
+		self._controllers = nil;
 	}
 }
 
 - (void)didTurnInfoFault
 {
 	 // TODO: check that ???? should be release ???
-	controllers = nil;
+	self._controllers = nil;
     [self removeObserver:nil forKeyPath:@"unorderedControllers"];
 }
 
@@ -78,12 +80,12 @@
 
 - (NSArray *)controllers
 {
-    if (controllers == nil) {
+    if (self._controllers == nil) {
         NSMutableArray *temp = [NSMutableArray arrayWithArray:[self.unorderedControllers allObjects]];
 		[temp sortUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES]]];
-        controllers = [[NSArray alloc] initWithArray:temp];
+        self._controllers = [[NSArray alloc] initWithArray:temp];
     }
-    return controllers;
+    return self._controllers;
 }
 
 - (void)addController:(ORControllerConfig *)controller
@@ -111,7 +113,6 @@
     }
     [self removeUnorderedControllersObject:controller];
 }
-
 
 - (void)addUnorderedControllersObject:(ORControllerConfig *)value
 {
@@ -142,5 +143,7 @@
     [[self primitiveValueForKey:@"unorderedControllers"] minusSet:value];
     [self didChangeValueForKey:@"unorderedControllers" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
+
+@synthesize _controllers;
 
 @end
