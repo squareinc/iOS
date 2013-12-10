@@ -23,15 +23,12 @@
 /*
  Exception when checking newwork.
  */
-@interface CheckNetworkException : NSException {
-	NSString *title;    //exception title
-	NSString *message;  //exception message
-}
+@interface CheckNetworkException : NSException
 
 // convenient method to create CheckNetworkException
 + (CheckNetworkException *)exceptionWithTitle:(NSString *)t message:(NSString *)msg; 
 
-@property (nonatomic,copy) NSString *title;
-@property (nonatomic,copy) NSString *message;
+@property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic, copy, readonly) NSString *message;
 
 @end

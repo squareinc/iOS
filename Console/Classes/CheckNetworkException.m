@@ -20,16 +20,23 @@
  */
 #import "CheckNetworkException.h"
 
+@interface CheckNetworkException ()
+
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, copy, readwrite) NSString *message;
+
+@end
 
 @implementation CheckNetworkException
 
-+(CheckNetworkException *)exceptionWithTitle:(NSString *)t message:(NSString *)msg {
++ (CheckNetworkException *)exceptionWithTitle:(NSString *)t message:(NSString *)msg
+{
 	CheckNetworkException *e = [[CheckNetworkException alloc] initWithName:@"checkNetworkException" reason:@"Check Network Fail" userInfo:nil];
 	e.title = t;
 	e.message = msg;
 	return e;
 }
 
-@synthesize title,message;
+@synthesize title, message;
 
 @end
