@@ -30,6 +30,8 @@
 
 @interface ORControllerGroupMembersFetcher ()
 
+@property (nonatomic, strong) NSMutableArray *_members;
+
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) ORControllerConfig *controller;
 @property (nonatomic) BOOL lastRequestWasError;
@@ -45,7 +47,7 @@
 {
     self = [super init];
     if (self) {
-        members = [[NSMutableArray alloc] init];
+        self._members = [[NSMutableArray alloc] init];
         self.controller = aController;
     }
     return self;
@@ -78,7 +80,7 @@
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:receivedData];
         [xmlParser setDelegate:self];
         [xmlParser parse];
-        [self.delegate controller:self.controller fetchGroupMembersDidSucceedWithMembers:[NSArray arrayWithArray:members]];
+        [self.delegate controller:self.controller fetchGroupMembersDidSucceedWithMembers:[NSArray arrayWithArray:self._members]];
     }
 }
 
@@ -137,7 +139,7 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
     if ([elementName isEqualToString:@"server"]) {
-        [members addObject:[attributeDict valueForKey:@"url"]];
+        [self._members addObject:[attributeDict valueForKey:@"url"]];
     }
 }
 
