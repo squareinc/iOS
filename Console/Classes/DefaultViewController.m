@@ -93,7 +93,7 @@
 
 	//Init the error view with xib
 	errorViewController = [[ErrorViewController alloc] initWithErrorTitle:@"No Group Found" message:@"Please check your setting or define a group with screens first."];
-	[self.view addSubview:errorViewController.view];
+    [self presentErrorViewController];
 	
 	//Init the loading view with xib
 	initViewController = [[InitViewController alloc] init];
@@ -158,7 +158,7 @@
 }
 
 - (void)initGroups {
-	[errorViewController.view removeFromSuperview];
+    [self hideErrorViewController];
 	[initViewController.view removeFromSuperview];
 	
     Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
@@ -170,8 +170,8 @@
 		currentGroupController = gc;
 		[self.view addSubview:currentGroupController.view];
 		[self saveLastGroupIdAndScreenId];
-	} else {		
-		[self.view addSubview:errorViewController.view];		
+	} else {
+        [self presentErrorViewController];
 	}
 }
 
@@ -433,6 +433,20 @@
     } else {
         [initViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     }
+}
+
+- (void)presentErrorViewController
+{
+    [self addChildViewController:errorViewController];
+    [self.view addSubview:errorViewController.view];
+    [errorViewController didMoveToParentViewController:self];
+}
+
+- (void)hideErrorViewController
+{
+    [self willMoveToParentViewController:nil];
+    [errorViewController.view removeFromSuperview];
+    [errorViewController removeFromParentViewController];
 }
 
 #pragma mark Detect the shake motion.
