@@ -106,7 +106,14 @@
 {
     if (self.labels) {
         [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [obj removeObserver:self forKeyPath:@"text"];
+            @try {
+                [obj removeObserver:self forKeyPath:@"text"];
+            } @catch(NSException *e) {
+                // Ignore NSRangeException, would mean we already removed ourself as observer
+                if (![@"NSRangeException" isEqualToString:e.name]) {
+                    @throw e;
+                }
+            }
         }];
     }
 }
