@@ -150,9 +150,7 @@
     self.gotLogin = NO;
     self.loginCondition = [[NSCondition alloc] init];
     dispatch_async(dispatch_get_main_queue(), ^{
-        LoginViewController *lvc = [[LoginViewController alloc] initWithDelegate:self context:nil];
-        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:lvc];
-        [self presentViewController:nc animated:NO completion:NULL];
+        [self presentViewController:[[LoginViewController alloc] initWithDelegate:self] animated:YES completion:NULL];
     });
     
     [self.loginCondition lock];
@@ -167,7 +165,7 @@
 
 - (void)loginViewControllerDidCancelLogin:(LoginViewController *)controller
 {
-    [self dismissViewControllerAnimated:NO completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         [self.loginCondition lock];
         self.gotLogin = YES;
         self._credentials = nil;
@@ -178,7 +176,7 @@
 
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
 {
-    [self dismissViewControllerAnimated:NO completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         [self.loginCondition lock];
         self._credentials = [[ORUserPasswordCredential alloc] initWithUsername:username password:password];
         self.gotLogin = YES;

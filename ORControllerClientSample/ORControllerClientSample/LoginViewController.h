@@ -32,10 +32,14 @@
 /**
  * It's responsible for rendering login view and function of login to remote controller server.
  */
-@interface LoginViewController : UITableViewController <UITextFieldDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 
-- (id)initWithDelegate:(NSObject <LoginViewControllerDelegate> *)aDelegate context:(id)aContext;
+- (id)initWithDelegate:(NSObject <LoginViewControllerDelegate> *)aDelegate;
 
-@property (nonatomic, strong, readonly) id context;
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+- (IBAction)login;
+- (IBAction)cancel;
 
 @end
