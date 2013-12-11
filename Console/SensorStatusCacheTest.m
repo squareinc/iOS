@@ -9,7 +9,7 @@
 #import "SensorStatusCacheTest.h"
 #import "SensorStatusCache.h"
 #import "NotificationConstant.h"
-#import "OCMockObject.h"
+#import <OCMock/OCMock.h>
 
 @interface SensorStatusCacheTest ()
 

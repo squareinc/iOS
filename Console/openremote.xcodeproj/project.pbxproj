@@ -259,6 +259,7 @@
 		914198841802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */; };
 		914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */; };
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
+		91589DFB1858AD080036B7BA /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91589DFA1858AD080036B7BA /* libOCMock.a */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
 		916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
@@ -309,18 +310,6 @@
 		602418E9156FAD40004E5860 /* UITableViewHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewHelperTest.h; sourceTree = "<group>"; };
 		602418EA156FAD40004E5860 /* UITableViewHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewHelperTest.m; sourceTree = "<group>"; };
 		60366C42144DCB9C004FED3B /* OpenRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		603A9109155C13A600E46FA0 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
-		603A910A155C13A700E46FA0 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
-		603A910B155C13A700E46FA0 /* libbcg729.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbcg729.a; sourceTree = "<group>"; };
-		603A910C155C13A800E46FA0 /* libmsbcg729.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsbcg729.a; sourceTree = "<group>"; };
-		603A910D155C13A800E46FA0 /* libmssilk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmssilk.a; sourceTree = "<group>"; };
-		603A910E155C13A900E46FA0 /* libmsx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsx264.a; sourceTree = "<group>"; };
-		603A910F155C13A900E46FA0 /* libSKP_SILK_SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSKP_SILK_SDK.a; sourceTree = "<group>"; };
-		603A9110155C13A900E46FA0 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsrtp.a; sourceTree = "<group>"; };
-		603A9111155C13A900E46FA0 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
-		603A9112155C13AA00E46FA0 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvpx.a; sourceTree = "<group>"; };
-		603A9113155C13AA00E46FA0 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
-		603A9114155C13AB00E46FA0 /* libzrtpcpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzrtpcpp.a; sourceTree = "<group>"; };
 		6044316C136EE69200BABA2D /* ORConsoleSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleSettingsManager.h; sourceTree = "<group>"; };
 		6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleSettingsManager.m; sourceTree = "<group>"; };
 		6055687713CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerGroupMembersFetcher.h; sourceTree = "<group>"; };
@@ -360,19 +349,6 @@
 		60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ORAdditions.m"; sourceTree = "<group>"; };
 		60A619601354A92600A7C87E /* NSString+ORAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ORAdditionsTest.h"; path = "Test/NSString+ORAdditionsTest.h"; sourceTree = "<group>"; };
 		60A619611354A92600A7C87E /* NSString+ORAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ORAdditionsTest.m"; path = "Test/NSString+ORAdditionsTest.m"; sourceTree = "<group>"; };
-		60A6197F1355ED9900A7C87E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		60A619811355ED9900A7C87E /* libgsm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgsm.a; sourceTree = "<group>"; };
-		60A619821355ED9900A7C87E /* libilbc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libilbc.a; sourceTree = "<group>"; };
-		60A619831355ED9900A7C87E /* liblinphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblinphone.a; sourceTree = "<group>"; };
-		60A619841355ED9900A7C87E /* libmediastreamer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmediastreamer.a; sourceTree = "<group>"; };
-		60A619851355ED9900A7C87E /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		60A619861355ED9900A7C87E /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
-		60A619871355ED9900A7C87E /* libortp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libortp.a; sourceTree = "<group>"; };
-		60A6198A1355ED9900A7C87E /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeex.a; sourceTree = "<group>"; };
-		60A6198B1355ED9900A7C87E /* libspeexdsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeexdsp.a; sourceTree = "<group>"; };
-		60A6198C1355ED9900A7C87E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		60A61A731355EFB000A7C87E /* libmsamr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsamr.a; sourceTree = "<group>"; };
-		60A61A741355EFB000A7C87E /* libmsilbc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmsilbc.a; sourceTree = "<group>"; };
 		60A61A7D1355F15000A7C87E /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		60AA14B613E9653E008ACE4A /* ControllerButtonAPI_v2_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerButtonAPI_v2_0.h; sourceTree = "<group>"; };
 		60AA14B713E9653E008ACE4A /* ControllerButtonAPI_v2_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerButtonAPI_v2_0.m; sourceTree = "<group>"; };
@@ -466,13 +442,6 @@
 		60F386EA15541CE90089F8BD /* SensorStatusCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorStatusCache.m; sourceTree = "<group>"; };
 		60F386F6155503820089F8BD /* SensorStatusCacheTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorStatusCacheTest.h; sourceTree = "<group>"; };
 		60F386F7155503820089F8BD /* SensorStatusCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorStatusCacheTest.m; sourceTree = "<group>"; };
-		60F3874215590F840089F8BD /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		60F3874315590F840089F8BD /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		60F3874415590F840089F8BD /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		60F3874515590F840089F8BD /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		60F3874615590F840089F8BD /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		60F3874715590F840089F8BD /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		60F3874815590FC40089F8BD /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		60F8A9CE143DCEBA00176004 /* UIImage+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ORAdditions.h"; sourceTree = "<group>"; };
 		60F8A9CF143DCEBA00176004 /* UIImage+ORAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ORAdditions.m"; sourceTree = "<group>"; };
 		60F8A9D0143DCEBA00176004 /* UIScreen+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+ORAdditions.h"; sourceTree = "<group>"; };
@@ -622,6 +591,13 @@
 		914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockImageLoaderStoringToFile.m; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
+		91589DF31858AD080036B7BA /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		91589DF41858AD080036B7BA /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		91589DF51858AD080036B7BA /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		91589DF61858AD080036B7BA /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		91589DF71858AD080036B7BA /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		91589DF81858AD080036B7BA /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		91589DFA1858AD080036B7BA /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
@@ -664,6 +640,7 @@
 				331A591710AD6D21001AB869 /* SenTestingKit.framework in Frameworks */,
 				8C460F99109566B800C7A686 /* UIKit.framework in Frameworks */,
 				8C460F9A109566B800C7A686 /* Foundation.framework in Frameworks */,
+				91589DFB1858AD080036B7BA /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +691,7 @@
 				6068DE6C13744BF5007746F1 /* CoreGraphics.framework */,
 				6068DE6A13744BC8007746F1 /* QuartzCore.framework */,
 				60A61A7D1355F15000A7C87E /* libresolv.dylib */,
+				91589DEF1858ACF70036B7BA /* OCMock */,
 				8C460E411095527300C7A686 /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -782,32 +760,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				60A6197F1355ED9900A7C87E /* libcrypto.a */,
-				60A619811355ED9900A7C87E /* libgsm.a */,
-				60A619821355ED9900A7C87E /* libilbc.a */,
-				60A619831355ED9900A7C87E /* liblinphone.a */,
-				60A619841355ED9900A7C87E /* libmediastreamer.a */,
-				60A619851355ED9900A7C87E /* libopencore-amrnb.a */,
-				60A619861355ED9900A7C87E /* libopencore-amrwb.a */,
-				60A619871355ED9900A7C87E /* libortp.a */,
-				60A6198A1355ED9900A7C87E /* libspeex.a */,
-				60A6198B1355ED9900A7C87E /* libspeexdsp.a */,
-				60A6198C1355ED9900A7C87E /* libssl.a */,
-				60A61A731355EFB000A7C87E /* libmsamr.a */,
-				60A61A741355EFB000A7C87E /* libmsilbc.a */,
-				603A9109155C13A600E46FA0 /* libavcodec.a */,
-				603A910A155C13A700E46FA0 /* libavutil.a */,
-				603A910B155C13A700E46FA0 /* libbcg729.a */,
-				603A910C155C13A800E46FA0 /* libmsbcg729.a */,
-				603A910D155C13A800E46FA0 /* libmssilk.a */,
-				603A910E155C13A900E46FA0 /* libmsx264.a */,
-				603A910F155C13A900E46FA0 /* libSKP_SILK_SDK.a */,
-				603A9110155C13A900E46FA0 /* libsrtp.a */,
-				603A9111155C13A900E46FA0 /* libswscale.a */,
-				603A9112155C13AA00E46FA0 /* libvpx.a */,
-				603A9113155C13AA00E46FA0 /* libx264.a */,
-				603A9114155C13AB00E46FA0 /* libzrtpcpp.a */,
-				60F3874815590FC40089F8BD /* libOCMock.a */,
 				33981B3410B119BC0076DB59 /* libsqlite3.dylib */,
 				331A591510AD6D21001AB869 /* SenTestingKit.framework */,
 				8CB33E4D0FCA4AE400B010DF /* CoreGraphics.framework */,
@@ -1012,19 +964,6 @@
 			name = "Client Side Protocols";
 			sourceTree = "<group>";
 		};
-		60F3874115590F840089F8BD /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				60F3874215590F840089F8BD /* NSNotificationCenter+OCMAdditions.h */,
-				60F3874315590F840089F8BD /* OCMArg.h */,
-				60F3874415590F840089F8BD /* OCMConstraint.h */,
-				60F3874515590F840089F8BD /* OCMock.h */,
-				60F3874615590F840089F8BD /* OCMockObject.h */,
-				60F3874715590F840089F8BD /* OCMockRecorder.h */,
-			);
-			path = OCMock;
-			sourceTree = "<group>";
-		};
 		8C267AB10FD27DE20054743E /* exception */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,7 +981,6 @@
 			isa = PBXGroup;
 			children = (
 				602418C0156E536B004E5860 /* capabilities */,
-				60F3874115590F840089F8BD /* OCMock */,
 				60F3868115517BEB0089F8BD /* helper */,
 				8CEFDAEF11BF444100CEDC24 /* util */,
 				338C3CD210D60F3F0029D62B /* view */,
@@ -1277,6 +1215,52 @@
 				60AA14C313E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.m */,
 			);
 			name = config;
+			sourceTree = "<group>";
+		};
+		91589DEF1858ACF70036B7BA /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				91589DF01858AD080036B7BA /* usr */,
+			);
+			name = OCMock;
+			sourceTree = "<group>";
+		};
+		91589DF01858AD080036B7BA /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				91589DF11858AD080036B7BA /* include */,
+				91589DF91858AD080036B7BA /* lib */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		91589DF11858AD080036B7BA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				91589DF21858AD080036B7BA /* OCMock */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		91589DF21858AD080036B7BA /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				91589DF31858AD080036B7BA /* NSNotificationCenter+OCMAdditions.h */,
+				91589DF41858AD080036B7BA /* OCMArg.h */,
+				91589DF51858AD080036B7BA /* OCMConstraint.h */,
+				91589DF61858AD080036B7BA /* OCMock.h */,
+				91589DF71858AD080036B7BA /* OCMockObject.h */,
+				91589DF81858AD080036B7BA /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		91589DF91858AD080036B7BA /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				91589DFA1858AD080036B7BA /* libOCMock.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1733,22 +1717,21 @@
 				GCC_PREFIX_HEADER = openremote_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = API_v2_1;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/usr/include",
+				);
 				INFOPLIST_FILE = "UnitTest-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/OCMock\"",
+					"$(SRCROOT)",
+					/Users/ebariaux/Development/OpenRemote/github/iOS/Console/usr/lib,
 				);
 				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					UIKit,
-					"-ObjC",
 					"-force_load",
-					libOCMock.a,
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-all_load",
 				);
 				PRODUCT_NAME = UnitTest;
 				PROVISIONING_PROFILE = "";
@@ -1813,22 +1796,21 @@
 				GCC_PREFIX_HEADER = openremote_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = NOTAPI_v2_1;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/usr/include",
+				);
 				INFOPLIST_FILE = "UnitTest-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/OCMock\"",
+					"$(SRCROOT)",
+					/Users/ebariaux/Development/OpenRemote/github/iOS/Console/usr/lib,
 				);
 				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					UIKit,
-					"-ObjC",
 					"-force_load",
-					libOCMock.a,
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-all_load",
 				);
 				PRODUCT_NAME = UnitTest;
 				PROVISIONING_PROFILE = "";
