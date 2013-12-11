@@ -20,7 +20,6 @@
  */
 #import "ImageSubController.h"
 #import "ORControllerClient/Image.h"
-#import "ORControllerClient/Label.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
