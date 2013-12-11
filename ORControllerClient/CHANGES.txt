@@ -1,3 +1,10 @@
+Version 0.1.2
+=============
+
+Added authentication support to the client library.
+Updated sample application to support authentication.
+Fixed some import issues in sample project.
+
 Version 0.1.1
 =============
 
