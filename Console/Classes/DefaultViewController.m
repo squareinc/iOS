@@ -438,6 +438,7 @@
 - (void)presentErrorViewController
 {
     [self addChildViewController:errorViewController];
+    errorViewController.view.frame = self.view.bounds;
     [self.view addSubview:errorViewController.view];
     [errorViewController didMoveToParentViewController:self];
 }
