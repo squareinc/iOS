@@ -20,11 +20,11 @@
  */
 
 #import "ORViewController.h"
-#import "ORControllerAddress.h"
-#import "ORController.h"
-#import "ORLabel.h"
-#import "Definition.h"
 #import "LoginViewController.h"
+#import "ORControllerClient/ORControllerAddress.h"
+#import "ORControllerClient/ORController.h"
+#import "ORControllerClient/ORLabel.h"
+#import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORUserPasswordCredential.h"
 
 #define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
