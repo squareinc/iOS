@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2013, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -38,13 +38,11 @@
 	return self;
 }
 
-// Back to the view where loginView was triggered from.
 - (IBAction)cancel
 {
     [self.delegate loginViewControllerDidCancelLogin:self];
 }
 
-// Send sign in request to remote controller server by loginViewController's delegate.
 - (IBAction)login
 {
 	if (self.usernameField.text == nil || self.passwordField.text == nil ||

@@ -50,6 +50,9 @@
     
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:CONTROLLER_ADDRESS]];
     self.orb = [[ORController alloc] initWithControllerAddress:address];
+    
+    // We set ourself as the authenticationManager, we'll provide the credential by asking the user
+    // for a username / password
     self.orb.authenticationManager = self;
     
     [super viewDidLoad];
@@ -145,14 +148,23 @@
     [self.orb disconnect];
 }
 
+#pragma mark - ORAuthenticationManager implementation
+
 - (NSObject <ORCredential> *)credential
 {
     self.gotLogin = NO;
     self.loginCondition = [[NSCondition alloc] init];
+    
+    // "Dummy" implementation for this sample code as no caching is performed.
+    // Any time a credential is required, we'll ask the user
+    
+    // Make sure presenting the login panel is done on the main thread,
+    // as this method call is done on a background thread
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:[[LoginViewController alloc] initWithDelegate:self] animated:YES completion:NULL];
     });
     
+    // As this code is executing in the background, it's safe to block here for some time
     [self.loginCondition lock];
     if (!self.gotLogin) {
         [self.loginCondition wait];
@@ -162,6 +174,8 @@
     
     return self._credentials;
 }
+
+#pragma mark - LoginViewController delegate implementation
 
 - (void)loginViewControllerDidCancelLogin:(LoginViewController *)controller
 {
