@@ -97,7 +97,7 @@
 	
 	//Init the loading view with xib
 	initViewController = [[InitViewController alloc] init];
-	[self.view addSubview:initViewController.view];
+    [self presentInitViewController];
 }
 
 - (void)refreshPolling
@@ -159,7 +159,7 @@
 
 - (void)initGroups {
     [self hideErrorViewController];
-	[initViewController.view removeFromSuperview];
+    [self hideInitViewController];
 	
     Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 	NSArray *groups = [definition groups];
@@ -435,6 +435,8 @@
     }
 }
 
+#pragma mark Child view controller management
+
 - (void)presentErrorViewController
 {
     [self addChildViewController:errorViewController];
@@ -445,9 +447,24 @@
 
 - (void)hideErrorViewController
 {
-    [self willMoveToParentViewController:nil];
+    [errorViewController willMoveToParentViewController:nil];
     [errorViewController.view removeFromSuperview];
     [errorViewController removeFromParentViewController];
+}
+
+- (void)presentInitViewController
+{
+    [self addChildViewController:initViewController];
+    initViewController.view.frame = self.view.bounds;
+    [self.view addSubview:initViewController.view];
+    [initViewController didMoveToParentViewController:self];
+}
+
+- (void)hideInitViewController
+{
+    [initViewController willMoveToParentViewController:nil];
+    [initViewController.view removeFromSuperview];
+    [initViewController removeFromParentViewController];
 }
 
 #pragma mark Detect the shake motion.
