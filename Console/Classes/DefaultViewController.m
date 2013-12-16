@@ -28,6 +28,7 @@
 
 @interface DefaultViewController ()
 
+@property (nonatomic, weak) id _delegate;
 @property (nonatomic, strong) ORConsoleSettingsManager *settingsManager;
 
 @end
@@ -57,7 +58,7 @@
     self = [super init];
     if (self) {
         self.settingsManager = aSettingsManager;
-			theDelegate = delegate;
+			self._delegate = delegate;
 			navigationHistory = [[NSMutableArray alloc] init];
 			
 			//register notifications
@@ -379,7 +380,7 @@
 {
     [self dismissModalViewControllerAnimated:YES];
 
-	[theDelegate performSelector:@selector(updateDidFinished)];
+	[self._delegate performSelector:@selector(updateDidFinished)];
 }
 
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
@@ -398,7 +399,7 @@
     
 	[currentGroupController stopPolling];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
-	[theDelegate performSelector:@selector(checkConfigAndUpdate)];
+	[self._delegate performSelector:@selector(checkConfigAndUpdate)];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];    
 }
 

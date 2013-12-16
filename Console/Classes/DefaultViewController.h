@@ -46,8 +46,6 @@
  * Its view is the root view container of all views related to client.
  */
 @interface DefaultViewController : UIViewController <LoginViewControllerDelegate> {	
-	id theDelegate;
-	
 	InitViewController *initViewController;
 	GroupController *currentGroupController;
 	NSMutableArray *navigationHistory;
