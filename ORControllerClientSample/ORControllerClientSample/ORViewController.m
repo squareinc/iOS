@@ -27,7 +27,9 @@
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORUserPasswordCredential.h"
 
-#define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
+//#define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
+#define CONTROLLER_ADDRESS @"https://localhost:8443/controller"
+
 @interface ORViewController ()
 
 @property (nonatomic, strong) NSArray *labels;
@@ -173,6 +175,11 @@
     self.loginCondition = nil;
     
     return self._credentials;
+}
+
+- (BOOL)acceptServer:(NSURLProtectionSpace *)protectionSpace
+{
+    return YES;
 }
 
 #pragma mark - LoginViewController delegate implementation

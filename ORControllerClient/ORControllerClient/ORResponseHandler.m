@@ -81,11 +81,27 @@
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    if ([NSURLAuthenticationMethodHTTPBasic isEqualToString:[[challenge protectionSpace] authenticationMethod]]) {
-        if (!self.authenticationManager) {
-            [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-        }
-        
+    if (!self.authenticationManager) {
+        [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
+
+    NSURLProtectionSpace *protectionSpace = [challenge protectionSpace];
+    
+    if ([NSURLAuthenticationMethodServerTrust isEqualToString:[protectionSpace authenticationMethod]]
+        && [NSURLProtectionSpaceHTTPS isEqualToString:[protectionSpace protocol]]) {
+
+        // Validating connection over HTTPS, ask authentication manager to accept (or not) server
+        // Make sure that call is done on thread other than main
+        // This allows authentication manager to block while getting credentials from user
+        dispatch_async(dispatch_queue_create("org.openremote.handler.authentication", NULL), ^{
+            if ([self.authenticationManager acceptServer:protectionSpace]) {
+                NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+                [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+            } else {
+                [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+            }
+        });
+    } else if ([NSURLAuthenticationMethodHTTPBasic isEqualToString:[protectionSpace authenticationMethod]]) {
         // Make sure request of credentials is done on thread other than main
         // This allows authentication manager to block while getting credentials from user
         dispatch_async(dispatch_queue_create("org.openremote.handler.authentication", NULL), ^{

@@ -26,6 +26,8 @@
 /**
  * An authentication manager is responsible for providing credentials to be used
  * when communicating with an OR controller that does require some form of authentication.
+ *
+ * It is also responsible to validate server side certificates sent by OR controller.
  */
 @protocol ORAuthenticationManager <NSObject>
 
@@ -46,5 +48,22 @@
  * @return ORCredential credential to use for communication
  */
 - (NSObject <ORCredential> *)credential;
+
+/**
+ * This methods gets called when, during communication with an OR controller,
+ * a server side certificate is used and needs to be trusted.
+ *
+ * The authentication manager must decide whether or not to proceed with the
+ * connection, based on provided information.
+ *
+ * It is guaranteed that this method will be called on a thread other than the main thread,
+ * potentially allowing the authentication manager to block while deciding
+ * (e.g. if asking to the user).
+ *
+ * @param NSURLProtectionSpace The protection space that generates an authentication challenge.
+ *
+ * @return YES if connection to controller should proceed, NO otherwise
+ */
+- (BOOL)acceptServer:(NSURLProtectionSpace *)protectionSpace;
 
 @end
