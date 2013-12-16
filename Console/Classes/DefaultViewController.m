@@ -170,9 +170,7 @@
 	NSLog(@"groups count is %d",groups.count);
 	
 	if (groups.count > 0) {
-		GroupController *gc = [self recoverLastOrCreateGroup];
-		self.currentGroupController = gc;
-		[self.view addSubview:self.currentGroupController.view];
+        [self switchToGroupController:[self recoverLastOrCreateGroup]];
 		[self saveLastGroupIdAndScreenId];
 	} else {
         [self presentErrorViewController];
@@ -258,14 +256,10 @@
 }
 
 - (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController withGroupId:(int)groupId
-{	
-    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-	
-	UIView *v = targetGroupController.view;
-
-	[self.view addSubview:v];
-
-	self.currentGroupController = targetGroupController;
+{
+	[self hideErrorViewController];
+    [self hideInitViewController];
+    [self switchToGroupController:targetGroupController];
 }
 
 - (BOOL)navigateToGroup:(int)groupId toScreen:(int)screenId {
@@ -356,10 +350,7 @@
 
 - (void)refreshView:(id)sender {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
-	for (UIView *view in self.view.subviews) {
-		[view removeFromSuperview];
-	}
-	
+
 	if (self.currentGroupController) {
 		[self.currentGroupController stopPolling];
         self.currentGroupController = nil;
@@ -469,6 +460,21 @@
     [initViewController willMoveToParentViewController:nil];
     [initViewController.view removeFromSuperview];
     [initViewController removeFromParentViewController];
+}
+
+- (void)switchToGroupController:(GroupController *)gc
+{
+    if (self.currentGroupController) {
+        [self.currentGroupController willMoveToParentViewController:nil];
+        [self.currentGroupController.view removeFromSuperview];
+        [self.currentGroupController removeFromParentViewController];
+    }
+    self.currentGroupController = gc;
+    if (gc) {
+        [self addChildViewController:gc];
+        [self.view addSubview:gc.view];
+        [gc didMoveToParentViewController:self];
+    }
 }
 
 #pragma mark Detect the shake motion.
