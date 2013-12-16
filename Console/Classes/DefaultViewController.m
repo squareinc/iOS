@@ -28,7 +28,10 @@
 
 @interface DefaultViewController ()
 
+@property (nonatomic, strong) GroupController *currentGroupController;
+
 @property (nonatomic, weak) NSObject <DefaultViewControllerDelegate> *_delegate;
+
 @property (nonatomic, strong) ORConsoleSettingsManager *settingsManager;
 
 @end
@@ -103,7 +106,7 @@
 
 - (void)refreshPolling
 {
-	[currentGroupController startPolling];
+	[self.currentGroupController startPolling];
 }
 
 /**
@@ -168,8 +171,8 @@
 	
 	if (groups.count > 0) {
 		GroupController *gc = [self recoverLastOrCreateGroup];
-		currentGroupController = gc;
-		[self.view addSubview:currentGroupController.view];
+		self.currentGroupController = gc;
+		[self.view addSubview:self.currentGroupController.view];
 		[self saveLastGroupIdAndScreenId];
 	} else {
         [self presentErrorViewController];
@@ -184,14 +187,14 @@
 }
 
 - (void)navigateToWithHistory:(Navigate *)navi {
-	if (!currentGroupController.group) {
+	if (!self.currentGroupController.group) {
         return;
     }
 
 	// Create the history before navigating so it references the original screen and not the destination
     Navigate *historyNavigate = [[Navigate alloc] init];
-    historyNavigate.fromGroup = currentGroupController.group.groupId;
-    historyNavigate.fromScreen = [currentGroupController currentScreenId];
+    historyNavigate.fromGroup = self.currentGroupController.group.groupId;
+    historyNavigate.fromScreen = [self.currentGroupController currentScreenId];
 
 	if ([self navigateTo:navi]) {
 		[self saveLastGroupIdAndScreenId];
@@ -203,12 +206,12 @@
 }
 
 - (void)saveLastGroupIdAndScreenId {
-	if (currentGroupController.group.groupId == 0 || [currentGroupController currentScreenId] == 0) {
+	if (self.currentGroupController.group.groupId == 0 || [self.currentGroupController currentScreenId] == 0) {
 		return;
 	}
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setObject:[NSString stringWithFormat:@"%d",currentGroupController.group.groupId] forKey:@"lastGroupId"];
-	[userDefaults setObject:[NSString stringWithFormat:@"%d",[currentGroupController currentScreenId]] forKey:@"lastScreenId"];
+	[userDefaults setObject:[NSString stringWithFormat:@"%d",self.currentGroupController.group.groupId] forKey:@"lastGroupId"];
+	[userDefaults setObject:[NSString stringWithFormat:@"%d",[self.currentGroupController currentScreenId]] forKey:@"lastScreenId"];
 	NSLog(@"saveLastGroupIdAndScreenId : groupID %d, screenID %d", [[userDefaults objectForKey:@"lastGroupId"] intValue], [[userDefaults objectForKey:@"lastScreenId"] intValue]);
 }
 
@@ -262,13 +265,13 @@
 
 	[self.view addSubview:v];
 
-	currentGroupController = targetGroupController;
+	self.currentGroupController = targetGroupController;
 }
 
 - (BOOL)navigateToGroup:(int)groupId toScreen:(int)screenId {
 	GroupController *targetGroupController = nil;
 	
-	BOOL isAnotherGroup = groupId != [currentGroupController groupId];
+	BOOL isAnotherGroup = groupId != [self.currentGroupController groupId];
 	
     
     Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
@@ -286,23 +289,23 @@
 			}
 		}
 		
-        [currentGroupController stopPolling];
+        [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController withGroupId:groupId];
 	}
 	
     Screen *screen = nil;
 	if (screenId > 0) {
         // If screenId is specified, jump to that screen
-         screen = [currentGroupController.group findScreenByScreenId:screenId];
+         screen = [self.currentGroupController.group findScreenByScreenId:screenId];
     } else {
         //If only group is specified, then by definition we show the first screen of that group.
-        screen = [currentGroupController.group.screens objectAtIndex:0];
+        screen = [self.currentGroupController.group.screens objectAtIndex:0];
     }
     // First check if we have a screen more appropriate for the current device orientation orientation
     if (screen) {
         screenId = [screen screenIdForOrientation:[[UIDevice currentDevice] orientation]];
     }
-	return [currentGroupController switchToScreen:screenId];
+	return [self.currentGroupController switchToScreen:screenId];
 }
 
 //logout only when password is saved.
@@ -328,11 +331,11 @@
 }
 
 - (BOOL)navigateToPreviousScreen {
-	return [currentGroupController previousScreen];
+	return [self.currentGroupController previousScreen];
 }
 
 - (BOOL)navigateToNextScreen {
-	return [currentGroupController nextScreen];
+	return [self.currentGroupController nextScreen];
 }
 
 //prompts the user to enter a valid user name and password
@@ -357,9 +360,9 @@
 		[view removeFromSuperview];
 	}
 	
-	if (currentGroupController) {
-		[currentGroupController stopPolling];
-        currentGroupController = nil;
+	if (self.currentGroupController) {
+		[self.currentGroupController stopPolling];
+        self.currentGroupController = nil;
 	}
 	
 	[self initGroups];
@@ -371,7 +374,7 @@
 }
 
 - (BOOL)isLoadingViewGone {
-	return currentGroupController != nil;
+	return self.currentGroupController != nil;
 }
 
 #pragma mark delegate method of LoginViewController
@@ -397,7 +400,7 @@
     
 	[self dismissModalViewControllerAnimated:YES];
     
-	[currentGroupController stopPolling];
+	[self.currentGroupController stopPolling];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
 	[self._delegate checkConfigAndUpdate];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];    
@@ -407,7 +410,7 @@
 
 - (void)performGesture:(Gesture *)gesture {
 	NSLog(@"detected gesture : %@", [gesture toString]);
-	[currentGroupController performGesture:gesture];
+	[self.currentGroupController performGesture:gesture];
 }
 
 #pragma mark Rotation handling
@@ -421,7 +424,7 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	if ([self isLoadingViewGone]) {
-		[currentGroupController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+		[self.currentGroupController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	} else {
 		[initViewController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	}
@@ -430,7 +433,7 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if ([self isLoadingViewGone]) {
-		[currentGroupController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+		[self.currentGroupController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     } else {
         [initViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     }
@@ -477,7 +480,7 @@
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
     if ([self isLoadingViewGone]) {
-		[currentGroupController viewDidAppear:animated];
+		[self.currentGroupController viewDidAppear:animated];
     }
     
 	[self becomeFirstResponder];
