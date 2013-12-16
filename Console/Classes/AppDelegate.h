@@ -27,7 +27,7 @@
  * This is the entrypoint of the application.
  *  After application have been started applicationDidFinishLaunching method will be called.
  */
-@interface AppDelegate : NSObject <UIApplicationDelegate, UpdateControllerDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, UpdateControllerDelegate, DefaultViewControllerDelegate> {
 	
 	GestureWindow *window;
 	DefaultViewController *defaultViewController;

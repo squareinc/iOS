@@ -35,11 +35,9 @@
 
 @interface AppDelegate ()
 
-- (void)updateDidFinished;
 - (void)didUpdate;
 - (void)didUseLocalCache:(NSString *)errorMessage;
 - (void)didUpdateFail:(NSString *)errorMessage;
-- (void)checkConfigAndUpdate;
 
 @property (nonatomic, strong) ImageCache *imageCache;
 
@@ -97,7 +95,7 @@
 }
 
 // this method will be called after UpdateController give a callback.
-- (void)updateDidFinished {
+- (void)updateDidFinish {
 	log4Info(@"----------updateDidFinished------");
     NSLog(@"Is App Launching %d", ([defaultViewController isAppLaunching]));
 
@@ -117,7 +115,7 @@
 
 - (void)didUpdate {
     log4Info(@">>AppDelegate.didUpdate");
-	[self updateDidFinished];
+	[self updateDidFinish];
 }
 
 - (void)didUseLocalCache:(NSString *)errorMessage {
@@ -126,7 +124,7 @@
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Warning" Message:[errorMessage stringByAppendingString:@" Using cached content."]];
-		[self updateDidFinished];
+		[self updateDidFinish];
 	}
 	
 }
@@ -138,7 +136,7 @@
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Update Failed" Message:errorMessage];		
-		[self updateDidFinished];
+		[self updateDidFinish];
 	}
 	
 }

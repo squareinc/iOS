@@ -53,7 +53,7 @@
 	UpdateController *updateController;
 }
 
-- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(id)delegate;
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(NSObject <DefaultViewControllerDelegate> *)delegate;
 
 - (void)initGroups;
 
