@@ -79,7 +79,7 @@
     self._errorHandler(error);
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     if ([NSURLAuthenticationMethodHTTPBasic isEqualToString:[[challenge protectionSpace] authenticationMethod]]) {
         if (!self.authenticationManager) {
