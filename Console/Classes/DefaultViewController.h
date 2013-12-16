@@ -34,6 +34,13 @@
 
 @class ImageCache;
 
+@protocol DefaultViewControllerDelegate <NSObject>
+
+- (void)updateDidFinish;
+- (void)checkConfigAndUpdate;
+
+@end
+
 /**
  * It's responsible for controlling rendering of all views related to client.
  * Its view is the root view container of all views related to client.
