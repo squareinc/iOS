@@ -112,9 +112,15 @@
             [updateOperationQueue addOperation:downloadXmlOperation];
         } errorHandler:^(NSError *error) {
             // TODO
+//            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
+            [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
+            [self connection:nil didFailWithError:error];
         }];
     } errorHandler:^(NSError *error) {
         // TODO
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
+        [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
+        [self connection:nil didFailWithError:error];
     }];
     
     // TODO - EBR : check what needs to be added to queue e.g. updateOperation is not here
