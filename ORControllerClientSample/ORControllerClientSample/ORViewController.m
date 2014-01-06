@@ -39,6 +39,9 @@
 @property (atomic, strong) NSObject <ORCredential> *_credentials;
 @property (atomic, strong) NSCondition *loginCondition;
 
+@property (atomic) BOOL didAcceptCertificate;
+@property (atomic, strong) NSCondition *certificateCondition;
+
 @end
 
 @implementation ORViewController
@@ -179,7 +182,23 @@
 
 - (BOOL)acceptServer:(NSURLProtectionSpace *)protectionSpace
 {
-    return YES;
+    self.didAcceptCertificate = NO;
+    self.certificateCondition = [[NSCondition alloc] init];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[[UIAlertView alloc] initWithTitle:@"Invalid certificate"
+                                    message:[NSString stringWithFormat:@"Certificate for host '%@' can not be validated, do you want to proceed with the connection ?", protectionSpace.host]
+                                   delegate:self
+                          cancelButtonTitle:@"No"
+                          otherButtonTitles:@"Yes", nil] show];
+    });
+
+    [self.certificateCondition lock];
+    [self.certificateCondition wait];
+    [self.certificateCondition unlock];
+    self.certificateCondition = nil;
+    
+    return self.didAcceptCertificate;
 }
 
 #pragma mark - LoginViewController delegate implementation
@@ -204,6 +223,16 @@
         [self.loginCondition signal];
         [self.loginCondition unlock];
     }];
+}
+
+#pragma mark - Alert (certificate accept) delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.certificateCondition lock];
+    self.didAcceptCertificate = (buttonIndex == 1);
+    [self.certificateCondition signal];
+    [self.certificateCondition unlock];
 }
 
 @end
