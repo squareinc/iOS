@@ -83,6 +83,7 @@
 {
     if (!self.authenticationManager) {
         [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+        return;
     }
 
     NSURLProtectionSpace *protectionSpace = [challenge protectionSpace];
