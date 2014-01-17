@@ -120,46 +120,25 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         NSString *maxTrackImageSrc = self.slider.maxTrackImage.src;
         NSString *thumbImageSrc = self.slider.thumbImage.src;
         
-//        UIImage *stretchedLeftTrack = [[self getImageFromCacheByName:minTrackImageSrc] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
-//        UIImage *stretchedRightTrack = [[self getImageFromCacheByName:maxTrackImageSrc] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
         UIImage *stretchedLeftTrack = [self getImageFromCacheByName:minTrackImageSrc];
         UIImage *stretchedRightTrack = [self getImageFromCacheByName:maxTrackImageSrc];
         UIImage *thumbImage = [self getImageFromCacheByName:thumbImageSrc];
         if (stretchedLeftTrack) {
-            [uiSlider setMinimumTrackImage:stretchedLeftTrack]; //  forState:UIControlStateNormal];
-        }/*
-        // Default
-        else {
-            UIImage *sliderDefaultMinTrackImage = [[UIImage imageNamed:@"slider_default_min_track_image_.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
-            [uiSlider setMinimumTrackImage:sliderDefaultMinTrackImage]; // forState:UIControlStateNormal];
-        }*/
+            [uiSlider setMinimumTrackImage:stretchedLeftTrack];
+        }
         if (stretchedRightTrack) {
-            [uiSlider setMaximumTrackImage:stretchedRightTrack]; //  forState:UIControlStateNormal];
-        } /*
-        // Default
-        else {
-            UIImage *sliderDefaultMaxTrackImage = [[UIImage imageNamed:@"slider_default_max_track_image_.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
-            [uiSlider setMaximumTrackImage:sliderDefaultMaxTrackImage]; //  forState:UIControlStateNormal];		
-        }*/
+            [uiSlider setMaximumTrackImage:stretchedRightTrack];
+        }
         
         if (thumbImage) {
-            [uiSlider setThumbImage: thumbImage]; //  forState:UIControlStateNormal];
-            [uiSlider setThumbImage: thumbImage]; //  forState:UIControlStateHighlighted];
-        } /*
-        // Default
-        else {
-            UIImage *sliderDefaultThumbImage = [UIImage imageNamed:@"slider_default_thumb_image_.png"];
-            [uiSlider setThumbImage: sliderDefaultThumbImage]; //  forState:UIControlStateNormal];
-            [uiSlider setThumbImage: sliderDefaultThumbImage]; //  forState:UIControlStateHighlighted];
-        }*/
+            [uiSlider setThumbImage: thumbImage];
+        }
         
-        //	uiSlider.continuous = YES;
         uiSlider.value = 0.0;
         self.currentValue = 0.0;
         
         if (self.slider.vertical) {
             uiSlider.transform = CGAffineTransformMakeRotation(270.0/180*M_PI);
-//            uiSlider.frame = self.frame;
         }
 
         if (!self.slider.passive) {
