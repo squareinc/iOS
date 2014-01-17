@@ -42,8 +42,14 @@
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
-        UIImage *uiImage = [self.imageCache getImageNamed:self.image.src];
-        imageView.image.image = uiImage;
+        UIImage *uiImage = [self.imageCache getImageNamed:self.image.src finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageView.image.image = image;
+            });
+        }];
+        if (uiImage) {
+            imageView.image.image = uiImage;
+        }
         /*
          TODO: re-add font and color properties
         imageView.label.font = [UIFont fontWithName:@"Arial" size:self.image.label.fontSize];

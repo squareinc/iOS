@@ -56,8 +56,18 @@
         self.canUseImage = onImage && offImage;
 
         if (self.canUseImage) {
-            self.onUIImage = [self.imageCache getImageNamed:onImage];
-            self.offUIImage = [self.imageCache getImageNamed:offImage];
+            self.onUIImage = [self.imageCache getImageNamed:onImage finalImageAvailable:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.onUIImage = image;
+                    [self setOn:self.isOn];
+                });
+            }];
+            self.offUIImage = [self.imageCache getImageNamed:offImage finalImageAvailable:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.offUIImage = image;
+                    [self setOn:self.isOn];
+                });
+            }];
             [button.imageView setContentMode:UIViewContentModeCenter];
         } else {
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];

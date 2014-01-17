@@ -48,6 +48,8 @@
 - (void)longPress:(NSTimer *)timer;
 - (void)press:(NSTimer *)timer;
 
+- (void)setClippedImage:(UIImage *)uiImage forState:(UIControlState)state;
+
 @end
 
 @implementation ButtonSubController
@@ -84,17 +86,26 @@
      * Using imageEdgeInsets would be an easier solution to accomplish this but is not available for the background image.
      */
     if (object == self.view) {        
-        UIButton *uiButton = (UIButton *)self.view;
         if (self.button.defaultImage) {
-            UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src];
-            ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:uiImage withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];		
-            [uiButton setBackgroundImage:clippedUIImage forState:UIControlStateNormal];
-            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src];
+            UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src finalImageAvailable:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setClippedImage:image forState:UIControlStateNormal];
+                });
+            }];
+            if (uiImage) {
+                [self setClippedImage:uiImage forState:UIControlStateNormal];
+            }
+            
+            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src finalImageAvailable:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setClippedImage:image forState:UIControlStateHighlighted];
+                });
+            }];
             if (uiImagePressed) {
-                ClippedUIImage *clippedUIImagePressed = [[ClippedUIImage alloc] initWithUIImage:uiImagePressed withinUIView:uiButton imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
-                [uiButton setBackgroundImage:clippedUIImagePressed forState:UIControlStateHighlighted];
+                [self setClippedImage:uiImagePressed forState:UIControlStateHighlighted];
             }
         } else {
+            UIButton *uiButton = (UIButton *)self.view;
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
             [uiButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         }
@@ -176,6 +187,17 @@
 {
     [super commandSendFailed];
     [self cancelTimers];
+}
+
+#pragma mark - Helper
+
+- (void)setClippedImage:(UIImage *)uiImage forState:(UIControlState)state
+{
+    UIButton *uiButton = (UIButton *)self.view;
+    ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:uiImage
+                                                                withinUIView:uiButton
+                                                            imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
+    [uiButton setBackgroundImage:clippedUIImage forState:state];
 }
 
 @synthesize view;
