@@ -49,6 +49,8 @@
 
 #define DEFAULT_TIMEOUT_DURATION 60
 
+static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOContext;
+
 @interface UpdateController ()
 
 @property (nonatomic, strong) ORConsoleSettings *settings;
@@ -69,7 +71,7 @@
 	if (self) {
         self.settings = theSettings;
         definitionManager = [[DefinitionManager alloc] initWithController:self.settings.selectedController];
-        definitionManager.imageCache = self.imageCache;
+        [self addObserver:self forKeyPath:@"imageCache" options:NSKeyValueObservingOptionNew context:UpdateControllerKVOContext];
 		retryTimes = 1;
 	}
 	return self;
@@ -336,6 +338,21 @@
 -(void)dealloc
 {
     self.imageCache = nil;
+    [self removeObserver:self forKeyPath:@"imageCache"];
+}
+
+#pragma mark - KVO implementation
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == UpdateControllerKVOContext) {
+        // Make sure that whatever image cache is set on us is propagated to the definition manager
+        if ([@"imageCache" isEqualToString:keyPath]) {
+            definitionManager.imageCache = self.imageCache;
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @synthesize delegate;
