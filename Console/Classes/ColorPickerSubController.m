@@ -38,8 +38,15 @@
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
-        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src];
-        ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:uiImage];
+        ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:nil];
+        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageView.image = image;
+            });
+        }];
+        if (uiImage) {
+            imageView.image = uiImage;
+        }
         imageView.pickedColorDelegate = self;
         self.view = imageView;
     }

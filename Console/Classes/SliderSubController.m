@@ -89,7 +89,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 - (void)releaseSlider:(UISlider *)sender;
 - (void)touchDownSlider:(UISlider *)sender;
 - (void)clearSliderTipSubviews:(UIImageView *)sliderTipParam;
-- (UIImage *)getImageFromCacheByName:(NSString *)name;
 - (UIImage *)transformToHorizontalWhenVertical:(UIImage *)vImg;
 
 - (void)refreshTip;
@@ -106,13 +105,25 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         
         uiSlider.minimumValue = self.slider.minValue;
         NSString *minimumValueImageSrc = self.slider.minImage.src;
-        UIImage *minimumValueImage = [self getImageFromCacheByName:minimumValueImageSrc];
-        uiSlider.minimumValueImage = minimumValueImage;
+        UIImage *minimumValueImage = [self.imageCache getImageNamed:minimumValueImageSrc finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                uiSlider.minimumValueImage = [self transformToHorizontalWhenVertical:image];
+            });
+        }];
+        if (minimumValueImage) {
+            uiSlider.minimumValueImage = [self transformToHorizontalWhenVertical:minimumValueImage];
+        }
         
         uiSlider.maximumValue = self.slider.maxValue;
         NSString *maximumValueImageSrc = self.slider.maxImage.src;
-        UIImage *maximumValueImage = [self getImageFromCacheByName:maximumValueImageSrc];
-        uiSlider.maximumValueImage = maximumValueImage;
+        UIImage *maximumValueImage = [self.imageCache getImageNamed:maximumValueImageSrc finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                uiSlider.maximumValueImage = [self transformToHorizontalWhenVertical:image];
+            });
+        }];
+        if (maximumValueImage) {
+            uiSlider.maximumValueImage = [self transformToHorizontalWhenVertical:maximumValueImage];
+        }
         
         // TrackImages, thumbImage
         uiSlider.backgroundColor = [UIColor clearColor];
@@ -120,18 +131,31 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         NSString *maxTrackImageSrc = self.slider.maxTrackImage.src;
         NSString *thumbImageSrc = self.slider.thumbImage.src;
         
-        UIImage *stretchedLeftTrack = [self getImageFromCacheByName:minTrackImageSrc];
-        UIImage *stretchedRightTrack = [self getImageFromCacheByName:maxTrackImageSrc];
-        UIImage *thumbImage = [self getImageFromCacheByName:thumbImageSrc];
+        UIImage *stretchedLeftTrack = [self.imageCache getImageNamed:minTrackImageSrc finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [uiSlider setMinimumTrackImage:[self transformToHorizontalWhenVertical:image]];
+            });
+        }];
         if (stretchedLeftTrack) {
-            [uiSlider setMinimumTrackImage:stretchedLeftTrack];
+            [uiSlider setMinimumTrackImage:[self transformToHorizontalWhenVertical:stretchedLeftTrack]];
         }
+
+        UIImage *stretchedRightTrack = [self.imageCache getImageNamed:maxTrackImageSrc finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [uiSlider setMaximumTrackImage:[self transformToHorizontalWhenVertical:image]];
+            });
+        }];
         if (stretchedRightTrack) {
-            [uiSlider setMaximumTrackImage:stretchedRightTrack];
+            [uiSlider setMaximumTrackImage:[self transformToHorizontalWhenVertical:stretchedRightTrack]];
         }
         
+        UIImage *thumbImage = [self.imageCache getImageNamed:thumbImageSrc finalImageAvailable:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [uiSlider setThumbImage:[self transformToHorizontalWhenVertical:image]];
+            });
+        }];
         if (thumbImage) {
-            [uiSlider setThumbImage: thumbImage];
+            [uiSlider setThumbImage:[self transformToHorizontalWhenVertical:thumbImage]];
         }
         
         uiSlider.value = 0.0;
@@ -170,11 +194,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 - (Slider *)slider
 {
     return (Slider *)self.component;
-}
-
-// Get Image from image cache directory with image name.
-- (UIImage *)getImageFromCacheByName:(NSString *)name {
-	return [self transformToHorizontalWhenVertical:[self.imageCache getImageNamed:name]];
 }
 
 // Rotate the specified image from horizontal to vertical.

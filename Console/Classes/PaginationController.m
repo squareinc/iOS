@@ -309,7 +309,15 @@
         // Not using fast iteration but standard for loop to have access to object index
         for (int i = 0; i < [self.tabBar.tabBarItems count]; i++) {
             TabBarItem *item = [self.tabBar.tabBarItems objectAtIndex:i];
-            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.tabBarItemName image:[self.imageCache getImageNamed:item.tabBarItemImage.src] tag:i];
+            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.tabBarItemName image:nil tag:i];
+            UIImage *itemImage = [self.imageCache getImageNamed:item.tabBarItemImage.src finalImageAvailable:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    uiItem.image = image;
+                });
+            }];
+            if (itemImage) {
+                uiItem.image = itemImage;
+            }
             [tmpItems addObject:uiItem];
         }
         self.uiTabBar.items = tmpItems;
