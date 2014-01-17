@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) NSString *cachePath;
 
+@property (nonatomic) dispatch_queue_t queue;
+
 @end
 
 @implementation ImageCache
@@ -48,11 +50,16 @@
             }
         }
         self.cachePath = path;
+        self.queue = dispatch_queue_create("org.openremote.imagecache.loader", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
 
-
+- (void)dealloc
+{
+    dispatch_release(self.queue);
+    self.queue = NULL;
+}
 
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?
 - (void)storeImage:(UIImage *)image named:(NSString *)name
@@ -76,14 +83,18 @@
     }
     if (self.loader) {
         if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
-            [self.loader loadImageNamed:name toPath:[self cacheFilePathForName:name] available:^{
-                availableBlock([self getImageNamed:name]);
-            }];
+            dispatch_async(self.queue, ^{
+                [self.loader loadImageNamed:name toPath:self.cachePath available:^{
+                    availableBlock([self getImageNamed:name]);
+                }];
+            });
         } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
-            [self.loader loadImageNamed:name available:^(UIImage *image) {
-                [self storeImage:image named:name];
-                availableBlock(image);
-            }];
+            dispatch_async(self.queue, ^{
+                [self.loader loadImageNamed:name available:^(UIImage *image) {
+                    [self storeImage:image named:name];
+                    availableBlock(image);
+                }];
+            });
         } else {
             // TODO: should there be an error if loader can not provide image ? -> at least should be logged
         }
