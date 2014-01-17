@@ -108,6 +108,7 @@
         [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
             self.controller.definition = definition;
             
+            self.imageCache.loader = self.controller;
             // For now, once done, trigger download again so "old mechanism" and image download will happen
             [updateOperationQueue addOperation:downloadXmlOperation];
         } errorHandler:^(NSError *error) {
