@@ -35,15 +35,8 @@
 /**
  * It's responsible for controller server  discovery automatically.
  */
-@interface ServerAutoDiscoveryController : NSObject {
-	id <ServerAutoDiscoveryControllerDelagate>delegate;
-    
-	AsyncUdpSocket *udpSocket;
-	AsyncSocket *tcpSever; 
-	NSMutableArray *clients;
-	BOOL isReceiveServerUrl;
-	NSTimer	 *tcpTimer;
-}
+@interface ServerAutoDiscoveryController : NSObject
+
 - (id)initWithConsoleSettings:(ORConsoleSettings *)theSettings delegate:(id <ServerAutoDiscoveryControllerDelagate>)aDelegate;
 
 // TODO EBR : is it OK to have this delegate assign instead of retain ?

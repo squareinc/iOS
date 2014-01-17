@@ -33,6 +33,12 @@
 
 @property (nonatomic, weak) ORConsoleSettings *settings;
 
+@property (nonatomic, strong) AsyncUdpSocket *udpSocket;
+@property (nonatomic, strong) AsyncSocket *tcpSever;
+@property (nonatomic, strong) NSMutableArray *clients;
+@property (nonatomic) BOOL isReceiveServerUrl;
+@property (nonatomic, strong) NSTimer *tcpTimer;
+
 - (void)checkFindServerFail;
 
 @end
@@ -48,10 +54,10 @@
         self.settings = theSettings;
         self.delegate = aDelegate;
 
-		isReceiveServerUrl = NO;
+		self.isReceiveServerUrl = NO;
 		//Store the received TcpClient sockets.
-		clients = [[NSMutableArray alloc] initWithCapacity:1];
-		udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self]; 
+		self.clients = [[NSMutableArray alloc] initWithCapacity:1];
+		self.udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
 		
 		// init the data send to multicast server
 		NSData *d = [@"openremote" dataUsingEncoding:NSUTF8StringEncoding]; 
@@ -60,30 +66,29 @@
 		// init the multicast port
 		UInt16 port = 3333;
 		// Send the data to multicast ip with timeout 3 seconds.
-		[udpSocket sendData:d toHost:host port:port withTimeout:3 tag:0];
-		[udpSocket closeAfterSending];
+		[self.udpSocket sendData:d toHost:host port:port withTimeout:3 tag:0];
+		[self.udpSocket closeAfterSending];
 		
 		// init the tcp server port
 		UInt16 serverPort = 2346;
 		//Setup a tcp server recevice the multicast feedback.
-		tcpSever = [[AsyncSocket alloc] initWithDelegate:self];
-		[tcpSever acceptOnPort:serverPort error:NULL];
+		self.tcpSever = [[AsyncSocket alloc] initWithDelegate:self];
+		[self.tcpSever acceptOnPort:serverPort error:NULL];
 		
 		//Set a timer with 3 interval.
-		tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO];		
+		self.tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO];
 	}
 	return self;
 }
 
 - (void)dealloc
 {
-	if (tcpTimer && [tcpTimer isValid])  {
-		[tcpTimer invalidate];
+	if (self.tcpTimer && [self.tcpTimer isValid])  {
+		[self.tcpTimer invalidate];
 	}
 
-	NSLog(@"clients count is %d", [clients count]);    
-    [clients makeObjectsPerformSelector:@selector(disconnect)];
-	
+	NSLog(@"clients count is %d", [self.clients count]);
+    [self.clients makeObjectsPerformSelector:@selector(disconnect)];
     
     self.settings = nil;
     
@@ -92,21 +97,21 @@
 //after find server		
 - (void)onFindServer:(NSString *)serverUrl
 {
-	isReceiveServerUrl = YES;
+	self.isReceiveServerUrl = YES;
     
     //Disconnect all the tcp client received
-	for(int i = 0; i < [clients count]; i++)
+	for(int i = 0; i < [self.clients count]; i++)
 	{
 		// Call disconnect on the socket,
 		// which will invoke the onSocketDidDisconnect: method,
 		// which will remove the socket from the list.
-		[[clients objectAtIndex:i] disconnect];
-		[clients removeObjectAtIndex:i];
+		[[self.clients objectAtIndex:i] disconnect];
+		[self.clients removeObjectAtIndex:i];
 	}
-	clients = nil;
+	self.clients = nil;
 	
-	[tcpSever disconnectAfterReading];
-	[tcpTimer invalidate];
+	[self.tcpSever disconnectAfterReading];
+	[self.tcpTimer invalidate];
 
     // Only add the server (and report) if not yet known
     for (ORControllerConfig *controller in self.settings.controllers) {
@@ -126,7 +131,7 @@
 //after find server fail
 - (void)onFindServerFail:(NSString *)errorMessage
 {
-	[tcpTimer invalidate];
+	[self.tcpTimer invalidate];
 
 	if (self.delegate && [self.delegate respondsToSelector:@selector(onFindServerFail:)]) {
 		[self.delegate performSelector:@selector(onFindServerFail:) withObject:errorMessage];
@@ -136,10 +141,10 @@
 //check where find server time out.
 - (void)checkFindServerFail
 {
-	if (!isReceiveServerUrl) {
+	if (!self.isReceiveServerUrl) {
 		[self onFindServerFail:@"No Controller detected."];
 	}
-	isReceiveServerUrl = NO;	
+	self.isReceiveServerUrl = NO;
 }
 
 #pragma mark UdpSocket delegate method
@@ -170,7 +175,7 @@
 - (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
 {
 	NSLog(@"receive new socket");
-	[clients addObject:newSocket];
+	[self.clients addObject:newSocket];
 	[newSocket setDelegate:self];
 	[newSocket readDataWithTimeout:10 tag:0];
 }
