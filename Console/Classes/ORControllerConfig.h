@@ -22,6 +22,7 @@
 #import <CoreData/CoreData.h>
 #import "ORControllerGroupMembersFetcher.h"
 #import "ORControllerCapabilitiesFetcher.h"
+#import "ImageCache.h"
 
 @class ORConsoleSettings;
 @class ORGroupMember;
@@ -53,7 +54,7 @@ enum {
 typedef NSInteger ORControllerFetchStatus;
 
 
-@interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate> {
+@interface ORControllerConfig : NSManagedObject <ORControllerGroupMembersFetcherDelegate, ORControllerCapabilitiesFetcherDelegate, ImageCacheLoader> {
 @private
     ORGroupMember *__weak activeGroupMember;
     ORControllerProxy *proxy;

@@ -27,6 +27,9 @@
 #import "SensorStatusCache.h"
 #import "ClientSideRuntime.h"
 
+#import "FileUtils.h"
+#import "ServerDefinition.h"
+
 // From ORControllerClient library
 #import "ORControllerClient/ORController.h"
 #import "ORControllerClient/ORControllerAddress.h"
@@ -196,7 +199,17 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     [[NSNotificationCenter defaultCenter] postNotificationName:kORControllerCapabilitiesFetchStatusChange object:self];
 }
 
-#pragma mark - 
+#pragma mark - ImageCacheLoader
+
+- (void)loadImageNamed:(NSString *)name toPath:(NSString *)path available:(void (^)(void))availableBlock
+{
+    [FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self] stringByAppendingPathComponent:name]
+                          path:path
+                 forController:self];
+    availableBlock();
+}
+
+#pragma mark -
 
 - (void)fetchPanels
 {
