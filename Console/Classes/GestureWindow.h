@@ -24,13 +24,9 @@
 #define MINIMUM_GESTURE_LENGTH      80
 #define MAXIMUM_VARIANCE            40
 
-/**
- * GestureWindow is mainly for receiving the gesture of users in screen.
- */
 @interface GestureWindow : UIWindow {
 	CGPoint previousTouchLocation;
 	LoadingHUDView *loading;
 }
-
 
 @end
