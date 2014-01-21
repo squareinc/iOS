@@ -39,7 +39,8 @@
 
 @implementation GestureWindow
 
-- (id)init {
+- (id)init
+{
 	if (self = [super initWithFrame:[UIScreen mainScreen].bounds]) {
 		self.loading  = [[LoadingHUDView alloc] initWithTitle:@"Loading"];
 		self.loading.center = self.center;

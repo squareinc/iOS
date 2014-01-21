@@ -182,7 +182,8 @@
 /**
  * Assign parameter screen model data to screenViewController.
  */
-- (void)setScreen:(Screen *)s {
+- (void)setScreen:(Screen *)s
+{
 	screen = s;
     [self setupGestureRecognizers];
 	if ([[screen pollingComponentsIds] count] > 0 ) {
