@@ -27,7 +27,7 @@
 /**
  * GestureWindow is mainly for receiving the gesture of users in screen.
  */
-@interface GestureWindow : UIWindow <UIAccelerometerDelegate> {
+@interface GestureWindow : UIWindow {
 	CGPoint previousTouchLocation;
 	id theDelegate;
 	LoadingHUDView *loading;
