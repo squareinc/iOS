@@ -54,7 +54,7 @@
     defaultViewController.imageCache = self.imageCache;
 
 	// Default window for the app
-	window = [[GestureWindow alloc] initWithDelegate:defaultViewController];
+	window = [[GestureWindow alloc] init];
 	[window makeKeyAndVisible];
 	
     window.rootViewController = defaultViewController;

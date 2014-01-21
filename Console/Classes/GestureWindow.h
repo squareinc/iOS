@@ -29,10 +29,8 @@
  */
 @interface GestureWindow : UIWindow {
 	CGPoint previousTouchLocation;
-	id theDelegate;
 	LoadingHUDView *loading;
 }
 
-- (id)initWithDelegate:(id)delegate;
 
 @end

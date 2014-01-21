@@ -46,9 +46,8 @@
 
 @implementation GestureWindow
 
-- (id)initWithDelegate:(id)delegate{
+- (id)init {
 	if (self = [super initWithFrame:[UIScreen mainScreen].bounds]) {
-		theDelegate = delegate;
 		
 		loading  = [[LoadingHUDView alloc] initWithTitle:@"Loading"];
 		loading.center = self.center;
