@@ -21,11 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadingHUDView.h"
 
-#define MINIMUM_GESTURE_LENGTH      80
-#define MAXIMUM_VARIANCE            40
-
 @interface GestureWindow : UIWindow {
-	CGPoint previousTouchLocation;
 	LoadingHUDView *loading;
 }
 
