@@ -28,6 +28,7 @@
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 #import "ScreenSubController.h"
+#import "PollingHelper.h"
 
 @interface ScreenViewController ()
 
@@ -36,6 +37,7 @@
 
 @property (nonatomic, strong) ScreenSubController *screenSubController;
 @property (nonatomic, weak) ORControllerConfig *controller;
+@property (nonatomic, strong) PollingHelper *polling;
 
 @end
 

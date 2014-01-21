@@ -20,7 +20,6 @@
  */
 #import <UIKit/UIKit.h>
 #import "ORControllerClient/Screen.h"
-#import "PollingHelper.h"
 #import "ORControllerClient/Gesture.h"
 #import "ORControllerCommandSender.h"
 
@@ -46,8 +45,6 @@
 - (void)performGesture:(Gesture *)gesture;
 
 @property (nonatomic, strong) Screen *screen;
-@property (nonatomic, strong) PollingHelper *polling;
-
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
