@@ -32,7 +32,6 @@
 @interface ScreenViewController : UIViewController<ORControllerCommandSenderDelegate> {
 	Screen *screen;
 	PollingHelper *polling;
-	CGPoint    gestureStartPoint;
 }
 
 - (id)initWithController:(ORControllerConfig *)aController;
