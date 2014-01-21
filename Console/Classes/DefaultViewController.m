@@ -397,13 +397,6 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];    
 }
 
-#pragma mark delegate method of GestureWindow
-
-- (void)performGesture:(Gesture *)gesture {
-	NSLog(@"detected gesture : %@", [gesture toString]);
-	[self.currentGroupController performGesture:gesture];
-}
-
 #pragma mark Rotation handling
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -497,6 +490,9 @@
 	[super viewWillDisappear:animated];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	if (event.type == UIEventSubtypeMotionShake && [self isLoadingViewGone]) {

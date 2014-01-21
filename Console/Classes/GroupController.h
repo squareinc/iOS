@@ -82,12 +82,6 @@
 - (int)groupId;
 
 /**
- * Perform gesture action. Currently, the gesture should be one action of sliding from left to right, 
- * sliding from right to left, sliding from top to bottom and sliding from bottom to top.
- */
-- (void)performGesture:(Gesture *)gesture;
-
-/**
  * Get the frame of handset's screen and is depending on the current orientation.
  * If current orientation is landscape, the width of returned frame is height of portrait screen 
  * and the height of returned frame is width of portrait screen.

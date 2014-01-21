@@ -71,12 +71,6 @@
  */
 - (void)populateSettingsView:(id)sender;
 
-/**
- * Perform gesture action. Currently, the gesture should be one action of sliding from left to right, 
- * sliding from right to left, sliding from top to bottom and sliding from bottom to top.
- */
-- (void)performGesture:(Gesture *)gesture;
-
 /** 
  * Save id of current group and current screen while initializing groupController 
  * and navigating for recovery of lastScreenView in RootViewController.

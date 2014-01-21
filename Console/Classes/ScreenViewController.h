@@ -42,8 +42,6 @@
  */
 - (void)stopPolling;
 
-- (void)performGesture:(Gesture *)gesture;
-
 @property (nonatomic, strong) Screen *screen;
 @property (nonatomic, weak) ImageCache *imageCache;
 

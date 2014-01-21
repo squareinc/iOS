@@ -247,10 +247,6 @@
 	return [[self currentPaginationController] nextScreen];
 }
 
-- (void)performGesture:(Gesture *)gesture {
-	return [[self currentScreenViewController] performGesture:gesture];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	if (errorViewController.view == self.view) {
 		return YES;

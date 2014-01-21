@@ -66,21 +66,6 @@
     self.screen = nil;
 }
 
-/**
- * Perform gesture action. Currently, the gesture should be one action of sliding from left to right, 
- * sliding from right to left, sliding from top to bottom and sliding from bottom to top.
- */
-- (void)performGesture:(Gesture *)gesture {
-	Gesture * g = [self.screen getGestureIdByGestureSwipeType:gesture.swipeType];
-	if (g) {
-		if (g.hasControlCommand) {
-			[self sendCommandRequest:g];
-		} else if (g.navigate) {
-			[self doNavigate:g.navigate];
-		}
-	}
-}
-
 // Implement loadView to create a view hierarchy programmatically.
 - (void)loadView
 {
