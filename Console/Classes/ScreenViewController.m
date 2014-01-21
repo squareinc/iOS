@@ -39,6 +39,8 @@
 @property (nonatomic, weak) ORControllerConfig *controller;
 @property (nonatomic, strong) PollingHelper *polling;
 
+@property (nonatomic, strong) NSMutableArray *gestureRecognizers;
+
 @end
 
 @implementation ScreenViewController
@@ -48,12 +50,14 @@
     self = [super init];
     if (self) {
         self.controller = aController;
+        self.gestureRecognizers = [[NSMutableArray alloc] initWithCapacity:4];
     }
     return self;
 }
 
 - (void)dealoc
 {
+    [self cleanupGestureRecognizers];
     [self stopPolling];
     self.polling = nil;
 	self.screenSubController = nil;
@@ -111,6 +115,75 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navi];
 }
 
+#pragma mark - Gesture Recognizers handling
+
+- (void)setupGestureRecognizers
+{
+    [self cleanupGestureRecognizers];
+
+    // If there are gestures, this view must allow interaction with it
+    self.view.userInteractionEnabled = ([self.screen.gestures count] > 0);
+
+    for (Gesture *gesture in self.screen.gestures) {
+        UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+        recognizer.direction = [self convertSwipeTypeToGestureRecognizerDirection:gesture.swipeType];
+        
+        recognizer.numberOfTouchesRequired = 1;
+        
+        [self.view addGestureRecognizer:recognizer];
+        [self.gestureRecognizers addObject:recognizer];
+    }
+}
+
+- (void)cleanupGestureRecognizers
+{
+    [self.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self.view removeGestureRecognizer:obj];
+    }];
+    [self.gestureRecognizers removeAllObjects];
+}
+
+- (UISwipeGestureRecognizerDirection)convertSwipeTypeToGestureRecognizerDirection:(GestureSwipeType)swipeType
+{
+    if (swipeType == GestureSwipeTypeBottomToTop) {
+        return UISwipeGestureRecognizerDirectionUp;
+    } else if (swipeType == GestureSwipeTypeTopToBottom) {
+        return UISwipeGestureRecognizerDirectionDown;
+    } else if (swipeType == GestureSwipeTypeLeftToRight) {
+        return UISwipeGestureRecognizerDirectionRight;
+    } else if (swipeType == GestureSwipeTypeRightToLeft) {
+        return UISwipeGestureRecognizerDirectionLeft;
+    }
+    return NSNotFound;
+}
+
+- (GestureSwipeType)convertGestureRecognizerDirectionToSwipeType:(UISwipeGestureRecognizerDirection)direction
+{
+    if (direction == UISwipeGestureRecognizerDirectionUp) {
+        return GestureSwipeTypeBottomToTop;
+    } else if (direction == UISwipeGestureRecognizerDirectionDown) {
+        return GestureSwipeTypeTopToBottom;
+    } else if (direction == UISwipeGestureRecognizerDirectionRight) {
+        return GestureSwipeTypeLeftToRight;
+    } else {
+        return GestureSwipeTypeRightToLeft;
+    }
+}
+
+#pragma mark - Gesture Recognizers action
+
+- (void)handleGesture:(UISwipeGestureRecognizer *)recognizer
+{
+	Gesture * g = [self.screen getGestureIdByGestureSwipeType:[self convertGestureRecognizerDirectionToSwipeType:recognizer.direction]];
+	if (g) {
+		if (g.hasControlCommand) {
+			[self sendCommandRequest:g];
+		} else if (g.navigate) {
+			[self doNavigate:g.navigate];
+		}
+	}
+}
+
 #pragma mark ORControllerCommandSenderDelegate implementation
 
 - (void)commandSendFailed
@@ -126,6 +199,7 @@
  */
 - (void)setScreen:(Screen *)s {
 	screen = s;
+    [self setupGestureRecognizers];
 	if ([[screen pollingComponentsIds] count] > 0 ) {
 		self.polling = [[PollingHelper alloc] initWithController:self.controller
                                                     componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
