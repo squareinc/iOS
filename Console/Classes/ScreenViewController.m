@@ -78,7 +78,8 @@
 }
 
 // Implement loadView to create a view hierarchy programmatically.
-- (void)loadView {
+- (void)loadView
+{
     self.screenSubController = [[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:self.screen];
     self.view = self.screenSubController.view;    
 }
@@ -90,10 +91,12 @@
     [super viewDidUnload];
 }
 
-- (void)startPolling {
+- (void)startPolling
+{
 	[self.polling requestCurrentStatusAndStartPolling];
 }
-- (void)stopPolling {
+- (void)stopPolling
+{
 	[self.polling cancelPolling];
 }
 
@@ -103,11 +106,13 @@
     [self.controller.proxy sendCommand:@"swipe" forComponent:component delegate:nil];
 }
 
-- (void)doNavigate:(Navigate *)navi {
+- (void)doNavigate:(Navigate *)navi
+{
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navi];
 }
 
-- (void)dealoc {
+- (void)dealoc
+{
 	//[screen release];
 	self.screenSubController = nil;
     self.controller = nil;
@@ -120,7 +125,8 @@
 {
 }
 
-@synthesize screen, polling;
+@synthesize screen;
+@synthesize polling;
 @synthesize screenSubController;
 
 @end
