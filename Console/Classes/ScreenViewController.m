@@ -63,18 +63,6 @@
 }
 
 /**
- * Assign parameter screen model data to screenViewController.
- */
-- (void)setScreen:(Screen *)s {
-	screen = s;
-	if ([[screen pollingComponentsIds] count] > 0 ) {
-		self.polling = [[PollingHelper alloc] initWithController:self.controller
-                                               componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
-        self.polling.imageCache = self.imageCache;
-	}
-}
-
-/**
  * Perform gesture action. Currently, the gesture should be one action of sliding from left to right, 
  * sliding from right to left, sliding from top to bottom and sliding from bottom to top.
  */
@@ -132,5 +120,17 @@
 @synthesize screen;
 @synthesize polling;
 @synthesize screenSubController;
+
+/**
+ * Assign parameter screen model data to screenViewController.
+ */
+- (void)setScreen:(Screen *)s {
+	screen = s;
+	if ([[screen pollingComponentsIds] count] > 0 ) {
+		self.polling = [[PollingHelper alloc] initWithController:self.controller
+                                                    componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
+        self.polling.imageCache = self.imageCache;
+	}
+}
 
 @end
