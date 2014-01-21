@@ -19,12 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "GestureWindow.h"
+#import "LoadingHUDView.h"
 #import "NotificationConstant.h"
 
-@interface GestureWindow (Private)
+@interface GestureWindow ()
 
 - (void)showLoading;
 - (void)hideLoading;
+
+@property (nonatomic, strong) LoadingHUDView *loading;
 
 @end
 
@@ -38,8 +41,8 @@
 
 - (id)init {
 	if (self = [super initWithFrame:[UIScreen mainScreen].bounds]) {
-		loading  = [[LoadingHUDView alloc] initWithTitle:@"Loading"];
-		loading.center = self.center;
+		self.loading  = [[LoadingHUDView alloc] initWithTitle:@"Loading"];
+		self.loading.center = self.center;
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoading) name:NotificationShowLoading object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLoading) name:NotificationHideLoading object:nil];
 
@@ -57,16 +60,18 @@
 
 - (void)showLoading
 {
-	if (loading.superview != self) {
-		[self addSubview:loading];
+	if (self.loading.superview != self) {
+		[self addSubview:self.loading];
 	}
-	[loading startAnimating];
+	[self.loading startAnimating];
 }
 
 - (void)hideLoading
 {
-	[loading stopAnimating];
-	[loading removeFromSuperview];
+	[self.loading stopAnimating];
+	[self.loading removeFromSuperview];
 }
+
+@synthesize loading;
 
 @end
