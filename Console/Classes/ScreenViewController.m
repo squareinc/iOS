@@ -52,6 +52,14 @@
     return self;
 }
 
+- (void)dealoc
+{
+	//[screen release];
+	self.screenSubController = nil;
+    self.controller = nil;
+    self.imageCache = nil;
+}
+
 /**
  * Assign parameter screen model data to screenViewController.
  */
@@ -111,14 +119,6 @@
 - (void)doNavigate:(Navigate *)navi
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navi];
-}
-
-- (void)dealoc
-{
-	//[screen release];
-	self.screenSubController = nil;
-    self.controller = nil;
-    self.imageCache = nil;
 }
 
 #pragma mark ORControllerCommandSenderDelegate implementation
