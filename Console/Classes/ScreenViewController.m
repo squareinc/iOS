@@ -54,10 +54,12 @@
 
 - (void)dealoc
 {
-	//[screen release];
+    [self stopPolling];
+    self.polling = nil;
 	self.screenSubController = nil;
     self.controller = nil;
     self.imageCache = nil;
+    self.screen = nil;
 }
 
 /**
