@@ -56,9 +56,9 @@
 - (void)setScreen:(Screen *)s {
 	screen = s;
 	if ([[screen pollingComponentsIds] count] > 0 ) {
-		polling = [[PollingHelper alloc] initWithController:self.controller
+		self.polling = [[PollingHelper alloc] initWithController:self.controller
                                                componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
-        polling.imageCache = self.imageCache;
+        self.polling.imageCache = self.imageCache;
 	}
 }
 
@@ -67,7 +67,7 @@
  * sliding from right to left, sliding from top to bottom and sliding from bottom to top.
  */
 - (void)performGesture:(Gesture *)gesture {
-	Gesture * g = [screen getGestureIdByGestureSwipeType:gesture.swipeType];
+	Gesture * g = [self.screen getGestureIdByGestureSwipeType:gesture.swipeType];
 	if (g) {
 		if (g.hasControlCommand) {
 			[self sendCommandRequest:g];
@@ -79,7 +79,7 @@
 
 // Implement loadView to create a view hierarchy programmatically.
 - (void)loadView {
-    self.screenSubController = [[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:screen];
+    self.screenSubController = [[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:self.screen];
     self.view = self.screenSubController.view;    
 }
 
@@ -91,10 +91,10 @@
 }
 
 - (void)startPolling {
-	[polling requestCurrentStatusAndStartPolling];
+	[self.polling requestCurrentStatusAndStartPolling];
 }
 - (void)stopPolling {
-	[polling cancelPolling];
+	[self.polling cancelPolling];
 }
 
 // Send control command for gesture actions.

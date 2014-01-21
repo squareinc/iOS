@@ -29,10 +29,7 @@
 /**
  * It's responsible for control render of screenView with screen model data.
  */
-@interface ScreenViewController : UIViewController<ORControllerCommandSenderDelegate> {
-	Screen *screen;
-	PollingHelper *polling;
-}
+@interface ScreenViewController : UIViewController<ORControllerCommandSenderDelegate>
 
 - (id)initWithController:(ORControllerConfig *)aController;
 
