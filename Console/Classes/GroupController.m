@@ -282,6 +282,9 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     UIImageView *tmpView = [[UIImageView alloc] initWithImage:[UIImage or_screenshotForWindow:self.view.window]];
+    if (self.maskView) {
+        [self.maskView removeFromSuperview];
+    }
     self.maskView = tmpView;
     [self.view.window addSubview:self.maskView];
 }
