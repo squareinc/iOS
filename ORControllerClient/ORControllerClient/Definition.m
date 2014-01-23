@@ -117,10 +117,15 @@
     [self._labels addObject:label];
 }
 
-- (ORLabel *)findLabelById:(int)labelId {
-    ORObjectIdentifier *searchedId = [[ORObjectIdentifier alloc] initWithIntegerId:labelId];
+- (ORLabel *)findLabelById:(int)labelId
+{
+    return [self findLabelByIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:labelId]];
+}
+
+- (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier
+{
 	for (ORLabel *tempLabel in self._labels) {
-		if ([tempLabel.identifier isEqual:searchedId]) {
+		if ([tempLabel.identifier isEqual:identifier]) {
 			return tempLabel;
 		}
 	}
