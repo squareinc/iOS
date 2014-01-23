@@ -23,6 +23,7 @@
 #import "Component.h"
 
 @class ORObjectIdentifier;
+@class Definition;
 
 /**
  * Abstract parent class of all UI widgets model objects in OR model.
@@ -44,5 +45,12 @@
  * Widget identifier.
  */
 @property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+
+// TODO: this is using legacy object, update to current model when ready
+
+/**
+ * Definition the widget belongs to.
+ */
+@property (nonatomic, weak) Definition *definition;
 
 @end

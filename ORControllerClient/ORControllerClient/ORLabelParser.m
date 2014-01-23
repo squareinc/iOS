@@ -58,6 +58,7 @@
                                                     text:[attributeDict objectForKey:TEXT]];
         self.label.textColor = [UIColor or_ColorWithRGBString:[[attributeDict objectForKey:COLOR] substringFromIndex:1]];
         self.label.font = [UIFont fontWithName:@"Arial" size:[[attributeDict objectForKey:FONT_SIZE] intValue]];
+        self.label.definition = aRegister.definition;
     }
     return self;
 }

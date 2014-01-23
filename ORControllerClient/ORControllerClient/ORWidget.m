@@ -38,4 +38,6 @@
     return self;
 }
 
+@synthesize definition;
+
 @end
