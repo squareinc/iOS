@@ -25,17 +25,21 @@
 
 @property (nonatomic, strong, readwrite) NSObject *component;
 @property (nonatomic, strong, readwrite) NSString *propertyName;
+@property (nonatomic, strong, readwrite) ORSensorStatesMapping *sensorStatesMapping;
 
 @end
 
 @implementation ORSensorLink
 
-- (id)initWithComponent:(NSObject *)aComponent propertyName:(NSString *)aPropertyName
+- (id)initWithComponent:(NSObject *)aComponent
+           propertyName:(NSString *)aPropertyName
+    sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
     self = [super init];
     if (self) {
         self.component = aComponent;
         self.propertyName = aPropertyName;
+        self.sensorStatesMapping = mapping;
     }
     return self;
 }
@@ -54,5 +58,9 @@
 {
     return NSUINTROTATE([self.component hash], NSUINT_BIT / 2) ^ [self.propertyName hash];
 }
+
+@synthesize component;
+@synthesize propertyName;
+@synthesize sensorStatesMapping;
 
 @end

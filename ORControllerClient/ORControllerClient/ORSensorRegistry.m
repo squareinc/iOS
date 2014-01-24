@@ -60,7 +60,7 @@
         components = [NSMutableSet setWithCapacity:1];
         [self._linksPerSensorId setObject:components forKey:[NSNumber numberWithInt:sensor.sensorId]];
     }
-    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName]];
+    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:nil]];
 }
 
 - (NSSet *)sensorLinksForSensorId:(NSNumber *)sensorId

@@ -28,20 +28,20 @@
 - (void)testCreation
 {
     ORLabel *label = [[ORLabel alloc] init];
-    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text"];
+    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
     STAssertNotNil(link, @"Link with component and property name should be instiantiated");
-    link = [[ORSensorLink alloc] initWithComponent:nil propertyName:@"text"];
+    link = [[ORSensorLink alloc] initWithComponent:nil propertyName:@"text" sensorStatesMapping:nil];
     STAssertNotNil(link, @"Link with nil component and property name should be instiantiated");
-    link = [[ORSensorLink alloc] initWithComponent:label propertyName:nil];
+    link = [[ORSensorLink alloc] initWithComponent:label propertyName:nil sensorStatesMapping:nil];
     STAssertNotNil(link, @"Link with component and nil property name should be instiantiated");
-    link = [[ORSensorLink alloc] initWithComponent:nil propertyName:nil];
+    link = [[ORSensorLink alloc] initWithComponent:nil propertyName:nil sensorStatesMapping:nil];
     STAssertNotNil(link, @"Link with nil component and nil property name should be instiantiated");
 }
 
 - (void)testValuesStoredCorrectly
 {
     ORLabel *label = [[ORLabel alloc] init];
-    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text"];
+    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
     STAssertEquals(label, link.component, @"Link component should be label used to create link");
     STAssertEquals(@"text", link.propertyName, @"Link property name should be one used to create link");
 }
@@ -49,23 +49,23 @@
 - (void)testEqualityAndHash
 {
     ORLabel *label = [[ORLabel alloc] init];
-    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text"];
+    ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
     
     STAssertTrue([link isEqual:link], @"Link should be equal to itself");
     STAssertFalse([link isEqual:nil], @"Link should not be equal to nil");
     
-    ORSensorLink *equalLink = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text"];
+    ORSensorLink *equalLink = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
     STAssertTrue([equalLink isEqual:link], @"Links created with same information should be equal");
     STAssertEquals([equalLink hash], [link hash], @"Hashses of links created with same information should be equal");
     
     ORLabel *otherLabel = [[ORLabel alloc] init];
-    ORSensorLink *linkWithDifferentComponent = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"text"];
+    ORSensorLink *linkWithDifferentComponent = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"text" sensorStatesMapping:nil];
     STAssertFalse([linkWithDifferentComponent isEqual:link], @"Links with different component should not be equal");
     
-    ORSensorLink *linkWithDifferentPropertyName = [[ORSensorLink alloc] initWithComponent:label propertyName:@"other"];
+    ORSensorLink *linkWithDifferentPropertyName = [[ORSensorLink alloc] initWithComponent:label propertyName:@"other" sensorStatesMapping:nil];
     STAssertFalse([linkWithDifferentPropertyName isEqual:link], @"Links with different property name should not be equal");
     
-    ORSensorLink *linkWithDifferentComponentAndPropertyName = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"other"];
+    ORSensorLink *linkWithDifferentComponentAndPropertyName = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"other" sensorStatesMapping:nil];
     STAssertFalse([linkWithDifferentComponentAndPropertyName isEqual:link], @"Links with different component and property name should not be equal");
 }
 

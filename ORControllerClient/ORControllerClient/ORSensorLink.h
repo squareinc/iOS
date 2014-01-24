@@ -21,9 +21,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORSensorStatesMapping;
+
 /**
  * Represents a link between a Sensor and a property it updates.
  * This includes the Component and the name of the property.
+ *
+ * It includes an optional sensor states mapping to should be used
+ * to translate the sensor value before assignment to the Component property.
  */
 @interface ORSensorLink : NSObject
 
@@ -33,10 +38,13 @@
  *
  * @param aComponent component the sensor is linked to
  * @param aPropertyName name of the property on the component the sensor updates
+ * @param mapping sensor states mapping used to translate sensor value before assignment
  *
  * @return An ORSensorLink object initialized with the provided values.
  */
-- (id)initWithComponent:(NSObject *)aComponent propertyName:(NSString *)aPropertyName;
+- (id)initWithComponent:(NSObject *)aComponent
+           propertyName:(NSString *)aPropertyName
+    sensorStatesMapping:(ORSensorStatesMapping *)mapping;
 
 /**
  * Component sensor is linked to.
@@ -47,5 +55,10 @@
  * Name of property that gets updated with sensor value.
  */
 @property (nonatomic, strong, readonly) NSString *propertyName;
+
+/**
+ * Sensor states mapping used to translate sensor value before assignment.
+ */
+@property (nonatomic, strong, readonly) ORSensorStatesMapping *sensorStatesMapping;
 
 @end
