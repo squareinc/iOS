@@ -56,4 +56,13 @@
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:0], zeroId, @"Id initiliazed with invalid string should be 0");
 }
 
+- (void)testCopy
+{
+    ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    ORObjectIdentifier *id2 = [id1 copy];
+    STAssertNotNil(id2, @"Copy should create a valid instance");
+    STAssertEqualObjects(id2, id1, @"Copy should be equal to original");
+    STAssertFalse(id1 == id2, @"Copy should not be same instance as original");
+}
+
 @end

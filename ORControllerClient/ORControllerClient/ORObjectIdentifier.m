@@ -57,4 +57,9 @@
     return self._id;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[[self class] allocWithZone:zone] initWithIntegerId:self._id];
+}
+
 @end
