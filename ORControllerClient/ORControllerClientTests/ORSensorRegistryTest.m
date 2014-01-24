@@ -45,7 +45,7 @@
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     Sensor *sensor = [[Sensor alloc] initWithId:[SENSOR_ID_12 intValue]];
     ORLabel *label = [[ORLabel alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after one sensor has been registered");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
     STAssertEquals((NSUInteger)1, [[registry sensorLinksForSensorId:SENSOR_ID_12] count], @"There should be one link for in the registry linked to the sensor");
@@ -63,8 +63,8 @@
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     Sensor *sensor = [[Sensor alloc] initWithId:[SENSOR_ID_12 intValue]];
     ORLabel *label = [[ORLabel alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -74,7 +74,7 @@
     STAssertEquals(@"text", link.propertyName, @"Property in the registry associated with sensor id should be the property the sensor is linked to");
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
-    [registry registerSensor:sensor linkedToComponent:label property:@"other"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"other" sensorStatesMapping:nil];
     
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -86,7 +86,7 @@
                    @"Properties in the registry associated with sensor id should be the properties the sensor is linked to");
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
-    [registry registerSensor:sensor linkedToComponent:label property:@"other"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"other" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -99,7 +99,7 @@
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
     ORLabel *otherLabel = [[ORLabel alloc] init];
-    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -111,7 +111,7 @@
                          @"Links in the registry associated with sensor id should be the ones for the registered sensor");
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
-    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -123,7 +123,7 @@
                          @"Links in the registry associated with sensor id should be the ones for the registered sensor");
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
-    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"other"];
+    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"other" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)1, [[registry sensorIds] count], @"There should be one sensor in registry after registering same sensor multiple times");
     STAssertEqualObjects([NSSet setWithObject:SENSOR_ID_12], [registry sensorIds], @"The sensor id in the registry should be the one of the registered sensor");
@@ -136,10 +136,10 @@
                          @"Links in the registry associated with sensor id should be the ones for the registered sensor");
     STAssertEquals(sensor, [registry sensorWithId:SENSOR_ID_12], @"Registry should return sensor for id of a registered sensor");
 
-    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"other"];
+    [registry registerSensor:sensor linkedToComponent:otherLabel property:@"other" sensorStatesMapping:nil];
     
     Sensor *otherSensor = [[Sensor alloc] initWithId:[SENSOR_ID_13 intValue]];
-    [registry registerSensor:otherSensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:otherSensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)2, [[registry sensorIds] count], @"There should be 2 sensors in registry after registering second sensor");
     STAssertEqualObjects(([NSSet setWithObjects:SENSOR_ID_12, SENSOR_ID_13, nil]),
@@ -160,7 +160,7 @@
                          @"Link in the registry associated with sensor id should be the one for the second registered sensor");
     STAssertEquals(otherSensor, [registry sensorWithId:SENSOR_ID_13], @"Registry should return sensor for id of a second registered sensor");
 
-    [registry registerSensor:otherSensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:otherSensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)2, [[registry sensorIds] count], @"There should be 2 sensors in registry after registering second sensor");
     STAssertEqualObjects(([NSSet setWithObjects:SENSOR_ID_12, SENSOR_ID_13, nil]),
@@ -187,7 +187,7 @@
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
     Sensor *sensor = [[Sensor alloc] initWithId:[SENSOR_ID_12 intValue]];
     ORLabel *label = [[ORLabel alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     [registry clearRegistry];
     STAssertNotNil([registry sensorIds], @"Cleared registry should still return a collection of sensor ids");
     STAssertEquals((NSUInteger)0, [[registry sensorIds] count], @"No sensors should exist after registry has been cleared");

@@ -42,7 +42,7 @@
     Sensor *sensor = [[Sensor alloc] initWithId:1];
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:11] text:@"Initial text"];
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:[[ControllerREST_2_0_0_API alloc] init]
                                                                                  controllerAddress:nil
                                                                                     sensorRegistry:registry];
@@ -75,7 +75,7 @@
     Sensor *sensor = [[Sensor alloc] initWithId:1];
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] text:@"Initial text"];
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text"];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
                                                                                  controllerAddress:nil
                                                                                     sensorRegistry:registry];

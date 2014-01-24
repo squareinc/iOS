@@ -51,7 +51,10 @@
     [self._sensors removeAllObjects];
 }
 
-- (void)registerSensor:(Sensor *)sensor linkedToComponent:(NSObject *)component property:(NSString *)propertyName
+- (void)registerSensor:(Sensor *)sensor
+     linkedToComponent:(NSObject *)component
+              property:(NSString *)propertyName
+   sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
     [self._sensors addObject:sensor];
     [self._sensorsPerId setObject:sensor forKey:[NSNumber numberWithInt:sensor.sensorId]];
@@ -60,7 +63,7 @@
         components = [NSMutableSet setWithCapacity:1];
         [self._linksPerSensorId setObject:components forKey:[NSNumber numberWithInt:sensor.sensorId]];
     }
-    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:nil]];
+    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:mapping]];
 }
 
 - (NSSet *)sensorLinksForSensorId:(NSNumber *)sensorId

@@ -66,7 +66,7 @@
 - (void)endSensorLinkElement:(SensorLinkParser *)parser
 {
     if (parser.sensor) {
-        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.label property:@"text"];
+        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.label property:@"text" sensorStatesMapping:nil];
         
         
         // TODO: why is this done (here ? maybe in SensorState itself ?)

@@ -24,6 +24,7 @@
 @class Component;
 @class Sensor;
 @class ORSensorLink;
+@class ORSensorStatesMapping;
 
 /**
  * Class is responsible to manage the list of known sensors
@@ -45,8 +46,12 @@
  * @param component Component sensor is linked to and will update
  * TODO: for now, component is an NSObject and not a Component because of Label vs ORLabel dichotomy, should fix in the future.
  * @param propertyName name of property on component whose value is updated by sensor
+ * @param mapping sensor states mapping to use to translate sensor value when assigned to component property
  */
-- (void)registerSensor:(Sensor *)sensor linkedToComponent:(NSObject *)component property:(NSString *)propertyName;
+- (void)registerSensor:(Sensor *)sensor
+     linkedToComponent:(NSObject *)component
+              property:(NSString *)propertyName
+   sensorStatesMapping:(ORSensorStatesMapping *)mapping;
 
 /**
  * Returns the list of all links that are registered for a given sensor.

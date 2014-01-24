@@ -77,7 +77,7 @@
 - (void)endSensorLinkElement:(SensorLinkParser *)parser
 {
     if (parser.sensor) {
-        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.image property:@"name"];
+        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.image property:@"name" sensorStatesMapping:nil];
         // TODO : linked to name ?
 //        self.image.sensor = parser.sensor;
 
