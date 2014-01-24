@@ -39,6 +39,9 @@
 		91222D951892B07A00BA0B96 /* ORSensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D931892B07A00BA0B96 /* ORSensorStateParser.m */; };
 		91222D971892B18000BA0B96 /* ORSensorStateParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D961892B18000BA0B96 /* ORSensorStateParserTest.m */; };
 		91222D9A1892BBDB00BA0B96 /* DefinitionParserMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D991892BBDB00BA0B96 /* DefinitionParserMock.m */; };
+		91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D9C1892BD5D00BA0B96 /* ORSensorLinkParserTest.m */; };
+		91222DA11892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
+		91222DA21892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
 		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
 		913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 913699A01850BF310087A55B /* ORUserPasswordCredential.m */; };
 		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
@@ -327,6 +330,10 @@
 		91222D981892B95100BA0B96 /* ORSensorStateParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorStateParserTest.h; sourceTree = "<group>"; };
 		91222D991892BBDB00BA0B96 /* DefinitionParserMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionParserMock.m; sourceTree = "<group>"; };
 		91222D9B1892BBF500BA0B96 /* DefinitionParserMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionParserMock.h; sourceTree = "<group>"; };
+		91222D9C1892BD5D00BA0B96 /* ORSensorLinkParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLinkParserTest.m; sourceTree = "<group>"; };
+		91222D9E1892BD6F00BA0B96 /* ORSensorLinkParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkParserTest.h; sourceTree = "<group>"; };
+		91222D9F1892BE0300BA0B96 /* ORSensorLinkParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkParser.h; sourceTree = "<group>"; };
+		91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLinkParser.m; sourceTree = "<group>"; };
 		9136998E1850A4F50087A55B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		9136998F1850A4F50087A55B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		913699901850A4F50087A55B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -719,6 +726,8 @@
 				91B72FA718903402000B7552 /* ORImageParser.m */,
 				91222D921892B07A00BA0B96 /* ORSensorStateParser.h */,
 				91222D931892B07A00BA0B96 /* ORSensorStateParser.m */,
+				91222D9F1892BE0300BA0B96 /* ORSensorLinkParser.h */,
+				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -745,6 +754,8 @@
 				91222D981892B95100BA0B96 /* ORSensorStateParserTest.h */,
 				91222D991892BBDB00BA0B96 /* DefinitionParserMock.m */,
 				91222D9B1892BBF500BA0B96 /* DefinitionParserMock.h */,
+				91222D9C1892BD5D00BA0B96 /* ORSensorLinkParserTest.m */,
+				91222D9E1892BD6F00BA0B96 /* ORSensorLinkParserTest.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1241,6 +1252,7 @@
 				9190D4D11790143000667A7C /* ORLabel.m in Sources */,
 				9190D4D41790161900667A7C /* ORController.m in Sources */,
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
+				91222DA11892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */,
 				918604B41794435E005DBCD9 /* ORPanel.m in Sources */,
 				9178DF8D1844A31A00E862DF /* ORLabelParser.m in Sources */,
 				918604B9179444D2005DBCD9 /* ORPanelsParser.m in Sources */,
@@ -1349,6 +1361,7 @@
 				91222D911892AEE000BA0B96 /* ORSensor.m in Sources */,
 				9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */,
 				91222D891892659E00BA0B96 /* ORSensorStatesMapping.m in Sources */,
+				91222DA21892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */,
 				91222D8B1892AAA900BA0B96 /* ORSensorStatesMappingTest.m in Sources */,
 				919DDF3917E8A77C00EFDCCA /* ORLabelTest.m in Sources */,
 				910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */,
@@ -1369,6 +1382,7 @@
 				9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
 				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				91222D951892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
+				91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */,
 				91B72FA918903402000B7552 /* ORImageParser.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 				91222D851892631700BA0B96 /* ORSensorState.m in Sources */,
