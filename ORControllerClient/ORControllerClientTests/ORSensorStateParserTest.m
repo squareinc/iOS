@@ -23,16 +23,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "ORSensorStateParser.h"
 #import "ORSensorState.h"
-
-@interface TestParser : DefinitionElementParser
-
-@property (nonatomic, strong) DefinitionElementParser *topLevelParser;
-
-@end
-
-@implementation TestParser
-
-@end
+#import "DefinitionParserMock.h"
 
 @implementation ORSensorStateParserTest
 
@@ -41,7 +32,7 @@
     DefinitionElementParserRegister *depRegistry = [[DefinitionElementParserRegister alloc] init];
     [depRegistry registerParserClass:[ORSensorStateParser class] endSelector:@selector(setTopLevelParser:) forTag:@"state"];
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[@"<state name=\"Name\" value=\"Value\"/>" dataUsingEncoding:NSUTF8StringEncoding]];
-    TestParser *parser = [[TestParser alloc] initWithRegister:depRegistry attributes:nil];
+    DefinitionParserMock *parser = [[DefinitionParserMock alloc] initWithRegister:depRegistry attributes:nil];
     [parser addKnownTag:@"state"];
     [xmlParser setDelegate:parser];
     [xmlParser parse];
