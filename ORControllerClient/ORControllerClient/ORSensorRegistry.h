@@ -25,6 +25,7 @@
 @class Sensor;
 @class ORSensorLink;
 @class ORSensorStatesMapping;
+@class ORObjectIdentifier;
 
 /**
  * Class is responsible to manage the list of known sensors
@@ -55,30 +56,29 @@
 
 /**
  * Returns the list of all links that are registered for a given sensor.
- * 
  *
- * @param sensorId id of sensor
+ * @param sensorIdentifier identifier of sensor
  *
  * @return The list of all ORSensorLink registered for the sensor with given id.
  */
-- (NSSet *)sensorLinksForSensorId:(NSNumber *)sensorId;
+- (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier;
 
 /**
- * Returns the sensor with the given id.
+ * Returns the sensor with the given identifier.
  * This works only for sensors that have been registered with this registry,
  * i.e. it will not work for a sensor that is not linked to any component as it will not have been registered here.
  *
- * @param sensorId id of sensor to lookup
+ * @param sensorIdentifier identifier of sensor to lookup
  *
  * @return Sensor sensor with given it or nil if no such sensor is registered
  */
-- (Sensor *)sensorWithId:(NSNumber *)sensorId;
+- (Sensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier;
 
 /**
- * Returns ids of all registered sensors (encapsulated as NSNumber).
+ * Returns identifiers of all registered sensors (ORObjectIdentifier instances).
  *
- * @return NSSet set with ids (as NSNumber) of all registered sensors
+ * @return NSSet set with ORObjectIdentifiers of all registered sensors
  */
-- (NSSet *)sensorIds;
+- (NSSet *)sensorIdentifiers;
 
 @end

@@ -23,6 +23,7 @@
 #import "ORControllerAddress.h"
 #import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
+#import "ORObjectIdentifier.h"
 #import "Sensor.h"
 #import "ORRESTCall.h"
 #import "ORControllerRESTAPI.h"
@@ -59,11 +60,11 @@
 - (void)start
 {
     // Only poll if there are sensors to poll
-    if (![[self._sensorRegistry sensorIds] count]) {
+    if (![[self._sensorRegistry sensorIdentifiers] count]) {
         return;
     }
     __block void (^sensorPollingBlock)() = ^{
-        self._currentCall = [self._controllerAPI pollSensorIds:[self._sensorRegistry sensorIds]
+        self._currentCall = [self._controllerAPI pollSensorIds:[self._sensorRegistry sensorIdentifiers]
                                 fromDeviceWithIdentifier:@"TODO"
                                                atBaseURL:self._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
@@ -87,7 +88,7 @@
                                       }];
     };
 
-    self._currentCall = [self._controllerAPI statusForSensorIds:[self._sensorRegistry sensorIds]
+    self._currentCall = [self._controllerAPI statusForSensorIds:[self._sensorRegistry sensorIdentifiers]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
                        [self updateComponentsWithSensorValues:sensorValues];
@@ -108,9 +109,9 @@
 {
     // Update properties of linked element
     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-        NSNumber *sensorIdAsNumber = [NSNumber numberWithInt:[sensorId intValue]];
-        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorId:sensorIdAsNumber];
-        Sensor *sensor = [self._sensorRegistry sensorWithId:sensorIdAsNumber];
+        ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithStringId:sensorId];
+        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorIdentifier:sensorIdentifier];
+        Sensor *sensor = [self._sensorRegistry sensorWithIdentifier:sensorIdentifier];
         // "Map" given sensor value according to defined sensor states
         NSString *mappedSensorValue = [sensor stateValueForName:sensorValue];
         // If no mapping, use received sensor value as is
