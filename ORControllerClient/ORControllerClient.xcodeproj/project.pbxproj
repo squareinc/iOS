@@ -35,6 +35,9 @@
 		91222D8D1892ADFB00BA0B96 /* ORSensorStatesMappingTest.h in Resources */ = {isa = PBXBuildFile; fileRef = 91222D8C1892ADFB00BA0B96 /* ORSensorStatesMappingTest.h */; };
 		91222D901892AEE000BA0B96 /* ORSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D8F1892AEE000BA0B96 /* ORSensor.m */; };
 		91222D911892AEE000BA0B96 /* ORSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D8F1892AEE000BA0B96 /* ORSensor.m */; };
+		91222D941892B07A00BA0B96 /* ORSensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D931892B07A00BA0B96 /* ORSensorStateParser.m */; };
+		91222D951892B07A00BA0B96 /* ORSensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D931892B07A00BA0B96 /* ORSensorStateParser.m */; };
+		91222D971892B18000BA0B96 /* ORSensorStateParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D961892B18000BA0B96 /* ORSensorStateParserTest.m */; };
 		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
 		913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 913699A01850BF310087A55B /* ORUserPasswordCredential.m */; };
 		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
@@ -317,6 +320,10 @@
 		91222D8C1892ADFB00BA0B96 /* ORSensorStatesMappingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorStatesMappingTest.h; sourceTree = "<group>"; };
 		91222D8E1892AEE000BA0B96 /* ORSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensor.h; sourceTree = "<group>"; };
 		91222D8F1892AEE000BA0B96 /* ORSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensor.m; sourceTree = "<group>"; };
+		91222D921892B07A00BA0B96 /* ORSensorStateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorStateParser.h; sourceTree = "<group>"; };
+		91222D931892B07A00BA0B96 /* ORSensorStateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorStateParser.m; sourceTree = "<group>"; };
+		91222D961892B18000BA0B96 /* ORSensorStateParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorStateParserTest.m; sourceTree = "<group>"; };
+		91222D981892B95100BA0B96 /* ORSensorStateParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorStateParserTest.h; sourceTree = "<group>"; };
 		9136998E1850A4F50087A55B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		9136998F1850A4F50087A55B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		913699901850A4F50087A55B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -707,6 +714,8 @@
 				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
 				91B72FA618903402000B7552 /* ORImageParser.h */,
 				91B72FA718903402000B7552 /* ORImageParser.m */,
+				91222D921892B07A00BA0B96 /* ORSensorStateParser.h */,
+				91222D931892B07A00BA0B96 /* ORSensorStateParser.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -729,6 +738,8 @@
 				91E5B16417B111C3007EB305 /* StatusValuesParser_2_0_0Test.m */,
 				91CD6A3A17C240A800D5EEE6 /* ORRESTErrorParserTest.h */,
 				91CD6A3B17C240A800D5EEE6 /* ORRESTErrorParserTest.m */,
+				91222D961892B18000BA0B96 /* ORSensorStateParserTest.m */,
+				91222D981892B95100BA0B96 /* ORSensorStateParserTest.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1306,6 +1317,7 @@
 				9193340E179EA2DE0086FEE7 /* ControllerButtonParser.m in Sources */,
 				913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */,
 				9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */,
+				91222D941892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
 				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
@@ -1351,12 +1363,14 @@
 				91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
 				9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
 				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
+				91222D951892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
 				91B72FA918903402000B7552 /* ORImageParser.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 				91222D851892631700BA0B96 /* ORSensorState.m in Sources */,
 				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,
 				91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */,
 				915024B217B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m in Sources */,
+				91222D971892B18000BA0B96 /* ORSensorStateParserTest.m in Sources */,
 				915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */,
 				915024BB17B515FF005D8A02 /* ORRestCallMock.m in Sources */,
 				915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */,
