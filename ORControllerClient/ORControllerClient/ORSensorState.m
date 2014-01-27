@@ -48,7 +48,7 @@
         return NO;
     }
     ORSensorState *other = (ORSensorState *)object;
-    if (other.name != self.name && ![other.name isEqual:self.name]) {
+    if (other.name != self.name && ![other.name isEqualToString:self.name]) {
         return NO;
     }
     if (other.value != self.value && ![other.value isEqualToString:self.value]) {
