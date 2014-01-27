@@ -67,16 +67,6 @@
 {
     if (parser.sensor) {
         [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.label property:@"text" sensorStatesMapping:parser.sensorStatesMapping];
-        
-        
-        // TODO: why is this done (here ? maybe in SensorState itself ?)
-        /*
-         // TODO: re-implement
-         
-        for (SensorState *state in parser.sensor.states) {
-			[self.depRegister.definition addImageName:state.value];
-		}
-         */
     }
 }
 
