@@ -29,6 +29,7 @@
 #import "ORSensorLinkParser.h"
 #import "ORSensor.h"
 #import "ORSensorState.h"
+#import "ORSensorStatesMapping.h"
 #import "XMLEntity.h"
 
 @interface ORImageParser ()
@@ -78,18 +79,11 @@
 {
     if (parser.sensor) {
         [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.image property:@"name" sensorStatesMapping:parser.sensorStatesMapping];
-        // TODO : linked to name ?
-//        self.image.sensor = parser.sensor;
-
-        // TODO: why is this done (here ? maybe in SensorState itself ?)
         
-        /*
-         TODO: re-implement
-         
-        for (SensorState *state in parser.sensor.states) {
-			[self.depRegister.definition addImageName:state.value];
-		}
-         */
+        // Adding all possible image names to definition allows cache to prefetch images if desired
+        [[[parser.sensorStatesMapping stateValues] allObjects] enumerateObjectsUsingBlock:^(id imageName, NSUInteger idx, BOOL *stop) {
+            [self.depRegister.definition addImageName:imageName];
+        }];
     }
 }
 

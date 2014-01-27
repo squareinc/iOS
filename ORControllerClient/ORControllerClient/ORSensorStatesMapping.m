@@ -50,6 +50,11 @@
     return (state)?state.value:nil;
 }
 
+- (NSSet *)stateValues
+{
+    return [NSSet setWithArray:[[self.states allValues] valueForKey:@"value"]];
+}
+
 // TODO: check why case insensitive match was used in original code, is that defined somewhere ?
 
 - (BOOL)isEqual:(id)object

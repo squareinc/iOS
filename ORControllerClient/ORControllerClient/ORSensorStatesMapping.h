@@ -47,4 +47,11 @@
  */
 - (NSString *)stateValueForName:(NSString *)stateName;
 
+/**
+ * Returns the values for all the states in this mapping.
+ *
+ * @return an NSSet with values for all the states
+ */
+- (NSSet *)stateValues;
+
 @end
