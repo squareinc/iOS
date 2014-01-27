@@ -42,6 +42,26 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[ORSensorState class]]) {
+        return NO;
+    }
+    ORSensorState *other = (ORSensorState *)object;
+    if (other.name != self.name && ![other.name isEqual:self.name]) {
+        return NO;
+    }
+    if (other.value != self.value && ![other.value isEqualToString:self.value]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (NSUInteger)hash
+{
+    return NSUINTROTATE([self.name hash], NSUINT_BIT / 2) ^ [self.value hash];
+}
+
 @synthesize name;
 @synthesize value;
 
