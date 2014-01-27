@@ -24,12 +24,12 @@
 #import "ORObjectIdentifier.h"
 
 #import "UIColor+ORAdditions.h"
-#import "SensorLinkParser.h"
+#import "ORSensorLinkParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "SensorState.h"
 #import "XMLEntity.h"
-#import "Sensor.h"
+#import "ORSensor.h"
 
 @interface ORLabelParser ()
 
@@ -63,16 +63,20 @@
     return self;
 }
 
-- (void)endSensorLinkElement:(SensorLinkParser *)parser
+- (void)endSensorLinkElement:(ORSensorLinkParser *)parser
 {
     if (parser.sensor) {
-        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.label property:@"text" sensorStatesMapping:nil];
+        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.label property:@"text" sensorStatesMapping:parser.sensorStatesMapping];
         
         
         // TODO: why is this done (here ? maybe in SensorState itself ?)
+        /*
+         // TODO: re-implement
+         
         for (SensorState *state in parser.sensor.states) {
 			[self.depRegister.definition addImageName:state.value];
 		}
+         */
     }
 }
 

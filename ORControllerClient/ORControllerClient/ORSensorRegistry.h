@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 
 @class Component;
-@class Sensor;
+@class ORSensor;
 @class ORSensorLink;
 @class ORSensorStatesMapping;
 @class ORObjectIdentifier;
@@ -49,7 +49,7 @@
  * @param propertyName name of property on component whose value is updated by sensor
  * @param mapping sensor states mapping to use to translate sensor value when assigned to component property
  */
-- (void)registerSensor:(Sensor *)sensor
+- (void)registerSensor:(ORSensor *)sensor
      linkedToComponent:(NSObject *)component
               property:(NSString *)propertyName
    sensorStatesMapping:(ORSensorStatesMapping *)mapping;
@@ -72,7 +72,7 @@
  *
  * @return Sensor sensor with given it or nil if no such sensor is registered
  */
-- (Sensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier;
+- (ORSensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier;
 
 /**
  * Returns identifiers of all registered sensors (ORObjectIdentifier instances).

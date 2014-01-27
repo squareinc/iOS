@@ -21,7 +21,7 @@
 
 #import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
-#import "Sensor.h"
+#import "ORSensor.h"
 #import "ORObjectIdentifier.h"
 
 @interface ORSensorRegistry ()
@@ -52,17 +52,17 @@
     [self._sensors removeAllObjects];
 }
 
-- (void)registerSensor:(Sensor *)sensor
+- (void)registerSensor:(ORSensor *)sensor
      linkedToComponent:(NSObject *)component
               property:(NSString *)propertyName
    sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
     [self._sensors addObject:sensor];
-    [self._sensorsPerId setObject:sensor forKey:[[ORObjectIdentifier alloc] initWithIntegerId:sensor.sensorId]];
-    NSMutableSet *components = [self._linksPerSensorId objectForKey:[[ORObjectIdentifier alloc] initWithIntegerId:sensor.sensorId]];
+    [self._sensorsPerId setObject:sensor forKey:sensor.identifier];
+    NSMutableSet *components = [self._linksPerSensorId objectForKey:sensor.identifier];
     if (!components) {
         components = [NSMutableSet setWithCapacity:1];
-        [self._linksPerSensorId setObject:components forKey:[[ORObjectIdentifier alloc] initWithIntegerId:sensor.sensorId]];
+        [self._linksPerSensorId setObject:components forKey:sensor.identifier];
     }
     [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:mapping]];
 }
@@ -72,7 +72,7 @@
     return [NSSet setWithSet:[self._linksPerSensorId objectForKey:sensorIdentifier]];
 }
 
-- (Sensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier
+- (ORSensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier
 {
     return [self._sensorsPerId objectForKey:sensorIdentifier];
 }

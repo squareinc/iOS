@@ -26,9 +26,9 @@
 
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
-#import "SensorLinkParser.h"
-#import "Sensor.h"
-#import "SensorState.h"
+#import "ORSensorLinkParser.h"
+#import "ORSensor.h"
+#import "ORSensorState.h"
 #import "XMLEntity.h"
 
 @interface ORImageParser ()
@@ -74,20 +74,22 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
 }
 
-- (void)endSensorLinkElement:(SensorLinkParser *)parser
+- (void)endSensorLinkElement:(ORSensorLinkParser *)parser
 {
     if (parser.sensor) {
-        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.image property:@"name" sensorStatesMapping:nil];
+        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.image property:@"name" sensorStatesMapping:parser.sensorStatesMapping];
         // TODO : linked to name ?
 //        self.image.sensor = parser.sensor;
 
-        NSLog(@"parsed sensor %@", parser.sensor);
-        NSLog(@"states %@", parser.sensor.states);
-        
         // TODO: why is this done (here ? maybe in SensorState itself ?)
+        
+        /*
+         TODO: re-implement
+         
         for (SensorState *state in parser.sensor.states) {
 			[self.depRegister.definition addImageName:state.value];
 		}
+         */
     }
 }
 

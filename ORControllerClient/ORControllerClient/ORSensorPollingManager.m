@@ -24,7 +24,7 @@
 #import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
 #import "ORObjectIdentifier.h"
-#import "Sensor.h"
+#import "ORSensorStatesMapping.h"
 #import "ORRESTCall.h"
 #import "ORControllerRESTAPI.h"
 
@@ -111,14 +111,14 @@
     [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
         ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithStringId:sensorId];
         NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorIdentifier:sensorIdentifier];
-        Sensor *sensor = [self._sensorRegistry sensorWithIdentifier:sensorIdentifier];
-        // "Map" given sensor value according to defined sensor states
-        NSString *mappedSensorValue = [sensor stateValueForName:sensorValue];
-        // If no mapping, use received sensor value as is
-        if (!mappedSensorValue) {
-            mappedSensorValue = sensorValue;
-        }
+
         [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
+            // "Map" given sensor value according to defined sensor states
+            NSString *mappedSensorValue = [link.sensorStatesMapping stateValueForName:sensorValue];
+            // If no mapping, use received sensor value as is
+            if (!mappedSensorValue) {
+                mappedSensorValue = sensorValue;
+            }
             [link.component setValue:mappedSensorValue forKey:link.propertyName];
         }];
     }];

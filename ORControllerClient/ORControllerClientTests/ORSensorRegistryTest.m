@@ -22,7 +22,7 @@
 #import "ORSensorRegistryTest.h"
 #import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
-#import "Sensor.h"
+#import "ORSensor.h"
 #import "ORLabel.h"
 #import "ORObjectIdentifier.h"
 
@@ -44,7 +44,7 @@
 - (void)testRegister
 {
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
-    Sensor *sensor = [[Sensor alloc] initWithId:12];
+    ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     STAssertEquals((NSUInteger)1, [[registry sensorIdentifiers] count], @"There should be one sensor in registry after one sensor has been registered");
@@ -62,7 +62,7 @@
 - (void)testMultipleRegister
 {
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
-    Sensor *sensor = [[Sensor alloc] initWithId:12];
+    ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
@@ -139,7 +139,7 @@
 
     [registry registerSensor:sensor linkedToComponent:otherLabel property:@"other" sensorStatesMapping:nil];
     
-    Sensor *otherSensor = [[Sensor alloc] initWithId:13];
+    ORSensor *otherSensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_13];
     [registry registerSensor:otherSensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
 
     STAssertEquals((NSUInteger)2, [[registry sensorIdentifiers] count], @"There should be 2 sensors in registry after registering second sensor");
@@ -186,7 +186,7 @@
 - (void)testClearRegistry
 {
     ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
-    Sensor *sensor = [[Sensor alloc] initWithId:12];
+    ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     [registry clearRegistry];

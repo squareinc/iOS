@@ -31,14 +31,14 @@
 #import "BackgroundParser.h"
 #import "GridCellParser.h"
 #import "ORLabelParser.h"
-#import "ImageParser.h"
+#import "ORImageParser.h"
 #import "WebParser.h"
 #import "SwitchParser.h"
 #import "SliderParser.h"
 #import "ColorPickerParser.h"
 #import "NavigateParser.h"
-#import "SensorLinkParser.h"
-#import "SensorStateParser.h"
+#import "ORSensorLinkParser.h"
+#import "ORSensorStateParser.h"
 #import "TabBarItemParser.h"
 #import "SensorParser.h"
 #import "CommandParser.h"
@@ -82,9 +82,9 @@
         [self.depRegistry registerParserClass:[BackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];        
         [self.depRegistry registerParserClass:[GridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
         [self.depRegistry registerParserClass:[ORLabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];
-        [self.depRegistry registerParserClass:[ImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
-        [self.depRegistry registerParserClass:[SensorLinkParser class] endSelector:@selector(endSensorLinkElement:) forTag:LINK];
-        [self.depRegistry registerParserClass:[SensorStateParser class] endSelector:@selector(endSensorStateElement:) forTag:STATE];
+        [self.depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
+        [self.depRegistry registerParserClass:[ORSensorLinkParser class] endSelector:@selector(endSensorLinkElement:) forTag:LINK];
+        [self.depRegistry registerParserClass:[ORSensorStateParser class] endSelector:@selector(endSensorStateElement:) forTag:STATE];
         [self.depRegistry registerParserClass:[WebParser class] endSelector:@selector(endWebElement:) forTag:WEB];
 #ifdef API_v2_1
         [self.depRegistry registerParserClass:[ButtonParserAPI_v2_1 class] endSelector:@selector(endButtonElement:) forTag:BUTTON];
