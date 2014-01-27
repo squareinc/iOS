@@ -25,7 +25,8 @@
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 #import "ORSensor.h"
-#import "SensorState.h"
+#import "ORSensorStatesMapping.h"
+#import "ORSensorState.h"
 #import "ControllerREST_2_0_0_API.h"
 #import "ORControllerRESTAPI_ScriptableMock.h"
 
@@ -55,21 +56,16 @@
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"New sensor value"}];    
     STAssertEqualObjects(@"New sensor value", label.text, @"Label text should be updated with sensor value");
     
-    // TODO: redo test
-    
-    /*
-    ORSensorLink *link =
-    sensor.s
-    [sensor.states addObject:[[SensorState alloc] initWithName:@"on" value:@"On Value"]];
-    
+    ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
+    [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On Value"]];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:mapping];
+        
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"off"}];
     STAssertEqualObjects(@"off", label.text, @"Label text should be sensor value when no sensor state matches sensor value");
 
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"on"}];
     STAssertEqualObjects(@"On Value", label.text, @"Label text should be state value when sensor state matches sensor value");
-     */
 }
-
 
 - (void)testAppropriateAPIMethodsCalledOnStart
 {
