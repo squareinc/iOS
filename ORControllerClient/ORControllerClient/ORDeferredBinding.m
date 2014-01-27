@@ -23,8 +23,8 @@
 
 @interface ORDeferredBinding ()
 
-@property (nonatomic, assign, readwrite) ORWidget *enclosingObject;
-@property (nonatomic, assign, readwrite) ORObjectIdentifier *boundComponentId;
+@property (nonatomic, weak, readwrite) ORWidget *enclosingObject;
+@property (nonatomic, strong, readwrite) ORObjectIdentifier *boundComponentId;
 
 @end
 

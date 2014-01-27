@@ -59,11 +59,11 @@
 /**
  * Identifier of the object that will be linked to the enclosing object.
  */
-@property (nonatomic, assign, readonly) ORObjectIdentifier *boundComponentId;
+@property (nonatomic, strong, readonly) ORObjectIdentifier *boundComponentId;
 
 /**
  * Object on which the relationship should be set.
  */
-@property (nonatomic, assign, readonly) ORWidget *enclosingObject; // really ORWidget ?
+@property (nonatomic, weak, readonly) ORWidget *enclosingObject; // really ORWidget ?
 
 @end
