@@ -57,8 +57,10 @@
 
 - (void)dealloc
 {
-    dispatch_release(self.queue);
-    self.queue = NULL;
+    if (self.queue) {
+        dispatch_release(self.queue);
+        self.queue = NULL;
+    }
 }
 
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?
