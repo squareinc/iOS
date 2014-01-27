@@ -64,6 +64,10 @@
         components = [NSMutableSet setWithCapacity:1];
         [self._linksPerSensorId setObject:components forKey:sensor.identifier];
     }
+    NSSet *existingLinks = [components filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"component = %@ AND propertyName = %@", component, propertyName]];
+    if ([existingLinks count]) {
+        [components minusSet:existingLinks];
+    }
     [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:mapping]];
 }
 

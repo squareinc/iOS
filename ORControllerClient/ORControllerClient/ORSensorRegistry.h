@@ -41,7 +41,7 @@
 /**
  * Adds a sensor to the registry, keeping track of the relationship to the component.
  * If sensor exists not linked to that component, dependency is added.
- * If sensor exists and component is already linked to it, calling this method does not do anything.
+ * If sensor exists and component is already linked to it, mapping is updated with new value.
  *
  * @param sensor Sensor linked to component
  * @param component Component sensor is linked to and will update
