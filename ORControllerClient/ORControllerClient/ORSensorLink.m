@@ -20,6 +20,7 @@
  */
 
 #import "ORSensorLink.h"
+#import "ORSensorStatesMapping.h"
 
 @interface ORSensorLink ()
 
@@ -50,13 +51,23 @@
         return NO;
     }
     ORSensorLink *other = (ORSensorLink *)object;
-    return ([other.component isEqual:self.component] &&
-            [other.propertyName isEqualToString:self.propertyName]);
+    if (other.component != self.component && ![other.component isEqual:self.component]) {
+        return NO;
+    }
+    if (other.propertyName != self.propertyName && ![other.propertyName isEqualToString:self.propertyName]) {
+        return NO;
+    }
+    if (other.sensorStatesMapping != self.sensorStatesMapping && ![other.sensorStatesMapping isEqual:self.sensorStatesMapping]) {
+        return NO;
+    }
+    return YES;
 }
 
 - (NSUInteger)hash
 {
-    return NSUINTROTATE([self.component hash], NSUINT_BIT / 2) ^ [self.propertyName hash];
+    return NSUINTROTATE([self.sensorStatesMapping hash], NSUINT_BIT / 2)
+                ^ NSUINTROTATE([self.component hash], NSUINT_BIT / 2)
+                ^ [self.propertyName hash];
 }
 
 @synthesize component;
