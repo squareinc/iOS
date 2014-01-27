@@ -52,4 +52,19 @@
 
 // TODO: check why case insensitive match was used in original code, is that defined somewhere ?
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[ORSensorStatesMapping class]]) {
+        return NO;
+    }
+    ORSensorStatesMapping *other = (ORSensorStatesMapping *)object;
+    return ((other.states == self.states) ||
+            [other.states isEqual:self.states]);
+}
+
+- (NSUInteger)hash
+{
+    return [self.states hash];
+}
+
 @end

@@ -53,4 +53,51 @@
     STAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value2", @"Value for state 'Name' should be 'Value2' after adding the second state");
 }
 
+- (void)testEqualityAndHash
+{
+    ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
+    ORSensorState *state1 = [[ORSensorState alloc] initWithName:@"Name1" value:@"Value1"];
+    [mapping addSensorState:state1];
+    
+    STAssertTrue([mapping isEqual:mapping], @"Mapping should be equal to itself");
+    STAssertFalse([mapping isEqual:nil], @"Mapping should not be equal to nil");
+    
+    ORSensorStatesMapping *equalMapping = [[ORSensorStatesMapping alloc] init];
+    [equalMapping addSensorState:state1];
+    STAssertTrue([equalMapping isEqual:mapping], @"Mappings created with same information should be equal");
+    STAssertEquals([equalMapping hash], [mapping hash], @"Hashses of mappings created with same information should be equal");
+    
+    ORSensorStatesMapping *mappingWithDifferentState = [[ORSensorStatesMapping alloc] init];
+    ORSensorState *state2 = [[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"];
+    [mappingWithDifferentState addSensorState:state2];
+    STAssertFalse([mappingWithDifferentState isEqual:mapping], @"Mappings with different state should not be equal");
+    
+    ORSensorStatesMapping *mappingWithNoState = [[ORSensorStatesMapping alloc] init];
+    STAssertFalse([mappingWithNoState isEqual:mapping], @"Mappings with different number of states should not be equal");
+    
+    ORSensorStatesMapping *mappingWithMoreStates = [[ORSensorStatesMapping alloc] init];
+    [mappingWithMoreStates addSensorState:state1];
+    [mappingWithMoreStates addSensorState:state2];
+    STAssertFalse([mappingWithMoreStates isEqual:mapping], @"Mappings with different number of states should not be equal");
+}
+
+- (void)testEqualityAndHashWithTwoStates
+{
+    ORSensorStatesMapping *mappingWithTwoStates = [[ORSensorStatesMapping alloc] init];
+    ORSensorState *state1 = [[ORSensorState alloc] initWithName:@"Name1" value:@"Value1"];
+    ORSensorState *state2 = [[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"];
+    [mappingWithTwoStates addSensorState:state1];
+    [mappingWithTwoStates addSensorState:state2];
+
+    STAssertTrue([mappingWithTwoStates isEqual:mappingWithTwoStates], @"Mapping should be equal to itself");
+    STAssertFalse([mappingWithTwoStates isEqual:nil], @"Mapping should not be equal to nil");
+    
+    ORSensorStatesMapping *mappingWithTwoStatesInDifferentOrder = [[ORSensorStatesMapping alloc] init];
+    [mappingWithTwoStatesInDifferentOrder addSensorState:state2];
+    [mappingWithTwoStatesInDifferentOrder addSensorState:state1];
+    
+    STAssertTrue([mappingWithTwoStatesInDifferentOrder isEqual:mappingWithTwoStates], @"Mappings created with same states in different order should be equal");
+    STAssertEquals([mappingWithTwoStatesInDifferentOrder hash], [mappingWithTwoStates hash], @"Hashses of mappings created with same states in different order should be equal");
+}
+
 @end
