@@ -95,7 +95,6 @@
 		60366BAF144DCB9C004FED3B /* ControllerException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7EBE310BE773600E15487 /* ControllerException.m */; };
 		60366BB0144DCB9C004FED3B /* GestureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE3FF710C39D1F0096CAC9 /* GestureWindow.m */; };
 		60366BB1144DCB9C004FED3B /* ClippedUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 338D2ED510D8AADB0043BFE9 /* ClippedUIImage.m */; };
-		60366BB2144DCB9C004FED3B /* UIViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 338D306B10D8DD000043BFE9 /* UIViewUtil.m */; };
 		60366BB3144DCB9C004FED3B /* DefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1E07D10DB491400155CC0 /* DefaultViewController.m */; };
 		60366BB4144DCB9C004FED3B /* NSDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33267E7010E47C5B00E3AE42 /* NSDateHelper.m */; };
 		60366BB5144DCB9C004FED3B /* RoundRobinException.m in Sources */ = {isa = PBXBuildFile; fileRef = 33267ED310E4895E00E3AE42 /* RoundRobinException.m */; };
@@ -147,7 +146,6 @@
 		60366C2C144DCB9C004FED3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		6068DE6B13744BC8007746F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DE6A13744BC8007746F1 /* QuartzCore.framework */; };
 		6068DE6D13744BF5007746F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DE6C13744BF5007746F1 /* CoreGraphics.framework */; };
-		6068DE6E13744C11007746F1 /* UIViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 338D306B10D8DD000043BFE9 /* UIViewUtil.m */; };
 		6068DE7913744D1E007746F1 /* DirectoryDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E741095555500C7A686 /* DirectoryDefinition.m */; };
 		6068DE7A13744D27007746F1 /* ServerDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E761095555500C7A686 /* ServerDefinition.m */; };
 		6068DE7B13744D30007746F1 /* CheckNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F2B109562D200C7A686 /* CheckNetwork.m */; };
@@ -282,8 +280,6 @@
 		33267ED310E4895E00E3AE42 /* RoundRobinException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundRobinException.m; sourceTree = "<group>"; };
 		338D2ED410D8AADB0043BFE9 /* ClippedUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClippedUIImage.h; sourceTree = "<group>"; };
 		338D2ED510D8AADB0043BFE9 /* ClippedUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClippedUIImage.m; sourceTree = "<group>"; };
-		338D306A10D8DD000043BFE9 /* UIViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewUtil.h; sourceTree = "<group>"; };
-		338D306B10D8DD000043BFE9 /* UIViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewUtil.m; sourceTree = "<group>"; };
 		33981B3410B119BC0076DB59 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		6010DE3813FE7B46001E6AA9 /* StyleValue1TextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleValue1TextEntryCell.h; sourceTree = "<group>"; };
 		6010DE3913FE7B47001E6AA9 /* StyleValue1TextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleValue1TextEntryCell.m; sourceTree = "<group>"; };
@@ -1000,8 +996,6 @@
 				8C72E7150F541FAB006CC0DF /* StringUtils.m */,
 				8CC6364C10BD37D8009C25C9 /* CredentialUtil.h */,
 				8CC6364D10BD37D8009C25C9 /* CredentialUtil.m */,
-				338D306A10D8DD000043BFE9 /* UIViewUtil.h */,
-				338D306B10D8DD000043BFE9 /* UIViewUtil.m */,
 				60A619591354A24900A7C87E /* NSString+ORAdditions.h */,
 				60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */,
 				6055687C13CDC4A20035CC1A /* NSURLRequest+ORAdditions.h */,
@@ -1482,7 +1476,6 @@
 				60366BAF144DCB9C004FED3B /* ControllerException.m in Sources */,
 				60366BB0144DCB9C004FED3B /* GestureWindow.m in Sources */,
 				60366BB1144DCB9C004FED3B /* ClippedUIImage.m in Sources */,
-				60366BB2144DCB9C004FED3B /* UIViewUtil.m in Sources */,
 				60366BB3144DCB9C004FED3B /* DefaultViewController.m in Sources */,
 				60366BB4144DCB9C004FED3B /* NSDateHelper.m in Sources */,
 				60366BB5144DCB9C004FED3B /* RoundRobinException.m in Sources */,
@@ -1590,7 +1583,6 @@
 				6068DE7B13744D30007746F1 /* CheckNetwork.m in Sources */,
 				6068DE7A13744D27007746F1 /* ServerDefinition.m in Sources */,
 				6068DE7913744D1E007746F1 /* DirectoryDefinition.m in Sources */,
-				6068DE6E13744C11007746F1 /* UIViewUtil.m in Sources */,
 				914198841802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m in Sources */,
 				609C57E2137431310093C03A /* ClippedUIImage.m in Sources */,
 				609C57E0137431280093C03A /* StringUtils.m in Sources */,

@@ -57,31 +57,19 @@ CGContextRef MyCreateBitmapContext (int pixelsWide,	int pixelsHigh) {
     return context;
 }
 
-@interface ClippedUIImage(Private)
+@interface ClippedUIImage()
+
 - (CGPoint) clippedPointDependingOnUIView:(UIView *)uiView alignToViewPattern:(NSString *)align;
 - (CGSize) clippedSizeDependingOnUIView:(UIView *)uiView;
-- (void) clipWithRect:(CGRect)clipRect;
 - (int) startXWithRelativeAlignPattern:(NSString *)align uiViewSize:(CGSize)uiViewSize;
 - (int) startYWithRelativeAlignPattern:(NSString *)align uiViewSize:(CGSize)uiViewSize;
+
 @end
 
 @implementation ClippedUIImage
 
 // Constant value : Absolute way of image aligning to parent view.
 NSString *const IMAGE_ABSOLUTE_ALIGN_TO_VIEW = @"ABSOLUTE";
-
-- (id) initWithUIImage:(UIImage *)uiImage dependingOnUIView:(UIView *)uiView imageAlignToView:(NSString *)align {
-	if (self = [super initWithCGImage:[uiImage CGImage]]) {
-		if (self && uiView) {
-			CGPoint startAtImagePoint = [self clippedPointDependingOnUIView:uiView alignToViewPattern:align];
-			CGSize clipImageSize = [self clippedSizeDependingOnUIView:uiView];
-			[self clipWithRect:CGRectMake(startAtImagePoint.x, startAtImagePoint.y, clipImageSize.width, clipImageSize.height)];
-		} else {
-			return nil;
-		}
-	}
-	return self;
-}
 
 /**
  * In addition to clipping the image within the view, also ensures that its "drawing area" has the same size as the view.
@@ -220,14 +208,6 @@ NSString *const IMAGE_ABSOLUTE_ALIGN_TO_VIEW = @"ABSOLUTE";
 	}
 	return clipImageSize;
 }
-
-// Clip UIImage with rect value.
-- (void) clipWithRect:(CGRect)clipRect {
-	CGImageRef uiImageRef = CGImageCreateWithImageInRect([self CGImage], clipRect);
-	[self initWithCGImage:uiImageRef];
-    CGImageRelease(uiImageRef);
-}
-
 
 + (UIImage *)imageFromImage:(CGImageRef)imageRef size:(CGSize)size sourceRect:(CGRect)sourceRect
 {
