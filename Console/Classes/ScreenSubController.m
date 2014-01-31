@@ -20,7 +20,6 @@
  */
 #import "ScreenSubController.h"
 #import "ORControllerClient/Screen.h"
-#import "ORControllerClient/Background.h"
 #import "ORControllerClient/Image.h"
 #import "ImageCache.h"
 #import "FileUtils.h"
@@ -29,7 +28,7 @@
 #import "ORControllerClient/LayoutContainer.h"
 #import "LayoutContainerSubController.h"
 #import "ORControllerClient/ORBackground.h"
-#import "ORImage.h"
+#import "ORControllerClient/ORImage.h"
 
 @interface ScreenSubController() 
 
