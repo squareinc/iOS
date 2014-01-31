@@ -22,7 +22,7 @@
 #import "Screen.h"
 #import "LayoutContainerParser.h"
 #import "GestureParser.h"
-#import "BackgroundParser.h"
+#import "ORBackgroundParser.h"
 #import "XMLEntity.h"
 
 @interface ScreenParser()
@@ -77,7 +77,7 @@
     [self.screen.gestures addObject:parser.gesture];
 }
 
-- (void)endBackgroundElement:(BackgroundParser *)parser
+- (void)endBackgroundElement:(ORBackgroundParser *)parser
 {
     self.screen.background = parser.background;
 }

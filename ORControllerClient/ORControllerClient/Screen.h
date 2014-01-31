@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import "Gesture.h"
 
-@class Background;
+@class ORBackground;
 
 @interface Screen : NSObject
 
@@ -49,7 +49,7 @@
 
 @property (nonatomic, readonly) int screenId;
 @property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong) Background *background;
+@property (nonatomic, strong) ORBackground *background;
 @property (nonatomic, strong, readonly) NSMutableArray *layouts;
 @property (nonatomic, strong, readonly) NSMutableArray *gestures;
 @property (nonatomic, readonly) BOOL landscape;

@@ -209,6 +209,7 @@
 		91BCD6811899435400EC8AEE /* ORBackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */; };
 		91BCD68318994BF500EC8AEE /* ORBackgroundParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD68218994BF500EC8AEE /* ORBackgroundParserTest.m */; };
 		91BCD6861899540600EC8AEE /* ORBackgroundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD6851899540600EC8AEE /* ORBackgroundTest.m */; };
+		91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91BCD67A189806E000EC8AEE /* ORBackground.h */; };
 		91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */; };
 		91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
 		91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
@@ -260,6 +261,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */,
 				91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */,
 				916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */,
 				913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */,

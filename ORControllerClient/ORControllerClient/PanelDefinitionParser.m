@@ -28,7 +28,7 @@
 #import "AbsoluteLayoutContainerParser.h"
 #import "GridLayoutContainerParser.h"
 #import "GestureParser.h"
-#import "BackgroundParser.h"
+#import "ORBackgroundParser.h"
 #import "GridCellParser.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
@@ -79,7 +79,7 @@
         [self.depRegistry registerParserClass:[GridLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:GRID];
         [self.depRegistry registerParserClass:[GestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
         [self.depRegistry registerParserClass:[NavigateParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
-        [self.depRegistry registerParserClass:[BackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];        
+        [self.depRegistry registerParserClass:[ORBackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];
         [self.depRegistry registerParserClass:[GridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
         [self.depRegistry registerParserClass:[ORLabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];
         [self.depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
