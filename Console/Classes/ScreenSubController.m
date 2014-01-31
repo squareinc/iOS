@@ -28,6 +28,8 @@
 #import "ClippedUIImage.h"
 #import "ORControllerClient/LayoutContainer.h"
 #import "LayoutContainerSubController.h"
+#import "ORControllerClient/ORBackground.h"
+#import "ORImage.h"
 
 @interface ScreenSubController() 
 
@@ -89,10 +91,11 @@
     }
 
     self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
+    [self.view setUserInteractionEnabled:YES];
     self.view.backgroundColor = [UIColor blackColor];
 
-	if ([[[self.screen background] backgroundImage] src]) {
-		UIImage *backgroundImage = [self.imageCache getImageNamed:[[[self.screen background] backgroundImage] src]
+	if (self.screen.background.image.name) {
+		UIImage *backgroundImage = [self.imageCache getImageNamed:self.screen.background.image.name
                                               finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setBackgroundImage:image];
@@ -106,77 +109,95 @@
 
 - (void)setBackgroundImage:(UIImage *)backgroundImage
 {
-    int screenBackgroundImageViewWidth = 0;
-    int screenBackgroundImageViewHeight = 0;
-    
-    if (self.screen.landscape) {
-        screenBackgroundImageViewWidth = [UIScreen mainScreen].bounds.size.height;
-        screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.width;
-    } else {
-        screenBackgroundImageViewWidth = [UIScreen mainScreen].bounds.size.width;
-        screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.height;
+    if (!backgroundImage) {
+        return;
     }
 
-    if (backgroundImage) { // File might exist but not be an image, only proceed if we have an image
-        UIImageView *backgroundImageView = (UIImageView *)self.view;
-        // fillscreen is false
-        if (![[self.screen background] fillScreen]) {
-            NSLog(@"BackgroundImage isn't fillScreen");
-            NSLog(@"BackgroundImage's original width:%f, height:%f", backgroundImage.size.width, backgroundImage.size.height);
-            
-            // absolute position of screen background.
-            if ([[self.screen background] isBackgroundImageAbsolutePosition]) {
-                int left = [[self.screen background] backgroundImageAbsolutePositionLeft];
-                int top = [[self.screen background] backgroundImageAbsolutePositionTop];
-                if (left > 0) {
-                    screenBackgroundImageViewWidth = screenBackgroundImageViewWidth-left;
-                }
-                if (top > 0) {
-                    screenBackgroundImageViewHeight = screenBackgroundImageViewHeight-top;
-                }
-                [backgroundImageView setFrame:CGRectMake(left, top, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
-                
-                ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:backgroundImage
-                                                                       dependingOnUIView:backgroundImageView
-                                                                        imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
-                [backgroundImageView setImage:clippedUIImage];
-                [backgroundImageView sizeToFit];
+    UIImageView *backgroundImageView = (UIImageView *)self.view;
+    CGFloat viewWidth = backgroundImageView.bounds.size.width;
+    CGFloat viewHeight = backgroundImageView.bounds.size.height;
 
-                if (left < 0) {
-                    left = 0;
-                }
-                if (top < 0) {
-                    top = 0;
-                }
-                [backgroundImageView setFrame:CGRectMake(left, top, backgroundImageView.frame.size.width, backgroundImageView.frame.size.height)];
-                NSLog(@"Clipped BackgroundImage's width:%f, height:%f", backgroundImageView.image.size.width, backgroundImageView.image.size.height);
-                NSLog(@"BackgroundImageView's left is %d, top is %d", left, top);
-                NSLog(@"BackgroundImageView's width:%f, height:%f", backgroundImageView.frame.size.width, backgroundImageView.frame.size.height);
+    NSLog(@"BackgroundImage's original width:%f, height:%f", backgroundImage.size.width, backgroundImage.size.height);
+
+    // fillscreen is false
+    if (self.screen.background.sizeUnit == ORWidgetUnitNotDefined) {
+        NSLog(@"BackgroundImage isn't fillScreen");
+        
+        CGFloat x, y, width, height;
+        BOOL clip = NO;
+
+        CGRect drawRect;
+        
+        // absolute position of screen background.
+        if (self.screen.background.positionUnit == ORWidgetUnitLength) {
+            if ((self.screen.background.position.x < 0)
+                || (self.screen.background.position.x + backgroundImage.size.width > viewWidth)) {
+                clip = YES;
+                x = ABS(self.screen.background.position.x);
+                width = MIN(backgroundImage.size.width - ABS(self.screen.background.position.x), viewWidth);
+            } else {
+                x = 0.0;
+                width = backgroundImage.size.width;
             }
-            // relative position of screen background.
-            else {
-                // relative position
-                [backgroundImageView setFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
-                NSString *backgroundImageRelativePosition = [[self.screen background] backgroundImageRelativePosition];
-                
-                ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:backgroundImage
-                                                                       dependingOnUIView:backgroundImageView
-                                                                        imageAlignToView:backgroundImageRelativePosition];
-                [backgroundImageView setImage:clippedUIImage];
-            }
-        }
-        // fillscreen is true
-        else {
-            [backgroundImageView setFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
             
-            ClippedUIImage *clippedUIImage = [[ClippedUIImage alloc] initWithUIImage:backgroundImage
-                                                                   dependingOnUIView:backgroundImageView
-                                                                    imageAlignToView:IMAGE_ABSOLUTE_ALIGN_TO_VIEW];
-            [backgroundImageView setImage:clippedUIImage];
-            [backgroundImageView sizeToFit];
+            CGFloat yPos = viewHeight - self.screen.background.position.y;
+            // y coord is reversed (starts at bottom on iOS)
+            
+            if ((yPos > viewHeight)
+                || (yPos - backgroundImage.size.height < 0)) {
+                clip = YES;
+                y = ABS(yPos);
+                height = MIN(backgroundImage.size.height - ABS(yPos), viewHeight);
+            } else {
+                y = 0.0;
+                height = backgroundImage.size.height;
+            }
+            
+            drawRect = CGRectMake(MAX(self.screen.background.position.x, 0), MIN(yPos - height, viewHeight), width, height);
         }
-        NSLog(@"Added width: %d, height: %d backgroundImageView", screenBackgroundImageViewWidth, screenBackgroundImageViewHeight);
-        [backgroundImageView setUserInteractionEnabled:YES];
+        // relative position of screen background.
+        else {
+            CGFloat x, y, width, height;
+            BOOL clip = NO;
+            
+            if (backgroundImage.size.width > viewWidth) {
+                x = (backgroundImage.size.width - viewWidth) * (self.screen.background.position.x / 100.0);
+                width = viewWidth;
+                clip = YES;
+            } else {
+                x = 0.0;
+                width = backgroundImage.size.width;
+            }
+
+            if (backgroundImage.size.height > viewHeight) {
+                y = (backgroundImage.size.height - viewHeight) * (self.screen.background.position.y / 100.0);
+                height = viewHeight;
+                clip = YES;
+            } else {
+                y = 0.0;
+                height = backgroundImage.size.height;
+            }
+
+            CGFloat xEmptySpace = MAX(0.0, viewWidth - backgroundImage.size.width);
+            CGFloat yEmptySpace = MAX(0.0, viewHeight - backgroundImage.size.height);
+            
+            drawRect = CGRectMake(xEmptySpace * (self.screen.background.position.x / 100.0),
+                                  yEmptySpace * (self.screen.background.position.y / 100.0),
+                                  width, height);
+        }
+        
+        CGImageRef image = [backgroundImage CGImage];
+        if (clip) {
+            image = CGImageCreateWithImageInRect([backgroundImage CGImage],
+                                                 CGRectMake(x, y, width, height));
+        }
+
+        [backgroundImageView setImage:[ClippedUIImage imageFromImage:image size:backgroundImageView.bounds.size sourceRect:drawRect]];
+    } else {
+        // fillscreen is true
+        [backgroundImageView setFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
+        [backgroundImageView setImage:backgroundImage];
+        [backgroundImageView sizeToFit];
     }
 }
 

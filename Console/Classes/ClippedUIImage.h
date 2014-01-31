@@ -37,4 +37,6 @@ extern NSString *const IMAGE_ABSOLUTE_ALIGN_TO_VIEW;
 
 - (id) initWithUIImage:(UIImage *)uiImage withinUIView:(UIView *)uiView imageAlignToView:(NSString *)align;
 
++ (UIImage *)imageFromImage:(CGImageRef)imageRef size:(CGSize)size sourceRect:(CGRect)sourceRect;
+
 @end

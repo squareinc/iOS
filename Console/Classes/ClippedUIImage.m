@@ -228,4 +228,20 @@ NSString *const IMAGE_ABSOLUTE_ALIGN_TO_VIEW = @"ABSOLUTE";
     CGImageRelease(uiImageRef);
 }
 
+
++ (UIImage *)imageFromImage:(CGImageRef)imageRef size:(CGSize)size sourceRect:(CGRect)sourceRect
+{
+    CGContextRef context = MyCreateBitmapContext(size.width, size.height);
+    CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
+    CGContextDrawImage(context, sourceRect, imageRef);
+    
+    CGImageRef myRef = CGBitmapContextCreateImage (context);
+    free(CGBitmapContextGetData(context));
+    CGContextRelease(context);
+
+    UIImage *ret = [[UIImage alloc] initWithCGImage:myRef];
+    CGImageRelease(myRef);
+    return ret;
+}
+
 @end
