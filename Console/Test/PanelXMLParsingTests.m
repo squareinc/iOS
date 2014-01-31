@@ -29,6 +29,7 @@
 #import "ORControllerClient/Button.h"
 #import "ORControllerClient/Slider.h"
 #import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/Gesture.h"
 #import "ORControllerClient/XMLEntity.h"
 #import "ORControllerClient/TabbarItem.h"
@@ -39,8 +40,8 @@
 #import "ORControllerClient/Navigate.h"
 #import "ORControllerClient/Switch.h"
 #import "ORControllerClient/Sensor.h"
-#import "ORControllerClient/Background.h"
 #import "ORControllerClient/TabBar.h"
+#import "ORControllerClient/ORBackground.h"
 #import "PanelDefinitionParser.h"
 
 #import "ORControllerClient/ORLabel.h"
@@ -88,12 +89,12 @@
 							NSString *expectedDefaultImageName = nil;
 							if (but.defaultImage) {
 								expectedDefaultImageName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + image_index++];						
-								STAssertTrue([but.defaultImage.src isEqualToString:expectedDefaultImageName],@"expected %@, but %@",expectedDefaultImageName,but.defaultImage.src);
+								STAssertTrue([but.defaultImage.name isEqualToString:expectedDefaultImageName],@"expected %@, but %@",expectedDefaultImageName,but.defaultImage.name);
 							}
 							NSString *expectedPressedImageName = nil;
 							if (but.pressedImage) {
 								expectedPressedImageName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + image_index++];
-								STAssertTrue([but.pressedImage.src isEqualToString:expectedPressedImageName],@"expected %@, but %@",expectedPressedImageName,but.pressedImage.src);
+								STAssertTrue([but.pressedImage.name isEqualToString:expectedPressedImageName],@"expected %@, but %@",expectedPressedImageName,but.pressedImage.name);
 							}
                         }
 					}
@@ -919,6 +920,7 @@
 		for (Screen *screen in group.screens) {
 			
 			NSLog(@"Begin test background of screen %@", [screen name]);
+            /*
 			// absolute position
 			STAssertTrue([[screen background] isBackgroundImageAbsolutePosition], @"expected %d, but %d", YES, [[screen background] isBackgroundImageAbsolutePosition]);
 			NSLog(@"isBackgroundImageAbsolutePosition of screen background is %d", [[screen background] isBackgroundImageAbsolutePosition]);
@@ -945,7 +947,7 @@
 			
 			NSLog(@"End test background of screen %@", [screen name]);			
 			background_index++;
-			
+			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
 			for (LayoutContainer *layout in screen.layouts) {
 				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
@@ -1004,7 +1006,7 @@
 	for (Group *group in groups) {
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (Screen *screen in group.screens) {
-			
+			/*
 			NSLog(@"Begin test background of screen %@", [screen name]);
 			// relative position
 			STAssertTrue(![[screen background] isBackgroundImageAbsolutePosition], @"expected %d, but %d", NO, [[screen background] isBackgroundImageAbsolutePosition]);
@@ -1033,7 +1035,7 @@
 			NSLog(@"background image src is %@ ", backgroundImageSrc);
 			
 			background_index++;
-			
+			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
 			for (LayoutContainer *layout in screen.layouts) {
 				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
@@ -1224,7 +1226,7 @@
 	for (Group *group in groups) {
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (Screen *screen in group.screens) {
-			
+			/*
 			NSLog(@"Begin test background of screen %@", [screen name]);
 			// relative position
 			STAssertTrue(![[screen background] isBackgroundImageAbsolutePosition], @"expected %d, but %d", NO, [[screen background] isBackgroundImageAbsolutePosition]);
@@ -1254,7 +1256,7 @@
 			
 			NSLog(@"End test background of screen %@", [screen name]);			
 			background_index++;
-			
+			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
 			for (LayoutContainer *layout in screen.layouts) {
 				if([layout isKindOfClass:[GridLayoutContainer class]]){					
@@ -1362,7 +1364,7 @@
 		
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (Screen *screen in group.screens) {
-			
+			/*
 			NSLog(@"Begin test background of screen %@", [screen name]);
 			// relative position
 			STAssertTrue(![[screen background] isBackgroundImageAbsolutePosition], @"expected %d, but %d", NO, [[screen background] isBackgroundImageAbsolutePosition]);
@@ -1392,7 +1394,7 @@
 			
 			NSLog(@"End test background of screen %@", [screen name]);			
 			background_index++;
-			
+			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
 			for (LayoutContainer *layout in screen.layouts) {
 				if([layout isKindOfClass:[GridLayoutContainer class]]){					
