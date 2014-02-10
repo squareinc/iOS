@@ -20,8 +20,9 @@
  */
 #import "ButtonSubController.h"
 #import "DirectoryDefinition.h"
-#import "ORControllerClient/Button.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORButton.h"
+#import "ORControllerClient/ORImage.h"
+#import "ORControllerClient/ORLabel.h"
 #import "ClippedUIImage.h"
 #import "NotificationConstant.h"
 #import "ImageCache.h"
@@ -31,22 +32,14 @@
 @interface ButtonSubController()
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) Button *button;
+@property (weak, nonatomic, readonly) ORButton *button;
 
 @property (nonatomic, strong) id<ControllerButtonAPI> controllerButtonAPI;
 
-@property (nonatomic, strong) NSTimer *buttonRepeatTimer;
-@property (nonatomic, strong) NSTimer *longPressTimer;
-@property (nonatomic, getter=isLongPress, setter=setLongPress:) BOOL longPress;
-
 @property (nonatomic, weak) ImageCache *imageCache;
-
-- (void)cancelTimers;
 
 - (void)controlButtonUp:(id)sender;
 - (void)controlButtonDown:(id)sender;
-- (void)longPress:(NSTimer *)timer;
-- (void)press:(NSTimer *)timer;
 
 - (void)setClippedImage:(UIImage *)uiImage forState:(UIControlState)state;
 
@@ -67,7 +60,7 @@
         [uiButton addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:NULL];
         uiButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
         uiButton.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
-        [uiButton setTitle:self.button.name forState:UIControlStateNormal];
+        [uiButton setTitle:self.button.label.text forState:UIControlStateNormal];
         self.view = uiButton;
         
 
@@ -86,8 +79,8 @@
      * Using imageEdgeInsets would be an easier solution to accomplish this but is not available for the background image.
      */
     if (object == self.view) {        
-        if (self.button.defaultImage) {
-            UIImage *uiImage = [self.imageCache getImageNamed:self.button.defaultImage.src finalImageAvailable:^(UIImage *image) {
+        if (self.button.unpressedImage) {
+            UIImage *uiImage = [self.imageCache getImageNamed:self.button.unpressedImage.name finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self setClippedImage:image forState:UIControlStateNormal];
                 });
@@ -96,7 +89,7 @@
                 [self setClippedImage:uiImage forState:UIControlStateNormal];
             }
             
-            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src finalImageAvailable:^(UIImage *image) {
+            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.name finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self setClippedImage:image forState:UIControlStateHighlighted];
                 });
@@ -115,70 +108,21 @@
 - (void)dealloc
 {
     [self.view removeObserver:self forKeyPath:@"frame"];
-    [self cancelTimers];
 }
 
-- (Button *)button
+- (ORButton *)button
 {
-    return (Button *)self.component;
+    return (ORButton *)self.component;
 }
 
 - (void)controlButtonUp:(id)sender
 {
-	[self cancelTimers];
-	Button *button = (Button *)self.component;
-    
-    if (button.hasShortReleaseCommand && !self.isLongPress) {
-        [self.controllerButtonAPI sendShortReleaseCommand:self];
-    }
-    if (button.hasLongReleaseCommand && self.isLongPress) {
-        [self.controllerButtonAPI sendLongReleaseCommand:self];        
-    }
-    
-	if (button.navigate) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:button.navigate];
-	}
+    [self.button depress];
 }
 
 - (void)controlButtonDown:(id)sender
 {
-	[self cancelTimers];
-	self.longPress = NO;
-    
-	Button *button = (Button *)self.component;
-	if (button.hasPressCommand == YES) {
-		[self.controllerButtonAPI sendPressCommand:self];
-	 	if (button.repeat == YES ) {			
-			self.buttonRepeatTimer = [NSTimer scheduledTimerWithTimeInterval:(button.repeatDelay / 1000.0) target:self selector:@selector(press:) userInfo:nil repeats:YES];
-		}
-	}
-    if (button.hasLongPressCommand || button.hasLongReleaseCommand) {
-        // Set-up timer to detect when this becomes a long press
-        self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:(button.longPressDelay / 1000.0) target:self selector:@selector(longPress:) userInfo:nil repeats:NO];
-    }
-}
-
-- (void)press:(NSTimer *)timer
-{
-    [self.controllerButtonAPI sendPressCommand:self];
-}
-
-- (void)longPress:(NSTimer *)timer
-{
-    self.longPress = YES;
-    [self.controllerButtonAPI sendLongPressCommand:self];
-}
-
-- (void)cancelTimers
-{
-	if (self.buttonRepeatTimer) {
-		[self.buttonRepeatTimer invalidate];
-	}
-	self.buttonRepeatTimer = nil;
-	if (self.longPressTimer) {
-		[self.longPressTimer invalidate];
-	}
-	self.longPressTimer = nil;
+    [self.button press];
 }
 
 #pragma mark ORControllerCommandSenderDelegate implementation
@@ -186,7 +130,6 @@
 - (void)commandSendFailed
 {
     [super commandSendFailed];
-    [self cancelTimers];
 }
 
 #pragma mark - Helper
@@ -202,6 +145,5 @@
 
 @synthesize view;
 @synthesize controllerButtonAPI;
-@synthesize buttonRepeatTimer, longPressTimer, longPress;
 
 @end
