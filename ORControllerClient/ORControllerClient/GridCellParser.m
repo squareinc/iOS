@@ -21,7 +21,7 @@
 #import "GridCellParser.h"
 #import "GridCell.h"
 #import "ORLabelParser.h"
-#import "ImageParser.h"
+#import "ORImageParser.h"
 #import "WebParser.h"
 #import "ORButtonParser.h"
 #import "ORButton.h"
@@ -72,7 +72,7 @@
     [self.depRegister.definition addLabel:parser.label];
 }
 
-- (void)endImageElement:(ImageParser *)parser
+- (void)endImageElement:(ORImageParser *)parser
 {
     self.gridCell.component = parser.image;
 }
