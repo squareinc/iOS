@@ -26,30 +26,47 @@
 @class Navigate;
 
 /**
+ * Model object representing an button element in the OR UI model domain.
  */
 @interface ORButton : ORWidget
 
 /**
+ * Instruct the button that it has been pressed.
+ *
+ * Button will, based on its parameters, execute the appropriate action(s),
+ * such as sending command to the controller (once or repeateadly)
+ * or instruct the ORConsole to perform a navigation.
  */
 - (void)press;
 
 /**
+ * Instruct the button that it has been released.
+ *
+ * Button will, based on its parameters, execute the appropriate action(s),
+ * such as sending command to the controller (once or repeateadly)
+ * or instruct the ORConsole to perform a navigation.
  */
 - (void)depress;
 
 /**
+ * Label representing the text to be displayed on the button.
+ * Can be nil if no test to be displayed.
  */
 @property (nonatomic, strong, readonly) ORLabel *label;
 
 /**
+ * Image to be used for the released / default state of the button.
  */
 @property (nonatomic, strong) ORImage *unpressedImage;
 
 /**
+ * Image to be used for the pressed state of the button.
  */
 @property (nonatomic, strong) ORImage *pressedImage;
 
 /**
+ * Navigate object indicating what navigation should be conducted.
+ * Can be nil if no navigation is triggered by the button.
  */
 @property (nonatomic, strong) Navigate *navigate;
 
