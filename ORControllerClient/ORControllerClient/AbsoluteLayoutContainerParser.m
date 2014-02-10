@@ -86,6 +86,7 @@
 - (void)endButtonElement:(ORButtonParser *)parser
 {
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.button;
+    [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(SwitchParser *)parser

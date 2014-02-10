@@ -42,6 +42,7 @@
 @property (nonatomic, strong) NSMutableArray *_labels;
 
 @property (nonatomic, strong) NSMutableArray *_images;
+@property (nonatomic, strong) NSMutableArray *_buttons;
 
 @property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
 
@@ -59,6 +60,7 @@
 		self.screens = [NSMutableArray array];
         self._labels = [NSMutableArray array];
         self._images = [NSMutableArray array];
+        self._buttons = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
         self.sensorRegistry = [[ORSensorRegistry alloc] init];
 	}
@@ -153,6 +155,11 @@
 	}
 }
 
+- (void)addButton:(ORButton *)button
+{
+    [self._buttons addObject:button];
+}
+
 - (void)clearPanelXMLData
 {
     [self.groups removeAllObjects];
@@ -173,7 +180,10 @@
     return [NSSet setWithArray:self._images];
 }
 
-
+- (NSSet *)buttons
+{
+    return [NSSet setWithArray:self._buttons];
+}
 
 - (void)sendPressCommandForButton:(ORButton *)sender
 {

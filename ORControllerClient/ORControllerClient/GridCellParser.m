@@ -86,6 +86,7 @@
 - (void)endButtonElement:(ORButtonParser *)parser
 {
     self.gridCell.component = parser.button;
+    [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(SwitchParser *)parser

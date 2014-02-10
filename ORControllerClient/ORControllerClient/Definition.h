@@ -82,7 +82,7 @@
 - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier;
 
 - (void)addImage:(ORImage *)image;
-
+- (void)addButton:(ORButton *)button;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
@@ -101,6 +101,10 @@
  */
 @property (nonatomic, strong, readonly) NSSet *images;
 
+/**
+ * Collection of all buttons used in this panel definition.
+ */
+@property (nonatomic, strong, readonly) NSSet *buttons;
 
 
 @property (nonatomic, strong) TabBar *tabBar;
