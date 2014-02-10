@@ -22,6 +22,7 @@
 #import "ORButton.h"
 #import "ORButton_Private.h"
 #import "ORLabel.h"
+#import "Definition.h"
 
 #define kMinimumRepeatDelay 100
 #define kMinimumLongPressDelay  250
@@ -87,6 +88,7 @@
 	self.longPress = NO;
     
 	if (self.hasPressCommand == YES) {
+        [self.definition controlForWidget:self action:@"click"];
 //		[self.controllerButtonAPI sendPressCommand:self];
 	 	if (self.repeat == YES ) {
 			self.buttonRepeatTimer = [NSTimer scheduledTimerWithTimeInterval:(self.repeatDelay / 1000.0) target:self selector:@selector(press:) userInfo:nil repeats:YES];
@@ -117,6 +119,7 @@
 
 - (void)press:(NSTimer *)timer
 {
+    [self.definition controlForWidget:self action:@"click"];
 //    [self.controllerButtonAPI sendPressCommand:self];
 }
 

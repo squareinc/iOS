@@ -25,6 +25,8 @@
 @class ORLabel;
 @class Navigate;
 
+/**
+ */
 @interface ORButton : ORWidget
 
 /**
