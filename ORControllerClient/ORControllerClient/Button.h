@@ -20,14 +20,14 @@
  */
 #import "Control.h"
 
-@class Image;
+@class ORImage;
 @class Navigate;
 
 @interface Button : Control
 
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong) Image *defaultImage;
-@property (nonatomic, strong) Image *pressedImage;
+@property (nonatomic, strong) ORImage *defaultImage;
+@property (nonatomic, strong) ORImage *pressedImage;
 @property (nonatomic, readonly) BOOL repeat;
 @property (nonatomic, readonly) NSUInteger repeatDelay;
 @property (nonatomic, readonly) BOOL hasPressCommand;
