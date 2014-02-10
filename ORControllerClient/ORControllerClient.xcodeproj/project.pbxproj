@@ -197,6 +197,7 @@
 		919DDF3917E8A77C00EFDCCA /* ORLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
+		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
 		91AD7101189653800050EB0A /* ORSensorStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD7100189653800050EB0A /* ORSensorStateTest.m */; };
 		91B5A0F217F5C8C300F4BA8B /* ORWidgetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F117F5C8C300F4BA8B /* ORWidgetTest.m */; };
 		91B72FA41890308F000B7552 /* ORImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FA31890308F000B7552 /* ORImage.m */; };
@@ -554,6 +555,8 @@
 		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
 		919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabelTest.m; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
+		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
+		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
 		91AD7100189653800050EB0A /* ORSensorStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorStateTest.m; sourceTree = "<group>"; };
 		91AD7102189653910050EB0A /* ORSensorStateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorStateTest.h; sourceTree = "<group>"; };
 		91B5A0F117F5C8C300F4BA8B /* ORWidgetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWidgetTest.m; sourceTree = "<group>"; };
@@ -1094,6 +1097,7 @@
 		91AAFB0318A907A900632C1A /* Panel Definition */ = {
 			isa = PBXGroup;
 			children = (
+				91AAFB0418A9082200632C1A /* 2_0_0 */,
 				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
 				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
 				91B72FA618903402000B7552 /* ORImageParser.h */,
@@ -1102,10 +1106,19 @@
 				91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */,
 				91222D9F1892BE0300BA0B96 /* ORSensorLinkParser.h */,
 				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
+				91AAFB0518A9083C00632C1A /* ORButtonParser.h */,
+				91AAFB0618A9083C00632C1A /* ORButtonParser.m */,
+			);
+			name = "Panel Definition";
+			sourceTree = "<group>";
+		};
+		91AAFB0418A9082200632C1A /* 2_0_0 */ = {
+			isa = PBXGroup;
+			children = (
 				911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */,
 				911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */,
 			);
-			name = "Panel Definition";
+			name = 2_0_0;
 			sourceTree = "<group>";
 		};
 		91B72FAA1890358C000B7552 /* Deferred Binding */ = {
@@ -1383,6 +1396,7 @@
 				9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */,
 				91222D941892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
 				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
+				91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */,
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
 				911392E1189BE94E00B7D79D /* ORButton.m in Sources */,

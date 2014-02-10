@@ -19,23 +19,20 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORButtonParser.h"
+#import "DefinitionElementParser.h"
+
+@class ORButton;
 
 /**
- * Parses a <button...> XML fragment from the panel XML document
- * following schema v2.0 into an ORButton model object instance.
+ * Parent class for parsers of <button> element of the panel XML document.
  *
- * XML fragment example:
- * <button id="59" name="A" repeat="false" hasControlCommand="false">
- *    <default>
- *       <image src="a.png" />
- *    </default>
- *    <pressed>
- *       <image src="b.png" />
- *    </pressed>
- *    <navigate toScreen="19" />
- * </button>
+ * Specific subclasses handle specific schema versions.
  */
-@interface ORButonParser_2_0_0 : ORButtonParser
+@interface ORButtonParser : DefinitionElementParser
+
+/**
+ * ORButton model object parsed from the XML fragment.
+ */
+@property (nonatomic, strong, readonly) ORButton *button;
 
 @end

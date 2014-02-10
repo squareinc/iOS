@@ -23,8 +23,8 @@
 #import "ORLabelParser.h"
 #import "ImageParser.h"
 #import "WebParser.h"
-#import "ButtonParser.h"
-#import "Button.h"
+#import "ORButtonParser.h"
+#import "ORButton.h"
 #import "SwitchParser.h"
 #import "SliderParser.h"
 #import "ColorPickerParser.h"
@@ -82,7 +82,7 @@
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.web;
 }
 
-- (void)endButtonElement:(ButtonParser *)parser
+- (void)endButtonElement:(ORButtonParser *)parser
 {
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.button;
 }

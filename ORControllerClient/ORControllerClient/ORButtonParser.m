@@ -21,21 +21,6 @@
 
 #import "ORButtonParser.h"
 
-/**
- * Parses a <button...> XML fragment from the panel XML document
- * following schema v2.0 into an ORButton model object instance.
- *
- * XML fragment example:
- * <button id="59" name="A" repeat="false" hasControlCommand="false">
- *    <default>
- *       <image src="a.png" />
- *    </default>
- *    <pressed>
- *       <image src="b.png" />
- *    </pressed>
- *    <navigate toScreen="19" />
- * </button>
- */
-@interface ORButonParser_2_0_0 : ORButtonParser
+@implementation ORButtonParser
 
 @end

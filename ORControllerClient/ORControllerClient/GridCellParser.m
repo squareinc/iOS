@@ -23,8 +23,8 @@
 #import "ORLabelParser.h"
 #import "ImageParser.h"
 #import "WebParser.h"
-#import "ButtonParser.h"
-#import "Button.h"
+#import "ORButtonParser.h"
+#import "ORButton.h"
 #import "SwitchParser.h"
 #import "SliderParser.h"
 #import "ColorPickerParser.h"
@@ -82,7 +82,7 @@
     self.gridCell.component = parser.web;
 }
 
-- (void)endButtonElement:(ButtonParser *)parser
+- (void)endButtonElement:(ORButtonParser *)parser
 {
     self.gridCell.component = parser.button;
 }
