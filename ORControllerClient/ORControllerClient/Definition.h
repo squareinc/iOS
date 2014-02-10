@@ -29,7 +29,7 @@
 @class ORSensorRegistry;
 @class ORController;
 @class ORObjectIdentifier;
-@class ORWidget;
+@class ORButton;
 
 @protocol ORConsole;
 
@@ -80,7 +80,13 @@
 
 - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier;
 
-- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
+
+
+- (void)sendPressCommandForButton:(ORButton *)sender;
+- (void)sendShortReleaseCommandForButton:(ORButton *)sender;
+- (void)sendLongPressCommandForButton:(ORButton *)sender;
+- (void)sendLongReleaseCommandForButton:(ORButton *)sender;
+
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;

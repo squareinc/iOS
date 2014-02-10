@@ -161,9 +161,24 @@
 
 
 
-- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action
+- (void)sendPressCommandForButton:(ORButton *)sender
 {
-    [self.controller controlForWidget:widget action:action];
+    [self.controller sendPressCommandForButton:sender];
+}
+
+- (void)sendShortReleaseCommandForButton:(ORButton *)sender
+{
+    [self.controller sendShortReleaseCommandForButton:sender];
+}
+
+- (void)sendLongPressCommandForButton:(ORButton *)sender
+{
+    [self.controller sendLongPressCommandForButton:sender];
+}
+
+- (void)sendLongReleaseCommandForButton:(ORButton *)sender
+{
+    [self.controller sendLongReleaseCommandForButton:sender];
 }
 
 @synthesize groups, screens, tabBar, localController, imageNames, controller;

@@ -40,9 +40,6 @@
 @property (nonatomic) BOOL hasLongReleaseCommand;
 @property (nonatomic) NSUInteger longPressDelay;
 
-// TODO: replace with some other mechanism ?
-@property (nonatomic, strong) id/*<ControllerButtonAPI>*/ controllerButtonAPI;
-
 @property (nonatomic, strong) NSTimer *buttonRepeatTimer;
 @property (nonatomic, strong) NSTimer *longPressTimer;
 @property (nonatomic, getter=isLongPress, setter=setLongPress:) BOOL longPress;
@@ -89,8 +86,7 @@
 	self.longPress = NO;
     
 	if (self.hasPressCommand == YES) {
-        [self.definition controlForWidget:self action:@"click"];
-//		[self.controllerButtonAPI sendPressCommand:self];
+        [self.definition sendPressCommandForButton:self];
 	 	if (self.repeat == YES ) {
 			self.buttonRepeatTimer = [NSTimer scheduledTimerWithTimeInterval:(self.repeatDelay / 1000.0) target:self selector:@selector(press:) userInfo:nil repeats:YES];
 		}
@@ -106,29 +102,26 @@
 	[self cancelTimers];
     
     if (self.hasShortReleaseCommand && !self.isLongPress) {
-//        [self.controllerButtonAPI sendShortReleaseCommand:self];
+        [self.definition sendShortReleaseCommandForButton:self];
     }
     if (self.hasLongReleaseCommand && self.isLongPress) {
-//        [self.controllerButtonAPI sendLongReleaseCommand:self];
+        [self.definition sendLongReleaseCommandForButton:self];
     }
     
 	if (self.navigate) {
         [self.definition.console navigate:self.navigate];
-        // TODO: replace with some other mechanism
-//		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:button.navigate];
 	}
 }
 
 - (void)press:(NSTimer *)timer
 {
-    [self.definition controlForWidget:self action:@"click"];
-//    [self.controllerButtonAPI sendPressCommand:self];
+    [self.definition sendPressCommandForButton:self];
 }
 
 - (void)longPress:(NSTimer *)timer
 {
     self.longPress = YES;
-//    [self.controllerButtonAPI sendLongPressCommand:self];
+    [self.definition sendLongPressCommandForButton:self];
 }
 
 - (void)cancelTimers

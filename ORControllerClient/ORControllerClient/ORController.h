@@ -25,7 +25,7 @@
 @class ORControllerAddress;
 
 @class Definition;
-@class ORWidget;
+@class ORButton;
 
 /**
  * Represents an OpenRemote ORB
@@ -119,7 +119,11 @@
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 
-- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
+
+- (void)sendPressCommandForButton:(ORButton *)sender;
+- (void)sendShortReleaseCommandForButton:(ORButton *)sender;
+- (void)sendLongPressCommandForButton:(ORButton *)sender;
+- (void)sendLongReleaseCommandForButton:(ORButton *)sender;
 
 /**
  * The authentication manager that can provide credential during calls.

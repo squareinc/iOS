@@ -28,6 +28,7 @@
 #import "Definition_Private.h"
 
 #import "ORLabel.h"
+#import "ORButton.h"
 
 #import "ControllerREST_2_0_0_API.h"
 
@@ -41,6 +42,8 @@
 @property (nonatomic, strong) Definition *lastPanelDefinition;
 
 @property (nonatomic, strong) ControllerREST_2_0_0_API *controllerAPI;
+
+- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
 
 @end
 
@@ -164,6 +167,28 @@
                                                               controllerAddress:self.address
                                                                  sensorRegistry:panelDefinition.sensorRegistry];
     [self.pollingManager start];
+}
+
+- (void)sendPressCommandForButton:(ORButton *)sender
+{
+    [self controlForWidget:sender action:@"click"];
+    
+    // TODO : must implement differently for 2.1
+}
+
+- (void)sendShortReleaseCommandForButton:(ORButton *)sender
+{
+    // TODO : nothing for 2.0 API but must implement for 2.1
+}
+
+- (void)sendLongPressCommandForButton:(ORButton *)sender
+{
+    // TODO : nothing for 2.0 API but must implement for 2.1
+}
+
+- (void)sendLongReleaseCommandForButton:(ORButton *)sender
+{
+    // TODO : nothing for 2.0 API but must implement for 2.1
 }
 
 - (void)controlForWidget:(ORWidget *)widget action:(NSString *)action
