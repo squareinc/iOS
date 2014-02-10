@@ -57,5 +57,13 @@ NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
     return nil;
 }
 
+- (ORRESTCall *)controlForWidget:(ORWidget *)widget // TODO: should we pass widget or just identifier
+                          action:(NSString *)action // TODO: should this be given as param or infered from widget or ...
+                       atBaseURL:(NSURL *)baseURL
+              withSuccessHandler:(void (^)(void))successHandler // TODO: required ? anything meaningful to return ?
+                    errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
 
 @end
