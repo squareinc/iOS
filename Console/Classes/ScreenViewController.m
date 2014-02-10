@@ -106,9 +106,6 @@
 {
     [self cleanupGestureRecognizers];
 
-    // If there are gestures, this view must allow interaction with it
-    self.view.userInteractionEnabled = ([self.screen.gestures count] > 0);
-
     for (Gesture *gesture in self.screen.gestures) {
         UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
         recognizer.direction = [self convertSwipeTypeToGestureRecognizerDirection:gesture.swipeType];
