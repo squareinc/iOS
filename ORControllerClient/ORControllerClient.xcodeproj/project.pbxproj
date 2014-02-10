@@ -24,6 +24,12 @@
 		9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9108160817BA5D3000BAB9CE /* ORSensorPollingManagerTests.m */; };
 		910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750117940962005F41CF /* ORControllerClientOverallTest.m */; };
 		910B750517940D10005F41CF /* ORControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750417940D10005F41CF /* ORControllerTest.m */; };
+		911392E1189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
+		911392E2189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
+		911392E6189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */; };
+		911392E7189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */; };
+		911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */; };
+		911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */ = {isa = PBXBuildFile; fileRef = 911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
 		91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */; };
 		91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
@@ -317,6 +323,13 @@
 		910B750117940962005F41CF /* ORControllerClientOverallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerClientOverallTest.m; sourceTree = "<group>"; };
 		910B750317940D10005F41CF /* ORControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerTest.h; sourceTree = "<group>"; };
 		910B750417940D10005F41CF /* ORControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerTest.m; sourceTree = "<group>"; };
+		911392DF189BE94E00B7D79D /* ORButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton.h; sourceTree = "<group>"; };
+		911392E0189BE94E00B7D79D /* ORButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButton.m; sourceTree = "<group>"; };
+		911392E3189BE9F300B7D79D /* ORButton_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton_Private.h; sourceTree = "<group>"; };
+		911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButonParser_2_0_0.h; sourceTree = "<group>"; };
+		911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButonParser_2_0_0.m; sourceTree = "<group>"; };
+		911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_0_0Test.m; sourceTree = "<group>"; };
+		911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_0_0Test.h; sourceTree = "<group>"; };
 		91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBindingTest.m; sourceTree = "<group>"; };
 		91222D7D18912FED00BA0B96 /* ORDeferredBindingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeferredBindingTest.h; sourceTree = "<group>"; };
 		91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORImageLabelDeferredBindingTest.m; sourceTree = "<group>"; };
@@ -716,6 +729,9 @@
 				91222D8F1892AEE000BA0B96 /* ORSensor.m */,
 				91BCD67A189806E000EC8AEE /* ORBackground.h */,
 				91BCD67B189806E000EC8AEE /* ORBackground.m */,
+				911392DF189BE94E00B7D79D /* ORButton.h */,
+				911392E0189BE94E00B7D79D /* ORButton.m */,
+				911392E3189BE9F300B7D79D /* ORButton_Private.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -743,6 +759,8 @@
 				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
 				91BCD67E1899435400EC8AEE /* ORBackgroundParser.h */,
 				91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */,
+				911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */,
+				911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -773,6 +791,8 @@
 				91222D9E1892BD6F00BA0B96 /* ORSensorLinkParserTest.h */,
 				91BCD68218994BF500EC8AEE /* ORBackgroundParserTest.m */,
 				91BCD68418994C0600EC8AEE /* ORBackgroundParserTest.h */,
+				911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */,
+				911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1225,6 +1245,7 @@
 				9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */,
 				918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */,
 				91E5B16717B112CE007EB305 /* SensorValuesValidResponse_2_0_0.xml in Resources */,
+				911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */,
 				91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */,
 				91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */,
 			);
@@ -1311,6 +1332,7 @@
 				91933372179E9BD00086FEE7 /* LocalController.m in Sources */,
 				91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */,
 				919333A9179EA2A90086FEE7 /* CommandDeferredBinding.m in Sources */,
+				911392E6189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */,
 				919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */,
 				919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */,
 				919333AC179EA2A90086FEE7 /* LabelDeferredBinding.m in Sources */,
@@ -1355,6 +1377,7 @@
 				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
+				911392E1189BE94E00B7D79D /* ORButton.m in Sources */,
 				91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
 				91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
@@ -1388,6 +1411,8 @@
 				91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */,
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
+				911392E7189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */,
+				911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91B72FAE189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */,
@@ -1415,6 +1440,7 @@
 				915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */,
 				917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
 				91BCD68318994BF500EC8AEE /* ORBackgroundParserTest.m in Sources */,
+				911392E2189BE94E00B7D79D /* ORButton.m in Sources */,
 				91B72FB2189035D6000B7552 /* ORDeferredBinding.m in Sources */,
 				91222D9A1892BBDB00BA0B96 /* DefinitionParserMock.m in Sources */,
 				917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */,
