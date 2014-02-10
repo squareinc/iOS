@@ -262,6 +262,7 @@
 		916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
 		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
+		91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */; };
 		91B5A0F717FAD15800F4BA8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
@@ -599,6 +600,8 @@
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheTest.m; sourceTree = "<group>"; };
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
+		91AAFAFF18A8E9F200632C1A /* ORConsoleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleApp.h; sourceTree = "<group>"; };
+		91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleApp.m; sourceTree = "<group>"; };
 		91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
 		91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
 		91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				8C460F3F109563E100C7A686 /* NotificationConstant.m */,
 				8C460F5A109564D000C7A686 /* AppDelegate.h */,
 				8C460F5B109564D000C7A686 /* AppDelegate.m */,
+				91AAFAFF18A8E9F200632C1A /* ORConsoleApp.h */,
+				91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1447,6 +1452,7 @@
 				60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */,
 				60366B92144DCB9C004FED3B /* FileUtils.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
+				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
 				60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */,
 				60366B95144DCB9C004FED3B /* Reachability.m in Sources */,
 				60366B96144DCB9C004FED3B /* AsyncSocket.m in Sources */,

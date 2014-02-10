@@ -31,6 +31,7 @@
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORController.h"
 #import "ImageCache.h"
+#import "ORConsoleApp.h"
 
 // Maximum number of operations executed concurrently
 #define MAX_CONCURRENT_OPERATIONS   3
@@ -56,6 +57,8 @@
 
 @property (nonatomic, weak) ORControllerConfig *controller;
 
+@property (nonatomic, strong) ORConsoleApp *console;
+
 @end
 
 @implementation DefinitionManager
@@ -65,6 +68,9 @@
     self = [super init];
     if (self) {
         self.controller = aController;
+        
+        // TODO: not sure this is the place to build this
+        self.console = [[ORConsoleApp alloc] init];
     }
     return self;
 }
@@ -107,6 +113,7 @@
     [self.controller.controller connectWithSuccessHandler:^{
         [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
             self.controller.definition = definition;
+            definition.console = self.console;
             
             self.imageCache.loader = self.controller;
             // For now, once done, trigger download again so "old mechanism" and image download will happen
@@ -172,6 +179,7 @@
     PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
     NSData *data = [[NSData alloc] initWithContentsOfFile:configurationFilePath];
     self.controller.definition = [parser parseDefinitionFromXML:data];
+    self.controller.definition.console = self.console;
     
     [self.controller.controller attachPanelDefinition:self.controller.definition];
 }
