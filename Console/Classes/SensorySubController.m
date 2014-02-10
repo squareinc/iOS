@@ -22,6 +22,7 @@
 #import "ORControllerClient/SensorComponent.h"
 #import "NotificationConstant.h"
 #import "ORLabel.h"
+#import "ORImage.h"
 
 @interface SensorySubController()
 
@@ -49,7 +50,7 @@
 - (void)addPollingNotificationObserver
 {
     /* TODO: remove later, whole polling notification should be reviewed / go away */
-    if ([self.component isKindOfClass:[ORLabel class]]) {
+    if ([self.component isKindOfClass:[ORLabel class]] || ([self.component isKindOfClass:[ORImage class]])) {
         return;
     }
         

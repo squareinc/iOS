@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ImageSubController.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORImage.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
@@ -27,10 +27,12 @@
 #import "UIColor+ORAdditions.h"
 #import "ImageCache.h"
 
+static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVOContext;
+
 @interface ImageSubController()
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) Image *image;
+@property (weak, nonatomic, readonly) ORImage *image;
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
@@ -41,57 +43,56 @@
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
-        ORImageView *imageView = [[ORImageView alloc] initWithFrame:CGRectZero];        
-        UIImage *uiImage = [self.imageCache getImageNamed:self.image.src finalImageAvailable:^(UIImage *image) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image.image = image;
-            });
-        }];
-        if (uiImage) {
-            imageView.image.image = uiImage;
-        }
+        self.view = [[ORImageView alloc] initWithFrame:CGRectZero];
+        [self setImageNamed:self.image.name];
+        
         /*
          TODO: re-add font and color properties
         imageView.label.font = [UIFont fontWithName:@"Arial" size:self.image.label.fontSize];
         imageView.label.textColor = [UIColor or_ColorWithRGBString:[self.image.label.color substringFromIndex:1]];
          */
-        self.view = imageView;
+        
+        [self.image addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:ImageSubControllerKVOContext];
     }
     return self;
 }
 
-- (Image *)image
+- (void)dealloc
 {
-    return (Image *)self.component;
+    [self.image removeObserver:self forKeyPath:@"name"];
 }
 
-- (void)setPollingStatus:(NSNotification *)notification
+- (ORImage *)image
 {
-	SensorStatusCache *statusCache = (SensorStatusCache *)[notification object];
-	int sensorId = self.image.sensorId;
-	NSString *newStatus = [statusCache valueForSensorId:sensorId];
-    
+    return (ORImage *)self.component;
+}
+
+- (void)setImageNamed:(NSString *)imageName
+{
     ORImageView *imageView = (ORImageView *)self.view;
-    // If no state matching update is found in our states definition, fallback to display the label (if one is defined)
-	
-    NSString *stateValue = [self.image.sensor stateValueForName:newStatus];
-    if (stateValue) {
-        imageView.image.image = [self.imageCache getImageNamed:stateValue];
-        [imageView showImage];
-    } else {
-        /*
-         
-         TODO: replace with KVO on label
-        if (self.image.label) {
-            [imageView showLabel];
-            stateValue = [self.image.label.sensor stateValueForName:newStatus];
-            if (stateValue) {
-                imageView.label.text = stateValue;
+    UIImage *uiImage = [self.imageCache getImageNamed:self.image.name finalImageAvailable:^(UIImage *image) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (image) {
+                imageView.image.image = image;
+                [imageView showImage];
             } else {
-                imageView.label.text = newStatus;
+                [imageView showLabel];
             }
+        });
+    }];
+    if (uiImage) {
+        imageView.image.image = uiImage;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == ImageSubControllerKVOContext) {
+        if ([@"name" isEqualToString:keyPath]) {
+            [self setImageNamed:self.image.name];
         }
-         */
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
