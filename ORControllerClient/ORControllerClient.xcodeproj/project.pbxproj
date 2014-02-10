@@ -744,28 +744,19 @@
 		918604B5179444B0005DBCD9 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				91B72FAA1890358C000B7552 /* Deferred Binding */,
 				91CD6A3F17C252D800D5EEE6 /* ORParser.h */,
 				91CD6A4017C252D900D5EEE6 /* ORParser.m */,
 				91CD6A4217C254BA00D5EEE6 /* ORParser_Private.h */,
-				91933393179E9F5A0086FEE7 /* Legacy */,
+				91B72FAA1890358C000B7552 /* Deferred Binding */,
 				918604B6179444B8005DBCD9 /* Panels List */,
+				91AAFB0318A907A900632C1A /* Panel Definition */,
 				91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */,
 				91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */,
 				91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */,
 				91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */,
-				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
-				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
-				91B72FA618903402000B7552 /* ORImageParser.h */,
-				91B72FA718903402000B7552 /* ORImageParser.m */,
 				91222D921892B07A00BA0B96 /* ORSensorStateParser.h */,
 				91222D931892B07A00BA0B96 /* ORSensorStateParser.m */,
-				91222D9F1892BE0300BA0B96 /* ORSensorLinkParser.h */,
-				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
-				91BCD67E1899435400EC8AEE /* ORBackgroundParser.h */,
-				91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */,
-				911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */,
-				911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */,
+				91933393179E9F5A0086FEE7 /* Legacy */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1103,6 +1094,23 @@
 			);
 			name = DeferredBinding;
 			path = ../../Console/Classes;
+			sourceTree = "<group>";
+		};
+		91AAFB0318A907A900632C1A /* Panel Definition */ = {
+			isa = PBXGroup;
+			children = (
+				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
+				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
+				91B72FA618903402000B7552 /* ORImageParser.h */,
+				91B72FA718903402000B7552 /* ORImageParser.m */,
+				91BCD67E1899435400EC8AEE /* ORBackgroundParser.h */,
+				91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */,
+				91222D9F1892BE0300BA0B96 /* ORSensorLinkParser.h */,
+				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
+				911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */,
+				911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */,
+			);
+			name = "Panel Definition";
 			sourceTree = "<group>";
 		};
 		91B72FAA1890358C000B7552 /* Deferred Binding */ = {
