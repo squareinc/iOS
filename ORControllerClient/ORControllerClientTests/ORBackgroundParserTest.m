@@ -25,7 +25,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "DefinitionParserMock.h"
 #import "ORBackground.h"
-#import "oRImage.h"
+#import "ORImage.h"
 
 @implementation ORBackgroundParserTest
 
