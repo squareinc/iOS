@@ -196,6 +196,7 @@
 		91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */; };
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		919DDF3917E8A77C00EFDCCA /* ORLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */; };
+		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AD7101189653800050EB0A /* ORSensorStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD7100189653800050EB0A /* ORSensorStateTest.m */; };
 		91B5A0F217F5C8C300F4BA8B /* ORWidgetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F117F5C8C300F4BA8B /* ORWidgetTest.m */; };
 		91B72FA41890308F000B7552 /* ORImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FA31890308F000B7552 /* ORImage.m */; };
@@ -264,6 +265,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */,
 				91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */,
 				91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */,
 				916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */,
