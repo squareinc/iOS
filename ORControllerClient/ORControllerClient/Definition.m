@@ -22,7 +22,7 @@
 #import "Group.h"
 #import "Screen.h"
 #import "ORSensorRegistry.h"
-
+#import "ORController.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 // Import of private is required even if not directly use to make sure setController: is synthetized
@@ -157,6 +157,13 @@
 - (NSSet *)labels
 {
     return [NSSet setWithArray:self._labels];
+}
+
+
+
+- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action
+{
+    [self.controller controlForWidget:widget action:action];
 }
 
 @synthesize groups, screens, tabBar, localController, imageNames, controller;

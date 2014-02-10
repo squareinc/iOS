@@ -166,4 +166,13 @@
     [self.pollingManager start];
 }
 
+- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
+    // TODO: success and error handlers
+    [self.controllerAPI controlForWidget:widget action:action atBaseURL:self.address.primaryURL withSuccessHandler:NULL errorHandler:NULL];
+}
+
 @end

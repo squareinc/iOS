@@ -24,6 +24,8 @@
 #import "PanelLayoutResponseHandler_2_0_0.h"
 #import "SensorValuesResponseHandler_2_0_0.h"
 #import "ORRESTCall_Private.h"
+#import "ORObjectIdentifier.h"
+#import "ORWidget.h"
 
 @interface ControllerREST_2_0_0_API ()
 
@@ -94,6 +96,18 @@
                                                                         URLByAppendingPathComponent:[[sensorIds allObjects] componentsJoinedByString:@","]]];
 
     return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)controlForWidget:(ORWidget *)widget // TODO: should we pass widget or just identifier
+                          action:(NSString *)action // TODO: should this be given as param or infered from widget or ...
+                       atBaseURL:(NSURL *)baseURL
+              withSuccessHandler:(void (^)(void))successHandler // TODO: required ? anything meaningful to return ?
+                    errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[[baseURL URLByAppendingPathComponent:@"/rest/control/"]
+                                                                         URLByAppendingPathComponent:[widget.identifier stringValue]]
+                                                                        URLByAppendingPathComponent:action]];
+    return [self callForRequest:request delegate:nil]; // TODO: delegate
 }
 
 @end

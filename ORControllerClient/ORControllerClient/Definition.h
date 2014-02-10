@@ -29,6 +29,7 @@
 @class ORSensorRegistry;
 @class ORController;
 @class ORObjectIdentifier;
+@class ORWidget;
 
 /**
  * This class is responsible for storing some models data (groups, screens, labels, tabBar, images and local controllers)
@@ -76,6 +77,8 @@
 - (ORLabel *)findLabelById:(int)labelId;
 
 - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier;
+
+- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;

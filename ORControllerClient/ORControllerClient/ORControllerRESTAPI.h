@@ -25,6 +25,7 @@
 
 @class ORRESTCall;
 @class Definition;
+@class ORWidget;
 
 /**
  * Error domain used for NSError specific to the ORClient library.
@@ -58,6 +59,12 @@ extern NSString *const kORClientErrorDomain;
                     atBaseURL:(NSURL *)baseURL
            withSuccessHandler:(void (^)(NSDictionary *))successHandler
                  errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)controlForWidget:(ORWidget *)widget // TODO: should we pass widget or just identifier
+                          action:(NSString *)action // TODO: should this be given as param or infered from widget or ...
+                       atBaseURL:(NSURL *)baseURL
+              withSuccessHandler:(void (^)(void))successHandler // TODO: required ? anything meaningful to return ?
+                    errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * The authentication manager that can provide credential during calls.

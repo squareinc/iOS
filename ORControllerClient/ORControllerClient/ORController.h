@@ -25,6 +25,7 @@
 @class ORControllerAddress;
 
 @class Definition;
+@class ORWidget;
 
 /**
  * Represents an OpenRemote ORB
@@ -117,6 +118,8 @@
  * TODO: currently, polling is started even if not connected to controller, is that OK ?
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
+
+- (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
 
 /**
  * The authentication manager that can provide credential during calls.
