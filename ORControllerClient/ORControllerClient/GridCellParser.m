@@ -75,6 +75,7 @@
 - (void)endImageElement:(ORImageParser *)parser
 {
     self.gridCell.component = parser.image;
+    [self.depRegister.definition addImage:parser.image];
 }
 
 - (void)endWebElement:(WebParser *)parser

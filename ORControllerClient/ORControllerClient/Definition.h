@@ -22,6 +22,7 @@
 
 @class TabBar;
 @class ORLabel;
+@class ORImage;
 @class Group;
 @class Screen;
 @class LocalController;
@@ -80,6 +81,7 @@
 
 - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier;
 
+- (void)addImage:(ORImage *)image;
 
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
@@ -92,6 +94,14 @@
 @property (nonatomic, strong, readonly) NSMutableArray *screens;
 
 @property (nonatomic, strong, readonly) NSSet *labels;
+
+/**
+ * Collection of all images used in this panel definition.
+ * This includes only standalone images, not the ones used on buttons, sliders, ...
+ */
+@property (nonatomic, strong, readonly) NSSet *images;
+
+
 
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;

@@ -25,6 +25,7 @@
 #import "ORController.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
+#import "ORImage.h"
 // Import of private is required even if not directly use to make sure setController: is synthetized
 #import "Definition_Private.h"
 
@@ -39,6 +40,8 @@
  * Implementation note: this is currently filled in by parser during parsing
  */
 @property (nonatomic, strong) NSMutableArray *_labels;
+
+@property (nonatomic, strong) NSMutableArray *_images;
 
 @property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
 
@@ -55,6 +58,7 @@
         self.groups = [NSMutableArray array];
 		self.screens = [NSMutableArray array];
         self._labels = [NSMutableArray array];
+        self._images = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
         self.sensorRegistry = [[ORSensorRegistry alloc] init];
 	}
@@ -132,6 +136,11 @@
 	return nil;
 }
 
+- (void)addImage:(ORImage *)image
+{
+    [self._images addObject:image];
+}
+
 - (void)addImageName:(NSString *)imageName {
 	for (NSString *name in self.imageNames) {
 		// avoid duplicated
@@ -157,6 +166,11 @@
 - (NSSet *)labels
 {
     return [NSSet setWithArray:self._labels];
+}
+
+- (NSSet *)images
+{
+    return [NSSet setWithArray:self._images];
 }
 
 
