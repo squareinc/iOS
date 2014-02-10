@@ -56,6 +56,12 @@
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:0], zeroId, @"Id initiliazed with invalid string should be 0");
 }
 
+- (void)testStringValue
+{
+    ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    STAssertEqualObjects(@"1", [identifier stringValue], @"String representation of identifier should be '1'");
+}
+
 - (void)testCopy
 {
     ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];

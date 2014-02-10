@@ -47,4 +47,11 @@
  */
 - (id)initWithStringId:(NSString *)stringId;
 
+/**
+ * Returns a string representation of this identifier.
+ *
+ * @return An NSString representation of this identifier.
+ */
+- (NSString *)stringValue;
+
 @end

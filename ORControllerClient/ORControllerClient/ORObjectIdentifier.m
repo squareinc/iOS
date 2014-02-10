@@ -62,7 +62,7 @@
     return [[[self class] allocWithZone:zone] initWithIntegerId:self._id];
 }
 
-- (NSString *)description
+- (NSString *)stringValue
 {
     return [NSString stringWithFormat:@"%d", self._id];
 }
