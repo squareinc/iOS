@@ -31,6 +31,8 @@
 @class ORObjectIdentifier;
 @class ORWidget;
 
+@protocol ORConsole;
+
 /**
  * This class is responsible for storing some models data (groups, screens, labels, tabBar, images and local controllers)
  */
@@ -97,5 +99,10 @@
  * Property is nil when Definition is not attached to any controller.
  */
 @property (nonatomic, weak, readonly) ORController *controller;
+
+/**
+ * Client application using this Definition.
+ */
+@property (nonatomic, weak) NSObject<ORConsole> *console;
 
 @end
