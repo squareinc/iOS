@@ -22,6 +22,7 @@
 #import "ORButton.h"
 #import "ORButton_Private.h"
 #import "ORLabel.h"
+#import "ORConsole.h"
 #import "Definition.h"
 
 #define kMinimumRepeatDelay 100
@@ -112,6 +113,7 @@
     }
     
 	if (self.navigate) {
+        [self.definition.console navigate:self.navigate];
         // TODO: replace with some other mechanism
 //		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:button.navigate];
 	}
