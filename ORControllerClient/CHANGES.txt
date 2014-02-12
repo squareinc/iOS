@@ -1,3 +1,25 @@
+Version 0.2.0
+=============
+
+Added ORImage object representing images (replaces legacy Image model object).
+- (NSSet *)images method on Definition returns all the images that are part of the design.
+
+Added ORButton object representing a push button (no state feedback).
+ORButton replaces legacy Button object.
+ORButton object handles communication with controller.
+UI code should use -press and -depress method to indicate when user taps and releases button.
+- (NSSet *)buttons method on Definition returns all the buttons that are part of the design.
+
+Added ORBackground object representing background of Screen (replaces legacy Background model object).
+Screen is still a legacy model object and will be replaced in the future.
+
+ORWidgets have a reference to the Definition they are a part of.
+
+Fixed bug that would not take sensor states information from ORWidget (label or image) into account.
+
+On Definition method - (ORLabel *)findLabelById:(int)labelId is deprecated.
+Method - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier should be used instead.
+
 Version 0.1.3
 =============
 
