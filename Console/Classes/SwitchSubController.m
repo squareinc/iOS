@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -19,129 +19,119 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "SwitchSubController.h"
-#import "ORControllerClient/Switch.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORSwitch.h"
+#import "ORControllerClient/ORImage.h"
 #import "ImageCache.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/Sensor.h"
 #import "NotificationConstant.h"
 
+static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerKVOContext;
+
 @interface SwitchSubController()
 
-@property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) Switch *sswitch;
+@property (nonatomic, strong) UIButton *view;
+@property (weak, nonatomic, readonly) ORSwitch *sswitch;
 @property (nonatomic) BOOL canUseImage;
-@property (nonatomic) BOOL isOn;
+
 @property (nonatomic, strong) UIImage *onUIImage;
 @property (nonatomic, strong) UIImage *offUIImage;
 
 @property (nonatomic, weak) ImageCache *imageCache;
 
-- (void)setOn:(BOOL)on;
 - (void)stateChanged:(id)sender;
 
 @end
 
 @implementation SwitchSubController
 
+// TODO: review this "canUseImage" thing, possible to only have 1 of the 2 images
+// also possible to have image names but never resolve to image
+
 - (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(stateChanged:) forControlEvents:UIControlEventTouchUpInside];
+        self.view = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addTarget:self action:@selector(stateChanged:) forControlEvents:UIControlEventTouchUpInside];
         
-        NSString *onImage = self.sswitch.onImage.src;
-        NSString *offImage = self.sswitch.offImage.src;
+        NSString *onImage = self.sswitch.onImage.name;
+        NSString *offImage = self.sswitch.offImage.name;
         self.canUseImage = onImage && offImage;
 
         if (self.canUseImage) {
             self.onUIImage = [self.imageCache getImageNamed:onImage finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.onUIImage = image;
-                    [self setOn:self.isOn];
+                    [self updateSwitchUI];
                 });
             }];
+            if (self.onUIImage) {
+                [self updateSwitchUI];
+            }
             self.offUIImage = [self.imageCache getImageNamed:offImage finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.offUIImage = image;
-                    [self setOn:self.isOn];
+                    [self updateSwitchUI];
                 });
             }];
-            [button.imageView setContentMode:UIViewContentModeCenter];
+            if (self.offUIImage) {
+                [self updateSwitchUI];
+            }
+            [self.view.imageView setContentMode:UIViewContentModeCenter];
         } else {
             UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
-            [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-            button.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
+            [self.view setBackgroundImage:buttonImage forState:UIControlStateNormal];
+            self.view.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+            self.view.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
+            [self updateSwitchUI];
         }
-        self.view = button;
-        [self setOn:NO];
-        
-        int sensorId = ((SensorComponent *)self.component).sensorId;
-        if (sensorId > 0 ) {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setPollingStatus:) name:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:nil];
-        }
-    }    
+
+        [self.sswitch addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:SwitchSubControllerKVOContext];
+    }
     return self;
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.sswitch removeObserver:self forKeyPath:@"state"];
 }
 
-- (Switch *)sswitch
+- (ORSwitch *)sswitch
 {
-    return (Switch *)self.component;
+    return (ORSwitch *)self.component;
 }
 
-- (void)setPollingStatus:(NSNotification *)notification {
-	SensorStatusCache *statusCache = (SensorStatusCache *)[notification object];
-	int sensorId = self.sswitch.sensor.sensorId;
-	NSString *newStatus = [statusCache valueForSensorId:sensorId];
-	if ([[newStatus uppercaseString] isEqualToString:@"ON"]) {
-		[self setOn:YES];
-	} else if ([[newStatus uppercaseString] isEqualToString:@"OFF"]) {
-		[self setOn:NO];
-	} 
-}
-
-// Update the UI of swith view with polling status.
-- (void)setOn:(BOOL)on
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if (on) {
-		self.isOn = YES;
-		if (self.canUseImage) {
-			[(UIButton *)self.view setImage:self.onUIImage forState:UIControlStateNormal];		
-		} else {
-			[(UIButton *)self.view setTitle:@"ON" forState:UIControlStateNormal];			
-		}
-	} else {
-        NSLog(@"%@", self.view);
-		self.isOn = NO;
-		if (self.canUseImage) {
-			[(UIButton *)self.view setImage:self.offUIImage forState:UIControlStateNormal];			
-		} else {
-			[(UIButton *)self.view setTitle:@"OFF" forState:UIControlStateNormal];
-		}		
-	}
+    if (context == SwitchSubControllerKVOContext) {
+        if ([@"state" isEqualToString:keyPath]) {
+            [self updateSwitchUI];
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
-// Send boolean control command to remote controller server.
+- (void)updateSwitchUI
+{
+    NSLog(@"Updating for switch %@ to state %d", self.sswitch, self.sswitch.state);
+    if (self.canUseImage) {
+        [self.view setImage:(self.sswitch.state?self.onUIImage:self.offUIImage) forState:UIControlStateNormal];
+    } else {
+        [self.view setTitle:self.sswitch.state?@"ON":@"OFF" forState:UIControlStateNormal];
+    }
+}
+
 - (void)stateChanged:(id)sender
 {
-	if (self.isOn) {
-		[self sendCommandRequest:@"OFF"];
-	} else {		
-		[self sendCommandRequest:@"ON"];
-	} 
+    [self.sswitch toggle];
 }
 
 @synthesize view;
 @synthesize sswitch;
-@synthesize canUseImage, isOn;
-@synthesize onUIImage, offUIImage;
+@synthesize canUseImage;
+@synthesize onUIImage;
+@synthesize offUIImage;
 
 @end
