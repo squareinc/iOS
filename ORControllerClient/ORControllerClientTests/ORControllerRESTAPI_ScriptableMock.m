@@ -76,4 +76,37 @@
     return nil;
 }
 
+- (ORRESTCall *)statusForSensorIdentifiers:(NSSet *)sensorIdentifiers
+                                 atBaseURL:(NSURL *)baseURL
+                        withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                              errorHandler:(void (^)(NSError *))errorHandler
+{
+    self.sensorStatusCallCount++;
+    if (self.sensorStatusError) {
+        errorHandler(self.sensorStatusError);
+    } else if (self.sensorStatusResult) {
+        successHandler(self.sensorStatusResult);
+    }
+    return nil;
+}
+
+- (ORRESTCall *)pollSensorIdentifiers:(NSSet *)sensorIdentifiers fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler
+{
+    if (self.sensorPollCallCount >= self.sensorPollMaxCall) {
+        return nil;
+    }
+    
+    self.sensorPollCallCount++;
+    if (self.sensorPollError) {
+        errorHandler(self.sensorPollError);
+    } else if (self.sensorPollResult) {
+        successHandler(self.sensorPollResult);
+    }
+    
+    return nil;
+}
+
 @end
