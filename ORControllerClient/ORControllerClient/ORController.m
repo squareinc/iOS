@@ -29,6 +29,7 @@
 
 #import "ORLabel.h"
 #import "ORButton.h"
+#import "ORSwitch.h"
 
 #import "ControllerREST_2_0_0_API.h"
 
@@ -198,6 +199,16 @@
 
     // TODO: success and error handlers
     [self.controllerAPI controlForWidget:widget action:action atBaseURL:self.address.primaryURL withSuccessHandler:NULL errorHandler:NULL];
+}
+
+- (void)sendOnForSwitch:(ORSwitch *)sender
+{
+    [self controlForWidget:sender action:@"on"];
+}
+
+- (void)sendOffForSwitch:(ORSwitch *)sender
+{
+    [self controlForWidget:sender action:@"off"];
 }
 
 @end

@@ -31,6 +31,7 @@
 @class ORController;
 @class ORObjectIdentifier;
 @class ORButton;
+@class ORSwitch;
 
 @protocol ORConsole;
 
@@ -89,6 +90,8 @@
 - (void)sendLongPressCommandForButton:(ORButton *)sender;
 - (void)sendLongReleaseCommandForButton:(ORButton *)sender;
 
+- (void)sendOnForSwitch:(ORSwitch *)sender;
+- (void)sendOffForSwitch:(ORSwitch *)sender;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;

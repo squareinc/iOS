@@ -26,6 +26,7 @@
 
 @class Definition;
 @class ORButton;
+@class ORSwitch;
 
 /**
  * Represents an OpenRemote ORB
@@ -124,6 +125,9 @@
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
 - (void)sendLongPressCommandForButton:(ORButton *)sender;
 - (void)sendLongReleaseCommandForButton:(ORButton *)sender;
+
+- (void)sendOnForSwitch:(ORSwitch *)sender;
+- (void)sendOffForSwitch:(ORSwitch *)sender;
 
 /**
  * The authentication manager that can provide credential during calls.

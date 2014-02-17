@@ -205,6 +205,16 @@
     [self.controller sendLongReleaseCommandForButton:sender];
 }
 
+- (void)sendOnForSwitch:(ORSwitch *)sender
+{
+    [self.controller sendOnForSwitch:sender];
+}
+
+- (void)sendOffForSwitch:(ORSwitch *)sender
+{
+    [self.controller sendOffForSwitch:sender];
+}
+
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
 
 @end
