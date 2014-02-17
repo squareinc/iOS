@@ -51,12 +51,12 @@
 /**
  * Establishes connection to the controller.
  * Reports success/error through provided handlers.
- * successHandler is garanteed to be called after the connection has been established.
+ * successHandler is guaranteed to be called after the connection has been established.
  *
  * @param successHandler A block object to be executed once connection to the controller has been established.
  * This block has no return value and does not take any parameter.
  * @param errorHandler A block object to be executed if connection to the controller fails.
- * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)connectWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
@@ -81,11 +81,11 @@
 /**
  * Requests the list of panel identities in the configuration of this controller.
  *
- * @param successHandler A block object to be executed once the controller configuration has been succesfully read.
+ * @param successHandler A block object to be executed once the controller configuration has been successfully read.
  * This block has no return value and takes a single NSArray * argument with all the panel identities.
  * The elements of the array are ORPanel instances.
  * @param errorHandler A block object to be executed if the controller configuration cannot be retrieved.
- * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)requestPanelIdentityListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
@@ -97,10 +97,10 @@
  * for as long as connection to the controller stays open.
  *
  * @param panelName Logical name of panel to get layout definition of
- * @param successHandler A block object to be executed once the panel layout definition has been succesfully read from the controller.
+ * @param successHandler A block object to be executed once the panel layout definition has been successfully read from the controller.
  * This block has no return value and takes a single Definition * argument that provides panel layout information.
  * @param errorHandler A block object to be executed if the definition cannot be retrieved from controller.
- * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)requestPanelUILayout:(NSString *)panelName successHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
