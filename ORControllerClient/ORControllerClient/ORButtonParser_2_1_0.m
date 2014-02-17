@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORButonParser_2_0_0.h"
+#import "ORButtonParser_2_1_0.h"
 #import "ORButtonParser_Private.h"
 #import "ORButton_Private.h"
 #import "ORObjectIdentifier.h"
@@ -29,14 +29,14 @@
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 
-@interface ORButonParser_2_0_0 ()
+@interface ORButtonParser_2_1_0 ()
 
 @property (nonatomic, assign) ButtonImageType currentImageType;
 @property (nonatomic, strong, readwrite) ORButton *button;
 
 @end
 
-@implementation ORButonParser_2_0_0
+@implementation ORButtonParser_2_1_0
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {
@@ -44,13 +44,40 @@
     if (self) {
         [self addKnownTag:NAVIGATE];
         [self addKnownTag:IMAGE];
+        
+        int repeatDelay = kDefaultRepeatDelay, longPressDelay = kDefaultLongPressDelay;
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        // TODO: double check if this is always US locale, maybe get locale from XML
+        [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        NSNumber *result = nil;
+        NSError *error = nil;
+        NSString *input = [attributeDict objectForKey:@"repeatDelay"];
+        if (input) {
+            NSRange range = NSMakeRange(0, input.length);
+            if ([formatter getObjectValue:&result forString:input range:&range error:&error]) {
+                repeatDelay = [result intValue];
+            }
+        }
+        result = nil;
+        error = nil;
+        input = [attributeDict objectForKey:@"longPressDelay"];
+        if (input) {
+            NSRange range = NSMakeRange(0, input.length);
+            if ([formatter getObjectValue:&result forString:input range:&range error:&error]) {
+                longPressDelay = [result intValue];
+            }
+        }
+
         self.button = [[ORButton alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"id"]]
                                                      label:[[ORLabel alloc] initWithIdentifier:nil text:[attributeDict objectForKey:@"name"]]
-                                          repeat:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"repeat"] uppercaseString]]
-                                     repeatDelay:kDefaultRepeatDelay
-                                 hasPressCommand:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"hasControlCommand"] uppercaseString]]
-                          hasShortReleaseCommand:FALSE hasLongPressCommand:FALSE hasLongReleaseCommand:FALSE
-                                  longPressDelay:kDefaultLongPressDelay];
+                                                    repeat:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"repeat"] uppercaseString]]
+                                               repeatDelay:repeatDelay
+                                           hasPressCommand:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"hasPressCommand"] uppercaseString]]
+                                    hasShortReleaseCommand:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"hasShortReleaseCommand"] uppercaseString]]
+                                       hasLongPressCommand:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"hasLongPressCommand"] uppercaseString]]
+                                     hasLongReleaseCommand:[@"TRUE" isEqualToString:[[attributeDict objectForKey:@"hasLongReleaseCommand"] uppercaseString]]
+                                            longPressDelay:longPressDelay];
         self.button.definition = aRegister.definition;
     }
     return self;

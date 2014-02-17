@@ -66,6 +66,9 @@
 		915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024C017B5279E005D8A02 /* ORSensorPollingManager.m */; };
 		916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 916D22AC18522158004D9CF4 /* ORCredential.h */; };
 		916D63AF18B21C5A00AD781D /* ORSwitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91099A4C18AE1547005BEBAB /* ORSwitch.h */; };
+		916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B018B24B9F00AD781D /* ORButtonParser_2_1_0Test.m */; };
+		916D63B618B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */; };
+		916D63B718B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */; };
 		917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C017B8DC34005F9BA4 /* ORSensorLink.m */; };
 		917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */; };
@@ -391,6 +394,11 @@
 		915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorPollingManager.h; sourceTree = "<group>"; };
 		915024C017B5279E005D8A02 /* ORSensorPollingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorPollingManager.m; sourceTree = "<group>"; };
 		916D22AC18522158004D9CF4 /* ORCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCredential.h; sourceTree = "<group>"; };
+		916D63B018B24B9F00AD781D /* ORButtonParser_2_1_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_1_0Test.m; sourceTree = "<group>"; };
+		916D63B218B24BB600AD781D /* ORButtonParser_2_1_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_1_0Test.h; sourceTree = "<group>"; };
+		916D63B418B24C1E00AD781D /* ORButtonParser_2_1_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_1_0.h; sourceTree = "<group>"; };
+		916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_1_0.m; sourceTree = "<group>"; };
+		916D63B918B24F8F00AD781D /* ORButtonParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_Private.h; sourceTree = "<group>"; };
 		917104BF17B8DC34005F9BA4 /* ORSensorLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLink.h; sourceTree = "<group>"; };
 		917104C017B8DC34005F9BA4 /* ORSensorLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorLink.m; sourceTree = "<group>"; };
 		917104C317B8F513005F9BA4 /* ORSensorLinkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorLinkTest.h; sourceTree = "<group>"; };
@@ -718,6 +726,15 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
+		916D63B318B24C0300AD781D /* 2_1_0 */ = {
+			isa = PBXGroup;
+			children = (
+				916D63B418B24C1E00AD781D /* ORButtonParser_2_1_0.h */,
+				916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */,
+			);
+			name = 2_1_0;
+			sourceTree = "<group>";
+		};
 		918604B117944342005DBCD9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +816,8 @@
 				91BCD68418994C0600EC8AEE /* ORBackgroundParserTest.h */,
 				911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */,
 				911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */,
+				916D63B018B24B9F00AD781D /* ORButtonParser_2_1_0Test.m */,
+				916D63B218B24BB600AD781D /* ORButtonParser_2_1_0Test.h */,
 				91099A5418B2122D005BEBAB /* ORSwitchParserTest.m */,
 				91099A5618B21248005BEBAB /* ORSwitchParserTest.h */,
 			);
@@ -1106,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				91AAFB0418A9082200632C1A /* 2_0_0 */,
+				916D63B318B24C0300AD781D /* 2_1_0 */,
 				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
 				9178DF8C1844A31A00E862DF /* ORLabelParser.m */,
 				91B72FA618903402000B7552 /* ORImageParser.h */,
@@ -1116,6 +1136,7 @@
 				91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */,
 				91AAFB0518A9083C00632C1A /* ORButtonParser.h */,
 				91AAFB0618A9083C00632C1A /* ORButtonParser.m */,
+				916D63B918B24F8F00AD781D /* ORButtonParser_Private.h */,
 				91099A5018B20F7E005BEBAB /* ORSwitchParser.h */,
 				91099A5118B20F7E005BEBAB /* ORSwitchParser.m */,
 			);
@@ -1416,6 +1437,7 @@
 				91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
 				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
+				916D63B618B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
 				91222D841892631700BA0B96 /* ORSensorState.m in Sources */,
 				917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
 				91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
@@ -1447,6 +1469,8 @@
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				911392E7189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */,
 				911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */,
+				916D63B718B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
+				916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				91099A4F18AE1547005BEBAB /* ORSwitch.m in Sources */,
 				9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
