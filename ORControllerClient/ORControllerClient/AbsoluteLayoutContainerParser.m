@@ -25,7 +25,8 @@
 #import "WebParser.h"
 #import "ORButtonParser.h"
 #import "ORButton.h"
-#import "SwitchParser.h"
+#import "ORSwitchParser.h"
+#import "ORSwitch.h"
 #import "SliderParser.h"
 #import "ColorPickerParser.h"
 #import "DefinitionElementParserRegister.h"
@@ -89,7 +90,7 @@
     [self.depRegister.definition addButton:parser.button];
 }
 
-- (void)endSwitchElement:(SwitchParser *)parser
+- (void)endSwitchElement:(ORSwitchParser *)parser
 {
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.sswitch;
 }
