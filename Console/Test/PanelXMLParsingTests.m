@@ -26,7 +26,6 @@
 #import "ORControllerClient/Switch.h"
 #import "ORControllerClient/GridLayoutContainer.h"
 #import "ORControllerClient/GridCell.h"
-#import "ORControllerClient/Button.h"
 #import "ORControllerClient/Slider.h"
 #import "ORControllerClient/Image.h"
 #import "ORControllerClient/ORImage.h"
@@ -51,7 +50,7 @@
  	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	return [thisBundle pathForResource:filename ofType:@"xml"];
 }
-
+/*
 // panel_grid_button.xml test
 - (void) testParsePanelGridButtonXML {
 	NSLog(@"testParsePanelGridButtonXML ");
@@ -153,7 +152,7 @@
 	STAssertTrue(((Button *)[buts objectAtIndex:9]).navigate.isLogin == YES,@"expected %d",YES);
 	STAssertTrue(((Button *)[buts objectAtIndex:10]).navigate.isLogout == YES,@"expected %d",YES);
 }
-
+*/
 /*
 // panel_grid_switch.xml test
 - (void) testParsePanelGridSwitchXML {
