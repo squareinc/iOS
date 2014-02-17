@@ -32,8 +32,8 @@
 		910B750517940D10005F41CF /* ORControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750417940D10005F41CF /* ORControllerTest.m */; };
 		911392E1189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
 		911392E2189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
-		911392E6189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */; };
-		911392E7189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */; };
+		911392E6189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */; };
+		911392E7189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */; };
 		911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */; };
 		911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */ = {isa = PBXBuildFile; fileRef = 911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
@@ -340,8 +340,8 @@
 		911392DF189BE94E00B7D79D /* ORButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton.h; sourceTree = "<group>"; };
 		911392E0189BE94E00B7D79D /* ORButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButton.m; sourceTree = "<group>"; };
 		911392E3189BE9F300B7D79D /* ORButton_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton_Private.h; sourceTree = "<group>"; };
-		911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButonParser_2_0_0.h; sourceTree = "<group>"; };
-		911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButonParser_2_0_0.m; sourceTree = "<group>"; };
+		911392E4189BFEF500B7D79D /* ORButtonParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_0_0.h; sourceTree = "<group>"; };
+		911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_0_0.m; sourceTree = "<group>"; };
 		911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_0_0Test.m; sourceTree = "<group>"; };
 		911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_0_0Test.h; sourceTree = "<group>"; };
 		91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBindingTest.m; sourceTree = "<group>"; };
@@ -1129,8 +1129,8 @@
 		91AAFB0418A9082200632C1A /* 2_0_0 */ = {
 			isa = PBXGroup;
 			children = (
-				911392E4189BFEF500B7D79D /* ORButonParser_2_0_0.h */,
-				911392E5189BFEF500B7D79D /* ORButonParser_2_0_0.m */,
+				911392E4189BFEF500B7D79D /* ORButtonParser_2_0_0.h */,
+				911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */,
 			);
 			name = 2_0_0;
 			sourceTree = "<group>";
@@ -1369,7 +1369,7 @@
 				91933372179E9BD00086FEE7 /* LocalController.m in Sources */,
 				91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */,
 				919333A9179EA2A90086FEE7 /* CommandDeferredBinding.m in Sources */,
-				911392E6189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */,
+				911392E6189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
 				91099A4E18AE1547005BEBAB /* ORSwitch.m in Sources */,
 				919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */,
 				919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */,
@@ -1447,7 +1447,7 @@
 				91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */,
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
-				911392E7189BFEF500B7D79D /* ORButonParser_2_0_0.m in Sources */,
+				911392E7189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
 				911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */,
 				916D63B718B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
 				916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */,

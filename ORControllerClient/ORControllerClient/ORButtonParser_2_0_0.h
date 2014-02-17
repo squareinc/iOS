@@ -36,6 +36,6 @@
  *    <navigate toScreen="19" />
  * </button>
  */
-@interface ORButonParser_2_0_0 : ORButtonParser
+@interface ORButtonParser_2_0_0 : ORButtonParser
 
 @end

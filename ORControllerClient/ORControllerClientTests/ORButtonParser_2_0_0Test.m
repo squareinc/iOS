@@ -20,7 +20,7 @@
  */
 
 #import "ORButtonParser_2_0_0Test.h"
-#import "ORButonParser_2_0_0.h"
+#import "ORButtonParser_2_0_0.h"
 #import "ORImageParser.h"
 #import "ORButton_Private.h"
 #import "ORObjectIdentifier.h"
@@ -36,7 +36,7 @@
 - (DefinitionElementParser *)parseXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParserRegister *depRegistry = [[DefinitionElementParserRegister alloc] init];
-    [depRegistry registerParserClass:[ORButonParser_2_0_0 class] endSelector:@selector(setTopLevelParser:) forTag:BUTTON];
+    [depRegistry registerParserClass:[ORButtonParser_2_0_0 class] endSelector:@selector(setTopLevelParser:) forTag:BUTTON];
     [depRegistry registerParserClass:[NavigateParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
     [depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
     
@@ -53,8 +53,8 @@
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
     STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORButonParser_2_0_0 class]], @"Parser used should be an ORButtonParser");
-    ORButton *button = ((ORButonParser_2_0_0 *)topLevelParser).button;
+    STAssertTrue([topLevelParser isMemberOfClass:[ORButtonParser_2_0_0 class]], @"Parser used should be an ORButtonParser");
+    ORButton *button = ((ORButtonParser_2_0_0 *)topLevelParser).button;
     STAssertNotNil(button, @"A button should be parsed for given XML snippet");
     
     return button;

@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORButonParser_2_0_0.h"
+#import "ORButtonParser_2_0_0.h"
 #import "ORButtonParser_Private.h"
 #import "ORButton_Private.h"
 #import "ORObjectIdentifier.h"
@@ -29,14 +29,14 @@
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 
-@interface ORButonParser_2_0_0 ()
+@interface ORButtonParser_2_0_0 ()
 
 @property (nonatomic, assign) ButtonImageType currentImageType;
 @property (nonatomic, strong, readwrite) ORButton *button;
 
 @end
 
-@implementation ORButonParser_2_0_0
+@implementation ORButtonParser_2_0_0
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {

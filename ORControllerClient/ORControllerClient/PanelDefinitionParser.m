@@ -49,7 +49,7 @@
 #import "ControllerSliderParser.h"
 #import "XMLEntity.h"
 
-#import "ORButonParser_2_0_0.h"
+#import "ORButtonParser_2_0_0.h"
 
 // TODO: the parsing "factory" should be injected based on the configuration retrieved from the controller
 // TODO: note: the openremote tag presence is not checked, is this an issue ?
@@ -83,7 +83,7 @@
         [self.depRegistry registerParserClass:[ORSensorStateParser class] endSelector:@selector(endSensorStateElement:) forTag:STATE];
         [self.depRegistry registerParserClass:[WebParser class] endSelector:@selector(endWebElement:) forTag:WEB];
 
-        [self.depRegistry registerParserClass:[ORButonParser_2_0_0 class] endSelector:@selector(endButtonElement:) forTag:BUTTON];
+        [self.depRegistry registerParserClass:[ORButtonParser_2_0_0 class] endSelector:@selector(endButtonElement:) forTag:BUTTON];
 
         [self.depRegistry registerParserClass:[ORSwitchParser class] endSelector:@selector(endSwitchElement:) forTag:SWITCH];
         [self.depRegistry registerParserClass:[SliderParser class] endSelector:@selector(endSliderElement:) forTag:SLIDER];
