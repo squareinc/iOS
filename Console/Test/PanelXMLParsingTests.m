@@ -38,7 +38,6 @@
 #import "ORControllerClient/Group.h"
 #import "ORControllerClient/Screen.h"
 #import "ORControllerClient/Navigate.h"
-#import "ORControllerClient/Switch.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/TabBar.h"
 #import "ORControllerClient/ORBackground.h"
@@ -155,6 +154,7 @@
 	STAssertTrue(((Button *)[buts objectAtIndex:10]).navigate.isLogout == YES,@"expected %d",YES);
 }
 
+/*
 // panel_grid_switch.xml test
 - (void) testParsePanelGridSwitchXML {
 	NSLog(@"testParsePanelGridSwitchXML ");
@@ -316,6 +316,7 @@
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
 }
+*/
 
 // panel_grid_slider.xml test
 - (void) testParsePanelGridSliderXML {
