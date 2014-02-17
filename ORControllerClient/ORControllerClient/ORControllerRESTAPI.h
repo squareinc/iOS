@@ -60,6 +60,16 @@ extern NSString *const kORClientErrorDomain;
            withSuccessHandler:(void (^)(NSDictionary *))successHandler
                  errorHandler:(void (^)(NSError *))errorHandler;
 
+- (ORRESTCall *)statusForSensorIdentifiers:(NSSet *)sensorIdentifiers
+                                 atBaseURL:(NSURL *)baseURL
+                        withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                              errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)pollSensorIdentifiers:(NSSet *)sensorIdentifiers fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler;
+
 - (ORRESTCall *)controlForWidget:(ORWidget *)widget // TODO: should we pass widget or just identifier
                           action:(NSString *)action // TODO: should this be given as param or infered from widget or ...
                        atBaseURL:(NSURL *)baseURL

@@ -98,6 +98,29 @@
     return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
+- (ORRESTCall *)statusForSensorIdentifiers:(NSSet *)sensorIdentifiers
+                                 atBaseURL:(NSURL *)baseURL
+                        withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                              errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[baseURL URLByAppendingPathComponent:@"/rest/status/"]
+                                                                        URLByAppendingPathComponent:[[[sensorIdentifiers allObjects] valueForKey:@"stringValue"] componentsJoinedByString:@","]]];
+    
+    return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)pollSensorIdentifiers:(NSSet *)sensorIdentifiers fromDeviceWithIdentifier:(NSString *)deviceIdentifier
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSDictionary *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[[baseURL URLByAppendingPathComponent:@"/rest/polling/"]
+                                                                         URLByAppendingPathComponent:deviceIdentifier]
+                                                                        URLByAppendingPathComponent:[[[sensorIdentifiers allObjects] valueForKey:@"stringValue"] componentsJoinedByString:@","]]];
+    
+    return [self callForRequest:request delegate:[[SensorValuesResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
 - (ORRESTCall *)controlForWidget:(ORWidget *)widget // TODO: should we pass widget or just identifier
                           action:(NSString *)action // TODO: should this be given as param or infered from widget or ...
                        atBaseURL:(NSURL *)baseURL

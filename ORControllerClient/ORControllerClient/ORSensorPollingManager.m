@@ -64,7 +64,7 @@
         return;
     }
     __block void (^sensorPollingBlock)() = ^{
-        self._currentCall = [self._controllerAPI pollSensorIds:[self._sensorRegistry sensorIdentifiers]
+        self._currentCall = [self._controllerAPI pollSensorIdentifiers:[self._sensorRegistry sensorIdentifiers]
                                 fromDeviceWithIdentifier:@"TODO"
                                                atBaseURL:self._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
@@ -88,7 +88,7 @@
                                       }];
     };
 
-    self._currentCall = [self._controllerAPI statusForSensorIds:[self._sensorRegistry sensorIdentifiers]
+    self._currentCall = [self._controllerAPI statusForSensorIdentifiers:[self._sensorRegistry sensorIdentifiers]
                             atBaseURL:self._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
                        [self updateComponentsWithSensorValues:sensorValues];
