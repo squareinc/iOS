@@ -84,6 +84,7 @@
 
 - (void)addImage:(ORImage *)image;
 - (void)addButton:(ORButton *)button;
+- (void)addSwitch:(ORSwitch *)sswitch;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
@@ -109,6 +110,10 @@
  */
 @property (nonatomic, strong, readonly) NSSet *buttons;
 
+/**
+ * Collection of all switches used in this panel definition.
+ */
+@property (nonatomic, strong, readonly) NSSet *switches;
 
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;

@@ -93,6 +93,7 @@
 - (void)endSwitchElement:(ORSwitchParser *)parser
 {
     self.gridCell.component = parser.sswitch;
+    [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
 - (void)endSliderElement:(SliderParser *)parser

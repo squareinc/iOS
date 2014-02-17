@@ -43,6 +43,7 @@
 
 @property (nonatomic, strong) NSMutableArray *_images;
 @property (nonatomic, strong) NSMutableArray *_buttons;
+@property (nonatomic, strong) NSMutableArray *_switches;
 
 @property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
 
@@ -61,6 +62,7 @@
         self._labels = [NSMutableArray array];
         self._images = [NSMutableArray array];
         self._buttons = [NSMutableArray array];
+        self._switches = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
         self.sensorRegistry = [[ORSensorRegistry alloc] init];
 	}
@@ -160,6 +162,11 @@
     [self._buttons addObject:button];
 }
 
+- (void)addSwitch:(ORSwitch *)sswitch
+{
+    [self._switches addObject:sswitch];
+}
+
 - (void)clearPanelXMLData
 {
     [self.groups removeAllObjects];
@@ -183,6 +190,11 @@
 - (NSSet *)buttons
 {
     return [NSSet setWithArray:self._buttons];
+}
+
+- (NSSet *)switches
+{
+    return [NSSet setWithArray:self._switches];
 }
 
 - (void)sendPressCommandForButton:(ORButton *)sender
