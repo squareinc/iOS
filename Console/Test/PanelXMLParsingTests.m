@@ -1079,6 +1079,7 @@
 	NSLog(@"End testParsePanelRelativeScreenBackgroundimageXML");
 }
 
+/*
 // panel_absolute_slider_gesture.xml test
 - (void) testParsePanelAbsoluteSliderGestureXML {
 	NSLog(@"Begin testParsePanelAbsoluteSliderGestureXML ");
@@ -1164,7 +1165,7 @@
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
 }
-
+*/
 // panel_global_tabbar.xml test
 - (void) testParsePanelGlobalTabbarXML {
 	NSLog(@"Begin testParsePanelTabbarXML");
