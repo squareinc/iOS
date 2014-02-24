@@ -27,7 +27,8 @@
 #import "ORButton.h"
 #import "ORSwitchParser.h"
 #import "ORSwitch.h"
-#import "SliderParser.h"
+#import "ORSliderParser.h"
+#import "ORSlider.h"
 #import "ColorPickerParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
@@ -96,9 +97,10 @@
     [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
-- (void)endSliderElement:(SliderParser *)parser
+- (void)endSliderElement:(ORSliderParser *)parser
 {
     self.gridCell.component = parser.slider;
+    [self.depRegister.definition addSlider:(parser.slider)];
 }
 
 - (void)endColorPickerElement:(ColorPickerParser *)parser

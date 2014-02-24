@@ -34,7 +34,7 @@
 #import "ORImageParser.h"
 #import "WebParser.h"
 #import "ORSwitchParser.h"
-#import "SliderParser.h"
+#import "ORSliderParser.h"
 #import "ColorPickerParser.h"
 #import "NavigateParser.h"
 #import "ORSensorLinkParser.h"
@@ -86,7 +86,7 @@
         [self.depRegistry registerParserClass:[ORButtonParser_2_0_0 class] endSelector:@selector(endButtonElement:) forTag:BUTTON];
 
         [self.depRegistry registerParserClass:[ORSwitchParser class] endSelector:@selector(endSwitchElement:) forTag:SWITCH];
-        [self.depRegistry registerParserClass:[SliderParser class] endSelector:@selector(endSliderElement:) forTag:SLIDER];
+        [self.depRegistry registerParserClass:[ORSliderParser class] endSelector:@selector(endSliderElement:) forTag:SLIDER];
         [self.depRegistry registerParserClass:[ColorPickerParser class] endSelector:@selector(endColorPickerElement:) forTag:COLORPICKER];
         [self.depRegistry registerParserClass:[TabBarItemParser class] endSelector:@selector(endTabBarItemElement:) forTag:ITEM];
         
