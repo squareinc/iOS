@@ -229,7 +229,7 @@
 
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender
 {
-    // TODO
+    [self.controller sendValue:value forSlider:sender];
 }
 
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
