@@ -48,6 +48,6 @@
 	return self;
 }
 
-@synthesize toScreen, toGroup, isPreviousScreen, isNextScreen, isSetting, isBack, isLogin, isLogout, fromGroup, fromScreen;
+@synthesize toScreen, toGroup, isPreviousScreen, isNextScreen, isSetting, isBack, isLogin, isLogout;
 
 @end
