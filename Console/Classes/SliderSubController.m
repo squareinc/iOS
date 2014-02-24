@@ -19,8 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "SliderSubController.h"
-#import "ORControllerClient/Slider.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORSlider.h"
+#import "ORControllerClient/ORImage.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORConsoleSettingsManager.h"
@@ -33,6 +33,8 @@
 #import "ImageCache.h"
 
 #define MIN_SLIDE_VARIANT 1
+
+static void * const SliderSubControllerKVOContext = (void*)&SliderSubControllerKVOContext;
 
 @interface UIImage (RotateAdditions)
 
@@ -78,7 +80,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 @property (nonatomic, weak) ORControllerConfig *controller;
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) Slider *slider;
+@property (weak, nonatomic, readonly) ORSlider *slider;
 @property (nonatomic, assign) int currentValue;
 @property (nonatomic, strong) UIImageView *sliderTip;
 
@@ -104,7 +106,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         ORUISlider *uiSlider = [[ORUISlider alloc] initWithFrame:CGRectZero];
         
         uiSlider.minimumValue = self.slider.minValue;
-        NSString *minimumValueImageSrc = self.slider.minImage.src;
+        NSString *minimumValueImageSrc = self.slider.minImage.name;
         UIImage *minimumValueImage = [self.imageCache getImageNamed:minimumValueImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 uiSlider.minimumValueImage = [self transformToHorizontalWhenVertical:image];
@@ -115,7 +117,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         }
         
         uiSlider.maximumValue = self.slider.maxValue;
-        NSString *maximumValueImageSrc = self.slider.maxImage.src;
+        NSString *maximumValueImageSrc = self.slider.maxImage.name;
         UIImage *maximumValueImage = [self.imageCache getImageNamed:maximumValueImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 uiSlider.maximumValueImage = [self transformToHorizontalWhenVertical:image];
@@ -127,9 +129,9 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         
         // TrackImages, thumbImage
         uiSlider.backgroundColor = [UIColor clearColor];
-        NSString *minTrackImageSrc = self.slider.minTrackImage.src;
-        NSString *maxTrackImageSrc = self.slider.maxTrackImage.src;
-        NSString *thumbImageSrc = self.slider.thumbImage.src;
+        NSString *minTrackImageSrc = self.slider.minTrackImage.name;
+        NSString *maxTrackImageSrc = self.slider.maxTrackImage.name;
+        NSString *thumbImageSrc = self.slider.thumbImage.name;
         
         UIImage *stretchedLeftTrack = [self.imageCache getImageNamed:minTrackImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -158,8 +160,8 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             [uiSlider setThumbImage:[self transformToHorizontalWhenVertical:thumbImage]];
         }
         
-        uiSlider.value = 0.0;
-        self.currentValue = 0.0;
+        uiSlider.value = self.slider.value;
+        self.currentValue = [self sliderValue:uiSlider];
         
         if (self.slider.vertical) {
             uiSlider.transform = CGAffineTransformMakeRotation(270.0/180*M_PI);
@@ -176,11 +178,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         
         self.view = uiSlider;
         
-        int sensorId = ((SensorComponent *)self.component).sensorId;
-        if (sensorId > 0 ) {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setPollingStatus:) name:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:nil];
-        }
+        [self.slider addObserver:self forKeyPath:@"value" options:NSKeyValueObservingOptionNew context:SliderSubControllerKVOContext];
     }
     
     return self;
@@ -188,12 +186,12 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.slider removeObserver:self forKeyPath:@"value"];
 }
 
-- (Slider *)slider
+- (ORSlider *)slider
 {
-    return (Slider *)self.component;
+    return (ORSlider *)self.component;
 }
 
 // Rotate the specified image from horizontal to vertical.
@@ -201,17 +199,17 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	return self.slider.vertical ? [vImg imageRotatedByDegrees:90.0] : vImg;
 }
 
-// Override method of sensory view.
-- (void)setPollingStatus:(NSNotification *)notification {
-	SensorStatusCache *statusCache = (SensorStatusCache *)[notification object];
-	int sensorId = self.slider.sensor.sensorId;
-	float newStatus = [[statusCache valueForSensorId:sensorId] floatValue];
-    
-    NSLog(@"Slider - setPollingStatus %d to %f", sensorId, newStatus);
-    
-    ORUISlider *uiSlider = ((ORUISlider *)self.view);
-	uiSlider.value = newStatus;
-	self.currentValue = [self sliderValue:uiSlider];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == SliderSubControllerKVOContext) {
+        if ([@"value" isEqualToString:keyPath]) {
+            ORUISlider *uiSlider = ((ORUISlider *)self.view);
+            uiSlider.value = self.slider.value;
+            self.currentValue = [self sliderValue:uiSlider];
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
@@ -235,7 +233,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 -(void) releaseSlider:(ORUISlider *)sender {
 	int afterSlideValue = [self sliderValue:sender];
 	if (self.currentValue >= 0 && abs(self.currentValue-afterSlideValue) >= MIN_SLIDE_VARIANT) {
-		[self sendCommandRequest: [NSString stringWithFormat:@"%d", afterSlideValue]];
+        self.slider.value = afterSlideValue;
 	} else {
         sender.value = self.currentValue;
     }
