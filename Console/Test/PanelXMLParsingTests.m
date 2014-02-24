@@ -26,7 +26,6 @@
 #import "ORControllerClient/Switch.h"
 #import "ORControllerClient/GridLayoutContainer.h"
 #import "ORControllerClient/GridCell.h"
-#import "ORControllerClient/Slider.h"
 #import "ORControllerClient/Image.h"
 #import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/Gesture.h"
@@ -318,6 +317,7 @@
 */
 
 // panel_grid_slider.xml test
+/*
 - (void) testParsePanelGridSliderXML {
 	NSLog(@"Begin testParsePanelGridSliderXML");
     PanelDefinitionParser *parser = [[PanelDefinitionParser alloc] init];
@@ -494,7 +494,7 @@
 	
 	NSLog(@"End testParsePanelAbsoluteSliderXML");
 }
-
+*/
 // panel_grid_label.xml test
 - (void) testParsePanelGridLabelXML {
 	NSLog(@"Begin testParsePanelGridLabelXML");
