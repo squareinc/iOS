@@ -47,7 +47,6 @@
  */
 @interface DefaultViewController : UIViewController <LoginViewControllerDelegate> {	
 	InitViewController *initViewController;
-	NSMutableArray *navigationHistory;
 	ErrorViewController* errorViewController;
 	UpdateController *updateController;
 }

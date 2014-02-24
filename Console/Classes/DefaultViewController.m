@@ -24,6 +24,9 @@
 #import "ORControllerConfig.h"
 #import "ORControllerClient/Definition.h"
 
+#import "ScreenReference.h"
+#import "ScreenReferenceStack.h"
+
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
 @interface DefaultViewController ()
@@ -33,6 +36,8 @@
 @property (nonatomic, weak) NSObject <DefaultViewControllerDelegate> *_delegate;
 
 @property (nonatomic, strong) ORConsoleSettingsManager *settingsManager;
+
+@property (nonatomic, strong) ScreenReferenceStack *navigationHistory;
 
 @end
 
@@ -62,7 +67,7 @@
     if (self) {
         self.settingsManager = aSettingsManager;
 			self._delegate = delegate;
-			navigationHistory = [[NSMutableArray alloc] init];
+			self.navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
 			
 			//register notifications
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateFromNotification:) name:NotificationNavigateTo object:nil];
@@ -189,18 +194,13 @@
         return;
     }
 
-	// Create the history before navigating so it references the original screen and not the destination
-    Navigate *historyNavigate = [[Navigate alloc] init];
-    historyNavigate.fromGroup = self.currentGroupController.group.groupId;
-    historyNavigate.fromScreen = [self.currentGroupController currentScreenId];
-
+	// Take the reference before navigating so it references the original screen and not the destination
+    ScreenReference *currentScreen = [[ScreenReference alloc] initWithGroupId:self.currentGroupController.group.groupId
+                                                                     screenId:[self.currentGroupController currentScreenId]];
 	if ([self navigateTo:navi]) {
 		[self saveLastGroupIdAndScreenId];
-		NSLog(@"navigate from group %d, screen %d", historyNavigate.fromGroup, historyNavigate.fromScreen);
-		[navigationHistory addObject:historyNavigate];
+		[self.navigationHistory push:currentScreen];
 	}
-	
-	NSLog(@"navi history count = %d", navigationHistory.count);
 }
 
 - (void)saveLastGroupIdAndScreenId {
@@ -216,8 +216,8 @@
 // Returned BOOL value is whether to save history
 // if YES, should save history
 // if NO, don't save history
-- (BOOL)navigateTo:(Navigate *)navi {
-	
+- (BOOL)navigateTo:(Navigate *)navi
+{	
 	if (navi.toGroup > 0 ) {	                //toGroup & toScreen
 		return [self navigateToGroup:navi.toGroup toScreen:navi.toScreen];
 	} 
@@ -310,25 +310,24 @@
 	}	
 }
 
-- (void)navigateBackwardInHistory:(id)sender {
-	if (navigationHistory.count > 0) {		
-		Navigate *backward = (Navigate *)[navigationHistory lastObject];
-		if (backward.fromGroup > 0 && backward.fromScreen > 0 ) {
-			NSLog(@"navigte back to group %d, screen %d", backward.fromGroup, backward.fromScreen);
-			[self navigateToGroup:backward.fromGroup toScreen:backward.fromScreen];
-		} else {
-			[self navigateTo:backward];
-		}
-		//remove current navigation, navigate backward
-		[navigationHistory removeLastObject];
-	}
+- (void)navigateBackwardInHistory:(id)sender
+{
+    ScreenReference *previousScreen = [self.navigationHistory pop];
+    if (previousScreen) {
+        if (previousScreen.groupId > 0 && previousScreen.screenId > 0) {
+            NSLog(@"navigate back to group %d, screen %d", previousScreen.groupId, previousScreen.screenId);
+			[self navigateToGroup:previousScreen.groupId toScreen:previousScreen.screenId];
+        }
+    }
 }
 
-- (BOOL)navigateToPreviousScreen {
+- (BOOL)navigateToPreviousScreen
+{
 	return [self.currentGroupController previousScreen];
 }
 
-- (BOOL)navigateToNextScreen {
+- (BOOL)navigateToNextScreen
+{
 	return [self.currentGroupController nextScreen];
 }
 
