@@ -227,6 +227,11 @@
     [self.controller sendOffForSwitch:sender];
 }
 
+- (void)sendValue:(float)value forSlider:(ORSlider *)sender
+{
+    // TODO
+}
+
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
 
 @end

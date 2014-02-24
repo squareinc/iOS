@@ -32,6 +32,7 @@
 @class ORObjectIdentifier;
 @class ORButton;
 @class ORSwitch;
+@class ORSlider;
 
 @protocol ORConsole;
 
@@ -93,6 +94,8 @@
 
 - (void)sendOnForSwitch:(ORSwitch *)sender;
 - (void)sendOffForSwitch:(ORSwitch *)sender;
+
+- (void)sendValue:(float)value forSlider:(ORSlider *)sender;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;
