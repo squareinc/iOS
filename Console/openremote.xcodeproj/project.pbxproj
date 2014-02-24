@@ -264,6 +264,11 @@
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
 		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
+		91B357CB18BB833500ADED24 /* ScreenReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CA18BB833500ADED24 /* ScreenReference.m */; };
+		91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
+		91B357D018BB85FB00ADED24 /* ScreenReferenceStackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */; };
+		91B357D218BB885700ADED24 /* ScreenReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CA18BB833500ADED24 /* ScreenReference.m */; };
+		91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
 		91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */; };
 		91B5A0F717FAD15800F4BA8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
@@ -603,6 +608,12 @@
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91AAFAFF18A8E9F200632C1A /* ORConsoleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleApp.h; sourceTree = "<group>"; };
 		91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleApp.m; sourceTree = "<group>"; };
+		91B357C918BB833500ADED24 /* ScreenReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReference.h; sourceTree = "<group>"; };
+		91B357CA18BB833500ADED24 /* ScreenReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReference.m; sourceTree = "<group>"; };
+		91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReferenceStack.h; sourceTree = "<group>"; };
+		91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceStack.m; sourceTree = "<group>"; };
+		91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceStackTest.m; sourceTree = "<group>"; };
+		91B357D118BB860E00ADED24 /* ScreenReferenceStackTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReferenceStackTest.h; sourceTree = "<group>"; };
 		91B5A0F317FACFE900F4BA8B /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
 		91B5A0F417FACFE900F4BA8B /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
 		91B5A0F617FAD15800F4BA8B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -944,6 +955,8 @@
 				914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */,
 				914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */,
 				914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */,
+				91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */,
+				91B357D118BB860E00ADED24 /* ScreenReferenceStackTest.h */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1063,6 +1076,10 @@
 				60F3867C15517AFE0089F8BD /* NSURLHelper.m */,
 				60F386E915541CE90089F8BD /* SensorStatusCache.h */,
 				60F386EA15541CE90089F8BD /* SensorStatusCache.m */,
+				91B357C918BB833500ADED24 /* ScreenReference.h */,
+				91B357CA18BB833500ADED24 /* ScreenReference.m */,
+				91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */,
+				91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1452,6 +1469,7 @@
 				60366B90144DCB9C004FED3B /* main.m in Sources */,
 				60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */,
 				60366B92144DCB9C004FED3B /* FileUtils.m in Sources */,
+				91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
 				60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */,
@@ -1547,6 +1565,7 @@
 				602418BA156E4D2D004E5860 /* APISecurity.m in Sources */,
 				91B5A0F517FACFE900F4BA8B /* UIDevice+UDID.m in Sources */,
 				602418BF156E531C004E5860 /* CapabilitiesParser.m in Sources */,
+				91B357CB18BB833500ADED24 /* ScreenReference.m in Sources */,
 				602418D8156E766C004E5860 /* ORTableViewController.m in Sources */,
 				602418DD156E76BE004E5860 /* ORTableViewSectionDefinition.m in Sources */,
 				602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */,
@@ -1559,6 +1578,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B357D218BB885700ADED24 /* ScreenReference.m in Sources */,
+				91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */,
 				91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */,
 				916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */,
 				602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */,
@@ -1592,6 +1613,7 @@
 				6068DE7A13744D27007746F1 /* ServerDefinition.m in Sources */,
 				6068DE7913744D1E007746F1 /* DirectoryDefinition.m in Sources */,
 				914198841802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m in Sources */,
+				91B357D018BB85FB00ADED24 /* ScreenReferenceStackTest.m in Sources */,
 				609C57E2137431310093C03A /* ClippedUIImage.m in Sources */,
 				609C57E0137431280093C03A /* StringUtils.m in Sources */,
 				609C57E1137431280093C03A /* NSString+ORAdditions.m in Sources */,
