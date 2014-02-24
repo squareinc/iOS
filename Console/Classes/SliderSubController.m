@@ -29,7 +29,7 @@
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/LocalController.h"
 #import "NotificationConstant.h"
-#import "ORSlider.h"
+#import "ORUISlider.h"
 #import "ImageCache.h"
 
 #define MIN_SLIDE_VARIANT 1
@@ -84,7 +84,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @property (nonatomic, weak) ImageCache *imageCache;
 
-- (int)sliderValue:(ORSlider *)sender;
+- (int)sliderValue:(ORUISlider *)sender;
 - (void)sliderValueChanged:(UISlider *)sender;
 - (void)releaseSlider:(UISlider *)sender;
 - (void)touchDownSlider:(UISlider *)sender;
@@ -101,7 +101,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
-        ORSlider *uiSlider = [[ORSlider alloc] initWithFrame:CGRectZero];
+        ORUISlider *uiSlider = [[ORUISlider alloc] initWithFrame:CGRectZero];
         
         uiSlider.minimumValue = self.slider.minValue;
         NSString *minimumValueImageSrc = self.slider.minImage.src;
@@ -209,7 +209,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
     NSLog(@"Slider - setPollingStatus %d to %f", sensorId, newStatus);
     
-    ORSlider *uiSlider = ((ORSlider *)self.view);
+    ORUISlider *uiSlider = ((ORUISlider *)self.view);
 	uiSlider.value = newStatus;
 	self.currentValue = [self sliderValue:uiSlider];
 }
@@ -221,18 +221,18 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 #pragma mark Private methods
 
-- (int)sliderValue:(ORSlider *)sender
+- (int)sliderValue:(ORUISlider *)sender
 {
     return (int)roundf([sender value]);
 }
 
-- (void)sliderValueChanged:(ORSlider *)sender
+- (void)sliderValueChanged:(ORUISlider *)sender
 {
     // During the user action, always refresh the tip display
 	[self refreshTip];
 }
 
--(void) releaseSlider:(ORSlider *)sender {
+-(void) releaseSlider:(ORUISlider *)sender {
 	int afterSlideValue = [self sliderValue:sender];
 	if (self.currentValue >= 0 && abs(self.currentValue-afterSlideValue) >= MIN_SLIDE_VARIANT) {
 		[self sendCommandRequest: [NSString stringWithFormat:@"%d", afterSlideValue]];
@@ -243,7 +243,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	[self clearSliderTipSubviews:self.sliderTip];
 }
 
--(void) touchDownSlider:(ORSlider *)sender {
+-(void) touchDownSlider:(ORUISlider *)sender {
     [self refreshTip]; // showTip:sliderTip ofSlider:uiSlider withSender:sender];
 }
 
@@ -261,7 +261,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	[self clearSliderTipSubviews:self.sliderTip];
     
     // TODO: pre-calculate values that can be and cache them
-    ORSlider *uiSlider = (ORSlider *)self.view;
+    ORUISlider *uiSlider = (ORUISlider *)self.view;
 	CGFloat x = 0;
 	CGFloat y = 0;
 	CGFloat span = uiSlider.minimumValue - uiSlider.maximumValue;

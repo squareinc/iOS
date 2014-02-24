@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORScrollView.h"
-#import "ORSlider.h"
+#import "ORUISlider.h"
 
 // Defining this so the call to super is not flagged as warning
 @interface UIScrollView ()
@@ -32,7 +32,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if ([touch.view.superview isKindOfClass:[ORSlider class]]) {
+    if ([touch.view.superview isKindOfClass:[ORUISlider class]]) {
         return NO;
     }
     if ([super respondsToSelector:@selector(gestureRecognizer:shouldReceiveTouch:)]) {

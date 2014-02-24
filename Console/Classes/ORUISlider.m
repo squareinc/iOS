@@ -19,14 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORSlider.h"
+#import "ORUISlider.h"
 
 // For better visual results, displayed track is smaller than track thumb can move over
 // This means that when the thumb is at 0, the track will start at THUMB_SIDE_SPACING
 // The value indicates the number of points on each side of the track
 #define THUMB_SIDE_SPACING  0 // 1.5
 
-@interface ORSlider ()
+@interface ORUISlider ()
 
 @property (nonatomic, strong) UIView *minTrackView;
 @property (nonatomic, strong) UIView *maxTrackView;
@@ -49,7 +49,7 @@
 
 @end
 
-@implementation ORSlider
+@implementation ORUISlider
 
 void printFrame(NSString *comment, UIView *v)
 {

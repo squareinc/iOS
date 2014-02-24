@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ORSlider : UIControl {
+@interface ORUISlider : UIControl {
     @package
     float _value;
     float _minValue;
