@@ -247,7 +247,7 @@
 		8CECF3E210E9DD1400C0E1BB /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 8CECF3E010E9DD1400C0E1BB /* database.db */; };
 		91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
-		912721E616C10ECE00E2D6B3 /* ORSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 912721E416C10ECE00E2D6B3 /* ORSlider.m */; };
+		912721E616C10ECE00E2D6B3 /* ORUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 912721E416C10ECE00E2D6B3 /* ORUISlider.m */; };
 		912721F416C1127800E2D6B3 /* ORSliderGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721ED16C1127800E2D6B3 /* ORSliderGreen.png */; };
 		912721F616C1127800E2D6B3 /* ORSliderGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721EE16C1127800E2D6B3 /* ORSliderGreen@2x.png */; };
 		912721F816C1127800E2D6B3 /* ORSliderThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721EF16C1127800E2D6B3 /* ORSliderThumb.png */; };
@@ -575,8 +575,8 @@
 		8CFDB2760FBBBF4500D204CB /* appSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appSettings.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		912721E316C10ECE00E2D6B3 /* ORSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSlider.h; sourceTree = "<group>"; };
-		912721E416C10ECE00E2D6B3 /* ORSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSlider.m; sourceTree = "<group>"; };
+		912721E316C10ECE00E2D6B3 /* ORUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORUISlider.h; sourceTree = "<group>"; };
+		912721E416C10ECE00E2D6B3 /* ORUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORUISlider.m; sourceTree = "<group>"; };
 		912721ED16C1127800E2D6B3 /* ORSliderGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ORSliderGreen.png; sourceTree = "<group>"; };
 		912721EE16C1127800E2D6B3 /* ORSliderGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ORSliderGreen@2x.png"; sourceTree = "<group>"; };
 		912721EF16C1127800E2D6B3 /* ORSliderThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ORSliderThumb.png; sourceTree = "<group>"; };
@@ -1147,8 +1147,8 @@
 				338D2ED510D8AADB0043BFE9 /* ClippedUIImage.m */,
 				60DEC3C4140FB62F000FF863 /* ORImageView.h */,
 				60DEC3C5140FB62F000FF863 /* ORImageView.m */,
-				912721E316C10ECE00E2D6B3 /* ORSlider.h */,
-				912721E416C10ECE00E2D6B3 /* ORSlider.m */,
+				912721E316C10ECE00E2D6B3 /* ORUISlider.h */,
+				912721E416C10ECE00E2D6B3 /* ORUISlider.m */,
 				60E7A8E513696C8B00EA107A /* ColorPickerImageView.h */,
 				60E7A8E613696C8B00EA107A /* ColorPickerImageView.m */,
 				8C460F0E1095628C00C7A686 /* TextFieldCell.h */,
@@ -1550,7 +1550,7 @@
 				602418D8156E766C004E5860 /* ORTableViewController.m in Sources */,
 				602418DD156E76BE004E5860 /* ORTableViewSectionDefinition.m in Sources */,
 				602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */,
-				912721E616C10ECE00E2D6B3 /* ORSlider.m in Sources */,
+				912721E616C10ECE00E2D6B3 /* ORUISlider.m in Sources */,
 				914C8E3A16D65780003683DE /* ORScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
