@@ -33,7 +33,7 @@
 #import "ColorPickerSubController.h"
 #import "ORControllerClient/ColorPicker.h"
 #import "SliderSubController.h"
-#import "ORControllerClient/Slider.h"
+#import "ORControllerClient/ORSlider.h"
 
 @interface ComponentSubController()
 
@@ -57,7 +57,7 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               [SwitchSubController class], [ORSwitch class],
                                               [WebSubController class], [Web class],
                                               [ColorPickerSubController class], [ColorPicker class],
-                                              [SliderSubController class], [Slider class],
+                                              [SliderSubController class], [ORSlider class],
                                               nil];
 }
 
