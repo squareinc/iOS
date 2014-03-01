@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, ORBackgroundRepeat) {
 };
 
 /**
- * Enumaration indicating the unit of a certain measure.
+ * Enumeration indicating the unit of a certain measure.
  */
 typedef NS_ENUM(NSInteger, ORWidgetUnit) {
     ORWidgetUnitNotDefined, // Indicates associated value is not defined
