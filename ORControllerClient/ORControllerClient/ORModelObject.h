@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -19,29 +19,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORModelObject.h"
+#import <Foundation/Foundation.h>
+#import "Component.h"
 
-@class ORObjectIdentifier;
-
-/**
- * Abstract parent class of all UI widgets model objects in OR model.
- * 
- * Provides management of the identifier property that all widgets have.
- */
-@interface ORWidget : ORModelObject;
+@class Definition;
 
 /**
- * Initializes the widget with the given identifier.
+ * Abstract parent class of all model objects in OR model.
  *
- * @param anIdentifier ORObjectIdenfitier to use as identifier for this widget
- *
- * @return An ORWidget object initialized with the provided identifier.
+ * Provides access to the definition all objects belong to.
  */
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
+@interface ORModelObject : Component /* temporary while transitoning between legacy and new object model, should be NSObject */
+
+// TODO: this is using legacy object, update to current model when ready
 
 /**
- * Widget identifier.
+ * Definition the widget belongs to.
  */
-@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+@property (nonatomic, weak) Definition *definition;
 
 @end

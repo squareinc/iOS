@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -21,27 +21,8 @@
 
 #import "ORModelObject.h"
 
-@class ORObjectIdentifier;
+@implementation ORModelObject
 
-/**
- * Abstract parent class of all UI widgets model objects in OR model.
- * 
- * Provides management of the identifier property that all widgets have.
- */
-@interface ORWidget : ORModelObject;
-
-/**
- * Initializes the widget with the given identifier.
- *
- * @param anIdentifier ORObjectIdenfitier to use as identifier for this widget
- *
- * @return An ORWidget object initialized with the provided identifier.
- */
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
-
-/**
- * Widget identifier.
- */
-@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+@synthesize definition;
 
 @end
