@@ -19,14 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigation.h"
+#import "ORDeferredBinding.h"
 
-@class ORGroup;
-@class ORScreen;
-
-@interface ORScreenNavigation : ORNavigation
-
-@property (nonatomic, strong, readonly) ORGroup *destinationGroup;
-@property (nonatomic, strong, readonly) ORScreen *destinationScreen;
+@interface ORNavigationGroupDeferredBinding : ORDeferredBinding
 
 @end

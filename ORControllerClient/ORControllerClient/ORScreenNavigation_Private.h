@@ -19,14 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigation.h"
+#import "ORScreenNavigation.h"
 
-@class ORGroup;
-@class ORScreen;
+@interface ORScreenNavigation ()
 
-@interface ORScreenNavigation : ORNavigation
-
-@property (nonatomic, strong, readonly) ORGroup *destinationGroup;
-@property (nonatomic, strong, readonly) ORScreen *destinationScreen;
+- (id)initWithDestinationGroup:(ORGroup *)group destinationScreen:(ORScreen *)screen;
 
 @end

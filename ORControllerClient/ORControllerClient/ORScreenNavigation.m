@@ -19,8 +19,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORScreenNavigation.h"
+#import "ORScreenNavigation_Private.h"
+#import "ORNavigation_Private.h"
 
+@interface ORScreenNavigation ()
+
+@property (nonatomic, strong, readwrite) ORGroup *destinationGroup;
+@property (nonatomic, strong, readwrite) ORScreen *destinationScreen;
+
+@end
 @implementation ORScreenNavigation
+
+- (id)initWithDestinationGroup:(ORGroup *)group destinationScreen:(ORScreen *)screen
+{
+    self = [super initWithNavigationType:ORNavigationToGroupOrScreen];
+    if (self) {
+        self.destinationGroup = group;
+        self.destinationScreen = screen;
+    }
+    return self;
+}
 
 @end
