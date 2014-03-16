@@ -23,6 +23,7 @@
 
 @interface ORScreenNavigation ()
 
-- (id)initWithDestinationGroup:(ORGroup *)group destinationScreen:(ORScreen *)screen;
+@property (nonatomic, strong, readwrite) ORGroup *destinationGroup;
+@property (nonatomic, strong, readwrite) ORScreen *destinationScreen;
 
 @end

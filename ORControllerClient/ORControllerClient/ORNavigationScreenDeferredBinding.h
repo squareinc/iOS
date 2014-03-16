@@ -19,25 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigationGroupDeferredBinding.h"
-#import "ORScreenNavigation_Private.h"
-#import "Definition.h"
-#import "ORGroup.h"
+#import "ORDeferredBinding.h"
 
-@implementation ORNavigationGroupDeferredBinding
-
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
-{
-    if (![anEnclosingObject isKindOfClass:[ORScreenNavigation class]]) {
-        return nil;
-    }
-    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
-    return self;
-}
-
-- (void)bind
-{
-    ((ORScreenNavigation *)self.enclosingObject).destinationGroup = [self.enclosingObject.definition findGroupByIdentifier:self.boundComponentId];
-}
+@interface ORNavigationScreenDeferredBinding : ORDeferredBinding
 
 @end

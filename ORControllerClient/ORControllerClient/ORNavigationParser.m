@@ -21,6 +21,11 @@
 
 #import "ORNavigationParser.h"
 #import "ORNavigation_Private.h"
+#import "DefinitionElementParserRegister.h"
+#import "ORScreenNavigation.h"
+#import "ORNavigationGroupDeferredBinding.h"
+#import "ORNavigationScreenDeferredBinding.h"
+#import "ORObjectIdentifier.h"
 
 @interface ORNavigationParser ()
 
@@ -34,9 +39,17 @@
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-        if ([attributeDict objectForKey:@"toScreen"]) {
-            self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationToGroupOrScreen];
-            // TODO
+        if ([attributeDict objectForKey:@"toScreen"] || [attributeDict objectForKey:@"toGroup"]) {
+            self.navigation = [[ORScreenNavigation alloc] init];
+            
+            if ([attributeDict objectForKey:@"toScreen"]) {
+                ORNavigationScreenDeferredBinding *standby = [[ORNavigationScreenDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toScreen"]] enclosingObject:self.navigation];
+                [self.depRegister addDeferredBinding:standby];
+            }
+            if ([attributeDict objectForKey:@"toGroup"]) {
+                ORNavigationGroupDeferredBinding *standby = [[ORNavigationGroupDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toGroup"]] enclosingObject:self.navigation];
+                [self.depRegister addDeferredBinding:standby];
+            }
         } else {
             NSString *to = [[attributeDict objectForKey:@"to"] lowercaseString];
             if ([@"previousscreen" isEqualToString:to]) {
@@ -54,13 +67,8 @@
             } else {
                 // TODO : error
             }
-
         }
-        
-        /*
-                          ]ToScreen:[[attributeDict objectForKey:@"toScreen"] intValue]
-                                                   toGroup:[[attributeDict objectForKey:@"toGroup"] intValue]
-         */
+        self.navigation.definition = self.depRegister.definition;
     }
     return self;
 }

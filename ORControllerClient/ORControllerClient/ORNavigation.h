@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORModelObject.h"
 
 /**
  * Enumeration indicating type of navigation.
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, ORNavigationType) {
     ORNavigationLogout
 };
 
-@interface ORNavigation : NSObject
+@interface ORNavigation : ORModelObject
 
 @property (nonatomic, readonly) ORNavigationType navigationType;
 

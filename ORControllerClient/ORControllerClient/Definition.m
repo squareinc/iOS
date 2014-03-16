@@ -80,6 +80,13 @@
 	return nil;
 }
 
+- (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier
+{
+    // TODO: re-implement with appropriate class
+    Group *g = [self findGroupById:[[groupIdentifier stringValue] intValue]];
+    return g;
+}
+
 - (Screen *)findScreenById:(int)screenId {
 	for (Screen *tempScreen in self.screens) {
 		if (tempScreen.screenId == screenId) {
@@ -88,6 +95,13 @@
 		}
 	}
 	return nil;
+}
+
+- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier
+{
+    // TODO: re-implement with appropriate class
+    Screen * s = [self findScreenById:[[screenIdentifier stringValue] intValue]];
+    return s;
 }
 
 - (void)addGroup:(Group *)group {

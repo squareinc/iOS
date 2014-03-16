@@ -208,6 +208,8 @@
 		91A4A23C18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23A18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m */; };
 		91A4A23F18D5E3560070F823 /* ORModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23E18D5E3560070F823 /* ORModelObject.m */; };
 		91A4A24018D5E3560070F823 /* ORModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23E18D5E3560070F823 /* ORModelObject.m */; };
+		91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
+		91A4A24418D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -589,6 +591,8 @@
 		91A4A23A18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNavigationGroupDeferredBinding.m; sourceTree = "<group>"; };
 		91A4A23D18D5E3560070F823 /* ORModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORModelObject.h; sourceTree = "<group>"; };
 		91A4A23E18D5E3560070F823 /* ORModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORModelObject.m; sourceTree = "<group>"; };
+		91A4A24118D5E71B0070F823 /* ORNavigationScreenDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORNavigationScreenDeferredBinding.h; sourceTree = "<group>"; };
+		91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNavigationScreenDeferredBinding.m; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
 		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
 		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
@@ -1205,6 +1209,8 @@
 				91B72FAC189035B7000B7552 /* ORImageLabelDeferredBinding.m */,
 				91A4A23918D5E17B0070F823 /* ORNavigationGroupDeferredBinding.h */,
 				91A4A23A18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m */,
+				91A4A24118D5E71B0070F823 /* ORNavigationScreenDeferredBinding.h */,
+				91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */,
 			);
 			name = "Deferred Binding";
 			sourceTree = "<group>";
@@ -1451,6 +1457,7 @@
 				919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */,
 				919333F3179EA2DE0086FEE7 /* DefinitionParser.m in Sources */,
 				919333F4179EA2DE0086FEE7 /* ScreenParser.m in Sources */,
+				91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */,
 				919333F5179EA2DE0086FEE7 /* LayoutContainerParser.m in Sources */,
 				919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */,
 				919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */,
@@ -1557,6 +1564,7 @@
 				91AD7101189653800050EB0A /* ORSensorStateTest.m in Sources */,
 				915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */,
 				917104C217B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
+				91A4A24418D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */,
 				91BCD68318994BF500EC8AEE /* ORBackgroundParserTest.m in Sources */,
 				911392E2189BE94E00B7D79D /* ORButton.m in Sources */,
 				91A4A23218D5D81B0070F823 /* ORNavigationParserTest.m in Sources */,

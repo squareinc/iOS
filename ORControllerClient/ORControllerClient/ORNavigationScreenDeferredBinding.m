@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigationGroupDeferredBinding.h"
+#import "ORNavigationScreenDeferredBinding.h"
 #import "ORScreenNavigation_Private.h"
+#import "ORModelObject.h"
 #import "Definition.h"
-#import "ORGroup.h"
 
-@implementation ORNavigationGroupDeferredBinding
+@implementation ORNavigationScreenDeferredBinding
 
 - (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
@@ -37,7 +37,7 @@
 
 - (void)bind
 {
-    ((ORScreenNavigation *)self.enclosingObject).destinationGroup = [self.enclosingObject.definition findGroupByIdentifier:self.boundComponentId];
+    ((ORScreenNavigation *)self.enclosingObject).destinationScreen = [self.enclosingObject.definition findScreenByIdentifier:self.boundComponentId];
 }
 
 @end

@@ -33,6 +33,8 @@
 @class ORButton;
 @class ORSwitch;
 @class ORSlider;
+@class ORGroup;
+@class ORScreen;
 
 @protocol ORConsole;
 
@@ -56,10 +58,14 @@
  */
 - (Group *)findGroupById:(int)groupId;
 
+- (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier;
+
 /**
  * Get a screen instance with screen id.
  */
 - (Screen *)findScreenById:(int)screenId;
+
+- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier;
 
 /**
  * Add a group instance for caching.
