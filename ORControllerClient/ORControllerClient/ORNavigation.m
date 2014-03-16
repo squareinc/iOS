@@ -19,8 +19,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigation.h"
+#import "ORNavigation_Private.h"
 
+@interface ORNavigation ()
+
+@property (nonatomic, readwrite) ORNavigationType navigationType;
+
+@end
 @implementation ORNavigation
+
+- (id)initWithNavigationType:(ORNavigationType)aType
+{
+    self = [super init];
+    if (self) {
+        self.navigationType = aType;
+    }
+    return self;
+}
 
 @end

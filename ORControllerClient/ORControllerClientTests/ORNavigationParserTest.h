@@ -19,10 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigation.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface ORNavigation ()
-
-- (id)initWithNavigationType:(ORNavigationType)aType;
+@interface ORNavigationParserTest : SenTestCase
 
 @end

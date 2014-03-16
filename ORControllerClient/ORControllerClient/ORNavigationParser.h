@@ -19,10 +19,24 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORNavigation.h"
+#import "DefinitionElementParser.h"
 
-@interface ORNavigation ()
+@class ORNavigation;
 
-- (id)initWithNavigationType:(ORNavigationType)aType;
+/**
+ * Parses a <navigate...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORNavigation model object instance.
+ *
+ * XML fragment example:
+ * <navigate toGroup="491" toScreen="493" />
+ * or
+ * <navigate to="setting" />
+ */
+@interface ORNavigationParser : DefinitionElementParser
+
+/**
+ * ORNavigation model object parsed from the XML fragment (navigate tag).
+ */
+@property (nonatomic, strong, readonly) ORNavigation *navigation;
 
 @end
