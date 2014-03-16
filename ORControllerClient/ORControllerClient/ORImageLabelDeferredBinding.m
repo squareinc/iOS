@@ -20,13 +20,13 @@
  */
 
 #import "ORImageLabelDeferredBinding.h"
-#import "ORWidget.h"
+#import "ORModelObject.h"
 #import "ORImage.h"
 #import "Definition.h"
 
 @implementation ORImageLabelDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORWidget *)anEnclosingObject
+- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORImage class]]) {
         return nil;

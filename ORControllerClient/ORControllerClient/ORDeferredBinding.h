@@ -23,7 +23,7 @@
 #import "DeferredBinding.h" // For compatibility, to be removed
 
 @class ORObjectIdentifier;
-@class ORWidget;
+@class ORModelObject;
 
 /**
  * The panel XML document structure allows definition of forward references to yet undefined objects.
@@ -47,7 +47,7 @@
  *
  * @return an ORDeferredBinding instance initialized with the provided data
  */
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORWidget *)anEnclosingObject;
+- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
 
 /**
  * Make the appropriate link between the model objects, as represented by this binding.
@@ -64,6 +64,6 @@
 /**
  * Object on which the relationship should be set.
  */
-@property (nonatomic, weak, readonly) ORWidget *enclosingObject; // really ORWidget ?
+@property (nonatomic, weak, readonly) ORModelObject *enclosingObject;
 
 @end

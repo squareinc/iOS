@@ -23,14 +23,14 @@
 
 @interface ORDeferredBinding ()
 
-@property (nonatomic, weak, readwrite) ORWidget *enclosingObject;
+@property (nonatomic, weak, readwrite) ORModelObject *enclosingObject;
 @property (nonatomic, strong, readwrite) ORObjectIdentifier *boundComponentId;
 
 @end
 
 @implementation ORDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORWidget *)anEnclosingObject;
+- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
 {
     if (!anIdentifier || !anEnclosingObject) {
         return nil;
