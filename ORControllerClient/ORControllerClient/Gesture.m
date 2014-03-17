@@ -46,29 +46,6 @@
 	return self;
 }
 
-- (id)initWithGestureSwipeType:(GestureSwipeType)type orientation:(UIInterfaceOrientation)orientation{
-	if (self = [super init]) {
-		switch (orientation) {
-			case UIInterfaceOrientationPortrait:
-				self.swipeType = type;
-				break;
-			case UIInterfaceOrientationLandscapeLeft:
-				self.swipeType = (type + 1) % 4;
-				break;
-			case UIInterfaceOrientationLandscapeRight:
-				self.swipeType = (type - 1 + 4)  % 4;
-				break;
-			case UIInterfaceOrientationPortraitUpsideDown:
-				self.swipeType = (type + 2) % 4;
-				break;	
-			default:
-				self.swipeType = type;
-				break;
-		}		
-	}
-	return self;
-}
-
 - (NSString *)toString {
 	switch (self.swipeType) {
 		case GestureSwipeTypeTopToBottom:

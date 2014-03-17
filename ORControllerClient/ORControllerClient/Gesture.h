@@ -46,11 +46,6 @@ typedef enum {
  */
 - (id)initWithGestureSwipeType:(GestureSwipeType)type;
 
-/**
- * Construct a gesture instance with swipe type and orientation value.
- */
-- (id)initWithGestureSwipeType:(GestureSwipeType)type orientation:(UIInterfaceOrientation)orientation;
-
 - (NSString *)toString;
 
 @end
