@@ -703,15 +703,16 @@
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
 						if ([cell.component isKindOfClass:[Image class]]) {
-							Image *theImage = (Image *)cell.component;
+							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *expectedImageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.src isEqualToString:expectedImageSrc],@"expected %@, but %@", expectedImageSrc, theImage.src);
-							NSString *expectedImageStyle = @"";
-							STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
+							STAssertTrue([theImage.name isEqualToString:expectedImageSrc],@"expected %@, but %@", expectedImageSrc, theImage.name);
+//							NSString *expectedImageStyle = @"";
+//							STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
 							
 							// assert sensor
+                            /*
 							for (int i = 0; i < [theImage.sensor.states count]; i++) {
 								NSString *expectedStateName;
 								NSString *expectedStateValue;
@@ -726,6 +727,7 @@
 								STAssertTrue([expectedStateName isEqualToString:sensorState.name], @"expected %@, but %@", expectedStateName, sensorState.name);
 								STAssertTrue([expectedStateValue isEqualToString:sensorState.value], @"expected %@, but %@", expectedStateValue, sensorState.value);
 							}
+                             */
 							
                             
                             // TODO: did comment out that bit for now as we're transitionning from legacy to new object model
@@ -820,15 +822,16 @@
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
-						Image *theImage= (Image *)abso.component;
+						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
-						NSString *expectedImageStyle = @"";
-						STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
+						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
+//						NSString *expectedImageStyle = @"";
+//						STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
 						
 						// assert sensor
+                        /*
 						for (int i = 0; i < [theImage.sensor.states count]; i++) {
 							NSString *expectedStateName;
 							NSString *expectedStateValue;
@@ -843,6 +846,7 @@
 							STAssertTrue([expectedStateName isEqualToString:sensorState.name], @"expected %@, but %@", expectedStateName, sensorState.name);
 							STAssertTrue([expectedStateValue isEqualToString:sensorState.value], @"expected %@, but %@", expectedStateValue, sensorState.value);
 						}
+                         */
 						
                         // TODO: did comment out that bit for now as we're transitionning from legacy to new object model
                         /*
@@ -958,11 +962,11 @@
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
-						Image *theImage= (Image *)abso.component;
+						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
+						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
 					}					
 				}				
 			}
@@ -1046,11 +1050,11 @@
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
 					if ([abso.component isKindOfClass:[Image class]]) {
-						Image *theImage= (Image *)abso.component;
+						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
+						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
 					}					
 				}				
 			}
@@ -1270,11 +1274,11 @@
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
 						if ([cell.component isKindOfClass:[Image class]]) {
-							Image *theImage = (Image *)cell.component;
+							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.src);
+							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
 						}	
 					}
 				}				
@@ -1408,11 +1412,11 @@
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
 						if ([cell.component isKindOfClass:[Image class]]) {
-							Image *theImage = (Image *)cell.component;
+							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.src);
+							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
 						}	
 					}
 				}				
