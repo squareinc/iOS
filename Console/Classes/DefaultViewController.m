@@ -23,6 +23,10 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ORControllerClient/Definition.h"
+#import "ORControllerClient/ORNavigation.h"
+#import "ORControllerClient/ORScreenNavigation.h"
+#import "ORControllerClient/ORGroup.h"
+#import "ORControllerClient/ORScreen.h"
 
 #import "ScreenReference.h"
 #import "ScreenReferenceStack.h"
@@ -51,8 +55,8 @@
 - (BOOL)navigateToNextScreen;
 - (void)logout;
 - (void)navigateBackwardInHistory:(id)sender;
-- (BOOL)navigateTo:(Navigate *)navi;
-- (void)navigateToWithHistory:(Navigate *)navi;
+- (BOOL)navigateTo:(ORNavigation *)navi;
+- (void)navigateToWithHistory:(ORNavigation *)navi;
 - (void)saveLastGroupIdAndScreenId;
 - (void)rerenderTabbarWithNewOrientation;
 - (void)transformToOppositeOrientation;
@@ -184,12 +188,12 @@
 
 - (void)navigateFromNotification:(NSNotification *)notification {
 	if (notification) {
-		Navigate *navi = (Navigate *)[notification object];
+		ORNavigation *navi = (ORNavigation *)[notification object];
 		[self navigateToWithHistory:navi];
 	}
 }
 
-- (void)navigateToWithHistory:(Navigate *)navi {
+- (void)navigateToWithHistory:(ORNavigation *)navi {
 	if (!self.currentGroupController.group) {
         return;
     }
@@ -216,43 +220,43 @@
 // Returned BOOL value is whether to save history
 // if YES, should save history
 // if NO, don't save history
-- (BOOL)navigateTo:(Navigate *)navi
-{	
-	if (navi.toGroup > 0 ) {	                //toGroup & toScreen
-		return [self navigateToGroup:navi.toGroup toScreen:navi.toScreen];
-	} 
+- (BOOL)navigateTo:(ORNavigation *)navi
+{
+    switch (navi.navigationType) {
+        case ORNavigationToGroupOrScreen:
+        {
+            ORScreenNavigation *screenNavi = (ORScreenNavigation *)navi;
+            return [self navigateToGroup:screenNavi.destinationGroup.groupId toScreen:screenNavi.destinationScreen.screenId];
+            break;
+        }
+        case ORNavigationPreviousScreen:
+            return [self navigateToPreviousScreen];
+            break;
+        case ORNavigationNextScreen:
+            return [self navigateToNextScreen];
+            break;
+            
+	// the following should not generate history record
 	
-	else if (navi.isPreviousScreen) {					//toPreviousScreen
-		return [self navigateToPreviousScreen];
-	}
-	
-	else if (navi.isNextScreen) {							//toNextScreen
-		return [self navigateToNextScreen];
-	}
-	
-	//the following should not generate history record
-	
-	else if (navi.isBack) {										//toBack
-		[self navigateBackwardInHistory:nil]; 
-		return NO;
-	} 
-	
-	else if (navi.isLogin) {									//toLogin
-		[self populateLoginView:nil];
-		return NO;
-	} 
-	
-	else if (navi.isLogout) {									//toLogout
-		[self logout];
-		return NO;
-	}
-	
-	else if (navi.isSetting) {								//toSetting
-		[self populateSettingsView:nil];
-		return NO;
-	}
-	
-	return NO;
+        case ORNavigationBack:
+            [self navigateBackwardInHistory:nil];
+            return NO;
+            break;
+        case ORNavigationLogin:
+            [self populateLoginView:nil];
+            return NO;
+            break;
+        case ORNavigationLogout:
+            [self logout];
+            return NO;
+            break;
+        case ORNavigationSettings:
+            [self populateSettingsView:nil];
+            return NO;
+            break;
+        default:
+            return NO;
+    }
 }
 
 - (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController withGroupId:(int)groupId

@@ -20,12 +20,12 @@
  */
 
 #import "ORConsoleApp.h"
-#import "ORControllerClient/Navigate.h"
+#import "ORControllerClient/ORNavigation.h"
 #import "NotificationConstant.h"
 
 @implementation ORConsoleApp
 
-- (void)navigate:(Navigate *)navigation
+- (void)navigate:(ORNavigation *)navigation
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navigation];
 }

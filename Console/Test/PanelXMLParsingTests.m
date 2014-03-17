@@ -34,7 +34,7 @@
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/Group.h"
 #import "ORControllerClient/Screen.h"
-#import "ORControllerClient/Navigate.h"
+#import "ORControllerClient/ORNavigation.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/ORTabBar.h"
 #import "ORControllerClient/ORBackground.h"

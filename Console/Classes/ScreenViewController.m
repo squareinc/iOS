@@ -21,6 +21,7 @@
 #import "ScreenViewController.h"
 #import "ViewHelper.h"
 #import "ORControllerClient/Definition.h"
+#import "ORControllerClient/ORNavigation.h"
 #import "NotificationConstant.h"
 #import "ServerDefinition.h"
 #import "CredentialUtil.h"
@@ -33,7 +34,7 @@
 @interface ScreenViewController ()
 
 - (void)sendCommandRequest:(Component *)component;
-- (void)doNavigate:(Navigate *)navi;
+- (void)doNavigate:(ORNavigation *)navi;
 
 @property (nonatomic, strong) ScreenSubController *screenSubController;
 @property (nonatomic, weak) ORControllerConfig *controller;
@@ -95,7 +96,7 @@
     [self.controller.proxy sendCommand:@"swipe" forComponent:component delegate:nil];
 }
 
-- (void)doNavigate:(Navigate *)navi
+- (void)doNavigate:(ORNavigation *)navi
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navi];
 }
@@ -161,6 +162,7 @@
 		if (g.hasControlCommand) {
 			[self sendCommandRequest:g];
 		} else if (g.navigate) {
+            // TODO
 			[self doNavigate:g.navigate];
 		}
 	}

@@ -21,8 +21,7 @@
 
 #import <Foundation/Foundation.h>
 
-// TODO: update to new model object when ready
-@class Navigate;
+@class ORNavigation;
 
 /**
  * An ORConsole represents the client application (most probably GUI) that connects to an ORController.
@@ -42,10 +41,10 @@
 @protocol ORConsole <NSObject>
 
 /**
- * Navigate within the UI as instructed by the given Navigate object.
+ * Navigate within the UI as instructed by the given ORNavigation object.
  *
- * @param navigation Navigate object indicating the navigation to be performed.
+ * @param navigation ORNavigation object indicating the navigation to be performed.
  */
-- (void)navigate:(Navigate *)navigation;
+- (void)navigate:(ORNavigation *)navigation;
 
 @end
