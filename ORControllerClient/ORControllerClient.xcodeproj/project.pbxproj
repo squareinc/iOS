@@ -211,6 +211,7 @@
 		91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
 		91A4A24418D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
 		91A4A24618D6F23E0070F823 /* ORModelObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91A4A23D18D5E3560070F823 /* ORModelObject.h */; };
+		91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -595,6 +596,8 @@
 		91A4A23E18D5E3560070F823 /* ORModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORModelObject.m; sourceTree = "<group>"; };
 		91A4A24118D5E71B0070F823 /* ORNavigationScreenDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORNavigationScreenDeferredBinding.h; sourceTree = "<group>"; };
 		91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNavigationScreenDeferredBinding.m; sourceTree = "<group>"; };
+		91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParserTest.m; sourceTree = "<group>"; };
+		91A4A24918D6F3880070F823 /* ORColorPickerParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParserTest.h; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
 		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
 		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
@@ -878,6 +881,8 @@
 				91B357C418BB4B9A00ADED24 /* ORSliderParserTest.h */,
 				91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */,
 				91A4A23318D5D8340070F823 /* ORNavigationParserTest.h */,
+				91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */,
+				91A4A24918D6F3880070F823 /* ORColorPickerParserTest.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1534,6 +1539,7 @@
 				916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				91099A4F18AE1547005BEBAB /* ORSwitch.m in Sources */,
+				91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */,
 				9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91B72FAE189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */,
 				9178DFAD18508A3D00E862DF /* ORDataCapturingNSURLConnectionDelegateTest.m in Sources */,
