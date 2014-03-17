@@ -26,7 +26,6 @@
 #import "ORControllerClient/Switch.h"
 #import "ORControllerClient/GridLayoutContainer.h"
 #import "ORControllerClient/GridCell.h"
-#import "ORControllerClient/Image.h"
 #import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/Gesture.h"
 #import "ORControllerClient/XMLEntity.h"
@@ -702,7 +701,7 @@
 					NSLog(@"Grid cells count is : %d", grid.cells.count);
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[Image class]]) {
+						if ([cell.component isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
@@ -821,7 +820,7 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[Image class]]) {
+					if ([abso.component isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
@@ -961,7 +960,7 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[Image class]]) {
+					if ([abso.component isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
@@ -1049,7 +1048,7 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[Image class]]) {
+					if ([abso.component isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.component;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
@@ -1273,7 +1272,7 @@
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[Image class]]) {
+						if ([cell.component isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
@@ -1412,7 +1411,7 @@
 					
 					for (GridCell *cell in grid.cells) {			
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[Image class]]) {
+						if ([cell.component isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.component;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
