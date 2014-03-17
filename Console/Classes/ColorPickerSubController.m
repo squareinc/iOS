@@ -19,15 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ColorPickerSubController.h"
-#import "ORControllerClient/ColorPicker.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORColorPicker.h"
+#import "ORControllerClient/ORImage.h"
 #import "ColorPickerImageView.h"
 #import "ImageCache.h"
 
 @interface ColorPickerSubController()
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) ColorPicker *colorPicker;
+@property (weak, nonatomic, readonly) ORColorPicker *colorPicker;
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
@@ -39,7 +39,7 @@
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:nil];
-        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src finalImageAvailable:^(UIImage *image) {
+        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.name finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 imageView.image = image;
             });
@@ -53,9 +53,9 @@
     return self;
 }
 
-- (ColorPicker *)colorPicker
+- (ORColorPicker *)colorPicker
 {
-    return (ColorPicker *)self.component;
+    return (ORColorPicker *)self.component;
 }
 
 // Send picker command with color value to controller server.

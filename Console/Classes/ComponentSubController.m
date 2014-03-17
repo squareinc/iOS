@@ -31,7 +31,7 @@
 #import "WebSubController.h"
 #import "ORControllerClient/ORWebView.h"
 #import "ColorPickerSubController.h"
-#import "ORControllerClient/ColorPicker.h"
+#import "ORControllerClient/ORColorPicker.h"
 #import "SliderSubController.h"
 #import "ORControllerClient/ORSlider.h"
 
@@ -55,8 +55,8 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               [ImageSubController class], [ORImage class],
                                               [ButtonSubController class], [ORButton class],
                                               [SwitchSubController class], [ORSwitch class],
-                                              [ColorPickerSubController class], [ColorPicker class],
                                               [WebSubController class], [ORWebView class],
+                                              [ColorPickerSubController class], [ORColorPicker class],
                                               [SliderSubController class], [ORSlider class],
                                               nil];
 }
