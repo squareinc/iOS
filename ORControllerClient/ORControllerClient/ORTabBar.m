@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,12 +18,35 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "DefinitionElementParser.h"
+#import "ORTabBar_Private.h"
+#import "ORTabBarItem.h"
 
-@class TabBar;
+@interface ORTabBar ()
 
-@interface TabBarParser : DefinitionElementParser
+@property (nonatomic, strong) NSMutableArray *_items;
 
-@property (nonatomic, strong, readonly) TabBar *tabBar;
+@end
+
+@implementation ORTabBar
+
+- (id)init {
+    self = [super init];
+    if (self) {
+		self._items = [NSMutableArray array];
+    }
+    return self;
+}
+
+- (void)addItem:(ORTabBarItem *)item
+{
+    [self._items addObject:item];
+}
+
+- (NSArray *)items
+{
+    return [NSArray arrayWithArray:self._items];
+}
+
+@synthesize _items;
 
 @end

@@ -20,7 +20,7 @@
  */
 #import "GroupParser.h"
 #import "Group.h"
-#import "TabBarParser.h"
+#import "ORTabBarParser.h"
 #import "ScreenDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
@@ -61,7 +61,7 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
 }
 
-- (void)endTabBarElement:(TabBarParser *)parser
+- (void)endTabBarElement:(ORTabBarParser *)parser
 {
     self.group.tabBar = parser.tabBar;
 }

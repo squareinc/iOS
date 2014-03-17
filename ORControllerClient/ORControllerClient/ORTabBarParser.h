@@ -18,19 +18,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "TabBarParser.h"
-#import "TabBar.h"
-#import "ORTabBarItemParser.h"
-#import "XMLEntity.h"
+#import "DefinitionElementParser.h"
 
-@interface TabBarParser ()
-
-@property (nonatomic, strong, readwrite) TabBar *tabBar;
-
-@end
+@class ORTabBar;
 
 /**
- * Stores model data about tabbar parsed from "tabbar" element in panel.xml.
+ * Parses a <tabbar...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORTabBar model object instance.
  * XML fragment example:
  * <tabbar>
  *    <item name="previous">
@@ -44,26 +38,15 @@
  *	  <item name="setting">
  *       <navigate to="Setting" />
  *       <image src="setting.png" />
- *    </item>                
+ *    </item>
  * </tabbar>
  */
-@implementation TabBarParser
 
-- (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict;
-{
-    self = [super initWithRegister:aRegister attributes:attributeDict];
-    if (self) {
-        [self addKnownTag:ITEM];
-        self.tabBar = [[TabBar alloc] init];
-    }
-    return self;
-}
+@interface ORTabBarParser : DefinitionElementParser
 
-- (void)endTabBarItemElement:(ORTabBarItemParser *)parser
-{
-    [self.tabBar.tabBarItems addObject:parser.tabBarItem];
-}
-
-@synthesize tabBar;
+/**
+ * ORTabBar model object parsed from the XML fragment.
+ */
+@property (nonatomic, strong, readonly) ORTabBar *tabBar;
 
 @end

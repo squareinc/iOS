@@ -21,7 +21,7 @@
 #import "DefinitionParser.h"
 #import "ScreenParser.h"
 #import "GroupParser.h"
-#import "TabBarParser.h"
+#import "ORTabBarParser.h"
 #import "LocalParser.h"
 #import "Definition.h"
 #import "DefinitionElementParserRegister.h"
@@ -58,7 +58,7 @@
     [self.definition addGroup:groupParser.group];
 }
 
-- (void)endTabBarElement:(TabBarParser *)tabBarParser
+- (void)endTabBarElement:(ORTabBarParser *)tabBarParser
 {
     self.definition.tabBar = tabBarParser.tabBar;
 }

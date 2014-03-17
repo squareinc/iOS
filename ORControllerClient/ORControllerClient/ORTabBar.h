@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,10 +18,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
+#import "ORModelObject.h"
 
-@interface TabBar : NSObject
+/**
+ * Model object representing a TabBar element in the OR UI model domain.
+ */
+@interface ORTabBar : ORModelObject
 
-@property (nonatomic, strong, readonly) NSMutableArray *tabBarItems;
+/**
+ * Items of the tab bar, ordered from left to right.
+ */
+@property (nonatomic, strong, readonly) NSArray *items;
 
 @end

@@ -20,7 +20,7 @@
  */
 #import <UIKit/UIKit.h>
 
-@class TabBar;
+@class ORTabBar;
 @class ORLabel;
 @class ORImage;
 @class Group;
@@ -144,7 +144,7 @@
  */
 @property (nonatomic, strong, readonly) NSSet *webViews;
 
-@property (nonatomic, strong) TabBar *tabBar;
+@property (nonatomic, strong) ORTabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;
 @property (nonatomic, strong, readonly) NSMutableArray *imageNames;
 

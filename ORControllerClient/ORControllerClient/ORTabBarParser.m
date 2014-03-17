@@ -18,25 +18,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "TabBar.h"
-#import "ORTabBarItem.h"
+#import "ORTabBarParser.h"
+#import "ORTabBar_Private.h"
+#import "ORTabBarItemParser.h"
+#import "XMLEntity.h"
+#import "DefinitionElementParserRegister.h"
 
-@interface TabBar ()
+@interface ORTabBarParser ()
 
-@property (nonatomic, strong, readwrite) NSMutableArray *tabBarItems;
+@property (nonatomic, strong, readwrite) ORTabBar *tabBar;
 
 @end
 
-@implementation TabBar
+@implementation ORTabBarParser
 
-- (id)init {
-    self = [super init];
+- (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict;
+{
+    self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-		self.tabBarItems = [NSMutableArray array];
+        [self addKnownTag:ITEM];
+        self.tabBar = [[ORTabBar alloc] init];
+        self.tabBar.definition = aRegister.definition;
     }
     return self;
 }
 
-@synthesize tabBarItems;
+- (void)endTabBarItemElement:(ORTabBarItemParser *)parser
+{
+    [self.tabBar addItem:parser.tabBarItem];
+}
+
+@synthesize tabBar;
 
 @end

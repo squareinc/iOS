@@ -20,7 +20,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@class TabBar;
+@class ORTabBar;
 @class Screen;
 
 @interface Group : NSObject
@@ -28,7 +28,7 @@
 @property (nonatomic, readonly) int groupId;
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;
-@property (nonatomic, strong) TabBar *tabBar;
+@property (nonatomic, strong) ORTabBar *tabBar;
 
 
 - (id)initWithGroupId:(int)anId name:(NSString *)aName;

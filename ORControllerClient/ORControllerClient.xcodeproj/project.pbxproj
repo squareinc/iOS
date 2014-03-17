@@ -135,7 +135,7 @@
 		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
 		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
 		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
-		9193336C179E9BD00086FEE7 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* TabBar.m */; };
+		9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* ORTabBar.m */; };
 		9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */; };
 		9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334C179E9BCF0086FEE7 /* XMLEntity.m */; };
 		9193336F179E9BD00086FEE7 /* ORWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334E179E9BCF0086FEE7 /* ORWebView.m */; };
@@ -160,7 +160,7 @@
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
 		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
 		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
-		9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* TabBar.h */; };
+		9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* ORTabBar.h */; };
 		9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* ORTabBarItem.h */; };
 		9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
 		9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* ORWebView.h */; };
@@ -187,7 +187,7 @@
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D3179EA2DA0086FEE7 /* GestureParser.m */; };
 		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
-		91933405179EA2DE0086FEE7 /* TabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* TabBarParser.m */; };
+		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
 		91933407179EA2DE0086FEE7 /* NavigateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DD179EA2DC0086FEE7 /* NavigateParser.m */; };
 		91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */; };
@@ -328,7 +328,7 @@
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
 				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
 				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
-				9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */,
+				9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */,
 				9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */,
 				9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */,
 				9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */,
@@ -507,8 +507,8 @@
 		91933340179E9BCF0086FEE7 /* SensorComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorComponent.m; sourceTree = "<group>"; };
 		91933341179E9BCF0086FEE7 /* SensorState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorState.h; sourceTree = "<group>"; };
 		91933342179E9BCF0086FEE7 /* SensorState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorState.m; sourceTree = "<group>"; };
-		91933347179E9BCF0086FEE7 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
-		91933348179E9BCF0086FEE7 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
+		91933347179E9BCF0086FEE7 /* ORTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBar.h; sourceTree = "<group>"; };
+		91933348179E9BCF0086FEE7 /* ORTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBar.m; sourceTree = "<group>"; };
 		91933349179E9BCF0086FEE7 /* ORTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItem.h; sourceTree = "<group>"; };
 		9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItem.m; sourceTree = "<group>"; };
 		9193334B179E9BCF0086FEE7 /* XMLEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLEntity.h; sourceTree = "<group>"; };
@@ -562,8 +562,8 @@
 		919333D3179EA2DA0086FEE7 /* GestureParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureParser.m; sourceTree = "<group>"; };
 		919333D6179EA2DB0086FEE7 /* GroupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParser.h; sourceTree = "<group>"; };
 		919333D7179EA2DB0086FEE7 /* GroupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupParser.m; sourceTree = "<group>"; };
-		919333D8179EA2DB0086FEE7 /* TabBarParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarParser.h; sourceTree = "<group>"; };
-		919333D9179EA2DB0086FEE7 /* TabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarParser.m; sourceTree = "<group>"; };
+		919333D8179EA2DB0086FEE7 /* ORTabBarParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarParser.h; sourceTree = "<group>"; };
+		919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarParser.m; sourceTree = "<group>"; };
 		919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParser.h; sourceTree = "<group>"; };
 		919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParser.m; sourceTree = "<group>"; };
 		919333DC179EA2DB0086FEE7 /* NavigateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigateParser.h; sourceTree = "<group>"; };
@@ -606,6 +606,7 @@
 		91A4A24E18D70B820070F823 /* ORTabBarItem_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItem_Private.h; sourceTree = "<group>"; };
 		91A4A24F18D733F20070F823 /* ORTabBarItemParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParserTest.m; sourceTree = "<group>"; };
 		91A4A25118D7340D0070F823 /* ORTabBarItemParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParserTest.h; sourceTree = "<group>"; };
+		91A4A25218D736FC0070F823 /* ORTabBar_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBar_Private.h; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
 		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
 		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
@@ -799,6 +800,9 @@
 				91A4A23E18D5E3560070F823 /* ORModelObject.m */,
 				9183056B17E8AC40002E9EF7 /* ORWidget.h */,
 				9183056C17E8AC40002E9EF7 /* ORWidget.m */,
+				91933347179E9BCF0086FEE7 /* ORTabBar.h */,
+				91933348179E9BCF0086FEE7 /* ORTabBar.m */,
+				91A4A25218D736FC0070F823 /* ORTabBar_Private.h */,
 				91933349179E9BCF0086FEE7 /* ORTabBarItem.h */,
 				9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */,
 				91A4A24E18D70B820070F823 /* ORTabBarItem_Private.h */,
@@ -1092,8 +1096,6 @@
 				91933340179E9BCF0086FEE7 /* SensorComponent.m */,
 				91933341179E9BCF0086FEE7 /* SensorState.h */,
 				91933342179E9BCF0086FEE7 /* SensorState.m */,
-				91933347179E9BCF0086FEE7 /* TabBar.h */,
-				91933348179E9BCF0086FEE7 /* TabBar.m */,
 				9193334B179E9BCF0086FEE7 /* XMLEntity.h */,
 				9193334C179E9BCF0086FEE7 /* XMLEntity.m */,
 				9193334F179E9BCF0086FEE7 /* LocalSensor.h */,
@@ -1135,8 +1137,6 @@
 				919333D3179EA2DA0086FEE7 /* GestureParser.m */,
 				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
 				919333D7179EA2DB0086FEE7 /* GroupParser.m */,
-				919333D8179EA2DB0086FEE7 /* TabBarParser.h */,
-				919333D9179EA2DB0086FEE7 /* TabBarParser.m */,
 				919333DC179EA2DB0086FEE7 /* NavigateParser.h */,
 				919333DD179EA2DC0086FEE7 /* NavigateParser.m */,
 				919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */,
@@ -1185,6 +1185,8 @@
 			children = (
 				91AAFB0418A9082200632C1A /* 2_0_0 */,
 				916D63B318B24C0300AD781D /* 2_1_0 */,
+				919333D8179EA2DB0086FEE7 /* ORTabBarParser.h */,
+				919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */,
 				919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */,
 				919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */,
 				9178DF8B1844A31A00E862DF /* ORLabelParser.h */,
@@ -1455,7 +1457,7 @@
 				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
 				91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */,
 				91933369179E9BD00086FEE7 /* SensorState.m in Sources */,
-				9193336C179E9BD00086FEE7 /* TabBar.m in Sources */,
+				9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */,
 				9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */,
 				9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */,
 				9193336F179E9BD00086FEE7 /* ORWebView.m in Sources */,
@@ -1491,7 +1493,7 @@
 				91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */,
 				91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */,
 				91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */,
-				91933405179EA2DE0086FEE7 /* TabBarParser.m in Sources */,
+				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
 				91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */,
 				91933407179EA2DE0086FEE7 /* NavigateParser.m in Sources */,
 				91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */,
