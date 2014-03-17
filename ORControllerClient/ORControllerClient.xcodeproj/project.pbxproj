@@ -214,6 +214,10 @@
 		91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */; };
 		91A4A24C18D703840070F823 /* ORWebViewParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24B18D703840070F823 /* ORWebViewParserTest.m */; };
 		91A4A25018D733F20070F823 /* ORTabBarItemParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24F18D733F20070F823 /* ORTabBarItemParserTest.m */; };
+		91A4A25318D739A30070F823 /* ORNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B357D418BB8D5B00ADED24 /* ORNavigation.h */; };
+		91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B357D818BB8D6B00ADED24 /* ORScreenNavigation.h */; };
+		91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA53E18C2342F006006E9 /* ORScreen.h */; };
+		91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA54218C2343E006006E9 /* ORGroup.h */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -294,6 +298,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */,
+				91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */,
+				91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */,
+				91A4A25318D739A30070F823 /* ORNavigation.h in CopyFiles */,
 				91A4A24618D6F23E0070F823 /* ORModelObject.h in CopyFiles */,
 				91B357C818BB577400ADED24 /* ORSlider.h in CopyFiles */,
 				916D63AF18B21C5A00AD781D /* ORSwitch.h in CopyFiles */,
