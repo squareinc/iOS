@@ -30,14 +30,14 @@
 #import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/Gesture.h"
 #import "ORControllerClient/XMLEntity.h"
-#import "ORControllerClient/TabbarItem.h"
+#import "ORControllerClient/ORTabbarItem.h"
 #import "SensorState.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/Group.h"
 #import "ORControllerClient/Screen.h"
 #import "ORControllerClient/Navigate.h"
 #import "ORControllerClient/Sensor.h"
-#import "ORControllerClient/TabBar.h"
+#import "ORControllerClient/ORTabBar.h"
 #import "ORControllerClient/ORBackground.h"
 #import "PanelDefinitionParser.h"
 
@@ -1178,23 +1178,23 @@
     Definition *definition = [parser parseDefinitionFromXML:data];
 
 	// Begin assert tabbar.
-	TabBar *tabBar = definition.tabBar;
+	ORTabBar *tabBar = definition.tabBar;
 	NSLog(@"Tabbar is : %@", tabBar);
 	NSMutableArray *expectedTabBarItemsName = [NSMutableArray arrayWithObjects:@"previous", @"next", @"setting", nil];
 	NSMutableArray *expectedTabBarItemsImageSrc = [NSMutableArray arrayWithObjects:@"previous.png", @"next.png", @"setting.png", nil];
-	NSMutableArray *tabBarItems = tabBar.tabBarItems;
+	NSMutableArray *tabBarItems = tabBar.items;
 	NSLog(@"TabBar items count is : %d", tabBarItems.count);
 	for (int i=0; i<tabBarItems.count; i++) {
-		TabBarItem *tabBarItem = [tabBarItems objectAtIndex:i];
+		ORTabBarItem *tabBarItem = [tabBarItems objectAtIndex:i];
 		
 		// assert tabbar item name.
 		NSString *expectedTabBarItemName = [expectedTabBarItemsName objectAtIndex:i];
-		STAssertTrue([tabBarItem.tabBarItemName isEqualToString:expectedTabBarItemName], @"expected %@, but %@", expectedTabBarItemName, tabBarItem.tabBarItemName);
-		NSLog(@"tabbarItemName is %@", [tabBarItem tabBarItemName]);
+		STAssertTrue([tabBarItem.name isEqualToString:expectedTabBarItemName], @"expected %@, but %@", expectedTabBarItemName, tabBarItem.name);
+		NSLog(@"tabbarItemName is %@", [tabBarItem name]);
 		NSLog(@"expectedTabbarItemName is %@", expectedTabBarItemName);
-		
+		/*
 		// assert tabbar item navigate
-		Navigate *navigate = tabBarItem.navigate;
+		ORNavigation *navigate = tabBarItem.navigation;
 		BOOL expectedIsPreviousScreen = YES;
 		BOOL expectedIsNextScreen = YES;
 		BOOL expectedIsSetting = YES;
@@ -1212,11 +1212,11 @@
 		NSLog(@"IsPreviousScreen is %d", isPreviousScreen);
 		NSLog(@"isNextScreen is %d", isNextScreen);
 		NSLog(@"isSetting is %d", isSetting);
-		
+		*/
 		// assert tabbar item image
 		NSString *expectedTabBarItemImageSrc = [expectedTabBarItemsImageSrc objectAtIndex:i];
-		STAssertTrue([tabBarItem.tabBarItemImage.src isEqualToString:expectedTabBarItemImageSrc], @"expected %@, but %@", expectedTabBarItemImageSrc, tabBarItem.tabBarItemImage.src);
-		NSLog(@"tabBarItemImage src is %@", [[tabBarItem tabBarItemImage] src]);
+		STAssertTrue([tabBarItem.image.name isEqualToString:expectedTabBarItemImageSrc], @"expected %@, but %@", expectedTabBarItemImageSrc, tabBarItem.image.name);
+		NSLog(@"tabBarItemImage src is %@", [[tabBarItem image] name]);
 		NSLog(@"expectedTabBarItemsImage src is %@", expectedTabBarItemImageSrc);
 	}
 	// End assert tabbar.
@@ -1324,23 +1324,24 @@
 	NSMutableArray *cells = [[NSMutableArray alloc] init];
 	for (Group *group in groups) {
 		// Begin assert tabbar
-		TabBar *localTabBar = group.tabBar;
+		ORTabBar *localTabBar = group.tabBar;
 		NSLog(@"LocalTabbar of grounp '%@' is : %@", group.name, localTabBar);
 		NSMutableArray *expectedLocalTabBarItemsName = [NSMutableArray arrayWithObjects:@"previous", @"next", @"setting", nil];
 		NSMutableArray *expectedLocalTabBarItemsImageSrc = [NSMutableArray arrayWithObjects:@"previous.png", @"next.png", @"setting.png", nil];
-		NSMutableArray *localTabBarItems = localTabBar.tabBarItems;
+		NSMutableArray *localTabBarItems = localTabBar.items;
 		NSLog(@"LocalTabBar items count of group '%@' is : %d", group.name, localTabBarItems.count);
 		for (int i=0; i<localTabBarItems.count; i++) {
-			TabBarItem *localTabBarItem = [localTabBarItems objectAtIndex:i];
+			ORTabBarItem *localTabBarItem = [localTabBarItems objectAtIndex:i];
 			
 			// assert tabbar item name.
 			NSString *expectedLocalTabBarItemName = [expectedLocalTabBarItemsName objectAtIndex:i];
-			STAssertTrue([localTabBarItem.tabBarItemName isEqualToString:expectedLocalTabBarItemName], @"expected %@, but %@", expectedLocalTabBarItemName, localTabBarItem.tabBarItemName);
-			NSLog(@"localTabbarItemName is %@", [localTabBarItem tabBarItemName]);
+			STAssertTrue([localTabBarItem.name isEqualToString:expectedLocalTabBarItemName], @"expected %@, but %@", expectedLocalTabBarItemName, localTabBarItem.name);
+			NSLog(@"localTabbarItemName is %@", [localTabBarItem name]);
 			NSLog(@"expectedLocalTabbarItemName is %@", expectedLocalTabBarItemName);
 		
+/*
 			// assert tabbar item navigate
-			Navigate *navigate = localTabBarItem.navigate;
+			ORNavigation *navigate = localTabBarItem.navigation;
 			BOOL expectedIsPreviousScreen = YES;
 			BOOL expectedIsNextScreen = YES;
 			BOOL expectedIsSetting = YES;
@@ -1358,11 +1359,11 @@
 			NSLog(@"IsPreviousScreen of local TabBarItem '%@' navigate is %d", localTabBarItem.tabBarItemName, isPreviousScreen);
 			NSLog(@"isNextScreen of local TabBarItem '%@' navigate is %d", localTabBarItem.tabBarItemName, isNextScreen);
 			NSLog(@"isSetting of local TabBarItem '%@' navigate is %d", localTabBarItem.tabBarItemName, isSetting);
-	
+	*/
 			// assert tabbar item image
 			NSString *expectedLocalTabBarItemImageSrc = [expectedLocalTabBarItemsImageSrc objectAtIndex:i];
-			STAssertTrue([localTabBarItem.tabBarItemImage.src isEqualToString:expectedLocalTabBarItemImageSrc], @"expected %@, but %@", expectedLocalTabBarItemImageSrc, localTabBarItem.tabBarItemImage.src);
-			NSLog(@"localTabBarItemImage src is %@", [[localTabBarItem tabBarItemImage] src]);
+			STAssertTrue([localTabBarItem.image.name isEqualToString:expectedLocalTabBarItemImageSrc], @"expected %@, but %@", expectedLocalTabBarItemImageSrc, localTabBarItem.image.name);
+			NSLog(@"localTabBarItemImage src is %@", [[localTabBarItem image] name]);
 			NSLog(@"expectedLocalTabBarItemsImage src is %@", expectedLocalTabBarItemImageSrc);
 		}
 		// End assert tabbar
