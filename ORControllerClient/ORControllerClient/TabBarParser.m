@@ -20,7 +20,7 @@
  */
 #import "TabBarParser.h"
 #import "TabBar.h"
-#import "TabBarItemParser.h"
+#import "ORTabBarItemParser.h"
 #import "XMLEntity.h"
 
 @interface TabBarParser ()
@@ -59,7 +59,7 @@
     return self;
 }
 
-- (void)endTabBarItemElement:(TabBarItemParser *)parser
+- (void)endTabBarItemElement:(ORTabBarItemParser *)parser
 {
     [self.tabBar.tabBarItems addObject:parser.tabBarItem];
 }

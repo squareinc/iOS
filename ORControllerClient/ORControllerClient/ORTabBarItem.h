@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,19 +18,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "TabBarItem.h"
+#import "ORModelObject.h"
 
-@implementation TabBarItem
+@class ORNavigation;
+@class ORImage;
 
-- (id)initWithName:(NSString *)aName
-{
-    self = [super init];
-    if (self) {
-        self.tabBarItemName = aName;
-    }
-    return self;
-}
+/**
+ * Model object representing a TabBar element in the OR UI model domain.
+ */
+@interface ORTabBarItem : ORModelObject
 
-@synthesize tabBarItemName, navigate, tabBarItemImage;
+/**
+ * Text displayed on item.
+ */
+@property (nonatomic, strong, readonly) NSString *name;
+
+/*
+ * Image displayed on item.
+ */
+@property (nonatomic, strong, readonly) ORImage *image;
+
+/**
+ * Navigation to perform when item is tapped.
+ */
+@property (nonatomic, strong, readonly) ORNavigation *navigation;
 
 @end

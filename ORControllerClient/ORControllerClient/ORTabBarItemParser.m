@@ -18,37 +18,19 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "TabBarItemParser.h"
-#import "TabBarItem.h"
-#import "ImageParser.h"
-#import "NavigateParser.h"
+#import "ORTabBarItemParser.h"
+#import "ORTabBarItem_Private.h"
+#import "ORImageParser.h"
+#import "ORNavigationParser.h"
 #import "XMLEntity.h"
 
-@interface TabBarItemParser ()
+@interface ORTabBarItemParser ()
 
-@property (nonatomic, strong, readwrite) TabBarItem *tabBarItem;
+@property (nonatomic, strong, readwrite) ORTabBarItem *tabBarItem;
 
 @end
 
-/**
- * Store model data about tabbar item parsed from element "item" in element "tabbar" in panel.xml.
- * XML fragment example:
- * <tabbar>
- *    <item name="previous">
- *       <navigate to="PreviousScreen" />
- *       <image src="previous.png" />
- *    </item>
- *    <item name="next">
- *	     <navigate to="NextScreen" />
- *		 <image src="next.png" />
- *    </item>
- *	  <item name="setting">
- *       <navigate to="Setting" />
- *       <image src="setting.png" />
- *    </item>                
- * </tabbar>
- */
-@implementation TabBarItemParser
+@implementation ORTabBarItemParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict;
 {
@@ -56,19 +38,19 @@
     if (self) {
         [self addKnownTag:NAVIGATE];
         [self addKnownTag:IMAGE];
-        self.tabBarItem = [[TabBarItem alloc] initWithName:[attributeDict objectForKey:NAME]];
+        self.tabBarItem = [[ORTabBarItem alloc] initWithName:[attributeDict objectForKey:NAME]];
     }
     return self;
 }
 
-- (void)endImageElement:(ImageParser *)parser
+- (void)endImageElement:(ORImageParser *)parser
 {
-    self.tabBarItem.tabBarItemImage = parser.image;
+    self.tabBarItem.image = parser.image;
 }
 
-- (void)endNavigateElement:(NavigateParser *)parser
+- (void)endNavigateElement:(ORNavigationParser *)parser
 {
-    self.tabBarItem.navigate = parser.navigate;
+    self.tabBarItem.navigation = parser.navigation;
 }
 
 @synthesize tabBarItem;

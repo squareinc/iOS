@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,12 +18,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "DefinitionElementParser.h"
+#import "ORTabBarItem_Private.h"
 
-@class TabBarItem;
+@interface ORTabBarItem ()
 
-@interface TabBarItemParser : DefinitionElementParser
+@property (nonatomic, strong, readwrite) NSString *name;
 
-@property (nonatomic, strong, readonly) TabBarItem *tabBarItem;
+@end
+
+@implementation ORTabBarItem
+
+- (id)initWithName:(NSString *)aName
+{
+    self = [super init];
+    if (self) {
+        self.name = aName;
+    }
+    return self;
+}
+
+@synthesize name, navigation, image;
 
 @end

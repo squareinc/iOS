@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,25 +18,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "TabBar.h"
+
 #import "ORTabBarItem.h"
 
-@interface TabBar ()
+@interface ORTabBarItem ()
 
-@property (nonatomic, strong, readwrite) NSMutableArray *tabBarItems;
+@property (nonatomic, strong, readwrite) ORNavigation *navigation;
+@property (nonatomic, strong, readwrite) ORImage *image;
 
-@end
-
-@implementation TabBar
-
-- (id)init {
-    self = [super init];
-    if (self) {
-		self.tabBarItems = [NSMutableArray array];
-    }
-    return self;
-}
-
-@synthesize tabBarItems;
+- (id)initWithName:(NSString *)aName;
 
 @end

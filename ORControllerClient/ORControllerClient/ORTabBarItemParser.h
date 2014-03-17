@@ -18,17 +18,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
+#import "DefinitionElementParser.h"
 
-@class Navigate;
-@class Image;
+@class ORTabBarItem;
 
-@interface TabBarItem : NSObject
+/**
+ * Parses an <item...> XML fragment (within a "tabbar" element) from the panel XML document
+ * following schema v2.0 into an ORTabBarItem model object instance.
+ *
+ * XML fragment example:
+ * <item name="previous">
+ *   <navigate to="PreviousScreen" />
+ *   <image src="previous.png" />
+ * </item>
+ */
+@interface ORTabBarItemParser : DefinitionElementParser
 
-@property (nonatomic, strong) NSString *tabBarItemName;
-@property (nonatomic, strong) Navigate *navigate;
-@property (nonatomic, strong) Image *tabBarItemImage;
-
-- (id)initWithName:(NSString *)aName;
+/**
+ * ORTabBarItem model object parsed from the XML fragment.
+ */
+@property (nonatomic, strong, readonly) ORTabBarItem *tabBarItem;
 
 @end
