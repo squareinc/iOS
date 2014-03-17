@@ -21,8 +21,21 @@
 #import "DefinitionElementParser.h"
 #import "ORWebView.h"
 
+/**
+ * Parses a <web...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORWebView model object instance.
+ *
+ * XML fragment example:
+ * <web id="60" src="http://www.apple.com" username="x" password="y">
+ *    <link type="sensor" ref="60"/>
+ * </web>
+ */
+
 @interface ORWebViewParser : DefinitionElementParser
 
+/**
+ * ORWebView model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORWebView *web;
 
 @end

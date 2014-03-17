@@ -21,12 +21,25 @@
 #import "ORWidget.h"
 
 /**
- * The Web class represents an element displaying web content on the panel.
+ * Model object representing a web view element in the OR UI model domain.
  */
 @interface ORWebView : ORWidget
 
+/**
+ * Source URL represented as a string for the web view.
+ */
 @property (nonatomic, copy, readonly) NSString *src;
+
+/**
+ * Username to use to perform basic authentication on the web request.
+ * Optional.
+ */
 @property (nonatomic, copy, readonly) NSString *username;
+
+/**
+ * Password to use to perform basic authentication on the web request.
+ * Optional.
+ */
 @property (nonatomic, copy, readonly) NSString *password;
 
 @end
