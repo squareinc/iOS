@@ -24,9 +24,22 @@
 @class ORGroup;
 @class ORScreen;
 
+/**
+ * Model object representing a navigation to a given group or screen.
+ * Its navigation type is always ORNavigationToGroupOrScreen
+ */
 @interface ORScreenNavigation : ORNavigation
 
+/**
+ * Group navigation goes to.
+ * If no group is specified, navigation occurs within the current group.
+ */
 @property (nonatomic, strong, readonly) ORGroup *destinationGroup;
+
+/**
+ * Screen navigation goes to.
+ * If no screen is specified, navigation goes to first screen in destination Group.
+ */
 @property (nonatomic, strong, readonly) ORScreen *destinationScreen;
 
 @end

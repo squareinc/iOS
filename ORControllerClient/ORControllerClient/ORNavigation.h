@@ -34,8 +34,14 @@ typedef NS_ENUM(NSInteger, ORNavigationType) {
     ORNavigationLogout
 };
 
+/**
+ * Model object representing a navigation (navigate) element in the OR UI model domain.
+ */
 @interface ORNavigation : ORModelObject
 
+/**
+ * Type of navigation that should be performed.
+ */
 @property (nonatomic, readonly) ORNavigationType navigationType;
 
 @end
