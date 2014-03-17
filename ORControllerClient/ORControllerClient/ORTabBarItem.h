@@ -24,7 +24,7 @@
 @class ORImage;
 
 /**
- * Model object representing a TabBar element in the OR UI model domain.
+ * Model object representing a TabBarItem element in the OR UI model domain.
  */
 @interface ORTabBarItem : ORModelObject
 
