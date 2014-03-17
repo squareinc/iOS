@@ -209,6 +209,12 @@
     [self._labels removeAllObjects];
     [self.sensorRegistry clearRegistry];
     [self.imageNames removeAllObjects];
+    [self._images removeAllObjects];
+    [self._buttons removeAllObjects];
+    [self._switches removeAllObjects];
+    [self._sliders removeAllObjects];
+    [self._colorPickers removeAllObjects];
+    [self._webViews removeAllObjects];
     self.tabBar = nil;
 }
 
