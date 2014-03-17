@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,36 +18,33 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "ColorPickerParser.h"
-#import "ColorPicker.h"
-#import "ImageParser.h"
+#import "ORColorPickerParser.h"
+#import "ORColorPicker.h"
+#import "ORObjectIdentifier.h"
+#import "ORImageParser.h"
+#import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 
-@interface ColorPickerParser ()
+@interface ORColorPickerParser ()
 
-@property (nonatomic, strong, readwrite) ColorPicker *colorPicker;
+@property (nonatomic, strong, readwrite) ORColorPicker *colorPicker;
 
 @end
-/**
- * ColorPicker mainly stores image model data and parsed from element colorpicker.
- * XML fragment example:
- * <colorpicker id="40" >
- *    <image src="colorWheel1.png" />
- * </colorpicker>
- */
-@implementation ColorPickerParser
+
+@implementation ORColorPickerParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
         [self addKnownTag:IMAGE];
-        self.colorPicker = [[ColorPicker alloc] initWithId:[[attributeDict objectForKey:@"id"] intValue]];
+        self.colorPicker = [[ORColorPicker alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"id"]]];
+        self.colorPicker.definition = aRegister.definition;
     }
     return self;
 }
 
-- (void)endImageElement:(ImageParser *)parser
+- (void)endImageElement:(ORImageParser *)parser
 {
     self.colorPicker.image = parser.image;
 }

@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,14 +18,23 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "Control.h"
+#import "DefinitionElementParser.h"
+#import "ORColorPicker.h"
 
-@class Image;
+/**
+ * Parses a <colorpicker...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORColorPicker model object instance.
+ *
+ * XML fragment example:
+ * <colorpicker id="40" >
+ *    <image src="colorWheel1.png" />
+ * </colorpicker>
+ */
+@interface ORColorPickerParser : DefinitionElementParser
 
-@interface ColorPicker : Control
-
-@property (nonatomic, strong) Image *image;
-
-- (id)initWithId:(int)anId;
+/**
+ * ORColorPicker model object parsed from the XML fragment.
+ */
+@property (nonatomic, strong, readonly) ORColorPicker *colorPicker;
 
 @end

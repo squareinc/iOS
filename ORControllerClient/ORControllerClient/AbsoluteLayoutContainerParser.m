@@ -29,7 +29,7 @@
 #import "ORSwitch.h"
 #import "ORSliderParser.h"
 #import "ORSlider.h"
-#import "ColorPickerParser.h"
+#import "ORColorPickerParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "XMLEntity.h"
@@ -103,9 +103,10 @@
     [self.depRegister.definition addSlider:parser.slider];
 }
 
-- (void)endColorPickerElement:(ColorPickerParser *)parser
+- (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
     ((AbsoluteLayoutContainer *)self.layoutContainer).component = parser.colorPicker;
+    [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 
 @synthesize layoutContainer;

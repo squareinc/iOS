@@ -29,7 +29,7 @@
 #import "ORSwitch.h"
 #import "ORSliderParser.h"
 #import "ORSlider.h"
-#import "ColorPickerParser.h"
+#import "ORColorPickerParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "XMLEntity.h"
@@ -100,12 +100,13 @@
 - (void)endSliderElement:(ORSliderParser *)parser
 {
     self.gridCell.component = parser.slider;
-    [self.depRegister.definition addSlider:(parser.slider)];
+    [self.depRegister.definition addSlider:parser.slider];
 }
 
-- (void)endColorPickerElement:(ColorPickerParser *)parser
+- (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
     self.gridCell.component = parser.colorPicker;
+    [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 
 @synthesize gridCell;

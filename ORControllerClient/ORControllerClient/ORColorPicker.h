@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,19 +18,18 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "ColorPicker.h"
+#import "ORWidget.h"
 
-@implementation ColorPicker
+@class ORImage;
 
-- (id)initWithId:(int)anId
-{
-    self = [super init];
-    if (self) {
-        self.componentId = anId;
-    }
-    return self;
-}
+/**
+ * Model object representing an button element in the OR UI model domain.
+ */
+@interface ORColorPicker : ORWidget
 
-@synthesize image;
+/**
+ * Image to be used as the background of the color picker widget.
+ */
+@property (nonatomic, strong) ORImage *image;
 
 @end

@@ -120,7 +120,7 @@
 		9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		91933357179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */; };
-		9193335A179E9BD00086FEE7 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ColorPicker.m */; };
+		9193335A179E9BD00086FEE7 /* ORColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ORColorPicker.m */; };
 		9193335B179E9BD00086FEE7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933326179E9BCF0086FEE7 /* Component.m */; };
 		9193335C179E9BD00086FEE7 /* Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933328179E9BCF0086FEE7 /* Control.m */; };
 		9193335D179E9BD00086FEE7 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332A179E9BCF0086FEE7 /* Definition.m */; };
@@ -146,7 +146,7 @@
 		91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
 		91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* LayoutContainer.h */; };
 		91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */; };
-		9193337A179E9EB10086FEE7 /* ColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ColorPicker.h */; };
+		9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ORColorPicker.h */; };
 		9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933325179E9BCF0086FEE7 /* Component.h */; };
 		9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933327179E9BCF0086FEE7 /* Control.h */; };
 		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
@@ -184,7 +184,7 @@
 		919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BF179EA2D70086FEE7 /* GridCellParser.m */; };
 		919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C3179EA2D80086FEE7 /* ImageParser.m */; };
 		919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* WebParser.m */; };
-		91933401179EA2DE0086FEE7 /* ColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ColorPickerParser.m */; };
+		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D3179EA2DA0086FEE7 /* GestureParser.m */; };
 		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
 		91933405179EA2DE0086FEE7 /* TabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* TabBarParser.m */; };
@@ -309,7 +309,7 @@
 				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */,
 				91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */,
 				91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */,
-				9193337A179E9EB10086FEE7 /* ColorPicker.h in CopyFiles */,
+				9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */,
 				9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */,
 				9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */,
 				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
@@ -472,8 +472,8 @@
 		91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelIdentityListResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsoluteLayoutContainer.h; sourceTree = "<group>"; };
 		9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsoluteLayoutContainer.m; sourceTree = "<group>"; };
-		91933323179E9BCF0086FEE7 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
-		91933324179E9BCF0086FEE7 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
+		91933323179E9BCF0086FEE7 /* ORColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPicker.h; sourceTree = "<group>"; };
+		91933324179E9BCF0086FEE7 /* ORColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPicker.m; sourceTree = "<group>"; };
 		91933325179E9BCF0086FEE7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		91933326179E9BCF0086FEE7 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
 		91933327179E9BCF0086FEE7 /* Control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Control.h; sourceTree = "<group>"; };
@@ -551,8 +551,8 @@
 		919333C3179EA2D80086FEE7 /* ImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageParser.m; sourceTree = "<group>"; };
 		919333C4179EA2D80086FEE7 /* WebParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebParser.h; sourceTree = "<group>"; };
 		919333C5179EA2D80086FEE7 /* WebParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebParser.m; sourceTree = "<group>"; };
-		919333D0179EA2DA0086FEE7 /* ColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerParser.h; sourceTree = "<group>"; };
-		919333D1179EA2DA0086FEE7 /* ColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerParser.m; sourceTree = "<group>"; };
+		919333D0179EA2DA0086FEE7 /* ORColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParser.h; sourceTree = "<group>"; };
+		919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParser.m; sourceTree = "<group>"; };
 		919333D2179EA2DA0086FEE7 /* GestureParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureParser.h; sourceTree = "<group>"; };
 		919333D3179EA2DA0086FEE7 /* GestureParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureParser.m; sourceTree = "<group>"; };
 		919333D6179EA2DB0086FEE7 /* GroupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParser.h; sourceTree = "<group>"; };
@@ -799,6 +799,8 @@
 				911392DF189BE94E00B7D79D /* ORButton.h */,
 				911392E0189BE94E00B7D79D /* ORButton.m */,
 				911392E3189BE9F300B7D79D /* ORButton_Private.h */,
+				91933323179E9BCF0086FEE7 /* ORColorPicker.h */,
+				91933324179E9BCF0086FEE7 /* ORColorPicker.m */,
 				91099A4C18AE1547005BEBAB /* ORSwitch.h */,
 				91099A4D18AE1547005BEBAB /* ORSwitch.m */,
 				9184CA3C18B3A37A0058A09F /* ORSlider.h */,
@@ -1038,8 +1040,6 @@
 				91933338179E9BCF0086FEE7 /* LayoutContainer.m */,
 				9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */,
 				9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */,
-				91933323179E9BCF0086FEE7 /* ColorPicker.h */,
-				91933324179E9BCF0086FEE7 /* ColorPicker.m */,
 				91933325179E9BCF0086FEE7 /* Component.h */,
 				91933326179E9BCF0086FEE7 /* Component.m */,
 				91933327179E9BCF0086FEE7 /* Control.h */,
@@ -1112,8 +1112,6 @@
 				919333C3179EA2D80086FEE7 /* ImageParser.m */,
 				919333C4179EA2D80086FEE7 /* WebParser.h */,
 				919333C5179EA2D80086FEE7 /* WebParser.m */,
-				919333D0179EA2DA0086FEE7 /* ColorPickerParser.h */,
-				919333D1179EA2DA0086FEE7 /* ColorPickerParser.m */,
 				919333D2179EA2DA0086FEE7 /* GestureParser.h */,
 				919333D3179EA2DA0086FEE7 /* GestureParser.m */,
 				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
@@ -1181,6 +1179,8 @@
 				91AAFB0518A9083C00632C1A /* ORButtonParser.h */,
 				91AAFB0618A9083C00632C1A /* ORButtonParser.m */,
 				916D63B918B24F8F00AD781D /* ORButtonParser_Private.h */,
+				919333D0179EA2DA0086FEE7 /* ORColorPickerParser.h */,
+				919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */,
 				91099A5018B20F7E005BEBAB /* ORSwitchParser.h */,
 				91099A5118B20F7E005BEBAB /* ORSwitchParser.m */,
 				91B357BE18BB47B400ADED24 /* ORSliderParser.h */,
@@ -1413,7 +1413,7 @@
 				917BA54418C2343E006006E9 /* ORGroup.m in Sources */,
 				91A4A23F18D5E3560070F823 /* ORModelObject.m in Sources */,
 				91222D881892659E00BA0B96 /* ORSensorStatesMapping.m in Sources */,
-				9193335A179E9BD00086FEE7 /* ColorPicker.m in Sources */,
+				9193335A179E9BD00086FEE7 /* ORColorPicker.m in Sources */,
 				91B357DA18BB8D6B00ADED24 /* ORScreenNavigation.m in Sources */,
 				9178DF981844D46500E862DF /* UIColor+ORAdditions.m in Sources */,
 				9193335B179E9BD00086FEE7 /* Component.m in Sources */,
@@ -1466,7 +1466,7 @@
 				919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */,
 				91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */,
 				919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */,
-				91933401179EA2DE0086FEE7 /* ColorPickerParser.m in Sources */,
+				91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */,
 				91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */,
 				91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */,
 				91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */,

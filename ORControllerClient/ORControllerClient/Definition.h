@@ -33,6 +33,7 @@
 @class ORButton;
 @class ORSwitch;
 @class ORSlider;
+@class ORColorPicker;
 @class ORGroup;
 @class ORScreen;
 
@@ -93,6 +94,7 @@
 - (void)addButton:(ORButton *)button;
 - (void)addSwitch:(ORSwitch *)sswitch;
 - (void)addSlider:(ORSlider *)slider;
+- (void)addColorPicker:(ORColorPicker *)colorPicker;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
@@ -129,6 +131,11 @@
  * Collection of all sliders used in this panel definition.
  */
 @property (nonatomic, strong, readonly) NSSet *sliders;
+
+/**
+ * Collection of all color pickers used in this panel definition.
+ */
+@property (nonatomic, strong, readonly) NSSet *colorPickers;
 
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;
