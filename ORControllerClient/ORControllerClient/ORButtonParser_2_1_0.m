@@ -25,7 +25,7 @@
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 #import "ORImageParser.h"
-#import "NavigateParser.h"
+#import "ORNavigationParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 
@@ -103,9 +103,9 @@
     }
 }
 
-- (void)endNavigateElement:(NavigateParser *)parser
+- (void)endNavigateElement:(ORNavigationParser *)parser
 {
-    self.button.navigate = parser.navigate;
+    self.button.navigation = parser.navigation;
 }
 
 - (void)endImageElement:(ORImageParser *)parser

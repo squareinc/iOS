@@ -23,7 +23,7 @@
 
 @class ORImage;
 @class ORLabel;
-@class Navigate;
+@class ORNavigation;
 
 /**
  * Model object representing an button element in the OR UI model domain.
@@ -68,6 +68,6 @@
  * Navigate object indicating what navigation should be conducted.
  * Can be nil if no navigation is triggered by the button.
  */
-@property (nonatomic, strong) Navigate *navigate;
+@property (nonatomic, strong) ORNavigation *navigation;
 
 @end

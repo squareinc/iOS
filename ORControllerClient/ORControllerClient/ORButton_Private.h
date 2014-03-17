@@ -23,7 +23,6 @@
 
 @class ORObjectIdentifier;
 @class ORLabel;
-@class Navigate;
 
 @interface ORButton ()
 

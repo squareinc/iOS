@@ -28,7 +28,8 @@
 #import "ORImage.h"
 #import "DefinitionElementParserRegister.h"
 #import "DefinitionParserMock.h"
-#import "NavigateParser.h"
+#import "ORNavigationParser.h"
+#import "ORNavigation.h"
 #import "XMLEntity.h"
 
 @implementation ORButtonParser_2_0_0Test
@@ -37,7 +38,7 @@
 {
     DefinitionElementParserRegister *depRegistry = [[DefinitionElementParserRegister alloc] init];
     [depRegistry registerParserClass:[ORButtonParser_2_0_0 class] endSelector:@selector(setTopLevelParser:) forTag:BUTTON];
-    [depRegistry registerParserClass:[NavigateParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
+    [depRegistry registerParserClass:[ORNavigationParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
     [depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
     
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[snippet dataUsingEncoding:NSUTF8StringEncoding]];
@@ -76,7 +77,7 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigate, @"Parsed button should have no navigation associated with it");
+    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
@@ -97,7 +98,7 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigate, @"Parsed button should have no navigation associated with it");
+    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
@@ -120,7 +121,7 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigate, @"Parsed button should have no navigation associated with it");
+    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
@@ -141,8 +142,8 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigate, @"Parsed button should have a navigation associated with it");
-    // TODO: add more tests on the navigate that is associated
+    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
     
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
@@ -166,8 +167,8 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigate, @"Parsed button should have a navigation associated with it");
-    // TODO: add more tests on the navigate that is associated
+    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
 
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
@@ -191,8 +192,8 @@
     STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigate, @"Parsed button should have a navigation associated with it");
-    // TODO: add more tests on the navigate that is associated
+    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
     
     STAssertNotNil(button.unpressedImage, @"Parsed button should have an unpressed image associated with it");
     STAssertTrue([button.unpressedImage isMemberOfClass:[ORImage class]], @"Parsed button unpressed image should be an ORImage");

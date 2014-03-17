@@ -108,8 +108,8 @@
         [self.definition sendLongReleaseCommandForButton:self];
     }
     
-	if (self.navigate) {
-        [self.definition.console navigate:self.navigate];
+	if (self.navigation) {
+        [self.definition.console navigate:self.navigation];
 	}
 }
 
