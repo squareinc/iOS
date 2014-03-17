@@ -27,7 +27,7 @@
 #import "AppSettingController.h"
 #import "LogoutHelper.h"
 #import "ORControllerClient/Gesture.h"
-#import "ORControllerClient/TabBarItem.h"
+#import "ORControllerClient/ORTabBarItem.h"
 #import "ORControllerClient/Definition.h"
 #import "UpdateController.h"
 #import "InitViewController.h"

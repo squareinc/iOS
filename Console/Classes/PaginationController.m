@@ -21,12 +21,14 @@
 #import "PaginationController.h"
 #import "ScreenViewController.h"
 #import "GroupController.h"
-#import "ORControllerClient/Group.h"
-#import "ORControllerClient/TabBar.h"
-#import "ORControllerClient/TabBarItem.h"
-#import "ORControllerClient/Image.h"
+#import "ORControllerClient/ORGroup.h"
+#import "ORControllerClient/ORScreen.h"
+#import "ORControllerClient/ORTabBar.h"
+#import "ORControllerClient/ORTabBarItem.h"
+#import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/Definition.h"
-#import "ORControllerClient/Navigate.h"
+#import "ORControllerClient/ORNavigation.h"
+#import "ORControllerClient/ORScreenNavigation.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
@@ -52,14 +54,14 @@
 - (void)updateTabBarItemSelection;
 
 @property (nonatomic, strong) Group *group;
-@property (nonatomic, strong) TabBar *tabBar;
+@property (nonatomic, strong) ORTabBar *tabBar;
 @property (nonatomic, weak) UITabBar *uiTabBar;
 
 @end
 
 @implementation PaginationController
 
-- (id)initWithGroup:(Group *)aGroup tabBar:(TabBar *)aTabBar
+- (id)initWithGroup:(Group *)aGroup tabBar:(ORTabBar *)aTabBar
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -305,12 +307,12 @@
         UITabBar *tmpBar = [[UITabBar alloc] initWithFrame:CGRectMake(0.0, frameHeight - kTabBarHeight, frameWidth, kTabBarHeight)];
         self.uiTabBar = tmpBar;
         [self.view addSubview:self.uiTabBar];
-        NSMutableArray *tmpItems = [NSMutableArray arrayWithCapacity:[self.tabBar.tabBarItems count]];
+        NSMutableArray *tmpItems = [NSMutableArray arrayWithCapacity:[self.tabBar.items count]];
         // Not using fast iteration but standard for loop to have access to object index
-        for (int i = 0; i < [self.tabBar.tabBarItems count]; i++) {
-            TabBarItem *item = [self.tabBar.tabBarItems objectAtIndex:i];
-            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.tabBarItemName image:nil tag:i];
-            UIImage *itemImage = [self.imageCache getImageNamed:item.tabBarItemImage.src finalImageAvailable:^(UIImage *image) {
+        for (int i = 0; i < [self.tabBar.items count]; i++) {
+            ORTabBarItem *item = [self.tabBar.items objectAtIndex:i];
+            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.name image:nil tag:i];
+            UIImage *itemImage = [self.imageCache getImageNamed:item.image.name finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     uiItem.image = image;
                 });
@@ -378,12 +380,16 @@
 {
     NSUInteger selected = NSNotFound;
     
-    for (TabBarItem *tabBarItem in self.tabBar.tabBarItems) {
-		if (tabBarItem.navigate && self.group.groupId == tabBarItem.navigate.toGroup) {
-			if (tabBarItem.navigate.toScreen == [self currentScreenViewController].screen.screenId | tabBarItem.navigate.toScreen <= 0) {
-				selected = [self.tabBar.tabBarItems indexOfObject:tabBarItem];
-                break;
-			}	
+    for (ORTabBarItem *tabBarItem in self.tabBar.items) {
+		if (tabBarItem.navigation && tabBarItem.navigation.navigationType == ORNavigationToGroupOrScreen) {
+            ORScreenNavigation *navigation = ((ORScreenNavigation *)tabBarItem.navigation);
+            if (self.group.groupId ==  navigation.destinationGroup.groupId) {
+                if (navigation.destinationScreen.screenId == [self currentScreenViewController].screen.screenId
+                    || navigation.destinationScreen.screenId <= 0) {
+                    selected = [self.tabBar.items indexOfObject:tabBarItem];
+                    break;
+                }
+			}
 		}
     }
     self.uiTabBar.selectedItem = (selected != NSNotFound)?[self.uiTabBar.items objectAtIndex:selected]:nil;
@@ -393,9 +399,9 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    TabBarItem *tabBarItem = [self.tabBar.tabBarItems objectAtIndex:item.tag];
-	if (tabBarItem && tabBarItem.navigate) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:tabBarItem.navigate];
+    ORTabBarItem *tabBarItem = [self.tabBar.items objectAtIndex:item.tag];
+	if (tabBarItem && tabBarItem.navigation) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:tabBarItem.navigation];
 	}
     
     // ! Do not do anything anymore here as after the navigation, self will be released if we moved to a different group

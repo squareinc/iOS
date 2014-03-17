@@ -22,7 +22,7 @@
 #import "ScreenViewController.h"
 
 @class Group;
-@class TabBar;
+@class ORTabBar;
 @class ImageCache;
 
 /**
@@ -44,7 +44,7 @@
 @property(nonatomic,copy) NSArray *viewControllers;
 @property(nonatomic,readonly) NSUInteger selectedIndex;
 
-- (id)initWithGroup:(Group *)aGroup tabBar:(TabBar *)aTabBar;
+- (id)initWithGroup:(Group *)aGroup tabBar:(ORTabBar *)aTabBar;
 
 /**
  * Switch to the specified screen with screen id.
