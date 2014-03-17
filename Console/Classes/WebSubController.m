@@ -19,15 +19,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "WebSubController.h"
-#import "ORControllerClient/ORWeb.h"
+#import "ORControllerClient/ORWebView.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/NSStringAdditions.h"
 
+static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOContext;
+
 @interface WebSubController()
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) ORWeb *web;
+@property (weak, nonatomic, readonly) ORWebView *web;
 @property (nonatomic, strong) NSString *oldStatus;
 
 - (void)loadRequestForURL:(NSString *)url;
@@ -43,20 +45,27 @@
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         self.view = webView;
         [self loadRequestForURL:self.web.src];
+        
+        [self.web addObserver:self forKeyPath:@"src" options:NSKeyValueObservingOptionNew context:WebSubControllerKVOContext];
     }
     
     return self;
 }
 
-
-- (ORWeb *)web
+- (void)dealloc
 {
-    return (ORWeb *)self.component;
+    [self.web removeObserver:self forKeyPath:@"src"];
+}
+
+
+- (ORWebView *)web
+{
+    return (ORWebView *)self.component;
 }
 
 - (void)loadRequestForURL:(NSString *)url
 {
-	ORWeb *webModel = (ORWeb *)self.component;
+	ORWebView *webModel = self.web;
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	
 	// If a username if provided in the config, use that for authentication
@@ -70,14 +79,14 @@
 	[(UIWebView *)self.view loadRequest:request];    
 }
 
-- (void)setPollingStatus:(NSNotification *)notification
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	SensorStatusCache *statusCache = (SensorStatusCache *)[notification object];
-	int sensorId = self.web.sensor.sensorId;
-	NSString *newStatus = [statusCache valueForSensorId:sensorId];
-    if (![self.oldStatus isEqualToString:newStatus]) {
-        self.oldStatus = newStatus;
-        [self loadRequestForURL:newStatus];
+    if (context == WebSubControllerKVOContext) {
+        if ([@"src" isEqualToString:keyPath]) {
+            [self loadRequestForURL:self.web.src];
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
