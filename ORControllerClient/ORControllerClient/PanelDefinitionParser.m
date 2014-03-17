@@ -32,7 +32,7 @@
 #import "GridCellParser.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
-#import "WebParser.h"
+#import "ORWebViewParser.h"
 #import "ORSwitchParser.h"
 #import "ORSliderParser.h"
 #import "ORColorPickerParser.h"
@@ -81,7 +81,7 @@
         [self.depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
         [self.depRegistry registerParserClass:[ORSensorLinkParser class] endSelector:@selector(endSensorLinkElement:) forTag:LINK];
         [self.depRegistry registerParserClass:[ORSensorStateParser class] endSelector:@selector(endSensorStateElement:) forTag:STATE];
-        [self.depRegistry registerParserClass:[WebParser class] endSelector:@selector(endWebElement:) forTag:WEB];
+        [self.depRegistry registerParserClass:[ORWebViewParser class] endSelector:@selector(endWebElement:) forTag:WEB];
 
         [self.depRegistry registerParserClass:[ORButtonParser_2_0_0 class] endSelector:@selector(endButtonElement:) forTag:BUTTON];
 

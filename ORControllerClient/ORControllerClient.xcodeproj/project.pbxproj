@@ -138,7 +138,7 @@
 		9193336C179E9BD00086FEE7 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* TabBar.m */; };
 		9193336D179E9BD00086FEE7 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334A179E9BCF0086FEE7 /* TabBarItem.m */; };
 		9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334C179E9BCF0086FEE7 /* XMLEntity.m */; };
-		9193336F179E9BD00086FEE7 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334E179E9BCF0086FEE7 /* Web.m */; };
+		9193336F179E9BD00086FEE7 /* ORWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334E179E9BCF0086FEE7 /* ORWebView.m */; };
 		91933370179E9BD00086FEE7 /* LocalSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933350179E9BCF0086FEE7 /* LocalSensor.m */; };
 		91933371179E9BD00086FEE7 /* LocalCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933352179E9BCF0086FEE7 /* LocalCommand.m */; };
 		91933372179E9BD00086FEE7 /* LocalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933354179E9BCF0086FEE7 /* LocalController.m */; };
@@ -163,7 +163,7 @@
 		9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* TabBar.h */; };
 		9193338C179E9EB10086FEE7 /* TabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* TabBarItem.h */; };
 		9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
-		9193338E179E9EB10086FEE7 /* Web.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* Web.h */; };
+		9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* ORWebView.h */; };
 		9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334F179E9BCF0086FEE7 /* LocalSensor.h */; };
 		91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933351179E9BCF0086FEE7 /* LocalCommand.h */; };
 		91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933353179E9BCF0086FEE7 /* LocalController.h */; };
@@ -183,7 +183,7 @@
 		919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */; };
 		919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BF179EA2D70086FEE7 /* GridCellParser.m */; };
 		919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C3179EA2D80086FEE7 /* ImageParser.m */; };
-		919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* WebParser.m */; };
+		919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* ORWebViewParser.m */; };
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D3179EA2DA0086FEE7 /* GestureParser.m */; };
 		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
@@ -329,7 +329,7 @@
 				9193338B179E9EB10086FEE7 /* TabBar.h in CopyFiles */,
 				9193338C179E9EB10086FEE7 /* TabBarItem.h in CopyFiles */,
 				9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */,
-				9193338E179E9EB10086FEE7 /* Web.h in CopyFiles */,
+				9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */,
 				9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */,
 				91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */,
 				91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */,
@@ -511,8 +511,8 @@
 		9193334A179E9BCF0086FEE7 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
 		9193334B179E9BCF0086FEE7 /* XMLEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLEntity.h; sourceTree = "<group>"; };
 		9193334C179E9BCF0086FEE7 /* XMLEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLEntity.m; sourceTree = "<group>"; };
-		9193334D179E9BCF0086FEE7 /* Web.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Web.h; sourceTree = "<group>"; };
-		9193334E179E9BCF0086FEE7 /* Web.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Web.m; sourceTree = "<group>"; };
+		9193334D179E9BCF0086FEE7 /* ORWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWebView.h; sourceTree = "<group>"; };
+		9193334E179E9BCF0086FEE7 /* ORWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebView.m; sourceTree = "<group>"; };
 		9193334F179E9BCF0086FEE7 /* LocalSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalSensor.h; sourceTree = "<group>"; };
 		91933350179E9BCF0086FEE7 /* LocalSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalSensor.m; sourceTree = "<group>"; };
 		91933351179E9BCF0086FEE7 /* LocalCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCommand.h; sourceTree = "<group>"; };
@@ -552,8 +552,8 @@
 		919333BF179EA2D70086FEE7 /* GridCellParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCellParser.m; sourceTree = "<group>"; };
 		919333C2179EA2D80086FEE7 /* ImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageParser.h; sourceTree = "<group>"; };
 		919333C3179EA2D80086FEE7 /* ImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageParser.m; sourceTree = "<group>"; };
-		919333C4179EA2D80086FEE7 /* WebParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebParser.h; sourceTree = "<group>"; };
-		919333C5179EA2D80086FEE7 /* WebParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebParser.m; sourceTree = "<group>"; };
+		919333C4179EA2D80086FEE7 /* ORWebViewParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWebViewParser.h; sourceTree = "<group>"; };
+		919333C5179EA2D80086FEE7 /* ORWebViewParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebViewParser.m; sourceTree = "<group>"; };
 		919333D0179EA2DA0086FEE7 /* ORColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParser.h; sourceTree = "<group>"; };
 		919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParser.m; sourceTree = "<group>"; };
 		919333D2179EA2DA0086FEE7 /* GestureParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureParser.h; sourceTree = "<group>"; };
@@ -598,6 +598,7 @@
 		91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNavigationScreenDeferredBinding.m; sourceTree = "<group>"; };
 		91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParserTest.m; sourceTree = "<group>"; };
 		91A4A24918D6F3880070F823 /* ORColorPickerParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParserTest.h; sourceTree = "<group>"; };
+		91A4A24A18D6F8AB0070F823 /* ORWebView_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWebView_Private.h; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
 		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
 		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
@@ -811,6 +812,9 @@
 				9184CA3C18B3A37A0058A09F /* ORSlider.h */,
 				9184CA3D18B3A37A0058A09F /* ORSlider.m */,
 				91B357BD18BB472A00ADED24 /* ORSlider_Private.h */,
+				9193334D179E9BCF0086FEE7 /* ORWebView.h */,
+				9193334E179E9BCF0086FEE7 /* ORWebView.m */,
+				91A4A24A18D6F8AB0070F823 /* ORWebView_Private.h */,
 				91B357D418BB8D5B00ADED24 /* ORNavigation.h */,
 				91B357D518BB8D5B00ADED24 /* ORNavigation.m */,
 				91B357DC18BB8E7200ADED24 /* ORNavigation_Private.h */,
@@ -1080,8 +1084,6 @@
 				9193334A179E9BCF0086FEE7 /* TabBarItem.m */,
 				9193334B179E9BCF0086FEE7 /* XMLEntity.h */,
 				9193334C179E9BCF0086FEE7 /* XMLEntity.m */,
-				9193334D179E9BCF0086FEE7 /* Web.h */,
-				9193334E179E9BCF0086FEE7 /* Web.m */,
 				9193334F179E9BCF0086FEE7 /* LocalSensor.h */,
 				91933350179E9BCF0086FEE7 /* LocalSensor.m */,
 				91933351179E9BCF0086FEE7 /* LocalCommand.h */,
@@ -1117,8 +1119,6 @@
 				919333BF179EA2D70086FEE7 /* GridCellParser.m */,
 				919333C2179EA2D80086FEE7 /* ImageParser.h */,
 				919333C3179EA2D80086FEE7 /* ImageParser.m */,
-				919333C4179EA2D80086FEE7 /* WebParser.h */,
-				919333C5179EA2D80086FEE7 /* WebParser.m */,
 				919333D2179EA2DA0086FEE7 /* GestureParser.h */,
 				919333D3179EA2DA0086FEE7 /* GestureParser.m */,
 				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
@@ -1192,6 +1192,8 @@
 				91099A5118B20F7E005BEBAB /* ORSwitchParser.m */,
 				91B357BE18BB47B400ADED24 /* ORSliderParser.h */,
 				91B357BF18BB47B400ADED24 /* ORSliderParser.m */,
+				919333C4179EA2D80086FEE7 /* ORWebViewParser.h */,
+				919333C5179EA2D80086FEE7 /* ORWebViewParser.m */,
 				91A4A23418D5D89D0070F823 /* ORNavigationParser.h */,
 				91A4A23518D5D89D0070F823 /* ORNavigationParser.m */,
 			);
@@ -1444,7 +1446,7 @@
 				9193336C179E9BD00086FEE7 /* TabBar.m in Sources */,
 				9193336D179E9BD00086FEE7 /* TabBarItem.m in Sources */,
 				9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */,
-				9193336F179E9BD00086FEE7 /* Web.m in Sources */,
+				9193336F179E9BD00086FEE7 /* ORWebView.m in Sources */,
 				91933370179E9BD00086FEE7 /* LocalSensor.m in Sources */,
 				91933371179E9BD00086FEE7 /* LocalCommand.m in Sources */,
 				91933372179E9BD00086FEE7 /* LocalController.m in Sources */,
@@ -1472,7 +1474,7 @@
 				919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */,
 				919333FA179EA2DE0086FEE7 /* ImageParser.m in Sources */,
 				91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */,
-				919333FB179EA2DE0086FEE7 /* WebParser.m in Sources */,
+				919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */,
 				91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */,
 				91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */,
 				91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */,

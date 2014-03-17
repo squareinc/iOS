@@ -34,6 +34,7 @@
 @class ORSwitch;
 @class ORSlider;
 @class ORColorPicker;
+@class ORWebView;
 @class ORGroup;
 @class ORScreen;
 
@@ -95,6 +96,7 @@
 - (void)addSwitch:(ORSwitch *)sswitch;
 - (void)addSlider:(ORSlider *)slider;
 - (void)addColorPicker:(ORColorPicker *)colorPicker;
+- (void)addWebView:(ORWebView *)webView;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
@@ -136,6 +138,11 @@
  * Collection of all color pickers used in this panel definition.
  */
 @property (nonatomic, strong, readonly) NSSet *colorPickers;
+
+/**
+ * Collection of all web views used in this panel definition.
+ */
+@property (nonatomic, strong, readonly) NSSet *webViews;
 
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) LocalController *localController;

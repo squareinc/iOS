@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,43 +18,41 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "WebParser.h"
-#import "Web.h"
-#import "SensorLinkParser.h"
+#import "ORWebViewParser.h"
+#import "ORWebView_Private.h"
+#import "ORObjectIdentifier.h"
+#import "ORSensorLinkParser.h"
+#import "ORSensorRegistry.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
-#import "SensorState.h"
-#import "Sensor.h"
 #import "XMLEntity.h"
 
-@interface WebParser ()
+@interface ORWebViewParser ()
 
-@property (nonatomic, strong, readwrite) Web *web;
+@property (nonatomic, strong, readwrite) ORWebView *web;
 
 @end
 
-@implementation WebParser
+@implementation ORWebViewParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
         [self addKnownTag:LINK];
-        self.web = [[Web alloc] initWithId:[[attributeDict objectForKey:ID] intValue] src:[attributeDict objectForKey:SRC] username:[attributeDict objectForKey:USERNAME] password:[attributeDict objectForKey:PASSWORD]];
+        self.web = [[ORWebView alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
+                                                 src:[attributeDict objectForKey:SRC]
+                                            username:[attributeDict objectForKey:USERNAME]
+                                            password:[attributeDict objectForKey:PASSWORD]];
+        self.web.definition = aRegister.definition;
     }
     return self;
 }
 
-- (void)endSensorLinkElement:(SensorLinkParser *)parser
+- (void)endSensorLinkElement:(ORSensorLinkParser *)parser
 {
     if (parser.sensor) {
-        self.web.sensor = parser.sensor;
-        
-        
-        // TODO: why is this done (here ? maybe in SensorState itself ?) 
-        for (SensorState *state in self.web.sensor.states) {
-			[self.depRegister.definition addImageName:state.value];
-		}
+        [self.depRegister.definition.sensorRegistry registerSensor:parser.sensor linkedToComponent:self.web property:@"src" sensorStatesMapping:parser.sensorStatesMapping];
     }
 }
 

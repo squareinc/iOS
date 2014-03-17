@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,38 +18,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "Web.h"
-#import "Sensor.h"
+#import "DefinitionElementParser.h"
+#import "ORWebView.h"
 
-@interface Web ()
+@interface ORWebViewParser : DefinitionElementParser
 
-@property (nonatomic, copy, readwrite) NSString *src;
-@property (nonatomic, copy, readwrite) NSString *username;
-@property (nonatomic, copy, readwrite) NSString *password;
-
-@end
-/**
- * The Web class represents an element displaying web content on the panel. 
- */
-@implementation Web
-
-- (id)initWithId:(int)anId src:(NSString *)aSrc username:(NSString *)aUsername password:(NSString *)aPassword
-{
-    self = [super init];
-    if (self) {
-        self.componentId = anId;
-        self.src = aSrc;
-        self.username = aUsername;
-        self.password = aPassword;
-    }
-    return self;
-}
-
-- (int)sensorId
-{
-    return self.sensor.sensorId;
-}
-
-@synthesize src, username, password;
+@property (nonatomic, strong, readonly) ORWebView *web;
 
 @end

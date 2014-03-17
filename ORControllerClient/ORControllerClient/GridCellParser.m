@@ -22,7 +22,7 @@
 #import "GridCell.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
-#import "WebParser.h"
+#import "ORWebViewParser.h"
 #import "ORButtonParser.h"
 #import "ORButton.h"
 #import "ORSwitchParser.h"
@@ -80,9 +80,10 @@
     [self.depRegister.definition addImage:parser.image];
 }
 
-- (void)endWebElement:(WebParser *)parser
+- (void)endWebElement:(ORWebViewParser *)parser
 {
     self.gridCell.component = parser.web;
+    [self.depRegister.definition addWebView:parser.web];
 }
 
 - (void)endButtonElement:(ORButtonParser *)parser

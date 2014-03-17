@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,11 +18,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "DefinitionElementParser.h"
-#import "Web.h"
+#import "ORWebView_Private.h"
 
-@interface WebParser : DefinitionElementParser
+@interface ORWebView ()
 
-@property (nonatomic, strong, readonly) Web *web;
+@property (nonatomic, copy, readwrite) NSString *src;
+@property (nonatomic, copy, readwrite) NSString *username;
+@property (nonatomic, copy, readwrite) NSString *password;
+
+@end
+
+@implementation ORWebView
+
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier src:(NSString *)aSrc username:(NSString *)aUsername password:(NSString *)aPassword
+{
+    self = [super initWithIdentifier:anIdentifier];
+    if (self) {
+        self.src = aSrc;
+        self.username = aUsername;
+        self.password = aPassword;
+    }
+    return self;
+}
+
+@synthesize src, username, password;
 
 @end

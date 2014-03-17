@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "WebSubController.h"
-#import "ORControllerClient/Web.h"
+#import "ORControllerClient/ORWeb.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/NSStringAdditions.h"
@@ -27,7 +27,7 @@
 @interface WebSubController()
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (weak, nonatomic, readonly) Web *web;
+@property (weak, nonatomic, readonly) ORWeb *web;
 @property (nonatomic, strong) NSString *oldStatus;
 
 - (void)loadRequestForURL:(NSString *)url;
@@ -49,14 +49,14 @@
 }
 
 
-- (Web *)web
+- (ORWeb *)web
 {
-    return (Web *)self.component;
+    return (ORWeb *)self.component;
 }
 
 - (void)loadRequestForURL:(NSString *)url
 {
-	Web *webModel = (Web *)self.component;
+	ORWeb *webModel = (ORWeb *)self.component;
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	
 	// If a username if provided in the config, use that for authentication
