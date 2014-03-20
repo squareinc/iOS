@@ -223,34 +223,34 @@
 - (BOOL)navigateTo:(ORNavigation *)navi
 {
     switch (navi.navigationType) {
-        case ORNavigationToGroupOrScreen:
+        case ORNavigationTypeToGroupOrScreen:
         {
             ORScreenNavigation *screenNavi = (ORScreenNavigation *)navi;
             return [self navigateToGroup:screenNavi.destinationGroup.groupId toScreen:screenNavi.destinationScreen.screenId];
             break;
         }
-        case ORNavigationPreviousScreen:
+        case ORNavigationTypePreviousScreen:
             return [self navigateToPreviousScreen];
             break;
-        case ORNavigationNextScreen:
+        case ORNavigationTypeNextScreen:
             return [self navigateToNextScreen];
             break;
             
 	// the following should not generate history record
 	
-        case ORNavigationBack:
+        case ORNavigationTypeBack:
             [self navigateBackwardInHistory:nil];
             return NO;
             break;
-        case ORNavigationLogin:
+        case ORNavigationTypeLogin:
             [self populateLoginView:nil];
             return NO;
             break;
-        case ORNavigationLogout:
+        case ORNavigationTypeLogout:
             [self logout];
             return NO;
             break;
-        case ORNavigationSettings:
+        case ORNavigationTypeSettings:
             [self populateSettingsView:nil];
             return NO;
             break;
