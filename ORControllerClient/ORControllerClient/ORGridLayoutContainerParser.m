@@ -45,10 +45,10 @@
         [self addKnownTag:@"cell"];
         self.layoutContainer = [[ORGridLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] integerValue]
                                                                      top:[[attributeDict objectForKey:@"top"] integerValue]
-                                                                   width:[[attributeDict objectForKey:@"width"] unsignedIntegerValue]
-                                                                  height:[[attributeDict objectForKey:@"height"] unsignedIntegerValue]
-                                                                    rows:[[attributeDict objectForKey:@"rows"] unsignedIntegerValue]
-                                                                    cols:[[attributeDict objectForKey:@"cols"] unsignedIntegerValue]];
+                                                                   width:[[attributeDict objectForKey:@"width"] integerValue]
+                                                                  height:[[attributeDict objectForKey:@"height"] integerValue]
+                                                                    rows:[[attributeDict objectForKey:@"rows"] integerValue]
+                                                                    cols:[[attributeDict objectForKey:@"cols"] integerValue]];
     }
     return self;
 }

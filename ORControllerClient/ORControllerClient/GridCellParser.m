@@ -60,10 +60,10 @@
         [self addKnownTag:SWITCH];
         [self addKnownTag:SLIDER];
         [self addKnownTag:COLORPICKER];
-        self.gridCell = [[ORGridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] unsignedIntegerValue]
-                                                  y:[[attributeDict objectForKey:@"y"] unsignedIntegerValue]
-                                            rowspan:[[attributeDict objectForKey:@"rowspan"] unsignedIntegerValue]
-                                            colspan:[[attributeDict objectForKey:@"colspan"] unsignedIntegerValue]];
+        self.gridCell = [[ORGridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] integerValue]
+                                                  y:[[attributeDict objectForKey:@"y"] integerValue]
+                                            rowspan:[[attributeDict objectForKey:@"rowspan"] integerValue]
+                                            colspan:[[attributeDict objectForKey:@"colspan"] integerValue]];
     }
     return self;
 }

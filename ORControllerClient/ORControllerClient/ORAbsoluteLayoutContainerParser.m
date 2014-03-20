@@ -62,8 +62,8 @@
         [self addKnownTag:COLORPICKER];
         self.layoutContainer = [[ORAbsoluteLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] integerValue]
                                                                          top:[[attributeDict objectForKey:@"top"] integerValue]
-                                                                       width:[[attributeDict objectForKey:@"width"] unsignedIntegerValue]
-                                                                      height:[[attributeDict objectForKey:@"height"] unsignedIntegerValue]];
+                                                                       width:[[attributeDict objectForKey:@"width"] integerValue]
+                                                                      height:[[attributeDict objectForKey:@"height"] integerValue]];
     }
     return self;
 }
