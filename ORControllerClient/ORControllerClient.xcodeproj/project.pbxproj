@@ -128,7 +128,6 @@
 		91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */; };
 		91933364179E9BD00086FEE7 /* ORLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */; };
 		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
-		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
 		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
 		9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* ORTabBar.m */; };
 		9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */; };
@@ -148,7 +147,6 @@
 		9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* ORGridCell.h */; };
 		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
-		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
 		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
 		9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* ORTabBar.h */; };
 		9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* ORTabBarItem.h */; };
@@ -331,7 +329,6 @@
 				9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */,
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
-				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
 				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
 				9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */,
 				9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */,
@@ -498,8 +495,6 @@
 		91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLayoutContainer.m; sourceTree = "<group>"; };
 		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
 		9193333E179E9BCF0086FEE7 /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
-		9193333F179E9BCF0086FEE7 /* SensorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorComponent.h; sourceTree = "<group>"; };
-		91933340179E9BCF0086FEE7 /* SensorComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorComponent.m; sourceTree = "<group>"; };
 		91933341179E9BCF0086FEE7 /* SensorState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorState.h; sourceTree = "<group>"; };
 		91933342179E9BCF0086FEE7 /* SensorState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorState.m; sourceTree = "<group>"; };
 		91933347179E9BCF0086FEE7 /* ORTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBar.h; sourceTree = "<group>"; };
@@ -1095,8 +1090,6 @@
 				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
 				9193333D179E9BCF0086FEE7 /* Sensor.h */,
 				9193333E179E9BCF0086FEE7 /* Sensor.m */,
-				9193333F179E9BCF0086FEE7 /* SensorComponent.h */,
-				91933340179E9BCF0086FEE7 /* SensorComponent.m */,
 				91933341179E9BCF0086FEE7 /* SensorState.h */,
 				91933342179E9BCF0086FEE7 /* SensorState.m */,
 				9193334B179E9BCF0086FEE7 /* XMLEntity.h */,
@@ -1452,7 +1445,6 @@
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
 				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
-				91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */,
 				91933369179E9BD00086FEE7 /* SensorState.m in Sources */,
 				9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */,
 				9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */,
