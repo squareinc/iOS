@@ -20,12 +20,14 @@
  */
 #import "Definition.h"
 #import "Group.h"
+#import "ORScreen.h"
 #import "Screen.h"
 #import "ORSensorRegistry.h"
 #import "ORController.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 #import "ORImage.h"
+
 // Import of private is required even if not directly use to make sure setController: is synthetized
 #import "Definition_Private.h"
 
@@ -103,9 +105,12 @@
 
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier
 {
-    // TODO: re-implement with appropriate class
-    Screen * s = [self findScreenById:[[screenIdentifier stringValue] intValue]];
-    return s;
+	for (ORScreen *tempScreen in self.screens) {
+        if ([tempScreen.identifier isEqual:screenIdentifier]) {
+            return tempScreen;
+        }
+    }
+    return nil;
 }
 
 - (void)addGroup:(Group *)group {
@@ -119,10 +124,10 @@
 	[self.groups addObject:group];
 }
 
-- (void)addScreen:(Screen *)screen {
+- (void)addScreen:(ORScreen *)screen {
 	for (int i = 0; i < self.screens.count; i++) {
-		Screen *tempScreen = [self.screens objectAtIndex:i];
-		if (tempScreen.screenId == screen.screenId) {
+		ORScreen *tempScreen = [self.screens objectAtIndex:i];
+		if ([tempScreen.identifier isEqual:screen.identifier]) {
 			[self.screens replaceObjectAtIndex:i withObject:screen];
 			return;
 		}

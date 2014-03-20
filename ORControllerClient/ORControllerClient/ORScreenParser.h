@@ -18,30 +18,33 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#import "DefinitionElementParser.h"
 
-#import "ORWidget.h"
-#import "ORGesture.h"
-
-@class ORBackground;
-
-typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
-    ORScreenOrientationPortrait,
-    ORScreenOrientationLandscape
-};
-
-@interface ORScreen : ORWidget
+@class ORScreen;
 
 /**
- * Get gesture of given type, if any registered with this screen.
+ * Parses a <screen...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORScreen model object instance.
+ *
+ * XML fragment example:
+ * <screen id="5" name="basement">
+ *    <background absolute="100,100">
+ *       <image src="basement1.png" />
+ *    </background>
+ *    <absolute left="20" top="320" width="100" height="100" >
+ *       <image id="59" src = "a.png" />
+ *    </absolute>
+ *    <absolute left="20" top="320" width="100" height="100" >
+ *       <image id="60" src = "b.png" />
+ *    </absolute>
+ * </screen>
  */
-- (ORGesture *)gestureForType:(ORGestureType)type;
 
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, readonly) ORScreenOrientation orientation;
-@property (nonatomic, strong, readonly) ORScreen *rotatedScreen;
+@interface ORScreenParser : DefinitionElementParser
 
-@property (nonatomic, strong, readonly) ORBackground *background;
-@property (nonatomic, strong, readonly) NSArray *layouts;
-@property (nonatomic, strong, readonly) NSArray *gestures;
+/**
+ * ORScreen model object parsed from the XML fragment.
+ */
+@property (nonatomic, strong, readonly) ORScreen *screen;
 
 @end

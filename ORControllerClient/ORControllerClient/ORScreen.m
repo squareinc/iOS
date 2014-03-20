@@ -19,8 +19,61 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORScreen.h"
+#import "ORScreen_Private.h"
+
+@interface ORScreen ()
+
+@property (nonatomic, strong, readwrite) NSString *name;
+@property (nonatomic, readwrite) ORScreenOrientation orientation;
+@property (nonatomic, strong, readwrite) NSMutableArray *_layouts;
+@property (nonatomic, strong, readwrite) NSMutableArray *_gestures;
+
+@end
 
 @implementation ORScreen
+
+- (id)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
+                          name:(NSString *)aName
+                   orientation:(ORScreenOrientation)anOrientation
+{
+    self = [super initWithIdentifier:anIdentifier];
+    if (self) {
+        self.name = aName;
+        self.orientation = anOrientation;
+        self._layouts = [NSMutableArray array];
+        self._gestures = [NSMutableArray array];
+    }
+    return self;
+}
+
+- (ORGesture *)gestureForType:(ORGestureType)type
+{
+    for (ORGesture *gesture in self.gestures) {
+        if (gesture.gestureType == type) {
+            return gesture;
+        }
+    }
+    return nil;
+}
+
+- (void)addLayout:(LayoutContainer *)layout
+{
+    [self._layouts addObject:layout];
+}
+
+- (NSArray *)layouts
+{
+    return [NSArray arrayWithArray:self._layouts];
+}
+
+- (void)addGesture:(ORGesture *)gesture
+{
+    [self._gestures addObject:gesture];
+}
+
+- (NSArray *)gestures
+{
+    return [NSArray arrayWithArray:self._gestures];
+}
 
 @end

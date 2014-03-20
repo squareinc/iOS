@@ -19,29 +19,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
-#import "ORGesture.h"
+#import "ORScreen.h"
 
-@class ORBackground;
+@class ORObjectIdentifier;
+@class LayoutContainer;
 
-typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
-    ORScreenOrientationPortrait,
-    ORScreenOrientationLandscape
-};
+@interface ORScreen ()
 
-@interface ORScreen : ORWidget
+@property (nonatomic, strong, readwrite) ORScreen *rotatedScreen;
+@property (nonatomic, strong, readwrite) ORBackground *background;
 
-/**
- * Get gesture of given type, if any registered with this screen.
- */
-- (ORGesture *)gestureForType:(ORGestureType)type;
+- (id)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
+                          name:(NSString *)aName
+                   orientation:(ORScreenOrientation)anOrientation;
 
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, readonly) ORScreenOrientation orientation;
-@property (nonatomic, strong, readonly) ORScreen *rotatedScreen;
-
-@property (nonatomic, strong, readonly) ORBackground *background;
-@property (nonatomic, strong, readonly) NSArray *layouts;
-@property (nonatomic, strong, readonly) NSArray *gestures;
+- (void)addGesture:(ORGesture *)gesture;
+- (void)addLayout:(LayoutContainer *)layout;
 
 @end

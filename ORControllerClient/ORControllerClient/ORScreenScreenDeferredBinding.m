@@ -18,30 +18,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#import "ORScreenScreenDeferredBinding.h"
+#import "ORScreen_Private.h"
+#import "Definition.h"
 
-#import "ORWidget.h"
-#import "ORGesture.h"
+@implementation ORScreenScreenDeferredBinding
 
-@class ORBackground;
+- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+{
+    if (![anEnclosingObject isKindOfClass:[ORScreen class]]) {
+        return nil;
+    }
+    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
+    return self;
+}
 
-typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
-    ORScreenOrientationPortrait,
-    ORScreenOrientationLandscape
-};
-
-@interface ORScreen : ORWidget
-
-/**
- * Get gesture of given type, if any registered with this screen.
- */
-- (ORGesture *)gestureForType:(ORGestureType)type;
-
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, readonly) ORScreenOrientation orientation;
-@property (nonatomic, strong, readonly) ORScreen *rotatedScreen;
-
-@property (nonatomic, strong, readonly) ORBackground *background;
-@property (nonatomic, strong, readonly) NSArray *layouts;
-@property (nonatomic, strong, readonly) NSArray *gestures;
+- (void)bind
+{
+    ((ORScreen *)self.enclosingObject).rotatedScreen = [self.enclosingObject.definition findScreenByIdentifier:self.boundComponentId];
+}
 
 @end

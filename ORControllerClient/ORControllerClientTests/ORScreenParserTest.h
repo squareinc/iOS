@@ -19,29 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
-#import "ORGesture.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@class ORBackground;
-
-typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
-    ORScreenOrientationPortrait,
-    ORScreenOrientationLandscape
-};
-
-@interface ORScreen : ORWidget
-
-/**
- * Get gesture of given type, if any registered with this screen.
- */
-- (ORGesture *)gestureForType:(ORGestureType)type;
-
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, readonly) ORScreenOrientation orientation;
-@property (nonatomic, strong, readonly) ORScreen *rotatedScreen;
-
-@property (nonatomic, strong, readonly) ORBackground *background;
-@property (nonatomic, strong, readonly) NSArray *layouts;
-@property (nonatomic, strong, readonly) NSArray *gestures;
+@interface ORScreenParserTest : SenTestCase
 
 @end

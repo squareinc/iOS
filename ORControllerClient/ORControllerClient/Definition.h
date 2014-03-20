@@ -78,7 +78,7 @@
 /**
  * Add a screen instance for caching.
  */
-- (void)addScreen:(Screen *)screen;
+- (void)addScreen:(ORScreen *)screen;
 
 /**
  * Add a label instance for caching.
