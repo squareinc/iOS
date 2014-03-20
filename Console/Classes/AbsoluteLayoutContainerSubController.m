@@ -40,7 +40,7 @@
 {
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
-        Component *aComponent = ((ORAbsoluteLayoutContainer *)aLayoutContainer).component;
+        Component *aComponent = ((ORAbsoluteLayoutContainer *)aLayoutContainer).widget;
         self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }

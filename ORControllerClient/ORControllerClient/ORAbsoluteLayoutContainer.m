@@ -50,10 +50,10 @@
 
 - (NSSet *)widgets
 {
-    return [NSSet setWithObject:self.component];
+    return [NSSet setWithObject:self.widget];
 }
 
-@synthesize component;
+@synthesize widget;
 @synthesize left, top, width, height;
 
 @end

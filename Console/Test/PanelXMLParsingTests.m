@@ -616,8 +616,8 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[ORLabel class]]) {
-						ORLabel *theLabel= (ORLabel *)abso.component;
+					if ([abso.widget isKindOfClass:[ORLabel class]]) {
+						ORLabel *theLabel= (ORLabel *)abso.widget;
 						int expectedId = (59 + label_index);
                         /*
 						STAssertTrue(expectedId == theLabel.componentId,@"expected %d, but %d",expectedId,theLabel.componentId);
@@ -832,8 +832,8 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[ORImage class]]) {
-						ORImage *theImage= (ORImage *)abso.component;
+					if ([abso.widget isKindOfClass:[ORImage class]]) {
+						ORImage *theImage= (ORImage *)abso.widget;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
@@ -976,8 +976,8 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[ORImage class]]) {
-						ORImage *theImage= (ORImage *)abso.component;
+					if ([abso.widget isKindOfClass:[ORImage class]]) {
+						ORImage *theImage= (ORImage *)abso.widget;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
@@ -1068,8 +1068,8 @@
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[ORImage class]]) {
-						ORImage *theImage= (ORImage *)abso.component;
+					if ([abso.widget isKindOfClass:[ORImage class]]) {
+						ORImage *theImage= (ORImage *)abso.widget;
 						int expectedId = (59 + image_index++);
 						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];

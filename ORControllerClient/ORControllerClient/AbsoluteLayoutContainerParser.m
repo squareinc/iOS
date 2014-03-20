@@ -70,43 +70,43 @@
 
 - (void)endLabelElement:(ORLabelParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.label;    
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.label;    
     [self.depRegister.definition addLabel:parser.label];
 }
 
 - (void)endImageElement:(ORImageParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.image;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.image;
     [self.depRegister.definition addImage:parser.image];
 }
 
 - (void)endWebElement:(ORWebViewParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.web;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.web;
     [self.depRegister.definition addWebView:parser.web];
 }
 
 - (void)endButtonElement:(ORButtonParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.button;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.button;
     [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(ORSwitchParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.sswitch;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.sswitch;
     [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
 - (void)endSliderElement:(ORSliderParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.slider;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.slider;
     [self.depRegister.definition addSlider:parser.slider];
 }
 
 - (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).component = parser.colorPicker;
+    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.colorPicker;
     [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 

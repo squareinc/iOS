@@ -29,6 +29,6 @@
              width:(NSUInteger)widthDim
             height:(NSUInteger)heightDim;
 
-@property (nonatomic, strong) Component *component;
+@property (nonatomic, strong) Component *widget;
 
 @end
