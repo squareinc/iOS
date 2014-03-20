@@ -20,7 +20,6 @@
  */
 #import <UIKit/UIKit.h>
 #import "ORControllerClient/Screen.h"
-#import "ORControllerClient/Gesture.h"
 #import "ORControllerCommandSender.h"
 
 @class ImageCache;

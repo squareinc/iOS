@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
-#import "Gesture.h"
+#import <UIKit/UIKit.h>
+#import "ORGesture.h"
 
 @class ORBackground;
 
@@ -33,9 +33,9 @@
 - (NSArray *)pollingComponentsIds;
 
 /**
- * Get gesture instance by gesture swipe type.
+ * Get gresture of given type, if any registered with this screen.
  */
-- (Gesture *)getGestureIdByGestureSwipeType:(GestureSwipeType)type;
+- (ORGesture *)gestureForType:(ORGestureType)type;
 
 /**
  * Returns the id of the screen appriopriate for the provided orientation.

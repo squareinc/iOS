@@ -27,7 +27,7 @@
 #import "ORTabBarParser.h"
 #import "AbsoluteLayoutContainerParser.h"
 #import "GridLayoutContainerParser.h"
-#import "GestureParser.h"
+#import "ORGestureParser.h"
 #import "ORBackgroundParser.h"
 #import "GridCellParser.h"
 #import "ORLabelParser.h"
@@ -36,7 +36,7 @@
 #import "ORSwitchParser.h"
 #import "ORSliderParser.h"
 #import "ORColorPickerParser.h"
-#import "NavigateParser.h"
+#import "ORNavigationParser.h"
 #import "ORSensorLinkParser.h"
 #import "ORSensorStateParser.h"
 #import "ORTabBarItemParser.h"
@@ -73,8 +73,8 @@
         [self.depRegistry registerParserClass:[ORTabBarParser class] endSelector:@selector(endTabBarElement:) forTag:@"tabbar"];
         [self.depRegistry registerParserClass:[AbsoluteLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:ABSOLUTE];
         [self.depRegistry registerParserClass:[GridLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:GRID];
-        [self.depRegistry registerParserClass:[GestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
-        [self.depRegistry registerParserClass:[NavigateParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
+        [self.depRegistry registerParserClass:[ORGestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
+        [self.depRegistry registerParserClass:[ORNavigationParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
         [self.depRegistry registerParserClass:[ORBackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];
         [self.depRegistry registerParserClass:[GridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
         [self.depRegistry registerParserClass:[ORLabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];

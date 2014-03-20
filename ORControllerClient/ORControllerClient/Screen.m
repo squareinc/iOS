@@ -66,14 +66,14 @@
     return (self.landscape == UIInterfaceOrientationIsLandscape(orientation))?self.screenId:self.inverseScreenId;
 }
 
-
-- (Gesture *)getGestureIdByGestureSwipeType:(GestureSwipeType)type {
-	for (Gesture *g in self.gestures) {
-		if (g.swipeType == type) {
-			return g;
-		}
-	}
-	return nil;
+- (ORGesture *)gestureForType:(ORGestureType)type
+{
+    for (ORGesture *g in self.gestures) {
+        if (g.gestureType == type) {
+            return g;
+        }
+    }
+    return nil;
 }
 
 @synthesize screenId,name,background,layouts,gestures,landscape,inverseScreenId;

@@ -22,6 +22,7 @@
 #import "ViewHelper.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORNavigation.h"
+#import "ORControllerClient/ORGesture.h"
 #import "NotificationConstant.h"
 #import "ServerDefinition.h"
 #import "CredentialUtil.h"
@@ -32,9 +33,6 @@
 #import "PollingHelper.h"
 
 @interface ScreenViewController ()
-
-- (void)sendCommandRequest:(Component *)component;
-- (void)doNavigate:(ORNavigation *)navi;
 
 @property (nonatomic, strong) ScreenSubController *screenSubController;
 @property (nonatomic, weak) ORControllerConfig *controller;
@@ -90,26 +88,15 @@
 	[self.polling cancelPolling];
 }
 
-// Send control command for gesture actions.
-- (void)sendCommandRequest:(Component *)component
-{
-    [self.controller.proxy sendCommand:@"swipe" forComponent:component delegate:nil];
-}
-
-- (void)doNavigate:(ORNavigation *)navi
-{
-	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:navi];
-}
-
 #pragma mark - Gesture Recognizers handling
 
 - (void)setupGestureRecognizers
 {
     [self cleanupGestureRecognizers];
 
-    for (Gesture *gesture in self.screen.gestures) {
+    for (ORGesture *gesture in self.screen.gestures) {
         UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-        recognizer.direction = [self convertSwipeTypeToGestureRecognizerDirection:gesture.swipeType];
+        recognizer.direction = [self convertGestureTypeToGestureRecognizerDirection:gesture.gestureType];
         
         recognizer.numberOfTouchesRequired = 1;
         
@@ -126,30 +113,33 @@
     [self.gestureRecognizers removeAllObjects];
 }
 
-- (UISwipeGestureRecognizerDirection)convertSwipeTypeToGestureRecognizerDirection:(GestureSwipeType)swipeType
+- (UISwipeGestureRecognizerDirection)convertGestureTypeToGestureRecognizerDirection:(ORGestureType)gestureType
 {
-    if (swipeType == GestureSwipeTypeBottomToTop) {
-        return UISwipeGestureRecognizerDirectionUp;
-    } else if (swipeType == GestureSwipeTypeTopToBottom) {
-        return UISwipeGestureRecognizerDirectionDown;
-    } else if (swipeType == GestureSwipeTypeLeftToRight) {
-        return UISwipeGestureRecognizerDirectionRight;
-    } else if (swipeType == GestureSwipeTypeRightToLeft) {
-        return UISwipeGestureRecognizerDirectionLeft;
+    switch (gestureType) {
+        case ORGestureTypeSwipeBottomToTop:
+            return UISwipeGestureRecognizerDirectionUp;
+        case ORGestureTypeSwipeTopToBottom:
+            return UISwipeGestureRecognizerDirectionDown;
+        case ORGestureTypeSwipeLeftToRight:
+            return UISwipeGestureRecognizerDirectionRight;
+        case ORGestureTypeSwipeRightToLeft:
+            return UISwipeGestureRecognizerDirectionLeft;
+        default:
+            return NSNotFound;
     }
     return NSNotFound;
 }
 
-- (GestureSwipeType)convertGestureRecognizerDirectionToSwipeType:(UISwipeGestureRecognizerDirection)direction
+- (ORGestureType)convertGestureRecognizerDirectionToGestureType:(UISwipeGestureRecognizerDirection)direction
 {
     if (direction == UISwipeGestureRecognizerDirectionUp) {
-        return GestureSwipeTypeBottomToTop;
+        return ORGestureTypeSwipeBottomToTop;
     } else if (direction == UISwipeGestureRecognizerDirectionDown) {
-        return GestureSwipeTypeTopToBottom;
+        return ORGestureTypeSwipeTopToBottom;
     } else if (direction == UISwipeGestureRecognizerDirectionRight) {
-        return GestureSwipeTypeLeftToRight;
+        return ORGestureTypeSwipeLeftToRight;
     } else {
-        return GestureSwipeTypeRightToLeft;
+        return ORGestureTypeSwipeRightToLeft;
     }
 }
 
@@ -157,14 +147,9 @@
 
 - (void)handleGesture:(UISwipeGestureRecognizer *)recognizer
 {
-	Gesture * g = [self.screen getGestureIdByGestureSwipeType:[self convertGestureRecognizerDirectionToSwipeType:recognizer.direction]];
+	ORGesture * g = [self.screen gestureForType:[self convertGestureRecognizerDirectionToGestureType:recognizer.direction]];
 	if (g) {
-		if (g.hasControlCommand) {
-			[self sendCommandRequest:g];
-		} else if (g.navigate) {
-            // TODO
-			[self doNavigate:g.navigate];
-		}
+        [g perform];
 	}
 }
 
