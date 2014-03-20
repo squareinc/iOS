@@ -53,20 +53,6 @@
     return self;
 }
 
-- (NSArray *)pollingComponentsIds {
-	NSMutableArray *ids = [[NSMutableArray alloc] init];
-	for (GridCell *cell in self.cells) {
-		if ([cell.component isKindOfClass:SensorComponent.class]){
-			Sensor *sensor = ((SensorComponent *)cell.component).sensor;
-			if (sensor) {
-				[ids addObject:[NSString stringWithFormat:@"%d",sensor.sensorId]];
-			}
-			
-		} 
-	}
-	return ids;
-}
-
 - (NSSet *)components
 {
     NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];

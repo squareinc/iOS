@@ -33,11 +33,6 @@
 @property (nonatomic, readonly) int height;
 
 /**
- * Get all component id layoutContainer(such as gridLayoutOutContainer, AbsoluteLayOutContainer).
- */
-- (NSArray *)pollingComponentsIds;
-
-/**
  * Returns all the components (widgets) this layout contains.
  */
 - (NSSet *)components;

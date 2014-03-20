@@ -22,11 +22,6 @@
 
 @implementation LayoutContainer
 
-- (NSArray *)pollingComponentsIds {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
 - (NSSet *)components
 {
 	[self doesNotRecognizeSelector:_cmd];

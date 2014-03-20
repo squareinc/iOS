@@ -45,22 +45,6 @@
     return self;
 }
 
-/**
- * Get the polling ids of component in AbsoluteLayoutContainer.
- */
-- (NSArray *)pollingComponentsIds {
-	NSMutableArray *ids = [[NSMutableArray alloc] init];
-	if ([self.component isKindOfClass:SensorComponent.class]){	
-		Sensor *sensor = ((SensorComponent *)self.component).sensor;
-		if (sensor) {
-			[ids addObject:[NSString stringWithFormat:@"%d", sensor.sensorId]];
-		}
-		
-	} 
-	
-	return ids;
-}
-
 - (NSSet *)components
 {
     return [NSSet setWithObject:self.component];
