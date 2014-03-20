@@ -48,7 +48,7 @@
         int h = container.height / container.rows;				
         int w = container.width / container.cols;
         for (ORGridCell *cell in container.cells) {
-            Component *aComponent = cell.component;
+            Component *aComponent = cell.widget;
             ComponentSubController *ctrl;
             ctrl = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
             [self.cells addObject:ctrl];

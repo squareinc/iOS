@@ -29,7 +29,7 @@
 @property (nonatomic, readonly) NSUInteger rowspan;
 @property (nonatomic, readonly) NSUInteger colspan;
 
-@property (nonatomic, strong) Component *component;
+@property (nonatomic, strong) Component *widget;
 
 - (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
 

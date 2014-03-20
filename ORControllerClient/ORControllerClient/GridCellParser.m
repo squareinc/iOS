@@ -70,43 +70,43 @@
 
 - (void)endLabelElement:(ORLabelParser *)parser
 {
-    self.gridCell.component = parser.label;
+    self.gridCell.widget = parser.label;
     [self.depRegister.definition addLabel:parser.label];
 }
 
 - (void)endImageElement:(ORImageParser *)parser
 {
-    self.gridCell.component = parser.image;
+    self.gridCell.widget = parser.image;
     [self.depRegister.definition addImage:parser.image];
 }
 
 - (void)endWebElement:(ORWebViewParser *)parser
 {
-    self.gridCell.component = parser.web;
+    self.gridCell.widget = parser.web;
     [self.depRegister.definition addWebView:parser.web];
 }
 
 - (void)endButtonElement:(ORButtonParser *)parser
 {
-    self.gridCell.component = parser.button;
+    self.gridCell.widget = parser.button;
     [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(ORSwitchParser *)parser
 {
-    self.gridCell.component = parser.sswitch;
+    self.gridCell.widget = parser.sswitch;
     [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
 - (void)endSliderElement:(ORSliderParser *)parser
 {
-    self.gridCell.component = parser.slider;
+    self.gridCell.widget = parser.slider;
     [self.depRegister.definition addSlider:parser.slider];
 }
 
 - (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
-    self.gridCell.component = parser.colorPicker;
+    self.gridCell.widget = parser.colorPicker;
     [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 

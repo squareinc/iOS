@@ -43,6 +43,6 @@
     return self;    
 }
 
-@synthesize x,y,rowspan,colspan,component;
+@synthesize x,y,rowspan,colspan,widget;
 
 @end

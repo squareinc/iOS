@@ -62,7 +62,7 @@
 {
     NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];
 	for (ORGridCell *cell in self.cells) {
-        [components addObject:cell.component];
+        [components addObject:cell.widget];
     }
     return [NSSet setWithSet:components];
 }
