@@ -36,4 +36,10 @@
    hasLongReleaseCommand:(BOOL)hasLongReleaseCommandFlag
           longPressDelay:(int)aLongPressDelay;
 
+/**
+ * Navigation object indicating what navigation should be conducted on button press.
+ * Can be nil if no navigation is triggered by the button.
+ */
+@property (nonatomic, strong) ORNavigation *navigation;
+
 @end

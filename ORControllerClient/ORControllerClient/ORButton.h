@@ -64,10 +64,4 @@
  */
 @property (nonatomic, strong) ORImage *pressedImage;
 
-/**
- * Navigate object indicating what navigation should be conducted.
- * Can be nil if no navigation is triggered by the button.
- */
-@property (nonatomic, strong) ORNavigation *navigation;
-
 @end
