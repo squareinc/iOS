@@ -24,12 +24,13 @@
 
 @interface ORGridCell : NSObject
 
-@property (nonatomic, readonly) int x;
-@property (nonatomic, readonly) int y;
-@property (nonatomic, readonly) int rowspan;
-@property (nonatomic, readonly) int colspan;
+@property (nonatomic, readonly) NSUInteger x;
+@property (nonatomic, readonly) NSUInteger y;
+@property (nonatomic, readonly) NSUInteger rowspan;
+@property (nonatomic, readonly) NSUInteger colspan;
+
 @property (nonatomic, strong) Component *component;
 
-- (id)initWithX:(int)xPos y:(int)yPos rowspan:(int)rowspanValue colspan:(int)colspanValue;
+- (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
 
 @end

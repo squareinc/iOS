@@ -22,16 +22,16 @@
 
 @interface ORGridCell ()
 
-@property (nonatomic, readwrite) int x;
-@property (nonatomic, readwrite) int y;
-@property (nonatomic, readwrite) int rowspan;
-@property (nonatomic, readwrite) int colspan;
+@property (nonatomic, readwrite) NSUInteger x;
+@property (nonatomic, readwrite) NSUInteger y;
+@property (nonatomic, readwrite) NSUInteger rowspan;
+@property (nonatomic, readwrite) NSUInteger colspan;
 
 @end
 
 @implementation ORGridCell
 
-- (id)initWithX:(int)xPos y:(int)yPos rowspan:(int)rowspanValue colspan:(int)colspanValue
+- (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue
 {
     self = [super init];
     if (self) {
