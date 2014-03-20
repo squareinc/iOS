@@ -25,7 +25,7 @@
 #import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "ORControllerClient/ORSwitch.h"
 #import "ORControllerClient/ORGridLayoutContainer.h"
-#import "ORControllerClient/GridCell.h"
+#import "ORControllerClient/ORGridCell.h"
 #import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/ORGesture.h"
 #import "ORControllerClient/XMLEntity.h"
@@ -518,10 +518,10 @@
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[ORLabel class]]) {
-							ORLabel *theLabel = (ORLabel *)cell.component;
+						if ([cell.widget isKindOfClass:[ORLabel class]]) {
+							ORLabel *theLabel = (ORLabel *)cell.widget;
 							
 							// assert atrributes
 							int expectedId = (59 + label_index);							
@@ -583,12 +583,12 @@
      */
 	
 	STAssertTrue(cells.count== 5,@"expected %d, but %d",5,cells.count);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
 
 	NSLog(@"End testParsePanelGridLabelXML");
 }
@@ -707,10 +707,10 @@
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 
 					NSLog(@"Grid cells count is : %d", grid.cells.count);
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[ORImage class]]) {
-							ORImage *theImage = (ORImage *)cell.component;
+						if ([cell.widget isKindOfClass:[ORImage class]]) {
+							ORImage *theImage = (ORImage *)cell.widget;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *expectedImageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
@@ -799,12 +799,12 @@
      */
 	
 	STAssertTrue(cells.count== 6,@"expected %d, but %d",6,cells.count);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:0]).colspan);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:0]).rowspan);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:1]).rowspan);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:2]).colspan);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:3]).colspan);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 1,@"expected %d, but %d",1, ((GridCell *)[cells objectAtIndex:4]).colspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:0]).colspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:0]).rowspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:1]).rowspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:2]).colspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:3]).colspan);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:4]).colspan == 1,@"expected %d, but %d",1, ((ORGridCell *)[cells objectAtIndex:4]).colspan);
 	
 	NSLog(@"End testParsePanelGridImageXML");
 }
@@ -1294,10 +1294,10 @@
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[ORImage class]]) {
-							ORImage *theImage = (ORImage *)cell.component;
+						if ([cell.widget isKindOfClass:[ORImage class]]) {
+							ORImage *theImage = (ORImage *)cell.widget;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
@@ -1437,10 +1437,10 @@
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[ORImage class]]) {
-							ORImage *theImage = (ORImage *)cell.component;
+						if ([cell.widget isKindOfClass:[ORImage class]]) {
+							ORImage *theImage = (ORImage *)cell.widget;
 							int expectedId = (59 + image_index++);
 							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
