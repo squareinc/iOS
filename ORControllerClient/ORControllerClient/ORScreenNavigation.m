@@ -26,7 +26,7 @@
 
 - (id)init
 {
-    self = [super initWithNavigationType:ORNavigationToGroupOrScreen];
+    self = [super initWithNavigationType:ORNavigationTypeToGroupOrScreen];
     return self;
 }
 

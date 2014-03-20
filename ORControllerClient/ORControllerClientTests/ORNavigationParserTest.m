@@ -73,7 +73,7 @@
 {
     ORNavigation *navigation = [self parseValidXMLSnippet:@"<navigate toScreen=\"12\"/>"];
     
-    STAssertEquals(navigation.navigationType, ORNavigationToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
     
     STAssertTrue([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should be an ORScreenNavigation");
     
@@ -86,7 +86,7 @@
 {
     ORNavigation *navigation = [self parseValidXMLSnippet:@"<navigate toGroup=\"3\"/>"];
     
-    STAssertEquals(navigation.navigationType, ORNavigationToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
     
     STAssertTrue([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should be an ORScreenNavigation");
     
@@ -99,7 +99,7 @@
 {
     ORNavigation *navigation = [self parseValidXMLSnippet:@"<navigate toGroup=\"3\" toScreen=\"12\"/>"];
     
-    STAssertEquals(navigation.navigationType, ORNavigationToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeToGroupOrScreen, @"Parsed navigation should navigate to group or screen");
     
     STAssertTrue([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should be an ORScreenNavigation");
     
@@ -111,27 +111,27 @@
 - (void)testParseNavigateLogicalType
 {
     ORNavigation *navigation = [self parseValidXMLSnippet:@"<navigate to=\"setting\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationSettings, @"Parsed navigation should navigate to settings");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeSettings, @"Parsed navigation should navigate to settings");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
     
     navigation = [self parseValidXMLSnippet:@"<navigate to=\"back\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationBack, @"Parsed navigation should navigate back");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeBack, @"Parsed navigation should navigate back");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
 
     navigation = [self parseValidXMLSnippet:@"<navigate to=\"login\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationLogin, @"Parsed navigation should perform login");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeLogin, @"Parsed navigation should perform login");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
 
     navigation = [self parseValidXMLSnippet:@"<navigate to=\"logout\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationLogout, @"Parsed navigation should peform logout");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeLogout, @"Parsed navigation should peform logout");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
 
     navigation = [self parseValidXMLSnippet:@"<navigate to=\"nextScreen\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationNextScreen, @"Parsed navigation should navigate to next screen");
+    STAssertEquals(navigation.navigationType, ORNavigationTypeNextScreen, @"Parsed navigation should navigate to next screen");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
 
     navigation = [self parseValidXMLSnippet:@"<navigate to=\"previousScreen\"/>"];
-    STAssertEquals(navigation.navigationType, ORNavigationPreviousScreen, @"Parsed navigation should navigate to previous screen");
+    STAssertEquals(navigation.navigationType, ORNavigationTypePreviousScreen, @"Parsed navigation should navigate to previous screen");
     STAssertFalse([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should not be an ORScreenNavigation");
 }
 

@@ -26,7 +26,7 @@
 
 /**
  * Model object representing a navigation to a given group or screen.
- * Its navigation type is always ORNavigationToGroupOrScreen
+ * Its navigation type is always ORNavigationTypeToGroupOrScreen
  */
 @interface ORScreenNavigation : ORNavigation
 

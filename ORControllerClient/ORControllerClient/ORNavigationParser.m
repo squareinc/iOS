@@ -53,17 +53,17 @@
         } else {
             NSString *to = [[attributeDict objectForKey:@"to"] lowercaseString];
             if ([@"previousscreen" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationPreviousScreen];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypePreviousScreen];
             } else if ([@"nextscreen" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationNextScreen];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypeNextScreen];
             } else if ([@"setting" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationSettings];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypeSettings];
             } else if ([@"back" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationBack];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypeBack];
             } else if ([@"login" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationLogin];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypeLogin];
             } else if ([@"logout" isEqualToString:to]) {
-                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationLogout];
+                self.navigation = [[ORNavigation alloc] initWithNavigationType:ORNavigationTypeLogout];
             } else {
                 // TODO : error
             }

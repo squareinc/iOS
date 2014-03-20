@@ -25,13 +25,13 @@
  * Enumeration indicating type of navigation.
  */
 typedef NS_ENUM(NSInteger, ORNavigationType) {
-    ORNavigationToGroupOrScreen,
-    ORNavigationPreviousScreen,
-    ORNavigationNextScreen,
-    ORNavigationBack,
-    ORNavigationSettings,
-    ORNavigationLogin,
-    ORNavigationLogout
+    ORNavigationTypeToGroupOrScreen,
+    ORNavigationTypePreviousScreen,
+    ORNavigationTypeNextScreen,
+    ORNavigationTypeBack,
+    ORNavigationTypeSettings,
+    ORNavigationTypeLogin,
+    ORNavigationTypeLogout
 };
 
 /**

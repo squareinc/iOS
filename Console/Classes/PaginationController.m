@@ -381,7 +381,7 @@
     NSUInteger selected = NSNotFound;
     
     for (ORTabBarItem *tabBarItem in self.tabBar.items) {
-		if (tabBarItem.navigation && tabBarItem.navigation.navigationType == ORNavigationToGroupOrScreen) {
+		if (tabBarItem.navigation && tabBarItem.navigation.navigationType == ORNavigationTypeToGroupOrScreen) {
             ORScreenNavigation *navigation = ((ORScreenNavigation *)tabBarItem.navigation);
             if (self.group.groupId ==  navigation.destinationGroup.groupId) {
                 if (navigation.destinationScreen.screenId == [self currentScreenViewController].screen.screenId

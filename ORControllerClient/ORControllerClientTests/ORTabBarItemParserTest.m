@@ -84,7 +84,7 @@
     STAssertNotNil(item.name, @"Parsed tab bar item should have 'item1' as name");
     STAssertNil(item.image, @"Parsed tab bar item should not have an image");
     STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
-    STAssertEquals(item.navigation.navigationType, ORNavigationSettings, @"Parsed tab bar item should navigate to settings");
+    STAssertEquals(item.navigation.navigationType, ORNavigationTypeSettings, @"Parsed tab bar item should navigate to settings");
 }
 
 - (void)testParseItemWithImageAndNavigation
@@ -95,7 +95,7 @@
     STAssertNotNil(item.image, @"Parsed tab bar item should have an image");
     STAssertEqualObjects(item.image.name, @"item.png", @"Parsed tab bar item image should be named 'item.png'");
     STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
-    STAssertEquals(item.navigation.navigationType, ORNavigationBack, @"Parsed tab bar item should navigate back");
+    STAssertEquals(item.navigation.navigationType, ORNavigationTypeBack, @"Parsed tab bar item should navigate back");
 }
 
 @end

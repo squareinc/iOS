@@ -143,7 +143,7 @@
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
     STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
+    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
     
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
@@ -168,7 +168,7 @@
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
     STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
+    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
 
     STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
     STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
@@ -193,7 +193,7 @@
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
     STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationBack, @"Parsed button navigation should navigate back");
+    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
     
     STAssertNotNil(button.unpressedImage, @"Parsed button should have an unpressed image associated with it");
     STAssertTrue([button.unpressedImage isMemberOfClass:[ORImage class]], @"Parsed button unpressed image should be an ORImage");
