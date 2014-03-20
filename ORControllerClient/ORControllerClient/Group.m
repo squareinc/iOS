@@ -52,12 +52,6 @@
 	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d", ORScreenOrientationLandscape]];
 }
 
-// Find screen model in specified orientation screens of group containing by screen id.
-- (BOOL)doesExistScreenWithIdentifier:(ORObjectIdentifier *)identifier orientation:(ORScreenOrientation)orientation
-{
-	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d && identifier == %@", orientation, identifier]].count > 0;
-}
-
 - (ORScreen *) findScreenByScreenIdentifier:(ORObjectIdentifier *)identifier {
 	NSArray *ss = [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier == %@", identifier]];
 	if (ss.count > 0) {

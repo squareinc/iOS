@@ -45,11 +45,6 @@
 - (NSArray *) getLandscapeScreens;
 
 /**
- * Find screen model in specified orientation screens of group containing by screen id.
- */
-- (BOOL)doesExistScreenWithIdentifier:(ORObjectIdentifier *)identifier orientation:(ORScreenOrientation)orientation;
-
-/**
  * Find screen model by screen identifier. returns nil if not found.
  */
 - (ORScreen *) findScreenByScreenIdentifier:(ORObjectIdentifier *)identifier;
