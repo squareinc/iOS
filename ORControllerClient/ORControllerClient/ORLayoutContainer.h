@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -21,9 +21,9 @@
 #import <Foundation/Foundation.h>
 
 /**
- * It's super class of all layoutContainer model(such as absoluteLayoutCotainer, gridLayoutContainer).
- * The layoutContainer can be located in screen by position info left and top.
- * The layoutContainer's size is described by width and height.
+ * Abstract parent class of all layout containers.
+ * It is a container for including widgets on screens, providing layout information.
+ * This base class provides position and size of widget.
  */
 @interface ORLayoutContainer : NSObject
 
@@ -33,7 +33,7 @@
 @property (nonatomic, readonly) NSUInteger height;
 
 /**
- * Returns all the components (widgets) this layout contains.
+ * All widgets this layout contains.
  */
 - (NSSet *)components;
 
