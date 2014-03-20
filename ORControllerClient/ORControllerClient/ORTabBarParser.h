@@ -25,6 +25,7 @@
 /**
  * Parses a <tabbar...> XML fragment from the panel XML document
  * following schema v2.0 into an ORTabBar model object instance.
+ *
  * XML fragment example:
  * <tabbar>
  *    <item name="previous">
