@@ -21,7 +21,7 @@
 #import "GridLayoutContainerSubController.h"
 #import "ORControllerClient/ORGridLayoutContainer.h"
 #import "ORControllerClient/ORGridCell.h"
-#import "ORControllerClient/Component.h"
+#import "ORControllerClient/ORWidget.h"
 #import "ComponentSubController.h"
 
 @interface GridLayoutContainerSubController()
@@ -48,9 +48,9 @@
         int h = container.height / container.rows;				
         int w = container.width / container.cols;
         for (ORGridCell *cell in container.cells) {
-            Component *aComponent = cell.widget;
+            ORWidget *widget = cell.widget;
             ComponentSubController *ctrl;
-            ctrl = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
+            ctrl = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithController:self.controller imageCache:aCache component:widget];
             [self.cells addObject:ctrl];
             ctrl.view.frame = CGRectMake(cell.x * w, cell.y * h, w * cell.colspan, h * cell.rowspan);
             [self.view addSubview:ctrl.view];
