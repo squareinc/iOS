@@ -214,6 +214,11 @@
 		91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B357D818BB8D6B00ADED24 /* ORScreenNavigation.h */; };
 		91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA53E18C2342F006006E9 /* ORScreen.h */; };
 		91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA54218C2343E006006E9 /* ORGroup.h */; };
+		91A4A25918D746AD0070F823 /* ORGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25818D746AD0070F823 /* ORGesture.m */; };
+		91A4A25A18D746AD0070F823 /* ORGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25818D746AD0070F823 /* ORGesture.m */; };
+		91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
+		91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
+		91A4A26918DAD6E80070F823 /* ORGestureParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -604,6 +609,13 @@
 		91A4A24F18D733F20070F823 /* ORTabBarItemParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParserTest.m; sourceTree = "<group>"; };
 		91A4A25118D7340D0070F823 /* ORTabBarItemParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParserTest.h; sourceTree = "<group>"; };
 		91A4A25218D736FC0070F823 /* ORTabBar_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBar_Private.h; sourceTree = "<group>"; };
+		91A4A25718D746AD0070F823 /* ORGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGesture.h; sourceTree = "<group>"; };
+		91A4A25818D746AD0070F823 /* ORGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGesture.m; sourceTree = "<group>"; };
+		91A4A25B18D7479E0070F823 /* ORGesture_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGesture_Private.h; sourceTree = "<group>"; };
+		91A4A25C18D749700070F823 /* ORGestureParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGestureParser.h; sourceTree = "<group>"; };
+		91A4A25D18D749700070F823 /* ORGestureParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGestureParser.m; sourceTree = "<group>"; };
+		91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGestureParserTest.m; sourceTree = "<group>"; };
+		91A4A26A18DAD7060070F823 /* ORGestureParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGestureParserTest.h; sourceTree = "<group>"; };
 		91AAFAFE18A8E52F00632C1A /* ORConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsole.h; sourceTree = "<group>"; };
 		91AAFB0518A9083C00632C1A /* ORButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser.h; sourceTree = "<group>"; };
 		91AAFB0618A9083C00632C1A /* ORButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser.m; sourceTree = "<group>"; };
@@ -836,6 +848,9 @@
 				917BA53F18C2342F006006E9 /* ORScreen.m */,
 				917BA54218C2343E006006E9 /* ORGroup.h */,
 				917BA54318C2343E006006E9 /* ORGroup.m */,
+				91A4A25718D746AD0070F823 /* ORGesture.h */,
+				91A4A25818D746AD0070F823 /* ORGesture.m */,
+				91A4A25B18D7479E0070F823 /* ORGesture_Private.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -896,12 +911,14 @@
 				91099A5618B21248005BEBAB /* ORSwitchParserTest.h */,
 				91B357C218BB4B8800ADED24 /* ORSliderParserTest.m */,
 				91B357C418BB4B9A00ADED24 /* ORSliderParserTest.h */,
-				91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */,
-				91A4A23318D5D8340070F823 /* ORNavigationParserTest.h */,
 				91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */,
 				91A4A24918D6F3880070F823 /* ORColorPickerParserTest.h */,
 				91A4A24B18D703840070F823 /* ORWebViewParserTest.m */,
 				91A4A24D18D7039E0070F823 /* ORWebViewParserTest.h */,
+				91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */,
+				91A4A23318D5D8340070F823 /* ORNavigationParserTest.h */,
+				91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */,
+				91A4A26A18DAD7060070F823 /* ORGestureParserTest.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1201,6 +1218,8 @@
 				919333C5179EA2D80086FEE7 /* ORWebViewParser.m */,
 				91A4A23418D5D89D0070F823 /* ORNavigationParser.h */,
 				91A4A23518D5D89D0070F823 /* ORNavigationParser.m */,
+				91A4A25C18D749700070F823 /* ORGestureParser.h */,
+				91A4A25D18D749700070F823 /* ORGestureParser.m */,
 			);
 			name = "Panel Definition";
 			sourceTree = "<group>";
@@ -1440,6 +1459,7 @@
 				91933361179E9BD00086FEE7 /* Group.m in Sources */,
 				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
+				91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */,
 				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
 				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
@@ -1484,6 +1504,7 @@
 				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
 				91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */,
 				91933407179EA2DE0086FEE7 /* NavigateParser.m in Sources */,
+				91A4A25918D746AD0070F823 /* ORGesture.m in Sources */,
 				91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */,
 				91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */,
 				91933409179EA2DE0086FEE7 /* SensorStateParser.m in Sources */,
@@ -1538,8 +1559,10 @@
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				911392E7189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
+				91A4A25A18D746AD0070F823 /* ORGesture.m in Sources */,
 				911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */,
 				916D63B718B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
+				91A4A26918DAD6E80070F823 /* ORGestureParserTest.m in Sources */,
 				916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				91099A4F18AE1547005BEBAB /* ORSwitch.m in Sources */,
@@ -1560,6 +1583,7 @@
 				91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */,
 				917BA54518C2343E006006E9 /* ORGroup.m in Sources */,
 				91B72FA918903402000B7552 /* ORImageParser.m in Sources */,
+				91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
 				91222D851892631700BA0B96 /* ORSensorState.m in Sources */,
 				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,

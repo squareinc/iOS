@@ -288,6 +288,11 @@
     [self.controller sendValue:value forSlider:sender];
 }
 
+- (void)performGesture:(ORGesture *)sender
+{
+    [self.controller performGesture:sender];
+}
+
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
 
 @end

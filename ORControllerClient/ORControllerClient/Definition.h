@@ -37,6 +37,7 @@
 @class ORWebView;
 @class ORGroup;
 @class ORScreen;
+@class ORGesture;
 
 @protocol ORConsole;
 
@@ -107,6 +108,8 @@
 - (void)sendOffForSwitch:(ORSwitch *)sender;
 
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender;
+
+- (void)performGesture:(ORGesture *)sender;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;
 @property (nonatomic, strong, readonly) NSMutableArray *screens;

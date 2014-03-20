@@ -28,6 +28,7 @@
 @class ORButton;
 @class ORSwitch;
 @class ORSlider;
+@class ORGesture;
 
 /**
  * Represents an OpenRemote ORB
@@ -131,6 +132,9 @@
 - (void)sendOffForSwitch:(ORSwitch *)sender;
 
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender;
+
+
+- (void)performGesture:(ORGesture *)sender;
 
 /**
  * The authentication manager that can provide credential during calls.

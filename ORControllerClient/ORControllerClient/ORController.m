@@ -31,6 +31,7 @@
 #import "ORButton.h"
 #import "ORSwitch.h"
 #import "ORSlider.h"
+#import "ORGesture.h"
 
 #import "ControllerREST_2_0_0_API.h"
 
@@ -215,6 +216,11 @@
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender
 {
     [self controlForWidget:sender action:[NSString stringWithFormat:@"%f", value]];
+}
+
+- (void)performGesture:(ORGesture *)sender
+{
+    [self controlForWidget:sender action:@"swipe"];
 }
 
 @end
