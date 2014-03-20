@@ -21,6 +21,7 @@
 #import "ORControllerCommandSender.h"
 #import "ORControllerConfig.h"
 #import "ORControllerClient/ORWidget.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 #import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "ControllerException.h"
@@ -32,7 +33,7 @@
 @property (nonatomic, strong) ORControllerConfig *controller;
 @property (nonatomic, strong) ControllerRequest *controllerRequest;
 @property (nonatomic, strong) NSString *command;
-@property (nonatomic, strong) Component *component;
+@property (nonatomic, strong) ORWidget *component;
 
 @end
 
@@ -60,7 +61,10 @@
 {  
     NSAssert(!self.controllerRequest, @"ORControllerCommandSender can only be used to send a request once");
     
-    NSString *commandURLPath = [[ServerDefinition controllerControlPathForController:self.controller] stringByAppendingFormat:@"/%d/%@", self.component.componentId, self.command];
+    NSString *commandURLPath = [[ServerDefinition controllerControlPathForController:self.controller] stringByAppendingFormat:@"/%@/%@", [self.component.identifier stringValue], self.command];
+    
+    NSLog(@"command will call URL %@", commandURLPath);
+    
     self.controllerRequest = [[ControllerRequest alloc] initWithController:self.controller];
     self.controllerRequest.delegate = self;
     [self.controllerRequest postRequestWithPath:commandURLPath];
@@ -90,7 +94,7 @@
 - (void)controllerRequestDidReceiveResponse:(NSURLResponse *)response
 {
 	NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
-    NSLog(@"Command response for component %d, statusCode is %d", self.component.componentId, [httpResp statusCode]);
+    NSLog(@"Command response for component %@, statusCode is %d", [self.component.identifier stringValue], [httpResp statusCode]);
 	[self handleServerResponseWithStatusCode:[httpResp statusCode]];
 }
 

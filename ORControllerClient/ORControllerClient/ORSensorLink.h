@@ -25,7 +25,7 @@
 
 /**
  * Represents a link between a Sensor and a property it updates.
- * This includes the Component and the name of the property.
+ * This includes the widget and the name of the property.
  *
  * It includes an optional sensor states mapping to should be used
  * to translate the sensor value before assignment to the Component property.

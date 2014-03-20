@@ -21,7 +21,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class Component;
 @class ORSensor;
 @class ORSensorLink;
 @class ORSensorStatesMapping;

@@ -20,7 +20,7 @@
  */
 #import "ORControllerProxy.h"
 #import "ORControllerConfig.h"
-#import "ORControllerClient/Component.h"
+#import "ORControllerClient/ORWidget.h"
 
 @interface ORControllerProxy ()
 
@@ -89,7 +89,7 @@
 
 #pragma mark -
 
-- (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(Component *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate
+- (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(ORWidget *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate
 {
     ORControllerCommandSender *commandSender = [[ORControllerCommandSender alloc] initWithController:self.controller command:command component:component];
     commandSender.delegate = delegate;
