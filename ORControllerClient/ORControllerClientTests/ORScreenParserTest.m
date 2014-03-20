@@ -30,9 +30,9 @@
 #import "ORBackgroundParser.h"
 #import "ORImageParser.h"
 #import "AbsoluteLayoutContainerParser.h"
-#import "AbsoluteLayoutContainer.h"
+#import "ORAbsoluteLayoutContainer.h"
 #import "GridLayoutContainerParser.h"
-#import "GridLayoutContainer.h"
+#import "ORGridLayoutContainer.h"
 #import "ORGestureParser.h"
 
 @implementation ORScreenParserTest
@@ -154,7 +154,7 @@
     STAssertNil(screen.background, @"Parsed screen should not have a background");
     STAssertEquals((NSUInteger)0, [screen.gestures count], @"Parsed screen should not have any gesture");
     STAssertEquals((NSUInteger)1, [screen.layouts count], @"Parsed screen should contain one layout");
-    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[AbsoluteLayoutContainer class]], @"Parsed screen should contain one absolute layout");
+    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORAbsoluteLayoutContainer class]], @"Parsed screen should contain one absolute layout");
 }
 
 - (void)testParseScreenWithGridLayout
@@ -170,7 +170,7 @@
     STAssertNil(screen.background, @"Parsed screen should not have a background");
     STAssertEquals((NSUInteger)0, [screen.gestures count], @"Parsed screen should not have any gesture");
     STAssertEquals((NSUInteger)1, [screen.layouts count], @"Parsed screen should contain one layout");
-    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[GridLayoutContainer class]], @"Parsed screen should contain one grid layout");
+    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORGridLayoutContainer class]], @"Parsed screen should contain one grid layout");
 }
 
 - (void)testParseScreenWithGesture
