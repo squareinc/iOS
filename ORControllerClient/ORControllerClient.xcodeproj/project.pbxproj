@@ -219,6 +219,7 @@
 		91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
 		91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
 		91A4A26918DAD6E80070F823 /* ORGestureParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */; };
+		91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91A4A25718D746AD0070F823 /* ORGesture.h */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -299,6 +300,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */,
 				91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */,
 				91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */,
 				91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */,
