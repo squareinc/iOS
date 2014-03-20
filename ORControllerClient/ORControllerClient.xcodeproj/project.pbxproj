@@ -163,7 +163,6 @@
 		919333A9179EA2A90086FEE7 /* CommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A0179EA2A90086FEE7 /* CommandDeferredBinding.m */; };
 		919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A2179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m */; };
 		919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A4179EA2A90086FEE7 /* DeferredBinding.m */; };
-		919333AD179EA2A90086FEE7 /* ScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A8179EA2A90086FEE7 /* ScreenDeferredBinding.m */; };
 		919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333AF179EA2D40086FEE7 /* PanelDefinitionParser.m */; };
 		919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B1179EA2D40086FEE7 /* DefinitionElementParserRegister.m */; };
 		919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */; };
@@ -174,7 +173,6 @@
 		919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BF179EA2D70086FEE7 /* GridCellParser.m */; };
 		919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* ORWebViewParser.m */; };
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
-		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
 		91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */; };
@@ -532,8 +530,6 @@
 		919333A2179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControllerComponentCommandDeferredBinding.m; path = ORControllerClient/ControllerComponentCommandDeferredBinding.m; sourceTree = SOURCE_ROOT; };
 		919333A3179EA2A90086FEE7 /* DeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeferredBinding.h; path = ORControllerClient/DeferredBinding.h; sourceTree = SOURCE_ROOT; };
 		919333A4179EA2A90086FEE7 /* DeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeferredBinding.m; path = ORControllerClient/DeferredBinding.m; sourceTree = SOURCE_ROOT; };
-		919333A7179EA2A90086FEE7 /* ScreenDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenDeferredBinding.h; path = ORControllerClient/ScreenDeferredBinding.h; sourceTree = SOURCE_ROOT; };
-		919333A8179EA2A90086FEE7 /* ScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenDeferredBinding.m; path = ORControllerClient/ScreenDeferredBinding.m; sourceTree = SOURCE_ROOT; };
 		919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDefinitionParser.h; sourceTree = "<group>"; };
 		919333AF179EA2D40086FEE7 /* PanelDefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelDefinitionParser.m; sourceTree = "<group>"; };
 		919333B0179EA2D40086FEE7 /* DefinitionElementParserRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionElementParserRegister.h; sourceTree = "<group>"; };
@@ -554,8 +550,6 @@
 		919333C5179EA2D80086FEE7 /* ORWebViewParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebViewParser.m; sourceTree = "<group>"; };
 		919333D0179EA2DA0086FEE7 /* ORColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParser.h; sourceTree = "<group>"; };
 		919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParser.m; sourceTree = "<group>"; };
-		919333D6179EA2DB0086FEE7 /* GroupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParser.h; sourceTree = "<group>"; };
-		919333D7179EA2DB0086FEE7 /* GroupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupParser.m; sourceTree = "<group>"; };
 		919333D8179EA2DB0086FEE7 /* ORTabBarParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarParser.h; sourceTree = "<group>"; };
 		919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarParser.m; sourceTree = "<group>"; };
 		919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParser.h; sourceTree = "<group>"; };
@@ -1145,8 +1139,6 @@
 				919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */,
 				919333BE179EA2D70086FEE7 /* GridCellParser.h */,
 				919333BF179EA2D70086FEE7 /* GridCellParser.m */,
-				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
-				919333D7179EA2DB0086FEE7 /* GroupParser.m */,
 				919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */,
 				919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */,
 				919333E0179EA2DC0086FEE7 /* SensorStateParser.h */,
@@ -1175,8 +1167,6 @@
 			children = (
 				919333A3179EA2A90086FEE7 /* DeferredBinding.h */,
 				919333A4179EA2A90086FEE7 /* DeferredBinding.m */,
-				919333A7179EA2A90086FEE7 /* ScreenDeferredBinding.h */,
-				919333A8179EA2A90086FEE7 /* ScreenDeferredBinding.m */,
 				9193339F179EA2A90086FEE7 /* CommandDeferredBinding.h */,
 				919333A0179EA2A90086FEE7 /* CommandDeferredBinding.m */,
 				919333A1179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.h */,
@@ -1486,7 +1476,6 @@
 				91099A4E18AE1547005BEBAB /* ORSwitch.m in Sources */,
 				919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */,
 				919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */,
-				919333AD179EA2A90086FEE7 /* ScreenDeferredBinding.m in Sources */,
 				917BA54018C2342F006006E9 /* ORScreen.m in Sources */,
 				919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */,
 				91A4A23B18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m in Sources */,
@@ -1502,7 +1491,6 @@
 				91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */,
 				919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */,
 				91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */,
-				91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */,
 				91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */,
 				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
 				91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */,

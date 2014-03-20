@@ -23,7 +23,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "DefinitionParser.h"
 #import "ORScreenParser.h"
-#import "GroupParser.h"
+#import "ORGroupParser.h"
 #import "ORTabBarParser.h"
 #import "AbsoluteLayoutContainerParser.h"
 #import "GridLayoutContainerParser.h"
@@ -69,7 +69,7 @@
         self.depRegistry = [[DefinitionElementParserRegister alloc] init];
         [self.depRegistry registerParserClass:[DefinitionParser class] endSelector:NULL forTag:@"openremote"];
         [self.depRegistry registerParserClass:[ORScreenParser class] endSelector:@selector(endScreenElement:) forTag:@"screen"];
-        [self.depRegistry registerParserClass:[GroupParser class] endSelector:@selector(endGroupElement:) forTag:@"group"];
+        [self.depRegistry registerParserClass:[ORGroupParser class] endSelector:@selector(endGroupElement:) forTag:@"group"];
         [self.depRegistry registerParserClass:[ORTabBarParser class] endSelector:@selector(endTabBarElement:) forTag:@"tabbar"];
         [self.depRegistry registerParserClass:[AbsoluteLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:ABSOLUTE];
         [self.depRegistry registerParserClass:[GridLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:GRID];

@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "DefinitionParser.h"
-#import "GroupParser.h"
+#import "ORGroupParser.h"
 #import "ORScreenParser.h"
 #import "ORTabBarParser.h"
 #import "LocalParser.h"
@@ -53,7 +53,7 @@
     [self.definition addScreen:screenParser.screen];
 }
 
-- (void)endGroupElement:(GroupParser *)groupParser
+- (void)endGroupElement:(ORGroupParser *)groupParser
 {
     [self.definition addGroup:groupParser.group];
 }
