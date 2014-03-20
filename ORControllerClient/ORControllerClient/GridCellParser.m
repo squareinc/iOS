@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "GridCellParser.h"
-#import "GridCell.h"
+#import "ORGridCell.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
 #import "ORWebViewParser.h"
@@ -36,7 +36,7 @@
 
 @interface GridCellParser()
 
-@property (nonatomic, strong, readwrite) GridCell *gridCell;
+@property (nonatomic, strong, readwrite) ORGridCell *gridCell;
 
 @end
 /**
@@ -60,7 +60,7 @@
         [self addKnownTag:SWITCH];
         [self addKnownTag:SLIDER];
         [self addKnownTag:COLORPICKER];
-        self.gridCell = [[GridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] intValue]
+        self.gridCell = [[ORGridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] intValue]
                                                   y:[[attributeDict objectForKey:@"y"] intValue]
                                             rowspan:[[attributeDict objectForKey:@"rowspan"] intValue]
                                             colspan:[[attributeDict objectForKey:@"colspan"] intValue]];

@@ -20,7 +20,7 @@
  */
 #import "GridLayoutContainerSubController.h"
 #import "ORControllerClient/ORGridLayoutContainer.h"
-#import "ORControllerClient/GridCell.h"
+#import "ORControllerClient/ORGridCell.h"
 #import "ORControllerClient/Component.h"
 #import "ComponentSubController.h"
 
@@ -47,7 +47,7 @@
         self.cells = [[NSMutableArray alloc] initWithCapacity:[container.cells count]];
         int h = container.height / container.rows;				
         int w = container.width / container.cols;
-        for (GridCell *cell in container.cells) {
+        for (ORGridCell *cell in container.cells) {
             Component *aComponent = cell.component;
             ComponentSubController *ctrl;
             ctrl = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];

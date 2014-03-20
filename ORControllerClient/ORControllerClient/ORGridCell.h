@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -22,7 +22,7 @@
 
 @class Component;
 
-@interface GridCell : NSObject
+@interface ORGridCell : NSObject
 
 @property (nonatomic, readonly) int x;
 @property (nonatomic, readonly) int y;

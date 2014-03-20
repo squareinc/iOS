@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORGridLayoutContainer.h"
-#import "GridCell.h"
+#import "ORGridCell.h"
 #import "SensorComponent.h"
 #import "Sensor.h"
 
@@ -61,7 +61,7 @@
 - (NSSet *)widgets
 {
     NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];
-	for (GridCell *cell in self.cells) {
+	for (ORGridCell *cell in self.cells) {
         [components addObject:cell.component];
     }
     return [NSSet setWithSet:components];

@@ -20,10 +20,10 @@
  */
 #import "DefinitionElementParser.h"
 
-@class GridCell;
+@class ORGridCell;
 
 @interface GridCellParser : DefinitionElementParser
 
-@property (nonatomic, strong, readonly) GridCell *gridCell;
+@property (nonatomic, strong, readonly) ORGridCell *gridCell;
 
 @end

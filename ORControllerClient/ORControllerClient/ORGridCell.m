@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,9 +18,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "GridCell.h"
+#import "ORGridCell.h"
 
-@interface GridCell ()
+@interface ORGridCell ()
 
 @property (nonatomic, readwrite) int x;
 @property (nonatomic, readwrite) int y;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation GridCell
+@implementation ORGridCell
 
 - (id)initWithX:(int)xPos y:(int)yPos rowspan:(int)rowspanValue colspan:(int)colspanValue
 {
