@@ -29,7 +29,7 @@
 #import "ORGridLayoutContainerParser.h"
 #import "ORGestureParser.h"
 #import "ORBackgroundParser.h"
-#import "GridCellParser.h"
+#import "ORGridCellParser.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
 #import "ORWebViewParser.h"
@@ -76,7 +76,7 @@
         [self.depRegistry registerParserClass:[ORGestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
         [self.depRegistry registerParserClass:[ORNavigationParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
         [self.depRegistry registerParserClass:[ORBackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];
-        [self.depRegistry registerParserClass:[GridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
+        [self.depRegistry registerParserClass:[ORGridCellParser class] endSelector:@selector(endCellElement:) forTag:@"cell"];
         [self.depRegistry registerParserClass:[ORLabelParser class] endSelector:@selector(endLabelElement:) forTag:LABEL];
         [self.depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
         [self.depRegistry registerParserClass:[ORSensorLinkParser class] endSelector:@selector(endSensorLinkElement:) forTag:LINK];

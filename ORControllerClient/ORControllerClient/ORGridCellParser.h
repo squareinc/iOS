@@ -22,7 +22,7 @@
 
 @class ORGridCell;
 
-@interface GridCellParser : DefinitionElementParser
+@interface ORGridCellParser : DefinitionElementParser
 
 @property (nonatomic, strong, readonly) ORGridCell *gridCell;
 

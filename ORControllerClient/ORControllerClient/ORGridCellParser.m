@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "GridCellParser.h"
+#import "ORGridCellParser.h"
 #import "ORGridCell.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
@@ -34,7 +34,7 @@
 #import "Definition.h"
 #import "XMLEntity.h"
 
-@interface GridCellParser()
+@interface ORGridCellParser()
 
 @property (nonatomic, strong, readwrite) ORGridCell *gridCell;
 
@@ -47,7 +47,7 @@
  *    </cell>
  * </grid>
  */
-@implementation GridCellParser
+@implementation ORGridCellParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {

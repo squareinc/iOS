@@ -20,7 +20,7 @@
  */
 #import "ORGridLayoutContainerParser.h"
 #import "ORGridLayoutContainer.h"
-#import "GridCellParser.h"
+#import "ORGridCellParser.h"
 
 @interface ORGridLayoutContainerParser()
 
@@ -53,7 +53,7 @@
     return self;
 }
 
-- (void)endCellElement:(GridCellParser *)parser
+- (void)endCellElement:(ORGridCellParser *)parser
 {
     [((ORGridLayoutContainer *)self.layoutContainer).cells addObject:parser.gridCell];
 }
