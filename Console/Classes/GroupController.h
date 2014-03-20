@@ -52,9 +52,9 @@
 - (void)stopPolling;
 
 /**
- * Switch the rendering screenView of groupController to the screenView the parameter screenId specified.
+ * Switch the rendering screenView of groupController to the screenView for specified screen.
  */
-- (BOOL)switchToScreen:(int)screenId;
+- (BOOL)switchToScreen:(ORScreen *)aScreen;
 
 /**
  * Swith the rendering screenView of groupController to previous screenView.
@@ -69,12 +69,12 @@
 /**
  * Get the screen model data of current screenViewController in groupController.
  */
-- (Screen *)currentScreen;
+- (ORScreen *)currentScreen;
 
 /**
- * Get the id of screen model data of current screenViewController in groupController.
+ * Get the identifier of screen model data of current screenViewController in groupController.
  */
-- (int)currentScreenId;
+- (ORObjectIdentifier *)currentScreenIdentifier;
 
 /**
  * Get the id of group model data of groupController.

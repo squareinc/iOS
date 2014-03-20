@@ -21,7 +21,6 @@
 #import "Definition.h"
 #import "Group.h"
 #import "ORScreen.h"
-#import "Screen.h"
 #import "ORSensorRegistry.h"
 #import "ORController.h"
 #import "ORObjectIdentifier.h"
@@ -91,16 +90,6 @@
     // TODO: re-implement with appropriate class
     Group *g = [self findGroupById:[[groupIdentifier stringValue] intValue]];
     return g;
-}
-
-- (Screen *)findScreenById:(int)screenId {
-	for (Screen *tempScreen in self.screens) {
-		if (tempScreen.screenId == screenId) {
-			NSLog(@"find screen screenId %d", screenId);
-			return tempScreen;
-		}
-	}
-	return nil;
 }
 
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier

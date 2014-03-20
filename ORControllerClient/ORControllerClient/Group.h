@@ -19,9 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
+#import "ORScreen.h"
 
 @class ORTabBar;
-@class Screen;
+@class ORObjectIdentifier;
 
 @interface Group : NSObject
 
@@ -46,11 +47,11 @@
 /**
  * Find screen model in specified orientation screens of group containing by screen id.
  */
-- (BOOL)canFindScreenById:(int)screenId inOrientation:(BOOL)isLandscape;
+- (BOOL)doesExistScreenWithIdentifier:(ORObjectIdentifier *)identifier orientation:(ORScreenOrientation)orientation;
 
 /**
- * Find screen model by screen id. returns nil if not found.
+ * Find screen model by screen identifier. returns nil if not found.
  */
-- (Screen *) findScreenByScreenId:(int)screenId;
+- (ORScreen *) findScreenByScreenIdentifier:(ORObjectIdentifier *)identifier;
 
 @end

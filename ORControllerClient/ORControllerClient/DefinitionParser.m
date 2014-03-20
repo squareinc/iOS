@@ -19,8 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "DefinitionParser.h"
-#import "ScreenParser.h"
 #import "GroupParser.h"
+#import "ORScreenParser.h"
 #import "ORTabBarParser.h"
 #import "LocalParser.h"
 #import "Definition.h"
@@ -48,7 +48,7 @@
     return self;
 }
 
-- (void)endScreenElement:(ScreenParser *)screenParser
+- (void)endScreenElement:(ORScreenParser *)screenParser
 {
     [self.definition addScreen:screenParser.screen];
 }

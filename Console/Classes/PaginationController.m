@@ -21,6 +21,7 @@
 #import "PaginationController.h"
 #import "ScreenViewController.h"
 #import "GroupController.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 #import "ORControllerClient/ORGroup.h"
 #import "ORControllerClient/ORScreen.h"
 #import "ORControllerClient/ORTabBar.h"
@@ -50,7 +51,7 @@
 - (void)updateViewForCurrentPageAndBothSides;
 - (void)pageControlValueDidChange:(id)sender;
 - (void)scrollToSelectedViewWithAnimation:(BOOL)withAnimation;
-- (BOOL)switchToScreen:(int)screenId withAnimation:(BOOL) withAnimation;
+- (BOOL)switchToScreen:(ORScreen *)aScreen withAnimation:(BOOL) withAnimation;
 - (void)updateTabBarItemSelection;
 
 @property (nonatomic, strong) Group *group;
@@ -99,12 +100,12 @@
 	
 	//Recover last screen
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	int lastScreenId = [[userDefaults objectForKey:@"lastScreenId"] intValue];
-	NSLog(@"last screen id =%d", lastScreenId);
+    ORObjectIdentifier *lastScreenIdenfitier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastScreenId"]];
+	NSLog(@"last screen id = %@", lastScreenIdenfitier);
 	
-	if (lastScreenId > 0) {
+	if (lastScreenIdenfitier) {
 		for (int i = 0; i < [viewControllers count]; i++) {
-			if (lastScreenId == [(Screen *)[[viewControllers objectAtIndex:i] screen] screenId]) {
+			if ([lastScreenIdenfitier isEqual:[(ORScreen *)[[viewControllers objectAtIndex:i] screen] identifier]]) {
 //				UIViewController *vc = [viewControllers objectAtIndex:i];
                 // TODO: ebr : check why this is ???
 //				vc.view.bounds = scrollView.bounds;
@@ -118,8 +119,7 @@
 }
 
 - (BOOL)switchToFirstScreen {
-	int screenId = ((ScreenViewController *)[viewControllers objectAtIndex:0]).screen.screenId;
-	return [self switchToScreen:screenId];
+	return [self switchToScreen:((ScreenViewController *)[viewControllers objectAtIndex:0]).screen];
 }
 
 - (ScreenViewController *)currentScreenViewController {
@@ -139,23 +139,23 @@
 }
 
 //Return YES if succuess, without animation.
-- (BOOL)switchToScreen:(int)screenId {
-	return [self switchToScreen:screenId withAnimation:NO];
+- (BOOL)switchToScreen:(ORScreen *)aScreen {
+	return [self switchToScreen:aScreen withAnimation:NO];
 }
 
 //Return YES if succuess
-- (BOOL)switchToScreen:(int)screenId withAnimation:(BOOL) withAnimation {
+- (BOOL)switchToScreen:(ORScreen *)aScreen withAnimation:(BOOL) withAnimation {
 	int index = -1;
 	for (int i = 0; i< viewControllers.count; i++) {
 		ScreenViewController *svc = (ScreenViewController *)[viewControllers objectAtIndex:i];
-		if (svc.screen.screenId == screenId) {
+		if ([svc.screen.identifier isEqual:aScreen.identifier]) {
 			index = i;
 			break;
 		}
 	}
 	if (index != -1) {//found screen in current orientation
 		selectedIndex = index;
-		NSLog(@"switch to screen index = %d, id = %d animation=%d", selectedIndex, screenId, withAnimation);
+		NSLog(@"switch to screen index = %d, id = %@ animation=%d", selectedIndex, aScreen.identifier, withAnimation);
 		[pageControl setCurrentPage:selectedIndex];
 		[self scrollToSelectedViewWithAnimation:withAnimation];
 	} else {
@@ -192,12 +192,12 @@
 // Save last screen's id while switching screen view for recovery of lastScreenView in RootViewController.
 - (void)saveLastScreen {
 	if (selectedIndex < viewControllers.count) {
-		int lastScreenId = ((ScreenViewController *)[viewControllers objectAtIndex:selectedIndex]).screen.screenId;
-		if (lastScreenId == 0) {
+		ORObjectIdentifier *lastScreenIdentifier = ((ScreenViewController *)[viewControllers objectAtIndex:selectedIndex]).screen.identifier;
+		if (!lastScreenIdentifier) {
 			return;
 		}
 		NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-		[userDefaults setObject:[NSString stringWithFormat:@"%d",lastScreenId] forKey:@"lastScreenId"];
+		[userDefaults setObject:[lastScreenIdentifier stringValue] forKey:@"lastScreenId"];
 	}
 }
 
@@ -384,8 +384,7 @@
 		if (tabBarItem.navigation && tabBarItem.navigation.navigationType == ORNavigationTypeToGroupOrScreen) {
             ORScreenNavigation *navigation = ((ORScreenNavigation *)tabBarItem.navigation);
             if (self.group.groupId ==  navigation.destinationGroup.groupId) {
-                if (navigation.destinationScreen.screenId == [self currentScreenViewController].screen.screenId
-                    || navigation.destinationScreen.screenId <= 0) {
+                if (!navigation.destinationScreen || [navigation.destinationScreen.identifier isEqual: [self currentScreenViewController].screen.identifier]) {
                     selected = [self.tabBar.items indexOfObject:tabBarItem];
                     break;
                 }

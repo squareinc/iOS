@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ScreenSubController.h"
-#import "ORControllerClient/Screen.h"
+#import "ORControllerClient/ORScreen.h"
 #import "ORControllerClient/Image.h"
 #import "ImageCache.h"
 #import "FileUtils.h"
@@ -32,7 +32,7 @@
 @interface ScreenSubController() 
 
 @property (nonatomic, readwrite, strong) UIView *view;
-@property (nonatomic, strong) Screen *screen;
+@property (nonatomic, strong) ORScreen *screen;
 @property (nonatomic, strong) NSMutableArray *layoutContainers;
 
 @property (nonatomic, weak) ORControllerConfig *controller;
@@ -46,7 +46,7 @@
 
 @implementation ScreenSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(Screen *)aScreen
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen
 {
     self = [super init];
     if (self) {
@@ -80,7 +80,7 @@
     int screenBackgroundImageViewWidth = 0;
     int screenBackgroundImageViewHeight = 0;
     
-    if (self.screen.landscape) {
+    if (self.screen.orientation == ORScreenOrientationLandscape) {
         screenBackgroundImageViewWidth = [UIScreen mainScreen].bounds.size.height;
         screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.width;
     } else {

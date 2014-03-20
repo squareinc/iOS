@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "Group.h"
-#import "Screen.h"
 #import "Definition.h"
 
 @interface Group ()
@@ -45,23 +44,24 @@
 
 // Get all portrait screens in group.
 - (NSArray *) getPortraitScreens {
-	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"landscape == %d", NO]]; 
+	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d", ORScreenOrientationPortrait]];
 }
 
 // Get all landscape screens in group.
 - (NSArray *) getLandscapeScreens {
-	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"landscape == %d", YES]]; 
+	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d", ORScreenOrientationLandscape]];
 }
 
 // Find screen model in specified orientation screens of group containing by screen id.
-- (BOOL)canFindScreenById:(int)screenId inOrientation:(BOOL)isLandscape {
-	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"landscape == %d && screenId == %d", isLandscape, screenId]].count > 0; 
+- (BOOL)doesExistScreenWithIdentifier:(ORObjectIdentifier *)identifier orientation:(ORScreenOrientation)orientation
+{
+	return [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d && identifier == %@", orientation, identifier]].count > 0;
 }
 
-- (Screen *) findScreenByScreenId:(int)screenId {
-	NSArray *ss = [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"screenId == %d", screenId]];
+- (ORScreen *) findScreenByScreenIdentifier:(ORObjectIdentifier *)identifier {
+	NSArray *ss = [self.screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier == %@", identifier]];
 	if (ss.count > 0) {
-		Screen *screen = [ss objectAtIndex:0];
+		ORScreen *screen = [ss objectAtIndex:0];
 		return screen;
 	}
 	return nil;

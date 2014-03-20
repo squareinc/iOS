@@ -21,7 +21,7 @@
 #import "GroupController.h"
 #import "NotificationConstant.h"
 #import "PaginationController.h"
-#import "ORControllerClient/Screen.h"
+#import "ORControllerClient/ORScreen.h"
 #import "ScreenViewController.h"
 #import "UIScreen+ORAdditions.h"
 #import "UIImage+ORAdditions.h"
@@ -96,7 +96,7 @@
 - (NSArray *)viewControllersForScreens:(NSArray *)screens {
 	NSMutableArray *viewControllers = [NSMutableArray arrayWithCapacity:[screens count]];
 	
-	for (Screen *screen in screens) {
+	for (ORScreen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
 		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:self.controller];
         viewController.imageCache = self.imageCache;
@@ -212,31 +212,31 @@
 	return [[self currentPaginationController] currentScreenViewController]; 
 }
 
-- (Screen *)currentScreen {
+- (ORScreen *)currentScreen {
 	return [self currentScreenViewController].screen;
 }
 
-- (int)currentScreenId {
-	return [self currentScreen].screenId;
+- (ORObjectIdentifier *)currentScreenIdentifier {
+	return [self currentScreen].identifier;
 }
 
 - (void)startPolling {
 	if ([self currentPaginationController].viewControllers.count > 0) {
 		[[self currentScreenViewController] startPolling];
-		NSLog(@"start polling screen_id = %d",[self currentScreenId]);
+		NSLog(@"start polling screen_id = %@", [self currentScreenIdentifier]);
 	}
 }
 
 - (void)stopPolling {
 	for (ScreenViewController *svc in [self currentPaginationController].viewControllers) {
-		NSLog(@"stop polling screen_id = %d",svc.screen.screenId);
+		NSLog(@"stop polling screen_id = %@", svc.screen.identifier);
 		[svc stopPolling];
 	}
 }
 
-- (BOOL)switchToScreen:(int)screenId {
-	NSLog(@"switch to screen %d", screenId);
-	return [[self currentPaginationController] switchToScreen:screenId];
+- (BOOL)switchToScreen:(ORScreen *)aScreen {
+	NSLog(@"switch to screen %@", aScreen.identifier);
+	return [[self currentPaginationController] switchToScreen:aScreen];
 }
 
 - (BOOL)previousScreen {
@@ -259,23 +259,23 @@
     CGAffineTransform myTransform = CGAffineTransformIdentity;
     switch (interfaceOrientation) {
         case UIInterfaceOrientationPortrait:
-            if ([self currentScreen].landscape) myTransform = CGAffineTransformMakeRotation(-M_PI_2);
+            if ([self currentScreen].orientation == ORScreenOrientationLandscape) myTransform = CGAffineTransformMakeRotation(-M_PI_2);
             break;
         case UIInterfaceOrientationPortraitUpsideDown:
-            if ([self currentScreen].landscape) myTransform = CGAffineTransformMakeRotation(M_PI_2);
+            if ([self currentScreen].orientation == ORScreenOrientationLandscape) myTransform = CGAffineTransformMakeRotation(M_PI_2);
             break;
         case UIInterfaceOrientationLandscapeLeft:
-            if (![self currentScreen].landscape) myTransform = CGAffineTransformMakeRotation(M_PI_2);
+            if ([self currentScreen].orientation == ORScreenOrientationPortrait) myTransform = CGAffineTransformMakeRotation(M_PI_2);
             break;
         case UIInterfaceOrientationLandscapeRight:
-            if (![self currentScreen].landscape) myTransform = CGAffineTransformMakeRotation(-M_PI_2);
+            if ([self currentScreen].orientation == ORScreenOrientationPortrait) myTransform = CGAffineTransformMakeRotation(-M_PI_2);
             break;
         default:
             break;
     }
     
     self.view.transform = myTransform;
-    self.view.bounds = [UIScreen or_fullFrameForLandscapeOrientation:[self currentScreen].landscape];
+    self.view.bounds = [UIScreen or_fullFrameForLandscapeOrientation:([self currentScreen].orientation == ORScreenOrientationLandscape)];
     self.view.center = UIInterfaceOrientationIsPortrait(interfaceOrientation)?self.view.superview.center:CGPointMake(self.view.superview.center.y, self.view.superview.center.x);    
 }
 
@@ -292,23 +292,23 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (UIInterfaceOrientationIsLandscape(self.parentViewController.interfaceOrientation)) {
-        if (![self currentScreen].landscape) {
+        if ([self currentScreen].orientation == ORScreenOrientationPortrait) {
             // Going to a landscape version and not currently showing a landscape screen
-            int inverseScreenId = [self currentScreen].inverseScreenId;
+            ORScreen *landscapeScreen = [self currentScreen].rotatedScreen;
             // If there is a landscape version of the screen, install that one
-            if (inverseScreenId != 0) {
+            if (landscapeScreen) {
                 [self showLandscape];
-                [[self currentPaginationController] switchToScreen:inverseScreenId];
+                [[self currentPaginationController] switchToScreen:landscapeScreen];
             }
         }        
     } else {
-        if ([self currentScreen].landscape) {
+        if ([self currentScreen].orientation == ORScreenOrientationLandscape) {
             // Going to portrait and not currently showing a portrait screen
-            int inverseScreenId = [self currentScreen].inverseScreenId;
-            if (inverseScreenId != 0) {
+            ORScreen *portraitScreen = [self currentScreen].rotatedScreen;
+            if (portraitScreen) {
                 // If there is a portrait version of the screen, install that one
                 [self showPortrait];
-                [[self currentPaginationController] switchToScreen:inverseScreenId];
+                [[self currentPaginationController] switchToScreen:portraitScreen];
             }
         }
     }

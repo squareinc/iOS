@@ -20,12 +20,12 @@
  */
 #import "SubController.h"
 
-@class Screen;
+@class ORScreen;
 @class ORControllerConfig;
 @class ImageCache;
 
 @interface ScreenSubController : SubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(Screen *)aScreen;
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen;
 
 @end

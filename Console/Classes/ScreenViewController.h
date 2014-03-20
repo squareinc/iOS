@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <UIKit/UIKit.h>
-#import "ORControllerClient/Screen.h"
+#import "ORControllerClient/ORScreen.h"
 #import "ORControllerCommandSender.h"
 
 @class ImageCache;
@@ -41,7 +41,7 @@
  */
 - (void)stopPolling;
 
-@property (nonatomic, strong) Screen *screen;
+@property (nonatomic, strong) ORScreen *screen;
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end

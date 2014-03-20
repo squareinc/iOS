@@ -64,10 +64,8 @@
 - (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier;
 
 /**
- * Get a screen instance with screen id.
+ * Get a screen instance with screen identifier.
  */
-- (Screen *)findScreenById:(int)screenId;
-
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier;
 
 /**

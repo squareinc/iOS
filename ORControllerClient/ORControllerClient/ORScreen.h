@@ -36,6 +36,8 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
  */
 - (ORGesture *)gestureForType:(ORGestureType)type;
 
+- (ORScreen *)screenForOrientation:(ORScreenOrientation)anOrientation;
+
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, readonly) ORScreenOrientation orientation;
 @property (nonatomic, strong, readonly) ORScreen *rotatedScreen;

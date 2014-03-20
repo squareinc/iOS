@@ -21,12 +21,13 @@
 #import "ScreenDeferredBinding.h"
 #import "Definition.h"
 #import "Group.h"
+#import "ORObjectIdentifier.h"
 
 @implementation ScreenDeferredBinding
 
 - (void)bind
 {
-    [((Group *)self.enclosingObject).screens addObject:[self.definition findScreenById:self.boundComponentId]];
+    [((Group *)self.enclosingObject).screens addObject:[self.definition findScreenByIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:self.boundComponentId]]];
 }
 
 - (NSString *)description

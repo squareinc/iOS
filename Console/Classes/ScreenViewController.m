@@ -163,18 +163,25 @@
 @synthesize polling;
 @synthesize screenSubController;
 
+// TODO: don't re-implement setter but use KVO + setter is not implementing memory management correctly
+
 /**
  * Assign parameter screen model data to screenViewController.
  */
-- (void)setScreen:(Screen *)s
+- (void)setScreen:(ORScreen *)s
 {
 	screen = s;
     [self setupGestureRecognizers];
+    /*
+     
+     // TODO: double check, but PollingHelper should not be required anymore
+     
 	if ([[screen pollingComponentsIds] count] > 0 ) {
 		self.polling = [[PollingHelper alloc] initWithController:self.controller
                                                     componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
         self.polling.imageCache = self.imageCache;
 	}
+     */
 }
 
 @end

@@ -128,7 +128,6 @@
 		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
 		91933361179E9BD00086FEE7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933332179E9BCF0086FEE7 /* Group.m */; };
 		91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* LayoutContainer.m */; };
-		91933366179E9BD00086FEE7 /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333C179E9BCF0086FEE7 /* Screen.m */; };
 		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
 		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
 		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
@@ -150,7 +149,6 @@
 		9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* GridCell.h */; };
 		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
 		91933381179E9EB10086FEE7 /* Group.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933331179E9BCF0086FEE7 /* Group.h */; };
-		91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333B179E9BCF0086FEE7 /* Screen.h */; };
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
 		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
 		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
@@ -170,7 +168,6 @@
 		919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B1179EA2D40086FEE7 /* DefinitionElementParserRegister.m */; };
 		919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */; };
 		919333F3179EA2DE0086FEE7 /* DefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B5179EA2D50086FEE7 /* DefinitionParser.m */; };
-		919333F4179EA2DE0086FEE7 /* ScreenParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B7179EA2D50086FEE7 /* ScreenParser.m */; };
 		919333F5179EA2DE0086FEE7 /* LayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B9179EA2D60086FEE7 /* LayoutContainerParser.m */; };
 		919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BB179EA2D60086FEE7 /* AbsoluteLayoutContainerParser.m */; };
 		919333F7179EA2DE0086FEE7 /* GridLayoutContainerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */; };
@@ -248,6 +245,7 @@
 		91BCD68318994BF500EC8AEE /* ORBackgroundParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD68218994BF500EC8AEE /* ORBackgroundParserTest.m */; };
 		91BCD6861899540600EC8AEE /* ORBackgroundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD6851899540600EC8AEE /* ORBackgroundTest.m */; };
 		91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91BCD67A189806E000EC8AEE /* ORBackground.h */; };
+		91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */; };
 		91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */; };
 		91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
 		91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
@@ -299,6 +297,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */,
 				91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */,
 				91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */,
 				91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */,
@@ -331,7 +330,6 @@
 				9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
 				91933381179E9EB10086FEE7 /* Group.h in CopyFiles */,
-				91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */,
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
 				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
 				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
@@ -500,8 +498,6 @@
 		91933332179E9BCF0086FEE7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		91933337179E9BCF0086FEE7 /* LayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainer.h; sourceTree = "<group>"; };
 		91933338179E9BCF0086FEE7 /* LayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainer.m; sourceTree = "<group>"; };
-		9193333B179E9BCF0086FEE7 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
-		9193333C179E9BCF0086FEE7 /* Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Screen.m; sourceTree = "<group>"; };
 		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
 		9193333E179E9BCF0086FEE7 /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
 		9193333F179E9BCF0086FEE7 /* SensorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorComponent.h; sourceTree = "<group>"; };
@@ -541,8 +537,6 @@
 		919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionElementParser.m; sourceTree = "<group>"; };
 		919333B4179EA2D50086FEE7 /* DefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionParser.h; sourceTree = "<group>"; };
 		919333B5179EA2D50086FEE7 /* DefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionParser.m; sourceTree = "<group>"; };
-		919333B6179EA2D50086FEE7 /* ScreenParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenParser.h; sourceTree = "<group>"; };
-		919333B7179EA2D50086FEE7 /* ScreenParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenParser.m; sourceTree = "<group>"; };
 		919333B8179EA2D60086FEE7 /* LayoutContainerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainerParser.h; sourceTree = "<group>"; };
 		919333B9179EA2D60086FEE7 /* LayoutContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainerParser.m; sourceTree = "<group>"; };
 		919333BA179EA2D60086FEE7 /* AbsoluteLayoutContainerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsoluteLayoutContainerParser.h; sourceTree = "<group>"; };
@@ -1097,8 +1091,6 @@
 				91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */,
 				91933331179E9BCF0086FEE7 /* Group.h */,
 				91933332179E9BCF0086FEE7 /* Group.m */,
-				9193333B179E9BCF0086FEE7 /* Screen.h */,
-				9193333C179E9BCF0086FEE7 /* Screen.m */,
 				9193333D179E9BCF0086FEE7 /* Sensor.h */,
 				9193333E179E9BCF0086FEE7 /* Sensor.m */,
 				9193333F179E9BCF0086FEE7 /* SensorComponent.h */,
@@ -1130,8 +1122,6 @@
 				919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */,
 				919333B4179EA2D50086FEE7 /* DefinitionParser.h */,
 				919333B5179EA2D50086FEE7 /* DefinitionParser.m */,
-				919333B6179EA2D50086FEE7 /* ScreenParser.h */,
-				919333B7179EA2D50086FEE7 /* ScreenParser.m */,
 				919333B8179EA2D60086FEE7 /* LayoutContainerParser.h */,
 				919333B9179EA2D60086FEE7 /* LayoutContainerParser.m */,
 				919333BA179EA2D60086FEE7 /* AbsoluteLayoutContainerParser.h */,
@@ -1456,7 +1446,6 @@
 				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
 				91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */,
-				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
 				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
@@ -1483,7 +1472,6 @@
 				919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */,
 				919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */,
 				919333F3179EA2DE0086FEE7 /* DefinitionParser.m in Sources */,
-				919333F4179EA2DE0086FEE7 /* ScreenParser.m in Sources */,
 				91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */,
 				919333F5179EA2DE0086FEE7 /* LayoutContainerParser.m in Sources */,
 				919333F6179EA2DE0086FEE7 /* AbsoluteLayoutContainerParser.m in Sources */,

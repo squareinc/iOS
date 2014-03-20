@@ -47,9 +47,9 @@
 - (id)initWithGroup:(Group *)aGroup tabBar:(ORTabBar *)aTabBar;
 
 /**
- * Switch to the specified screen with screen id.
+ * Switch to the specified screen.
  */
-- (BOOL)switchToScreen:(int)screenId;
+- (BOOL)switchToScreen:(ORScreen *)aScreen;
 
 /**
  * Switch to the previous screen of current screen.

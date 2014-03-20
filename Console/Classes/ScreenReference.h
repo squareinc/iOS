@@ -21,6 +21,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORObjectIdentifier;
+
 /**
  * Object storing reference to a given screen (or group).
  * Used for navigation management.
@@ -28,8 +30,8 @@
 @interface ScreenReference : NSObject
 
 @property (readonly) int groupId;
-@property (readonly) int screenId;
+@property (copy, readonly) ORObjectIdentifier *screenIdentifier;
 
-- (id)initWithGroupId:(int)aGroupdId screenId:(int)aScreenId;
+- (id)initWithGroupId:(int)aGroupdId screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier;
 
 @end

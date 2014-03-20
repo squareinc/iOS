@@ -27,6 +27,7 @@
 #import "ORControllerClient/ORScreenNavigation.h"
 #import "ORControllerClient/ORGroup.h"
 #import "ORControllerClient/ORScreen.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 #import "ScreenReference.h"
 #import "ScreenReferenceStack.h"
@@ -49,8 +50,7 @@
 
 - (void)navigateFromNotification:(NSNotification *)notification;
 - (void)refreshView:(id)sender;
-- (BOOL)navigateToGroup:(int)groupId toScreen:(int)screenId;
-- (BOOL)navigateToScreen:(int)to;
+- (BOOL)navigateToGroup:(int)groupId toScreen:(ORScreen *)aScreen;
 - (BOOL)navigateToPreviousScreen;
 - (BOOL)navigateToNextScreen;
 - (void)logout;
@@ -200,7 +200,7 @@
 
 	// Take the reference before navigating so it references the original screen and not the destination
     ScreenReference *currentScreen = [[ScreenReference alloc] initWithGroupId:self.currentGroupController.group.groupId
-                                                                     screenId:[self.currentGroupController currentScreenId]];
+                                                             screenIdentifier:[self.currentGroupController currentScreenIdentifier]];
 	if ([self navigateTo:navi]) {
 		[self saveLastGroupIdAndScreenId];
 		[self.navigationHistory push:currentScreen];
@@ -208,13 +208,13 @@
 }
 
 - (void)saveLastGroupIdAndScreenId {
-	if (self.currentGroupController.group.groupId == 0 || [self.currentGroupController currentScreenId] == 0) {
+	if (self.currentGroupController.group.groupId == 0 || [self.currentGroupController currentScreenIdentifier] == 0) {
 		return;
 	}
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults setObject:[NSString stringWithFormat:@"%d",self.currentGroupController.group.groupId] forKey:@"lastGroupId"];
-	[userDefaults setObject:[NSString stringWithFormat:@"%d",[self.currentGroupController currentScreenId]] forKey:@"lastScreenId"];
-	NSLog(@"saveLastGroupIdAndScreenId : groupID %d, screenID %d", [[userDefaults objectForKey:@"lastGroupId"] intValue], [[userDefaults objectForKey:@"lastScreenId"] intValue]);
+	[userDefaults setObject:[[self.currentGroupController currentScreenIdentifier] stringValue] forKey:@"lastScreenId"];
+	NSLog(@"saveLastGroupIdAndScreenId : groupID %d, screenID %@", [[userDefaults objectForKey:@"lastGroupId"] intValue], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
 // Returned BOOL value is whether to save history
@@ -226,7 +226,7 @@
         case ORNavigationTypeToGroupOrScreen:
         {
             ORScreenNavigation *screenNavi = (ORScreenNavigation *)navi;
-            return [self navigateToGroup:screenNavi.destinationGroup.groupId toScreen:screenNavi.destinationScreen.screenId];
+            return [self navigateToGroup:screenNavi.destinationGroup.groupId toScreen:screenNavi.destinationScreen];
             break;
         }
         case ORNavigationTypePreviousScreen:
@@ -266,12 +266,11 @@
     [self switchToGroupController:targetGroupController];
 }
 
-- (BOOL)navigateToGroup:(int)groupId toScreen:(int)screenId {
+- (BOOL)navigateToGroup:(int)groupId toScreen:(ORScreen *)screen {
 	GroupController *targetGroupController = nil;
 	
 	BOOL isAnotherGroup = groupId != [self.currentGroupController groupId];
 	
-    
     Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 
 	//if screenId is specified, and is not in current group, jump to that group
@@ -291,19 +290,19 @@
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController withGroupId:groupId];
 	}
 	
-    Screen *screen = nil;
-	if (screenId > 0) {
+    ORScreen *targetScreen;
+	if (screen) {
         // If screenId is specified, jump to that screen
-         screen = [self.currentGroupController.group findScreenByScreenId:screenId];
+        targetScreen = screen;
     } else {
         //If only group is specified, then by definition we show the first screen of that group.
-        screen = [self.currentGroupController.group.screens objectAtIndex:0];
+        targetScreen = [self.currentGroupController.group.screens objectAtIndex:0];
     }
     // First check if we have a screen more appropriate for the current device orientation orientation
-    if (screen) {
-        screenId = [screen screenIdForOrientation:[[UIDevice currentDevice] orientation]];
+    if (targetScreen) {
+        targetScreen = [targetScreen screenForOrientation:UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])?ORScreenOrientationLandscape:ORScreenOrientationPortrait];
     }
-	return [self.currentGroupController switchToScreen:screenId];
+	return [self.currentGroupController switchToScreen:targetScreen];
 }
 
 //logout only when password is saved.
@@ -318,9 +317,11 @@
 {
     ScreenReference *previousScreen = [self.navigationHistory pop];
     if (previousScreen) {
-        if (previousScreen.groupId > 0 && previousScreen.screenId > 0) {
-            NSLog(@"navigate back to group %d, screen %d", previousScreen.groupId, previousScreen.screenId);
-			[self navigateToGroup:previousScreen.groupId toScreen:previousScreen.screenId];
+        if (previousScreen.groupId > 0 && previousScreen.screenIdentifier) {
+            Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
+
+            NSLog(@"navigate back to group %d, screen %@", previousScreen.groupId, previousScreen.screenIdentifier);
+			[self navigateToGroup:previousScreen.groupId toScreen:[definition findScreenByIdentifier:previousScreen.screenIdentifier]];
         }
     }
 }
