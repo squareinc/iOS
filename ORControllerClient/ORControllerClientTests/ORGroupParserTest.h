@@ -19,30 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@class ORTabBar;
-@class ORScreen;
-
-@interface ORGroup : ORWidget
-
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSArray *screens;
-@property (nonatomic, strong, readonly) ORTabBar *tabBar;
-
-/**
- * Get all screens whose orientation is portrait.
- */
-- (NSArray *)portraitScreens;
-
-/**
- * Get all screens whose orientation is landscape.
- */
-- (NSArray *)landscapeScreens;
-
-/**
- * Find screen model by screen identifier. returns nil if not found.
- */
-- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;
+@interface ORGroupParserTest : SenTestCase
 
 @end

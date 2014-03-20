@@ -26,7 +26,7 @@
 #import "DefinitionParserMock.h"
 #import "ORNavigation.h"
 #import "ORScreen_Private.h"
-#import "ORGroup.h"
+#import "ORGroup_Private.h"
 #import "Definition.h"
 #import "ORScreenNavigation.h"
 #import "ORObjectIdentifier.h"
@@ -40,7 +40,7 @@
     Definition *definition = [[Definition alloc] init];
     ORScreen *screen = [[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:12] name:@"Screen" orientation:ORScreenOrientationPortrait];
     [definition addScreen:screen];
-    ORGroup *group = [[Group alloc] initWithGroupId:3 name:@"Group"];
+    ORGroup *group = [[ORGroup alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3] name:@"Group"];
     [definition addGroup:group];
     depRegistry.definition = definition;
     
@@ -93,7 +93,9 @@
     
     // TODO: update for ORObjectIdentifier
     STAssertNil(((ORScreenNavigation *)navigation).destinationScreen, @"Parsed navigation should not navigate to any screen");
-    STAssertEquals(((ORScreenNavigation *)navigation).destinationGroup.groupId, 3, @"Parsed navigation should navigate to group with id 3");
+    STAssertEqualObjects(((ORScreenNavigation *)navigation).destinationGroup.identifier,
+                         [[ORObjectIdentifier alloc] initWithIntegerId:3],
+                         @"Parsed navigation should navigate to group with id 3");
 }
 
 - (void)testParseNavigateToScreenAndGroup
@@ -107,7 +109,9 @@
     STAssertEqualObjects(((ORScreenNavigation *)navigation).destinationScreen.identifier,
                          [[ORObjectIdentifier alloc] initWithIntegerId:12],
                          @"Parsed navigation should navigate to screen with id 12");
-    STAssertEquals(((ORScreenNavigation *)navigation).destinationGroup.groupId, 3, @"Parsed navigation should navigate to group with id 3");
+    STAssertEqualObjects(((ORScreenNavigation *)navigation).destinationGroup.identifier,
+                         [[ORObjectIdentifier alloc] initWithIntegerId:3],
+                         @"Parsed navigation should navigate to group with id 3");
 }
 
 - (void)testParseNavigateLogicalType

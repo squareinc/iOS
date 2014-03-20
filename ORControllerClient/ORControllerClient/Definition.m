@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "Definition.h"
-#import "Group.h"
+#import "ORGroup.h"
 #import "ORScreen.h"
 #import "ORSensorRegistry.h"
 #import "ORController.h"
@@ -76,20 +76,14 @@
 	return self;
 }
 
-- (Group *)findGroupById:(int)groupId {
-	for (Group *g in self.groups) {
-		if (g.groupId == groupId) {
-			return g;			
+- (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier
+{
+	for (ORGroup *g in self.groups) {
+		if ([g.identifier isEqual:groupIdentifier]) {
+			return g;
 		}
 	}
 	return nil;
-}
-
-- (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier
-{
-    // TODO: re-implement with appropriate class
-    Group *g = [self findGroupById:[[groupIdentifier stringValue] intValue]];
-    return g;
 }
 
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier
@@ -102,10 +96,10 @@
     return nil;
 }
 
-- (void)addGroup:(Group *)group {
+- (void)addGroup:(ORGroup *)group {
 	for (int i = 0; i < self.groups.count; i++) {
-		Group *tempGroup = [self.groups objectAtIndex:i];
-		if (tempGroup.groupId == group.groupId) {
+		ORGroup *tempGroup = [self.groups objectAtIndex:i];
+		if ([tempGroup.identifier isEqual:group.identifier]) {
 			[self.groups replaceObjectAtIndex:i withObject:group];
 			return;
 		}

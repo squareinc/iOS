@@ -19,30 +19,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
+#import "ORGroupScreenDeferredBinding.h"
+#import "ORGroup_Private.h"
+#import "ORScreen.h"
+#import "Definition.h"
 
-@class ORTabBar;
-@class ORScreen;
+@implementation ORGroupScreenDeferredBinding
 
-@interface ORGroup : ORWidget
+- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+{
+    if (![anEnclosingObject isKindOfClass:[ORGroup class]]) {
+        return nil;
+    }
+    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
+    return self;
+}
 
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSArray *screens;
-@property (nonatomic, strong, readonly) ORTabBar *tabBar;
-
-/**
- * Get all screens whose orientation is portrait.
- */
-- (NSArray *)portraitScreens;
-
-/**
- * Get all screens whose orientation is landscape.
- */
-- (NSArray *)landscapeScreens;
-
-/**
- * Find screen model by screen identifier. returns nil if not found.
- */
-- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;
+- (void)bind
+{
+    [((ORGroup *)self.enclosingObject) addScreen:[self.enclosingObject.definition findScreenByIdentifier:self.boundComponentId]];
+}
 
 @end

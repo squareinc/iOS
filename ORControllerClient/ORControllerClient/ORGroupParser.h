@@ -18,31 +18,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#import "DefinitionElementParser.h"
 
-#import "ORWidget.h"
-
-@class ORTabBar;
-@class ORScreen;
-
-@interface ORGroup : ORWidget
-
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSArray *screens;
-@property (nonatomic, strong, readonly) ORTabBar *tabBar;
+@class ORGroup;
 
 /**
- * Get all screens whose orientation is portrait.
+ * Parses a <group...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORGroup model object instance.
+ *
+ * XML fragment example:
+ * <group id="27" name="Bedroom">
+ *    <include type="screen" ref="30" />
+ *    <include type="screen" ref="45" />
+ * </group>
  */
-- (NSArray *)portraitScreens;
+@interface ORGroupParser : DefinitionElementParser
 
 /**
- * Get all screens whose orientation is landscape.
+ * ORGroup model object parsed from the XML fragment.
  */
-- (NSArray *)landscapeScreens;
-
-/**
- * Find screen model by screen identifier. returns nil if not found.
- */
-- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;
+@property (nonatomic, strong, readonly) ORGroup *group;
 
 @end

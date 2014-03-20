@@ -19,8 +19,55 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORGroup.h"
+#import "ORGroup_Private.h"
+#import "ORScreen.h"
+
+@interface ORGroup ()
+
+@property (nonatomic, copy, readwrite) NSString *name;
+
+@property (nonatomic, strong, readwrite) NSMutableArray *_screens;
+
+@end
 
 @implementation ORGroup
+
+- (id)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName
+{
+    self = [super initWithIdentifier:anIdentifier];
+    if (self) {
+        self.name = aName;
+        self._screens = [NSMutableArray array];
+    }
+    return self;
+}
+
+- (void)addScreen:(ORScreen *)screen
+{
+    [self._screens addObject:screen];
+}
+
+- (NSArray *)screens
+{
+    return [NSArray arrayWithArray:self._screens];
+}
+
+- (NSArray *)portraitScreens
+{
+    return [self._screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d", ORScreenOrientationPortrait]];
+}
+
+- (NSArray *)landscapeScreens
+{
+    return [self._screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"orientation == %d", ORScreenOrientationLandscape]];
+}
+
+- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier
+{
+	NSArray *ss = [self._screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier == %@", identifier]];
+    return [ss lastObject];
+}
+
+@synthesize tabBar;
 
 @end

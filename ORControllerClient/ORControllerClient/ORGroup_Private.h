@@ -19,30 +19,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
+#import "ORGroup.h"
 
-@class ORTabBar;
-@class ORScreen;
+@class ORObjectIdentifier;
 
-@interface ORGroup : ORWidget
+@interface ORGroup ()
 
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSArray *screens;
-@property (nonatomic, strong, readonly) ORTabBar *tabBar;
+- (id)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 
-/**
- * Get all screens whose orientation is portrait.
- */
-- (NSArray *)portraitScreens;
+- (void)addScreen:(ORScreen *)screen;
 
-/**
- * Get all screens whose orientation is landscape.
- */
-- (NSArray *)landscapeScreens;
-
-/**
- * Find screen model by screen identifier. returns nil if not found.
- */
-- (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;
+@property (nonatomic, strong, readwrite) ORTabBar *tabBar;
 
 @end
