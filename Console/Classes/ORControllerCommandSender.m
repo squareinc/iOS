@@ -20,7 +20,7 @@
  */
 #import "ORControllerCommandSender.h"
 #import "ORControllerConfig.h"
-#import "ORControllerClient/Component.h"
+#import "ORControllerClient/ORWidget.h"
 #import "ORControllerClient/Definition.h"
 #import "ViewHelper.h"
 #import "ControllerException.h"
@@ -38,7 +38,7 @@
 
 @implementation ORControllerCommandSender
 
-- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(ORWidget *)aComponent
 {
     self = [super initWithController:aController];
     if (self) {

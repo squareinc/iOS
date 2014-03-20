@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ComponentSubController.h"
-#import "ORControllerClient/Component.h"
 #import "LabelSubController.h"
 #import "ORControllerClient/ORLabel.h"
 #import "ImageSubController.h"
@@ -37,7 +36,7 @@
 
 @interface ComponentSubController()
 
-@property (nonatomic, readwrite, strong) Component *component;
+@property (nonatomic, readwrite, strong) ORWidget *component;
 @property (nonatomic, weak) ORControllerConfig *controller;
 @property (nonatomic, weak) ImageCache *imageCache;
 
@@ -61,7 +60,7 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               nil];
 }
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
 {
     self = [super init];
     if (self) {

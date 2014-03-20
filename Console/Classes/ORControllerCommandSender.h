@@ -21,7 +21,7 @@
 #import "ORControllerSender.h"
 #import "ControllerRequest.h"
 
-@class Component;
+@class ORWidget;
 @class ORControllerConfig;
 
 @protocol ORControllerCommandSenderDelegate <NSObject>
@@ -34,6 +34,6 @@
 
 @property (nonatomic, weak) NSObject <ORControllerCommandSenderDelegate> *delegate;
 
-- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(Component *)aComponent;
+- (id)initWithController:(ORControllerConfig *)aController command:(NSString *)aCommand component:(ORWidget *)aComponent;
 
 @end

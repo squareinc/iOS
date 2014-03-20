@@ -34,7 +34,7 @@
 
 @implementation ColorPickerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {

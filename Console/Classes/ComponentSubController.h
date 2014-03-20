@@ -20,7 +20,7 @@
  */
 #import "SubController.h"
 
-@class Component;
+@class ORWidget;
 @class ORControllerConfig;
 @class ImageCache;
 
@@ -28,8 +28,8 @@
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent;
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent;
 
-@property (nonatomic, readonly, strong) Component *component;
+@property (nonatomic, readonly, strong) ORWidget *component;
 
 @end

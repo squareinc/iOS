@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "LabelSubController.h"
-#import "ORControllerClient/Component.h"
+#import "ORControllerClient/ORWidget.h"
 #import "SensorStatusCache.h"
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
@@ -36,7 +36,7 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 
 @implementation LabelSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(Component *)aComponent
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
 {
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
