@@ -20,7 +20,6 @@
  */
 #import "ScreenSubController.h"
 #import "ORControllerClient/ORScreen.h"
-#import "ORControllerClient/Image.h"
 #import "ImageCache.h"
 #import "FileUtils.h"
 #import "ClippedUIImage.h"

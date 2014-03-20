@@ -22,7 +22,6 @@
 #import "ORControllerClient/Group.h"
 #import "PaginationController.h"
 #import "ErrorViewController.h"
-#import "ORControllerClient/Screen.h"
 
 @class ImageCache;
 
