@@ -50,7 +50,7 @@
 
 - (void)navigateFromNotification:(NSNotification *)notification;
 - (void)refreshView:(id)sender;
-- (BOOL)navigateToGroup:(int)groupId toScreen:(ORScreen *)aScreen;
+- (BOOL)navigateToGroup:(ORGroup *)aGroup toScreen:(ORScreen *)aScreen;
 - (BOOL)navigateToPreviousScreen;
 - (BOOL)navigateToNextScreen;
 - (void)logout;
@@ -147,10 +147,10 @@
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	GroupController *gc = nil;
 	if ([userDefaults objectForKey:@"lastGroupId"]) {
-		int lastGroupId = [[userDefaults objectForKey:@"lastGroupId"] intValue];
-		Group *lastGroup = nil;
-		for (Group *tempGroup in groups) {
-			if (lastGroupId == tempGroup.groupId) {
+		ORObjectIdentifier *lastGroupIdentifier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastGroupId"]];
+		ORGroup *lastGroup = nil;
+		for (ORGroup *tempGroup in groups) {
+			if ([lastGroupIdentifier isEqual:tempGroup.identifier]) {
 				lastGroup = tempGroup;
 				break;
 			}
@@ -160,11 +160,11 @@
                                                        group:lastGroup parentViewController:self];
 		} else {
 			gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                       group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
+                                                       group:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
 		}
 	} else {
 		gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                   group:((Group *)[groups objectAtIndex:0]) parentViewController:self];
+                                                   group:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
 	}
     gc.imageCache = self.imageCache;
 	return gc;
@@ -199,8 +199,8 @@
     }
 
 	// Take the reference before navigating so it references the original screen and not the destination
-    ScreenReference *currentScreen = [[ScreenReference alloc] initWithGroupId:self.currentGroupController.group.groupId
-                                                             screenIdentifier:[self.currentGroupController currentScreenIdentifier]];
+    ScreenReference *currentScreen = [[ScreenReference alloc] initWithGroupIdentifier:self.currentGroupController.group.identifier
+                                                                     screenIdentifier:[self.currentGroupController currentScreenIdentifier]];
 	if ([self navigateTo:navi]) {
 		[self saveLastGroupIdAndScreenId];
 		[self.navigationHistory push:currentScreen];
@@ -208,13 +208,13 @@
 }
 
 - (void)saveLastGroupIdAndScreenId {
-	if (self.currentGroupController.group.groupId == 0 || [self.currentGroupController currentScreenIdentifier] == 0) {
+	if (!self.currentGroupController.group.identifier || ![self.currentGroupController currentScreenIdentifier]) {
 		return;
 	}
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setObject:[NSString stringWithFormat:@"%d",self.currentGroupController.group.groupId] forKey:@"lastGroupId"];
+	[userDefaults setObject:[self.currentGroupController.group.identifier stringValue] forKey:@"lastGroupId"];
 	[userDefaults setObject:[[self.currentGroupController currentScreenIdentifier] stringValue] forKey:@"lastScreenId"];
-	NSLog(@"saveLastGroupIdAndScreenId : groupID %d, screenID %@", [[userDefaults objectForKey:@"lastGroupId"] intValue], [userDefaults objectForKey:@"lastScreenId"]);
+	NSLog(@"saveLastGroupIdAndScreenId : groupID %@, screenID %@", [userDefaults objectForKey:@"lastGroupId"], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
 // Returned BOOL value is whether to save history
@@ -226,7 +226,7 @@
         case ORNavigationTypeToGroupOrScreen:
         {
             ORScreenNavigation *screenNavi = (ORScreenNavigation *)navi;
-            return [self navigateToGroup:screenNavi.destinationGroup.groupId toScreen:screenNavi.destinationScreen];
+            return [self navigateToGroup:screenNavi.destinationGroup toScreen:screenNavi.destinationScreen];
             break;
         }
         case ORNavigationTypePreviousScreen:
@@ -259,35 +259,28 @@
     }
 }
 
-- (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController withGroupId:(int)groupId
+- (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController
 {
 	[self hideErrorViewController];
     [self hideInitViewController];
     [self switchToGroupController:targetGroupController];
 }
 
-- (BOOL)navigateToGroup:(int)groupId toScreen:(ORScreen *)screen {
+- (BOOL)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen {
 	GroupController *targetGroupController = nil;
 	
-	BOOL isAnotherGroup = groupId != [self.currentGroupController groupId];
-	
-    Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
+	BOOL isAnotherGroup = ![group.identifier isEqual:[self.currentGroupController groupIdentifier]];
 
 	//if screenId is specified, and is not in current group, jump to that group
-	if (groupId > 0 && isAnotherGroup) {
+	if (group && isAnotherGroup) {
 		if (targetGroupController == nil) {
-			Group *group = [definition findGroupById:groupId];
-			if (group) {
-				targetGroupController = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                                               group:group parentViewController:self];
-                targetGroupController.imageCache = self.imageCache;
-			} else {
-				return NO;
-			}
+            targetGroupController = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                          group:group parentViewController:self];
+            targetGroupController.imageCache = self.imageCache;
 		}
 		
         [self.currentGroupController stopPolling];
-		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController withGroupId:groupId];
+		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}
 	
     ORScreen *targetScreen;
@@ -317,11 +310,12 @@
 {
     ScreenReference *previousScreen = [self.navigationHistory pop];
     if (previousScreen) {
-        if (previousScreen.groupId > 0 && previousScreen.screenIdentifier) {
+        if (previousScreen.groupIdentifier && previousScreen.screenIdentifier) {
             Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 
-            NSLog(@"navigate back to group %d, screen %@", previousScreen.groupId, previousScreen.screenIdentifier);
-			[self navigateToGroup:previousScreen.groupId toScreen:[definition findScreenByIdentifier:previousScreen.screenIdentifier]];
+            NSLog(@"navigate back to group %@, screen %@", previousScreen.groupIdentifier, previousScreen.screenIdentifier);
+			[self navigateToGroup:[definition findGroupByIdentifier:previousScreen.groupIdentifier]
+                         toScreen:[definition findScreenByIdentifier:previousScreen.screenIdentifier]];
         }
     }
 }
