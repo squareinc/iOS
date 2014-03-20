@@ -126,7 +126,6 @@
 		60366C12144DCB9C004FED3B /* AbsoluteLayoutContainerSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7F7140E80C50001B78F /* AbsoluteLayoutContainerSubController.m */; };
 		60366C13144DCB9C004FED3B /* LabelSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7FB140E8EA30001B78F /* LabelSubController.m */; };
 		60366C14144DCB9C004FED3B /* ComponentSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7FF140E912F0001B78F /* ComponentSubController.m */; };
-		60366C15144DCB9C004FED3B /* SensorySubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC803140EA29E0001B78F /* SensorySubController.m */; };
 		60366C16144DCB9C004FED3B /* ImageSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC807140EA7510001B78F /* ImageSubController.m */; };
 		60366C17144DCB9C004FED3B /* ControlSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC82E140EC3770001B78F /* ControlSubController.m */; };
 		60366C18144DCB9C004FED3B /* ButtonSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC832140EC38C0001B78F /* ButtonSubController.m */; };
@@ -371,8 +370,6 @@
 		60AFC7FB140E8EA30001B78F /* LabelSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSubController.m; sourceTree = "<group>"; };
 		60AFC7FE140E912F0001B78F /* ComponentSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentSubController.h; sourceTree = "<group>"; };
 		60AFC7FF140E912F0001B78F /* ComponentSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentSubController.m; sourceTree = "<group>"; };
-		60AFC802140EA29D0001B78F /* SensorySubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorySubController.h; sourceTree = "<group>"; };
-		60AFC803140EA29E0001B78F /* SensorySubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorySubController.m; sourceTree = "<group>"; };
 		60AFC806140EA7500001B78F /* ImageSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSubController.h; sourceTree = "<group>"; };
 		60AFC807140EA7510001B78F /* ImageSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSubController.m; sourceTree = "<group>"; };
 		60AFC82D140EC3760001B78F /* ControlSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSubController.h; sourceTree = "<group>"; };
@@ -856,8 +853,6 @@
 				60DEC3C1140FA6FD000FF863 /* GridLayoutContainerSubController.m */,
 				60AFC7FE140E912F0001B78F /* ComponentSubController.h */,
 				60AFC7FF140E912F0001B78F /* ComponentSubController.m */,
-				60AFC802140EA29D0001B78F /* SensorySubController.h */,
-				60AFC803140EA29E0001B78F /* SensorySubController.m */,
 				60AFC7FA140E8EA30001B78F /* LabelSubController.h */,
 				60AFC7FB140E8EA30001B78F /* LabelSubController.m */,
 				60AFC806140EA7500001B78F /* ImageSubController.h */,
@@ -1532,7 +1527,6 @@
 				60366C12144DCB9C004FED3B /* AbsoluteLayoutContainerSubController.m in Sources */,
 				60366C13144DCB9C004FED3B /* LabelSubController.m in Sources */,
 				60366C14144DCB9C004FED3B /* ComponentSubController.m in Sources */,
-				60366C15144DCB9C004FED3B /* SensorySubController.m in Sources */,
 				60366C16144DCB9C004FED3B /* ImageSubController.m in Sources */,
 				60366C17144DCB9C004FED3B /* ControlSubController.m in Sources */,
 				60366C18144DCB9C004FED3B /* ButtonSubController.m in Sources */,
