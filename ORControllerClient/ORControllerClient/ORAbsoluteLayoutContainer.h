@@ -20,7 +20,7 @@
  */
 #import "ORLayoutContainer.h"
 
-@class Component;
+@class ORWidget;
 
 @interface ORAbsoluteLayoutContainer : ORLayoutContainer
 
@@ -29,6 +29,6 @@
              width:(NSUInteger)widthDim
             height:(NSUInteger)heightDim;
 
-@property (nonatomic, strong) Component *widget;
+@property (nonatomic, strong) ORWidget *widget;
 
 @end

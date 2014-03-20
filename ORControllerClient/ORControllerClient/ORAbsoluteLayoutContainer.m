@@ -19,8 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORAbsoluteLayoutContainer.h"
-#import "SensorComponent.h"
-#import "Sensor.h"
 
 @interface ORAbsoluteLayoutContainer ()
 

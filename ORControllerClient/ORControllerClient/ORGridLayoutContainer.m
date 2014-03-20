@@ -20,8 +20,6 @@
  */
 #import "ORGridLayoutContainer.h"
 #import "ORGridCell.h"
-#import "SensorComponent.h"
-#import "Sensor.h"
 
 @interface ORGridLayoutContainer ()
 

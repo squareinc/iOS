@@ -20,7 +20,7 @@
  */
 #import "AbsoluteLayoutContainerSubController.h"
 #import "ORControllerClient/ORAbsoluteLayoutContainer.h"
-#import "ORControllerClient/Component.h"
+#import "ORControllerClient/ORWidget.h"
 #import "ComponentSubController.h"
 
 @interface AbsoluteLayoutContainerSubController()
@@ -40,8 +40,8 @@
 {
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
-        Component *aComponent = ((ORAbsoluteLayoutContainer *)aLayoutContainer).widget;
-        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
+        ORWidget *widget = ((ORAbsoluteLayoutContainer *)aLayoutContainer).widget;
+        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithController:self.controller imageCache:aCache component:widget];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }
     

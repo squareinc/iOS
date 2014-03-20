@@ -20,7 +20,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@class Component;
+@class ORWidget;
 
 @interface ORGridCell : NSObject
 
@@ -29,7 +29,7 @@
 @property (nonatomic, readonly) NSUInteger rowspan;
 @property (nonatomic, readonly) NSUInteger colspan;
 
-@property (nonatomic, strong) Component *widget;
+@property (nonatomic, strong) ORWidget *widget;
 
 - (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
 
