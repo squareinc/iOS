@@ -60,10 +60,10 @@
         [self addKnownTag:SWITCH];
         [self addKnownTag:SLIDER];
         [self addKnownTag:COLORPICKER];
-        self.layoutContainer = [[ORAbsoluteLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] intValue]
-                                                                         top:[[attributeDict objectForKey:@"top"] intValue]
-                                                                       width:[[attributeDict objectForKey:@"width"] intValue]
-                                                                      height:[[attributeDict objectForKey:@"height"] intValue]];
+        self.layoutContainer = [[ORAbsoluteLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] integerValue]
+                                                                         top:[[attributeDict objectForKey:@"top"] integerValue]
+                                                                       width:[[attributeDict objectForKey:@"width"] unsignedIntegerValue]
+                                                                      height:[[attributeDict objectForKey:@"height"] unsignedIntegerValue]];
     }
     return self;
 }

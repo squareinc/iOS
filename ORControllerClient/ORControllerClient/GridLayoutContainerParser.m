@@ -43,12 +43,12 @@
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
         [self addKnownTag:@"cell"];
-        self.layoutContainer = [[ORGridLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] intValue]
-                                                                     top:[[attributeDict objectForKey:@"top"] intValue]
-                                                                   width:[[attributeDict objectForKey:@"width"] intValue]
-                                                                  height:[[attributeDict objectForKey:@"height"] intValue]
-                                                                    rows:[[attributeDict objectForKey:@"rows"] intValue]
-                                                                    cols:[[attributeDict objectForKey:@"cols"] intValue]];
+        self.layoutContainer = [[ORGridLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] integerValue]
+                                                                     top:[[attributeDict objectForKey:@"top"] integerValue]
+                                                                   width:[[attributeDict objectForKey:@"width"] unsignedIntegerValue]
+                                                                  height:[[attributeDict objectForKey:@"height"] unsignedIntegerValue]
+                                                                    rows:[[attributeDict objectForKey:@"rows"] unsignedIntegerValue]
+                                                                    cols:[[attributeDict objectForKey:@"cols"] unsignedIntegerValue]];
     }
     return self;
 }
