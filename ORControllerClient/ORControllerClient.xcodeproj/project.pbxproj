@@ -128,7 +128,6 @@
 		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
 		91933361179E9BD00086FEE7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933332179E9BCF0086FEE7 /* Group.m */; };
 		91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* LayoutContainer.m */; };
-		91933365179E9BD00086FEE7 /* Navigate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333A179E9BCF0086FEE7 /* Navigate.m */; };
 		91933366179E9BD00086FEE7 /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333C179E9BCF0086FEE7 /* Screen.m */; };
 		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
 		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
@@ -151,7 +150,6 @@
 		9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* GridCell.h */; };
 		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
 		91933381179E9EB10086FEE7 /* Group.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933331179E9BCF0086FEE7 /* Group.h */; };
-		91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933339179E9BCF0086FEE7 /* Navigate.h */; };
 		91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333B179E9BCF0086FEE7 /* Screen.h */; };
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
 		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
@@ -182,7 +180,6 @@
 		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
-		91933407179EA2DE0086FEE7 /* NavigateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DD179EA2DC0086FEE7 /* NavigateParser.m */; };
 		91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */; };
 		91933409179EA2DE0086FEE7 /* SensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E1179EA2DC0086FEE7 /* SensorStateParser.m */; };
 		9193340A179EA2DE0086FEE7 /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E3179EA2DD0086FEE7 /* LocalParser.m */; };
@@ -329,7 +326,6 @@
 				9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
 				91933381179E9EB10086FEE7 /* Group.h in CopyFiles */,
-				91933384179E9EB10086FEE7 /* Navigate.h in CopyFiles */,
 				91933385179E9EB10086FEE7 /* Screen.h in CopyFiles */,
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
 				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
@@ -499,8 +495,6 @@
 		91933332179E9BCF0086FEE7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		91933337179E9BCF0086FEE7 /* LayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainer.h; sourceTree = "<group>"; };
 		91933338179E9BCF0086FEE7 /* LayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainer.m; sourceTree = "<group>"; };
-		91933339179E9BCF0086FEE7 /* Navigate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navigate.h; sourceTree = "<group>"; };
-		9193333A179E9BCF0086FEE7 /* Navigate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Navigate.m; sourceTree = "<group>"; };
 		9193333B179E9BCF0086FEE7 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
 		9193333C179E9BCF0086FEE7 /* Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Screen.m; sourceTree = "<group>"; };
 		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
@@ -562,8 +556,6 @@
 		919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarParser.m; sourceTree = "<group>"; };
 		919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParser.h; sourceTree = "<group>"; };
 		919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParser.m; sourceTree = "<group>"; };
-		919333DC179EA2DB0086FEE7 /* NavigateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigateParser.h; sourceTree = "<group>"; };
-		919333DD179EA2DC0086FEE7 /* NavigateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigateParser.m; sourceTree = "<group>"; };
 		919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorLinkParser.h; sourceTree = "<group>"; };
 		919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorLinkParser.m; sourceTree = "<group>"; };
 		919333E0179EA2DC0086FEE7 /* SensorStateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorStateParser.h; sourceTree = "<group>"; };
@@ -1090,8 +1082,6 @@
 				91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */,
 				91933331179E9BCF0086FEE7 /* Group.h */,
 				91933332179E9BCF0086FEE7 /* Group.m */,
-				91933339179E9BCF0086FEE7 /* Navigate.h */,
-				9193333A179E9BCF0086FEE7 /* Navigate.m */,
 				9193333B179E9BCF0086FEE7 /* Screen.h */,
 				9193333C179E9BCF0086FEE7 /* Screen.m */,
 				9193333D179E9BCF0086FEE7 /* Sensor.h */,
@@ -1137,8 +1127,6 @@
 				919333BF179EA2D70086FEE7 /* GridCellParser.m */,
 				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
 				919333D7179EA2DB0086FEE7 /* GroupParser.m */,
-				919333DC179EA2DB0086FEE7 /* NavigateParser.h */,
-				919333DD179EA2DC0086FEE7 /* NavigateParser.m */,
 				919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */,
 				919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */,
 				919333E0179EA2DC0086FEE7 /* SensorStateParser.h */,
@@ -1449,7 +1437,6 @@
 				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
 				91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */,
-				91933365179E9BD00086FEE7 /* Navigate.m in Sources */,
 				91933366179E9BD00086FEE7 /* Screen.m in Sources */,
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
 				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
@@ -1491,7 +1478,6 @@
 				91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */,
 				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
 				91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */,
-				91933407179EA2DE0086FEE7 /* NavigateParser.m in Sources */,
 				91A4A25918D746AD0070F823 /* ORGesture.m in Sources */,
 				91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */,
 				91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */,
