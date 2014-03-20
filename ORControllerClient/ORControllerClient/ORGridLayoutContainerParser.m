@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "GridLayoutContainerParser.h"
+#import "ORGridLayoutContainerParser.h"
 #import "ORGridLayoutContainer.h"
 #import "GridCellParser.h"
 
-@interface GridLayoutContainerParser()
+@interface ORGridLayoutContainerParser()
 
-@property (nonatomic, strong, readwrite) ORLayoutContainer *layoutContainer;
+@property (nonatomic, strong, readwrite) ORGridLayoutContainer *layoutContainer;
 
 @end
 
@@ -36,7 +36,7 @@
  *    </cell>
  * </grid>
  */
-@implementation GridLayoutContainerParser
+@implementation ORGridLayoutContainerParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {

@@ -18,16 +18,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "LayoutContainerParser.h"
+#import "DefinitionElementParser.h"
 
-@interface LayoutContainerParser()
+@class ORAbsoluteLayoutContainer;
 
-@property (nonatomic, strong, readwrite) ORLayoutContainer *layoutContainer;
+@interface ORAbsoluteLayoutContainerParser : DefinitionElementParser
 
-@end
-
-@implementation LayoutContainerParser
-
-@synthesize layoutContainer;
+@property (nonatomic, strong, readonly) ORAbsoluteLayoutContainer *layoutContainer;
 
 @end

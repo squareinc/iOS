@@ -29,9 +29,9 @@
 #import "DefinitionParserMock.h"
 #import "ORBackgroundParser.h"
 #import "ORImageParser.h"
-#import "AbsoluteLayoutContainerParser.h"
+#import "ORAbsoluteLayoutContainerParser.h"
 #import "ORAbsoluteLayoutContainer.h"
-#import "GridLayoutContainerParser.h"
+#import "ORGridLayoutContainerParser.h"
 #import "ORGridLayoutContainer.h"
 #import "ORGestureParser.h"
 
@@ -51,8 +51,8 @@
     [depRegistry registerParserClass:[ORScreenParser class] endSelector:@selector(setTopLevelParser:) forTag:SCREEN];
     [depRegistry registerParserClass:[ORBackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];
     [depRegistry registerParserClass:[ORImageParser class] endSelector:@selector(endImageElement:) forTag:IMAGE];
-    [depRegistry registerParserClass:[AbsoluteLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:ABSOLUTE];
-    [depRegistry registerParserClass:[GridLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:GRID];
+    [depRegistry registerParserClass:[ORAbsoluteLayoutContainerParser class] endSelector:@selector(endAbsoluteLayoutElement:) forTag:ABSOLUTE];
+    [depRegistry registerParserClass:[ORGridLayoutContainerParser class] endSelector:@selector(endGridLayoutElement:) forTag:GRID];
     [depRegistry registerParserClass:[ORGestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
     
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[snippet dataUsingEncoding:NSUTF8StringEncoding]];

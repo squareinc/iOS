@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "AbsoluteLayoutContainerParser.h"
+#import "ORAbsoluteLayoutContainerParser.h"
 #import "ORAbsoluteLayoutContainer.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
@@ -34,9 +34,9 @@
 #import "Definition.h"
 #import "XMLEntity.h"
 
-@interface AbsoluteLayoutContainerParser()
+@interface ORAbsoluteLayoutContainerParser()
 
-@property (nonatomic, strong, readwrite) ORLayoutContainer *layoutContainer;
+@property (nonatomic, strong, readwrite) ORAbsoluteLayoutContainer *layoutContainer;
 
 @end
 
@@ -47,7 +47,7 @@
  * ......
  * </absolute>
  */
-@implementation AbsoluteLayoutContainerParser
+@implementation ORAbsoluteLayoutContainerParser
 
 - (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {
@@ -70,43 +70,43 @@
 
 - (void)endLabelElement:(ORLabelParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.label;    
+    self.layoutContainer.widget = parser.label;
     [self.depRegister.definition addLabel:parser.label];
 }
 
 - (void)endImageElement:(ORImageParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.image;
+    self.layoutContainer.widget = parser.image;
     [self.depRegister.definition addImage:parser.image];
 }
 
 - (void)endWebElement:(ORWebViewParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.web;
+    self.layoutContainer.widget = parser.web;
     [self.depRegister.definition addWebView:parser.web];
 }
 
 - (void)endButtonElement:(ORButtonParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.button;
+    self.layoutContainer.widget = parser.button;
     [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(ORSwitchParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.sswitch;
+    self.layoutContainer.widget = parser.sswitch;
     [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
 - (void)endSliderElement:(ORSliderParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.slider;
+    self.layoutContainer.widget = parser.slider;
     [self.depRegister.definition addSlider:parser.slider];
 }
 
 - (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
-    ((ORAbsoluteLayoutContainer *)self.layoutContainer).widget = parser.colorPicker;
+    self.layoutContainer.widget = parser.colorPicker;
     [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 

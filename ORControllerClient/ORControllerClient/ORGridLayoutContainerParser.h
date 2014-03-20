@@ -20,10 +20,10 @@
  */
 #import "DefinitionElementParser.h"
 
-@class ORLayoutContainer;
+@class ORGridLayoutContainer;
 
-@interface LayoutContainerParser : DefinitionElementParser
+@interface ORGridLayoutContainerParser : DefinitionElementParser
 
-@property (nonatomic, strong, readonly) ORLayoutContainer *layoutContainer;
+@property (nonatomic, strong, readonly) ORGridLayoutContainer *layoutContainer;
 
 @end

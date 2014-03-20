@@ -25,8 +25,8 @@
 #import "ORScreenParser.h"
 #import "ORGroupParser.h"
 #import "ORTabBarParser.h"
-#import "AbsoluteLayoutContainerParser.h"
-#import "GridLayoutContainerParser.h"
+#import "ORAbsoluteLayoutContainerParser.h"
+#import "ORGridLayoutContainerParser.h"
 #import "ORGestureParser.h"
 #import "ORBackgroundParser.h"
 #import "GridCellParser.h"
@@ -71,8 +71,8 @@
         [self.depRegistry registerParserClass:[ORScreenParser class] endSelector:@selector(endScreenElement:) forTag:@"screen"];
         [self.depRegistry registerParserClass:[ORGroupParser class] endSelector:@selector(endGroupElement:) forTag:@"group"];
         [self.depRegistry registerParserClass:[ORTabBarParser class] endSelector:@selector(endTabBarElement:) forTag:@"tabbar"];
-        [self.depRegistry registerParserClass:[AbsoluteLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:ABSOLUTE];
-        [self.depRegistry registerParserClass:[GridLayoutContainerParser class] endSelector:@selector(endLayoutElement:) forTag:GRID];
+        [self.depRegistry registerParserClass:[ORAbsoluteLayoutContainerParser class] endSelector:@selector(endAbsoluteLayoutElement:) forTag:ABSOLUTE];
+        [self.depRegistry registerParserClass:[ORGridLayoutContainerParser class] endSelector:@selector(endGridLayoutElement:) forTag:GRID];
         [self.depRegistry registerParserClass:[ORGestureParser class] endSelector:@selector(endGestureElement:) forTag:GESTURE];
         [self.depRegistry registerParserClass:[ORNavigationParser class] endSelector:@selector(endNavigateElement:) forTag:NAVIGATE];
         [self.depRegistry registerParserClass:[ORBackgroundParser class] endSelector:@selector(endBackgroundElement:) forTag:BACKGROUND];

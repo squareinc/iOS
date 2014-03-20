@@ -21,7 +21,10 @@
 
 #import "ORScreenParser.h"
 #import "ORScreen_Private.h"
-#import "LayoutContainerParser.h"
+#import "ORAbsoluteLayoutContainerParser.h"
+#import "ORGridLayoutContainerParser.h"
+#import "ORAbsoluteLayoutContainer.h"
+#import "ORGridLayoutContainer.h"
 #import "ORBackgroundParser.h"
 #import "ORGestureParser.h"
 #import "DefinitionElementParserRegister.h"
@@ -60,7 +63,12 @@
     return self;
 }
 
-- (void)endLayoutElement:(LayoutContainerParser *)parser
+- (void)endAbsoluteLayoutElement:(ORAbsoluteLayoutContainerParser *)parser
+{
+    [self.screen addLayout:parser.layoutContainer];
+}
+
+- (void)endGridLayoutElement:(ORGridLayoutContainerParser *)parser
 {
     [self.screen addLayout:parser.layoutContainer];
 }
