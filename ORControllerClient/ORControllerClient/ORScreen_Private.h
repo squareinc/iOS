@@ -22,7 +22,7 @@
 #import "ORScreen.h"
 
 @class ORObjectIdentifier;
-@class LayoutContainer;
+@class ORLayoutContainer;
 
 @interface ORScreen ()
 
@@ -34,6 +34,6 @@
                    orientation:(ORScreenOrientation)anOrientation;
 
 - (void)addGesture:(ORGesture *)gesture;
-- (void)addLayout:(LayoutContainer *)layout;
+- (void)addLayout:(ORLayoutContainer *)layout;
 
 @end

@@ -19,14 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "AbsoluteLayoutContainerSubController.h"
-#import "ORControllerClient/AbsoluteLayoutContainer.h"
+#import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "ORControllerClient/Component.h"
 #import "ComponentSubController.h"
 
 @interface AbsoluteLayoutContainerSubController()
 
 // TODO: have properties from superclass in specific .h
-@property (nonatomic, strong) LayoutContainer *layoutContainer;
+@property (nonatomic, strong) ORLayoutContainer *layoutContainer;
 @property (nonatomic, weak) ORControllerConfig *controller;
 @property (nonatomic, weak) ImageCache *imageCache;
 
@@ -36,11 +36,11 @@
 
 @implementation AbsoluteLayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
-        Component *aComponent = ((AbsoluteLayoutContainer *)aLayoutContainer).component;
+        Component *aComponent = ((ORAbsoluteLayoutContainer *)aLayoutContainer).component;
         self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:aComponent] alloc] initWithController:self.controller imageCache:aCache component:aComponent];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }

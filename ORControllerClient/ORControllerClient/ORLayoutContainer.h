@@ -18,17 +18,23 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "LayoutContainer.h"
+#import <Foundation/Foundation.h>
 
-@class Component;
+/**
+ * It's super class of all layoutContainer model(such as absoluteLayoutCotainer, gridLayoutContainer).
+ * The layoutContainer can be located in screen by position info left and top.
+ * The layoutContainer's size is described by width and height.
+ */
+@interface ORLayoutContainer : NSObject
 
-@interface AbsoluteLayoutContainer : LayoutContainer
+@property (nonatomic, readonly) NSInteger left;
+@property (nonatomic, readonly) NSInteger top;
+@property (nonatomic, readonly) NSUInteger width;
+@property (nonatomic, readonly) NSUInteger height;
 
-- (id)initWithLeft:(NSInteger)leftPos
-               top:(NSInteger)topPos
-             width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim;
-
-@property (nonatomic, strong) Component *component;
+/**
+ * Returns all the components (widgets) this layout contains.
+ */
+- (NSSet *)components;
 
 @end

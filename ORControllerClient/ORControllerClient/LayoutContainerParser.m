@@ -22,7 +22,7 @@
 
 @interface LayoutContainerParser()
 
-@property (nonatomic, strong, readwrite) LayoutContainer *layoutContainer;
+@property (nonatomic, strong, readwrite) ORLayoutContainer *layoutContainer;
 
 @end
 

@@ -64,7 +64,7 @@
     return (self.orientation == anOrientation)?self:self.rotatedScreen;
 }
 
-- (void)addLayout:(LayoutContainer *)layout
+- (void)addLayout:(ORLayoutContainer *)layout
 {
     [self._layouts addObject:layout];
 }

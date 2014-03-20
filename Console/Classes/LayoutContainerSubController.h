@@ -20,7 +20,7 @@
  */
 #import "SubController.h"
 
-@class LayoutContainer;
+@class ORLayoutContainer;
 @class ORControllerConfig;
 @class ImageCache;
 
@@ -28,6 +28,6 @@
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(LayoutContainer *)aLayoutContainer;
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer;
 
 @end

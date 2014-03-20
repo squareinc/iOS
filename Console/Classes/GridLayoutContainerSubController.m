@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "GridLayoutContainerSubController.h"
-#import "ORControllerClient/GridLayoutContainer.h"
+#import "ORControllerClient/ORGridLayoutContainer.h"
 #import "ORControllerClient/GridCell.h"
 #import "ORControllerClient/Component.h"
 #import "ComponentSubController.h"
@@ -37,11 +37,11 @@
 
 @implementation GridLayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
     self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
-        GridLayoutContainer *container = (GridLayoutContainer *)aLayoutContainer;
+        ORGridLayoutContainer *container = (ORGridLayoutContainer *)aLayoutContainer;
         self.view = [[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)];
         self.view.backgroundColor = [UIColor clearColor];
         self.cells = [[NSMutableArray alloc] initWithCapacity:[container.cells count]];

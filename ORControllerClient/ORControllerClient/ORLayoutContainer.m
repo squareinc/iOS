@@ -18,23 +18,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
+#import "ORLayoutContainer.h"
 
-/**
- * It's super class of all layoutContainer model(such as absoluteLayoutCotainer, gridLayoutContainer).
- * The layoutContainer can be located in screen by position info left and top.
- * The layoutContainer's size is described by width and height.
- */
-@interface LayoutContainer : NSObject
+@implementation ORLayoutContainer
 
-@property (nonatomic, readonly) NSInteger left;
-@property (nonatomic, readonly) NSInteger top;
-@property (nonatomic, readonly) NSUInteger width;
-@property (nonatomic, readonly) NSUInteger height;
+- (NSSet *)components
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
+}
 
-/**
- * Returns all the components (widgets) this layout contains.
- */
-- (NSSet *)components;
+@synthesize left, top, width, height;
 
 @end

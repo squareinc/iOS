@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "GridLayoutContainerParser.h"
-#import "GridLayoutContainer.h"
+#import "ORGridLayoutContainer.h"
 #import "GridCellParser.h"
 
 @interface GridLayoutContainerParser()
 
-@property (nonatomic, strong, readwrite) LayoutContainer *layoutContainer;
+@property (nonatomic, strong, readwrite) ORLayoutContainer *layoutContainer;
 
 @end
 
@@ -43,7 +43,7 @@
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
         [self addKnownTag:@"cell"];
-        self.layoutContainer = [[GridLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] intValue]
+        self.layoutContainer = [[ORGridLayoutContainer alloc] initWithLeft:[[attributeDict objectForKey:@"left"] intValue]
                                                                      top:[[attributeDict objectForKey:@"top"] intValue]
                                                                    width:[[attributeDict objectForKey:@"width"] intValue]
                                                                   height:[[attributeDict objectForKey:@"height"] intValue]
@@ -55,7 +55,7 @@
 
 - (void)endCellElement:(GridCellParser *)parser
 {
-    [((GridLayoutContainer *)self.layoutContainer).cells addObject:parser.gridCell];
+    [((ORGridLayoutContainer *)self.layoutContainer).cells addObject:parser.gridCell];
 }
 
 @synthesize layoutContainer;

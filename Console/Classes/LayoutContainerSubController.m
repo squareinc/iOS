@@ -19,23 +19,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "LayoutContainerSubController.h"
-#import "ORControllerClient/LayoutContainer.h"
-#import "ORControllerClient/AbsoluteLayoutContainer.h"
+#import "ORControllerClient/ORLayoutContainer.h"
+#import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "AbsoluteLayoutContainerSubController.h"
-#import "ORControllerClient/GridLayoutContainer.h"
+#import "ORControllerClient/ORGridLayoutContainer.h"
 #import "GridLayoutContainerSubController.h"
 
 @interface LayoutContainerSubController()
 
 @property (nonatomic, weak) ORControllerConfig *controller;
-@property (nonatomic, strong) LayoutContainer *layoutContainer;
+@property (nonatomic, strong) ORLayoutContainer *layoutContainer;
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
 @implementation LayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(LayoutContainer *)aLayoutContainer
+- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
     self = [super init];
     if (self) {
@@ -54,9 +54,9 @@
 
 + (Class)subControllerClassForModelObject:(id)modelObject
 {
-    if ([modelObject isKindOfClass:[AbsoluteLayoutContainer class]]) {
+    if ([modelObject isKindOfClass:[ORAbsoluteLayoutContainer class]]) {
         return [AbsoluteLayoutContainerSubController class];
-    } else if ([modelObject isKindOfClass:[GridLayoutContainer class]]) {
+    } else if ([modelObject isKindOfClass:[ORGridLayoutContainer class]]) {
         return [GridLayoutContainerSubController class];
     }
     return self;

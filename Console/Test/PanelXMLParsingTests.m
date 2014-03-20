@@ -21,10 +21,10 @@
 
 #import "PanelXMLParsingTests.h"
 #import "ORControllerClient/Control.h"
-#import "ORControllerClient/LayoutContainer.h"
-#import "ORControllerClient/AbsoluteLayoutContainer.h"
+#import "ORControllerClient/ORLayoutContainer.h"
+#import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "ORControllerClient/ORSwitch.h"
-#import "ORControllerClient/GridLayoutContainer.h"
+#import "ORControllerClient/ORGridLayoutContainer.h"
 #import "ORControllerClient/GridCell.h"
 #import "ORControllerClient/ORImage.h"
 #import "ORControllerClient/ORGesture.h"
@@ -510,10 +510,10 @@
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){					
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -608,10 +608,10 @@
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORAbsoluteLayoutContainer class]]){					
 					NSLog(@"layout is absolute ");
-					AbsoluteLayoutContainer *abso =(AbsoluteLayoutContainer *)layout;
+					ORAbsoluteLayoutContainer *abso =(ORAbsoluteLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -698,10 +698,10 @@
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){					
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -824,10 +824,10 @@
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
 		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORAbsoluteLayoutContainer class]]){					
 					NSLog(@"layout is absolute ");
-					AbsoluteLayoutContainer *abso =(AbsoluteLayoutContainer *)layout;
+					ORAbsoluteLayoutContainer *abso =(ORAbsoluteLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -968,10 +968,10 @@
 			background_index++;
 			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORAbsoluteLayoutContainer class]]){					
 					NSLog(@"layout is absolute ");
-					AbsoluteLayoutContainer *abso =(AbsoluteLayoutContainer *)layout;
+					ORAbsoluteLayoutContainer *abso =(ORAbsoluteLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -1060,10 +1060,10 @@
 			background_index++;
 			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORAbsoluteLayoutContainer class]]){					
 					NSLog(@"layout is absolute ");
-					AbsoluteLayoutContainer *abso =(AbsoluteLayoutContainer *)layout;
+					ORAbsoluteLayoutContainer *abso =(ORAbsoluteLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -1286,10 +1286,10 @@
 			background_index++;
 			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){					
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
@@ -1429,10 +1429,10 @@
 			background_index++;
 			*/
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){					
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);

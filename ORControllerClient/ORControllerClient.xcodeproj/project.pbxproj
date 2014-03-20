@@ -119,14 +119,14 @@
 		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
 		9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
-		91933357179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */; };
+		91933357179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */; };
 		9193335A179E9BD00086FEE7 /* ORColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ORColorPicker.m */; };
 		9193335B179E9BD00086FEE7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933326179E9BCF0086FEE7 /* Component.m */; };
 		9193335C179E9BD00086FEE7 /* Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933328179E9BCF0086FEE7 /* Control.m */; };
 		9193335D179E9BD00086FEE7 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332A179E9BCF0086FEE7 /* Definition.m */; };
 		9193335F179E9BD00086FEE7 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332E179E9BCF0086FEE7 /* GridCell.m */; };
-		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
-		91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* LayoutContainer.m */; };
+		91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */; };
+		91933364179E9BD00086FEE7 /* ORLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */; };
 		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
 		91933368179E9BD00086FEE7 /* SensorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933340179E9BCF0086FEE7 /* SensorComponent.m */; };
 		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
@@ -139,14 +139,14 @@
 		91933372179E9BD00086FEE7 /* LocalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933354179E9BCF0086FEE7 /* LocalController.m */; };
 		91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933356179E9BCF0086FEE7 /* ControllerComponent.m */; };
 		91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
-		91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* LayoutContainer.h */; };
-		91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */; };
+		91933376179E9EB10086FEE7 /* ORLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */; };
+		91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */; };
 		9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ORColorPicker.h */; };
 		9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933325179E9BCF0086FEE7 /* Component.h */; };
 		9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933327179E9BCF0086FEE7 /* Control.h */; };
 		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
 		9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* GridCell.h */; };
-		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
+		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
 		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
 		91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333F179E9BCF0086FEE7 /* SensorComponent.h */; };
 		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
@@ -322,14 +322,14 @@
 				91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */,
 				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */,
 				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */,
-				91933376179E9EB10086FEE7 /* LayoutContainer.h in CopyFiles */,
-				91933377179E9EB10086FEE7 /* AbsoluteLayoutContainer.h in CopyFiles */,
+				91933376179E9EB10086FEE7 /* ORLayoutContainer.h in CopyFiles */,
+				91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */,
 				9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */,
 				9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */,
 				9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */,
 				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
 				9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */,
-				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
+				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */,
 				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
 				91933387179E9EB10086FEE7 /* SensorComponent.h in CopyFiles */,
 				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
@@ -480,8 +480,8 @@
 		91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRuntimeUtilsTest.m; sourceTree = "<group>"; };
 		91933318179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelIdentityListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelIdentityListResponseHandler_2_0_0.m; sourceTree = "<group>"; };
-		9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsoluteLayoutContainer.h; sourceTree = "<group>"; };
-		9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsoluteLayoutContainer.m; sourceTree = "<group>"; };
+		9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAbsoluteLayoutContainer.h; sourceTree = "<group>"; };
+		9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAbsoluteLayoutContainer.m; sourceTree = "<group>"; };
 		91933323179E9BCF0086FEE7 /* ORColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPicker.h; sourceTree = "<group>"; };
 		91933324179E9BCF0086FEE7 /* ORColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPicker.m; sourceTree = "<group>"; };
 		91933325179E9BCF0086FEE7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -492,10 +492,10 @@
 		9193332A179E9BCF0086FEE7 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
 		9193332D179E9BCF0086FEE7 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
 		9193332E179E9BCF0086FEE7 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
-		9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayoutContainer.h; sourceTree = "<group>"; };
-		91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayoutContainer.m; sourceTree = "<group>"; };
-		91933337179E9BCF0086FEE7 /* LayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutContainer.h; sourceTree = "<group>"; };
-		91933338179E9BCF0086FEE7 /* LayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutContainer.m; sourceTree = "<group>"; };
+		9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridLayoutContainer.h; sourceTree = "<group>"; };
+		91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGridLayoutContainer.m; sourceTree = "<group>"; };
+		91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLayoutContainer.h; sourceTree = "<group>"; };
+		91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLayoutContainer.m; sourceTree = "<group>"; };
 		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
 		9193333E179E9BCF0086FEE7 /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
 		9193333F179E9BCF0086FEE7 /* SensorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorComponent.h; sourceTree = "<group>"; };
@@ -808,6 +808,12 @@
 				91933349179E9BCF0086FEE7 /* ORTabBarItem.h */,
 				9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */,
 				91A4A24E18D70B820070F823 /* ORTabBarItem_Private.h */,
+				91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */,
+				91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */,
+				9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */,
+				9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */,
+				9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */,
+				91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */,
 				91B72FA21890308F000B7552 /* ORImage.h */,
 				91B72FA31890308F000B7552 /* ORImage.m */,
 				91222D861892659E00BA0B96 /* ORSensorStatesMapping.h */,
@@ -1078,10 +1084,6 @@
 		9193331C179E9BAC0086FEE7 /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				91933337179E9BCF0086FEE7 /* LayoutContainer.h */,
-				91933338179E9BCF0086FEE7 /* LayoutContainer.m */,
-				9193331D179E9BCF0086FEE7 /* AbsoluteLayoutContainer.h */,
-				9193331E179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m */,
 				91933325179E9BCF0086FEE7 /* Component.h */,
 				91933326179E9BCF0086FEE7 /* Component.m */,
 				91933327179E9BCF0086FEE7 /* Control.h */,
@@ -1091,8 +1093,6 @@
 				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
 				9193332D179E9BCF0086FEE7 /* GridCell.h */,
 				9193332E179E9BCF0086FEE7 /* GridCell.m */,
-				9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */,
-				91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */,
 				9193333D179E9BCF0086FEE7 /* Sensor.h */,
 				9193333E179E9BCF0086FEE7 /* Sensor.m */,
 				9193333F179E9BCF0086FEE7 /* SensorComponent.h */,
@@ -1432,7 +1432,7 @@
 				91C3DF2B18DB3315006FD9D4 /* ORGroupParser.m in Sources */,
 				91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
-				91933357179E9BCF0086FEE7 /* AbsoluteLayoutContainer.m in Sources */,
+				91933357179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m in Sources */,
 				917BA54418C2343E006006E9 /* ORGroup.m in Sources */,
 				91C3DF2F18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m in Sources */,
 				91A4A23F18D5E3560070F823 /* ORModelObject.m in Sources */,
@@ -1445,8 +1445,8 @@
 				9193335C179E9BD00086FEE7 /* Control.m in Sources */,
 				9193335D179E9BD00086FEE7 /* Definition.m in Sources */,
 				9193335F179E9BD00086FEE7 /* GridCell.m in Sources */,
-				91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */,
-				91933364179E9BD00086FEE7 /* LayoutContainer.m in Sources */,
+				91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */,
+				91933364179E9BD00086FEE7 /* ORLayoutContainer.m in Sources */,
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
 				91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */,
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,

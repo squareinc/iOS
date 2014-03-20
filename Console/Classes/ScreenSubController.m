@@ -23,7 +23,7 @@
 #import "ImageCache.h"
 #import "FileUtils.h"
 #import "ClippedUIImage.h"
-#import "ORControllerClient/LayoutContainer.h"
+#import "ORControllerClient/ORLayoutContainer.h"
 #import "LayoutContainerSubController.h"
 #import "ORControllerClient/ORBackground.h"
 #import "ORControllerClient/ORImage.h"
@@ -67,7 +67,7 @@
 - (void)createSubControllersForLayoutContainers
 {
     self.layoutContainers = [NSMutableArray arrayWithCapacity:[self.screen.layouts count]];
-    for (LayoutContainer *layout in self.screen.layouts) {
+    for (ORLayoutContainer *layout in self.screen.layouts) {
         LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithController:self.controller imageCache:self.imageCache layoutContainer:layout];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];

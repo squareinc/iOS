@@ -18,16 +18,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "GridLayoutContainer.h"
-#import "GridCell.h"
+#import "ORAbsoluteLayoutContainer.h"
 #import "SensorComponent.h"
 #import "Sensor.h"
 
-@interface GridLayoutContainer ()
-
-@property (nonatomic, strong, readwrite) NSMutableArray *cells;
-@property (nonatomic, readwrite) NSUInteger rows;
-@property (nonatomic, readwrite) NSUInteger cols;
+@interface ORAbsoluteLayoutContainer ()
 
 @property (nonatomic, readwrite) NSInteger left;
 @property (nonatomic, readwrite) NSInteger top;
@@ -36,14 +31,12 @@
 
 @end
 
-@implementation GridLayoutContainer
+@implementation ORAbsoluteLayoutContainer
 
 - (id)initWithLeft:(NSInteger)leftPos
                top:(NSInteger)topPos
              width:(NSUInteger)widthDim
             height:(NSUInteger)heightDim
-              rows:(NSUInteger)rowsNum
-              cols:(NSUInteger)colsNum
 {
     self = [super init];
     if (self) {
@@ -51,23 +44,16 @@
         self.top = topPos;
         self.width = widthDim;
         self.height = heightDim;
-        self.rows = rowsNum;
-        self.cols = colsNum;
-		self.cells = [NSMutableArray array];
     }
     return self;
 }
 
 - (NSSet *)components
 {
-    NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];
-	for (GridCell *cell in self.cells) {
-        [components addObject:cell.component];
-    }
-    return [NSSet setWithSet:components];
+    return [NSSet setWithObject:self.component];
 }
 
-@synthesize cells, rows, cols;
-@synthesize left,top,width,height;
+@synthesize component;
+@synthesize left, top, width, height;
 
 @end

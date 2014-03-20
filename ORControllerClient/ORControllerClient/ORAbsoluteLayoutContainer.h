@@ -18,19 +18,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "LayoutContainer.h"
+#import "ORLayoutContainer.h"
 
-@interface GridLayoutContainer : LayoutContainer
+@class Component;
 
-@property (nonatomic, strong, readonly) NSMutableArray *cells;
-@property (nonatomic, readonly) NSUInteger rows;
-@property (nonatomic, readonly) NSUInteger cols;
+@interface ORAbsoluteLayoutContainer : ORLayoutContainer
 
 - (id)initWithLeft:(NSInteger)leftPos
                top:(NSInteger)topPos
              width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim
-              rows:(NSUInteger)rowsNum
-              cols:(NSUInteger)colsNum;
+            height:(NSUInteger)heightDim;
+
+@property (nonatomic, strong) Component *component;
 
 @end
