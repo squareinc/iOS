@@ -45,7 +45,7 @@
 
 @implementation GroupController
 
-- (id)initWithController:(ORControllerConfig *)aController group:(Group *)newGroup parentViewController:(UIViewController *)aVC
+- (id)initWithController:(ORControllerConfig *)aController group:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC
 {
     self = [super init];
 	if (self) {
@@ -88,8 +88,9 @@
     return [UIScreen or_fullFrameForInterfaceOrientation:self.parentViewController.interfaceOrientation];
 }
 
-- (int)groupId {
-	return self.group.groupId;
+- (ORObjectIdentifier *)groupIdentifier
+{
+	return self.group.identifier;
 }
 
 // Returns an array of ScreenViewControllers for the given Screen objects
@@ -109,12 +110,12 @@
 // Show the view of specified orientation depending on the parameter isLandScape specified.
 - (void)showLandscapeOrientation:(BOOL)isLandscape {
 	
-	NSArray *screens = isLandscape ? [self.group getLandscapeScreens] : [self.group getPortraitScreens];
+	NSArray *screens = isLandscape ? [self.group landscapeScreens] : [self.group portraitScreens];
 
 	if (screens.count == 0) {
         // Check if other orientation has screens
         isLandscape = !isLandscape;
-        screens = isLandscape ? [self.group getLandscapeScreens] : [self.group getPortraitScreens];
+        screens = isLandscape ? [self.group landscapeScreens] : [self.group portraitScreens];
         if ([screens count] == 0) {
             // Still no luck, error
             [self showErrorView];

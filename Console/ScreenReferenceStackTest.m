@@ -35,7 +35,8 @@
 - (void)testPushAndPop
 {
     ScreenReferenceStack *stack = [[ScreenReferenceStack alloc] initWithCapacity:10];
-    ScreenReference *ref = [[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
+    ScreenReference *ref = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                           screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     [stack push:ref];
     ScreenReference *poppedRef = [stack pop];
     STAssertNotNil(poppedRef, @"Should be able to pop an object from a stack where one was pushed before");
@@ -46,9 +47,11 @@
 - (void)testStackBehavesAsFIFO
 {
     ScreenReferenceStack *stack = [[ScreenReferenceStack alloc] initWithCapacity:10];
-    ScreenReference *ref1 = [[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
+    ScreenReference *ref1 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     [stack push:ref1];
-    ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
+    ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
     [stack push:ref2];
     STAssertEquals(ref2, [stack pop], @"First poped object should be the last one pushed");
     STAssertEquals(ref1, [stack pop], @"Second poped object should be the first one pushed");
@@ -57,10 +60,13 @@
 - (void)testStackDiscardsItemWhenCapacityReached
 {
     ScreenReferenceStack *stack = [[ScreenReferenceStack alloc] initWithCapacity:2];
-    [stack push:[[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]]];
-    ScreenReference *ref1 = [[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
+    [stack push:[[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]                 
+                                                screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]]];
+    ScreenReference *ref1 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     [stack push:ref1];
-    ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupId:1 screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
+    ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
     [stack push:ref2];
     STAssertEquals(ref2, [stack pop], @"First poped object should be the last one pushed");
     STAssertEquals(ref1, [stack pop], @"Second poped object should be the one pushed before");

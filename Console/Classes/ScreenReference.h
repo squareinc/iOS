@@ -29,9 +29,9 @@
  */
 @interface ScreenReference : NSObject
 
-@property (readonly) int groupId;
+@property (copy, readonly) ORObjectIdentifier *groupIdentifier;
 @property (copy, readonly) ORObjectIdentifier *screenIdentifier;
 
-- (id)initWithGroupId:(int)aGroupdId screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier;
+- (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier;
 
 @end

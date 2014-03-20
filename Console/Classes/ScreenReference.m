@@ -23,18 +23,18 @@
 
 @interface ScreenReference ()
 
-@property (readwrite) int groupId;
+@property (copy, readwrite) ORObjectIdentifier *groupIdentifier;
 @property (copy, readwrite) ORObjectIdentifier *screenIdentifier;
 
 @end
 
 @implementation ScreenReference
 
-- (id)initWithGroupId:(int)aGroupdId screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier
+- (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier
 {
     self = [super init];
     if (self) {
-        self.groupId = aGroupdId;
+        self.groupIdentifier = aGroupdIdentifier;
         self.screenIdentifier = aScreenIdentifier;
     }
     return self;

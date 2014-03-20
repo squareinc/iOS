@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <UIKit/UIKit.h>
-#import "ORControllerClient/Group.h"
+#import "ORControllerClient/ORGroup.h"
 #import "PaginationController.h"
 #import "ErrorViewController.h"
 
@@ -38,7 +38,7 @@
 /**
  * Construct group controller with group model data.
  */
-- (id)initWithController:(ORControllerConfig *)aController group:(Group *)newGroup parentViewController:(UIViewController *)aVC;
+- (id)initWithController:(ORControllerConfig *)aController group:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC;
 
 /**
  * Start polling of groupController's rendering screenView.
@@ -78,7 +78,7 @@
 /**
  * Get the id of group model data of groupController.
  */
-- (int)groupId;
+- (ORObjectIdentifier *)groupIdentifier;
 
 /**
  * Get the frame of handset's screen and is depending on the current orientation.
@@ -87,7 +87,7 @@
  */
 - (CGRect)getFullFrame;
 
-@property (nonatomic, strong) Group *group;
+@property (nonatomic, strong) ORGroup *group;
 
 @property (nonatomic, weak) ImageCache *imageCache;
 

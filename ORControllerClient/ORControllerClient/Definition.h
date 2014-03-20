@@ -57,10 +57,8 @@
 - (void)addImageName:(NSString *)imageName;
 
 /**
- * Get a group instance with group id.
+ * Get a group instance with group identifier.
  */
-- (Group *)findGroupById:(int)groupId;
-
 - (ORGroup *)findGroupByIdentifier:(ORObjectIdentifier *)groupIdentifier;
 
 /**
@@ -71,7 +69,7 @@
 /**
  * Add a group instance for caching.
  */
-- (void)addGroup:(Group *)group;
+- (void)addGroup:(ORGroup *)group;
 
 /**
  * Add a screen instance for caching.

@@ -54,7 +54,7 @@
 - (BOOL)switchToScreen:(ORScreen *)aScreen withAnimation:(BOOL) withAnimation;
 - (void)updateTabBarItemSelection;
 
-@property (nonatomic, strong) Group *group;
+@property (nonatomic, strong) ORGroup *group;
 @property (nonatomic, strong) ORTabBar *tabBar;
 @property (nonatomic, weak) UITabBar *uiTabBar;
 
@@ -62,7 +62,7 @@
 
 @implementation PaginationController
 
-- (id)initWithGroup:(Group *)aGroup tabBar:(ORTabBar *)aTabBar
+- (id)initWithGroup:(ORGroup *)aGroup tabBar:(ORTabBar *)aTabBar
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -383,7 +383,7 @@
     for (ORTabBarItem *tabBarItem in self.tabBar.items) {
 		if (tabBarItem.navigation && tabBarItem.navigation.navigationType == ORNavigationTypeToGroupOrScreen) {
             ORScreenNavigation *navigation = ((ORScreenNavigation *)tabBarItem.navigation);
-            if (self.group.groupId ==  navigation.destinationGroup.groupId) {
+            if ([self.group.identifier isEqual:navigation.destinationGroup.identifier]) {
                 if (!navigation.destinationScreen || [navigation.destinationScreen.identifier isEqual: [self currentScreenViewController].screen.identifier]) {
                     selected = [self.tabBar.items indexOfObject:tabBarItem];
                     break;
