@@ -48,7 +48,7 @@
     return self;
 }
 
-- (NSSet *)components
+- (NSSet *)widgets
 {
     return [NSSet setWithObject:self.component];
 }

@@ -22,7 +22,7 @@
 
 @implementation ORLayoutContainer
 
-- (NSSet *)components
+- (NSSet *)widgets
 {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;

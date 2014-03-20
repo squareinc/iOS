@@ -35,6 +35,6 @@
 /**
  * All widgets this layout contains.
  */
-- (NSSet *)components;
+- (NSSet *)widgets;
 
 @end

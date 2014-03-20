@@ -58,7 +58,7 @@
     return self;
 }
 
-- (NSSet *)components
+- (NSSet *)widgets
 {
     NSMutableSet *components = [NSMutableSet setWithCapacity:[self.cells count]];
 	for (GridCell *cell in self.cells) {
