@@ -124,7 +124,6 @@
 		9193335B179E9BD00086FEE7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933326179E9BCF0086FEE7 /* Component.m */; };
 		9193335C179E9BD00086FEE7 /* Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933328179E9BCF0086FEE7 /* Control.m */; };
 		9193335D179E9BD00086FEE7 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332A179E9BCF0086FEE7 /* Definition.m */; };
-		9193335E179E9BD00086FEE7 /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332C179E9BCF0086FEE7 /* Gesture.m */; };
 		9193335F179E9BD00086FEE7 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332E179E9BCF0086FEE7 /* GridCell.m */; };
 		91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* GridLayoutContainer.m */; };
 		91933361179E9BD00086FEE7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933332179E9BCF0086FEE7 /* Group.m */; };
@@ -149,7 +148,6 @@
 		9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933325179E9BCF0086FEE7 /* Component.h */; };
 		9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933327179E9BCF0086FEE7 /* Control.h */; };
 		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
-		9193337E179E9EB10086FEE7 /* Gesture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332B179E9BCF0086FEE7 /* Gesture.h */; };
 		9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* GridCell.h */; };
 		91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */; };
 		91933381179E9EB10086FEE7 /* Group.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933331179E9BCF0086FEE7 /* Group.h */; };
@@ -181,7 +179,6 @@
 		919333F8179EA2DE0086FEE7 /* GridCellParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333BF179EA2D70086FEE7 /* GridCellParser.m */; };
 		919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333C5179EA2D80086FEE7 /* ORWebViewParser.m */; };
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
-		91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D3179EA2DA0086FEE7 /* GestureParser.m */; };
 		91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D7179EA2DB0086FEE7 /* GroupParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
@@ -329,7 +326,6 @@
 				9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */,
 				9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */,
 				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
-				9193337E179E9EB10086FEE7 /* Gesture.h in CopyFiles */,
 				9193337F179E9EB10086FEE7 /* GridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* GridLayoutContainer.h in CopyFiles */,
 				91933381179E9EB10086FEE7 /* Group.h in CopyFiles */,
@@ -495,8 +491,6 @@
 		91933328179E9BCF0086FEE7 /* Control.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Control.m; sourceTree = "<group>"; };
 		91933329179E9BCF0086FEE7 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		9193332A179E9BCF0086FEE7 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
-		9193332B179E9BCF0086FEE7 /* Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gesture.h; sourceTree = "<group>"; };
-		9193332C179E9BCF0086FEE7 /* Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gesture.m; sourceTree = "<group>"; };
 		9193332D179E9BCF0086FEE7 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
 		9193332E179E9BCF0086FEE7 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
 		9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayoutContainer.h; sourceTree = "<group>"; };
@@ -562,8 +556,6 @@
 		919333C5179EA2D80086FEE7 /* ORWebViewParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebViewParser.m; sourceTree = "<group>"; };
 		919333D0179EA2DA0086FEE7 /* ORColorPickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPickerParser.h; sourceTree = "<group>"; };
 		919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPickerParser.m; sourceTree = "<group>"; };
-		919333D2179EA2DA0086FEE7 /* GestureParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureParser.h; sourceTree = "<group>"; };
-		919333D3179EA2DA0086FEE7 /* GestureParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureParser.m; sourceTree = "<group>"; };
 		919333D6179EA2DB0086FEE7 /* GroupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParser.h; sourceTree = "<group>"; };
 		919333D7179EA2DB0086FEE7 /* GroupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupParser.m; sourceTree = "<group>"; };
 		919333D8179EA2DB0086FEE7 /* ORTabBarParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarParser.h; sourceTree = "<group>"; };
@@ -1092,8 +1084,6 @@
 				91933329179E9BCF0086FEE7 /* Definition.h */,
 				9193332A179E9BCF0086FEE7 /* Definition.m */,
 				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
-				9193332B179E9BCF0086FEE7 /* Gesture.h */,
-				9193332C179E9BCF0086FEE7 /* Gesture.m */,
 				9193332D179E9BCF0086FEE7 /* GridCell.h */,
 				9193332E179E9BCF0086FEE7 /* GridCell.m */,
 				9193332F179E9BCF0086FEE7 /* GridLayoutContainer.h */,
@@ -1145,8 +1135,6 @@
 				919333BD179EA2D70086FEE7 /* GridLayoutContainerParser.m */,
 				919333BE179EA2D70086FEE7 /* GridCellParser.h */,
 				919333BF179EA2D70086FEE7 /* GridCellParser.m */,
-				919333D2179EA2DA0086FEE7 /* GestureParser.h */,
-				919333D3179EA2DA0086FEE7 /* GestureParser.m */,
 				919333D6179EA2DB0086FEE7 /* GroupParser.h */,
 				919333D7179EA2DB0086FEE7 /* GroupParser.m */,
 				919333DC179EA2DB0086FEE7 /* NavigateParser.h */,
@@ -1455,7 +1443,6 @@
 				91B72FAD189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */,
 				9193335C179E9BD00086FEE7 /* Control.m in Sources */,
 				9193335D179E9BD00086FEE7 /* Definition.m in Sources */,
-				9193335E179E9BD00086FEE7 /* Gesture.m in Sources */,
 				9193335F179E9BD00086FEE7 /* GridCell.m in Sources */,
 				91933360179E9BD00086FEE7 /* GridLayoutContainer.m in Sources */,
 				91933361179E9BD00086FEE7 /* Group.m in Sources */,
@@ -1500,7 +1487,6 @@
 				91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */,
 				919333FB179EA2DE0086FEE7 /* ORWebViewParser.m in Sources */,
 				91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */,
-				91933402179EA2DE0086FEE7 /* GestureParser.m in Sources */,
 				91933404179EA2DE0086FEE7 /* GroupParser.m in Sources */,
 				91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */,
 				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
