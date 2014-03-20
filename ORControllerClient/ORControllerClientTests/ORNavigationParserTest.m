@@ -64,7 +64,7 @@
     STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
     STAssertTrue([topLevelParser isMemberOfClass:[ORNavigationParser class]], @"Parser used should be an ORNavigationParser");
     ORNavigation *navigation = ((ORNavigationParser *)topLevelParser).navigation;
-    STAssertNotNil(navigation, @"A slider should be parsed for given XML snippet");
+    STAssertNotNil(navigation, @"A navigation should be parsed for given XML snippet");
     
     return navigation;
 }
