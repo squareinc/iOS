@@ -24,7 +24,7 @@
 #import "ORControllerClient/SensorState.h"
 #import "ORControllerClient/Sensor.h"
 #import "ORImageView.h"
-#import "UIColor+ORAdditions.h"
+#import "ORControllerClient/UIColor+ORAdditions.h"
 #import "ImageCache.h"
 
 static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVOContext;

@@ -21,10 +21,10 @@
 #import "SensorySubController.h"
 #import "ORControllerClient/SensorComponent.h"
 #import "NotificationConstant.h"
-#import "ORLabel.h"
-#import "ORImage.h"
-#import "ORSwitch.h"
-#import "ORWebView.h"
+#import "ORControllerClient/ORLabel.h"
+#import "ORControllerClient/ORImage.h"
+#import "ORControllerClient/ORSwitch.h"
+#import "ORControllerClient/ORWebView.h"
 
 @interface SensorySubController()
 
