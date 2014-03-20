@@ -24,7 +24,10 @@
 
 @interface AbsoluteLayoutContainer : LayoutContainer
 
-- (id)initWithLeft:(int)leftPos top:(int)topPos width:(int)widthDim height:(int)heightDim;
+- (id)initWithLeft:(NSInteger)leftPos
+               top:(NSInteger)topPos
+             width:(NSUInteger)widthDim
+            height:(NSUInteger)heightDim;
 
 @property (nonatomic, strong) Component *component;
 

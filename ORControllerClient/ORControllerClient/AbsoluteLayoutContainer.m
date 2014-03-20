@@ -24,16 +24,19 @@
 
 @interface AbsoluteLayoutContainer ()
 
-@property (nonatomic, readwrite) int left;
-@property (nonatomic, readwrite) int top;
-@property (nonatomic, readwrite) int width;
-@property (nonatomic, readwrite) int height;
+@property (nonatomic, readwrite) NSInteger left;
+@property (nonatomic, readwrite) NSInteger top;
+@property (nonatomic, readwrite) NSUInteger width;
+@property (nonatomic, readwrite) NSUInteger height;
 
 @end
 
 @implementation AbsoluteLayoutContainer
 
-- (id)initWithLeft:(int)leftPos top:(int)topPos width:(int)widthDim height:(int)heightDim
+- (id)initWithLeft:(NSInteger)leftPos
+               top:(NSInteger)topPos
+             width:(NSUInteger)widthDim
+            height:(NSUInteger)heightDim
 {
     self = [super init];
     if (self) {

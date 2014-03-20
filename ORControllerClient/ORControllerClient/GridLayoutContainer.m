@@ -26,19 +26,24 @@
 @interface GridLayoutContainer ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *cells;
-@property (nonatomic, readwrite) int rows;
-@property (nonatomic, readwrite) int cols;
+@property (nonatomic, readwrite) NSUInteger rows;
+@property (nonatomic, readwrite) NSUInteger cols;
 
-@property (nonatomic, readwrite) int left;
-@property (nonatomic, readwrite) int top;
-@property (nonatomic, readwrite) int width;
-@property (nonatomic, readwrite) int height;
+@property (nonatomic, readwrite) NSInteger left;
+@property (nonatomic, readwrite) NSInteger top;
+@property (nonatomic, readwrite) NSUInteger width;
+@property (nonatomic, readwrite) NSUInteger height;
 
 @end
 
 @implementation GridLayoutContainer
 
-- (id)initWithLeft:(int)leftPos top:(int)topPos width:(int)widthDim height:(int)heightDim rows:(int)rowsNum cols:(int)colsNum
+- (id)initWithLeft:(NSInteger)leftPos
+               top:(NSInteger)topPos
+             width:(NSUInteger)widthDim
+            height:(NSUInteger)heightDim
+              rows:(NSUInteger)rowsNum
+              cols:(NSUInteger)colsNum
 {
     self = [super init];
     if (self) {

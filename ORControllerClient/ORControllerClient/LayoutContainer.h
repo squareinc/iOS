@@ -27,10 +27,10 @@
  */
 @interface LayoutContainer : NSObject
 
-@property (nonatomic, readonly) int left;
-@property (nonatomic, readonly) int top;
-@property (nonatomic, readonly) int width;
-@property (nonatomic, readonly) int height;
+@property (nonatomic, readonly) NSInteger left;
+@property (nonatomic, readonly) NSInteger top;
+@property (nonatomic, readonly) NSUInteger width;
+@property (nonatomic, readonly) NSUInteger height;
 
 /**
  * Returns all the components (widgets) this layout contains.
