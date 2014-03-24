@@ -31,7 +31,7 @@
 
 @implementation ORGridCell
 
-- (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue
+- (instancetype)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue
 {
     self = [super init];
     if (self) {

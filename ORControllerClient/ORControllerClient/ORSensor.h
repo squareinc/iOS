@@ -39,7 +39,7 @@
  *
  * @return An ORSensor object initialized with the provided identifier.
  */
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
 
 @property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 

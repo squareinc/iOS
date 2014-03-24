@@ -36,7 +36,7 @@
  * @return An ORSensorState object initialized with the provided name and value
  * or nil of the sensorName is nil
  */
-- (id)initWithName:(NSString *)sensorName value:(NSString *)sensorValue;
+- (instancetype)initWithName:(NSString *)sensorName value:(NSString *)sensorValue;
 
 /**
  * Original value to be translated.

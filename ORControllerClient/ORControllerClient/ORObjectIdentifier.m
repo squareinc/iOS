@@ -29,7 +29,7 @@
 
 @implementation ORObjectIdentifier
 
-- (id)initWithIntegerId:(NSInteger)intId
+- (instancetype)initWithIntegerId:(NSInteger)intId
 {
     self = [super init];
     if (self) {
@@ -38,7 +38,7 @@
     return self;
 }
 
-- (id)initWithStringId:(NSString *)stringId
+- (instancetype)initWithStringId:(NSString *)stringId
 {
     return [self initWithIntegerId:[stringId integerValue]];
 }

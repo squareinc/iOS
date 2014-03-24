@@ -42,9 +42,9 @@
  *
  * @return An ORSensorLink object initialized with the provided values.
  */
-- (id)initWithComponent:(NSObject *)aComponent
-           propertyName:(NSString *)aPropertyName
-    sensorStatesMapping:(ORSensorStatesMapping *)mapping;
+- (instancetype)initWithComponent:(NSObject *)aComponent
+                     propertyName:(NSString *)aPropertyName
+              sensorStatesMapping:(ORSensorStatesMapping *)mapping;
 
 /**
  * Component sensor is linked to.

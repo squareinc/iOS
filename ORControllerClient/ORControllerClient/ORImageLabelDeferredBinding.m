@@ -26,7 +26,7 @@
 
 @implementation ORImageLabelDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORImage class]]) {
         return nil;

@@ -29,7 +29,7 @@
 
 @implementation ORSensorState
 
-- (id)initWithName:(NSString *)sensorName value:(NSString *)sensorValue
+- (instancetype)initWithName:(NSString *)sensorName value:(NSString *)sensorValue
 {
     if (!sensorName) {
         return nil;

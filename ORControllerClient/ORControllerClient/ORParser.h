@@ -35,7 +35,7 @@
  *
  * @return an ORParser instance initialized with the provided data
  */
-- (id)initWithData:(NSData *)data;
+- (instancetype)initWithData:(NSData *)data;
 
 /**
  * Error that occured during parsing or nil if none occured or no parsing has been done.

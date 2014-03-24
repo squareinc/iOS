@@ -32,9 +32,9 @@
 
 @implementation ORSensorLink
 
-- (id)initWithComponent:(NSObject *)aComponent
-           propertyName:(NSString *)aPropertyName
-    sensorStatesMapping:(ORSensorStatesMapping *)mapping
+- (instancetype)initWithComponent:(NSObject *)aComponent
+                     propertyName:(NSString *)aPropertyName
+              sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
     self = [super init];
     if (self) {

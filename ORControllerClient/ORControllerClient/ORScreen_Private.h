@@ -29,7 +29,7 @@
 @property (nonatomic, strong, readwrite) ORScreen *rotatedScreen;
 @property (nonatomic, strong, readwrite) ORBackground *background;
 
-- (id)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
+- (instancetype)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
                           name:(NSString *)aName
                    orientation:(ORScreenOrientation)anOrientation;
 

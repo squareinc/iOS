@@ -26,7 +26,7 @@
 
 @implementation ORNavigationScreenDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORScreenNavigation class]]) {
         return nil;

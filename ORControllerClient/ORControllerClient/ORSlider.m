@@ -35,7 +35,7 @@
 
 @implementation ORSlider
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier vertical:(BOOL)verticalFlag passive:(BOOL)passiveFlag thumbImageSrc:(NSString *)thumbImageSrc
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier vertical:(BOOL)verticalFlag passive:(BOOL)passiveFlag thumbImageSrc:(NSString *)thumbImageSrc
 {
     self = [super initWithIdentifier:anIdentifier];
     if (self) {

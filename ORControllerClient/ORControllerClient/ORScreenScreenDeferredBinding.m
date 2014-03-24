@@ -24,7 +24,7 @@
 
 @implementation ORScreenScreenDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORScreen class]]) {
         return nil;

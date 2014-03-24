@@ -43,7 +43,7 @@
  *
  * @return An ORController object initialized with the provided address. If no address is given, returns nil.
  */
-- (id)initWithControllerAddress:(ORControllerAddress *)anAddress;
+- (instancetype)initWithControllerAddress:(ORControllerAddress *)anAddress;
 
 
 

@@ -29,7 +29,7 @@
 
 @implementation ORRESTCall
 
-- (id)initWithNSURLConnection:(NSURLConnection *)connection
+- (instancetype)initWithNSURLConnection:(NSURLConnection *)connection
 {
     self = [super init];
     if (self) {

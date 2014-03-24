@@ -32,7 +32,7 @@
 
 @implementation ORScreen
 
-- (id)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
+- (instancetype)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
                           name:(NSString *)aName
                    orientation:(ORScreenOrientation)anOrientation
 {

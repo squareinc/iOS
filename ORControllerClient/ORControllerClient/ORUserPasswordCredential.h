@@ -35,6 +35,6 @@
  *
  * @return an ORUserPasswordCredential instance initialized with the given username and password
  */
-- (id)initWithUsername:(NSString *)username password:(NSString *)password;
+- (instancetype)initWithUsername:(NSString *)username password:(NSString *)password;
 
 @end

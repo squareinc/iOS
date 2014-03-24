@@ -28,7 +28,7 @@
 @end
 @implementation ORNavigation
 
-- (id)initWithNavigationType:(ORNavigationType)aType
+- (instancetype)initWithNavigationType:(ORNavigationType)aType
 {
     self = [super init];
     if (self) {

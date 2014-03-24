@@ -23,7 +23,7 @@
 
 @implementation ORImage
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 {
     self = [super initWithIdentifier:anIdentifier];
     if (self) {

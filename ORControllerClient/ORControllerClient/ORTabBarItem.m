@@ -28,7 +28,7 @@
 
 @implementation ORTabBarItem
 
-- (id)initWithName:(NSString *)aName
+- (instancetype)initWithName:(NSString *)aName
 {
     self = [super init];
     if (self) {

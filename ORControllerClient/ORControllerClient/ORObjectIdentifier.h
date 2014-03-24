@@ -34,7 +34,7 @@
  *
  * @return An ORObjectIdentifier object initialized with the provided value.
  */
-- (id)initWithIntegerId:(NSInteger)intId;
+- (instancetype)initWithIntegerId:(NSInteger)intId;
 
 /**
  * Initializes the identifier with a integer id given as a string.
@@ -45,7 +45,7 @@
  *
  * @return An ORObjectIdentifier object initialized with the provided value.
  */
-- (id)initWithStringId:(NSString *)stringId;
+- (instancetype)initWithStringId:(NSString *)stringId;
 
 /**
  * Returns a string representation of this identifier.

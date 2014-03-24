@@ -26,6 +26,6 @@
 @property (nonatomic, strong, readwrite) ORNavigation *navigation;
 @property (nonatomic, strong, readwrite) ORImage *image;
 
-- (id)initWithName:(NSString *)aName;
+- (instancetype)initWithName:(NSString *)aName;
 
 @end

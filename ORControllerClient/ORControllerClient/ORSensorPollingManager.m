@@ -40,9 +40,9 @@
 
 @implementation ORSensorPollingManager
 
-- (id)initWithControllerAPI:(ORControllerRESTAPI *)api
-          controllerAddress:(ORControllerAddress *)controllerAddress
-             sensorRegistry:(ORSensorRegistry *)sensorRegistry
+- (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
+                    controllerAddress:(ORControllerAddress *)controllerAddress
+                       sensorRegistry:(ORSensorRegistry *)sensorRegistry
 {
     self = [super init];
     if (self) {

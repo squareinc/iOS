@@ -26,6 +26,6 @@
 @interface PanelLayoutResponseHandler_2_0_0 : ORResponseHandler
 
 // TODO: doc
-- (id)initWithSuccessHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (instancetype)initWithSuccessHandler:(void (^)(Definition *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

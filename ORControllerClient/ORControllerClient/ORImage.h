@@ -29,7 +29,7 @@
  */
 @interface ORImage : ORWidget
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 
 /**
  * The name of the image.

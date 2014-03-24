@@ -23,6 +23,6 @@
 
 @interface ORWebView ()
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier src:(NSString *)aSrc username:(NSString *)aUsername password:(NSString *)aPassword;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier src:(NSString *)aSrc username:(NSString *)aUsername password:(NSString *)aPassword;
 
 @end

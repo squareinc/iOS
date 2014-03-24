@@ -24,6 +24,6 @@
 
 @property (nonatomic, strong, readwrite) ORWidget *widget;
 
-- (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
+- (instancetype)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
 
 @end

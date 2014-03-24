@@ -25,7 +25,7 @@
 
 @interface ORGesture ()
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier gestureType:(ORGestureType)type hasCommand:(BOOL)hasCommandFlag;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier gestureType:(ORGestureType)type hasCommand:(BOOL)hasCommandFlag;
 
 @property (nonatomic, strong) ORNavigation *navigation;
 @property (nonatomic) BOOL hasCommand;

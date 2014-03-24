@@ -32,7 +32,7 @@
 
 @implementation ORGroup
 
-- (id)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName
+- (instancetype)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName
 {
     self = [super initWithIdentifier:anIdentifier];
     if (self) {

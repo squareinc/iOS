@@ -32,6 +32,6 @@
 @property(nonatomic, strong, readwrite) ORImage *maxImage;
 @property(nonatomic, strong, readwrite) ORImage *maxTrackImage;
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier vertical:(BOOL)verticalFlag passive:(BOOL)passiveFlag thumbImageSrc:(NSString *)thumbImageSrc;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier vertical:(BOOL)verticalFlag passive:(BOOL)passiveFlag thumbImageSrc:(NSString *)thumbImageSrc;
 
 @end

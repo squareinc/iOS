@@ -29,7 +29,7 @@
  */
 @interface ORLabel : ORWidget
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
 
 /**
  * The current text value of this label.

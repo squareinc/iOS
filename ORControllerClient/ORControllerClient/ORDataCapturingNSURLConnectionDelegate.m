@@ -50,7 +50,7 @@ static NSArray* connectionDelegateSelectors;
     connectionDelegateSelectors = [NSArray arrayWithArray:tmp];
 }
 
-- (id)initWithNSURLConnectionDelegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
+- (instancetype)initWithNSURLConnectionDelegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
 {
     self = [super init];
     if (self) {

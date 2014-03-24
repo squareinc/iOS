@@ -36,6 +36,6 @@
  * @param errorHandler A block object to be executed if call failed or response data can not be processed.
  * This block has no return value and takes a single NSError * argument indicating the error that occured. This parameter may be NULL.
  */
-- (id)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (instancetype)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

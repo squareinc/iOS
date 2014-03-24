@@ -23,6 +23,6 @@
 
 @interface ORNavigation ()
 
-- (id)initWithNavigationType:(ORNavigationType)aType;
+- (instancetype)initWithNavigationType:(ORNavigationType)aType;
 
 @end

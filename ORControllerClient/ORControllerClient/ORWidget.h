@@ -37,7 +37,7 @@
  *
  * @return An ORWidget object initialized with the provided identifier.
  */
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
 
 /**
  * Widget identifier.

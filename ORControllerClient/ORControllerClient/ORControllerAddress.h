@@ -37,7 +37,7 @@
  *
  * @return An ORControllerAddress object initialized with given URL. If no URL was given, returns nil.
  */
-- (id)initWithPrimaryURL:(NSURL *)aURL;
+- (instancetype)initWithPrimaryURL:(NSURL *)aURL;
 
 /**
  * Full URL to controller root context

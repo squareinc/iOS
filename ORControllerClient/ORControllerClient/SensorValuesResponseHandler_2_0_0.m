@@ -31,7 +31,7 @@
 
 @implementation SensorValuesResponseHandler_2_0_0
 
-- (id)initWithSuccessHandler:(void (^)(NSDictionary *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (instancetype)initWithSuccessHandler:(void (^)(NSDictionary *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 {
     self = [super init];
     if (self) {

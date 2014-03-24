@@ -52,7 +52,7 @@
 
 @implementation ORController
 
-- (id)initWithControllerAddress:(ORControllerAddress *)anAddress
+- (instancetype)initWithControllerAddress:(ORControllerAddress *)anAddress
 {
     self = [super init];
     if (self) {

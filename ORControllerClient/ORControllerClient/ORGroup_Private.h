@@ -25,7 +25,7 @@
 
 @interface ORGroup ()
 
-- (id)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
+- (instancetype)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 
 - (void)addScreen:(ORScreen *)screen;
 

@@ -26,7 +26,7 @@
 
 @implementation ORGroupScreenDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORGroup class]]) {
         return nil;

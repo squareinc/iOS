@@ -30,7 +30,7 @@
 
 @implementation ORDeferredBinding
 
-- (id)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
+- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
 {
     if (!anIdentifier || !anEnclosingObject) {
         return nil;

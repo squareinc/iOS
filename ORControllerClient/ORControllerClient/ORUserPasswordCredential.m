@@ -30,7 +30,7 @@
 
 @implementation ORUserPasswordCredential
 
-- (id)initWithUsername:(NSString *)username password:(NSString *)password
+- (instancetype)initWithUsername:(NSString *)username password:(NSString *)password
 {
     self = [super init];
     if (self) {

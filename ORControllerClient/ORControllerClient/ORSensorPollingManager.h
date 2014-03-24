@@ -43,9 +43,9 @@
  *
  * @return An ORSensorPollingManager object initialized with the provided address and registry.
  */
-- (id)initWithControllerAPI:(ORControllerRESTAPI *)api
-          controllerAddress:(ORControllerAddress *)controllerAddress
-             sensorRegistry:(ORSensorRegistry *)sensorRegistry;
+- (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
+                    controllerAddress:(ORControllerAddress *)controllerAddress
+                       sensorRegistry:(ORSensorRegistry *)sensorRegistry;
 
 /*
  * Requests current value of sensors registered in registry, then polling mechanism to receive updates to those value.

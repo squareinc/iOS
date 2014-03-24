@@ -60,6 +60,6 @@
  *
  * @return an encapsulated NSURLConnectionDataDelegate instance
  */
-- (id)initWithNSURLConnectionDelegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
+- (instancetype)initWithNSURLConnectionDelegate:(id <ORDataCapturingNSURLConnectionDelegateDelegate>)aDelegate;
 
 @end

@@ -31,7 +31,7 @@
 
 @implementation PanelIdentityListResponseHandler_2_0_0
 
-- (id)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+- (instancetype)initWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     self = [super init];
     if (self) {

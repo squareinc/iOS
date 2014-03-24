@@ -42,7 +42,7 @@
 
 @implementation ORGridCellParser
 
-- (id)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
+- (instancetype)initWithRegister:(DefinitionElementParserRegister *)aRegister attributes:(NSDictionary *)attributeDict
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {

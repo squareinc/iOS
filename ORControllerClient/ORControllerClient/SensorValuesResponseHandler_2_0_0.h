@@ -24,6 +24,6 @@
 @interface SensorValuesResponseHandler_2_0_0 : ORResponseHandler
 
 // TODO: doc
-- (id)initWithSuccessHandler:(void (^)(NSDictionary *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (instancetype)initWithSuccessHandler:(void (^)(NSDictionary *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 @end

@@ -29,7 +29,7 @@
 
 @implementation ORControllerAddress
 
-- (id)initWithPrimaryURL:(NSURL *)aURL
+- (instancetype)initWithPrimaryURL:(NSURL *)aURL
 {
     self = [super init];
     if (self) {

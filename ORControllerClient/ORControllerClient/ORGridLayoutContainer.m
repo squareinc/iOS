@@ -36,7 +36,7 @@
 
 @implementation ORGridLayoutContainer
 
-- (id)initWithLeft:(NSInteger)leftPos
+- (instancetype)initWithLeft:(NSInteger)leftPos
                top:(NSInteger)topPos
              width:(NSUInteger)widthDim
             height:(NSUInteger)heightDim

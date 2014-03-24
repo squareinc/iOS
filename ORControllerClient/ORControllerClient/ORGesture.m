@@ -32,7 +32,7 @@
 
 @implementation ORGesture
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier gestureType:(ORGestureType)type hasCommand:(BOOL)hasCommandFlag
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier gestureType:(ORGestureType)type hasCommand:(BOOL)hasCommandFlag
 {
     self = [super initWithIdentifier:anIdentifier];
     if (self) {

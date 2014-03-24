@@ -26,7 +26,7 @@
 
 @interface ORButton ()
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier
                    label:(ORLabel *)aLabel
                   repeat:(BOOL)repeatFlag
              repeatDelay:(int)aRepeatDelay

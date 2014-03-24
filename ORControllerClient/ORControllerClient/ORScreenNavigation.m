@@ -24,7 +24,7 @@
 
 @implementation ORScreenNavigation
 
-- (id)init
+- (instancetype)init
 {
     self = [super initWithNavigationType:ORNavigationTypeToGroupOrScreen];
     return self;

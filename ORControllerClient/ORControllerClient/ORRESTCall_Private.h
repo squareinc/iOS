@@ -33,6 +33,6 @@
  *
  * @return An ORRESTCall object initialized with the provided connection.
  */
-- (id)initWithNSURLConnection:(NSURLConnection *)connection;
+- (instancetype)initWithNSURLConnection:(NSURLConnection *)connection;
 
 @end

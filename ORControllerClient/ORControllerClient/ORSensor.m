@@ -29,7 +29,7 @@
 
 @implementation ORSensor
 
-- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier
 {
     self = [super init];
     if (self) {

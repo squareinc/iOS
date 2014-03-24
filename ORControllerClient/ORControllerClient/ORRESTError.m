@@ -30,7 +30,7 @@
 
 @implementation ORRESTError
 
-- (id)initWithMessage:(NSString *)aMessage code:(NSInteger)aCode
+- (instancetype)initWithMessage:(NSString *)aMessage code:(NSInteger)aCode
 {
     self = [super init];
     if (self) {
