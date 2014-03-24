@@ -48,7 +48,7 @@
 
 - (NSSet *)widgets
 {
-    return [NSSet setWithObject:self.widget];
+    return self.widget?[NSSet setWithObject:self.widget]:[NSSet set];
 }
 
 @synthesize widget;
