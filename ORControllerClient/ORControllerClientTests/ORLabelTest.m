@@ -21,7 +21,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "ORObjectIdentifier.h"
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 
 #define SOME_TEXT @"Some text"
 #define SOME_OTHER_TEXT @"Some other text"

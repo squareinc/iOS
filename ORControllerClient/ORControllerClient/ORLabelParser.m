@@ -20,6 +20,7 @@
  */
 
 #import "ORLabelParser.h"
+#import "ORLabel_Private.h"
 #import "ORSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 

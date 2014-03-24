@@ -19,12 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "DefinitionElementParser.h"
+#import "ORLabel.h"
 
-@class ORLabel;
+@interface ORLabel ()
 
-@interface ORLabelParser : DefinitionElementParser
+@property (strong, nonatomic, readwrite) NSString *text;
+@property (strong, nonatomic, readwrite) UIColor *textColor;
+@property (strong, nonatomic, readwrite) UIFont *font;
 
-@property (nonatomic, strong, readonly) ORLabel *label;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
 
 @end

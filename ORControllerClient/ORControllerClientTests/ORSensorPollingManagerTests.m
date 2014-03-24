@@ -23,7 +23,7 @@
 #import "ORSensorPollingManager.h"
 #import "ORSensorRegistry.h"
 #import "ORObjectIdentifier.h"
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 #import "ORSensor.h"
 #import "ORSensorStatesMapping.h"
 #import "ORSensorState.h"

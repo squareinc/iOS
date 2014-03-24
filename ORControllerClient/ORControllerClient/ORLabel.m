@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 
 NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
 

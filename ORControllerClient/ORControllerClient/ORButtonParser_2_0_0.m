@@ -23,7 +23,7 @@
 #import "ORButtonParser_Private.h"
 #import "ORButton_Private.h"
 #import "ORObjectIdentifier.h"
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 #import "ORImageParser.h"
 #import "ORNavigationParser.h"
 #import "DefinitionElementParserRegister.h"

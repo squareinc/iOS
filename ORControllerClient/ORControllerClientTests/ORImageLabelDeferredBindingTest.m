@@ -22,7 +22,7 @@
 #import "ORImageLabelDeferredBinding.h"
 #import "ORObjectIdentifier.h"
 #import "ORImage.h"
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 #import "Definition.h"
 
 @implementation ORImageLabelDeferredBindingTest

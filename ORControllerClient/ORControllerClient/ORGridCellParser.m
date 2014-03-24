@@ -21,6 +21,7 @@
 #import "ORGridCellParser.h"
 #import "ORGridCell_Private.h"
 #import "ORLabelParser.h"
+#import "ORLabel.h"
 #import "ORImageParser.h"
 #import "ORWebViewParser.h"
 #import "ORButtonParser.h"

@@ -29,22 +29,20 @@
  */
 @interface ORLabel : ORWidget
 
-- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier text:(NSString *)someText;
-
 /**
  * The current text value of this label.
  */
-@property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic, readonly) NSString *text;
 
 /**
  * The current color of the text of this label.
  */
-@property (strong, nonatomic) UIColor *textColor;
+@property (strong, nonatomic, readonly) UIColor *textColor;
 
 /**
  * The current font of the text of this label.
  */
-@property (strong, nonatomic) UIFont *font;
+@property (strong, nonatomic, readonly) UIFont *font;
 
 /**
  * Indicates if any property of this label can be dynamically updated by a sensor linked to it.
