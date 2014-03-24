@@ -22,7 +22,6 @@
 
 @class ORAbsoluteLayoutContainer;
 
-
 /**
  * Parses a <absolute...> XML fragment from the panel XML document
  * following schema v2.0 into an ORAbsoluteLayoutContainer model object instance.
