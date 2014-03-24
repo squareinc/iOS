@@ -47,7 +47,7 @@
 
 - (void)endCellElement:(ORGridCellParser *)parser
 {
-    [((ORGridLayoutContainer *)self.layoutContainer).cells addObject:parser.gridCell];
+    [((ORGridLayoutContainer *)self.layoutContainer).cells addObject:parser.cell];
 }
 
 @synthesize layoutContainer;

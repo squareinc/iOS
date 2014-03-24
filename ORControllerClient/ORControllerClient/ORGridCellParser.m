@@ -36,7 +36,7 @@
 
 @interface ORGridCellParser()
 
-@property (nonatomic, strong, readwrite) ORGridCell *gridCell;
+@property (nonatomic, strong, readwrite) ORGridCell *cell;
 
 @end
 
@@ -53,7 +53,7 @@
         [self addKnownTag:SWITCH];
         [self addKnownTag:SLIDER];
         [self addKnownTag:COLORPICKER];
-        self.gridCell = [[ORGridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] integerValue]
+        self.cell = [[ORGridCell alloc] initWithX:[[attributeDict objectForKey:@"x"] integerValue]
                                                   y:[[attributeDict objectForKey:@"y"] integerValue]
                                             rowspan:[[attributeDict objectForKey:@"rowspan"] integerValue]
                                             colspan:[[attributeDict objectForKey:@"colspan"] integerValue]];
@@ -63,46 +63,46 @@
 
 - (void)endLabelElement:(ORLabelParser *)parser
 {
-    self.gridCell.widget = parser.label;
+    self.cell.widget = parser.label;
     [self.depRegister.definition addLabel:parser.label];
 }
 
 - (void)endImageElement:(ORImageParser *)parser
 {
-    self.gridCell.widget = parser.image;
+    self.cell.widget = parser.image;
     [self.depRegister.definition addImage:parser.image];
 }
 
 - (void)endWebElement:(ORWebViewParser *)parser
 {
-    self.gridCell.widget = parser.web;
+    self.cell.widget = parser.web;
     [self.depRegister.definition addWebView:parser.web];
 }
 
 - (void)endButtonElement:(ORButtonParser *)parser
 {
-    self.gridCell.widget = parser.button;
+    self.cell.widget = parser.button;
     [self.depRegister.definition addButton:parser.button];
 }
 
 - (void)endSwitchElement:(ORSwitchParser *)parser
 {
-    self.gridCell.widget = parser.sswitch;
+    self.cell.widget = parser.sswitch;
     [self.depRegister.definition addSwitch:parser.sswitch];
 }
 
 - (void)endSliderElement:(ORSliderParser *)parser
 {
-    self.gridCell.widget = parser.slider;
+    self.cell.widget = parser.slider;
     [self.depRegister.definition addSlider:parser.slider];
 }
 
 - (void)endColorPickerElement:(ORColorPickerParser *)parser
 {
-    self.gridCell.widget = parser.colorPicker;
+    self.cell.widget = parser.colorPicker;
     [self.depRegister.definition addColorPicker:parser.colorPicker];
 }
 
-@synthesize gridCell;
+@synthesize cell;
 
 @end

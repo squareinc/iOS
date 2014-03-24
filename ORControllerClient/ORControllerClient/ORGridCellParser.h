@@ -34,6 +34,6 @@
  /**
  * ORGridCell model object parsed from the XML fragment.
  */
-@property (nonatomic, strong, readonly) ORGridCell *gridCell;
+@property (nonatomic, strong, readonly) ORGridCell *cell;
 
 @end
