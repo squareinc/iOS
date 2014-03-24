@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORGridLayoutContainerParser.h"
-#import "ORGridLayoutContainer.h"
+#import "ORGridLayoutContainer_Private.h"
 #import "ORGridCellParser.h"
 
 @interface ORGridLayoutContainerParser()

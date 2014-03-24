@@ -24,11 +24,6 @@
 
 @interface ORAbsoluteLayoutContainer : ORLayoutContainer
 
-- (id)initWithLeft:(NSInteger)leftPos
-               top:(NSInteger)topPos
-             width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim;
-
-@property (nonatomic, strong) ORWidget *widget;
+@property (nonatomic, strong, readonly) ORWidget *widget;
 
 @end

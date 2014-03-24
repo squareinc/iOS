@@ -635,6 +635,9 @@
 		91C3DF2E18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGroupScreenDeferredBinding.m; sourceTree = "<group>"; };
 		91C3DF3118DB35E0006FD9D4 /* ORGroupParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGroupParserTest.m; sourceTree = "<group>"; };
 		91C3DF3318DB35FB006FD9D4 /* ORGroupParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGroupParserTest.h; sourceTree = "<group>"; };
+		91CC89EB18E066CB00D31A66 /* ORAbsoluteLayoutContainer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAbsoluteLayoutContainer_Private.h; sourceTree = "<group>"; };
+		91CC89EC18E0670E00D31A66 /* ORGridLayoutContainer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridLayoutContainer_Private.h; sourceTree = "<group>"; };
+		91CC89ED18E0674600D31A66 /* ORGridCell_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridCell_Private.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -804,10 +807,13 @@
 				91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */,
 				9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */,
 				9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */,
+				91CC89EB18E066CB00D31A66 /* ORAbsoluteLayoutContainer_Private.h */,
 				9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */,
 				91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */,
+				91CC89EC18E0670E00D31A66 /* ORGridLayoutContainer_Private.h */,
 				9193332D179E9BCF0086FEE7 /* ORGridCell.h */,
 				9193332E179E9BCF0086FEE7 /* ORGridCell.m */,
+				91CC89ED18E0674600D31A66 /* ORGridCell_Private.h */,
 				91B72FA21890308F000B7552 /* ORImage.h */,
 				91B72FA31890308F000B7552 /* ORImage.m */,
 				91222D861892659E00BA0B96 /* ORSensorStatesMapping.h */,

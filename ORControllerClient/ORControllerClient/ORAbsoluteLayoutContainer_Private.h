@@ -18,40 +18,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "ORAbsoluteLayoutContainer_Private.h"
+#import "ORAbsoluteLayoutContainer.h"
 
 @interface ORAbsoluteLayoutContainer ()
-
-@property (nonatomic, readwrite) NSInteger left;
-@property (nonatomic, readwrite) NSInteger top;
-@property (nonatomic, readwrite) NSUInteger width;
-@property (nonatomic, readwrite) NSUInteger height;
-
-@end
-
-@implementation ORAbsoluteLayoutContainer
 
 - (id)initWithLeft:(NSInteger)leftPos
                top:(NSInteger)topPos
              width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim
-{
-    self = [super init];
-    if (self) {
-        self.left = leftPos;
-        self.top = topPos;
-        self.width = widthDim;
-        self.height = heightDim;
-    }
-    return self;
-}
+            height:(NSUInteger)heightDim;
 
-- (NSSet *)widgets
-{
-    return [NSSet setWithObject:self.widget];
-}
-
-@synthesize widget;
-@synthesize left, top, width, height;
+@property (nonatomic, strong, readwrite) ORWidget *widget;
 
 @end

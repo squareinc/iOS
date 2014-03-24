@@ -18,40 +18,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "ORAbsoluteLayoutContainer_Private.h"
+#import "ORGridCell.h"
 
-@interface ORAbsoluteLayoutContainer ()
+@interface ORGridCell ()
 
-@property (nonatomic, readwrite) NSInteger left;
-@property (nonatomic, readwrite) NSInteger top;
-@property (nonatomic, readwrite) NSUInteger width;
-@property (nonatomic, readwrite) NSUInteger height;
+@property (nonatomic, strong, readwrite) ORWidget *widget;
 
-@end
-
-@implementation ORAbsoluteLayoutContainer
-
-- (id)initWithLeft:(NSInteger)leftPos
-               top:(NSInteger)topPos
-             width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim
-{
-    self = [super init];
-    if (self) {
-        self.left = leftPos;
-        self.top = topPos;
-        self.width = widthDim;
-        self.height = heightDim;
-    }
-    return self;
-}
-
-- (NSSet *)widgets
-{
-    return [NSSet setWithObject:self.widget];
-}
-
-@synthesize widget;
-@synthesize left, top, width, height;
+- (id)initWithX:(NSUInteger)xPos y:(NSUInteger)yPos rowspan:(NSUInteger)rowspanValue colspan:(NSUInteger)colspanValue;
 
 @end

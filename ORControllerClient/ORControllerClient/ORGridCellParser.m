@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORGridCellParser.h"
-#import "ORGridCell.h"
+#import "ORGridCell_Private.h"
 #import "ORLabelParser.h"
 #import "ORImageParser.h"
 #import "ORWebViewParser.h"

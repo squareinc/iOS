@@ -26,11 +26,4 @@
 @property (nonatomic, readonly) NSUInteger rows;
 @property (nonatomic, readonly) NSUInteger cols;
 
-- (id)initWithLeft:(NSInteger)leftPos
-               top:(NSInteger)topPos
-             width:(NSUInteger)widthDim
-            height:(NSUInteger)heightDim
-              rows:(NSUInteger)rowsNum
-              cols:(NSUInteger)colsNum;
-
 @end
