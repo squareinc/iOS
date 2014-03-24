@@ -22,8 +22,18 @@
 
 @class ORGridCell;
 
+/**
+ * Parses a <cell...> XML fragment (within a "grid" element) from the panel XML document
+ * following schema v2.0 into an ORGrid model object instance.
+ *
+ * XML fragment example:
+ * <cell x="0" y="0" rowspan="1" colspan="1"/>
+ */
 @interface ORGridCellParser : DefinitionElementParser
 
+ /**
+ * ORGridCell model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORGridCell *gridCell;
 
 @end

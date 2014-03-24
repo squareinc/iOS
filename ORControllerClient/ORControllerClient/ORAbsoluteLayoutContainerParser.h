@@ -22,8 +22,21 @@
 
 @class ORAbsoluteLayoutContainer;
 
+
+/**
+ * Parses a <absolute...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORAbsoluteLayoutContainer model object instance.
+ *
+ * XML fragment example:
+ * <absolute left="10" top="10" width="320" height="300">
+ * ......
+ * </absolute>
+ */
 @interface ORAbsoluteLayoutContainerParser : DefinitionElementParser
 
+/**
+ * ORAbsoluteLayoutContainer model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORAbsoluteLayoutContainer *layoutContainer;
 
 @end

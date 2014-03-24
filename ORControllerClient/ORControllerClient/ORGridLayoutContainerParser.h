@@ -22,8 +22,23 @@
 
 @class ORGridLayoutContainer;
 
+/**
+ * Parses a <grid...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORGridLayoutContainer model object instance.
+ *
+ * XML fragment example:
+ * <grid left="20" top="20" width="300" height="400" rows="2" cols="2">
+ *    <cell x="0" y="0" rowspan="1" colspan="1">
+ *    </cell>
+ * </grid>
+ */
+
+
 @interface ORGridLayoutContainerParser : DefinitionElementParser
 
+ /**
+ * ORGridLayoutContainer model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORGridLayoutContainer *layoutContainer;
 
 @end
