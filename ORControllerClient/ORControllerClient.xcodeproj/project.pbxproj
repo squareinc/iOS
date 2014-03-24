@@ -244,6 +244,9 @@
 		91C3DF2F18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF2E18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m */; };
 		91C3DF3018DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF2E18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m */; };
 		91C3DF3218DB35E0006FD9D4 /* ORGroupParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF3118DB35E0006FD9D4 /* ORGroupParserTest.m */; };
+		91CC89EF18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC89EE18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m */; };
+		91CC89F418E06EEC00D31A66 /* ORGridLayoutContainerParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC89F318E06EEC00D31A66 /* ORGridLayoutContainerParserTest.m */; };
+		91CC89F718E070FC00D31A66 /* ORGridCellParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC89F618E070FC00D31A66 /* ORGridCellParserTest.m */; };
 		91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */; };
 		91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
 		91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
@@ -638,6 +641,12 @@
 		91CC89EB18E066CB00D31A66 /* ORAbsoluteLayoutContainer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAbsoluteLayoutContainer_Private.h; sourceTree = "<group>"; };
 		91CC89EC18E0670E00D31A66 /* ORGridLayoutContainer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridLayoutContainer_Private.h; sourceTree = "<group>"; };
 		91CC89ED18E0674600D31A66 /* ORGridCell_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridCell_Private.h; sourceTree = "<group>"; };
+		91CC89EE18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAbsoluteLayoutContainerParserTest.m; sourceTree = "<group>"; };
+		91CC89F218E06B0B00D31A66 /* ORAbsoluteLayoutContainerParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAbsoluteLayoutContainerParserTest.h; sourceTree = "<group>"; };
+		91CC89F318E06EEC00D31A66 /* ORGridLayoutContainerParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGridLayoutContainerParserTest.m; sourceTree = "<group>"; };
+		91CC89F518E06F0200D31A66 /* ORGridLayoutContainerParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridLayoutContainerParserTest.h; sourceTree = "<group>"; };
+		91CC89F618E070FC00D31A66 /* ORGridCellParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGridCellParserTest.m; sourceTree = "<group>"; };
+		91CC89F818E0710F00D31A66 /* ORGridCellParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridCellParserTest.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -904,6 +913,12 @@
 				91C3DF3318DB35FB006FD9D4 /* ORGroupParserTest.h */,
 				91A4A27518DB0E850070F823 /* ORScreenParserTest.m */,
 				91A4A27718DB0EA30070F823 /* ORScreenParserTest.h */,
+				91CC89EE18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m */,
+				91CC89F218E06B0B00D31A66 /* ORAbsoluteLayoutContainerParserTest.h */,
+				91CC89F318E06EEC00D31A66 /* ORGridLayoutContainerParserTest.m */,
+				91CC89F518E06F0200D31A66 /* ORGridLayoutContainerParserTest.h */,
+				91CC89F618E070FC00D31A66 /* ORGridCellParserTest.m */,
+				91CC89F818E0710F00D31A66 /* ORGridCellParserTest.h */,
 				91A4A24F18D733F20070F823 /* ORTabBarItemParserTest.m */,
 				91A4A25118D7340D0070F823 /* ORTabBarItemParserTest.h */,
 				91BCD68218994BF500EC8AEE /* ORBackgroundParserTest.m */,
@@ -1532,6 +1547,7 @@
 				918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */,
 				9193330E179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */,
 				91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */,
+				91CC89F418E06EEC00D31A66 /* ORGridLayoutContainerParserTest.m in Sources */,
 				91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */,
 				91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */,
 				911392E7189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
@@ -1562,8 +1578,10 @@
 				91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */,
 				917BA54518C2343E006006E9 /* ORGroup.m in Sources */,
 				91B72FA918903402000B7552 /* ORImageParser.m in Sources */,
+				91CC89EF18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m in Sources */,
 				91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
+				91CC89F718E070FC00D31A66 /* ORGridCellParserTest.m in Sources */,
 				91222D851892631700BA0B96 /* ORSensorState.m in Sources */,
 				91E5B16517B111C3007EB305 /* StatusValuesParser_2_0_0Test.m in Sources */,
 				91E5B16B17B125F6007EB305 /* PanelIdentityListResponseHandler_2_0_0Test.m in Sources */,
