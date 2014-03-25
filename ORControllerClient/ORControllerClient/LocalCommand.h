@@ -18,11 +18,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "Component.h"
+#import "ORWidget.h"
 
-@interface LocalCommand : Component
+@interface LocalCommand : ORWidget
 
-- (id)initWithId:(int)anId protocol:(NSString *)aProtocol;
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier protocol:(NSString *)aProtocol;
 
 - (void)addPropertyValue:(NSString *)value forKey:(NSString *)key;
 - (NSString *)propertyValueForKey:(NSString *)key;

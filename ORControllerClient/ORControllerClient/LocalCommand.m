@@ -19,6 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "LocalCommand.h"
+#import "ORWidget_Private.h"
 
 @interface LocalCommand ()
 
@@ -29,11 +30,10 @@
 
 @implementation LocalCommand
 
-- (id)initWithId:(int)anId protocol:(NSString *)aProtocol
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier protocol:(NSString *)aProtocol
 {
-    self = [super init];
+    self = [super initWithIdentifier:anIdentifier];
     if (self) {
-        self.componentId = anId;
         self.protocol = aProtocol;
         self.properties = [NSMutableDictionary dictionary];
     }

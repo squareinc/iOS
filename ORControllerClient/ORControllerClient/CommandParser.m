@@ -22,6 +22,7 @@
 #import "LocalCommand.h"
 #import "PropertyParser.h"
 #import "XMLEntity.h"
+#import "ORObjectIdentifier.h"
 
 @interface CommandParser ()
 
@@ -36,7 +37,8 @@
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
         [self addKnownTag:@"ctrl:property"];
-        self.command = [[LocalCommand alloc] initWithId:[[attributeDict objectForKey:ID] intValue] protocol:[attributeDict objectForKey:@"protocol"]];
+        self.command = [[LocalCommand alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
+                                                       protocol:[attributeDict objectForKey:@"protocol"]];
     }
     return self;
 }
