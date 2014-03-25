@@ -20,6 +20,7 @@
  */
 
 #import "ORScreen_Private.h"
+#import "ORWidget_Private.h"
 
 @interface ORScreen ()
 

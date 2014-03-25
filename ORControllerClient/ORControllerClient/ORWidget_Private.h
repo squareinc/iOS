@@ -19,20 +19,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORModelObject.h"
+#import "ORWidget.h"
 
-@class ORObjectIdentifier;
-
-/**
- * Abstract parent class of all UI widgets model objects in OR model.
- * 
- * Provides management of the identifier property that all widgets have.
- */
-@interface ORWidget : ORModelObject;
+@interface ORWidget ()
 
 /**
- * Widget identifier.
+ * Initializes the widget with the given identifier.
+ *
+ * @param anIdentifier ORObjectIdenfitier to use as identifier for this widget
+ *
+ * @return An ORWidget object initialized with the provided identifier.
  */
-@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier;
 
 @end

@@ -20,6 +20,7 @@
  */
 
 #import "ORGroup_Private.h"
+#import "ORWidget_Private.h"
 #import "ORScreen.h"
 
 @interface ORGroup ()

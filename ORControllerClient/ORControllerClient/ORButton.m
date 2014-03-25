@@ -21,6 +21,7 @@
 
 #import "ORButton.h"
 #import "ORButton_Private.h"
+#import "ORWidget_Private.h"
 #import "ORLabel.h"
 #import "ORConsole.h"
 #import "Definition.h"

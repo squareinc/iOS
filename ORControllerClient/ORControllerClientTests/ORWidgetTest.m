@@ -20,7 +20,7 @@
  */
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "ORWidget.h"
+#import "ORWidget_Private.h"
 #import "ORObjectIdentifier.h"
 
 @interface ORWidgetTest : SenTestCase

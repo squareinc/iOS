@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORWidget.h"
+#import "ORWidget_Private.h"
 
 @interface ORWidget ()
 

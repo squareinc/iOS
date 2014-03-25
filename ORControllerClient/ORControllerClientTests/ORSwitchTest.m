@@ -21,6 +21,7 @@
 
 #import "ORSwitchTest.h"
 #import "ORSwitch.h"
+#import "ORWidget_Private.h"
 #import "ORImage.h"
 #import "ORObjectIdentifier.h"
 

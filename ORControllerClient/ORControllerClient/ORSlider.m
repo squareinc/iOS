@@ -20,6 +20,7 @@
  */
 
 #import "ORSlider_Private.h"
+#import "ORWidget_Private.h"
 #import "ORImage.h"
 #import "Definition.h"
 

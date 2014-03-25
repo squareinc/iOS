@@ -20,6 +20,7 @@
  */
 
 #import "ORGesture_Private.h"
+#import "ORWidget_Private.h"
 #import "Definition.h"
 #import "ORNavigation.h"
 #import "ORConsole.h"

@@ -20,6 +20,7 @@
  */
 
 #import "ORImage.h"
+#import "ORWidget_Private.h"
 
 @implementation ORImage
 

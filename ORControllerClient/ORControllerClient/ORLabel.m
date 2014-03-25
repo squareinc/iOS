@@ -20,6 +20,7 @@
  */
 
 #import "ORLabel_Private.h"
+#import "ORWidget_Private.h"
 
 NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
 

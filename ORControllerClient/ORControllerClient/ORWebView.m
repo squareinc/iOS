@@ -19,6 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORWebView_Private.h"
+#import "ORWidget_Private.h"
 
 @interface ORWebView ()
 
