@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "Component.h"
+#import "ORWidget.h"
 
 @class LocalCommand;
 
-@interface LocalSensor : Component
+@interface LocalSensor : ORWidget
 
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *type; // TODO enum
 @property (nonatomic, strong) LocalCommand *command;
 
-- (id)initWithId:(int)anId name:(NSString *)sensorName type:(NSString *)sensorType;
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)sensorName type:(NSString *)sensorType;
 
 @end

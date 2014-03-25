@@ -23,6 +23,7 @@
 #import "CommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
+#import "ORObjectIdentifier.h"
 
 @interface SensorParser ()
 
@@ -43,9 +44,9 @@
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-        self.sensor = [[LocalSensor alloc] initWithId:[[attributeDict objectForKey:ID] intValue]
-                                                 name:[attributeDict objectForKey:@"name"]
-                                                 type:[attributeDict objectForKey:@"type"]];
+        self.sensor = [[LocalSensor alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
+                                                         name:[attributeDict objectForKey:@"name"]
+                                                         type:[attributeDict objectForKey:@"type"]];
     }
     return self;
 }

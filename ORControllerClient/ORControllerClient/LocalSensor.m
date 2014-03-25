@@ -18,7 +18,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
 #import "LocalSensor.h"
+#import "ORWidget_Private.h"
 
 @interface LocalSensor ()
 
@@ -29,9 +31,9 @@
 
 @implementation LocalSensor
 
-- (id)initWithId:(int)anId name:(NSString *)sensorName type:(NSString *)sensorType
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)sensorName type:(NSString *)sensorType
 {
-    self = [super initWithId:anId];
+    self = [super initWithIdentifier:anIdentifier];
     if (self) {
         self.name = sensorName;
         self.type = sensorType;
