@@ -20,7 +20,6 @@
  */
 
 #import "PanelXMLParsingTests.h"
-#import "ORControllerClient/Control.h"
 #import "ORControllerClient/ORLayoutContainer.h"
 #import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "ORControllerClient/ORSwitch.h"
@@ -41,6 +40,7 @@
 #import "PanelDefinitionParser.h"
 
 #import "ORControllerClient/ORLabel.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 @implementation PanelXMLParsingTests
 
@@ -711,8 +711,8 @@
 						[cells addObject:cell];
 						if ([cell.widget isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.widget;
-							int expectedId = (59 + image_index++);
-							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+							STAssertEqualObjects(expectedId, theImage.identifier, @"Expected %@, but %@",expectedId,theImage.identifier);
 							NSString *expectedImageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
 							STAssertTrue([theImage.name isEqualToString:expectedImageSrc],@"expected %@, but %@", expectedImageSrc, theImage.name);
 //							NSString *expectedImageStyle = @"";
@@ -834,8 +834,8 @@
 					
 					if ([abso.widget isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.widget;
-						int expectedId = (59 + image_index++);
-						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
 						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
 //						NSString *expectedImageStyle = @"";
@@ -978,8 +978,8 @@
 					
 					if ([abso.widget isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.widget;
-						int expectedId = (59 + image_index++);
-						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
 						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
 					}					
@@ -1070,8 +1070,8 @@
 					
 					if ([abso.widget isKindOfClass:[ORImage class]]) {
 						ORImage *theImage= (ORImage *)abso.widget;
-						int expectedId = (59 + image_index++);
-						STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
 						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
 					}					
@@ -1205,7 +1205,7 @@
 	NSLog(@"Tabbar is : %@", tabBar);
 	NSMutableArray *expectedTabBarItemsName = [NSMutableArray arrayWithObjects:@"previous", @"next", @"setting", nil];
 	NSMutableArray *expectedTabBarItemsImageSrc = [NSMutableArray arrayWithObjects:@"previous.png", @"next.png", @"setting.png", nil];
-	NSMutableArray *tabBarItems = tabBar.items;
+	NSArray *tabBarItems = tabBar.items;
 	NSLog(@"TabBar items count is : %d", tabBarItems.count);
 	for (int i=0; i<tabBarItems.count; i++) {
 		ORTabBarItem *tabBarItem = [tabBarItems objectAtIndex:i];
@@ -1298,8 +1298,8 @@
 						[cells addObject:cell];
 						if ([cell.widget isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.widget;
-							int expectedId = (59 + image_index++);
-							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+							STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
 							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
 						}	
@@ -1355,7 +1355,7 @@
 		NSLog(@"LocalTabbar of grounp '%@' is : %@", group.name, localTabBar);
 		NSMutableArray *expectedLocalTabBarItemsName = [NSMutableArray arrayWithObjects:@"previous", @"next", @"setting", nil];
 		NSMutableArray *expectedLocalTabBarItemsImageSrc = [NSMutableArray arrayWithObjects:@"previous.png", @"next.png", @"setting.png", nil];
-		NSMutableArray *localTabBarItems = localTabBar.items;
+		NSArray *localTabBarItems = localTabBar.items;
 		NSLog(@"LocalTabBar items count of group '%@' is : %d", group.name, localTabBarItems.count);
 		for (int i=0; i<localTabBarItems.count; i++) {
 			ORTabBarItem *localTabBarItem = [localTabBarItems objectAtIndex:i];
@@ -1441,8 +1441,8 @@
 						[cells addObject:cell];
 						if ([cell.widget isKindOfClass:[ORImage class]]) {
 							ORImage *theImage = (ORImage *)cell.widget;
-							int expectedId = (59 + image_index++);
-							STAssertTrue(expectedId == theImage.componentId,@"expected %d, but %d",expectedId,theImage.componentId);
+							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
+							STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
 							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
 						}	
