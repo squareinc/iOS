@@ -122,7 +122,6 @@
 		91933357179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */; };
 		9193335A179E9BD00086FEE7 /* ORColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ORColorPicker.m */; };
 		9193335B179E9BD00086FEE7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933326179E9BCF0086FEE7 /* Component.m */; };
-		9193335C179E9BD00086FEE7 /* Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933328179E9BCF0086FEE7 /* Control.m */; };
 		9193335D179E9BD00086FEE7 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332A179E9BCF0086FEE7 /* Definition.m */; };
 		9193335F179E9BD00086FEE7 /* ORGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332E179E9BCF0086FEE7 /* ORGridCell.m */; };
 		91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */; };
@@ -142,7 +141,6 @@
 		91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */; };
 		9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ORColorPicker.h */; };
 		9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933325179E9BCF0086FEE7 /* Component.h */; };
-		9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933327179E9BCF0086FEE7 /* Control.h */; };
 		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
 		9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* ORGridCell.h */; };
 		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
@@ -325,7 +323,6 @@
 				91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */,
 				9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */,
 				9193337B179E9EB10086FEE7 /* Component.h in CopyFiles */,
-				9193337C179E9EB10086FEE7 /* Control.h in CopyFiles */,
 				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
 				9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */,
@@ -484,8 +481,6 @@
 		91933324179E9BCF0086FEE7 /* ORColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORColorPicker.m; sourceTree = "<group>"; };
 		91933325179E9BCF0086FEE7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		91933326179E9BCF0086FEE7 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
-		91933327179E9BCF0086FEE7 /* Control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Control.h; sourceTree = "<group>"; };
-		91933328179E9BCF0086FEE7 /* Control.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Control.m; sourceTree = "<group>"; };
 		91933329179E9BCF0086FEE7 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		9193332A179E9BCF0086FEE7 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
 		9193332D179E9BCF0086FEE7 /* ORGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGridCell.h; sourceTree = "<group>"; };
@@ -1102,8 +1097,6 @@
 			children = (
 				91933325179E9BCF0086FEE7 /* Component.h */,
 				91933326179E9BCF0086FEE7 /* Component.m */,
-				91933327179E9BCF0086FEE7 /* Control.h */,
-				91933328179E9BCF0086FEE7 /* Control.m */,
 				91933329179E9BCF0086FEE7 /* Definition.h */,
 				9193332A179E9BCF0086FEE7 /* Definition.m */,
 				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
@@ -1450,7 +1443,6 @@
 				9178DF981844D46500E862DF /* UIColor+ORAdditions.m in Sources */,
 				9193335B179E9BD00086FEE7 /* Component.m in Sources */,
 				91B72FAD189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */,
-				9193335C179E9BD00086FEE7 /* Control.m in Sources */,
 				9193335D179E9BD00086FEE7 /* Definition.m in Sources */,
 				9193335F179E9BD00086FEE7 /* ORGridCell.m in Sources */,
 				91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */,
