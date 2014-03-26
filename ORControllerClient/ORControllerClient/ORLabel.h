@@ -44,9 +44,4 @@
  */
 @property (strong, nonatomic, readonly) UIFont *font;
 
-/**
- * Indicates if any property of this label can be dynamically updated by a sensor linked to it.
- */
-@property (nonatomic, readonly) BOOL isDynamic;
-
 @end

@@ -41,9 +41,4 @@
  */
 @property (nonatomic, strong) ORLabel *label;
 
-/**
- * Indicates if any property of this image can be dynamically updated by a sensor linked to it.
- */
-@property (nonatomic, readonly) BOOL isDynamic;
-
 @end
