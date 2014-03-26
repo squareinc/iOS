@@ -31,7 +31,7 @@
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORImage *image = [[ORImage alloc] initWithId:2];
-    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:image];
+    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
     STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
     STAssertEqualObjects(image, binding.enclosingObject, @"Enclosing object should be one used to create binding");
@@ -41,7 +41,7 @@
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORLabel *label = [[ORLabel alloc] initWithId:2];
-    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:label];
+    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:label];
     STAssertNil(binding, @"It should not be possible to create an ORImageLabelDeferredBinding with an enclosing object that is not an image");
 }
 
@@ -51,7 +51,7 @@
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORImage *image = [[ORImage alloc] initWithId:2];
     image.definition = definition;
-    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:image];
+    ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
 
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:identifier text:@"Test label"];
     label.definition = definition;

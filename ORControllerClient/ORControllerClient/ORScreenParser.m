@@ -53,7 +53,7 @@
                                                      orientation:[@"TRUE" isEqualToString:[[attributeDict objectForKey:LANDSCAPE] uppercaseString]]?ORScreenOrientationLandscape:ORScreenOrientationPortrait];
         self.screen.definition = aRegister.definition;
         if ([attributeDict objectForKey:INVERSE_SCREEN_ID]) {
-            ORScreenScreenDeferredBinding *standby = [[ORScreenScreenDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:INVERSE_SCREEN_ID]] enclosingObject:self.screen];
+            ORScreenScreenDeferredBinding *standby = [[ORScreenScreenDeferredBinding alloc] initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:INVERSE_SCREEN_ID]] enclosingObject:self.screen];
             [self.depRegister addDeferredBinding:standby];
         }
     }

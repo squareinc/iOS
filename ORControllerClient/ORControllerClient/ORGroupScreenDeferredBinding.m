@@ -26,12 +26,12 @@
 
 @implementation ORGroupScreenDeferredBinding
 
-- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
+- (instancetype)initWithBoundComponentIdentifier:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject
 {
     if (![anEnclosingObject isKindOfClass:[ORGroup class]]) {
         return nil;
     }
-    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
+    self = [super initWithBoundComponentIdentifier:anIdentifier enclosingObject:anEnclosingObject];
     return self;
 }
 

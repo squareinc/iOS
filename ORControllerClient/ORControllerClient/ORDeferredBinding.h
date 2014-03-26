@@ -46,7 +46,7 @@
  *
  * @return an ORDeferredBinding instance initialized with the provided data
  */
-- (instancetype)initWithBoundComponentId:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
+- (instancetype)initWithBoundComponentIdentifier:(ORObjectIdentifier *)anIdentifier enclosingObject:(ORModelObject *)anEnclosingObject;
 
 /**
  * Make the appropriate link between the model objects, as represented by this binding.

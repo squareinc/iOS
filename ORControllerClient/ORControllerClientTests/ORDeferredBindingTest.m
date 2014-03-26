@@ -30,7 +30,7 @@
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORWidget *widget = [[ORWidget alloc] initWithId:2];
-    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:widget];
+    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
     STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
     STAssertEqualObjects(widget, binding.enclosingObject, @"Enclosing object should be one used to create binding");
@@ -40,13 +40,13 @@
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORWidget *widget = [[ORWidget alloc] initWithId:2];
-    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentId:nil enclosingObject:nil];
+    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:nil enclosingObject:nil];
     STAssertNil(binding, @"It should not be possible to create a binding with nil parameters");
     
-    binding = [[ORDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:nil];
+    binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:nil];
     STAssertNil(binding, @"It should not be possible to create a binding with nil identifier");
 
-    binding = [[ORDeferredBinding alloc] initWithBoundComponentId:nil enclosingObject:widget];
+    binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:nil enclosingObject:widget];
     STAssertNil(binding, @"It should not be possible to create a binding with nil enclosing object");
 }
 
@@ -54,7 +54,7 @@
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORWidget *widget = [[ORWidget alloc] initWithId:2];
-    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentId:identifier enclosingObject:widget];
+    ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     @try {
         [binding bind];
         STFail(@"bind method is abstract and should not be executed correctly");

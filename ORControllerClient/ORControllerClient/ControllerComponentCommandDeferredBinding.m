@@ -24,7 +24,7 @@
                        enclosingObject:(ORModelObject *)anEnclosingObject
                                 action:(NSString *)anAction
 {
-    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
+    self = [super initWithBoundComponentIdentifier:anIdentifier enclosingObject:anEnclosingObject];
     if (self) {
         self.action = anAction;
     }

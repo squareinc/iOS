@@ -51,7 +51,7 @@
 	if ([elementName isEqualToString:INCLUDE] && [SCREEN isEqualToString:[attributeDict objectForKey:TYPE]]) {
         // This is a reference to another element, will be resolved later, put a standby in place for now
         ORGroupScreenDeferredBinding *standby = [[ORGroupScreenDeferredBinding alloc]
-                                                 initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:REF]]
+                                                 initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:REF]]
                                                  enclosingObject:self.group];
         [self.depRegister addDeferredBinding:standby];
 	}

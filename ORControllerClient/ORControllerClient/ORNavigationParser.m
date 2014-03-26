@@ -43,11 +43,11 @@
             self.navigation = [[ORScreenNavigation alloc] init];
             
             if ([attributeDict objectForKey:@"toScreen"]) {
-                ORNavigationScreenDeferredBinding *standby = [[ORNavigationScreenDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toScreen"]] enclosingObject:self.navigation];
+                ORNavigationScreenDeferredBinding *standby = [[ORNavigationScreenDeferredBinding alloc] initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toScreen"]] enclosingObject:self.navigation];
                 [self.depRegister addDeferredBinding:standby];
             }
             if ([attributeDict objectForKey:@"toGroup"]) {
-                ORNavigationGroupDeferredBinding *standby = [[ORNavigationGroupDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toGroup"]] enclosingObject:self.navigation];
+                ORNavigationGroupDeferredBinding *standby = [[ORNavigationGroupDeferredBinding alloc] initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:@"toGroup"]] enclosingObject:self.navigation];
                 [self.depRegister addDeferredBinding:standby];
             }
         } else {
