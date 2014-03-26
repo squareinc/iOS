@@ -19,54 +19,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORSwitch_Private.h"
-#import "Definition.h"
-#import "ORImage.h"
+#import "ORSwitch.h"
 
 @interface ORSwitch ()
 
-@property (nonatomic, readwrite) BOOL _state;
-
-@end
-
-@implementation ORSwitch
-
-- (void)toggle
-{
-    if (self.state) {
-        [self.definition sendOffForSwitch:self];
-    } else {
-        [self.definition sendOnForSwitch:self];
-    }
-}
-
-- (void)on
-{
-    if (!self.state) {
-        [self.definition sendOnForSwitch:self];
-    }
-}
-
-- (void)off
-{
-    if (self.state) {
-        [self.definition sendOffForSwitch:self];
-    }
-}
-
-- (void)setState:(NSString *)stateAsString
-{
-    // If state mapping is defined on the switch, the received value is the translated one, not the original
-    if (self.onImage) {
-        self._state = [self.onImage.name isEqualToString:stateAsString];
-    } else {
-        self._state = [@"on" isEqualToString:[stateAsString lowercaseString]];
-    }
-}
-
-- (BOOL)state
-{
-    return self._state;
-}
+@property (nonatomic, strong, readwrite) ORImage *onImage;
+@property (nonatomic, strong, readwrite) ORImage *offImage;
 
 @end

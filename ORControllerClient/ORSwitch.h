@@ -31,12 +31,12 @@
 /**
  * Image to be used for the on state of the switch.
  */
-@property (nonatomic, strong) ORImage *onImage;
+@property (nonatomic, strong, readonly) ORImage *onImage;
 
 /**
  * Image to be used for the off state of the switch.
  */
-@property (nonatomic, strong) ORImage *offImage;
+@property (nonatomic, strong, readonly) ORImage *offImage;
 
 /**
  * State of the switch.

@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORSwitchParser.h"
-#import "ORSwitch.h"
+#import "ORSwitch_Private.h"
 #import "ORModelObject_Private.h"
 #import "ORWidget_Private.h"
 #import "ORObjectIdentifier.h"

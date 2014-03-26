@@ -20,7 +20,7 @@
  */
 
 #import "ORSwitchTest.h"
-#import "ORSwitch.h"
+#import "ORSwitch_Private.h"
 #import "ORWidget_Private.h"
 #import "ORImage_Private.h"
 #import "ORObjectIdentifier.h"
