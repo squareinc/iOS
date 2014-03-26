@@ -20,7 +20,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Component.h"
 
 @class Definition;
 
@@ -29,7 +28,7 @@
  *
  * Provides access to the definition all objects belong to.
  */
-@interface ORModelObject : Component /* temporary while transitoning between legacy and new object model, should be NSObject */
+@interface ORModelObject : NSObject
 
 // TODO: this is using legacy object, update to current model when ready
 

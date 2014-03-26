@@ -11,6 +11,7 @@
 #import "ControllerComponentCommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
+#import "ORWidget_Private.h"
 #import "ORObjectIdentifier.h"
 
 @implementation ControllerButtonParser
@@ -19,7 +20,7 @@
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-        self.button = [[ControllerComponent alloc] initWithId:[[attributeDict objectForKey:ID] intValue]];
+        self.button = [[ControllerComponent alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]];
     }
     return self;
 }

@@ -12,6 +12,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 #import "ORObjectIdentifier.h"
+#import "ORWidget_Private.h"
 
 @implementation ControllerSliderParser
 
@@ -19,7 +20,7 @@
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-        self.slider = [[ControllerComponent alloc] initWithId:[[attributeDict objectForKey:ID] intValue]];
+        self.slider = [[ControllerComponent alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]];
     }
     return self;
 }

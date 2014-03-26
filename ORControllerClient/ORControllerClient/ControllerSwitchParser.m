@@ -12,6 +12,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
 #import "ORObjectIdentifier.h"
+#import "ORWidget_Private.h"
 
 @interface ControllerSwitchParser()
 
@@ -25,7 +26,7 @@
 {
     self = [super initWithRegister:aRegister attributes:attributeDict];
     if (self) {
-        self.theSwitch = [[ControllerComponent alloc] initWithId:[[attributeDict objectForKey:ID] intValue]];
+        self.theSwitch = [[ControllerComponent alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]];
     }
     return self;
 }

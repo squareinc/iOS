@@ -22,14 +22,14 @@
 #import "ORDeferredBindingTest.h"
 #import "ORDeferredBinding.h"
 #import "ORObjectIdentifier.h"
-#import "ORWidget.h"
+#import "ORWidget_Private.h"
 
 @implementation ORDeferredBindingTest
 
 - (void)testCreateValidBinding
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    ORWidget *widget = [[ORWidget alloc] initWithId:2];
+    ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
     STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
@@ -39,7 +39,7 @@
 - (void)testFailCreateBindingWithNilParameters
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    ORWidget *widget = [[ORWidget alloc] initWithId:2];
+    ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:nil enclosingObject:nil];
     STAssertNil(binding, @"It should not be possible to create a binding with nil parameters");
     
@@ -53,7 +53,7 @@
 - (void)testBindIsAbstract
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    ORWidget *widget = [[ORWidget alloc] initWithId:2];
+    ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     @try {
         [binding bind];
