@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -19,25 +19,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORRESTError.h"
 
-#define EINVALID_PANEL_XML      424
-#define EPANEL_XML_NOT_DEPLOYED 426
-#define EPANEL_NAME_NOT_FOUND   428
+@interface ORRESTError ()
 
 /**
- * Represents an error returned by the OR REST API.
+ // TODO:
  */
-@interface ORRESTError : NSObject
-
-/**
- // TODO
- */
-@property (nonatomic, strong, readonly) NSString *message;
-
-/**
- // TODO
- */
-@property (nonatomic, readonly) NSInteger code;
+- (instancetype)initWithMessage:(NSString *)aMessage code:(NSInteger)aCode;
 
 @end

@@ -20,7 +20,7 @@
  */
 
 #import "ORRESTErrorParser.h"
-#import "ORRESTError.h"
+#import "ORRESTError_Private.h"
 #import "ORParser_Private.h"
 
 @interface ORRESTErrorParser ()
