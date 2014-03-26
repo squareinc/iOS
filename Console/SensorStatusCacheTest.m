@@ -9,6 +9,7 @@
 #import "SensorStatusCacheTest.h"
 #import "SensorStatusCache.h"
 #import "NotificationConstant.h"
+#import "ORObjectIdentifier.h"
 #import <OCMock/OCMock.h>
 
 @interface SensorStatusCacheTest ()
@@ -33,24 +34,27 @@
 {    
     id mockCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     SensorStatusCache *cache = [[SensorStatusCache alloc] initWithNotificationCenter:mockCenter];
-    [[mockCenter expect] postNotificationName:[NSString stringWithFormat:NotificationPollingStatusIdFormat, 1] object:cache];
-    [cache publishNewValue:@"Value1" forSensorId:1];
+    ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    [[mockCenter expect] postNotificationName:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorIdentifier] object:cache];
+    [cache publishNewValue:@"Value1" forSensorIdentifier:sensorIdentifier];
     [mockCenter verify];
 }
 
 - (void)testReadingValueFromCache
 {
-    [self.statusCache publishNewValue:@"Value1" forSensorId:1];
-    STAssertEqualObjects([self.statusCache valueForSensorId:1], @"Value1", @"Value should have been updated to Value1");
-    [self.statusCache publishNewValue:@"Value2" forSensorId:1];
-    STAssertEqualObjects([self.statusCache valueForSensorId:1], @"Value2", @"Value should have been updated to Value2");
+    ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    [self.statusCache publishNewValue:@"Value1" forSensorIdentifier:sensorIdentifier];
+    STAssertEqualObjects([self.statusCache valueForSensorIdentifier:sensorIdentifier], @"Value1", @"Value should have been updated to Value1");
+    [self.statusCache publishNewValue:@"Value2" forSensorIdentifier:sensorIdentifier];
+    STAssertEqualObjects([self.statusCache valueForSensorIdentifier:sensorIdentifier], @"Value2", @"Value should have been updated to Value2");
 }
 
 - (void)testReadingValueFromCacheAfterCacheCleaned
 {
-    [self.statusCache publishNewValue:@"Value1" forSensorId:1];
+    ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    [self.statusCache publishNewValue:@"Value1" forSensorIdentifier:sensorIdentifier];
     [self.statusCache clearStatusCache];
-    STAssertNil([self.statusCache valueForSensorId:1], @"Value should not be in cache after it was cleared");
+    STAssertNil([self.statusCache valueForSensorIdentifier:sensorIdentifier], @"Value should not be in cache after it was cleared");
 }
 
 @synthesize statusCache;

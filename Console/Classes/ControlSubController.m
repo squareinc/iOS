@@ -25,7 +25,6 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ORControllerClient/Definition.h"
-#import "ORControllerClient/Component.h"
 #import "AppDelegate.h"
 #import "ClientSideRuntime.h"
 #import "ORControllerProxy.h"

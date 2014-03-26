@@ -25,6 +25,7 @@
 #import "ControllerException.h"
 #import "ORControllerClient/StatusValuesParser_2_0_0.h"
 #import "SensorStatusCache.h"
+#import "ORObjectIdentifier.h"
 
 @interface ORControllerPollOrStatusSender()
 
@@ -88,10 +89,10 @@
     StatusValuesParser_2_0_0 *parser = [[StatusValuesParser_2_0_0 alloc] initWithData:data];
     NSDictionary *values = [parser parseValues];
     
-    [values enumerateKeysAndObjectsUsingBlock:^(id sensorId, id sensorValue, BOOL *stop) {
+    [values enumerateKeysAndObjectsUsingBlock:^(id sensorIdentifier, id sensorValue, BOOL *stop) {
         if (![@"" isEqualToString:sensorValue]) {
-            NSLog(@"change %@ to %@  !!!", sensorId, sensorValue);
-            [self.controller.sensorStatusCache publishNewValue:sensorValue forSensorId:[sensorId intValue]];
+            NSLog(@"change %@ to %@  !!!", sensorIdentifier, sensorValue);
+            [self.controller.sensorStatusCache publishNewValue:sensorValue forSensorIdentifier:[[ORObjectIdentifier alloc] initWithStringId:sensorIdentifier]];
         }
     }];
 }

@@ -8,6 +8,7 @@
 
 #import "SensorStatusCache.h"
 #import "NotificationConstant.h"
+#import "ORObjectIdentifier.h"
 
 @interface SensorStatusCache()
 
@@ -28,15 +29,15 @@
 }
 
 
-- (void)publishNewValue:(NSString *)status forSensorId:(NSUInteger)sensorId
+- (void)publishNewValue:(NSString *)status forSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier
 {
-    [self.statusCache setObject:status forKey:[NSString stringWithFormat:@"%d", sensorId]];    
-    [self.notificationCenter postNotificationName:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorId] object:self];
+    [self.statusCache setObject:status forKey:sensorIdentifier];
+    [self.notificationCenter postNotificationName:[NSString stringWithFormat:NotificationPollingStatusIdFormat, sensorIdentifier] object:self];
 }
 
-- (NSString *)valueForSensorId:(NSUInteger)sensorId
+- (NSString *)valueForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier
 {
-    return [self.statusCache objectForKey:[NSString stringWithFormat:@"%d", sensorId]];
+    return [self.statusCache objectForKey:sensorIdentifier];
 }
 
 - (void)clearStatusCache

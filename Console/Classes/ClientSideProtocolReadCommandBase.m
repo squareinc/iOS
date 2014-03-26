@@ -52,13 +52,13 @@
     if (![self.sensorIds count]) {
         [self startUpdating];
     }
-    [self.clientSideRuntime.sensorStatusCache publishNewValue:[self sensorValue] forSensorId:sensor.componentId];
-    [self.sensorIds addObject:[NSNumber numberWithInt:sensor.componentId]];
+    [self.clientSideRuntime.sensorStatusCache publishNewValue:[self sensorValue] forSensorIdentifier:sensor.identifier];
+    [self.sensorIds addObject:sensor.identifier];
 }
 
 - (void)stopUpdatingSensor:(LocalSensor *)sensor
 {
-    [self.sensorIds removeObject:[NSNumber numberWithInt:sensor.componentId]];
+    [self.sensorIds removeObject:sensor.identifier];
     if (![self.sensorIds count]) {
         [self stopUpdating];
     }
@@ -67,8 +67,8 @@
 - (void)publishValue
 {
     NSString *sensorValue = [self sensorValue];
-    for (NSNumber *sensorId in self.sensorIds) {
-        [self.clientSideRuntime.sensorStatusCache publishNewValue:sensorValue forSensorId:[sensorId intValue]];
+    for (ORObjectIdentifier *sensorIdentifier in self.sensorIds) {
+        [self.clientSideRuntime.sensorStatusCache publishNewValue:sensorValue forSensorIdentifier:sensorIdentifier];
     }
 }
 
