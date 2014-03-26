@@ -18,12 +18,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import "Component.h"
+#import "ORWidget.h"
 
 @class LocalCommand;
 @class LocalController;
 
-@interface ControllerComponent : Component
+@interface ControllerComponent : ORWidget
 
 - (void)addCommand:(LocalCommand *)aCommand forAction:(NSString *)anAction;
 - (NSDictionary *)commandsPerAction;

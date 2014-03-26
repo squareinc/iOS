@@ -10,12 +10,13 @@
 #import "Definition.h"
 #import "LocalSensor.h"
 #import "LocalController.h"
+#import "ORModelObject.h"
 
 @implementation CommandDeferredBinding
 
 - (void)bind
 {
-    ((LocalSensor *)self.enclosingObject).command = [self.definition.localController commandForId:self.boundComponentId];
+    ((LocalSensor *)self.enclosingObject).command = [self.enclosingObject.definition.localController commandForIdentifier:self.boundComponentId];
 }
 
 @end

@@ -20,7 +20,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@class DeferredBinding;
+@class ORDeferredBinding;
 @class Definition;
 
 @interface DefinitionElementParserRegister : NSObject
@@ -30,7 +30,7 @@
 - (Class)parserClassForTag:(NSString *)tag;
 - (SEL)endSelectorForTag:(NSString *)tag;
 
-- (void)addDeferredBinding:(DeferredBinding *)deferredBinding;
+- (void)addDeferredBinding:(ORDeferredBinding *)deferredBinding;
 - (void)performDeferredBindings;
 
 @property (nonatomic, strong) Definition *definition;

@@ -10,6 +10,7 @@
 #import "Definition.h"
 #import "LocalController.h"
 #import "ControllerComponent.h"
+#import "ORModelObject.h"
 
 @interface ControllerComponentCommandDeferredBinding()
 
@@ -19,9 +20,11 @@
 
 @implementation ControllerComponentCommandDeferredBinding
 
-- (id)initWithBoundComponentId:(int)anId enclosingObject:(id)anEnclosingObject action:(NSString *)anAction
+- (id)initWithBoundComponentIdentifier:(ORObjectIdentifier *)anIdentifier
+                       enclosingObject:(ORModelObject *)anEnclosingObject
+                                action:(NSString *)anAction
 {
-    self = [super initWithBoundComponentId:anId enclosingObject:anEnclosingObject];
+    self = [super initWithBoundComponentId:anIdentifier enclosingObject:anEnclosingObject];
     if (self) {
         self.action = anAction;
     }
@@ -30,7 +33,7 @@
 
 - (void)bind
 {
-    [((ControllerComponent *)self.enclosingObject) addCommand:[self.definition.localController commandForId:self.boundComponentId] forAction:self.action];
+    [((ControllerComponent *)self.enclosingObject) addCommand:[self.enclosingObject.definition.localController commandForIdentifier:self.boundComponentId] forAction:self.action];
 }
 
 @synthesize action;

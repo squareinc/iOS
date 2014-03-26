@@ -11,6 +11,7 @@
 #import "ControllerComponentCommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
+#import "ORObjectIdentifier.h"
 
 @interface ControllerSwitchParser()
 
@@ -37,8 +38,8 @@
         self.action = @"OFF";
     } else if ([elementName isEqualToString:@"ctrl:include"] && [@"command" isEqualToString:[attributeDict objectForKey:TYPE]]) {
         // This is a reference to another element, will be resolved later, put a standby in place for now
-        ControllerComponentCommandDeferredBinding *standby = [[ControllerComponentCommandDeferredBinding alloc] initWithBoundComponentId:[[attributeDict objectForKey:REF] intValue] enclosingObject:self.theSwitch action:self.action];
-        standby.definition = self.depRegister.definition;
+        ControllerComponentCommandDeferredBinding *standby = [[ControllerComponentCommandDeferredBinding alloc] initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:REF]] enclosingObject:self.theSwitch action:self.action];
+        self.theSwitch.definition = self.depRegister.definition;
         [self.depRegister addDeferredBinding:standby];
 	}
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];

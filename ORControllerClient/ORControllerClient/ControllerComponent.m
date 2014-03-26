@@ -19,6 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ControllerComponent.h"
+#import "ORWidget_Private.h"
 
 @interface ControllerComponent()
 
@@ -28,9 +29,9 @@
 
 @implementation ControllerComponent
 
-- (id)initWithId:(int)anId
+- (id)initWithIdentifier:(ORObjectIdentifier *)anIdentifier
 {
-    self = [super initWithId:anId];
+    self = [super initWithIdentifier:anIdentifier];
     if (self) {
         self.commandsPerActionRegistry = [NSMutableDictionary dictionaryWithCapacity:1];
     }

@@ -20,7 +20,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "DeferredBinding.h" // For compatibility, to be removed
 
 @class ORObjectIdentifier;
 @class ORModelObject;
@@ -36,7 +35,7 @@
  * This is an abstract class. Specific subclasses are used to implement the appropriate binding
  * depending on the objects that they link.
  */
-@interface ORDeferredBinding : DeferredBinding /* for compatibility with legacy code, should be NSObject */
+@interface ORDeferredBinding : NSObject
 
 /**
  * Initializes a binding between two objects of the model.

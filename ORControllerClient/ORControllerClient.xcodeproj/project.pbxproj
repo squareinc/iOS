@@ -158,7 +158,6 @@
 		91933392179E9EB10086FEE7 /* ControllerComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933355179E9BCF0086FEE7 /* ControllerComponent.h */; };
 		919333A9179EA2A90086FEE7 /* CommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A0179EA2A90086FEE7 /* CommandDeferredBinding.m */; };
 		919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A2179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m */; };
-		919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333A4179EA2A90086FEE7 /* DeferredBinding.m */; };
 		919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333AF179EA2D40086FEE7 /* PanelDefinitionParser.m */; };
 		919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B1179EA2D40086FEE7 /* DefinitionElementParserRegister.m */; };
 		919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */; };
@@ -520,8 +519,6 @@
 		919333A0179EA2A90086FEE7 /* CommandDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommandDeferredBinding.m; path = ORControllerClient/CommandDeferredBinding.m; sourceTree = SOURCE_ROOT; };
 		919333A1179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerComponentCommandDeferredBinding.h; path = ORControllerClient/ControllerComponentCommandDeferredBinding.h; sourceTree = SOURCE_ROOT; };
 		919333A2179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControllerComponentCommandDeferredBinding.m; path = ORControllerClient/ControllerComponentCommandDeferredBinding.m; sourceTree = SOURCE_ROOT; };
-		919333A3179EA2A90086FEE7 /* DeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeferredBinding.h; path = ORControllerClient/DeferredBinding.h; sourceTree = SOURCE_ROOT; };
-		919333A4179EA2A90086FEE7 /* DeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeferredBinding.m; path = ORControllerClient/DeferredBinding.m; sourceTree = SOURCE_ROOT; };
 		919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDefinitionParser.h; sourceTree = "<group>"; };
 		919333AF179EA2D40086FEE7 /* PanelDefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelDefinitionParser.m; sourceTree = "<group>"; };
 		919333B0179EA2D40086FEE7 /* DefinitionElementParserRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionElementParserRegister.h; sourceTree = "<group>"; };
@@ -1165,8 +1162,6 @@
 		9193339E179EA2170086FEE7 /* DeferredBinding */ = {
 			isa = PBXGroup;
 			children = (
-				919333A3179EA2A90086FEE7 /* DeferredBinding.h */,
-				919333A4179EA2A90086FEE7 /* DeferredBinding.m */,
 				9193339F179EA2A90086FEE7 /* CommandDeferredBinding.h */,
 				919333A0179EA2A90086FEE7 /* CommandDeferredBinding.m */,
 				919333A1179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.h */,
@@ -1479,7 +1474,6 @@
 				911392E6189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
 				91099A4E18AE1547005BEBAB /* ORSwitch.m in Sources */,
 				919333AA179EA2A90086FEE7 /* ControllerComponentCommandDeferredBinding.m in Sources */,
-				919333AB179EA2A90086FEE7 /* DeferredBinding.m in Sources */,
 				917BA54018C2342F006006E9 /* ORScreen.m in Sources */,
 				919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */,
 				91A4A23B18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m in Sources */,

@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 OpenRemote, Inc. All rights reserved.
 //
 
-#import "DeferredBinding.h"
+#import "ORDeferredBinding.h"
 
-@interface CommandDeferredBinding : DeferredBinding
+@interface CommandDeferredBinding : ORDeferredBinding
 
 @end

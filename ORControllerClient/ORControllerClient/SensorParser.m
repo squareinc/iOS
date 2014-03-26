@@ -55,8 +55,8 @@
 {
 	if ([elementName isEqualToString:@"ctrl:include"] && [@"command" isEqualToString:[attributeDict objectForKey:TYPE]]) {
         // This is a reference to another element, will be resolved later, put a standby in place for now
-        CommandDeferredBinding *standby = [[CommandDeferredBinding alloc] initWithBoundComponentId:[[attributeDict objectForKey:REF] intValue] enclosingObject:self.sensor];
-        standby.definition = self.depRegister.definition;
+        CommandDeferredBinding *standby = [[CommandDeferredBinding alloc] initWithBoundComponentId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:REF]] enclosingObject:self.sensor];
+        self.sensor.definition = self.depRegister.definition;
         [self.depRegister addDeferredBinding:standby];
 	}
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];

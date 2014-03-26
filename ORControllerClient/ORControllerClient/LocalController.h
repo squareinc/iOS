@@ -23,6 +23,7 @@
 @class ControllerComponent;
 @class LocalCommand;
 @class LocalSensor;
+@class ORObjectIdentifier;
 
 @interface LocalController : NSObject
 
@@ -30,10 +31,10 @@
 - (void)addCommand:(LocalCommand *)command;
 - (void)addSensor:(LocalSensor *)sensor;
 
-- (ControllerComponent *)componentForId:(NSUInteger)anId;
-- (LocalCommand *)commandForId:(NSUInteger)anId;
-- (LocalSensor *)sensorForId:(NSUInteger)anId;
+- (ControllerComponent *)componentForIdentifier:(ORObjectIdentifier *)anIdentifier;
+- (LocalCommand *)commandForIdentifier:(ORObjectIdentifier *)anIdentifier;
+- (LocalSensor *)sensorForIdentifier:(ORObjectIdentifier *)anIdentifier;
 
-- (NSArray *)commandsForComponentId:(NSUInteger)anId action:(NSString *)action;
+- (NSArray *)commandsForComponentIdentifier:(ORObjectIdentifier *)anIdentifier action:(NSString *)action;
 
 @end

@@ -11,6 +11,7 @@
 #import "ControllerComponentCommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"
+#import "ORObjectIdentifier.h"
 
 @implementation ControllerSliderParser
 
@@ -27,8 +28,8 @@
 {
 	if ([elementName isEqualToString:@"ctrl:include"] && [@"command" isEqualToString:[attributeDict objectForKey:TYPE]]) {
         // This is a reference to another element, will be resolved later, put a standby in place for now
-        ControllerComponentCommandDeferredBinding *standby = [[ControllerComponentCommandDeferredBinding alloc] initWithBoundComponentId:[[attributeDict objectForKey:REF] intValue] enclosingObject:self.slider action:@"setValue"];
-        standby.definition = self.depRegister.definition;
+        ControllerComponentCommandDeferredBinding *standby = [[ControllerComponentCommandDeferredBinding alloc] initWithBoundComponentIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:REF]] enclosingObject:self.slider action:@"setValue"];
+        self.slider.definition = self.depRegister.definition;
         [self.depRegister addDeferredBinding:standby];
     }
     // We do not care about parsing the sensor information from this element, it is already included in the "UI" slider and parsed by the SliderParser

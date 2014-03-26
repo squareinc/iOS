@@ -6,10 +6,12 @@
 //  Copyright (c) 2012 OpenRemote, Inc. All rights reserved.
 //
 
-#import "DeferredBinding.h"
+#import "ORDeferredBinding.h"
 
-@interface ControllerComponentCommandDeferredBinding : DeferredBinding
+@interface ControllerComponentCommandDeferredBinding : ORDeferredBinding
 
-- (id)initWithBoundComponentId:(int)anId enclosingObject:(id)anEnclosingObject action:(NSString *)anAction;
+- (id)initWithBoundComponentIdentifier:(ORObjectIdentifier *)anIdentifier
+                       enclosingObject:(ORModelObject *)anEnclosingObject
+                                action:(NSString *)anAction;
 
 @end

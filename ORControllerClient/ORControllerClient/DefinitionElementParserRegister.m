@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "DefinitionElementParserRegister.h"
-#import "DeferredBinding.h"
+#import "ORDeferredBinding.h"
 
 @interface DefinitionElementParserRegister()
 
@@ -61,7 +61,7 @@
     return retValue;
 }
 
-- (void)addDeferredBinding:(DeferredBinding *)deferredBinding
+- (void)addDeferredBinding:(ORDeferredBinding *)deferredBinding
 {
     [self.deferredBindings addObject:deferredBinding];
 }
