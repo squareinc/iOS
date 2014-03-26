@@ -19,10 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORColorPicker_Private.h"
+#import "ORColorPicker.h"
 
-@implementation ORColorPicker
+@interface ORColorPicker ()
 
-@synthesize image;
+@property (nonatomic, strong, readwrite) ORImage *image;
 
 @end

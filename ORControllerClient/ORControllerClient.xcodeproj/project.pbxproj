@@ -623,6 +623,7 @@
 		91CC89FF18E2DC1400D31A66 /* ORModelObject_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORModelObject_Private.h; sourceTree = "<group>"; };
 		91CC8A0018E2DD8D00D31A66 /* ORImage_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORImage_Private.h; sourceTree = "<group>"; };
 		91CC8A0118E2E06100D31A66 /* ORBackground_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBackground_Private.h; sourceTree = "<group>"; };
+		91CC8A0218E2E17A00D31A66 /* ORColorPicker_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORColorPicker_Private.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -819,6 +820,7 @@
 				911392E3189BE9F300B7D79D /* ORButton_Private.h */,
 				91933323179E9BCF0086FEE7 /* ORColorPicker.h */,
 				91933324179E9BCF0086FEE7 /* ORColorPicker.m */,
+				91CC8A0218E2E17A00D31A66 /* ORColorPicker_Private.h */,
 				91099A4C18AE1547005BEBAB /* ORSwitch.h */,
 				91099A4D18AE1547005BEBAB /* ORSwitch.m */,
 				9184CA3C18B3A37A0058A09F /* ORSlider.h */,

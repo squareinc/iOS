@@ -30,6 +30,6 @@
 /**
  * Image to be used as the background of the color picker widget.
  */
-@property (nonatomic, strong) ORImage *image;
+@property (nonatomic, strong, readonly) ORImage *image;
 
 @end

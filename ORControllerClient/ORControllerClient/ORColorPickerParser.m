@@ -21,7 +21,7 @@
 #import "ORColorPickerParser.h"
 #import "ORWidget_Private.h"
 #import "ORModelObject_Private.h"
-#import "ORColorPicker.h"
+#import "ORColorPicker_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORImageParser.h"
 #import "DefinitionElementParserRegister.h"
