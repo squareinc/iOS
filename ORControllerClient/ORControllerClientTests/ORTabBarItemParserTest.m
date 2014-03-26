@@ -25,6 +25,7 @@
 #import "DefinitionParserMock.h"
 #import "ORTabBarItemParser.h"
 #import "ORImageParser.h"
+#import "ORImage.h"
 #import "ORNavigationParser.h"
 #import "ORTabBarItem.h"
 #import "ORNavigation.h"

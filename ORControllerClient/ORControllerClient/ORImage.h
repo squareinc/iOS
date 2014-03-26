@@ -29,16 +29,14 @@
  */
 @interface ORImage : ORWidget
 
-- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
-
 /**
  * The name of the image.
  */
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic, readonly) NSString *name;
 
 /**
  * The alternate text label that can be used in place of the image.
  */
-@property (nonatomic, strong) ORLabel *label;
+@property (nonatomic, strong, readonly) ORLabel *label;
 
 @end

@@ -621,6 +621,7 @@
 		91CC89FC18E07F9E00D31A66 /* ORLabel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLabel_Private.h; sourceTree = "<group>"; };
 		91CC89FD18E0826200D31A66 /* ORWidget_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWidget_Private.h; sourceTree = "<group>"; };
 		91CC89FF18E2DC1400D31A66 /* ORModelObject_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORModelObject_Private.h; sourceTree = "<group>"; };
+		91CC8A0018E2DD8D00D31A66 /* ORImage_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORImage_Private.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -802,6 +803,7 @@
 				91CC89ED18E0674600D31A66 /* ORGridCell_Private.h */,
 				91B72FA21890308F000B7552 /* ORImage.h */,
 				91B72FA31890308F000B7552 /* ORImage.m */,
+				91CC8A0018E2DD8D00D31A66 /* ORImage_Private.h */,
 				91222D861892659E00BA0B96 /* ORSensorStatesMapping.h */,
 				91222D871892659E00BA0B96 /* ORSensorStatesMapping.m */,
 				91222D821892631700BA0B96 /* ORSensorState.h */,

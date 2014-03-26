@@ -20,6 +20,7 @@
  */
 
 #import "ORImageParser.h"
+#import "ORImage_Private.h"
 #import "ORSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 #import "ORImageLabelDeferredBinding.h"

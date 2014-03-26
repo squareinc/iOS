@@ -19,8 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORImage.h"
+#import "ORImage_Private.h"
 #import "ORWidget_Private.h"
+
+@interface ORImage ()
+
+@property (strong, nonatomic, readwrite) NSString *name;
+
+@end
 
 @implementation ORImage
 

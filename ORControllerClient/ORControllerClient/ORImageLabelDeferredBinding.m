@@ -21,7 +21,7 @@
 
 #import "ORImageLabelDeferredBinding.h"
 #import "ORModelObject.h"
-#import "ORImage.h"
+#import "ORImage_Private.h"
 #import "Definition.h"
 
 @implementation ORImageLabelDeferredBinding

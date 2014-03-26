@@ -24,6 +24,7 @@
 #import "XMLEntity.h"
 #import "ORColorPickerParser.h"
 #import "ORImageParser.h"
+#import "ORImage.h"
 #import "DefinitionParserMock.h"
 #import "ORObjectIdentifier.h"
 

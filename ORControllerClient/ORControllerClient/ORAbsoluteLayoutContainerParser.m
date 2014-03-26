@@ -24,6 +24,7 @@
 #import "ORLabelParser.h"
 #import "ORLabel.h"
 #import "ORImageParser.h"
+#import "ORImage.h"
 #import "ORWebViewParser.h"
 #import "ORButtonParser.h"
 #import "ORButton.h"

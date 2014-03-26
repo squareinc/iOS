@@ -29,7 +29,7 @@
 #import "XMLEntity.h"
 #import "ORSensorRegistry.h"
 #import "ORSensorStatesMapping.h"
-#import "ORImage.h"
+#import "ORImage_Private.h"
 
 @interface ORSwitchParser ()
 

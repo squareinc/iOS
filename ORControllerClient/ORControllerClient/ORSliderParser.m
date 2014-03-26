@@ -27,7 +27,7 @@
 #import "ORSensorLinkParser.h"
 #import "ORSlider_Private.h"
 #import "ORObjectIdentifier.h"
-#import "ORImage.h"
+#import "ORImage_Private.h"
 #import "XMLEntity.h"
 
 @interface ORSliderParser ()

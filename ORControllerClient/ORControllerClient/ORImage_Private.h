@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "DefinitionElementParser.h"
+#import "ORImage.h"
 
-@class ORImage;
+@interface ORImage ()
 
-@interface ORImageParser : DefinitionElementParser
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 
-@property (nonatomic, strong, readonly) ORImage *image;
+@property (nonatomic, strong, readwrite) ORLabel *label;
 
 @end
