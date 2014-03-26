@@ -19,19 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORBackground_Private.h"
+#import "ORBackground.h"
 
-@implementation ORBackground
+@interface ORBackground ()
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.repeat = ORBackgroundRepeatNoRepeat;
-        self.positionUnit = ORWidgetUnitNotDefined;
-        self.sizeUnit = ORWidgetUnitNotDefined;
-    }
-    return self;
-}
+@property (nonatomic, strong, readwrite) ORImage *image;
+@property (nonatomic, readwrite) ORBackgroundRepeat repeat;
+@property (nonatomic, readwrite) CGPoint position;
+@property (nonatomic, readwrite) ORWidgetUnit positionUnit;
+@property (nonatomic, readwrite) CGSize size;
+@property (nonatomic, readwrite) ORWidgetUnit sizeUnit;
 
 @end

@@ -55,18 +55,18 @@ typedef NS_ENUM(NSInteger, ORWidgetUnit) {
 /**
  * Image to use to fill the background.
  */
-@property (nonatomic, strong) ORImage *image;
+@property (nonatomic, strong, readonly) ORImage *image;
 
 /**
  * Repetition for the image if require to fill the background.
  * The default is not to repeat.
  */
-@property (nonatomic) ORBackgroundRepeat repeat;
+@property (nonatomic, readonly) ORBackgroundRepeat repeat;
 
 /**
  * Position of the image. positionUnit indicates the unit of this property.
  */
-@property (nonatomic) CGPoint position;
+@property (nonatomic, readonly) CGPoint position;
 
 /**
  * Unit in which position property is expressed.
@@ -74,14 +74,14 @@ typedef NS_ENUM(NSInteger, ORWidgetUnit) {
  *
  * Defaults to ORWidgetUnitNotDefined.
  */
-@property (nonatomic) ORWidgetUnit positionUnit;
+@property (nonatomic, readonly) ORWidgetUnit positionUnit;
 
 /**
  * Size of the image. sizeUnit indicates the unit of this property.
  * Having this property not specified (unit ORWidgetUnitNotDefined)
  * indicates that image size should be used (i.e. that the image should not be resized).
  */
-@property (nonatomic) CGSize size;
+@property (nonatomic, readonly) CGSize size;
 
 /**
  * Unit in which size property is expressed.
@@ -90,6 +90,6 @@ typedef NS_ENUM(NSInteger, ORWidgetUnit) {
  *
  * Defaults to ORWidgetUnitNotDefined.
  */
-@property (nonatomic) ORWidgetUnit sizeUnit;
+@property (nonatomic, readonly) ORWidgetUnit sizeUnit;
 
 @end
