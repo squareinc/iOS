@@ -29,6 +29,7 @@
 #import "ORControllerProxy.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
+#import "ORObjectIdentifier.h"
 
 //retry polling after half a second
 #define POLLING_RETRY_DELAY 0.5
@@ -67,7 +68,7 @@
 		NSMutableArray *remoteSensors = [NSMutableArray array];
 		NSMutableArray *tempLocalSensors = [NSMutableArray array];
 		for (NSString *anId in [ids componentsSeparatedByString:@","]) {
-			LocalSensor *sensor = [self.controller.definition.localController sensorForId:[anId intValue]];
+			LocalSensor *sensor = [self.controller.definition.localController sensorForIdentifier:[[ORObjectIdentifier alloc] initWithStringId:anId]];
 			if (sensor) {
 				[tempLocalSensors addObject:sensor];
 			} else {

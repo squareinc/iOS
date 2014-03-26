@@ -54,7 +54,7 @@
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
 {
-	return [self.controller.definition.localController commandsForComponentId:self.component.componentId action:commandType];
+	return [self.controller.definition.localController commandsForComponentIdentifier:self.component.identifier action:commandType];
 }
 
 #pragma mark ORControllerCommandSenderDelegate implementation

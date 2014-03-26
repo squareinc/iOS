@@ -214,7 +214,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
 {
-	return [self.controller.definition.localController commandsForComponentId:self.component.componentId action:@"setValue"];
+	return [self.controller.definition.localController commandsForComponentIdentifier:self.component.identifier action:@"setValue"];
 }
 
 #pragma mark Private methods
