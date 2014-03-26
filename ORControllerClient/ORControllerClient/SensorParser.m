@@ -20,6 +20,7 @@
  */
 #import "SensorParser.h"
 #import "LocalSensor.h"
+#import "ORModelObject_Private.h"
 #import "CommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"
 #import "XMLEntity.h"

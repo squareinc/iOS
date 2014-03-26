@@ -7,6 +7,7 @@
 //
 
 #import "ControllerSwitchParser.h"
+#import "ORModelObject_Private.h"
 #import "ControllerComponent.h"
 #import "ControllerComponentCommandDeferredBinding.h"
 #import "DefinitionElementParserRegister.h"

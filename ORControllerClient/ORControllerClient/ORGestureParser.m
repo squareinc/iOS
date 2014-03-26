@@ -21,6 +21,7 @@
 
 #import "ORGestureParser.h"
 #import "ORGesture_Private.h"
+#import "ORModelObject_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORNavigationParser.h"
 #import "DefinitionElementParserRegister.h"

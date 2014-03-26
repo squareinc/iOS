@@ -21,6 +21,7 @@
 
 #import "ORButtonParser_2_1_0.h"
 #import "ORButtonParser_Private.h"
+#import "ORModelObject_Private.h"
 #import "ORButton_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel_Private.h"

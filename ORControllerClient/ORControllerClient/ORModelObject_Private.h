@@ -19,10 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORModelObject_Private.h"
+#import "ORModelObject.h"
 
-@implementation ORModelObject
+@interface ORModelObject ()
 
-@synthesize definition;
+@property (nonatomic, weak, readwrite) Definition *definition;
 
 @end

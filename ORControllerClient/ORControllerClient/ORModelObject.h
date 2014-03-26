@@ -35,6 +35,6 @@
 /**
  * Definition the widget belongs to.
  */
-@property (nonatomic, weak) Definition *definition;
+@property (nonatomic, weak, readonly) Definition *definition;
 
 @end

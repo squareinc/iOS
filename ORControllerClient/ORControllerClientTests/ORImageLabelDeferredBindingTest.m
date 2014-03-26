@@ -20,6 +20,7 @@
  */
 #import "ORImageLabelDeferredBindingTest.h"
 #import "ORImageLabelDeferredBinding.h"
+#import "ORModelObject_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORImage.h"
 #import "ORLabel_Private.h"

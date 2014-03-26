@@ -20,6 +20,7 @@
  */
 #import "ORGridLayoutContainerParser.h"
 #import "ORGridLayoutContainer_Private.h"
+#import "ORModelObject_Private.h"
 #import "ORGridCellParser.h"
 #import "DefinitionElementParserRegister.h"
 

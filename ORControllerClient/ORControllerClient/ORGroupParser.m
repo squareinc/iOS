@@ -20,6 +20,7 @@
  */
 #import "ORGroupParser.h"
 #import "ORGroup_Private.h"
+#import "ORModelObject_Private.h"
 #import "DefinitionElementParserRegister.h"
 #import "ORGroupScreenDeferredBinding.h"
 #import "ORObjectIdentifier.h"

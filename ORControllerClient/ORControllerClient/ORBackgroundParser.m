@@ -21,6 +21,7 @@
 
 #import "ORBackgroundParser.h"
 #import "ORBackground.h"
+#import "ORModelObject_Private.h"
 #import "ORImageParser.h"
 #import "XMLEntity.h"
 #import "DefinitionElementParserRegister.h"

@@ -20,6 +20,7 @@
  */
 #import "ORTabBarParser.h"
 #import "ORTabBar_Private.h"
+#import "ORModelObject_Private.h"
 #import "ORTabBarItemParser.h"
 #import "XMLEntity.h"
 #import "DefinitionElementParserRegister.h"

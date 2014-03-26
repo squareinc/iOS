@@ -23,7 +23,7 @@
 #import "ORSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 #import "ORImageLabelDeferredBinding.h"
-
+#import "ORModelObject_Private.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "ORSensorLinkParser.h"

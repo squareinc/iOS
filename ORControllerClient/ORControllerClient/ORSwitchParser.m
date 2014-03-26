@@ -20,6 +20,7 @@
  */
 #import "ORSwitchParser.h"
 #import "ORSwitch.h"
+#import "ORModelObject_Private.h"
 #import "ORWidget_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORSensorLinkParser.h"

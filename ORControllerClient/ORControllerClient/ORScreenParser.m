@@ -21,6 +21,7 @@
 
 #import "ORScreenParser.h"
 #import "ORScreen_Private.h"
+#import "ORModelObject_Private.h"
 #import "ORAbsoluteLayoutContainerParser.h"
 #import "ORGridLayoutContainerParser.h"
 #import "ORAbsoluteLayoutContainer.h"

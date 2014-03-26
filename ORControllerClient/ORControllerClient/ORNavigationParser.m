@@ -21,6 +21,7 @@
 
 #import "ORNavigationParser.h"
 #import "ORNavigation_Private.h"
+#import "ORModelObject_Private.h"
 #import "DefinitionElementParserRegister.h"
 #import "ORScreenNavigation.h"
 #import "ORNavigationGroupDeferredBinding.h"
