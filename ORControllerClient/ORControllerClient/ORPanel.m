@@ -19,8 +19,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORPanel.h"
+#import "ORPanel_Private.h"
 
 @implementation ORPanel
+
+@synthesize name;
+@synthesize identifier;
 
 @end

@@ -30,9 +30,9 @@
 /**
  * The name of the panel.
  */
-@property (strong, nonatomic) NSString *name;
+@property (nonatomic, strong, readonly) NSString *name;
 
-@property (nonatomic, strong) ORObjectIdentifier *identifier;
+@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 
 // TODO: a panel should give access to the groups it contains
 // How to manage fact that panels might not have that information yet

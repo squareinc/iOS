@@ -623,6 +623,7 @@
 		91CC8A0318E2E22200D31A66 /* ORSwitch_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSwitch_Private.h; sourceTree = "<group>"; };
 		91CC8A0418E2E33000D31A66 /* ORSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSwitch.h; sourceTree = "<group>"; };
 		91CC8A0518E2E33000D31A66 /* ORSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSwitch.m; sourceTree = "<group>"; };
+		91CC8A0818E2E61900D31A66 /* ORPanel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanel_Private.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -775,6 +776,7 @@
 				91CC89FC18E07F9E00D31A66 /* ORLabel_Private.h */,
 				918604B21794435E005DBCD9 /* ORPanel.h */,
 				918604B31794435E005DBCD9 /* ORPanel.m */,
+				91CC8A0818E2E61900D31A66 /* ORPanel_Private.h */,
 				91CD6A3617C23C9300D5EEE6 /* ORRESTError.h */,
 				91CD6A3717C23C9300D5EEE6 /* ORRESTError.m */,
 				91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */,

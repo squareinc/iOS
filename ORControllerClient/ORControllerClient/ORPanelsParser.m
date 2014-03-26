@@ -20,7 +20,7 @@
  */
 
 #import "ORPanelsParser.h"
-#import "ORPanel.h"
+#import "ORPanel_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORParser_Private.h"
 
