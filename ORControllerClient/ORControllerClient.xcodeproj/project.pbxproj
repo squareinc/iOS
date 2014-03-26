@@ -125,8 +125,6 @@
 		9193335F179E9BD00086FEE7 /* ORGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193332E179E9BCF0086FEE7 /* ORGridCell.m */; };
 		91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */; };
 		91933364179E9BD00086FEE7 /* ORLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */; };
-		91933367179E9BD00086FEE7 /* Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193333E179E9BCF0086FEE7 /* Sensor.m */; };
-		91933369179E9BD00086FEE7 /* SensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933342179E9BCF0086FEE7 /* SensorState.m */; };
 		9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933348179E9BCF0086FEE7 /* ORTabBar.m */; };
 		9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334A179E9BCF0086FEE7 /* ORTabBarItem.m */; };
 		9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193334C179E9BCF0086FEE7 /* XMLEntity.m */; };
@@ -142,8 +140,6 @@
 		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
 		9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* ORGridCell.h */; };
 		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
-		91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193333D179E9BCF0086FEE7 /* Sensor.h */; };
-		91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933341179E9BCF0086FEE7 /* SensorState.h */; };
 		9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* ORTabBar.h */; };
 		9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* ORTabBarItem.h */; };
 		9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
@@ -165,8 +161,6 @@
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
-		91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */; };
-		91933409179EA2DE0086FEE7 /* SensorStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E1179EA2DC0086FEE7 /* SensorStateParser.m */; };
 		9193340A179EA2DE0086FEE7 /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E3179EA2DD0086FEE7 /* LocalParser.m */; };
 		9193340B179EA2DE0086FEE7 /* CommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E5179EA2DD0086FEE7 /* CommandParser.m */; };
 		9193340C179EA2DE0086FEE7 /* PropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E7179EA2DD0086FEE7 /* PropertyParser.m */; };
@@ -323,8 +317,6 @@
 				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
 				9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */,
 				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */,
-				91933386179E9EB10086FEE7 /* Sensor.h in CopyFiles */,
-				91933388179E9EB10086FEE7 /* SensorState.h in CopyFiles */,
 				9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */,
 				9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */,
 				9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */,
@@ -484,10 +476,6 @@
 		91933330179E9BCF0086FEE7 /* ORGridLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGridLayoutContainer.m; sourceTree = "<group>"; };
 		91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLayoutContainer.h; sourceTree = "<group>"; };
 		91933338179E9BCF0086FEE7 /* ORLayoutContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLayoutContainer.m; sourceTree = "<group>"; };
-		9193333D179E9BCF0086FEE7 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
-		9193333E179E9BCF0086FEE7 /* Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sensor.m; sourceTree = "<group>"; };
-		91933341179E9BCF0086FEE7 /* SensorState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorState.h; sourceTree = "<group>"; };
-		91933342179E9BCF0086FEE7 /* SensorState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorState.m; sourceTree = "<group>"; };
 		91933347179E9BCF0086FEE7 /* ORTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBar.h; sourceTree = "<group>"; };
 		91933348179E9BCF0086FEE7 /* ORTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBar.m; sourceTree = "<group>"; };
 		91933349179E9BCF0086FEE7 /* ORTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItem.h; sourceTree = "<group>"; };
@@ -531,10 +519,6 @@
 		919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarParser.m; sourceTree = "<group>"; };
 		919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParser.h; sourceTree = "<group>"; };
 		919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParser.m; sourceTree = "<group>"; };
-		919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorLinkParser.h; sourceTree = "<group>"; };
-		919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorLinkParser.m; sourceTree = "<group>"; };
-		919333E0179EA2DC0086FEE7 /* SensorStateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorStateParser.h; sourceTree = "<group>"; };
-		919333E1179EA2DC0086FEE7 /* SensorStateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorStateParser.m; sourceTree = "<group>"; };
 		919333E2179EA2DD0086FEE7 /* LocalParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalParser.h; sourceTree = "<group>"; };
 		919333E3179EA2DD0086FEE7 /* LocalParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalParser.m; sourceTree = "<group>"; };
 		919333E4179EA2DD0086FEE7 /* CommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandParser.h; sourceTree = "<group>"; };
@@ -1093,10 +1077,6 @@
 				91933329179E9BCF0086FEE7 /* Definition.h */,
 				9193332A179E9BCF0086FEE7 /* Definition.m */,
 				9178DF9C1848E7E900E862DF /* Definition_Private.h */,
-				9193333D179E9BCF0086FEE7 /* Sensor.h */,
-				9193333E179E9BCF0086FEE7 /* Sensor.m */,
-				91933341179E9BCF0086FEE7 /* SensorState.h */,
-				91933342179E9BCF0086FEE7 /* SensorState.m */,
 				9193334B179E9BCF0086FEE7 /* XMLEntity.h */,
 				9193334C179E9BCF0086FEE7 /* XMLEntity.m */,
 				9193334F179E9BCF0086FEE7 /* LocalSensor.h */,
@@ -1122,10 +1102,6 @@
 				919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */,
 				919333B4179EA2D50086FEE7 /* DefinitionParser.h */,
 				919333B5179EA2D50086FEE7 /* DefinitionParser.m */,
-				919333DE179EA2DC0086FEE7 /* SensorLinkParser.h */,
-				919333DF179EA2DC0086FEE7 /* SensorLinkParser.m */,
-				919333E0179EA2DC0086FEE7 /* SensorStateParser.h */,
-				919333E1179EA2DC0086FEE7 /* SensorStateParser.m */,
 				919333E2179EA2DD0086FEE7 /* LocalParser.h */,
 				919333E3179EA2DD0086FEE7 /* LocalParser.m */,
 				919333E4179EA2DD0086FEE7 /* CommandParser.h */,
@@ -1442,9 +1418,7 @@
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
 				91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */,
 				9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
-				91933367179E9BD00086FEE7 /* Sensor.m in Sources */,
 				9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */,
-				91933369179E9BD00086FEE7 /* SensorState.m in Sources */,
 				9193336C179E9BD00086FEE7 /* ORTabBar.m in Sources */,
 				9193336D179E9BD00086FEE7 /* ORTabBarItem.m in Sources */,
 				9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */,
@@ -1476,9 +1450,7 @@
 				91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */,
 				91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */,
 				91A4A25918D746AD0070F823 /* ORGesture.m in Sources */,
-				91933408179EA2DE0086FEE7 /* SensorLinkParser.m in Sources */,
 				91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */,
-				91933409179EA2DE0086FEE7 /* SensorStateParser.m in Sources */,
 				91A4A26F18DB09BD0070F823 /* ORScreenParser.m in Sources */,
 				91B72FA41890308F000B7552 /* ORImage.m in Sources */,
 				9193340A179EA2DE0086FEE7 /* LocalParser.m in Sources */,

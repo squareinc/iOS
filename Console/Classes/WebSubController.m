@@ -21,7 +21,6 @@
 #import "WebSubController.h"
 #import "ORControllerClient/ORWebView.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/NSStringAdditions.h"
 
 static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOContext;

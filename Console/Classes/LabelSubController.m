@@ -21,8 +21,6 @@
 #import "LabelSubController.h"
 #import "ORControllerClient/ORWidget.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/SensorState.h"
-#import "ORControllerClient/Sensor.h"
 #import "ORControllerClient/ORLabel.h"
 
 static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVOContext;

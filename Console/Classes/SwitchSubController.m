@@ -23,7 +23,6 @@
 #import "ORControllerClient/ORImage.h"
 #import "ImageCache.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/Sensor.h"
 #import "NotificationConstant.h"
 
 static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerKVOContext;

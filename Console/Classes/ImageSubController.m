@@ -21,8 +21,6 @@
 #import "ImageSubController.h"
 #import "ORControllerClient/ORImage.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/SensorState.h"
-#import "ORControllerClient/Sensor.h"
 #import "ORImageView.h"
 #import "ORControllerClient/UIColor+ORAdditions.h"
 #import "ImageCache.h"

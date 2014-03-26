@@ -22,7 +22,6 @@
 #import "ORControllerClient/ORSlider.h"
 #import "ORControllerClient/ORImage.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/Sensor.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
