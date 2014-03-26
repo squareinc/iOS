@@ -21,6 +21,7 @@
 #import "ORGridLayoutContainerParser.h"
 #import "ORGridLayoutContainer_Private.h"
 #import "ORGridCellParser.h"
+#import "DefinitionElementParserRegister.h"
 
 @interface ORGridLayoutContainerParser()
 
@@ -41,6 +42,7 @@
                                                                   height:[[attributeDict objectForKey:@"height"] integerValue]
                                                                     rows:[[attributeDict objectForKey:@"rows"] integerValue]
                                                                     cols:[[attributeDict objectForKey:@"cols"] integerValue]];
+        self.layoutContainer.definition = aRegister.definition;
     }
     return self;
 }

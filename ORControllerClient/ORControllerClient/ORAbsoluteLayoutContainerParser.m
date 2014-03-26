@@ -58,6 +58,7 @@
                                                                          top:[[attributeDict objectForKey:@"top"] integerValue]
                                                                        width:[[attributeDict objectForKey:@"width"] integerValue]
                                                                       height:[[attributeDict objectForKey:@"height"] integerValue]];
+        self.layoutContainer.definition = aRegister.definition;
     }
     return self;
 }

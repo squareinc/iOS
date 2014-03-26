@@ -58,6 +58,7 @@
                                                   y:[[attributeDict objectForKey:@"y"] integerValue]
                                             rowspan:[[attributeDict objectForKey:@"rowspan"] integerValue]
                                             colspan:[[attributeDict objectForKey:@"colspan"] integerValue]];
+        self.cell.definition = aRegister.definition;
     }
     return self;
 }

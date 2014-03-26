@@ -23,6 +23,7 @@
 #import "ORBackground.h"
 #import "ORImageParser.h"
 #import "XMLEntity.h"
+#import "DefinitionElementParserRegister.h"
 
 @interface ORBackgroundParser ()
 
@@ -77,6 +78,7 @@
             self.background.size = CGSizeMake(100.0, 100.0);
             self.background.sizeUnit = ORWidgetUnitPercentage;
         }
+        self.background.definition = aRegister.definition;
     }
     return self;
 }

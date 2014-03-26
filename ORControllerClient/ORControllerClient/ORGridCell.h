@@ -18,11 +18,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
+#import "ORModelObject.h"
 
 @class ORWidget;
 
-@interface ORGridCell : NSObject
+@interface ORGridCell : ORModelObject
 
 @property (nonatomic, readonly) NSUInteger x;
 @property (nonatomic, readonly) NSUInteger y;

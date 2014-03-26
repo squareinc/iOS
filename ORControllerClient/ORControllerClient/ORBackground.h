@@ -20,6 +20,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "ORModelObject.h"
 
 @class ORImage;
 
@@ -49,7 +50,7 @@ typedef NS_ENUM(NSInteger, ORWidgetUnit) {
  * Currently this includes an image and how it is positioned/sized within the screen.
  * Those options are modeled similar to CCS3 specifications.
  */
-@interface ORBackground : NSObject
+@interface ORBackground : ORModelObject
 
 /**
  * Image to use to fill the background.

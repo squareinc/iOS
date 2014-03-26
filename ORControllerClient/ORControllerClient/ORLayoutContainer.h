@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <Foundation/Foundation.h>
+#import "ORModelObject.h"
 
 /**
  * Abstract parent class of all layout containers.
  * It is a container for including widgets on screens, providing layout information.
  * This base class provides position and size of widget.
  */
-@interface ORLayoutContainer : NSObject
+@interface ORLayoutContainer : ORModelObject
 
 @property (nonatomic, readonly) NSInteger left;
 @property (nonatomic, readonly) NSInteger top;
