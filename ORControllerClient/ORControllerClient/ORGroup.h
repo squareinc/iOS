@@ -24,24 +24,47 @@
 @class ORTabBar;
 @class ORScreen;
 
+/**
+ * Model object representing a group element in the OR UI model domain.
+ */
 @interface ORGroup : ORWidget
 
+/**
+ * Name of the group.
+ */
 @property (nonatomic, copy, readonly) NSString *name;
+
+/**
+ * Collection of all screens that are part of this group.
+ * This is an ordered collection.
+ */
 @property (nonatomic, strong, readonly) NSArray *screens;
+
+/**
+ * Tab bar belonging to this group.
+ */
 @property (nonatomic, strong, readonly) ORTabBar *tabBar;
 
 /**
  * Get all screens whose orientation is portrait.
+ * Order of screens in this collection is identical to the one on screens property.
+ *
+ * @return NSArray collection of screens with portrait orientation
  */
 - (NSArray *)portraitScreens;
 
 /**
  * Get all screens whose orientation is landscape.
+ * Order of screens in this collection is identical to the one on screens property.
+ *
+ * @return NSArray collection of screens with landscape orientation
  */
 - (NSArray *)landscapeScreens;
 
 /**
- * Find screen model by screen identifier. returns nil if not found.
+ * Find a screen that is part of this group by its identifier. Returns nil if not found.
+ *
+ * @return ORScreen screen with given identifier or nil if none exists in this group
  */
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;
 

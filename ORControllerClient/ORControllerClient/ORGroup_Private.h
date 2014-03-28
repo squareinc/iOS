@@ -25,8 +25,23 @@
 
 @interface ORGroup ()
 
+/**
+ * Initializes the group with the given identifier and name.
+ * Initialized group does not contain any screen.
+ *
+ * @param anIdentifier identifier of the group
+ * @param aName name of the group
+ *
+ * @return an ORGroup object initialized with the provided values.
+ */
 - (instancetype)initWithGroupIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
 
+/**
+ * Adds the given screen to this group.
+ * If a screen with the same identifier already exists, it is not added to the group.
+ *
+ * @param ORScreen screen to add to the group.
+ */
 - (void)addScreen:(ORScreen *)screen;
 
 @property (nonatomic, strong, readwrite) ORTabBar *tabBar;
