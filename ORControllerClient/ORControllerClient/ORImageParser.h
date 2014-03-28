@@ -23,8 +23,24 @@
 
 @class ORImage;
 
+/**
+ * Parses a <image...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORImage model object instance.
+ *
+ * XML fragment example:
+ * <image id="60"  src = "b.png" style="">
+ *    <link type="sensor" ref="1001">
+ *       <state name="on" value="on.png" />
+ *       <state name="off" value="off.png" />
+ *    </link>
+ *    <include type="label" ref="64" />
+ * </image>
+ */
 @interface ORImageParser : DefinitionElementParser
 
+/**
+ * ORImage model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORImage *image;
 
 @end
