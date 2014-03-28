@@ -45,7 +45,9 @@
 
 - (void)addScreen:(ORScreen *)screen
 {
-    [self._screens addObject:screen];
+    if (![self findScreenByIdentifier:screen.identifier]) {
+        [self._screens addObject:screen];
+    }
 }
 
 - (NSArray *)screens
