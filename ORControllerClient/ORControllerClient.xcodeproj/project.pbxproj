@@ -237,6 +237,7 @@
 		91CC8A0718E2E33000D31A66 /* ORSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC8A0518E2E33000D31A66 /* ORSwitch.m */; };
 		91CC8A0C18E58DFC00D31A66 /* ORLabelParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC8A0B18E58DFC00D31A66 /* ORLabelParserTest.m */; };
 		91CC8A0F18E592F900D31A66 /* ORImageParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC8A0E18E592F900D31A66 /* ORImageParserTest.m */; };
+		91CC8A1218E5965D00D31A66 /* ORGroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC8A1118E5965D00D31A66 /* ORGroupTest.m */; };
 		91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */; };
 		91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
 		91CD6A3517C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */; };
@@ -631,6 +632,8 @@
 		91CC8A0D18E58E1700D31A66 /* ORLabelParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLabelParserTest.h; sourceTree = "<group>"; };
 		91CC8A0E18E592F900D31A66 /* ORImageParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORImageParserTest.m; sourceTree = "<group>"; };
 		91CC8A1018E5931700D31A66 /* ORImageParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORImageParserTest.h; sourceTree = "<group>"; };
+		91CC8A1118E5965D00D31A66 /* ORGroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGroupTest.m; sourceTree = "<group>"; };
+		91CC8A1318E5967200D31A66 /* ORGroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGroupTest.h; sourceTree = "<group>"; };
 		91CD6A3017C23BCC00D5EEE6 /* RESTCallErrorResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RESTCallErrorResponse.xml; sourceTree = "<group>"; };
 		91CD6A3217C23C0A00D5EEE6 /* ORRESTErrorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRESTErrorParser.h; sourceTree = "<group>"; };
 		91CD6A3317C23C0A00D5EEE6 /* ORRESTErrorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRESTErrorParser.m; sourceTree = "<group>"; };
@@ -1256,6 +1259,8 @@
 				91222D8C1892ADFB00BA0B96 /* ORSensorStatesMappingTest.h */,
 				91AD7100189653800050EB0A /* ORSensorStateTest.m */,
 				91AD7102189653910050EB0A /* ORSensorStateTest.h */,
+				91CC8A1118E5965D00D31A66 /* ORGroupTest.m */,
+				91CC8A1318E5967200D31A66 /* ORGroupTest.h */,
 				91BCD6851899540600EC8AEE /* ORBackgroundTest.m */,
 				91BCD6871899541400EC8AEE /* ORBackgroundTest.h */,
 				91099A5818B2189E005BEBAB /* ORSwitchTest.m */,
@@ -1534,6 +1539,7 @@
 				916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */,
 				9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */,
 				91A4A27018DB09BD0070F823 /* ORScreenParser.m in Sources */,
+				91CC8A1218E5965D00D31A66 /* ORGroupTest.m in Sources */,
 				91C3DF2C18DB3315006FD9D4 /* ORGroupParser.m in Sources */,
 				91C3DF3218DB35E0006FD9D4 /* ORGroupParserTest.m in Sources */,
 				91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */,
