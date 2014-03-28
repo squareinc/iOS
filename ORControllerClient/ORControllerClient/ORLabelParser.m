@@ -57,8 +57,12 @@
         [self addKnownTag:LINK];
         self.label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
                                                     text:[attributeDict objectForKey:TEXT]];
-        self.label.textColor = [UIColor or_ColorWithRGBString:[[attributeDict objectForKey:COLOR] substringFromIndex:1]];
-        self.label.font = [UIFont fontWithName:@"Arial" size:[[attributeDict objectForKey:FONT_SIZE] intValue]];
+        if ([attributeDict objectForKey:COLOR]) {
+            self.label.textColor = [UIColor or_ColorWithRGBString:[[attributeDict objectForKey:COLOR] substringFromIndex:1]];
+        }
+        if ([attributeDict objectForKey:FONT_SIZE]) {
+            self.label.font = [UIFont fontWithName:@"Arial" size:[[attributeDict objectForKey:FONT_SIZE] intValue]];
+        }
         self.label.definition = aRegister.definition;
     }
     return self;
