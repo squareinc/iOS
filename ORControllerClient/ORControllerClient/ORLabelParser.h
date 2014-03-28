@@ -23,8 +23,23 @@
 
 @class ORLabel;
 
+/**
+ * Parses a <label...> XML fragment from the panel XML document
+ * following schema v2.0 into an ORLabel model object instance.
+ *
+ * XML fragment example:
+ * <label id="59" fontSize="14" color="#AAAAAA" text="AWaiting">
+ *    <link type="sensor" ref="1001">
+ *       <state name="on" value="LAMP_ON" />
+ *       <state name="off" value="LAMP_OFF" />
+ *    </link>
+ * </label>
+ */
 @interface ORLabelParser : DefinitionElementParser
 
+/**
+ * ORLabel model object parsed from the XML fragment.
+ */
 @property (nonatomic, strong, readonly) ORLabel *label;
 
 @end
