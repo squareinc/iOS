@@ -41,22 +41,56 @@
     [self.testGroup addScreen:[[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]
                                                                     name:@"Landscape screen"
                                                              orientation:ORScreenOrientationLandscape]];
+    [self.testGroup addScreen:[[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:4]
+                                                                    name:@"Portrait screen"
+                                                             orientation:ORScreenOrientationPortrait]];
+    [self.testGroup addScreen:[[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:5]
+                                                                    name:@"Landscape screen"
+                                                             orientation:ORScreenOrientationLandscape]];
 }
 
-- (void)testPortraitScreensCollection
+- (void)testScreensCollectionOrderCorrect
 {
-    STAssertEquals((NSUInteger)1, [[self.testGroup portraitScreens] count], @"There should be 1 screen in portrait orientation in the group");
+    STAssertEquals((NSUInteger)4, [self.testGroup.screens count], @"There should be 4 screens in test group");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:2], [self.testGroup.screens[0] identifier], @"First screen in group should have id 2");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:3], [self.testGroup.screens[1] identifier], @"Second screen in group should have id 3");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:4], [self.testGroup.screens[2] identifier], @"Thrid screen in group should have id 4");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:5], [self.testGroup.screens[3] identifier], @"Fourth screen in group should have id 5");
+}
+
+- (void)testPortraitScreensCollectionFiltersCorrectlyAndRespectsOrder
+{
+    STAssertEquals((NSUInteger)2, [[self.testGroup portraitScreens] count], @"There should be 2 screens in portrait orientation in the group");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:2],
-                         [[[self.testGroup portraitScreens] lastObject] identifier],
-                         @"Portrait screen in group has id 2");
+                         [[self.testGroup portraitScreens][0] identifier],
+                         @"First portrait screen in group has id 2");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:4],
+                         [[self.testGroup portraitScreens][1] identifier],
+                         @"Second portrait screen in group has id 4");
 }
 
-- (void)testLandscapeScreensCollection
+- (void)testLandscapeScreensCollectionFiltersCorrectlyAndRespectsOrder
 {
-    STAssertEquals((NSUInteger)1, [[self.testGroup landscapeScreens] count], @"There should be 1 screen in landscape orientation in the group");
+    STAssertEquals((NSUInteger)2, [[self.testGroup landscapeScreens] count], @"There should be 2 screens in landscape orientation in the group");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:3],
-                         [[[self.testGroup landscapeScreens] lastObject] identifier],
-                         @"Landscape screen in group has id 3");
+                         [[self.testGroup landscapeScreens][0] identifier],
+                         @"First landscape screen in group has id 3");
+    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:5],
+                         [[self.testGroup landscapeScreens][1] identifier],
+                         @"Second landscape screen in group has id 5");
+}
+
+- (void)testAddingScreenWithExistingIdDoesNotAddOrUpdateScreen
+{
+    ORScreen *newScreen = [[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]
+                                                                name:@"New screen"
+                                                         orientation:ORScreenOrientationLandscape];
+    [self.testGroup addScreen:newScreen];
+    STAssertEquals((NSUInteger)4, [self.testGroup.screens count], @"There are still 4 screens in the group");
+    
+    ORScreen *screen = [self.testGroup findScreenByIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
+    STAssertEqualObjects(@"Portrait screen", screen.name, @"Screen name has not been updated");
+    STAssertEquals(ORScreenOrientationPortrait, screen.orientation, @"Screen orientation has not been updated");
 }
 
 - (void)testFindScreenByIdentifierForExistingIdentifier
@@ -68,7 +102,7 @@
 
 - (void)testFindScreenByIdentifierForNonExistingIdentifier
 {
-    STAssertNil([self.testGroup findScreenByIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:4]], @"There should be no screen with id 4 in the group");
+    STAssertNil([self.testGroup findScreenByIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:10]], @"There should be no screen with id 10 in the group");
 }
 
 @end
