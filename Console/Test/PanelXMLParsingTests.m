@@ -712,7 +712,7 @@
 							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 							STAssertEqualObjects(expectedId, theImage.identifier, @"Expected %@, but %@",expectedId,theImage.identifier);
 							NSString *expectedImageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.name isEqualToString:expectedImageSrc],@"expected %@, but %@", expectedImageSrc, theImage.name);
+							STAssertTrue([theImage.src isEqualToString:expectedImageSrc],@"expected %@, but %@", expectedImageSrc, theImage.src);
 //							NSString *expectedImageStyle = @"";
 //							STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
 							
@@ -835,7 +835,7 @@
 						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
+						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
 //						NSString *expectedImageStyle = @"";
 //						STAssertTrue([theImage.style isEqualToString:expectedImageStyle], @"expected %@, but %@", expectedImageStyle, theImage.style);
 						
@@ -979,7 +979,7 @@
 						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
+						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
 					}					
 				}				
 			}
@@ -1071,7 +1071,7 @@
 						ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 						STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 						NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];
-						STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", theImage.name, imageSrc);
+						STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", theImage.src, imageSrc);
 					}					
 				}				
 			}
@@ -1210,8 +1210,8 @@
 		
 		// assert tabbar item name.
 		NSString *expectedTabBarItemName = [expectedTabBarItemsName objectAtIndex:i];
-		STAssertTrue([tabBarItem.name isEqualToString:expectedTabBarItemName], @"expected %@, but %@", expectedTabBarItemName, tabBarItem.name);
-		NSLog(@"tabbarItemName is %@", [tabBarItem name]);
+		STAssertTrue([tabBarItem.label.text isEqualToString:expectedTabBarItemName], @"expected %@, but %@", expectedTabBarItemName, tabBarItem.label.text);
+		NSLog(@"tabbarItemName is %@", tabBarItem.label.text);
 		NSLog(@"expectedTabbarItemName is %@", expectedTabBarItemName);
 		/*
 		// assert tabbar item navigate
@@ -1236,8 +1236,8 @@
 		*/
 		// assert tabbar item image
 		NSString *expectedTabBarItemImageSrc = [expectedTabBarItemsImageSrc objectAtIndex:i];
-		STAssertTrue([tabBarItem.image.name isEqualToString:expectedTabBarItemImageSrc], @"expected %@, but %@", expectedTabBarItemImageSrc, tabBarItem.image.name);
-		NSLog(@"tabBarItemImage src is %@", [[tabBarItem image] name]);
+		STAssertTrue([tabBarItem.image.src isEqualToString:expectedTabBarItemImageSrc], @"expected %@, but %@", expectedTabBarItemImageSrc, tabBarItem.image.src);
+		NSLog(@"tabBarItemImage src is %@", [[tabBarItem image] src]);
 		NSLog(@"expectedTabBarItemsImage src is %@", expectedTabBarItemImageSrc);
 	}
 	// End assert tabbar.
@@ -1299,7 +1299,7 @@
 							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 							STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
+							STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.src);
 						}	
 					}
 				}				
@@ -1360,8 +1360,8 @@
 			
 			// assert tabbar item name.
 			NSString *expectedLocalTabBarItemName = [expectedLocalTabBarItemsName objectAtIndex:i];
-			STAssertTrue([localTabBarItem.name isEqualToString:expectedLocalTabBarItemName], @"expected %@, but %@", expectedLocalTabBarItemName, localTabBarItem.name);
-			NSLog(@"localTabbarItemName is %@", [localTabBarItem name]);
+			STAssertTrue([localTabBarItem.label.text isEqualToString:expectedLocalTabBarItemName], @"expected %@, but %@", expectedLocalTabBarItemName, localTabBarItem.label.text);
+			NSLog(@"localTabbarItemName is %@", localTabBarItem.label.text);
 			NSLog(@"expectedLocalTabbarItemName is %@", expectedLocalTabBarItemName);
 		
 /*
@@ -1387,8 +1387,8 @@
 	*/
 			// assert tabbar item image
 			NSString *expectedLocalTabBarItemImageSrc = [expectedLocalTabBarItemsImageSrc objectAtIndex:i];
-			STAssertTrue([localTabBarItem.image.name isEqualToString:expectedLocalTabBarItemImageSrc], @"expected %@, but %@", expectedLocalTabBarItemImageSrc, localTabBarItem.image.name);
-			NSLog(@"localTabBarItemImage src is %@", [[localTabBarItem image] name]);
+			STAssertTrue([localTabBarItem.image.src isEqualToString:expectedLocalTabBarItemImageSrc], @"expected %@, but %@", expectedLocalTabBarItemImageSrc, localTabBarItem.image.src);
+			NSLog(@"localTabBarItemImage src is %@", [[localTabBarItem image] src]);
 			NSLog(@"expectedLocalTabBarItemsImage src is %@", expectedLocalTabBarItemImageSrc);
 		}
 		// End assert tabbar
@@ -1442,7 +1442,7 @@
 							ORObjectIdentifier *expectedId = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + image_index++)];
 							STAssertEqualObjects(expectedId, theImage.identifier, @"expected %@, but %@", expectedId, theImage.identifier);
 							NSString *imageSrc = [[NSString alloc] initWithFormat:@"%c.png", (char)97 + state_index++];					
-							STAssertTrue([theImage.name isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.name);
+							STAssertTrue([theImage.src isEqualToString:imageSrc],@"expected %@, but %@", imageSrc, theImage.src);
 						}	
 					}
 				}				
