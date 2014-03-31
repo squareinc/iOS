@@ -30,11 +30,10 @@
  */
 @interface ORModelObject : NSObject
 
-// TODO: this is using legacy object, update to current model when ready
-
 /**
- * Definition the widget belongs to.
+ * Definition the object belongs to.
  */
 @property (nonatomic, weak, readonly) Definition *definition;
+// TODO: this is using legacy object, update to current model when ready
 
 @end
