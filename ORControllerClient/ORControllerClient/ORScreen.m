@@ -77,7 +77,10 @@
 
 - (void)addGesture:(ORGesture *)gesture
 {
-    [self._gestures addObject:gesture];
+    if (![[self._gestures filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier == %@ || gestureType == %d",
+                                                       gesture.identifier, gesture.gestureType]] count]) {
+        [self._gestures addObject:gesture];
+    }
 }
 
 - (NSArray *)gestures
