@@ -46,6 +46,7 @@
 /**
  * Adds the given gesture to this group.
  * If a gesture with the same identifier already exists, it is not added to the screen.
+ * If a gesture with the same type already exists, it is not added to the screen.
  *
  * @param ORGesture gesture to add to the screen.
  */
