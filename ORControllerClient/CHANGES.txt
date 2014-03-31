@@ -1,3 +1,34 @@
+Version 0.3.0
+=============
+
+New features
+------------
+
+Continued conversion from all legacy model objects (except for "local commands" mechanism) to newer version.
+This includes: ORSwitch, ORSlider, ORColorPicker, ORWebView, ORTabBar / ORTabBarItem, ORNavigation,
+ORScreen, ORGroup, ORGesture, ORLayoutContainer, ORAbsoluteLayoutContainer, ORGridLayoutContainer, ORGridCell
+
+Please see the detailed documentation of each class for more information.
+
+Introduced ORModelObject as base class for all objects that are part of the panel object model.
+definition property has been moved from ORWidget to ORModelObject.
+This class also defines a name property that, for most objects, can be used freely by the client.
+For ORScreen and ORGroup, it is pre-populated by the value that has been defined in the model.
+For ORLabel, it is pre-populated with the text of the label as it is defined before any sensor update occur.
+
+Changes from previous release
+-----------------------------
+
+On ORImage, renamed property 'name' to 'src', allowing addition of name as generic property on ORModelObject.
+
+ORButton now references new ORNavigation object (instead of Navigation).
+
+Removed isDynamic property from ORLabel/ORButton. It was never implemented correctly.
+
+Fixed sensor update issue introduced in latest release.
+
+Internal review to ensure better compatibility with iOS 7.1 / 64bit support
+
 Version 0.2.0
 =============
 
@@ -17,7 +48,7 @@ ORWidgets have a reference to the Definition they are a part of.
 
 Fixed bug that would not take sensor states information from ORWidget (label or image) into account.
 
-On Definition method - (ORLabel *)findLabelById:(int)labelId is deprecated.
+On Definition, method - (ORLabel *)findLabelById:(int)labelId is deprecated.
 Method - (ORLabel *)findLabelByIdentifier:(ORObjectIdentifier *)identifier should be used instead.
 
 Version 0.1.3
