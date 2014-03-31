@@ -24,6 +24,8 @@
 
 /**
  * Model object representing a Label element in the OR UI model domain.
+ * name property is pre-populated with initial text value coming from model
+ * (that is before any potential update from linked sensor occurs).
  *
  * Provides a mechanism for clients to register and receive notifications when property values change.
  */

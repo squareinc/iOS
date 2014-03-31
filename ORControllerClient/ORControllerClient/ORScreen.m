@@ -24,7 +24,6 @@
 
 @interface ORScreen ()
 
-@property (nonatomic, strong, readwrite) NSString *name;
 @property (nonatomic, readwrite) ORScreenOrientation orientation;
 @property (nonatomic, strong, readwrite) NSMutableArray *_layouts;
 @property (nonatomic, strong, readwrite) NSMutableArray *_gestures;

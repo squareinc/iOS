@@ -26,13 +26,9 @@
 
 /**
  * Model object representing a group element in the OR UI model domain.
+ * name property is pre-populated with value coming from model.
  */
 @interface ORGroup : ORWidget
-
-/**
- * Name of the group.
- */
-@property (nonatomic, copy, readonly) NSString *name;
 
 /**
  * Collection of all screens that are part of this group.

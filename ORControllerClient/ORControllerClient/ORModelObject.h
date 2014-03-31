@@ -36,4 +36,11 @@
 @property (nonatomic, weak, readonly) Definition *definition;
 // TODO: this is using legacy object, update to current model when ready
 
+/**
+ * Name of the object.
+ * This property is only populated for a restricted set of objects in the model.
+ * For most of them, it is available as a convinence for the client to use.
+ */
+@property (nonatomic, copy) NSString *name;
+
 @end

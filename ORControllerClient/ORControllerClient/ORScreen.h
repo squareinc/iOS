@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
 
 /**
  * Model object representing a screen element in the OR UI model domain.
+ * name property is pre-populated with value coming from model.
  */
 @interface ORScreen : ORWidget
 
@@ -63,11 +64,6 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
  * @return ORScreen screen in given orientation or self if none exists
  */
 - (ORScreen *)screenForOrientation:(ORScreenOrientation)anOrientation;
-
-/**
- * Name of the screen.
- */
-@property (nonatomic, strong, readonly) NSString *name;
 
 /**
  * Orientation of the screen: portrait or lanscape.

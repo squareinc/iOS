@@ -25,8 +25,6 @@
 
 @interface ORGroup ()
 
-@property (nonatomic, copy, readwrite) NSString *name;
-
 @property (nonatomic, strong, readwrite) NSMutableArray *_screens;
 
 @end
