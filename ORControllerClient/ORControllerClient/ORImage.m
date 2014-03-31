@@ -24,7 +24,7 @@
 
 @interface ORImage ()
 
-@property (strong, nonatomic, readwrite) NSString *src;
+@property (copy, nonatomic, readwrite) NSString *src;
 
 @end
 

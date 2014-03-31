@@ -32,7 +32,7 @@
 /**
  * The source of the image.
  */
-@property (strong, nonatomic, readonly) NSString *src;
+@property (copy, nonatomic, readonly) NSString *src;
 
 /**
  * The alternate text label that can be used in place of the image.

@@ -32,7 +32,7 @@
 /**
  * The current text value of this label.
  */
-@property (strong, nonatomic, readonly) NSString *text;
+@property (copy, nonatomic, readonly) NSString *text;
 
 /**
  * The current color of the text of this label.

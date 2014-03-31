@@ -23,7 +23,7 @@
 
 @interface ORLabel ()
 
-@property (strong, nonatomic, readwrite) NSString *text;
+@property (copy, nonatomic, readwrite) NSString *text;
 @property (strong, nonatomic, readwrite) UIColor *textColor;
 @property (strong, nonatomic, readwrite) UIFont *font;
 

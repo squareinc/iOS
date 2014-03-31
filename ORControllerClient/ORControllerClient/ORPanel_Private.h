@@ -23,7 +23,7 @@
 
 @interface ORPanel ()
 
-@property (nonatomic, strong, readwrite) NSString *name;
+@property (nonatomic, copy, readwrite) NSString *name;
 @property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
 
 @end

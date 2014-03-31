@@ -23,7 +23,7 @@
 
 @interface ORRESTError ()
 
-@property (nonatomic, strong, readwrite) NSString *message;
+@property (nonatomic, copy, readwrite) NSString *message;
 @property (nonatomic, readwrite) NSInteger code;
 
 @end

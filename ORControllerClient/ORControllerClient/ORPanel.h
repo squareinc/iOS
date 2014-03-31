@@ -30,7 +30,7 @@
 /**
  * The name of the panel.
  */
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 @property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 

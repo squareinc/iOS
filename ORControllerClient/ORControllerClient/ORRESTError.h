@@ -33,7 +33,7 @@
 /**
  // TODO
  */
-@property (nonatomic, strong, readonly) NSString *message;
+@property (nonatomic, copy, readonly) NSString *message;
 
 /**
  // TODO
