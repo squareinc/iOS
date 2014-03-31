@@ -48,6 +48,7 @@
         [self addKnownTag:LINK];
         self.label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
                                                     text:[attributeDict objectForKey:TEXT]];
+        self.label.name = [attributeDict objectForKey:TEXT];
         if ([attributeDict objectForKey:COLOR]) {
             self.label.textColor = [UIColor or_ColorWithRGBString:[[attributeDict objectForKey:COLOR] substringFromIndex:1]];
         }

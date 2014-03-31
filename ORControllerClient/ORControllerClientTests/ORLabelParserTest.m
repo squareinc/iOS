@@ -65,6 +65,7 @@
     STAssertNotNil(label.identifier, @"Parsed switch should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], label.identifier, @"Parsed label should have 10 as identifer");
     STAssertEqualObjects(@"A label", label.text, @"Parsed label text should be 'A label'");
+    STAssertEqualObjects(@"A label", label.name, @"Parsed label name should be 'A label'");
     
     STAssertEqualObjects([UIColor whiteColor], label.textColor, @"Default text color is white");
     STAssertEqualObjects([UIFont fontWithName:@"Arial" size:14.0], label.font, @"Default font is Arial 14pt");
@@ -77,6 +78,7 @@
     STAssertNotNil(label.identifier, @"Parsed switch should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], label.identifier, @"Parsed label should have 10 as identifer");
     STAssertEqualObjects(@"A label", label.text, @"Parsed label text should be 'A label'");
+    STAssertEqualObjects(@"A label", label.name, @"Parsed label name should be 'A label'");
     
     STAssertEqualObjects([UIColor redColor], label.textColor, @"Parsed label color should be red");
     STAssertEqualObjects([UIFont fontWithName:@"Arial" size:10.0], label.font, @"Parsed label should have default font (Arial) in 10pt size");
@@ -89,6 +91,7 @@
     STAssertNotNil(label.identifier, @"Parsed switch should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], label.identifier, @"Parsed label should have 10 as identifer");
     STAssertEqualObjects(@"A label", label.text, @"Parsed label text should be 'A label'");
+    STAssertEqualObjects(@"A label", label.name, @"Parsed label name should be 'A label'");
     
     STAssertEqualObjects([UIColor redColor], label.textColor, @"Parsed label color should be red");
     STAssertEqualObjects([UIFont fontWithName:@"Arial" size:10.0], label.font, @"Parsed label should have default font (Arial) in 10pt size");
