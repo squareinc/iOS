@@ -70,7 +70,7 @@
         } else {
             NSString *absoluteStr = [attributeDict objectForKey:@"absolute"];
 			NSRange rangeOfComma = [absoluteStr rangeOfString:@","];
-			int indexOfComma = rangeOfComma.location;
+			NSUInteger indexOfComma = rangeOfComma.location;
             self.background.position = CGPointMake([[absoluteStr substringToIndex:indexOfComma] floatValue], [[absoluteStr substringFromIndex:indexOfComma+1] floatValue]);
             self.background.positionUnit = ORWidgetUnitLength;
         }

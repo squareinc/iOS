@@ -138,7 +138,7 @@
             [self.tableView reloadData];
             
         } errorHandler:^(NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %d", [error code]]
+            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %ld", (long)[error code]]
                                         message:[error localizedDescription]
                                        delegate:nil
                               cancelButtonTitle:nil

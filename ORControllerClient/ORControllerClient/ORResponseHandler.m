@@ -61,7 +61,7 @@
 {
     self._errorCode = 0;
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        int responseCode = [((NSHTTPURLResponse *)response) statusCode];
+        NSInteger responseCode = [((NSHTTPURLResponse *)response) statusCode];
         if (responseCode != 200) {
             self._errorCode = responseCode;
         }

@@ -64,7 +64,7 @@
 
 - (NSString *)stringValue
 {
-    return [NSString stringWithFormat:@"%d", self._id];
+    return [NSString stringWithFormat:@"%ld", (long)self._id];
 }
 
 @end
