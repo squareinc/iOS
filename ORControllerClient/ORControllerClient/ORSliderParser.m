@@ -55,11 +55,11 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
-	ORImage *img = [[ORImage alloc] initWithIdentifier:nil name:[attributeDict objectForKey:IMAGE]];
-    [self.depRegister.definition addImageName:img.name];
+	ORImage *img = [[ORImage alloc] initWithIdentifier:nil src:[attributeDict objectForKey:IMAGE]];
+    [self.depRegister.definition addImageName:img.src];
     
-	ORImage *trackImg = [[ORImage alloc] initWithIdentifier:nil name:[attributeDict objectForKey:TRACK_IMAGE]];
-    [self.depRegister.definition addImageName:trackImg.name];
+	ORImage *trackImg = [[ORImage alloc] initWithIdentifier:nil src:[attributeDict objectForKey:TRACK_IMAGE]];
+    [self.depRegister.definition addImageName:trackImg.src];
 	if ([elementName isEqualToString:MIN_VALUE]) {
 		self.slider.minValue = [[attributeDict objectForKey:VALUE] floatValue];
 		self.slider.minImage = img;

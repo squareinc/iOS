@@ -59,7 +59,7 @@
     ORBackground *background = [self parseValidXMLSnippet:@"<background fillScreen=\"true\"><image src=\"test.png\"/></background>"];
     
     STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.name, @"test.png", @"Parsed background image shoud be named 'test.png'");
+    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
     STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
     STAssertEquals(background.size, CGSizeMake(100.0, 100.0), @"Parsed background image must fill container");
@@ -71,7 +71,7 @@
     ORBackground *background = [self parseValidXMLSnippet:@"<background><image src=\"test.png\"/></background>"];
     
     STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.name, @"test.png", @"Parsed background image shoud be named 'test.png'");
+    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
     STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
     STAssertEquals(background.size, CGSizeMake(100.0, 100.0), @"Parsed background image must fill container");
@@ -83,7 +83,7 @@
                            forBackground:(ORBackground *)background
 {
     STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.name, @"test.png", @"Parsed background image shoud be named 'test.png'");
+    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
     STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
     STAssertEquals(background.position, expectedPosition, @"Parsed background image must be %@ positioned", expectedPositionStr);
@@ -126,7 +126,7 @@
     ORBackground *background = [self parseValidXMLSnippet:@"<background fillScreen=\"false\" absolute=\"20,30\"><image src=\"test.png\"/></background>"];
     
     STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.name, @"test.png", @"Parsed background image shoud be named 'test.png'");
+    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
     STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
     STAssertEquals(background.position, CGPointMake(20.0, 30.0), @"Parsed background image must be positioned at 20,30");

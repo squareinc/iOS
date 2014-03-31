@@ -197,11 +197,11 @@
     
     STAssertNotNil(button.unpressedImage, @"Parsed button should have an unpressed image associated with it");
     STAssertTrue([button.unpressedImage isMemberOfClass:[ORImage class]], @"Parsed button unpressed image should be an ORImage");
-    STAssertEqualObjects(button.unpressedImage.name, @"default image", @"Parsed button unpressed image name should be 'default image'");
+    STAssertEqualObjects(button.unpressedImage.src, @"default image", @"Parsed button unpressed image src should be 'default image'");
     
     STAssertNotNil(button.pressedImage, @"Parsed button should have a pressed image associated with it");
     STAssertTrue([button.pressedImage isMemberOfClass:[ORImage class]], @"Parsed button pressed image should be an ORImage");
-    STAssertEqualObjects(button.pressedImage.name, @"pressed image", @"Parsed button pressed image name should be 'pressed image'");
+    STAssertEqualObjects(button.pressedImage.src, @"pressed image", @"Parsed button pressed image src should be 'pressed image'");
 }
 
 @end

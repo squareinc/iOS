@@ -91,8 +91,8 @@
     [self.view setUserInteractionEnabled:YES];
     self.view.backgroundColor = [UIColor blackColor];
 
-	if (self.screen.background.image.name) {
-		UIImage *backgroundImage = [self.imageCache getImageNamed:self.screen.background.image.name
+	if (self.screen.background.image.src) {
+		UIImage *backgroundImage = [self.imageCache getImageNamed:self.screen.background.image.src
                                               finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setBackgroundImage:image];

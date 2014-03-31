@@ -313,7 +313,7 @@
         for (int i = 0; i < [self.tabBar.items count]; i++) {
             ORTabBarItem *item = [self.tabBar.items objectAtIndex:i];
             UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.label.text image:nil tag:i];
-            UIImage *itemImage = [self.imageCache getImageNamed:item.image.name finalImageAvailable:^(UIImage *image) {
+            UIImage *itemImage = [self.imageCache getImageNamed:item.image.src finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     uiItem.image = image;
                 });

@@ -58,13 +58,13 @@
         NSString *onImageName = [parser.sensorStatesMapping stateValueForName:@"on"];
         if (onImageName) {
             [self.depRegister.definition addImageName:onImageName];
-            self.sswitch.onImage = [[ORImage alloc] initWithIdentifier:nil name:onImageName];
+            self.sswitch.onImage = [[ORImage alloc] initWithIdentifier:nil src:onImageName];
         }
         
         NSString *offImageName = [parser.sensorStatesMapping stateValueForName:@"off"];
         if (offImageName) {
             [self.depRegister.definition addImageName:offImageName];
-            self.sswitch.offImage = [[ORImage alloc] initWithIdentifier:nil name:offImageName];
+            self.sswitch.offImage = [[ORImage alloc] initWithIdentifier:nil src:offImageName];
         }
     }
 }

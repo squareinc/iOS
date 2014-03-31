@@ -49,8 +49,8 @@
 - (void)testSwitchWithMappingStateUpdateFromString
 {
     ORSwitch *sswitch = [[ORSwitch alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
-    sswitch.onImage = [[ORImage alloc] initWithIdentifier:nil name:@"OnImage.png"];
-    sswitch.offImage = [[ORImage alloc] initWithIdentifier:nil name:@"OffImage.png"];
+    sswitch.onImage = [[ORImage alloc] initWithIdentifier:nil src:@"OnImage.png"];
+    sswitch.offImage = [[ORImage alloc] initWithIdentifier:nil src:@"OffImage.png"];
     STAssertFalse(sswitch.state, @"Default state for the switch is off");
     
     [sswitch setValue:@"OnImage.png" forKey:@"state"];

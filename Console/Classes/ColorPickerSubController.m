@@ -39,7 +39,7 @@
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:nil];
-        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.name finalImageAvailable:^(UIImage *image) {
+        UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 imageView.image = image;
             });

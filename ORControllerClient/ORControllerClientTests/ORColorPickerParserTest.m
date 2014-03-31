@@ -70,7 +70,7 @@
     
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], colorPicker.identifier, @"Parsed color picker should have 10 as identifer");
     STAssertNotNil(colorPicker.image, @"Parsed color picker should have an image defined");
-    STAssertEqualObjects(colorPicker.image.name, @"color.png", @"Parsed color picker image name should be 'color.png'");
+    STAssertEqualObjects(colorPicker.image.src, @"color.png", @"Parsed color picker image src should be 'color.png'");
 }
 
 @end

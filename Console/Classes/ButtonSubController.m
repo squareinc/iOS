@@ -80,7 +80,7 @@
      */
     if (object == self.view) {        
         if (self.button.unpressedImage) {
-            UIImage *uiImage = [self.imageCache getImageNamed:self.button.unpressedImage.name finalImageAvailable:^(UIImage *image) {
+            UIImage *uiImage = [self.imageCache getImageNamed:self.button.unpressedImage.src finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self setClippedImage:image forState:UIControlStateNormal];
                 });
@@ -89,7 +89,7 @@
                 [self setClippedImage:uiImage forState:UIControlStateNormal];
             }
             
-            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.name finalImageAvailable:^(UIImage *image) {
+            UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self setClippedImage:image forState:UIControlStateHighlighted];
                 });

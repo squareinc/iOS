@@ -93,7 +93,7 @@
     STAssertEquals(100.0f, slider.maxValue, @"Parser slider should have default maximum bound of 100");
     
     STAssertNotNil(slider.thumbImage, @"Parsed slider should have a thumb image defined");
-    STAssertEqualObjects(@"Image.png", slider.thumbImage.name, @"Parsed slider thumb image name should be 'Image.png'");
+    STAssertEqualObjects(@"Image.png", slider.thumbImage.src, @"Parsed slider thumb image src should be 'Image.png'");
     
     STAssertNil(slider.minImage, @"Parsed slider should not have any min image defined");
     STAssertNil(slider.minTrackImage, @"Parsed slider should not have any min track image defined");
@@ -115,19 +115,19 @@
     STAssertEquals(60.0f, slider.maxValue, @"Parser slider should have maximum bound of 60");
     
     STAssertNotNil(slider.thumbImage, @"Parsed slider should have a thumb image defined");
-    STAssertEqualObjects(@"Image.png", slider.thumbImage.name, @"Parsed slider thumb image name should be 'Image.png'");
+    STAssertEqualObjects(@"Image.png", slider.thumbImage.src, @"Parsed slider thumb image src should be 'Image.png'");
     
     STAssertNotNil(slider.minImage, @"Parsed slider should have a min image defined");
-    STAssertEqualObjects(@"min.png", slider.minImage.name, @"Parsed slider min image name should be 'min.png'");
+    STAssertEqualObjects(@"min.png", slider.minImage.src, @"Parsed slider min image src should be 'min.png'");
     
     STAssertNotNil(slider.minTrackImage, @"Parsed slider should have a min track image defined");
-    STAssertEqualObjects(@"min_track.png", slider.minTrackImage.name, @"Parsed slider min track image name should be 'min_track.png'");
+    STAssertEqualObjects(@"min_track.png", slider.minTrackImage.src, @"Parsed slider min track image src should be 'min_track.png'");
     
     STAssertNotNil(slider.maxImage, @"Parsed slider should have a max image defined");
-    STAssertEqualObjects(@"max.png", slider.maxImage.name, @"Parsed slider max image name should be 'max.png'");
+    STAssertEqualObjects(@"max.png", slider.maxImage.src, @"Parsed slider max image src should be 'max.png'");
     
     STAssertNotNil(slider.maxTrackImage, @"Parsed slider should have a max track min image defined");
-    STAssertEqualObjects(@"max_track.png", slider.maxTrackImage.name, @"Parsed slider max track image name should be 'max_track.png'");
+    STAssertEqualObjects(@"max_track.png", slider.maxTrackImage.src, @"Parsed slider max track image src should be 'max_track.png'");
 }
 
 - (void)testParseSliderDefaultValuesWithSensor

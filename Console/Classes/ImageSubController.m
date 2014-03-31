@@ -42,7 +42,7 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
     self = [super initWithController:aController imageCache:aCache component:aComponent];
     if (self) {
         self.view = [[ORImageView alloc] initWithFrame:CGRectZero];
-        [self setImageNamed:self.image.name];
+        [self setImageNamed:self.image.src];
         
         /*
          TODO: re-add font and color properties
@@ -50,14 +50,14 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
         imageView.label.textColor = [UIColor or_ColorWithRGBString:[self.image.label.color substringFromIndex:1]];
          */
         
-        [self.image addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:ImageSubControllerKVOContext];
+        [self.image addObserver:self forKeyPath:@"src" options:NSKeyValueObservingOptionNew context:ImageSubControllerKVOContext];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [self.image removeObserver:self forKeyPath:@"name"];
+    [self.image removeObserver:self forKeyPath:@"src"];
 }
 
 - (ORImage *)image
@@ -68,7 +68,7 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
 - (void)setImageNamed:(NSString *)imageName
 {
     ORImageView *imageView = (ORImageView *)self.view;
-    UIImage *uiImage = [self.imageCache getImageNamed:self.image.name finalImageAvailable:^(UIImage *image) {
+    UIImage *uiImage = [self.imageCache getImageNamed:self.image.src finalImageAvailable:^(UIImage *image) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (image) {
                 imageView.image.image = image;
@@ -87,7 +87,7 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
 {
     if (context == ImageSubControllerKVOContext) {
         if ([@"name" isEqualToString:keyPath]) {
-            [self setImageNamed:self.image.name];
+            [self setImageNamed:self.image.src];
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

@@ -47,7 +47,7 @@
     if (self) {
         [self addKnownTag:LINK];
         self.image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict objectForKey:ID]]
-                                                    name:[attributeDict objectForKey:SRC]];
+                                                    src:[attributeDict objectForKey:SRC]];
         [aRegister.definition addImageName:[attributeDict objectForKey:SRC]];
         self.image.definition = aRegister.definition;
     }

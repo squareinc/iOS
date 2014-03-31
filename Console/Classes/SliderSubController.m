@@ -105,7 +105,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         ORUISlider *uiSlider = [[ORUISlider alloc] initWithFrame:CGRectZero];
         
         uiSlider.minimumValue = self.slider.minValue;
-        NSString *minimumValueImageSrc = self.slider.minImage.name;
+        NSString *minimumValueImageSrc = self.slider.minImage.src;
         UIImage *minimumValueImage = [self.imageCache getImageNamed:minimumValueImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 uiSlider.minimumValueImage = [self transformToHorizontalWhenVertical:image];
@@ -116,7 +116,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         }
         
         uiSlider.maximumValue = self.slider.maxValue;
-        NSString *maximumValueImageSrc = self.slider.maxImage.name;
+        NSString *maximumValueImageSrc = self.slider.maxImage.src;
         UIImage *maximumValueImage = [self.imageCache getImageNamed:maximumValueImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 uiSlider.maximumValueImage = [self transformToHorizontalWhenVertical:image];
@@ -128,9 +128,9 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         
         // TrackImages, thumbImage
         uiSlider.backgroundColor = [UIColor clearColor];
-        NSString *minTrackImageSrc = self.slider.minTrackImage.name;
-        NSString *maxTrackImageSrc = self.slider.maxTrackImage.name;
-        NSString *thumbImageSrc = self.slider.thumbImage.name;
+        NSString *minTrackImageSrc = self.slider.minTrackImage.src;
+        NSString *maxTrackImageSrc = self.slider.maxTrackImage.src;
+        NSString *thumbImageSrc = self.slider.thumbImage.src;
         
         UIImage *stretchedLeftTrack = [self.imageCache getImageNamed:minTrackImageSrc finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{

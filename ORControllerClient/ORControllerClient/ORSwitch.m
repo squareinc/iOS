@@ -58,7 +58,7 @@
 {
     // If state mapping is defined on the switch, the received value is the translated one, not the original
     if (self.onImage) {
-        self._state = [self.onImage.name isEqualToString:stateAsString];
+        self._state = [self.onImage.src isEqualToString:stateAsString];
     } else {
         self._state = [@"on" isEqualToString:[stateAsString lowercaseString]];
     }

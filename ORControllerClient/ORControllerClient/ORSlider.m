@@ -43,7 +43,7 @@
         self.vertical = verticalFlag;
         self.passive = passiveFlag;
         if (thumbImageSrc) {
-            self.thumbImage = [[ORImage alloc] initWithIdentifier:nil name:thumbImageSrc];
+            self.thumbImage = [[ORImage alloc] initWithIdentifier:nil src:thumbImageSrc];
         }
 		// Set default values for bounds, in case they're not explicitly set by parser
 		self.minValue = 0.0;

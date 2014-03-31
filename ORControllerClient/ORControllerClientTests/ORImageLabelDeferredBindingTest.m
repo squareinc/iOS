@@ -31,7 +31,7 @@
 - (void)testCreateValidBinding
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] name:@""];
+    ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] src:@""];
     ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
     STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
@@ -50,7 +50,7 @@
 {
     Definition *definition = [[Definition alloc] init];
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] name:@""];
+    ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] src:@""];
     image.definition = definition;
     ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
 

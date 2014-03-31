@@ -24,22 +24,22 @@
 
 @interface ORImage ()
 
-@property (strong, nonatomic, readwrite) NSString *name;
+@property (strong, nonatomic, readwrite) NSString *src;
 
 @end
 
 @implementation ORImage
 
-- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier src:(NSString *)aSrc;
 {
     self = [super initWithIdentifier:anIdentifier];
     if (self) {
-        self.name = aName;
+        self.src = aSrc;
     }
     return self;
 }
 
-@synthesize name;
+@synthesize src;
 @synthesize label;
 
 @end

@@ -77,10 +77,10 @@
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], sswitch.identifier, @"Parsed switch should have 10 as identifer");
 
     STAssertNotNil(sswitch.onImage, @"Parsed switch should have an on image defined");
-    STAssertEqualObjects(sswitch.onImage.name, @"OnImage.png", @"Parsed switch on image should be named 'OnImage.png'");
+    STAssertEqualObjects(sswitch.onImage.src, @"OnImage.png", @"Parsed switch on image src should be 'OnImage.png'");
 
     STAssertNotNil(sswitch.offImage, @"Parsed switch should have an off image defined");
-    STAssertEqualObjects(sswitch.offImage.name, @"OffImage.png", @"Parsed switch off image should be named 'OffImage.png'");
+    STAssertEqualObjects(sswitch.offImage.src, @"OffImage.png", @"Parsed switch off image src should be 'OffImage.png'");
 }
 
 @end

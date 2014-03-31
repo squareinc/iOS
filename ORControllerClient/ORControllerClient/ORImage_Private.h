@@ -23,7 +23,7 @@
 
 @interface ORImage ()
 
-- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier name:(NSString *)aName;
+- (instancetype)initWithIdentifier:(ORObjectIdentifier *)anIdentifier src:(NSString *)aSrc;
 
 @property (nonatomic, strong, readwrite) ORLabel *label;
 

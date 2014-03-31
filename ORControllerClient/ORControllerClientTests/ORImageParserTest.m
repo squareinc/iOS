@@ -76,7 +76,7 @@
     
     STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], image.identifier, @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(@"img.png", image.name, @"Parsed image name should be 'img.png'");
+    STAssertEqualObjects(@"img.png", image.src, @"Parsed image src should be 'img.png'");
 
     STAssertNil(image.label, @"Parsed image should not have a fallback label");
 }
@@ -87,7 +87,7 @@
     
     STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], image.identifier, @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(@"img.png", image.name, @"Parsed image name should be 'img.png'");
+    STAssertEqualObjects(@"img.png", image.src, @"Parsed image src should be 'img.png'");
     
     STAssertNotNil(image.label, @"Parsed image should have a fallback label");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:1], image.label.identifier, @"Parsed image fallback label identifier should be 1");
@@ -99,7 +99,7 @@
     
     STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], image.identifier, @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(@"img.png", image.name, @"Parsed image name should be 'img.png'");
+    STAssertEqualObjects(@"img.png", image.src, @"Parsed image src should be 'img.png'");
     
     STAssertNotNil(image.label, @"Parsed image should have a fallback label");
     STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:1], image.label.identifier, @"Parsed image fallback label identifier should be 1");

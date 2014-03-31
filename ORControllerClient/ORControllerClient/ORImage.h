@@ -30,9 +30,9 @@
 @interface ORImage : ORWidget
 
 /**
- * The name of the image.
+ * The source of the image.
  */
-@property (strong, nonatomic, readonly) NSString *name;
+@property (strong, nonatomic, readonly) NSString *src;
 
 /**
  * The alternate text label that can be used in place of the image.

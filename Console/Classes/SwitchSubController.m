@@ -54,8 +54,8 @@ static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerK
         self.view = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addTarget:self action:@selector(stateChanged:) forControlEvents:UIControlEventTouchUpInside];
         
-        NSString *onImage = self.sswitch.onImage.name;
-        NSString *offImage = self.sswitch.offImage.name;
+        NSString *onImage = self.sswitch.onImage.src;
+        NSString *offImage = self.sswitch.offImage.src;
         self.canUseImage = onImage && offImage;
 
         if (self.canUseImage) {
