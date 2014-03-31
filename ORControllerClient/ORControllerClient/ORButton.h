@@ -50,7 +50,7 @@
 
 /**
  * Label representing the text to be displayed on the button.
- * Can be nil if no test to be displayed.
+ * Can be nil if no text to be displayed.
  */
 @property (nonatomic, strong, readonly) ORLabel *label;
 
