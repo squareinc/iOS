@@ -217,6 +217,7 @@
 		91B72FAE189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FAC189035B7000B7552 /* ORImageLabelDeferredBinding.m */; };
 		91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FB0189035D6000B7552 /* ORDeferredBinding.m */; };
 		91B72FB2189035D6000B7552 /* ORDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FB0189035D6000B7552 /* ORDeferredBinding.m */; };
+		91BAE7B818E9825A00C24F92 /* ORScreenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BAE7B718E9825A00C24F92 /* ORScreenTest.m */; };
 		91BCD67C189806E000EC8AEE /* ORBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67B189806E000EC8AEE /* ORBackground.m */; };
 		91BCD67D189806E000EC8AEE /* ORBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67B189806E000EC8AEE /* ORBackground.m */; };
 		91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */; };
@@ -593,6 +594,8 @@
 		91B72FAC189035B7000B7552 /* ORImageLabelDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORImageLabelDeferredBinding.m; sourceTree = "<group>"; };
 		91B72FAF189035D6000B7552 /* ORDeferredBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeferredBinding.h; sourceTree = "<group>"; };
 		91B72FB0189035D6000B7552 /* ORDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBinding.m; sourceTree = "<group>"; };
+		91BAE7B718E9825A00C24F92 /* ORScreenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenTest.m; sourceTree = "<group>"; };
+		91BAE7B918E9826700C24F92 /* ORScreenTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenTest.h; sourceTree = "<group>"; };
 		91BCD67A189806E000EC8AEE /* ORBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBackground.h; sourceTree = "<group>"; };
 		91BCD67B189806E000EC8AEE /* ORBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORBackground.m; sourceTree = "<group>"; };
 		91BCD67E1899435400EC8AEE /* ORBackgroundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBackgroundParser.h; sourceTree = "<group>"; };
@@ -1261,6 +1264,8 @@
 				91AD7102189653910050EB0A /* ORSensorStateTest.h */,
 				91CC8A1118E5965D00D31A66 /* ORGroupTest.m */,
 				91CC8A1318E5967200D31A66 /* ORGroupTest.h */,
+				91BAE7B718E9825A00C24F92 /* ORScreenTest.m */,
+				91BAE7B918E9826700C24F92 /* ORScreenTest.h */,
 				91BCD6851899540600EC8AEE /* ORBackgroundTest.m */,
 				91BCD6871899541400EC8AEE /* ORBackgroundTest.h */,
 				91099A5818B2189E005BEBAB /* ORSwitchTest.m */,
@@ -1574,6 +1579,7 @@
 				91BCD67D189806E000EC8AEE /* ORBackground.m in Sources */,
 				91222D971892B18000BA0B96 /* ORSensorStateParserTest.m in Sources */,
 				915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */,
+				91BAE7B818E9825A00C24F92 /* ORScreenTest.m in Sources */,
 				91B357C318BB4B8800ADED24 /* ORSliderParserTest.m in Sources */,
 				91B357DB18BB8D6B00ADED24 /* ORScreenNavigation.m in Sources */,
 				915024BB17B515FF005D8A02 /* ORRestCallMock.m in Sources */,
