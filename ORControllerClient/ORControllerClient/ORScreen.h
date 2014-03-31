@@ -24,26 +24,77 @@
 
 @class ORBackground;
 
+#import <UIKit/UIKit.h>
+
+/**
+ * The orientation of the screen.
+ */
 typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
+    /**
+     * Screen in portrait orientation.
+     */
     ORScreenOrientationPortrait,
+    /**
+     * Screen in landscape orientation.
+     */
     ORScreenOrientationLandscape
 };
 
+/**
+ * Model object representing a screen element in the OR UI model domain.
+ */
 @interface ORScreen : ORWidget
 
 /**
  * Get gesture of given type, if any registered with this screen.
+ *
+ * @param ORGestureType type of the gesture to return
+ *
+ * @return ORGesture gesture of the given type, or nil if none is registered with this screen
  */
 - (ORGesture *)gestureForType:(ORGestureType)type;
 
+/**
+ * Returns the screen appropriate to display content in the given orientation.
+ * If a screen cannot be found for the orientation, the receiver is returned.
+ *
+ * @param ORScreenOrientation desired screen orientation
+ *
+ * @return ORScreen screen in given orientation or self if none exists
+ */
 - (ORScreen *)screenForOrientation:(ORScreenOrientation)anOrientation;
 
+/**
+ * Name of the screen.
+ */
 @property (nonatomic, strong, readonly) NSString *name;
+
+/**
+ * Orientation of the screen: portrait or lanscape.
+ */
 @property (nonatomic, readonly) ORScreenOrientation orientation;
+
+/**
+ * Screen that represents that same content in the other orientation.
+ * Nil if none is defined.
+ */
 @property (nonatomic, strong, readonly) ORScreen *rotatedScreen;
 
+/**
+ * Background of the screen.
+ */
 @property (nonatomic, strong, readonly) ORBackground *background;
+
+/**
+ * Collection of layouts that do define the content of this screen.
+ * This is an ordered collection.
+ * Objects in the collection are subclasses of ORLayoutContainer.
+ */
 @property (nonatomic, strong, readonly) NSArray *layouts;
+
+/**
+ * Collection of gestures that are registered on this screen.
+ */
 @property (nonatomic, strong, readonly) NSArray *gestures;
 
 @end

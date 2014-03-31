@@ -29,11 +29,33 @@
 @property (nonatomic, strong, readwrite) ORScreen *rotatedScreen;
 @property (nonatomic, strong, readwrite) ORBackground *background;
 
+/**
+ * Initializes the screen with the given identifier, name and orientation.
+ * Initialized group does not contain any layouts.
+ *
+ * @param anIdentifier identifier of the screen
+ * @param aName name of the screen
+ * @param anOrientation orientation of the screen
+ *
+ * @return an ORScreen object initialized with the provided values.
+ */
 - (instancetype)initWithScreenIdentifier:(ORObjectIdentifier *)anIdentifier
                           name:(NSString *)aName
                    orientation:(ORScreenOrientation)anOrientation;
 
+/**
+ * Adds the given gesture to this group.
+ * If a gesture with the same identifier already exists, it is not added to the screen.
+ *
+ * @param ORGesture gesture to add to the screen.
+ */
 - (void)addGesture:(ORGesture *)gesture;
+
+/**
+ * Adds the given layout to this screen.
+ *
+ * @param ORLayoutContainer layout to add to the screen.
+ */
 - (void)addLayout:(ORLayoutContainer *)layout;
 
 @end
