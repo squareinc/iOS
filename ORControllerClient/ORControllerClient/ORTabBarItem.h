@@ -22,6 +22,7 @@
 
 @class ORNavigation;
 @class ORImage;
+@class ORLabel;
 
 /**
  * Model object representing a TabBarItem element in the OR UI model domain.
@@ -29,9 +30,9 @@
 @interface ORTabBarItem : ORModelObject
 
 /**
- * Text displayed on item.
+ * Label representing the text to be displayed on the tab bar item.
  */
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong, readonly) ORLabel *label;
 
 /*
  * Image displayed on item.

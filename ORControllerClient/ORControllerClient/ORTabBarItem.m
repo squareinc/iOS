@@ -19,24 +19,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ORTabBarItem_Private.h"
+#import "ORLabel_Private.h"
 
 @interface ORTabBarItem ()
 
-@property (nonatomic, strong, readwrite) NSString *name;
+@property (nonatomic, strong, readwrite) ORLabel *label;
 
 @end
 
 @implementation ORTabBarItem
 
-- (instancetype)initWithName:(NSString *)aName
+- (instancetype)initWithText:(NSString *)someText
 {
     self = [super init];
     if (self) {
-        self.name = aName;
+        self.label = [[ORLabel alloc] initWithIdentifier:nil text:someText];
     }
     return self;
 }
 
-@synthesize name, navigation, image;
+@synthesize label, navigation, image;
 
 @end

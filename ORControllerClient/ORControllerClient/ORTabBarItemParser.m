@@ -40,7 +40,7 @@
     if (self) {
         [self addKnownTag:NAVIGATE];
         [self addKnownTag:IMAGE];
-        self.tabBarItem = [[ORTabBarItem alloc] initWithName:[attributeDict objectForKey:NAME]];
+        self.tabBarItem = [[ORTabBarItem alloc] initWithText:[attributeDict objectForKey:NAME]];
         self.tabBarItem.definition = aRegister.definition;
     }
     return self;

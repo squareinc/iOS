@@ -26,6 +26,7 @@
 #import "ORTabBarItemParser.h"
 #import "ORImageParser.h"
 #import "ORImage.h"
+#import "ORLabel.h"
 #import "ORNavigationParser.h"
 #import "ORTabBarItem.h"
 #import "ORNavigation.h"
@@ -63,7 +64,7 @@
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"/>"];
     
-    STAssertNotNil(item.name, @"Parsed tab bar item should have 'item1' as name");
+    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
     STAssertNil(item.image, @"Parsed tab bar item should not have an image");
     STAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
 }
@@ -72,7 +73,7 @@
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><image src=\"item.png\"/></item>"];
     
-    STAssertNotNil(item.name, @"Parsed tab bar item should have 'item1' as name");
+    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
     STAssertNotNil(item.image, @"Parsed tab bar item should have an image");
     STAssertEqualObjects(item.image.name, @"item.png", @"Parsed tab bar item image should be named 'item.png'");
     STAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
@@ -82,7 +83,7 @@
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><navigate to=\"setting\"/></item>"];
     
-    STAssertNotNil(item.name, @"Parsed tab bar item should have 'item1' as name");
+    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
     STAssertNil(item.image, @"Parsed tab bar item should not have an image");
     STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
     STAssertEquals(item.navigation.navigationType, ORNavigationTypeSettings, @"Parsed tab bar item should navigate to settings");
@@ -92,7 +93,7 @@
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><image src=\"item.png\"/><navigate to=\"back\"/></item>"];
     
-    STAssertNotNil(item.name, @"Parsed tab bar item should have 'item1' as name");
+    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
     STAssertNotNil(item.image, @"Parsed tab bar item should have an image");
     STAssertEqualObjects(item.image.name, @"item.png", @"Parsed tab bar item image should be named 'item.png'");
     STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
