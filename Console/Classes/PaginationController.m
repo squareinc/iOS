@@ -27,6 +27,7 @@
 #import "ORControllerClient/ORTabBar.h"
 #import "ORControllerClient/ORTabBarItem.h"
 #import "ORControllerClient/ORImage.h"
+#import "ORControllerClient/ORLabel.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORNavigation.h"
 #import "ORControllerClient/ORScreenNavigation.h"
@@ -311,7 +312,7 @@
         // Not using fast iteration but standard for loop to have access to object index
         for (int i = 0; i < [self.tabBar.items count]; i++) {
             ORTabBarItem *item = [self.tabBar.items objectAtIndex:i];
-            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.name image:nil tag:i];
+            UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.label.text image:nil tag:i];
             UIImage *itemImage = [self.imageCache getImageNamed:item.image.name finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     uiItem.image = image;
