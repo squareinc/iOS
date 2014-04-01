@@ -64,13 +64,13 @@
     ORSlider *slider = [self parseValidXMLSnippet:@"<slider id=\"10\"/>"];
     
     STAssertNotNil(slider.identifier, @"Parsed slider should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], slider.identifier, @"Parsed slider should have 10 as identifer");
+    STAssertEqualObjects(slider.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed slider should have 10 as identifer");
     
     STAssertFalse(slider.passive, @"Parsed slider should not be passive by default");
     STAssertFalse(slider.vertical, @"Parsed slider should be horizontal by default");
     
-    STAssertEquals(0.0f, slider.minValue, @"Parser slider should have default minimum bound of 0");
-    STAssertEquals(100.0f, slider.maxValue, @"Parser slider should have default maximum bound of 100");
+    STAssertEquals(slider.minValue, 0.0f, @"Parser slider should have default minimum bound of 0");
+    STAssertEquals(slider.maxValue, 100.0f, @"Parser slider should have default maximum bound of 100");
     
     STAssertNil(slider.thumbImage, @"Parsed slider should not have any thumb image defined");
     STAssertNil(slider.minImage, @"Parsed slider should not have any min image defined");
@@ -84,16 +84,16 @@
     ORSlider *slider = [self parseValidXMLSnippet:@"<slider id=\"10\" thumbImage=\"Image.png\" vertical=\"true\" passive=\"true\"/>"];
     
     STAssertNotNil(slider.identifier, @"Parsed slider should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], slider.identifier, @"Parsed slider should have 10 as identifer");
+    STAssertEqualObjects(slider.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed slider should have 10 as identifer");
     
     STAssertTrue(slider.passive, @"Parsed slider should be passive");
     STAssertTrue(slider.vertical, @"Parsed slider should be vertical");
     
-    STAssertEquals(0.0f, slider.minValue, @"Parser slider should have default minimum bound of 0");
-    STAssertEquals(100.0f, slider.maxValue, @"Parser slider should have default maximum bound of 100");
+    STAssertEquals(slider.minValue, 0.0f, @"Parser slider should have default minimum bound of 0");
+    STAssertEquals(slider.maxValue, 100.0f, @"Parser slider should have default maximum bound of 100");
     
     STAssertNotNil(slider.thumbImage, @"Parsed slider should have a thumb image defined");
-    STAssertEqualObjects(@"Image.png", slider.thumbImage.src, @"Parsed slider thumb image src should be 'Image.png'");
+    STAssertEqualObjects(slider.thumbImage.src, @"Image.png", @"Parsed slider thumb image src should be 'Image.png'");
     
     STAssertNil(slider.minImage, @"Parsed slider should not have any min image defined");
     STAssertNil(slider.minTrackImage, @"Parsed slider should not have any min track image defined");
@@ -106,28 +106,28 @@
     ORSlider *slider = [self parseValidXMLSnippet:@"<slider id=\"10\" thumbImage=\"Image.png\"><min value=\"-10\" image=\"min.png\" trackImage=\"min_track.png\"/><max value=\"60\" image=\"max.png\" trackImage=\"max_track.png\"/></slider>"];
     
     STAssertNotNil(slider.identifier, @"Parsed slider should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], slider.identifier, @"Parsed slider should have 10 as identifer");
+    STAssertEqualObjects(slider.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed slider should have 10 as identifer");
     
     STAssertFalse(slider.passive, @"Parsed slider should not be passive by default");
     STAssertFalse(slider.vertical, @"Parsed slider should be horizontal by default");
     
-    STAssertEquals(-10.0f, slider.minValue, @"Parser slider should have minimum bound of -10");
-    STAssertEquals(60.0f, slider.maxValue, @"Parser slider should have maximum bound of 60");
+    STAssertEquals(slider.minValue, -10.0f, @"Parser slider should have minimum bound of -10");
+    STAssertEquals(slider.maxValue, 60.0f, @"Parser slider should have maximum bound of 60");
     
     STAssertNotNil(slider.thumbImage, @"Parsed slider should have a thumb image defined");
-    STAssertEqualObjects(@"Image.png", slider.thumbImage.src, @"Parsed slider thumb image src should be 'Image.png'");
+    STAssertEqualObjects(slider.thumbImage.src, @"Image.png", @"Parsed slider thumb image src should be 'Image.png'");
     
     STAssertNotNil(slider.minImage, @"Parsed slider should have a min image defined");
-    STAssertEqualObjects(@"min.png", slider.minImage.src, @"Parsed slider min image src should be 'min.png'");
+    STAssertEqualObjects(slider.minImage.src, @"min.png", @"Parsed slider min image src should be 'min.png'");
     
     STAssertNotNil(slider.minTrackImage, @"Parsed slider should have a min track image defined");
-    STAssertEqualObjects(@"min_track.png", slider.minTrackImage.src, @"Parsed slider min track image src should be 'min_track.png'");
+    STAssertEqualObjects(slider.minTrackImage.src, @"min_track.png", @"Parsed slider min track image src should be 'min_track.png'");
     
     STAssertNotNil(slider.maxImage, @"Parsed slider should have a max image defined");
-    STAssertEqualObjects(@"max.png", slider.maxImage.src, @"Parsed slider max image src should be 'max.png'");
+    STAssertEqualObjects(slider.maxImage.src, @"max.png", @"Parsed slider max image src should be 'max.png'");
     
     STAssertNotNil(slider.maxTrackImage, @"Parsed slider should have a max track min image defined");
-    STAssertEqualObjects(@"max_track.png", slider.maxTrackImage.src, @"Parsed slider max track image src should be 'max_track.png'");
+    STAssertEqualObjects(slider.maxTrackImage.src, @"max_track.png", @"Parsed slider max track image src should be 'max_track.png'");
 }
 
 - (void)testParseSliderDefaultValuesWithSensor
@@ -135,13 +135,13 @@
     ORSlider *slider = [self parseValidXMLSnippet:@"<slider id=\"10\"><link type=\"sensor\" ref=\"60\"/></slider>"];
     
     STAssertNotNil(slider.identifier, @"Parsed slider should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], slider.identifier, @"Parsed slider should have 10 as identifer");
+    STAssertEqualObjects(slider.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed slider should have 10 as identifer");
     
     STAssertFalse(slider.passive, @"Parsed slider should not be passive by default");
     STAssertFalse(slider.vertical, @"Parsed slider should be horizontal by default");
     
-    STAssertEquals(0.0f, slider.minValue, @"Parser slider should have default minimum bound of 0");
-    STAssertEquals(100.0f, slider.maxValue, @"Parser slider should have default maximum bound of 100");
+    STAssertEquals(slider.minValue, 0.0f, @"Parser slider should have default minimum bound of 0");
+    STAssertEquals(slider.maxValue, 100.0f, @"Parser slider should have default maximum bound of 100");
     
     STAssertNil(slider.thumbImage, @"Parsed slider should not have any thumb image defined");
     STAssertNil(slider.minImage, @"Parsed slider should not have any min image defined");

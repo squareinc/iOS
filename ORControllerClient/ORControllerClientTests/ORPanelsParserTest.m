@@ -46,7 +46,7 @@
     NSArray *panels = [parser parsePanels];
     STAssertNil(panels, @"Invalid XML should not return any panels");
     STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
-    STAssertEqualObjects(NSXMLParserErrorDomain, [parser.parseError domain], @"Underlying XML parser error is propagated for malformed XML");
+    STAssertEqualObjects([parser.parseError domain], NSXMLParserErrorDomain, @"Underlying XML parser error is propagated for malformed XML");
 }
 
 /*

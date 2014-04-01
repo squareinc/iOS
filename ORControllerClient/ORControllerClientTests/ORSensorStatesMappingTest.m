@@ -106,10 +106,12 @@
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name1" value:@"Value1"]];
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"]];
     
-    STAssertEqualObjects(([NSSet setWithObjects:@"Value1", @"Value2", nil]), [mappingWithTwoStates stateValues], @"Mapping should return all values for states it contains");
+    STAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
+                         @"Mapping should return all values for states it contains");
     
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name1" value:@"New value 1"]];
-    STAssertEqualObjects(([NSSet setWithObjects:@"New value 1", @"Value2", nil]), [mappingWithTwoStates stateValues], @"Mapping should return all values for states it contains");
+    STAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"New value 1", @"Value2", nil]),
+                         @"Mapping should return all values for states it contains");
 }
 
 - (void)testStateValuesDuplicateValues
@@ -119,8 +121,8 @@
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"]];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"Name3" value:@"Value1"]];
     
-    STAssertEqualObjects(([NSSet setWithObjects:@"Value1", @"Value2", nil]), [mapping stateValues], @"Mapping should return all values for states it contains");
+    STAssertEqualObjects([mapping stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
+                         @"Mapping should return all values for states it contains");
 }
-
 
 @end

@@ -36,7 +36,8 @@
 {
     ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
     STAssertNotNil(widget, @"Widget should have been instantied correctly");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:1], widget.identifier, @"Identifier property of widget should be one set by initializer");
+    STAssertEqualObjects(widget.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1],
+                         @"Identifier property of widget should be one set by initializer");
 }
 
 @end

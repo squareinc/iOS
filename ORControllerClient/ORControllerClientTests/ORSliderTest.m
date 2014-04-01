@@ -29,24 +29,24 @@
 {
     ORSlider *slider = [[ORSlider alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1] vertical:NO passive:NO thumbImageSrc:nil];
     slider.value = 10.0f;
-    STAssertEquals(10.0f, slider.value, @"Slider value should be set value");
+    STAssertEquals(slider.value, 10.0f, @"Slider value should be set value");
 }
 
 - (void)testSetValueOutsideBoundsGetClipped
 {
     ORSlider *slider = [[ORSlider alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1] vertical:NO passive:NO thumbImageSrc:nil];
     slider.value = -10.0f;
-    STAssertEquals(0.0f, slider.value, @"Slider value should be minimum value when set with a value smaller than minimum");
+    STAssertEquals(slider.value, 0.0f, @"Slider value should be minimum value when set with a value smaller than minimum");
     
     slider.value = 110.0f;
-    STAssertEquals(100.0f, slider.value, @"Slider value should be maximum value when set with a value greater than maximum");
+    STAssertEquals(slider.value, 100.0f, @"Slider value should be maximum value when set with a value greater than maximum");
 }
 
 - (void)testSetValueOnPassiveSliderShouldNotSetValue
 {
     ORSlider *slider = [[ORSlider alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1] vertical:NO passive:YES thumbImageSrc:nil];
     slider.value = 10.0f;
-    STAssertEquals(0.0f, slider.value, @"Slider value should not change (stay default) when trying to set value on passive slider");
+    STAssertEquals(slider.value, 0.0f, @"Slider value should not change (stay default) when trying to set value on passive slider");
 }
 
 @end

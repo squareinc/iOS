@@ -57,9 +57,9 @@
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On value"]];
     ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertEquals(label, link.component, @"Link component should be label used to create link");
-    STAssertEquals(@"text", link.propertyName, @"Link property name should be one used to create link");
-    STAssertEqualObjects(mapping, link.sensorStatesMapping, @"Link sensorStatesMapping should be mapping used to create link");
+    STAssertEquals(link.component, label, @"Link component should be label used to create link");
+    STAssertEquals(link.propertyName, @"text", @"Link property name should be one used to create link");
+    STAssertEqualObjects(link.sensorStatesMapping, mapping, @"Link sensorStatesMapping should be mapping used to create link");
 }
 
 - (void)testEqualityAndHash

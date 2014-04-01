@@ -62,13 +62,13 @@
 {
     ORGridCell *cell = [self parseValidXMLSnippet:@"<cell x=\"1\" y=\"2\"><label id=\"1\" text=\"label\"/></cell>"];
     
-    STAssertEquals((NSUInteger)1, cell.x, @"Parsed grid cell should have 1 as x coordinate");
-    STAssertEquals((NSUInteger)2, cell.y, @"Parsed grid cell should have 2 as y coordinate");
+    STAssertEquals(cell.x, (NSUInteger)1, @"Parsed grid cell should have 1 as x coordinate");
+    STAssertEquals(cell.y, (NSUInteger)2, @"Parsed grid cell should have 2 as y coordinate");
     
     STAssertNotNil(cell.widget, @"Parsed cell should contain a widget");
     ORLabel *label = (ORLabel *)cell.widget;
     STAssertNotNil(label.identifier, @"Included label should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:1], label.identifier, @"Included label should have 1 as identifer");
+    STAssertEqualObjects(label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Included label should have 1 as identifer");
 }
 
 @end

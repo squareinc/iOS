@@ -63,7 +63,7 @@
     ORSwitch *sswitch = [self parseValidXMLSnippet:@"<switch id=\"10\"/>"];
 
     STAssertNotNil(sswitch.identifier, @"Parsed switch should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], sswitch.identifier, @"Parsed switch should have 10 as identifer");
+    STAssertEqualObjects(sswitch.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed switch should have 10 as identifer");
 
     STAssertNil(sswitch.onImage, @"Parsed switch should not have any on image defined");
     STAssertNil(sswitch.offImage, @"Parsed switch should not have any on image defined");
@@ -74,7 +74,7 @@
     ORSwitch *sswitch = [self parseValidXMLSnippet:@"<switch id=\"10\"><link type=\"sensor\" ref=\"20\"><state name=\"on\" value=\"OnImage.png\"/><state name=\"off\" value=\"OffImage.png\"/></link></switch>"];
 
     STAssertNotNil(sswitch.identifier, @"Parsed switch should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], sswitch.identifier, @"Parsed switch should have 10 as identifer");
+    STAssertEqualObjects(sswitch.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed switch should have 10 as identifer");
 
     STAssertNotNil(sswitch.onImage, @"Parsed switch should have an on image defined");
     STAssertEqualObjects(sswitch.onImage.src, @"OnImage.png", @"Parsed switch on image src should be 'OnImage.png'");

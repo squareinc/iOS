@@ -60,32 +60,32 @@
 {
     ORGesture *gesture = [self parseValidXMLSnippet:@"<gesture id=\"10\" type=\"swipe-bottom-to-top\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], gesture.identifier, @"Parsed gesture should have 10 as identifer");
-    STAssertEquals(ORGestureTypeSwipeBottomToTop, gesture.gestureType, @"Parsed gesture should be a bottom to top swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed gesture should have 10 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeBottomToTop, @"Parsed gesture should be a bottom to top swipe");
     
     STAssertNil(gesture.navigation, @"Parsed gesture should not have any navigation");
     STAssertFalse(gesture.hasCommand, @"Parsed gesture should not have any command");
     
     gesture = [self parseValidXMLSnippet:@"<gesture id=\"11\" type=\"swipe-top-to-bottom\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], gesture.identifier, @"Parsed gesture should have 11 as identifer");
-    STAssertEquals(ORGestureTypeSwipeTopToBottom, gesture.gestureType, @"Parsed gesture should be a top to bottom swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed gesture should have 11 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeTopToBottom, @"Parsed gesture should be a top to bottom swipe");
     
     STAssertNil(gesture.navigation, @"Parsed gesture should not have any navigation");
     STAssertFalse(gesture.hasCommand, @"Parsed gesture should not have any command");
     
     gesture = [self parseValidXMLSnippet:@"<gesture id=\"12\" type=\"swipe-left-to-right\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:12], gesture.identifier, @"Parsed gesture should have 12 as identifer");
-    STAssertEquals(ORGestureTypeSwipeLeftToRight, gesture.gestureType, @"Parsed gesture should be a left to right swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Parsed gesture should have 12 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Parsed gesture should be a left to right swipe");
     
     STAssertNil(gesture.navigation, @"Parsed gesture should not have any navigation");
     STAssertFalse(gesture.hasCommand, @"Parsed gesture should not have any command");
     
     gesture = [self parseValidXMLSnippet:@"<gesture id=\"13\" type=\"swipe-right-to-left\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:13], gesture.identifier, @"Parsed gesture should have 13 as identifer");
-    STAssertEquals(ORGestureTypeSwipeRightToLeft, gesture.gestureType, @"Parsed gesture should be a right to left swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:13], @"Parsed gesture should have 13 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeRightToLeft, @"Parsed gesture should be a right to left swipe");
     
     STAssertNil(gesture.navigation, @"Parsed gesture should not have any navigation");
     STAssertFalse(gesture.hasCommand, @"Parsed gesture should not have any command");
@@ -95,8 +95,8 @@
 {
     ORGesture *gesture = [self parseValidXMLSnippet:@"<gesture id=\"10\" type=\"swipe-bottom-to-top\" hasControlCommand=\"true\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], gesture.identifier, @"Parsed gesture should have 10 as identifer");
-    STAssertEquals(ORGestureTypeSwipeBottomToTop, gesture.gestureType, @"Parsed gesture should be a bottom to top swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed gesture should have 10 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeBottomToTop, @"Parsed gesture should be a bottom to top swipe");
     
     STAssertNil(gesture.navigation, @"Parsed gesture should not have any navigation");
     STAssertTrue(gesture.hasCommand, @"Parsed gesture should have a command");
@@ -106,8 +106,8 @@
 {
     ORGesture *gesture = [self parseValidXMLSnippet:@"<gesture id=\"10\" type=\"swipe-bottom-to-top\"><navigate to=\"setting\"/></gesture>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], gesture.identifier, @"Parsed gesture should have 10 as identifer");
-    STAssertEquals(ORGestureTypeSwipeBottomToTop, gesture.gestureType, @"Parsed gesture should be a bottom to top swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed gesture should have 10 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeBottomToTop, @"Parsed gesture should be a bottom to top swipe");
     
     STAssertNotNil(gesture.navigation, @"Parsed gesture should have a navigation");
     STAssertFalse(gesture.hasCommand, @"Parsed gesture should not have any command");
@@ -117,8 +117,8 @@
 {
     ORGesture *gesture = [self parseValidXMLSnippet:@"<gesture id=\"10\" type=\"swipe-bottom-to-top\" hasControlCommand=\"true\"><navigate to=\"setting\"/></gesture>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], gesture.identifier, @"Parsed gesture should have 10 as identifer");
-    STAssertEquals(ORGestureTypeSwipeBottomToTop, gesture.gestureType, @"Parsed gesture should be a bottom to top swipe");
+    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed gesture should have 10 as identifer");
+    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeBottomToTop, @"Parsed gesture should be a bottom to top swipe");
     
     STAssertNotNil(gesture.navigation, @"Parsed gesture should have a navigation");
     STAssertTrue(gesture.hasCommand, @"Parsed gesture should have a command");

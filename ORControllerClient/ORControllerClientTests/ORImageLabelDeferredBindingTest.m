@@ -34,8 +34,8 @@
     ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] src:@""];
     ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
-    STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
-    STAssertEqualObjects(image, binding.enclosingObject, @"Enclosing object should be one used to create binding");
+    STAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
+    STAssertEqualObjects(binding.enclosingObject, image, @"Enclosing object should be one used to create binding");
 }
 
 - (void)testFailCreateBindingWithIncorrectEnclosingObjectClass
@@ -59,7 +59,7 @@
     [definition addLabel:label];
 
     [binding bind];
-    STAssertEqualObjects(label, image.label, @"Binding should have set label link on image");
+    STAssertEqualObjects(image.label, label, @"Binding should have set label link on image");
 }
 
 @end

@@ -60,7 +60,7 @@
 {
     ORColorPicker *colorPicker = [self parseValidXMLSnippet:@"<colorpicker id=\"10\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], colorPicker.identifier, @"Parsed color picker should have 10 as identifer");
+    STAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
     STAssertNil(colorPicker.image, @"Parsed color picker should not have an image defined");
 }
 
@@ -68,7 +68,7 @@
 {
     ORColorPicker *colorPicker = [self parseValidXMLSnippet:@"<colorpicker id=\"10\"><image src=\"color.png\"/></colorpicker>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], colorPicker.identifier, @"Parsed color picker should have 10 as identifer");
+    STAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
     STAssertNotNil(colorPicker.image, @"Parsed color picker should have an image defined");
     STAssertEqualObjects(colorPicker.image.src, @"color.png", @"Parsed color picker image src should be 'color.png'");
 }

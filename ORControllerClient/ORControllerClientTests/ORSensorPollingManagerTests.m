@@ -48,23 +48,23 @@
                                                                                  controllerAddress:nil
                                                                                     sensorRegistry:registry];
     
-    STAssertEqualObjects(@"Initial text", label.text, @"Label text should be its initial value before any sensor update has been done");
+    STAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value before any sensor update has been done");
  
     [pollingManager updateComponentsWithSensorValues:@{@"2" : @"Some sensor value"}];
-    STAssertEqualObjects(@"Initial text", label.text, @"Label text should be its initial value after update for other sensor");
+    STAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value after update for other sensor");
 
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"New sensor value"}];    
-    STAssertEqualObjects(@"New sensor value", label.text, @"Label text should be updated with sensor value");
+    STAssertEqualObjects(label.text, @"New sensor value", @"Label text should be updated with sensor value");
     
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On Value"]];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:mapping];
         
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"off"}];
-    STAssertEqualObjects(@"off", label.text, @"Label text should be sensor value when no sensor state matches sensor value");
+    STAssertEqualObjects(label.text, @"off", @"Label text should be sensor value when no sensor state matches sensor value");
 
     [pollingManager updateComponentsWithSensorValues:@{@"1" : @"on"}];
-    STAssertEqualObjects(@"On Value", label.text, @"Label text should be state value when sensor state matches sensor value");
+    STAssertEqualObjects(label.text, @"On Value", @"Label text should be state value when sensor state matches sensor value");
 }
 
 - (void)testAppropriateAPIMethodsCalledOnStart
@@ -84,8 +84,8 @@
     
     [pollingManager start];
     
-    STAssertEquals((NSUInteger)1, api.sensorStatusCallCount, @"Status request should have been called once");
-    STAssertEquals((NSUInteger)3, api.sensorPollCallCount, @"Poll request should have been called once");
+    STAssertEquals(api.sensorStatusCallCount, (NSUInteger)1, @"Status request should have been called once");
+    STAssertEquals(api.sensorPollCallCount, (NSUInteger)3, @"Poll request should have been called once");
 }
 
 - (void)testNoAPICallWhenNoRegisteredSensors
@@ -102,8 +102,8 @@
 
     [pollingManager start];
     
-    STAssertEquals((NSUInteger)0, api.sensorStatusCallCount, @"Status request should not have been called when no sensor registered");
-    STAssertEquals((NSUInteger)0, api.sensorPollCallCount, @"Poll request should not have been called when no sensor registered");
+    STAssertEquals(api.sensorStatusCallCount, (NSUInteger)0, @"Status request should not have been called when no sensor registered");
+    STAssertEquals(api.sensorPollCallCount, (NSUInteger)0, @"Poll request should not have been called when no sensor registered");
 }
 
 @end

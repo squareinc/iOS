@@ -91,7 +91,6 @@
     
     STAssertTrue([navigation isMemberOfClass:[ORScreenNavigation class]], @"Parser navigation should be an ORScreenNavigation");
     
-    // TODO: update for ORObjectIdentifier
     STAssertNil(((ORScreenNavigation *)navigation).destinationScreen, @"Parsed navigation should not navigate to any screen");
     STAssertEqualObjects(((ORScreenNavigation *)navigation).destinationGroup.identifier,
                          [[ORObjectIdentifier alloc] initWithIntegerId:3],

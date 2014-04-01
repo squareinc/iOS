@@ -60,42 +60,42 @@
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"/>"];
     
-    STAssertEquals(10, layoutContainer.left, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(20, layoutContainer.top, @"Parsed grid layout container should have 20 as top position");
-    STAssertEquals((NSUInteger)30, layoutContainer.width, @"Parsed grid layout container should have 30 as width");
-    STAssertEquals((NSUInteger)40, layoutContainer.height, @"Parsed grid layout container should have 40 as height");
-    STAssertEquals((NSUInteger)3, layoutContainer.rows, @"Parsed grid layout container should have 3 rows");
-    STAssertEquals((NSUInteger)2, layoutContainer.cols, @"Parsed grid layout container should have 2 columns");
+    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
+    STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
+    STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
+    STAssertEquals(layoutContainer.cols, (NSUInteger)2, @"Parsed grid layout container should have 2 columns");
     
-    STAssertEquals((NSUInteger)0, [layoutContainer.cells count], @"Parsed grid layout container should not contain any cell");
+    STAssertEquals([layoutContainer.cells count], (NSUInteger)0, @"Parsed grid layout container should not contain any cell");
 }
 
 - (void)testParseAbsoluteIncludeOneCell
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"><cell x=\"0\" y=\"0\"/></grid>"];
     
-    STAssertEquals(10, layoutContainer.left, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(20, layoutContainer.top, @"Parsed grid layout container should have 20 as top position");
-    STAssertEquals((NSUInteger)30, layoutContainer.width, @"Parsed grid layout container should have 30 as width");
-    STAssertEquals((NSUInteger)40, layoutContainer.height, @"Parsed grid layout container should have 40 as height");
-    STAssertEquals((NSUInteger)3, layoutContainer.rows, @"Parsed grid layout container should have 3 rows");
-    STAssertEquals((NSUInteger)2, layoutContainer.cols, @"Parsed grid layout container should have 2 columns");
+    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
+    STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
+    STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
+    STAssertEquals(layoutContainer.cols, (NSUInteger)2, @"Parsed grid layout container should have 2 columns");
     
-    STAssertEquals((NSUInteger)1, [layoutContainer.cells count], @"Parsed absolute layout container should contain one cell");
+    STAssertEquals([layoutContainer.cells count], (NSUInteger)1, @"Parsed absolute layout container should contain one cell");
 }
 
 - (void)testParseAbsoluteIncludeTwoCells
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"><cell x=\"0\" y=\"0\"/><cell x=\"1\" y=\"0\"/></grid>"];
     
-    STAssertEquals(10, layoutContainer.left, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(20, layoutContainer.top, @"Parsed grid layout container should have 20 as top position");
-    STAssertEquals((NSUInteger)30, layoutContainer.width, @"Parsed grid layout container should have 30 as width");
-    STAssertEquals((NSUInteger)40, layoutContainer.height, @"Parsed grid layout container should have 40 as height");
-    STAssertEquals((NSUInteger)3, layoutContainer.rows, @"Parsed grid layout container should have 3 rows");
-    STAssertEquals((NSUInteger)2, layoutContainer.cols, @"Parsed grid layout container should have 2 columns");
+    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
+    STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
+    STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
+    STAssertEquals(layoutContainer.cols, (NSUInteger)2, @"Parsed grid layout container should have 2 columns");
     
-    STAssertEquals((NSUInteger)2, [layoutContainer.cells count], @"Parsed absolute layout container should contain two cells");
+    STAssertEquals([layoutContainer.cells count], (NSUInteger)2, @"Parsed absolute layout container should contain two cells");
 }
 
 @end

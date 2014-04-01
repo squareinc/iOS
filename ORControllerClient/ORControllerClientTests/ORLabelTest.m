@@ -50,7 +50,7 @@
 - (void)testInitDoesSetTextCorrectly
 {
     STAssertNotNil(self.label, @"Label should have been instantied correctly");
-    STAssertEqualObjects(SOME_TEXT, self.label.text, @"Text property of label should be one set by initializer");
+    STAssertEqualObjects(self.label.text, SOME_TEXT, @"Text property of label should be one set by initializer");
 }
 
 /**
@@ -59,8 +59,8 @@
 - (void)testInitDoesSetDefaultValuesCorrectly
 {
     STAssertNotNil(self.label, @"Label should have been instantied correctly");
-    STAssertEqualObjects([UIColor whiteColor], self.label.textColor, @"Default textColor should be white");
-    STAssertEqualObjects([UIFont fontWithName:@"Arial" size:14.0], self.label.font, @"Default font should be Arial 14pt");
+    STAssertEqualObjects(self.label.textColor, [UIColor whiteColor], @"Default textColor should be white");
+    STAssertEqualObjects(self.label.font, [UIFont fontWithName:@"Arial" size:14.0], @"Default font should be Arial 14pt");
 }
 
 /**
@@ -97,13 +97,13 @@
 {
     STAssertEqualObjects(self.label, object, @"Should observe change for label");
     if ([@"text" isEqualToString:keyPath]) {
-        STAssertEqualObjects(SOME_OTHER_TEXT, [change valueForKey:NSKeyValueChangeNewKey],
+        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], SOME_OTHER_TEXT,
                              @"Observed new value should be newly set label text");
     } else if ([@"textColor" isEqualToString:keyPath]) {
-        STAssertEqualObjects([UIColor redColor], [change valueForKey:NSKeyValueChangeNewKey],
+        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIColor redColor],
                              @"Observed new value should be newly set label textColor");
     } else if ([@"font" isEqualToString:keyPath]) {
-        STAssertEqualObjects([UIFont fontWithName:@"Helvetica" size:2.0], [change valueForKey:NSKeyValueChangeNewKey],
+        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIFont fontWithName:@"Helvetica" size:2.0],
                              @"Observed new value should be newly set label font");
     }
 }

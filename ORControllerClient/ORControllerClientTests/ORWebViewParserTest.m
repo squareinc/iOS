@@ -61,7 +61,7 @@
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], webView.identifier, @"Parsed web view should have 10 as identifer");
+    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
     STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
     STAssertNil(webView.username, @"Parsed web view should not have a user name defined");
@@ -72,7 +72,7 @@
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\" username=\"usr\" password=\"pwd\"/>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], webView.identifier, @"Parsed web view should have 10 as identifer");
+    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
     STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
     STAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");
@@ -83,7 +83,7 @@
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\" username=\"usr\" password=\"pwd\"><link type=\"sensor\" ref=\"3\"/></web>"];
     
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], webView.identifier, @"Parsed web view should have 10 as identifer");
+    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
     STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
     STAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");

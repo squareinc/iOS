@@ -67,10 +67,10 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"false\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
@@ -88,10 +88,10 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
@@ -109,10 +109,10 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasShortReleaseCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
@@ -130,16 +130,16 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasLongPressCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
     STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
     STAssertTrue([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should have a long press command");
-    STAssertEquals(250, [[button valueForKey:@"longPressDelay"] intValue], @"Parsed button should have default long press delay");
+    STAssertEquals([[button valueForKey:@"longPressDelay"] intValue], 250, @"Parsed button should have default long press delay");
     STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
     STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
@@ -152,10 +152,10 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasLongReleaseCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
@@ -173,13 +173,13 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals(300, [[button valueForKey:@"repeatDelay"] intValue], @"Parsed button should have default repeat rate");
+    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
     STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
     STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
@@ -196,13 +196,13 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" repeatDelay=\"500\" hasPressCommand=\"true\"/>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals(500, [[button valueForKey:@"repeatDelay"] intValue], @"Parsed button should have a 500 ms repeat rate");
+    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 500, @"Parsed button should have a 500 ms repeat rate");
     
     STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
     STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
@@ -219,10 +219,10 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"false\"><navigate to=\"back\"/></button>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
     STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
@@ -242,13 +242,13 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"><navigate to=\"back\"/></button>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals(300, [[button valueForKey:@"repeatDelay"] intValue], @"Parsed button should have default repeat rate");
+    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
     STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
     STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
@@ -267,13 +267,13 @@
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"><default><image src=\"default image\"/></default><pressed><image src=\"pressed image\"/></pressed><navigate to=\"back\"/></button>"];
     
     STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:10], button.identifier, @"Parsed button should have 10 as identifer");
+    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
     STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(@"Label 1", button.label.text, @"Parsed button label should be 'Label 1'");
+    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
     STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals(300, [[button valueForKey:@"repeatDelay"] intValue], @"Parsed button should have default repeat rate");
+    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
     STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
     STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");

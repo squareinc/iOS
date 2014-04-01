@@ -75,11 +75,11 @@
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"/>"];
     
     STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], group.identifier, @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(@"Group 11", group.name, @"Parsed group should be named 'Group 11'");
+    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
     STAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
-    STAssertEquals((NSUInteger)0, [group.screens count], @"Parsed group should not have any screen");
+    STAssertEquals([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
 }
 
 - (void)testParseGroupWithTabBar
@@ -87,11 +87,11 @@
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"><tabbar/></group>"];
     
     STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], group.identifier, @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(@"Group 11", group.name, @"Parsed group should be named 'Group 11'");
+    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
     STAssertNotNil(group.tabBar, @"Parsed group should have a tab bar");
-    STAssertEquals((NSUInteger)0, [group.screens count], @"Parsed group should not have any screen");
+    STAssertEquals([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
 }
 
 - (void)testParseGroupWithScreen
@@ -99,12 +99,12 @@
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"><include type=\"screen\" ref=\"12\"/></group>"];
     
     STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], group.identifier, @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(@"Group 11", group.name, @"Parsed group should be named 'Group 11'");
+    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
     STAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
     
-    STAssertEquals((NSUInteger)1, [group.screens count], @"Parsed group should have a screen");
+    STAssertEquals([group.screens count], (NSUInteger)1, @"Parsed group should have a screen");
     ORScreen *screen = [group.screens lastObject];
     STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Parsed group's only screen should have 12 is identifier");
 }

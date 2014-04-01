@@ -32,8 +32,8 @@
     ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     STAssertNotNil(binding, @"Creating a deferred binding should be possible");
-    STAssertEqualObjects(identifier, binding.boundComponentId, @"Bound component identifier should be one used to create binding");
-    STAssertEqualObjects(widget, binding.enclosingObject, @"Enclosing object should be one used to create binding");
+    STAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
+    STAssertEqualObjects(binding.enclosingObject, widget, @"Enclosing object should be one used to create binding");
 }
 
 - (void)testFailCreateBindingWithNilParameters
