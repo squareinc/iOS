@@ -38,6 +38,11 @@
 + (void)downloadFromURL:(NSString *)URLString path:(NSString *)p forController:(ORControllerConfig *)controller;
 
 /**
+ * Creates folder at path if it does not exist yet.
+ */
++ (void)makeSurePathExists:(NSString *)path;
+
+/**
  * Delete folder with specified path.
  */
 + (void)deleteFolderWithPath:(NSString *) path;

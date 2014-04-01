@@ -27,6 +27,7 @@
 #import "SensorStatusCache.h"
 #import "ClientSideRuntime.h"
 
+#import "StringUtils.h"
 #import "FileUtils.h"
 #import "ServerDefinition.h"
 
@@ -203,10 +204,23 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
 
 - (void)loadImageNamed:(NSString *)name toPath:(NSString *)path available:(void (^)(void))availableBlock
 {
-    [FileUtils downloadFromURL:[[ServerDefinition imageUrlForController:self] stringByAppendingPathComponent:name]
-                          path:path
-                 forController:self];
-    availableBlock();
+    [self.controller retrieveResourceNamed:name
+                            successHandler:^(NSData *resource) {
+                                NSLog(@"Did retrieve resource %@, saving to disk", name);
+                                [FileUtils makeSurePathExists:path];
+
+                                NSString *filePathToSave = [path stringByAppendingPathComponent:name];
+                                
+                                //delete the file
+                                [[NSFileManager defaultManager] removeItemAtPath:filePathToSave error:NULL];
+                                
+                                [[NSFileManager defaultManager] createFileAtPath:filePathToSave contents:resource attributes:nil];
+
+                                availableBlock();
+                            } errorHandler:^(NSError *error) {
+                                NSLog(@"Error retrieving resource %@", name);
+// TODO
+                            }];
 }
 
 #pragma mark -
