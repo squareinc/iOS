@@ -85,18 +85,18 @@
     }
     if (self.loader) {
         if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
-            dispatch_async(self.queue, ^{
+//            dispatch_async(self.queue, ^{
                 [self.loader loadImageNamed:name toPath:self.cachePath available:^{
                     availableBlock([self getImageNamed:name]);
                 }];
-            });
+//            });
         } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
-            dispatch_async(self.queue, ^{
+//            dispatch_async(self.queue, ^{
                 [self.loader loadImageNamed:name available:^(UIImage *image) {
                     [self storeImage:image named:name];
                     availableBlock(image);
                 }];
-            });
+//            });
         } else {
             // TODO: should there be an error if loader can not provide image ? -> at least should be logged
         }
