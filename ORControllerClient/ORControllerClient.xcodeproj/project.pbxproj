@@ -218,6 +218,7 @@
 		91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FB0189035D6000B7552 /* ORDeferredBinding.m */; };
 		91B72FB2189035D6000B7552 /* ORDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B72FB0189035D6000B7552 /* ORDeferredBinding.m */; };
 		91BAE7B818E9825A00C24F92 /* ORScreenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BAE7B718E9825A00C24F92 /* ORScreenTest.m */; };
+		91BAE7BD18EAD65900C24F92 /* RetrieveResourceResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BAE7BC18EAD65900C24F92 /* RetrieveResourceResponseHandler.m */; };
 		91BCD67C189806E000EC8AEE /* ORBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67B189806E000EC8AEE /* ORBackground.m */; };
 		91BCD67D189806E000EC8AEE /* ORBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67B189806E000EC8AEE /* ORBackground.m */; };
 		91BCD6801899435400EC8AEE /* ORBackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */; };
@@ -596,6 +597,8 @@
 		91B72FB0189035D6000B7552 /* ORDeferredBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBinding.m; sourceTree = "<group>"; };
 		91BAE7B718E9825A00C24F92 /* ORScreenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenTest.m; sourceTree = "<group>"; };
 		91BAE7B918E9826700C24F92 /* ORScreenTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenTest.h; sourceTree = "<group>"; };
+		91BAE7BB18EAD65900C24F92 /* RetrieveResourceResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrieveResourceResponseHandler.h; sourceTree = "<group>"; };
+		91BAE7BC18EAD65900C24F92 /* RetrieveResourceResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrieveResourceResponseHandler.m; sourceTree = "<group>"; };
 		91BCD67A189806E000EC8AEE /* ORBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBackground.h; sourceTree = "<group>"; };
 		91BCD67B189806E000EC8AEE /* ORBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORBackground.m; sourceTree = "<group>"; };
 		91BCD67E1899435400EC8AEE /* ORBackgroundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBackgroundParser.h; sourceTree = "<group>"; };
@@ -1247,6 +1250,8 @@
 				91E794D617A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m */,
 				91E794E317A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.h */,
 				91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */,
+				91BAE7BB18EAD65900C24F92 /* RetrieveResourceResponseHandler.h */,
+				91BAE7BC18EAD65900C24F92 /* RetrieveResourceResponseHandler.m */,
 			);
 			name = "Response Handler";
 			sourceTree = "<group>";
@@ -1457,6 +1462,7 @@
 				9193336E179E9BD00086FEE7 /* XMLEntity.m in Sources */,
 				9193336F179E9BD00086FEE7 /* ORWebView.m in Sources */,
 				91933370179E9BD00086FEE7 /* LocalSensor.m in Sources */,
+				91BAE7BD18EAD65900C24F92 /* RetrieveResourceResponseHandler.m in Sources */,
 				91933371179E9BD00086FEE7 /* LocalCommand.m in Sources */,
 				91933372179E9BD00086FEE7 /* LocalController.m in Sources */,
 				91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */,

@@ -40,6 +40,14 @@ NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
     return nil;
 }
 
+- (ORRESTCall *)retrieveResourceNamed:(NSString *)resourceName
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSData *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
+
 - (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
                          atBaseURL:(NSURL *)baseURL
                 withSuccessHandler:(void (^)(NSDictionary *))successHandler

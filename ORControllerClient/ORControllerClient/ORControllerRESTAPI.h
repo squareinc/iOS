@@ -50,6 +50,11 @@ extern NSString *const kORClientErrorDomain;
                                withSuccessHandler:(void (^)(Definition *))successHandler
                                      errorHandler:(void (^)(NSError *))errorHandler;
 
+- (ORRESTCall *)retrieveResourceNamed:(NSString *)resourceName
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSData *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler;
+
 - (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds
                          atBaseURL:(NSURL *)baseURL
                 withSuccessHandler:(void (^)(NSDictionary *))successHandler

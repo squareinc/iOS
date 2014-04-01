@@ -122,6 +122,7 @@
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 
+- (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;

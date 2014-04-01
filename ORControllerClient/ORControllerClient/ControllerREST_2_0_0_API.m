@@ -23,6 +23,7 @@
 #import "PanelIdentityListResponseHandler_2_0_0.h"
 #import "PanelLayoutResponseHandler_2_0_0.h"
 #import "SensorValuesResponseHandler_2_0_0.h"
+#import "RetrieveResourceResponseHandler.h"
 #import "ORRESTCall_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORWidget.h"
@@ -73,6 +74,15 @@
     // TODO: same as above method
     // TODO: how about caching and resources ??? These should not be at this level, this is pure REST API facade
     return [self callForRequest:request delegate:[[PanelLayoutResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)retrieveResourceNamed:(NSString *)resourceName
+                            atBaseURL:(NSURL *)baseURL
+                   withSuccessHandler:(void (^)(NSData *))successHandler
+                         errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:resourceName]];
+    return [self callForRequest:request delegate:[[RetrieveResourceResponseHandler alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
 - (ORRESTCall *)statusForSensorIds:(NSSet *)sensorIds

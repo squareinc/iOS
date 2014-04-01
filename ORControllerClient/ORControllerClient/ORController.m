@@ -172,6 +172,24 @@
     [self.pollingManager start];
 }
 
+- (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+    
+    [self.controllerAPI retrieveResourceNamed:resourceName
+                                    atBaseURL:self.address.primaryURL
+                           withSuccessHandler:^(NSData *resource) {
+                               successHandler(resource);
+                           }
+                                 errorHandler:^(NSError *error) {
+                                     if (errorHandler) {
+                                         // TODO: encapsulate error ?
+                                         errorHandler(error);
+                                     }
+                                 }];
+}
+
 - (void)sendPressCommandForButton:(ORButton *)sender
 {
     [self controlForWidget:sender action:@"click"];
