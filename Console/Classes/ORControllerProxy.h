@@ -22,7 +22,6 @@
 #import "ORControllerCommandSender.h"
 #import "ORControllerPollingSender.h"
 #import "ORControllerStatusRequestSender.h"
-#import "ORControllerPanelsFetcher.h"
 #import "ORControllerCapabilitiesFetcher.h"
 #import "ORControllerGroupMembersFetcher.h"
 
