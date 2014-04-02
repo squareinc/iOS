@@ -116,15 +116,6 @@
     return pollingSender;
 }
 
-- (ORControllerPanelsFetcher *)fetchPanelsWithDelegate:(NSObject <ORControllerPanelsFetcherDelegate> *)delegate
-{
-    ORControllerPanelsFetcher *panelsFetcher = [[ORControllerPanelsFetcher alloc] initWithController:self.controller];
-    panelsFetcher.delegate = delegate;
-    [self queueCommand:panelsFetcher];
-    [self processQueue];
-    return panelsFetcher;
-}
-
 - (ORControllerCapabilitiesFetcher *)fetchCapabilitiesWithDelegate:(NSObject <ORControllerCapabilitiesFetcherDelegate> *)delegate
 {
     ORControllerCapabilitiesFetcher *capabilitiesFetcher = [[ORControllerCapabilitiesFetcher alloc] initWithController:self.controller];

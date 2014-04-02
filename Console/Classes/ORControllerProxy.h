@@ -37,7 +37,6 @@
 - (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(ORWidget *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate;
 - (ORControllerStatusRequestSender *)requestStatusForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate;
 - (ORControllerPollingSender *)requestPollingForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate;
-- (ORControllerPanelsFetcher *)fetchPanelsWithDelegate:(NSObject <ORControllerPanelsFetcherDelegate> *)delegate;
 - (ORControllerGroupMembersFetcher *)fetchGroupMembersWithDelegate:(NSObject <ORControllerGroupMembersFetcherDelegate> *)delegate;
 
 - (id)initWithController:(ORControllerConfig *)aController;
