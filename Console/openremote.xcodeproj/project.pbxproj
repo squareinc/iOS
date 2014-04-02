@@ -112,8 +112,6 @@
 		60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */; };
 		60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
 		60366BE7144DCB9C004FED3B /* NSURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687D13CDC4A20035CC1A /* NSURLRequest+ORAdditions.m */; };
-		60366BE9144DCB9C004FED3B /* ControllerButtonAPI_v2_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14B713E9653E008ACE4A /* ControllerButtonAPI_v2_0.m */; };
-		60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14BB13E9673F008ACE4A /* ControllerButtonAPI_v2_1.m */; };
 		60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA14C313E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.m */; };
 		60366BEC144DCB9C004FED3B /* StyleValue1TextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6010DE3913FE7B47001E6AA9 /* StyleValue1TextEntryCell.m */; };
 		60366C0B144DCB9C004FED3B /* DefinitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A2D263140662BA00A529ED /* DefinitionManager.m */; };
@@ -348,10 +346,6 @@
 		60A619601354A92600A7C87E /* NSString+ORAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ORAdditionsTest.h"; path = "Test/NSString+ORAdditionsTest.h"; sourceTree = "<group>"; };
 		60A619611354A92600A7C87E /* NSString+ORAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ORAdditionsTest.m"; path = "Test/NSString+ORAdditionsTest.m"; sourceTree = "<group>"; };
 		60A61A7D1355F15000A7C87E /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
-		60AA14B613E9653E008ACE4A /* ControllerButtonAPI_v2_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerButtonAPI_v2_0.h; sourceTree = "<group>"; };
-		60AA14B713E9653E008ACE4A /* ControllerButtonAPI_v2_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerButtonAPI_v2_0.m; sourceTree = "<group>"; };
-		60AA14BA13E9673E008ACE4A /* ControllerButtonAPI_v2_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerButtonAPI_v2_1.h; sourceTree = "<group>"; };
-		60AA14BB13E9673F008ACE4A /* ControllerButtonAPI_v2_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerButtonAPI_v2_1.m; sourceTree = "<group>"; };
 		60AA14C213E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerGroupMembersFetchStatusIconProvider.h; sourceTree = "<group>"; };
 		60AA14C313E98ED2008ACE4A /* ORControllerGroupMembersFetchStatusIconProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerGroupMembersFetchStatusIconProvider.m; sourceTree = "<group>"; };
 		60AFC7EA140E79320001B78F /* ScreenSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSubController.h; sourceTree = "<group>"; };
@@ -820,10 +814,6 @@
 		60AA14B413E9651D008ACE4A /* API Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				60AA14B613E9653E008ACE4A /* ControllerButtonAPI_v2_0.h */,
-				60AA14B713E9653E008ACE4A /* ControllerButtonAPI_v2_0.m */,
-				60AA14BA13E9673E008ACE4A /* ControllerButtonAPI_v2_1.h */,
-				60AA14BB13E9673F008ACE4A /* ControllerButtonAPI_v2_1.m */,
 				60FAD4821540571E008DA70E /* ControllerVersionSelectAPI.h */,
 				60FAD4831540571E008DA70E /* ControllerVersionSelectAPI.m */,
 			);
@@ -1502,8 +1492,6 @@
 				60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */,
 				60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */,
 				60366BE7144DCB9C004FED3B /* NSURLRequest+ORAdditions.m in Sources */,
-				60366BE9144DCB9C004FED3B /* ControllerButtonAPI_v2_0.m in Sources */,
-				60366BEA144DCB9C004FED3B /* ControllerButtonAPI_v2_1.m in Sources */,
 				60366BEB144DCB9C004FED3B /* ORControllerGroupMembersFetchStatusIconProvider.m in Sources */,
 				60366BEC144DCB9C004FED3B /* StyleValue1TextEntryCell.m in Sources */,
 				60366C0B144DCB9C004FED3B /* DefinitionManager.m in Sources */,

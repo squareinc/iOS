@@ -34,8 +34,6 @@
 @property (nonatomic, readwrite, strong) UIView *view;
 @property (weak, nonatomic, readonly) ORButton *button;
 
-@property (nonatomic, strong) id<ControllerButtonAPI> controllerButtonAPI;
-
 @property (nonatomic, weak) ImageCache *imageCache;
 
 - (void)controlButtonUp:(id)sender;
@@ -62,12 +60,6 @@
         uiButton.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
         [uiButton setTitle:self.button.label.text forState:UIControlStateNormal];
         self.view = uiButton;
-        
-
-        // TODO/ comment
-        self.controllerButtonAPI = (id <ControllerButtonAPI>)[[ControllerVersionSelectAPI alloc] initWithController:aController
-                                                                                                         APIProtocol:@protocol(ControllerButtonAPI)];
-        
     }
     return self;
 }
@@ -137,6 +129,5 @@
 }
 
 @synthesize view;
-@synthesize controllerButtonAPI;
 
 @end

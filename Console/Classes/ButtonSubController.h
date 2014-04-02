@@ -22,15 +22,6 @@
 
 @class ButtonSubController;
 
-@protocol ControllerButtonAPI
-
-- (void)sendPressCommand:(ButtonSubController *)sender;
-- (void)sendShortReleaseCommand:(ButtonSubController *)sender;
-- (void)sendLongPressCommand:(ButtonSubController *)sender;
-- (void)sendLongReleaseCommand:(ButtonSubController *)sender;
-
-@end
-
 @interface ButtonSubController : ControlSubController
 
 @end
