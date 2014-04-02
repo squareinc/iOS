@@ -29,7 +29,6 @@
 		602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418E4156FAC6D004E5860 /* UITableViewHelper.m */; };
 		602418EB156FAD40004E5860 /* UITableViewHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418EA156FAD40004E5860 /* UITableViewHelperTest.m */; };
 		6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
-		6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */; };
 		60366B6B144DCB9C004FED3B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */; };
 		60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CFDB2760FBBBF4500D204CB /* appSettings.plist */; };
 		60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 97B0011F106127AF00C31E4A /* iTunesArtwork */; };
@@ -107,10 +106,8 @@
 		60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D97F136ADB8B009EECA3 /* ORConsoleSettings.m */; };
 		60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */; };
 		60366BDD144DCB9C004FED3B /* ORControllerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCECF1371787300A811D4 /* ORControllerProxy.m */; };
-		60366BDE144DCB9C004FED3B /* ORControllerCommandSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCED4137180E400A811D4 /* ORControllerCommandSender.m */; };
 		60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCEE813729AA400A811D4 /* ControllerRequest.m */; };
 		60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
-		60366BE1144DCB9C004FED3B /* ORControllerPanelsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */; };
 		60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */; };
 		60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */; };
 		60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
@@ -161,7 +158,6 @@
 		6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F0D1095628C00C7A686 /* ServerAutoDiscoveryController.m */; };
 		6068DE9C13744E77007746F1 /* RoundRobinException.m in Sources */ = {isa = PBXBuildFile; fileRef = 33267ED310E4895E00E3AE42 /* RoundRobinException.m */; };
 		6068DE9D13744E82007746F1 /* ORControllerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCECF1371787300A811D4 /* ORControllerProxy.m */; };
-		6068DE9E13744E8D007746F1 /* ORControllerCommandSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCED4137180E400A811D4 /* ORControllerCommandSender.m */; };
 		6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27D0FBD3782006ED733 /* AsyncSocket.m */; };
 		6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27F0FBD3782006ED733 /* AsyncUdpSocket.m */; };
 		6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DEA113744EBB007746F1 /* CFNetwork.framework */; };
@@ -378,8 +374,6 @@
 		60AFC832140EC38C0001B78F /* ButtonSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSubController.m; sourceTree = "<group>"; };
 		60AFCECE1371787200A811D4 /* ORControllerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerProxy.h; sourceTree = "<group>"; };
 		60AFCECF1371787300A811D4 /* ORControllerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerProxy.m; sourceTree = "<group>"; };
-		60AFCED3137180E400A811D4 /* ORControllerCommandSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerCommandSender.h; sourceTree = "<group>"; };
-		60AFCED4137180E400A811D4 /* ORControllerCommandSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerCommandSender.m; sourceTree = "<group>"; };
 		60AFCEE713729AA400A811D4 /* ControllerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerRequest.h; sourceTree = "<group>"; };
 		60AFCEE813729AA400A811D4 /* ControllerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerRequest.m; sourceTree = "<group>"; };
 		60BC25951559682C0048A2BD /* ClientSideProtocols.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ClientSideProtocols.plist; sourceTree = "<group>"; };
@@ -400,8 +394,6 @@
 		60C2F956135F3748000824A5 /* ScreenTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenTest.h; sourceTree = "<group>"; };
 		60C2F957135F3748000824A5 /* ScreenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenTest.m; sourceTree = "<group>"; };
 		60C2F959135F37FE000824A5 /* panel_screenIdForOrientation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = panel_screenIdForOrientation.xml; sourceTree = "<group>"; };
-		60C81D9B137BD55300B2A12A /* ORControllerPanelsFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPanelsFetcher.h; sourceTree = "<group>"; };
-		60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPanelsFetcher.m; sourceTree = "<group>"; };
 		60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings.xcdatamodel; sourceTree = "<group>"; };
 		60C9D976136ADB31009EECA3 /* ORControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerConfig.h; sourceTree = "<group>"; };
 		60C9D977136ADB31009EECA3 /* ORControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerConfig.m; sourceTree = "<group>"; };
@@ -881,16 +873,12 @@
 				60AFCECF1371787300A811D4 /* ORControllerProxy.m */,
 				609AAFD6156A61F6000DA1F9 /* ORControllerSender.h */,
 				609AAFD7156A61F6000DA1F9 /* ORControllerSender.m */,
-				60AFCED3137180E400A811D4 /* ORControllerCommandSender.h */,
-				60AFCED4137180E400A811D4 /* ORControllerCommandSender.m */,
 				609AAFCB156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.h */,
 				609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */,
 				6097DAEE1378099D00E22AA8 /* ORControllerPollingSender.h */,
 				6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */,
 				609AAFD1156A5FA6000DA1F9 /* ORControllerStatusRequestSender.h */,
 				609AAFD2156A5FA6000DA1F9 /* ORControllerStatusRequestSender.m */,
-				60C81D9B137BD55300B2A12A /* ORControllerPanelsFetcher.h */,
-				60C81D9C137BD55300B2A12A /* ORControllerPanelsFetcher.m */,
 				60FAD46E153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.h */,
 				60FAD46F153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.m */,
 				60AFCEE713729AA400A811D4 /* ControllerRequest.h */,
@@ -1508,10 +1496,8 @@
 				60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */,
 				60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */,
 				60366BDD144DCB9C004FED3B /* ORControllerProxy.m in Sources */,
-				60366BDE144DCB9C004FED3B /* ORControllerCommandSender.m in Sources */,
 				60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */,
 				60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */,
-				60366BE1144DCB9C004FED3B /* ORControllerPanelsFetcher.m in Sources */,
 				60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */,
 				60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */,
 				60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */,
@@ -1582,13 +1568,11 @@
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
-				6026CD8F138BE4F90062477F /* ORControllerPanelsFetcher.m in Sources */,
 				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
 				914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */,
 				6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */,
 				6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */,
-				6068DE9E13744E8D007746F1 /* ORControllerCommandSender.m in Sources */,
 				6068DE9D13744E82007746F1 /* ORControllerProxy.m in Sources */,
 				6068DE9C13744E77007746F1 /* RoundRobinException.m in Sources */,
 				6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */,

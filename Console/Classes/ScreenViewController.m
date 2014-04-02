@@ -153,12 +153,6 @@
 	}
 }
 
-#pragma mark ORControllerCommandSenderDelegate implementation
-
-- (void)commandSendFailed
-{
-}
-
 @synthesize screen;
 @synthesize polling;
 @synthesize screenSubController;

@@ -47,19 +47,15 @@
     if (localCommands && ([localCommands count] > 0)) {
         [self.controller.clientSideRuntime executeCommands:localCommands commandType:commandType];
 	} else {
-        [self.controller.proxy sendCommand:commandType forComponent:self.component delegate:nil];
+        @throw [[NSException alloc] initWithName:NSInternalInconsistencyException
+                                          reason:@"Only local commands should be handeld this way"
+                                        userInfo:@{ @"commandType" : commandType }];
 	}
 }
 
 - (NSArray *)localCommandsForCommandType:(NSString *)commandType
 {
 	return [self.controller.definition.localController commandsForComponentIdentifier:self.component.identifier action:commandType];
-}
-
-#pragma mark ORControllerCommandSenderDelegate implementation
-
-- (void)commandSendFailed
-{
 }
 
 @end

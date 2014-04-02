@@ -125,13 +125,6 @@
     [self.button press];
 }
 
-#pragma mark ORControllerCommandSenderDelegate implementation
-
-- (void)commandSendFailed
-{
-    [super commandSendFailed];
-}
-
 #pragma mark - Helper
 
 - (void)setClippedImage:(UIImage *)uiImage forState:(UIControlState)state

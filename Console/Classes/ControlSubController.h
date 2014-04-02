@@ -19,9 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ComponentSubController.h"
-#import "ORControllerCommandSender.h"
 
-@interface ControlSubController : ComponentSubController <ORControllerCommandSenderDelegate>
+@interface ControlSubController : ComponentSubController
 
 - (void)sendCommandRequest:(NSString *)commandType;
 

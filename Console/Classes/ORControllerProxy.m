@@ -89,15 +89,6 @@
 
 #pragma mark -
 
-- (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(ORWidget *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate
-{
-    ORControllerCommandSender *commandSender = [[ORControllerCommandSender alloc] initWithController:self.controller command:command component:component];
-    commandSender.delegate = delegate;
-    [self queueCommand:commandSender];
-    [self processQueue];
-    return commandSender;
-}
-
 - (ORControllerStatusRequestSender *)requestStatusForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate
 {
     ORControllerStatusRequestSender *statusRequestSender = [[ORControllerStatusRequestSender alloc] initWithController:self.controller ids:ids];

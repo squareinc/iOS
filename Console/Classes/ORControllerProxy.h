@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
-#import "ORControllerCommandSender.h"
 #import "ORControllerPollingSender.h"
 #import "ORControllerStatusRequestSender.h"
 #import "ORControllerCapabilitiesFetcher.h"
@@ -33,7 +32,6 @@
 @interface ORControllerProxy : NSObject
 
 - (ORControllerCapabilitiesFetcher *)fetchCapabilitiesWithDelegate:(NSObject <ORControllerCapabilitiesFetcherDelegate> *)delegate;
-- (ORControllerCommandSender *)sendCommand:(NSString *)command forComponent:(ORWidget *)component delegate:(NSObject <ORControllerCommandSenderDelegate> *)delegate;
 - (ORControllerStatusRequestSender *)requestStatusForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate;
 - (ORControllerPollingSender *)requestPollingForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate;
 - (ORControllerGroupMembersFetcher *)fetchGroupMembersWithDelegate:(NSObject <ORControllerGroupMembersFetcherDelegate> *)delegate;

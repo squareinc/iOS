@@ -20,14 +20,14 @@
  */
 #import <UIKit/UIKit.h>
 #import "ORControllerClient/ORScreen.h"
-#import "ORControllerCommandSender.h"
+#import "ORControllerConfig.h"
 
 @class ImageCache;
 
 /**
  * It's responsible for control render of screenView with screen model data.
  */
-@interface ScreenViewController : UIViewController<ORControllerCommandSenderDelegate>
+@interface ScreenViewController : UIViewController
 
 - (id)initWithController:(ORControllerConfig *)aController;
 
