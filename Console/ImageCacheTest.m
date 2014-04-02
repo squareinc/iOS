@@ -106,7 +106,8 @@
 {
     [self.cache storeImage:self.image1 named:IMAGE_NAME1];
     STAssertNotNil([self.cache getImageNamed:IMAGE_NAME1], @"Getting existing image should not return nil");
-    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation([self.cache getImageNamed:IMAGE_NAME1]), @"Retrieved image should be registered one");
+    STAssertEqualObjects(UIImagePNGRepresentation(self.image1), UIImagePNGRepresentation([self.cache getImageNamed:IMAGE_NAME1]),
+                         @"Retrieved image should be registered one");
     STAssertTrue([self.cache isImageAvailableNamed:IMAGE_NAME1], @"Available image should be reported as such");
     STAssertNil([self.cache getImageNamed:IMAGE_NAME2], @"Getting non available image should return nil");
 }

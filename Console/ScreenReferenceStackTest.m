@@ -40,7 +40,7 @@
     [stack push:ref];
     ScreenReference *poppedRef = [stack pop];
     STAssertNotNil(poppedRef, @"Should be able to pop an object from a stack where one was pushed before");
-    STAssertEquals(ref, poppedRef, @"Object poped from stack should be one pushed before");
+    STAssertEquals(poppedRef, ref, @"Object poped from stack should be one pushed before");
     STAssertNil([stack pop], @"It should not be possible to pop a second object from the stack");
 }
 
@@ -53,8 +53,8 @@
     ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
                                                             screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
     [stack push:ref2];
-    STAssertEquals(ref2, [stack pop], @"First poped object should be the last one pushed");
-    STAssertEquals(ref1, [stack pop], @"Second poped object should be the first one pushed");
+    STAssertEquals([stack pop], ref2, @"First poped object should be the last one pushed");
+    STAssertEquals([stack pop], ref1, @"Second poped object should be the first one pushed");
 }
 
 - (void)testStackDiscardsItemWhenCapacityReached
@@ -68,8 +68,8 @@
     ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
                                                             screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
     [stack push:ref2];
-    STAssertEquals(ref2, [stack pop], @"First poped object should be the last one pushed");
-    STAssertEquals(ref1, [stack pop], @"Second poped object should be the one pushed before");
+    STAssertEquals([stack pop], ref2, @"First poped object should be the last one pushed");
+    STAssertEquals([stack pop], ref1, @"Second poped object should be the one pushed before");
     STAssertNil([stack pop], @"First pushed object should have been discarded from stack");
 }
 

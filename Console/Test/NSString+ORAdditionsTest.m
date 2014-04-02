@@ -41,7 +41,7 @@
 }
 
 - (void)test_hostOfURL_ValidURL_IPAddress {
-    STAssertEqualObjects([@"http://192.168.1.1:8080/controller"hostOfURL], @"192.168.1.1", @"Expected 192.168.1.1 as host");    
+    STAssertEqualObjects([@"http://192.168.1.1:8080/controller" hostOfURL], @"192.168.1.1", @"Expected 192.168.1.1 as host");    
 }
 
 - (void)test_hostOfURL_InvalidURL {
