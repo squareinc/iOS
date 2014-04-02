@@ -43,7 +43,7 @@
 
 - (void)send
 {
-    NSAssert(!self.controllerRequest, @"ORControllerPanelsFetcher can only be used to send a request once");
+    NSAssert(!self.controllerRequest, @"ORControllerCapabilitiesFetcher can only be used to send a request once");
     
     ControllerRequest *request = [[ControllerRequest alloc] initWithController:self.controller];
     request.delegate = self;
