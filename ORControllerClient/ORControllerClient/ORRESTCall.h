@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -35,5 +35,11 @@
  *
  */
 - (void)cancel;
+
+/**
+ * Starts the call.
+ * The underlying connection is scheduled on the main thread.
+ */
+- (void)start;
 
 @end

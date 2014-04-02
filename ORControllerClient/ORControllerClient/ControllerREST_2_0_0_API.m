@@ -38,11 +38,12 @@
 
 // Encapsulate delegate in ORDataCapturingNSURLConnectionDelegate before passing to created connection
 - (ORRESTCall *)callForRequest:(NSURLRequest *)request delegate:(ORResponseHandler *)handler
-{
+{    
     handler.authenticationManager = self.authenticationManager;
-    return [[ORRESTCall alloc] initWithNSURLConnection:
-            [[NSURLConnection alloc] initWithRequest:request
-                                            delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:handler]]];
+    ORRESTCall *call = [[ORRESTCall alloc] initWithRequest:request handler:handler];
+    [call start];
+    NSLog(@"Started call for request %@", request);
+    return call;
 }
 
 // TODO: these methods might still return some form of Operation object

@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -27,12 +27,14 @@
 @interface ORRESTCall ()
 
 /**
- * Initializes the ORRESTCall with the connection used to execute the call.
+ * Initializes the ORRESTCall with the requests and handler provided.
+ * Creates the required underlying URL connection but does not start it yet.
  *
- * @param connection Underlying URL connection used to carry out the call
+ * @param request Request to use to carry out the call
+ * @param handler Handler used to process the response or handle the error
  *
- * @return An ORRESTCall object initialized with the provided connection.
+ * @return An ORRESTCall object initialized with the provided information.
  */
-- (instancetype)initWithNSURLConnection:(NSURLConnection *)connection;
+- (instancetype)initWithRequest:(NSURLRequest *)request handler:(ORResponseHandler *)handler;
 
 @end

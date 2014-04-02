@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2014, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -20,6 +20,7 @@
  */
 
 #import "ORRESTCall.h"
+#import "ORResponseHandler.h"
 
 @interface ORRESTCall ()
 
@@ -29,13 +30,23 @@
 
 @implementation ORRESTCall
 
-- (instancetype)initWithNSURLConnection:(NSURLConnection *)connection
+- (instancetype)initWithRequest:(NSURLRequest *)request handler:(ORResponseHandler *)handler;
 {
     self = [super init];
     if (self) {
-        self._connection = connection;
+        self._connection = [[NSURLConnection alloc] initWithRequest:request
+                                                           delegate:[[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:handler]
+                                                   startImmediately:NO];
     }
     return self;
+}
+
+- (void)start
+{
+    // Make sure the connection is started on the main thread to ensure there's a RunLoop available
+    dispatch_async(dispatch_get_main_queue(), ^() {
+        [self._connection start];
+    });
 }
 
 - (void)cancel
