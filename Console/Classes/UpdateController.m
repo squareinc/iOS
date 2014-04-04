@@ -73,6 +73,9 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
         definitionManager = [[DefinitionManager alloc] initWithController:self.settings.selectedController];
         [self addObserver:self forKeyPath:@"imageCache" options:NSKeyValueObservingOptionNew context:UpdateControllerKVOContext];
 		retryTimes = 1;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdate) name:DefinitionUpdateDidFinishNotification object:nil];
+
 	}
 	return self;
 }
@@ -91,22 +94,26 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
     [self checkConfigAndUpdateUsingTimeout:DEFAULT_TIMEOUT_DURATION];
 }
 
-
-
-
-
-
-
-
 // For lack of better name
 // For now just extract behaviour to startup application
 - (void)startup
 {
+    NSLog(@"UpdateController.startup");
+    
     ORControllerConfig *selectedController = self.settings.selectedController;
     
+    NSLog(@"Selected controller is %@", selectedController);
+    
     if (selectedController) {
+        
+        if (selectedController.selectedPanelIdentity) {
+            NSLog(@"Have all the information to load UI, starting update process");
+            [definitionManager update];
+            return;
+        }
+        
         // First try to use local cache so the user can directly interact with the UI, and trigger the check for update after that
-        [self useLocalCache];
+//        [self useLocalCache];
         
         // TODO: should check if there is cached information available
         
@@ -302,7 +309,7 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
 #pragma mark call the delegate method which the the delegate implemented.
 - (void)didUpdate {
     NSLog(@">>UpdateController.didUpdate");
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:DefinitionUpdateDidFinishNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] removeObserver:self name:DefinitionUpdateDidFinishNotification object:nil];
     NSLog(@"theDelegate %@", delegate);
 	if (delegate && [delegate respondsToSelector:@selector(didUpdate)]) {
 		[delegate performSelector:@selector(didUpdate)];

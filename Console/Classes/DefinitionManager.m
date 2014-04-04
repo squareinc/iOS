@@ -109,15 +109,19 @@
 	
 	[updateOperation addDependency:parseXmlOperation];
 	
-    
+    NSLog(@"===Before connect");
     [self.controller.controller connectWithSuccessHandler:^{
         [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
             self.controller.definition = definition;
             definition.console = self.console;
             
+            NSLog(@"ImageCache %@", self.imageCache);
+            
             self.imageCache.loader = self.controller;
+            
             // For now, once done, trigger download again so "old mechanism" and image download will happen
-            [updateOperationQueue addOperation:downloadXmlOperation];
+//            [updateOperationQueue addOperation:downloadXmlOperation];
+            [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
         } errorHandler:^(NSError *error) {
             // TODO
 //            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
@@ -130,7 +134,7 @@
         [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
         [self connection:nil didFailWithError:error];
     }];
-    
+    NSLog(@"===After connect call");
     // TODO - EBR : check what needs to be added to queue e.g. updateOperation is not here
     // updateOperation added to queue in parseXMLData method, why ?
 }
