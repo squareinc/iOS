@@ -20,7 +20,6 @@
  */
 
 #import "ImageCache.h"
-#import "FileUtils.h"
 
 @interface ImageCache ()
 

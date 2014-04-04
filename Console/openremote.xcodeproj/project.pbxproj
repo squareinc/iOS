@@ -64,7 +64,6 @@
 		60366B8E144DCB9C004FED3B /* ControllerRequiresAuthentication@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6055689113CF188F0035CC1A /* ControllerRequiresAuthentication@2x.png */; };
 		60366B90144DCB9C004FED3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */; };
-		60366B92144DCB9C004FED3B /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6682480F53FFF5007C45D4 /* FileUtils.m */; };
 		60366B93144DCB9C004FED3B /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E7150F541FAB006CC0DF /* StringUtils.m */; };
 		60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */; };
 		60366B95144DCB9C004FED3B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE48A0FA0431700F18AA1 /* Reachability.m */; };
@@ -145,7 +144,6 @@
 		6068DE7B13744D30007746F1 /* CheckNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F2B109562D200C7A686 /* CheckNetwork.m */; };
 		6068DE7C13744D39007746F1 /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */; };
 		6068DE7D13744D45007746F1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE48A0FA0431700F18AA1 /* Reachability.m */; };
-		6068DE8313744D7D007746F1 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6682480F53FFF5007C45D4 /* FileUtils.m */; };
 		6068DE8513744DCB007746F1 /* CheckNetworkException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E6E109554D600C7A686 /* CheckNetworkException.m */; };
 		6068DE8613744DCB007746F1 /* ControllerException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7EBE310BE773600E15487 /* ControllerException.m */; };
 		6068DE8713744DCB007746F1 /* ORConsoleSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */; };
@@ -519,8 +517,6 @@
 		8C5796F5116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = panel_relative_screen_backgroundimage.xml; path = Test/fixture/xml/panel_relative_screen_backgroundimage.xml; sourceTree = "<group>"; };
 		8C6502E0109809EC006FC19F /* PollingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollingHelper.h; sourceTree = "<group>"; };
 		8C6502E1109809EC006FC19F /* PollingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PollingHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8C6682470F53FFF5007C45D4 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
-		8C6682480F53FFF5007C45D4 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		8C72E7140F541FAB006CC0DF /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		8C72E7150F541FAB006CC0DF /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		8C7BE4210FA0395F00F18AA1 /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
@@ -982,8 +978,6 @@
 			children = (
 				8C460F2A109562D200C7A686 /* CheckNetwork.h */,
 				8C460F2B109562D200C7A686 /* CheckNetwork.m */,
-				8C6682470F53FFF5007C45D4 /* FileUtils.h */,
-				8C6682480F53FFF5007C45D4 /* FileUtils.m */,
 				8C72E7140F541FAB006CC0DF /* StringUtils.h */,
 				8C72E7150F541FAB006CC0DF /* StringUtils.m */,
 				8CC6364C10BD37D8009C25C9 /* CredentialUtil.h */,
@@ -1441,7 +1435,6 @@
 			files = (
 				60366B90144DCB9C004FED3B /* main.m in Sources */,
 				60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */,
-				60366B92144DCB9C004FED3B /* FileUtils.m in Sources */,
 				91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
@@ -1572,7 +1565,6 @@
 				6068DE8513744DCB007746F1 /* CheckNetworkException.m in Sources */,
 				6068DE8613744DCB007746F1 /* ControllerException.m in Sources */,
 				6068DE8713744DCB007746F1 /* ORConsoleSettingsManager.m in Sources */,
-				6068DE8313744D7D007746F1 /* FileUtils.m in Sources */,
 				6068DE7D13744D45007746F1 /* Reachability.m in Sources */,
 				6068DE7C13744D39007746F1 /* ViewHelper.m in Sources */,
 				6068DE7B13744D30007746F1 /* CheckNetwork.m in Sources */,
