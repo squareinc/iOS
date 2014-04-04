@@ -53,7 +53,9 @@
         
         self._errorHandler([NSError errorWithDomain:kORClientErrorDomain code:self._errorCode userInfo:userInfo]);
     } else {
-        [self processValidResponseData:receivedData];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
+            [self processValidResponseData:receivedData];
+        });
     }
 }
 

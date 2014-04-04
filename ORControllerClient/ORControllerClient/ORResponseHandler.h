@@ -29,6 +29,10 @@
  *
  * A ReponseHandler is the class implementing ORDataCapturingNSURLConnectionDelegateDelegate protocol
  * for a specific HTTP REST call and processing the response appropriately (e.g. parsing the returned XML).
+ *
+ * This class ensures that the response processing happens on a background queue.
+ * Success callback will thus be called on that queue and calling code must take appropriate actions
+ * to ensure their code is run on the main thread if required.
  */
 @interface ORResponseHandler : NSObject <ORDataCapturingNSURLConnectionDelegateDelegate>
 
