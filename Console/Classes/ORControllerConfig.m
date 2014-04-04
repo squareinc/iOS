@@ -207,7 +207,6 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     [self.controller retrieveResourceNamed:name
                             successHandler:^(NSData *resource) {
                                 NSLog(@"Did retrieve resource %@, saving to disk", name);
-                                [FileUtils makeSurePathExists:path];
 
                                 NSString *filePathToSave = [path stringByAppendingPathComponent:name];
                                 
