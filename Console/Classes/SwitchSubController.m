@@ -60,19 +60,15 @@ static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerK
 
         if (self.canUseImage) {
             self.onUIImage = [self.imageCache getImageNamed:onImage finalImageAvailable:^(UIImage *image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.onUIImage = image;
-                    [self updateSwitchUI];
-                });
+                self.onUIImage = image;
+                [self updateSwitchUI];
             }];
             if (self.onUIImage) {
                 [self updateSwitchUI];
             }
             self.offUIImage = [self.imageCache getImageNamed:offImage finalImageAvailable:^(UIImage *image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.offUIImage = image;
-                    [self updateSwitchUI];
-                });
+                self.offUIImage = image;
+                [self updateSwitchUI];
             }];
             if (self.offUIImage) {
                 [self updateSwitchUI];
@@ -114,12 +110,13 @@ static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerK
 
 - (void)updateSwitchUI
 {
-    NSLog(@"Updating for switch %@ to state %d", self.sswitch, self.sswitch.state);
-    if (self.canUseImage) {
-        [self.view setImage:(self.sswitch.state?self.onUIImage:self.offUIImage) forState:UIControlStateNormal];
-    } else {
-        [self.view setTitle:self.sswitch.state?@"ON":@"OFF" forState:UIControlStateNormal];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.canUseImage) {
+            [self.view setImage:(self.sswitch.state?self.onUIImage:self.offUIImage) forState:UIControlStateNormal];
+        } else {
+            [self.view setTitle:self.sswitch.state?@"ON":@"OFF" forState:UIControlStateNormal];
+        }
+    });
 }
 
 - (void)stateChanged:(id)sender
