@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "DefinitionManager.h"
-#import "FileUtils.h"
 #import "ServerDefinition.h"
 #import "DirectoryDefinition.h"
 #import "StringUtils.h"

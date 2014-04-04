@@ -21,7 +21,6 @@
 #import <UIKit/UIKit.h>
 #import "ServerAutoDiscoveryController.h"
 #import "UpdateController.h"
-#import "FileUtils.h"
 #import "ControllerDetailViewController.h"
 #import "ChoosePanelViewController.h"
 #import "LoginViewController.h"

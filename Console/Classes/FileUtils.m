@@ -27,15 +27,6 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
-#define DOWNLOAD_TIMEOUT_INTERVAL 60
-
-@interface FileUtils (Private)
-	
-+ (void)makeSurePathExists:(NSString *)path;
-
-@end
-
-
 @implementation FileUtils
 
 NSFileManager *fileManager;
@@ -46,33 +37,6 @@ NSFileManager *fileManager;
 	}
 }
 
-+ (void)downloadFromURL:(NSString *)URLString path:(NSString *)p forController:(ORControllerConfig *)controller {
-	[self makeSurePathExists:p];
-	NSError *error = nil;
-	NSURLResponse *response = nil;
-	NSString *encodedUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)URLString, NULL, (CFStringRef)@"", kCFStringEncodingUTF8));
-    NSURL *url = [[NSURL alloc] initWithString:encodedUrl];
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:DOWNLOAD_TIMEOUT_INTERVAL];
-	[CredentialUtil addCredentialToNSMutableURLRequest:request forController:controller];
-    
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
-	if (error) {
-		NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"[%d]%@",[httpResp statusCode], [error localizedDescription]] message:URLString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		return;
-	}
-	
-	NSString *fileName = [StringUtils parsefileNameFromString:URLString];
-	NSString *filePathToSave = [p stringByAppendingPathComponent:fileName];
-	
-	//delete the file
-	[fileManager removeItemAtPath:filePathToSave error:NULL];
-	
-	[fileManager createFileAtPath:filePathToSave contents:data attributes:nil];
-}
-
 + (BOOL)checkFileExistsWithPath:(NSString *)path {
 	return [fileManager fileExistsAtPath:path];
 }
@@ -80,12 +44,6 @@ NSFileManager *fileManager;
 + (void)makeSurePathExists:(NSString *)path {
 	if (![fileManager fileExistsAtPath:path]) {
 		[fileManager createDirectoryAtPath:path  withIntermediateDirectories:YES attributes:nil error:NULL];
-	}
-}
-
-+ (void)deleteFolderWithPath:(NSString *) path {
-	if ([fileManager fileExistsAtPath:path]) {
-		[fileManager removeItemAtPath:path error:NULL];
 	}
 }
 
