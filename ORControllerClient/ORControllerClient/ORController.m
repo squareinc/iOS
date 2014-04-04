@@ -101,14 +101,20 @@
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
 
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+    
     [self.controllerAPI requestPanelIdentityListAtBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(NSArray *panels) {
-                                      successHandler(panels);
+                                      dispatch_async(originalQueue, ^() {
+                                          successHandler(panels);
+                                      });
                                   }
                                         errorHandler:^(NSError *error) {
                                             if (errorHandler) {
-                                                // TODO: encapsulate error ?
-                                                errorHandler(error);
+                                                dispatch_async(originalQueue, ^() {
+                                                    // TODO: encapsulate error ?
+                                                    errorHandler(error);
+                                                });
                                             }
                                         }];
 }
@@ -139,16 +145,22 @@
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
     
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
     [self.controllerAPI requestPanelLayoutWithLogicalName:panelName
                                            atBaseURL:self.address.primaryURL
                                   withSuccessHandler:^(Definition *panelDefinition) {
                                       [self attachPanelDefinition:panelDefinition];
-                                      successHandler(panelDefinition);
+                                      dispatch_async(originalQueue, ^() {
+                                          successHandler(panelDefinition);
+                                      });
                                   }
                                         errorHandler:^(NSError *error) {
                                             if (errorHandler) {
-                                                // TODO: encapsulate error ?
-                                                errorHandler(error);
+                                                dispatch_async(originalQueue, ^() {
+                                                    // TODO: encapsulate error ?
+                                                    errorHandler(error);
+                                                });
                                             }
                                         }];
 }
@@ -177,15 +189,21 @@
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
     
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
     [self.controllerAPI retrieveResourceNamed:resourceName
                                     atBaseURL:self.address.primaryURL
                            withSuccessHandler:^(NSData *resource) {
-                               successHandler(resource);
+                               dispatch_async(originalQueue, ^() {
+                                   successHandler(resource);
+                               });
                            }
                                  errorHandler:^(NSError *error) {
                                      if (errorHandler) {
-                                         // TODO: encapsulate error ?
-                                         errorHandler(error);
+                                         dispatch_async(originalQueue, ^() {
+                                             // TODO: encapsulate error ?
+                                             errorHandler(error);
+                                         });
                                      }
                                  }];
 }
