@@ -86,7 +86,7 @@
 - (UIImage *)getImageNamed:(NSString *)name
 {
 	NSString *path = [self cacheFilePathForName:name];
-	if (![FileUtils checkFileExistsWithPath:path]) {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         return nil;
     }
     return [UIImage imageWithContentsOfFile:path];
@@ -154,7 +154,7 @@
 
 - (BOOL)isImageAvailableNamed:(NSString *)name
 {
-    return [FileUtils checkFileExistsWithPath:[self cacheFilePathForName:name]];
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self cacheFilePathForName:name]];
 }
 
 - (void)forgetImageNamed:(NSString *)name

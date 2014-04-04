@@ -37,10 +37,6 @@ NSFileManager *fileManager;
 	}
 }
 
-+ (BOOL)checkFileExistsWithPath:(NSString *)path {
-	return [fileManager fileExistsAtPath:path];
-}
-
 + (void)makeSurePathExists:(NSString *)path {
 	if (![fileManager fileExistsAtPath:path]) {
 		[fileManager createDirectoryAtPath:path  withIntermediateDirectories:YES attributes:nil error:NULL];

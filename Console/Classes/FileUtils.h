@@ -37,9 +37,4 @@
  */
 + (void)makeSurePathExists:(NSString *)path;
 
-/**
- * Check if the file path specified exists.
- */
-+ (BOOL)checkFileExistsWithPath:(NSString *)path;
-
 @end
