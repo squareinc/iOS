@@ -38,11 +38,6 @@
  */
 - (void)update;
 
-/**
- * Use local cache in handset side.
- */
-- (void)useLocalCacheDirectly;
-
 @property (nonatomic,readonly) BOOL isUpdating;
 @property (nonatomic,strong) UILabel *loading;
 

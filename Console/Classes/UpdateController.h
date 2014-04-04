@@ -69,8 +69,6 @@
 - (void)checkConfigAndUpdate;
 - (void)checkConfigAndUpdateUsingTimeout:(NSTimeInterval)timeoutInterval;
 
-- (void)useLocalCache;
-
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end

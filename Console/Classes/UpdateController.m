@@ -58,7 +58,6 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
 - (void)checkNetworkAndUpdateUsingTimeout:(NSTimeInterval)timeoutInterval;
 - (void)findServer;
 - (void)updateFailOrUseLocalCache:(NSString *)errorMessage;
-- (void)didUseLocalCache:(NSString *)errorMessage;
 - (void)didUpdateFail:(NSString *)errorMessage;
 
 @end
@@ -293,17 +292,7 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
 // Use local cache if update fail and local cache exists.
 - (void)updateFailOrUseLocalCache:(NSString *)errorMessage {
 	NSLog(@"updateFailOrUseLocalCache");
-	NSString *path = [[DirectoryDefinition xmlCacheFolder] stringByAppendingPathComponent:[StringUtils parsefileNameFromString:[ServerDefinition panelXmlRESTUrlForController:self.settings.selectedController]]];
-	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-		[self didUseLocalCache:errorMessage];
-	} else {
-		[self didUpdateFail:errorMessage];
-	}
-}
-
-- (void)useLocalCache
-{
-    [definitionManager useLocalCacheDirectly];
+    [self didUpdateFail:errorMessage];
 }
 
 #pragma mark call the delegate method which the the delegate implemented.
@@ -313,14 +302,6 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
     NSLog(@"theDelegate %@", delegate);
 	if (delegate && [delegate respondsToSelector:@selector(didUpdate)]) {
 		[delegate performSelector:@selector(didUpdate)];
-	}
-}
-
-- (void)didUseLocalCache:(NSString *)errorMessage {
-    [definitionManager useLocalCacheDirectly];
-    
-	if (delegate && [delegate respondsToSelector:@selector(didUseLocalCache:)]) {
-		[delegate performSelector:@selector(didUseLocalCache:) withObject:errorMessage];
 	}
 }
 
