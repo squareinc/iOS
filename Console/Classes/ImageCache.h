@@ -21,6 +21,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^ImageAvailableBlock)(UIImage *);
+
 @protocol ImageCacheLoader <NSObject>
 
 @optional
@@ -72,11 +74,11 @@
  * Immediately returns the image with the given name if available.
  * If no image has been stored under that name,
  * returns the default image if one has been set or nil otherwise.
- * If a loader has been set, asks the loader to get the image.
+ * If a loader has been set, asks the loader to get the image (loader called on a background thread).
  * Once loader returns the image, it is stored in the manager and
- * the availableBlock is called with that image.
+ * the availableBlock is called with that image (the call will not be done on the main or caller block).
  */
-- (UIImage *)getImageNamed:(NSString *)name finalImageAvailable:(void (^)(UIImage *))availableBlock;
+- (UIImage *)getImageNamed:(NSString *)name finalImageAvailable:(ImageAvailableBlock)availableBlock;
 
 /**
  * Indicates if a resource with the given name is readily available.

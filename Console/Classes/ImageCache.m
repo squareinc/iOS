@@ -26,7 +26,15 @@
 
 @property (nonatomic, strong) NSString *cachePath;
 
-@property (nonatomic) dispatch_queue_t queue;
+@property (nonatomic) dispatch_queue_t loadersQueue;
+@property (atomic) dispatch_queue_t serialQueue;
+
+/**
+ * Keep track of load operations that are active.
+ * Key is the name of image to load.
+ * Value is an array of availability blocks to be called once operation is finished.
+ */
+@property (nonatomic, strong) NSMutableDictionary *activeLoad;
 
 @end
 
@@ -50,16 +58,22 @@
             }
         }
         self.cachePath = path;
-        self.queue = dispatch_queue_create("org.openremote.imagecache.loader", DISPATCH_QUEUE_CONCURRENT);
+        self.loadersQueue = dispatch_queue_create("org.openremote.imagecache.loader", DISPATCH_QUEUE_CONCURRENT);
+        self.serialQueue = dispatch_queue_create("org.openremote.imagecache.serial", DISPATCH_QUEUE_SERIAL);
+        self.activeLoad = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    if (self.queue) {
-        dispatch_release(self.queue);
-        self.queue = NULL;
+    if (self.loadersQueue) {
+        dispatch_release(self.loadersQueue);
+        self.loadersQueue = NULL;
+    }
+    if (self.serialQueue) {
+        dispatch_release(self.serialQueue);
+        self.serialQueue = NULL;
     }
 }
 
@@ -78,30 +92,64 @@
     return [UIImage imageWithContentsOfFile:path];
 }
 
-- (UIImage *)getImageNamed:(NSString *)name finalImageAvailable:(void (^)(UIImage *))availableBlock
+- (void)notifyImageAvailability:(NSString *)imageName
 {
-    if ([self isImageAvailableNamed:name]) {
-        return [self getImageNamed:name];
-    }
-    if (self.loader) {
-        if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
-            dispatch_async(self.queue, ^{
-                [self.loader loadImageNamed:name toPath:self.cachePath available:^{
-                    availableBlock([self getImageNamed:name]);
-                }];
-            });
-        } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
-            dispatch_async(self.queue, ^{
-                [self.loader loadImageNamed:name available:^(UIImage *image) {
-                    [self storeImage:image named:name];
-                    availableBlock(image);
-                }];
-            });
-        } else {
-            // TODO: should there be an error if loader can not provide image ? -> at least should be logged
+    dispatch_sync(self.serialQueue, ^{
+        UIImage *finalImage = [self getImageNamed:imageName];
+        
+        NSLog(@"Will notify %d of %@ availability", [[self.activeLoad objectForKey:imageName] count], imageName);
+        
+        for (ImageAvailableBlock block in [self.activeLoad objectForKey:imageName]) {
+            block(finalImage);
         }
-    }
-    return nil;
+        [self.activeLoad removeObjectForKey:imageName];
+    });
+}
+
+- (UIImage *)getImageNamed:(NSString *)name finalImageAvailable:(ImageAvailableBlock)availableBlock
+{
+    __block UIImage *image = nil;
+    
+    // This whole code is on a serial queue, this ensures that checking if an image is already cached,
+    // started the loading process if required and notifying callers when image is available is atomic.
+    dispatch_sync(self.serialQueue, ^{
+        if ([self isImageAvailableNamed:name]) {
+            image = [self getImageNamed:name];
+        } else if (self.loader) {
+            NSLog(@"Must load image named %@", name);
+            NSMutableArray *loaders = [self.activeLoad objectForKey:name];
+            
+            if (loaders) {
+                // This image is already being loaded, just register to be notified when done
+                [loaders addObject:availableBlock];
+            } else {
+                // First time the image is requested, ask the loader for it
+                loaders = [NSMutableArray arrayWithObject:availableBlock];
+                [self.activeLoad setObject:loaders forKey:name];
+                if ([self.loader respondsToSelector:@selector(loadImageNamed:toPath:available:)]) {
+                    
+                    
+                    // TODO: handle fact that there might be loader error -> loading queue should be clear + notification ?
+                    
+                    dispatch_async(self.loadersQueue, ^{
+                        [self.loader loadImageNamed:name toPath:self.cachePath available:^{
+                            [self notifyImageAvailability:name];
+                        }];
+                    });
+                } else if ([self.loader respondsToSelector:@selector(loadImageNamed:available:)]) {
+                    dispatch_async(self.loadersQueue, ^{
+                        [self.loader loadImageNamed:name available:^(UIImage *image) {
+                            [self storeImage:image named:name];
+                            [self notifyImageAvailability:name];
+                        }];
+                    });
+                } else {
+                    // TODO: should there be an error if loader can not provide image ? -> at least should be logged
+                }
+            }
+        }
+    });
+    return image;
 }
 
 - (BOOL)isImageAvailableNamed:(NSString *)name
