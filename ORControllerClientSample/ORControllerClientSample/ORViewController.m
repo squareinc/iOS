@@ -107,7 +107,11 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self.tableView reloadData];
+    // We're not guaranteed that the value we observe is set on the main thread,
+    // so ensure we're updating our UI on the main thread here
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)stopObservingLabelChanges
