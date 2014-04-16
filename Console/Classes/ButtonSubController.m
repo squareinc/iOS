@@ -78,7 +78,9 @@
                 });
             }];
             if (uiImage) {
-                [self setClippedImage:uiImage forState:UIControlStateNormal];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setClippedImage:uiImage forState:UIControlStateNormal];
+                });
             }
             
             UIImage *uiImagePressed = [self.imageCache getImageNamed:self.button.pressedImage.src finalImageAvailable:^(UIImage *image) {
@@ -87,12 +89,16 @@
                 });
             }];
             if (uiImagePressed) {
-                [self setClippedImage:uiImagePressed forState:UIControlStateHighlighted];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setClippedImage:uiImagePressed forState:UIControlStateHighlighted];
+                });
             }
         } else {
-            UIButton *uiButton = (UIButton *)self.view;
-            UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
-            [uiButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIButton *uiButton = (UIButton *)self.view;
+                UIImage *buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:29];
+                [uiButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+            });
         }
     }
 }

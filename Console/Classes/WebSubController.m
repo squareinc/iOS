@@ -82,7 +82,9 @@ static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOCont
 {
     if (context == WebSubControllerKVOContext) {
         if ([@"src" isEqualToString:keyPath]) {
-            [self loadRequestForURL:self.web.src];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadRequestForURL:self.web.src];
+            });
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

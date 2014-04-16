@@ -202,9 +202,11 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
     if (context == SliderSubControllerKVOContext) {
         if ([@"value" isEqualToString:keyPath]) {
-            ORUISlider *uiSlider = ((ORUISlider *)self.view);
-            uiSlider.value = self.slider.value;
-            self.currentValue = [self sliderValue:uiSlider];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ORUISlider *uiSlider = ((ORUISlider *)self.view);
+                uiSlider.value = self.slider.value;
+                self.currentValue = [self sliderValue:uiSlider];
+            });
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

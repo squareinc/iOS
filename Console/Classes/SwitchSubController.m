@@ -101,7 +101,9 @@ static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerK
 {
     if (context == SwitchSubControllerKVOContext) {
         if ([@"state" isEqualToString:keyPath]) {
-            [self updateSwitchUI];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateSwitchUI];
+            });
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

@@ -68,8 +68,10 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 {
     if (context == LabelSubControllerKVOContext) {
         if ([@"text" isEqualToString:keyPath]) {
-            UILabel *uiLabel = (UILabel *)self.view;
-            uiLabel.text = self.label.text;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UILabel *uiLabel = (UILabel *)self.view;
+                uiLabel.text = self.label.text;
+            });
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

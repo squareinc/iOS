@@ -87,7 +87,9 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
 {
     if (context == ImageSubControllerKVOContext) {
         if ([@"name" isEqualToString:keyPath]) {
-            [self setImageNamed:self.image.src];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setImageNamed:self.image.src];
+            });
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
