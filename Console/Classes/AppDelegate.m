@@ -50,14 +50,14 @@
     self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
-	defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
-    defaultViewController.imageCache = self.imageCache;
+	self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
+    self.defaultViewController.imageCache = self.imageCache;
 
 	// Default window for the app
 	window = [[GestureWindow alloc] init];
 	[window makeKeyAndVisible];
 	
-    window.rootViewController = defaultViewController;
+    window.rootViewController = self.defaultViewController;
 	
 	//Init UpdateController and set delegate to this class, it have three delegate methods
     // - (void)didUpdate;
@@ -80,7 +80,7 @@
 
 //when it wake up, WIFI is active.
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-	[defaultViewController refreshPolling];
+	[self.defaultViewController refreshPolling];
 }
 
 // To save battery, it will disconnect from WIFI when in sleep mode. 
@@ -97,16 +97,16 @@
 // this method will be called after UpdateController give a callback.
 - (void)updateDidFinish {
 	log4Info(@"----------updateDidFinished------");
-    NSLog(@"Is App Launching %d", ([defaultViewController isAppLaunching]));
+    NSLog(@"Is App Launching %d", ([self.defaultViewController isAppLaunching]));
 
-	if ([defaultViewController isAppLaunching]) {//blocked from app launching, should refresh all groups.
+	if ([self.defaultViewController isAppLaunching]) {//blocked from app launching, should refresh all groups.
 		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
         
         // EBR : this is what makes the UI display in the first place
         
-		[defaultViewController initGroups];
+		[self.defaultViewController initGroups];
 	} else {//blocked from sending command, should refresh command.
-		[defaultViewController refreshPolling];
+		[self.defaultViewController refreshPolling];
 	}
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 }
@@ -120,7 +120,7 @@
 
 - (void)didUseLocalCache:(NSString *)errorMessage {
 	if ([errorMessage isEqualToString:@"401"]) {
-		[defaultViewController populateLoginView:nil];
+		[self.defaultViewController populateLoginView:nil];
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Warning" Message:[errorMessage stringByAppendingString:@" Using cached content."]];
@@ -132,14 +132,14 @@
 - (void)didUpdateFail:(NSString *)errorMessage {
 	log4Error(@"%@", errorMessage);
 	if ([errorMessage isEqualToString:@"401"]) {
-		[defaultViewController populateLoginView:nil];
+		[self.defaultViewController populateLoginView:nil];
 	} else {
         ViewHelper *viewHelper = [[ViewHelper alloc] init];
 		[viewHelper showAlertViewWithTitleAndSettingNavigation:@"Update Failed" Message:errorMessage];		
 		[self updateDidFinish];
 	}
-	
 }
 
+@synthesize defaultViewController;
 
 @end

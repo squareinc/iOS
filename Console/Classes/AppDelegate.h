@@ -30,10 +30,11 @@
 @interface AppDelegate : NSObject <UIApplicationDelegate, UpdateControllerDelegate, DefaultViewControllerDelegate> {
 	
 	GestureWindow *window;
-	DefaultViewController *defaultViewController;
 	UpdateController *updateController;
 
 }
+
+@property (nonatomic, strong) DefaultViewController *defaultViewController;
 
 @end
 
