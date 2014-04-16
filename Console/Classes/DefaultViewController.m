@@ -330,6 +330,19 @@
 	return [self.currentGroupController nextScreen];
 }
 
+// Version used by newer code using client library and authentication manager mechanism
+
+- (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate
+{
+    LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+                                                                                  delegate:delegate
+                                                                                   context:NULL];
+	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
+	[self presentViewController:loginNavController animated:NO completion:NULL];
+}
+
+// Version used by legacy code, to eventually go away
+
 //prompts the user to enter a valid user name and password
 - (void)populateLoginView:(NSNotification *)notification {
 	LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.settingsManager.consoleSettings.selectedController

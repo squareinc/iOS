@@ -84,6 +84,8 @@
  */
 - (BOOL)isAppLaunching;
 
+- (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate;
+
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
