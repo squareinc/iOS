@@ -338,7 +338,9 @@
                                                                                   delegate:delegate
                                                                                    context:NULL];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
-	[self presentViewController:loginNavController animated:NO completion:NULL];
+    
+    // If we are already presenting a VC (e.g. Settings), this one must present the login panel
+	[((self.presentedViewController)?self.presentedViewController:self) presentViewController:loginNavController animated:YES completion:NULL];
 }
 
 // Version used by legacy code, to eventually go away
