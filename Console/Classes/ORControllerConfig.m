@@ -26,9 +26,9 @@
 #import "Capabilities.h"
 #import "SensorStatusCache.h"
 #import "ClientSideRuntime.h"
-
 #import "StringUtils.h"
 #import "ServerDefinition.h"
+#import "ORConsoleAuthenticationManager.h"
 
 // From ORControllerClient library
 #import "ORControllerClient/ORController.h"
@@ -304,6 +304,7 @@ NSString *kORControllerPanelIdentitiesFetchStatusChange = @"kORControllerPanelId
     if (!controller) {
         controller = [[ORController alloc] initWithControllerAddress:
                       [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.primaryURL]]];
+        controller.authenticationManager = [[ORConsoleAuthenticationManager alloc] initWithController:self];
     }
     return controller;
 }
