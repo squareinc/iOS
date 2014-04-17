@@ -66,9 +66,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             DefaultViewController *vc = delegate.defaultViewController;
-//            LoginViewController *loginVC = [[LoginViewController alloc] initWithController:self.controller delegate:self context:NULL];
-            
-//            [vc presentViewController:loginVC animated:YES completion:NULL];
             [vc presentLoginViewWithDelegate:self];
         });
         
