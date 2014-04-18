@@ -52,6 +52,7 @@
 		91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D9C1892BD5D00BA0B96 /* ORSensorLinkParserTest.m */; };
 		91222DA11892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
 		91222DA21892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
+		912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CC8A0418E2E33000D31A66 /* ORSwitch.h */; };
 		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
 		913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 913699A01850BF310087A55B /* ORUserPasswordCredential.m */; };
 		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
@@ -291,6 +292,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */,
 				91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */,
 				91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */,
 				91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */,
