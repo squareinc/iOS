@@ -8,7 +8,7 @@
 
 #import "SensorStatusCache.h"
 #import "NotificationConstant.h"
-#import "ORObjectIdentifier.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 @interface SensorStatusCache()
 

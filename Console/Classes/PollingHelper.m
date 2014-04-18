@@ -29,7 +29,7 @@
 #import "ORControllerProxy.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
-#import "ORObjectIdentifier.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 //retry polling after half a second
 #define POLLING_RETRY_DELAY 0.5
