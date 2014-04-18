@@ -8,11 +8,21 @@
 	<string>OpenRemote</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFiles</key>
+	<key>CFBundleIcons</key>
 	<array>
-		<string>iPadAppIcon.png</string>
-		<string>iPhoneAppIcon.png</string>
-		<string>Icon-Small-50.png</string>
+        <string>OR-29.png</string>
+        <string>OR-40.png</string>
+        <string>OR-50.png</string>
+        <string>OR-57.png</string>
+        <string>OR-58.png</string>
+        <string>OR-72.png</string>
+        <string>OR-76.png</string>
+        <string>OR-80.png</string>
+        <string>OR-100.png</string>
+        <string>OR-114.png</string>
+        <string>OR-120.png</string>
+        <string>OR-144.png</string>
+        <string>OR-152.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>org.openremote.iPad</string>
