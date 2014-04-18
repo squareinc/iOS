@@ -263,8 +263,14 @@
 		}
 		updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings delegate:self];
         updateController.imageCache = self.imageCache;
-		[updateController checkConfigAndUpdate];
-	}	
+        
+        // Ensure that progress indicator appears immediately but code still executed on main thread
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [updateController checkConfigAndUpdate];
+            });
+        });
+	}
 }
 
 #pragma mark Delegate method of ServerAutoDiscoveryController
