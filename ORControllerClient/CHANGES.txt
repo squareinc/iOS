@@ -13,6 +13,8 @@ The sample application has been updated to corretly handle this situation.
 
 ORSwitch.h was incorrectly not made public for clients of the library to use. This is now fixed.
 
+ORColorPicker did not expose the control method yet, added it : - (void)sendColor:(UIColor *)color;
+
 Version 0.3.0
 =============
 
