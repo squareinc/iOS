@@ -1,3 +1,18 @@
+Version 0.4.0
+=============
+
+Added
+- (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+method on ORController to retrieve a resource (images for now), encapsulating the HTTP call required to do it.
+
+Reviewed threads/queues usage in the library to ensure network calls are always appropriately performed in the background.
+This has an important impact for the client of the library: property updates on the model are not performed on the main thread.
+This means that any KVO observer method is not guaranteed to be called on the main thread.
+It is the responsibility of the client to re-direct code to the main thread if required (e.g. when updating UI based on a model change).
+The sample application has been updated to corretly handle this situation.
+
+ORSwitch.h was incorrectly not made public for clients of the library to use. This is now fixed.
+
 Version 0.3.0
 =============
 
