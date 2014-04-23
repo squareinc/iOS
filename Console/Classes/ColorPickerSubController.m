@@ -59,14 +59,9 @@
 }
 
 // Send picker command with color value to controller server.
-- (void)pickedColor:(UIColor*)color
+- (void)pickedColor:(UIColor *)color
 {
-	const CGFloat *c = CGColorGetComponents(color.CGColor);
-	NSLog(@"color=%@",color);
-	NSLog(@"color R=%0.0f",c[0]*255);
-	NSLog(@"color G=%0.0f",c[1]*255);
-	NSLog(@"color B=%0.0f",c[2]*255);
-	[self sendCommandRequest:[NSString stringWithFormat:@"%02x%02x%02x", (int)(c[0]*255), (int)(c[1]*255), (int)(c[2]*255)]];
+    [self.colorPicker sendColor:color];
 }
 
 @synthesize view;
