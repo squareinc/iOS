@@ -58,17 +58,7 @@
 		//Store the received TcpClient sockets.
 		self.clients = [[NSMutableArray alloc] initWithCapacity:1];
 		self.udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-		
-		// init the data send to multicast server
-		NSData *d = [@"openremote" dataUsingEncoding:NSUTF8StringEncoding]; 
-		// init the multicast ip
-		NSString *host = @"224.0.1.100"; 
-		// init the multicast port
-		UInt16 port = 3333;
-		// Send the data to multicast ip with timeout 3 seconds.
-		[self.udpSocket sendData:d toHost:host port:port withTimeout:3 tag:0];
-		[self.udpSocket closeAfterSending];
-		
+
 		// init the tcp server port
 		UInt16 serverPort = 2346;
 		//Setup a tcp server recevice the multicast feedback.
@@ -77,6 +67,16 @@
 		
 		//Set a timer with 3 interval.
 		self.tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO];
+        
+        // init the data send to multicast server
+		NSData *d = [@"openremote" dataUsingEncoding:NSUTF8StringEncoding];
+		// init the multicast ip
+		NSString *host = @"224.0.1.100";
+		// init the multicast port
+		UInt16 port = 3333;
+		// Send the data to multicast ip with timeout 3 seconds.
+		[self.udpSocket sendData:d toHost:host port:port withTimeout:3 tag:0];
+		[self.udpSocket closeAfterSending];
 	}
 	return self;
 }
