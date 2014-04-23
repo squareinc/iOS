@@ -105,6 +105,8 @@
 
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender;
 
+- (void)sendColor:(UIColor *)color forPicker:(ORColorPicker *)sender;
+
 - (void)performGesture:(ORGesture *)sender;
 
 @property (nonatomic, strong, readonly) NSMutableArray *groups;

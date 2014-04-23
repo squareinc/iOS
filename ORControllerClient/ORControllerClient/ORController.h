@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "ORAuthenticationManager.h"
 
 @class ORControllerAddress;
@@ -28,6 +28,7 @@
 @class ORButton;
 @class ORSwitch;
 @class ORSlider;
+@class ORColorPicker;
 @class ORGesture;
 
 /**
@@ -140,6 +141,7 @@
 
 - (void)sendValue:(float)value forSlider:(ORSlider *)sender;
 
+- (void)sendColor:(UIColor *)color forPicker:(ORColorPicker *)sender;
 
 - (void)performGesture:(ORGesture *)sender;
 

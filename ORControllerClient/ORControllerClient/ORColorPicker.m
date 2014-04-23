@@ -20,8 +20,14 @@
  */
 
 #import "ORColorPicker_Private.h"
+#import "Definition.h"
 
 @implementation ORColorPicker
+
+- (void)sendColor:(UIColor *)color
+{
+    [self.definition sendColor:color forPicker:self];
+}
 
 @synthesize image;
 

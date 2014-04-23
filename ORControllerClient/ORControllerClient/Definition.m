@@ -276,6 +276,11 @@
     [self.controller sendValue:value forSlider:sender];
 }
 
+- (void)sendColor:(UIColor *)color forPicker:(ORColorPicker *)sender
+{
+    [self.controller sendColor:color forPicker:sender];
+}
+
 - (void)performGesture:(ORGesture *)sender
 {
     [self.controller performGesture:sender];

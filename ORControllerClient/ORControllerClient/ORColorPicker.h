@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#import <UIKit/UIKit.h>
 #import "ORWidget.h"
 
 @class ORImage;
@@ -31,5 +32,12 @@
  * Image to be used as the background of the color picker widget.
  */
 @property (nonatomic, strong, readonly) ORImage *image;
+
+/**
+ * Sends to appropriate command to the controller indicating that a particular color has been picked.
+ *
+ * @param UIColor picked color to send
+ */
+- (void)sendColor:(UIColor *)color;
 
 @end
