@@ -30,7 +30,7 @@
 
 @property (nonatomic, strong) ORControllerConfig *controller;
 @property (nonatomic, strong) ControllerRequest *controllerRequest;
-@property (nonatomic, assign) int statusCode;
+@property (nonatomic, assign) NSInteger statusCode;
 
 @end
 

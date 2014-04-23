@@ -40,17 +40,17 @@
 /**
  * Get specified setting informations with index from all the setting information about current panel .
  */
-- (NSDictionary *)getSectionWithIndex:(int)index;
+- (NSDictionary *)getSectionWithIndex:(NSInteger)index;
 
 /**
  * Get header of sepecified setting information with index from all the setting information about current panel .
  */
-- (NSString *)getSectionHeaderWithIndex:(int)index;
+- (NSString *)getSectionHeaderWithIndex:(NSInteger)index;
 
 /**
  * Get footer of sepecified setting information with index from all the setting information about current panel .
  */
-- (NSString *)getSectionFooterWithIndex:(int)index;
+- (NSString *)getSectionFooterWithIndex:(NSInteger)index;
 
 /**
  * Get the auto discovery setting information from all the setting information about current panel .

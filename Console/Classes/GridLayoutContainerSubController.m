@@ -45,8 +45,8 @@
         self.view = [[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)];
         self.view.backgroundColor = [UIColor clearColor];
         self.cells = [[NSMutableArray alloc] initWithCapacity:[container.cells count]];
-        int h = container.height / container.rows;				
-        int w = container.width / container.cols;
+        NSInteger h = container.height / container.rows;
+        NSInteger w = container.width / container.cols;
         for (ORGridCell *cell in container.cells) {
             ORWidget *widget = cell.widget;
             ComponentSubController *ctrl;

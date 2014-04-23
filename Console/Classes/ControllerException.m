@@ -25,7 +25,7 @@
 
 @implementation ControllerException
 
-+ (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(int)code {
++ (NSString *)controller:(ORControllerConfig *)controller exceptionMessageOfCode:(NSInteger)code {
 	NSString *errorMessage = nil;
 	if (code != 200) {
 		switch (code) {
@@ -87,7 +87,7 @@
 				break;
 		}
 		if (!errorMessage) {
-			errorMessage = [NSString stringWithFormat:@"Occured unknown error, satus code is %d", code];
+			errorMessage = [NSString stringWithFormat:@"Occured unknown error, satus code is %ld", (long)code];
 		}
 	}
 	return errorMessage;

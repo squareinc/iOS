@@ -56,7 +56,7 @@
     return [self.controller hasPanelIdentities];
 }
 
-- (void)handleServerResponseWithStatusCode:(int)statusCode
+- (void)handleServerResponseWithStatusCode:(NSInteger)statusCode
 {
 	if (statusCode != 200) {
 		switch (statusCode) {

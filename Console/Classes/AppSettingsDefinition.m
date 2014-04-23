@@ -41,17 +41,17 @@
 }
 
 // Get the specified section with index from appSettings.plist .
-- (NSDictionary *)getSectionWithIndex:(int)index {
+- (NSDictionary *)getSectionWithIndex:(NSInteger)index {
 	return [self.settingsDefinition objectAtIndex:index];
 }
 
 // Get the specified section's header with index from appSettings.plist .
-- (NSString *)getSectionHeaderWithIndex:(int)index{
+- (NSString *)getSectionHeaderWithIndex:(NSInteger)index{
 	return [[self.settingsDefinition objectAtIndex:index] valueForKey:@"header"];
 }
 
 // Get the specified section's footer with index from appSettings.plist .
-- (NSString *)getSectionFooterWithIndex:(int)index{
+- (NSString *)getSectionFooterWithIndex:(NSInteger)index{
 	return [[self.settingsDefinition objectAtIndex:index] valueForKey:@"footer"];
 }
 

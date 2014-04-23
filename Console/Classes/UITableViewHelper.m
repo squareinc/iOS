@@ -27,7 +27,7 @@
     NSInteger minValue = MIN(fromRowCount, toRowCount);
     NSInteger maxValue = MAX(fromRowCount, toRowCount);
     NSMutableArray *rows = [NSMutableArray arrayWithCapacity:maxValue - minValue];
-    for (int i = minValue; i < maxValue; i++) {
+    for (NSInteger i = minValue; i < maxValue; i++) {
         [rows addObject:[NSIndexPath indexPathForRow:i inSection:section]];
     }
     return rows;

@@ -99,7 +99,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    int statusCode = ((NSHTTPURLResponse *)response).statusCode;
+    NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
 //    NSLog(@"controller %@ - connection:didReceiveResponse: %d", self.controller.primaryURL, statusCode);
 	if (statusCode != 200) {
         if (statusCode == UNAUTHORIZED) {

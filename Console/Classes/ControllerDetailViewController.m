@@ -546,8 +546,8 @@
 - (void)setGroupMembers:(NSArray *)theGroupMembers
 {
     if (groupMembers != theGroupMembers) {
-        int oldCount = [groupMembers count];
-        int newCount = [theGroupMembers count];
+        NSUInteger oldCount = [groupMembers count];
+        NSUInteger newCount = [theGroupMembers count];
         
         groupMembers = theGroupMembers;
         
