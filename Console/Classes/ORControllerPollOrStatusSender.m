@@ -25,7 +25,7 @@
 #import "ControllerException.h"
 #import "ORControllerClient/StatusValuesParser_2_0_0.h"
 #import "SensorStatusCache.h"
-#import "ORObjectIdentifier.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 @interface ORControllerPollOrStatusSender()
 
