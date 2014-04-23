@@ -23,6 +23,7 @@
 #import "ORControllerClient/ORLayoutContainer.h"
 #import "ORControllerClient/ORAbsoluteLayoutContainer.h"
 #import "ORControllerClient/ORSwitch.h"
+#import "ORControllerClient/ORButton.h"
 #import "ORControllerClient/ORGridLayoutContainer.h"
 #import "ORControllerClient/ORGridCell.h"
 #import "ORControllerClient/ORImage.h"
@@ -46,7 +47,7 @@
  	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	return [thisBundle pathForResource:filename ofType:@"xml"];
 }
-/*
+
 // panel_grid_button.xml test
 - (void) testParsePanelGridButtonXML {
 	NSLog(@"testParsePanelGridButtonXML ");
@@ -59,36 +60,36 @@
 	int but_index = 0;
 	NSMutableArray *cells = [[NSMutableArray alloc] init];
 	NSMutableArray *buts = [[NSMutableArray alloc] init];
-	for (Group *group in groups) {
+	for (ORGroup *group in groups) {
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
-		for (Screen *screen in group.screens) {			
+		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[Button class]]) {
-							Button * but = (Button *)cell.component;
+						if ([cell.widget isKindOfClass:[ORButton class]]) {
+							ORButton * but = (ORButton *)cell.widget;
 							[buts addObject:but];
 							NSString *expectedName = [[NSMutableString alloc] initWithFormat:@"%c",(char)65 + but_index];						
-							STAssertTrue([but.name isEqualToString:expectedName],@"expected %@, but %@",expectedName,but.name);
-							int expectedId = (59 + but_index++);
-							STAssertTrue(expectedId == but.componentId,@"expected %d, but %d",expectedId,but.componentId);
+							STAssertTrue([but.label.text isEqualToString:expectedName],@"expected %@, but %@",expectedName,but.label.text);
+							ORObjectIdentifier *expectedIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + but_index++)];
+							STAssertTrue([expectedIdentifier isEqual:but.identifier], @"expected %@, but %@", expectedIdentifier, but.identifier);
 							NSString *expectedDefaultImageName = nil;
-							if (but.defaultImage) {
+							if (but.unpressedImage) {
 								expectedDefaultImageName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + image_index++];						
-								STAssertTrue([but.defaultImage.name isEqualToString:expectedDefaultImageName],@"expected %@, but %@",expectedDefaultImageName,but.defaultImage.name);
+								STAssertTrue([but.unpressedImage.src isEqualToString:expectedDefaultImageName],@"expected %@, but %@",expectedDefaultImageName,but.unpressedImage.src);
 							}
 							NSString *expectedPressedImageName = nil;
 							if (but.pressedImage) {
 								expectedPressedImageName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + image_index++];
-								STAssertTrue([but.pressedImage.name isEqualToString:expectedPressedImageName],@"expected %@, but %@",expectedPressedImageName,but.pressedImage.name);
+								STAssertTrue([but.pressedImage.src isEqualToString:expectedPressedImageName],@"expected %@, but %@",expectedPressedImageName,but.pressedImage.src);
 							}
                         }
 					}
@@ -107,49 +108,50 @@
 	//check screens
 	for (int i=0;i<screenNames.count;i++) {
 		STAssertTrue([[screenNames objectAtIndex:i] isEqualToString:[[screens objectAtIndex:i] name]],@"expected %@, but %@",[screenNames objectAtIndex:i],[[screens objectAtIndex:i] name]);
-		STAssertTrue(i+5 == [[screens objectAtIndex:i] screenId],@"expected %d, but %d",i+5,[[screens objectAtIndex:i] screenId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+5] isEqual:[[screens objectAtIndex:i] identifier]], @"expected %d, but %@",i+5,[[screens objectAtIndex:i] identifier]);
 	}
 	
 	//check groups
 	for (int i=0;i<groupNames.count;i++) {
 		STAssertTrue([[groupNames objectAtIndex:i] isEqualToString:[[groups objectAtIndex:i] name]],@"expected %@, but %@",[groupNames objectAtIndex:i],[[groups objectAtIndex:i] name]);
-		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+1] isEqual:[[groups objectAtIndex:i] identifier]], @"expected %d, but %@",i+1,[[groups objectAtIndex:i] identifier]);
 	}
 	
 	STAssertTrue(cells.count== 11,@"expected %d, but %d",11,cells.count);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
-	Screen *screen1 = (Screen *)[screens objectAtIndex:0];
-	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
-	STAssertTrue([@"" isEqualToString:ids],@"expected '', but %@",ids);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
+	ORScreen *screen1 = (ORScreen *)[screens objectAtIndex:0];
+//	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
+//	STAssertTrue([@"" isEqualToString:ids],@"expected '', but %@",ids);
 	
 	
 	STAssertTrue(buts.count== 11,@"expected %d, but %d",11,buts.count);
-	STAssertTrue(((Button *)[buts objectAtIndex:0]).navigate.toScreen == 19,@"expected %d",19);
-	STAssertTrue(((Button *)[buts objectAtIndex:0]).hasPressCommand == NO,@"expected NO");
-	STAssertTrue(((Button *)[buts objectAtIndex:1]).hasPressCommand == YES,@"expected YES");
-	STAssertTrue(((Button *)[buts objectAtIndex:1]).navigate == nil,@"expected nil");
-	STAssertTrue(((Button *)[buts objectAtIndex:2]).hasPressCommand == NO,@"expected NO");
-	STAssertTrue(((Button *)[buts objectAtIndex:2]).navigate.toScreen == 29,@"expected %d",29);
-	STAssertTrue(((Button *)[buts objectAtIndex:3]).hasPressCommand == NO,@"expected %d",NO);
-	STAssertTrue(((Button *)[buts objectAtIndex:3]).navigate.toGroup == 9,@"expected %d",9);
-	STAssertTrue(((Button *)[buts objectAtIndex:4]).hasPressCommand == NO,@"expected %d",NO);
-	STAssertTrue(((Button *)[buts objectAtIndex:4]).navigate.toGroup == 9,@"expected %d",9);
-	STAssertTrue(((Button *)[buts objectAtIndex:5]).hasPressCommand == NO,@"expected %d",NO);
-	STAssertTrue(((Button *)[buts objectAtIndex:5]).navigate.isPreviousScreen == YES,@"expected %d",YES);
-	STAssertTrue(((Button *)[buts objectAtIndex:6]).hasPressCommand == NO,@"expected %d",NO);
-	STAssertTrue(((Button *)[buts objectAtIndex:6]).navigate.isNextScreen == YES,@"expected %d",YES);
-	STAssertTrue(((Button *)[buts objectAtIndex:7]).navigate.isSetting == YES,@"expected %d",YES);
-	STAssertTrue(((Button *)[buts objectAtIndex:8]).navigate.isBack == YES,@"expected %d",YES);
-	STAssertTrue(((Button *)[buts objectAtIndex:9]).navigate.isLogin == YES,@"expected %d",YES);
-	STAssertTrue(((Button *)[buts objectAtIndex:10]).navigate.isLogout == YES,@"expected %d",YES);
+                      /*
+	STAssertTrue(((ORButton *)[buts objectAtIndex:0]).navigat.toScreen == 19,@"expected %d",19);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:0]).hasPressCommand == NO,@"expected NO");
+	STAssertTrue(((ORButton *)[buts objectAtIndex:1]).hasPressCommand == YES,@"expected YES");
+	STAssertTrue(((ORButton *)[buts objectAtIndex:1]).navigate == nil,@"expected nil");
+	STAssertTrue(((ORButton *)[buts objectAtIndex:2]).hasPressCommand == NO,@"expected NO");
+	STAssertTrue(((ORButton *)[buts objectAtIndex:2]).navigate.toScreen == 29,@"expected %d",29);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:3]).hasPressCommand == NO,@"expected %d",NO);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:3]).navigate.toGroup == 9,@"expected %d",9);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:4]).hasPressCommand == NO,@"expected %d",NO);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:4]).navigate.toGroup == 9,@"expected %d",9);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:5]).hasPressCommand == NO,@"expected %d",NO);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:5]).navigate.isPreviousScreen == YES,@"expected %d",YES);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:6]).hasPressCommand == NO,@"expected %d",NO);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:6]).navigate.isNextScreen == YES,@"expected %d",YES);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:7]).navigate.isSetting == YES,@"expected %d",YES);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:8]).navigate.isBack == YES,@"expected %d",YES);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:9]).navigate.isLogin == YES,@"expected %d",YES);
+	STAssertTrue(((ORButton *)[buts objectAtIndex:10]).navigate.isLogout == YES,@"expected %d",YES);
+                       */
 }
-*/
-/*
+
 // panel_grid_switch.xml test
 - (void) testParsePanelGridSwitchXML {
 	NSLog(@"testParsePanelGridSwitchXML ");
@@ -162,30 +164,31 @@
 	int switch_index = 0;
 	int state_value_index = 0;
 	NSMutableArray *cells = [[NSMutableArray alloc] init];
-	for (Group *group in groups) {
+	for (ORGroup *group in groups) {
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
-		for (Screen *screen in group.screens) {			
+		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[GridLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORGridLayoutContainer class]]){
 					NSLog(@"layout is grid ");
-					GridLayoutContainer *grid =(GridLayoutContainer *)layout;
+					ORGridLayoutContainer *grid =(ORGridLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",grid.left,grid.top,grid.width,grid.height];
 					NSString *expectedAttrs = @"20 20 300 400";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					for (GridCell *cell in grid.cells) {			
+					for (ORGridCell *cell in grid.cells) {
 						[cells addObject:cell];
-						if ([cell.component isKindOfClass:[Switch class]]) {
-							Switch *theSwitch = (Switch *)cell.component;
-							int expectedId = (59 + switch_index++);
-							STAssertTrue(expectedId == theSwitch.componentId,@"expected %d, but %d",expectedId,theSwitch.componentId);	
+						if ([cell.widget isKindOfClass:[ORSwitch class]]) {
+							ORSwitch *theSwitch = (ORSwitch *)cell.widget;
+							ORObjectIdentifier *expectedIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + switch_index++)];
+							STAssertTrue([expectedIdentifier isEqual:theSwitch.identifier], @"expected %@, but %@", expectedIdentifier, theSwitch.identifier);
 							NSString *expectedOnName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];						
 							STAssertTrue([theSwitch.onImage.src isEqualToString:expectedOnName],@"expected %@, but %@",expectedOnName,theSwitch.onImage.src);
 							NSString *expectedOffName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];
 							STAssertTrue([theSwitch.offImage.src isEqualToString:expectedOffName],@"expected %@, but %@",expectedOffName,theSwitch.offImage.src);
 							
 							// assert sensor
+                            /*
 							for (int i = 0; i < [theSwitch.sensor.states count]; i++) {
 								NSString *expectedStateName;
 								NSString *expectedStateValue = [@"" stringByAppendingFormat:@"%c.png", (char)97 + state_value_index++];
@@ -198,6 +201,7 @@
 								STAssertTrue([expectedStateName isEqualToString:sensorState.name], @"expected %@, but %@", expectedStateName, sensorState.name);
 								STAssertTrue([expectedStateValue isEqualToString:sensorState.value], @"expected %@, but %@", expectedStateValue, sensorState.value);
 							}
+                             */
 						}	
 					}
 				}				
@@ -215,26 +219,28 @@
 	//check screens
 	for (int i=0;i<screenNames.count;i++) {
 		STAssertTrue([[screenNames objectAtIndex:i] isEqualToString:[[screens objectAtIndex:i] name]],@"expected %@, but %@",[screenNames objectAtIndex:i],[[screens objectAtIndex:i] name]);
-		STAssertTrue(i+5 == [[screens objectAtIndex:i] screenId],@"expected %d, but %d",i+5,[[screens objectAtIndex:i] screenId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+5] isEqual:[[screens objectAtIndex:i] identifier]], @"expected %d, but %@", i+5, [[screens objectAtIndex:i] identifier]);
 	}
 	
 	//check groups
 	for (int i=0;i<groupNames.count;i++) {
 		STAssertTrue([[groupNames objectAtIndex:i] isEqualToString:[[groups objectAtIndex:i] name]],@"expected %@, but %@",[groupNames objectAtIndex:i],[[groups objectAtIndex:i] name]);
-		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+1] isEqual:[[groups objectAtIndex:i] identifier]], @"expected %d, but %@", i+1, [[groups objectAtIndex:i] identifier]);
 	}
 	
 	STAssertTrue(cells.count== 5,@"expected %d, but %d",5,cells.count);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
-	STAssertTrue(((GridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
-	Screen *screen1 = (Screen *)[screens objectAtIndex:0];
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:0]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:1]).rowspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:2]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:3]).colspan == 1,@"expected %d",1);
+	STAssertTrue(((ORGridCell *)[cells objectAtIndex:4]).colspan == 2,@"expected %d",2);
+	ORScreen *screen1 = (ORScreen *)[screens objectAtIndex:0];
+                      /*
     NSSet *ids = [NSSet setWithArray:[screen1 pollingComponentsIds]];
     NSSet *expectedIds = [NSSet setWithObjects:@"59", @"60", @"61", @"62", nil];
     STAssertEqualObjects(expectedIds, ids, @"expected 59,60,61,62, but got %@",ids);	
+                       */
 }
 
 // panel_absolute_switch.xml test
@@ -249,27 +255,27 @@
 	int state_index = 0;
 	int switch_index = 0;
 	int state_value_index = 0;
-	for (Group *group in groups) {
+	for (ORGroup *group in groups) {
 		NSLog(@"group %@ has %d screen", group.name,group.screens.count);
-		for (Screen *screen in group.screens) {			
+		for (ORScreen *screen in group.screens) {
 			NSLog(@"screen %@ has %d layout", screen.name, screen.layouts.count);
-			for (LayoutContainer *layout in screen.layouts) {
-				if([layout isKindOfClass:[AbsoluteLayoutContainer class]]){					
+			for (ORLayoutContainer *layout in screen.layouts) {
+				if([layout isKindOfClass:[ORAbsoluteLayoutContainer class]]){
 					NSLog(@"layout is absolute ");
-					AbsoluteLayoutContainer *abso =(AbsoluteLayoutContainer *)layout;
+					ORAbsoluteLayoutContainer *abso =(ORAbsoluteLayoutContainer *)layout;
 					NSString *layoutAttrs = [[NSMutableString alloc] initWithFormat:@"%d %d %d %d",abso.left,abso.top,abso.width,abso.height];
 					NSString *expectedAttrs = @"20 320 100 100";
 					STAssertTrue([expectedAttrs isEqualToString:layoutAttrs],@"expected %@, but %@",expectedAttrs,layoutAttrs);
 					
-					if ([abso.component isKindOfClass:[Switch class]]) {
-						Switch *theSwitch = (Switch *)abso.component;
-						int expectedId = (59 + switch_index++);
-						STAssertTrue(expectedId == theSwitch.componentId,@"expected %d, but %d",expectedId,theSwitch.componentId);	
+					if ([abso.widget isKindOfClass:[ORSwitch class]]) {
+						ORSwitch *theSwitch = (ORSwitch *)abso.widget;
+						ORObjectIdentifier *expectedIdentifier = [[ORObjectIdentifier alloc] initWithIntegerId:(59 + switch_index++)];
+						STAssertTrue([expectedIdentifier isEqual:theSwitch.identifier], @"expected %@, but %@", expectedIdentifier, theSwitch.identifier);
 						NSString *expectedOnName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];						
 						STAssertTrue([theSwitch.onImage.src isEqualToString:expectedOnName],@"expected %@, but %@",expectedOnName,theSwitch.onImage.src);
 						NSString *expectedOffName = [[NSMutableString alloc] initWithFormat:@"%c.png",(char)97 + state_index++];
 						STAssertTrue([theSwitch.offImage.src isEqualToString:expectedOffName],@"expected %@, but %@",expectedOffName,theSwitch.offImage.src);
-
+/*
 						// assert sensor
 						for (int i = 0; i < [theSwitch.sensor.states count]; i++) {
 							NSString *expectedStateName;
@@ -283,6 +289,7 @@
 							STAssertTrue([expectedStateName isEqualToString:sensorState.name], @"expected %@, but %@", expectedStateName, sensorState.name);
 							STAssertTrue([expectedStateValue isEqualToString:sensorState.value], @"expected %@, but %@", expectedStateValue, sensorState.value);
 						}
+ */
 					}					
 				}				
 			}
@@ -299,19 +306,20 @@
 	//check screens
 	for (int i=0;i<screenNames.count;i++) {
 		STAssertTrue([[screenNames objectAtIndex:i] isEqualToString:[[screens objectAtIndex:i] name]],@"expected %@, but %@",[screenNames objectAtIndex:i],[[screens objectAtIndex:i] name]);
-		STAssertTrue(i+5 == [[screens objectAtIndex:i] screenId],@"expected %d, but %d",i+5,[[screens objectAtIndex:i] screenId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+5] isEqual:[[screens objectAtIndex:i] identifier]], @"expected %d, but %@", i+5, [[screens objectAtIndex:i] identifier]);
 	}
 	
 	//check groups
 	for (int i=0;i<groupNames.count;i++) {
 		STAssertTrue([[groupNames objectAtIndex:i] isEqualToString:[[groups objectAtIndex:i] name]],@"expected %@, but %@",[groupNames objectAtIndex:i],[[groups objectAtIndex:i] name]);
-		STAssertTrue(i+1 == [[groups objectAtIndex:i] groupId],@"expected %d, but %d",i+1,[[groups objectAtIndex:i] groupId]);
+		STAssertTrue([[[ORObjectIdentifier alloc] initWithIntegerId:i+1] isEqual:[[groups objectAtIndex:i] identifier]], @"expected %d, but %@", i+1, [[groups objectAtIndex:i] identifier]);
 	}
-	Screen *screen1 = (Screen *)[screens objectAtIndex:0];
+	ORScreen *screen1 = (ORScreen *)[screens objectAtIndex:0];
+                      /*
 	NSString *ids = [[screen1 pollingComponentsIds] componentsJoinedByString:@","];
 	STAssertTrue([@"59,60" isEqualToString:ids],@"expected 59,60 but %@",ids);
+                       */
 }
-*/
 
 // panel_grid_slider.xml test
 /*
