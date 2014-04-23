@@ -55,6 +55,7 @@
  * Establishes connection to the controller.
  * Reports success/error through provided handlers.
  * successHandler is guaranteed to be called after the connection has been established.
+ * Both handlers are guaranteed to be called on the same thread that initially called this method.
  *
  * @param successHandler A block object to be executed once connection to the controller has been established.
  * This block has no return value and does not take any parameter.
@@ -83,6 +84,7 @@
 
 /**
  * Requests the list of panel identities in the configuration of this controller.
+ * Both handlers are guaranteed to be called on the same thread that initially called this method.
  *
  * @param successHandler A block object to be executed once the controller configuration has been successfully read.
  * This block has no return value and takes a single NSArray * argument with all the panel identities.
@@ -95,6 +97,7 @@
 /**
  * Requests the full panel layout definition of a given panel.
  * TODO: First connects to the controller if it's not yet the case. ??? really ?
+ * Both handlers are guaranteed to be called on the same thread that initially called this method.
  *
  * After this call, the properties of the returned data model will be updated based on controller feedback,
  * for as long as connection to the controller stays open.
@@ -122,6 +125,9 @@
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 
+/**
+ * Both handlers are guaranteed to be called on the same thread that initially called this method.
+ */
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 - (void)sendPressCommandForButton:(ORButton *)sender;
