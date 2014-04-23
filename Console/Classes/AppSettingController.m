@@ -330,7 +330,7 @@
 {
     // IPHONE-107    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[settingsManager.consoleSettings.controllers indexOfObject:[notification object]] inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationNone];
 
-    NSLog(@"controllers %d", [self.settingsManager.consoleSettings.controllers count]);
+    NSLog(@"controllers %lu", (unsigned long)[self.settingsManager.consoleSettings.controllers count]);
     if (!self.settingsManager.consoleSettings.selectedController && [self.settingsManager.consoleSettings.controllers count] == 1) {
         self.settingsManager.consoleSettings.selectedController = [notification object];
     }
@@ -673,7 +673,7 @@
 
 - (void)fetchGroupMembersForAllControllers
 {
-    NSLog(@">>fetchGroupMembersForAllControllers -> settingsManager.consoleSettings.controllers: %d", [self.settingsManager.consoleSettings.controllers count]);
+    NSLog(@">>fetchGroupMembersForAllControllers -> settingsManager.consoleSettings.controllers: %lu", (unsigned long)[self.settingsManager.consoleSettings.controllers count]);
     [self.settingsManager.consoleSettings.controllers makeObjectsPerformSelector:@selector(fetchGroupMembers)];
 }
 

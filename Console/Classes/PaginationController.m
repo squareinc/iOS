@@ -156,7 +156,7 @@
 	}
 	if (index != -1) {//found screen in current orientation
 		selectedIndex = index;
-		NSLog(@"switch to screen index = %d, id = %@ animation=%d", selectedIndex, aScreen.identifier, withAnimation);
+		NSLog(@"switch to screen index = %lu, id = %@ animation=%d", (unsigned long)selectedIndex, aScreen.identifier, withAnimation);
 		[pageControl setCurrentPage:selectedIndex];
 		[self scrollToSelectedViewWithAnimation:withAnimation];
 	} else {

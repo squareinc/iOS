@@ -100,7 +100,7 @@
 - (void)controllerRequestDidReceiveResponse:(NSURLResponse *)response
 {
 	NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
-	NSLog(@"polling[%@] statusCode is %d", self.ids, [httpResp statusCode]);
+	NSLog(@"polling[%@] statusCode is %ld", self.ids, (long)[httpResp statusCode]);
 	
 	[self handleServerResponseWithStatusCode:[httpResp statusCode]];
 }

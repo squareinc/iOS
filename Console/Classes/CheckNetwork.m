@@ -79,7 +79,7 @@
 
     NetworkStatus remoteHostReachability = [reachability currentReachabilityStatus];
 	if (remoteHostReachability == NotReachable) {
-		NSLog(@"checkIPAddress status is %d", remoteHostReachability);
+		NSLog(@"checkIPAddress status is %ld", remoteHostReachability);
 		@throw [CheckNetworkException exceptionWithTitle:@"Check controller ip address Fail" message:@"Your server address is wrong, please check your settings"];
 	}
 }
@@ -146,7 +146,7 @@
     [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&error];
     
 	if ([resp statusCode] != 200 ){
-		NSLog(@"CheckNetworkException statusCode=%d, errorCode=%d, %@, %@", [resp statusCode], [error code], url,[error localizedDescription]);
+		NSLog(@"CheckNetworkException statusCode=%ld, errorCode=%ld, %@, %@", (long)[resp statusCode], (long)[error code], url,[error localizedDescription]);
 		
 		if ([resp statusCode] == UNAUTHORIZED) {			
 			@throw [CheckNetworkException exceptionWithTitle:@"" message:@"401"];

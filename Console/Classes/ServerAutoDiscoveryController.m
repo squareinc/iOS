@@ -87,7 +87,7 @@
 		[self.tcpTimer invalidate];
 	}
 
-	NSLog(@"clients count is %d", [self.clients count]);
+	NSLog(@"clients count is %lu", (unsigned long)[self.clients count]);
     [self.clients makeObjectsPerformSelector:@selector(disconnect)];
     
     self.settings = nil;

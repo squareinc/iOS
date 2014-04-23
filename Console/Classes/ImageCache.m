@@ -96,7 +96,7 @@
     dispatch_sync(self.serialQueue, ^{
         UIImage *finalImage = [self getImageNamed:imageName];
         
-        NSLog(@"Will notify %d of %@ availability", [[self.activeLoad objectForKey:imageName] count], imageName);
+        NSLog(@"Will notify %lu of %@ availability", (unsigned long)[[self.activeLoad objectForKey:imageName] count], imageName);
         
         for (ImageAvailableBlock block in [self.activeLoad objectForKey:imageName]) {
             block(finalImage);
