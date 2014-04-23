@@ -483,6 +483,13 @@
     }
 }
 
+#pragma mark Status bar management
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 #pragma mark Detect the shake motion.
 
 -(BOOL)canBecomeFirstResponder {
