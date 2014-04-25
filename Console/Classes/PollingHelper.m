@@ -20,7 +20,6 @@
  */
 #import "PollingHelper.h"
 #import "AppDelegate.h"
-#import "URLConnectionHelper.h"
 #import "ORControllerClient/LocalController.h"
 #import "ORControllerClient/LocalSensor.h"
 #import "SensorStatusCache.h"
@@ -30,6 +29,7 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ORControllerClient/ORObjectIdentifier.h"
+#import "ViewHelper.h"
 
 //retry polling after half a second
 #define POLLING_RETRY_DELAY 0.5
@@ -121,23 +121,12 @@
 
 - (void)pollingDidFailWithError:(NSError *)error;
 {
-    
-	//if iphone is in sleep mode, retry polling after a while.
-	if (![URLConnectionHelper isWifiActive]) {
-		[NSTimer scheduledTimerWithTimeInterval:POLLING_RETRY_DELAY 
-                                         target:self 
-                                       selector:@selector(doPolling) 
-                                       userInfo:nil 
-                                        repeats:NO];
-	} else if (!self.isError) {
-		NSLog(@"Polling failed, %@",[error localizedDescription]);
-		self.isError = YES;
-	}    
+    NSLog(@"Polling failed, %@",[error localizedDescription]);
+	self.isError = YES;
 }
 
 - (void)pollingDidSucceed
 {
-    [URLConnectionHelper setWifiActive:YES];
     self.isError = NO;
     if (self.isPolling) {
         [self doPolling];
