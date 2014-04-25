@@ -27,7 +27,6 @@
 #import "AppSettingsDefinition.h"
 #import "CredentialUtil.h"
 #import "ControllerException.h"
-#import "URLConnectionHelper.h"
 #import "NSString+ORAdditions.h"
 #import "ORControllerConfig.h"
 #import "ServerDefinition.h"

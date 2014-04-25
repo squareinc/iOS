@@ -36,7 +36,6 @@
 #import "ServerDefinition.h"
 #import "DirectoryDefinition.h"
 #import "RoundRobinException.h"
-#import "URLConnectionHelper.h"
 #import "CredentialUtil.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"

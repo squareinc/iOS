@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ChoosePanelViewController.h"
-#import "URLConnectionHelper.h"
 #import "ServerDefinition.h"
 #import "AppSettingsDefinition.h"
 #import "ControllerException.h"
@@ -30,6 +29,7 @@
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
+#import "ViewHelper.h"
 
 @interface ChoosePanelViewController ()
 
