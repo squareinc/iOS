@@ -59,7 +59,6 @@
 		60366B8D144DCB9C004FED3B /* ControllerRequiresAuthentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 6055689013CF188F0035CC1A /* ControllerRequiresAuthentication.png */; };
 		60366B8E144DCB9C004FED3B /* ControllerRequiresAuthentication@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6055689113CF188F0035CC1A /* ControllerRequiresAuthentication@2x.png */; };
 		60366B90144DCB9C004FED3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */; };
 		60366B93144DCB9C004FED3B /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E7150F541FAB006CC0DF /* StringUtils.m */; };
 		60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */; };
 		60366B95144DCB9C004FED3B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE48A0FA0431700F18AA1 /* Reachability.m */; };
@@ -144,7 +143,6 @@
 		6068DE8613744DCB007746F1 /* ControllerException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7EBE310BE773600E15487 /* ControllerException.m */; };
 		6068DE8713744DCB007746F1 /* ORConsoleSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */; };
 		6068DE9413744E0E007746F1 /* CredentialUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC6364D10BD37D8009C25C9 /* CredentialUtil.m */; };
-		6068DE9513744E21007746F1 /* URLConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */; };
 		6068DE9913744E46007746F1 /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F111095628C00C7A686 /* UpdateController.m */; };
 		6068DE9A13744E5B007746F1 /* NotificationConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F3F109563E100C7A686 /* NotificationConstant.m */; };
 		6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F0D1095628C00C7A686 /* ServerAutoDiscoveryController.m */; };
@@ -447,8 +445,6 @@
 		60FAD47E154050B1008DA70E /* Capabilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capabilities.m; sourceTree = "<group>"; };
 		60FAD4821540571E008DA70E /* ControllerVersionSelectAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerVersionSelectAPI.h; sourceTree = "<group>"; };
 		60FAD4831540571E008DA70E /* ControllerVersionSelectAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerVersionSelectAPI.m; sourceTree = "<group>"; };
-		799CC3CC0F4D4EEA006195BD /* URLConnectionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectionHelper.h; sourceTree = "<group>"; };
-		799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = URLConnectionHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8C09E76210BA838800A475D8 /* ControllerException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerException.h; sourceTree = "<group>"; };
 		8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8C3DE3001163492C00DD4EE7 /* btn_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_green.png; path = image/btn_green.png; sourceTree = "<group>"; };
@@ -1049,8 +1045,6 @@
 			children = (
 				916B6B9917FDC298000CB0CA /* ImageCache.h */,
 				916B6B9A17FDC298000CB0CA /* ImageCache.m */,
-				799CC3CC0F4D4EEA006195BD /* URLConnectionHelper.h */,
-				799CC3CD0F4D4EEA006195BD /* URLConnectionHelper.m */,
 				8C7BE4210FA0395F00F18AA1 /* ViewHelper.h */,
 				8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */,
 				8C6502E0109809EC006FC19F /* PollingHelper.h */,
@@ -1482,7 +1476,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60366B90144DCB9C004FED3B /* main.m in Sources */,
-				60366B91144DCB9C004FED3B /* URLConnectionHelper.m in Sources */,
 				91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
@@ -1610,7 +1603,6 @@
 				6068DE9A13744E5B007746F1 /* NotificationConstant.m in Sources */,
 				916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */,
 				6068DE9913744E46007746F1 /* UpdateController.m in Sources */,
-				6068DE9513744E21007746F1 /* URLConnectionHelper.m in Sources */,
 				6068DE9413744E0E007746F1 /* CredentialUtil.m in Sources */,
 				6068DE8513744DCB007746F1 /* CheckNetworkException.m in Sources */,
 				6068DE8613744DCB007746F1 /* ControllerException.m in Sources */,
