@@ -19,14 +19,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
-#import "URLConnectionHelper.h"
 
 @class ORConsoleSettingsManager;
 
 /**
  * Helper for logout.
  */
-@interface LogoutHelper : NSObject <URLConnectionHelperDelegate> {
+@interface LogoutHelper : NSObject {
 
 }
 
