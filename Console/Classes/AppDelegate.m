@@ -26,10 +26,10 @@
 
 #import "AppDelegate.h"
 #import "NotificationConstant.h"
-#import "URLConnectionHelper.h"
 #import "DirectoryDefinition.h"
 #import "ORConsoleSettingsManager.h"
 #import "ImageCache.h"
+#import "ViewHelper.h"
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
@@ -77,17 +77,15 @@
 	return YES;
 }
 
-
-//when it wake up, WIFI is active.
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    // TODO: re-connect with controller
+    
 	[self.defaultViewController refreshPolling];
 }
 
-// To save battery, it will disconnect from WIFI when in sleep mode. 
-// if its plugged into USB or a charger it remains connect.
-// locking a phone will not let it sleep at once until a couple of minutes. 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	[URLConnectionHelper setWifiActive:NO];
+    // TODO: stop disconnect from controller
 }
 
 - (void)checkConfigAndUpdate {
