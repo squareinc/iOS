@@ -50,54 +50,12 @@
 }
 
 - (void)requestLogout {
-	NSURL *url = [[NSURL alloc] initWithString:[ServerDefinition logoutUrlForController:self.settingsManager.consoleSettings.selectedController]];
-	
-	//assemble put request 
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:url];
-	[request setHTTPMethod:@"POST"];
-
-	URLConnectionHelper *connection = [[URLConnectionHelper alloc] initWithRequest:request delegate:self];
-	
-    // TODO: validate how this should be implemented, creating a connection here, not retained by anycode might be trouble
     
+    // Used to send POST request on logout "resource" (http://<controller address>:<controller port>/controller/logout)
+    // But there is no session maintained with controller
+    // And this call is not documented as part of the controller REST API
+    
+    // So don't do anything for now
 }
-
-// Handle the server response which are from controller server with status code.
-- (void)handleServerResponseWithStatusCode:(NSInteger) statusCode {
-	if (statusCode != 200) {
-		switch (statusCode) {
-			case UNAUTHORIZED://logout succuessful
-            {
-                ORControllerConfig *activeController = self.settingsManager.consoleSettings.selectedController;
-				NSLog(@"%@ logged out successfully", activeController.userName);
-				[ViewHelper showAlertViewWithTitle:@"" Message:[NSString stringWithFormat:@"%@ logged out successfully", activeController.userName]];
-                activeController.password = nil;
-                [self.settingsManager saveConsoleSettings];
-				return;
-            }
-		} 		
-		[ViewHelper showAlertViewWithTitle:@"Send Request Error" Message:[ControllerException controller:self.settingsManager.consoleSettings.selectedController
-                                                                                  exceptionMessageOfCode:statusCode]];
-	} 
-	
-}
-
-
-#pragma mark delegate method of NSURLConnection
-- (void) definitionURLConnectionDidFailWithError:(NSError *)error {
-
-}
-
-
-- (void)definitionURLConnectionDidFinishLoading:(NSData *)data {
-	
-}
-
-- (void)definitionURLConnectionDidReceiveResponse:(NSURLResponse *)response {
-	NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
-	[self handleServerResponseWithStatusCode:[httpResp statusCode]];
-}
-
 
 @end
