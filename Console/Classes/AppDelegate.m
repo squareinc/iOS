@@ -77,15 +77,17 @@
 	return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [self.defaultViewController connectToController];
     
-    // TODO: re-connect with controller
-    
+    // TODO: review
 	[self.defaultViewController refreshPolling];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // TODO: stop disconnect from controller
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self.defaultViewController disconnectFromController];
 }
 
 - (void)checkConfigAndUpdate {

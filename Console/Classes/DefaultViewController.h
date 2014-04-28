@@ -86,6 +86,9 @@
 
 - (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate;
 
+- (void)connectToController;
+- (void)disconnectFromController;
+
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end

@@ -28,6 +28,7 @@
 #import "ORControllerClient/ORGroup.h"
 #import "ORControllerClient/ORScreen.h"
 #import "ORControllerClient/ORObjectIdentifier.h"
+#import "ORControllerClient/ORController.h"
 
 #import "ScreenReference.h"
 #import "ScreenReferenceStack.h"
@@ -481,6 +482,18 @@
         [self.view addSubview:gc.view];
         [gc didMoveToParentViewController:self];
     }
+}
+
+#pragma mark -
+
+- (void)connectToController
+{
+    [[self.settingsManager consoleSettings].selectedController.controller connectWithSuccessHandler:NULL errorHandler:NULL];
+}
+
+- (void)disconnectFromController
+{
+    [[self.settingsManager consoleSettings].selectedController.controller disconnect];
 }
 
 #pragma mark Status bar management
