@@ -28,7 +28,6 @@
 		602418E6156FAC6D004E5860 /* UITableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418E4156FAC6D004E5860 /* UITableViewHelper.m */; };
 		602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418E4156FAC6D004E5860 /* UITableViewHelper.m */; };
 		602418EB156FAD40004E5860 /* UITableViewHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418EA156FAD40004E5860 /* UITableViewHelperTest.m */; };
-		6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
 		60366B6B144DCB9C004FED3B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */; };
 		60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CFDB2760FBBBF4500D204CB /* appSettings.plist */; };
 		60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 97B0011F106127AF00C31E4A /* iTunesArtwork */; };
@@ -100,7 +99,6 @@
 		60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044316D136EE69200BABA2D /* ORConsoleSettingsManager.m */; };
 		60366BDD144DCB9C004FED3B /* ORControllerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCECF1371787300A811D4 /* ORControllerProxy.m */; };
 		60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCEE813729AA400A811D4 /* ControllerRequest.m */; };
-		60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */; };
 		60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */; };
 		60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079C2B813CB4E0A00E6F326 /* TableViewCellWithSelectionAndIndicator.m */; };
 		60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055687813CDBD9B0035CC1A /* ORControllerGroupMembersFetcher.m */; };
@@ -336,8 +334,6 @@
 		60950D9D13CB127100B983E7 /* CheckMarkBlankPlaceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkBlankPlaceHolder@2x.png"; sourceTree = "<group>"; };
 		60950E1413CB3A6100B983E7 /* ControllerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerDetailViewController.h; sourceTree = "<group>"; };
 		60950E1513CB3A6200B983E7 /* ControllerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerDetailViewController.m; sourceTree = "<group>"; };
-		6097DAEE1378099D00E22AA8 /* ORControllerPollingSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPollingSender.h; sourceTree = "<group>"; };
-		6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPollingSender.m; sourceTree = "<group>"; };
 		609AAFCB156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPollOrStatusSender.h; sourceTree = "<group>"; };
 		609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPollOrStatusSender.m; sourceTree = "<group>"; };
 		609AAFD1156A5FA6000DA1F9 /* ORControllerStatusRequestSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerStatusRequestSender.h; sourceTree = "<group>"; };
@@ -876,8 +872,6 @@
 				609AAFD7156A61F6000DA1F9 /* ORControllerSender.m */,
 				609AAFCB156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.h */,
 				609AAFCC156A5DBE000DA1F9 /* ORControllerPollOrStatusSender.m */,
-				6097DAEE1378099D00E22AA8 /* ORControllerPollingSender.h */,
-				6097DAEF1378099D00E22AA8 /* ORControllerPollingSender.m */,
 				609AAFD1156A5FA6000DA1F9 /* ORControllerStatusRequestSender.h */,
 				609AAFD2156A5FA6000DA1F9 /* ORControllerStatusRequestSender.m */,
 				60FAD46E153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.h */,
@@ -1515,7 +1509,6 @@
 				60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */,
 				60366BDD144DCB9C004FED3B /* ORControllerProxy.m in Sources */,
 				60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */,
-				60366BE0144DCB9C004FED3B /* ORControllerPollingSender.m in Sources */,
 				60366BE4144DCB9C004FED3B /* ControllerDetailViewController.m in Sources */,
 				60366BE5144DCB9C004FED3B /* TableViewCellWithSelectionAndIndicator.m in Sources */,
 				60366BE6144DCB9C004FED3B /* ORControllerGroupMembersFetcher.m in Sources */,
@@ -1586,7 +1579,6 @@
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
-				6026CD8D138BE4E60062477F /* ORControllerPollingSender.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
 				914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */,
 				6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */,
