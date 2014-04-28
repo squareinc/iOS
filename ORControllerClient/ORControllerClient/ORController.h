@@ -54,6 +54,8 @@
 
 /**
  * Establishes connection to the controller.
+ * If the controller already has definition attached to it, this also restarts polling for model updates.
+ * 
  * Reports success/error through provided handlers.
  * successHandler is guaranteed to be called after the connection has been established.
  * Both handlers are guaranteed to be called on the same thread that initially called this method.

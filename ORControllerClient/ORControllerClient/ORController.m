@@ -78,6 +78,19 @@
     // TODO: in later version, this could be a good place to get the controller capabilities
 
     self.connected = YES;
+    
+    // If we have a panel definition, (re-)start polling for model changes
+    if (self.lastPanelDefinition && !self.pollingManager) {
+        // Make sure we have latest version of authentication manager set on API before call
+        self.controllerAPI.authenticationManager = self.authenticationManager;
+        
+        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
+                                                                  controllerAddress:self.address
+                                                                     sensorRegistry:self.lastPanelDefinition.sensorRegistry];
+    }
+    if (self.pollingManager) {
+        [self.pollingManager start];
+    }
     if (successHandler) {
         successHandler();
     }
