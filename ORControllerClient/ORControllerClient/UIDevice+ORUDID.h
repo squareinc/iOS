@@ -21,8 +21,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIDevice (UDID)
+@interface UIDevice (ORUDID)
 
-- (NSString *)uniqueID;
+- (NSString *)or_uniqueID;
 
 @end

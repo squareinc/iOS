@@ -19,13 +19,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "UIDevice+UDID.h"
+#import "UIDevice+ORUDID.h"
 
-@implementation UIDevice (UDID)
+@implementation UIDevice (ORUDID)
 
 // Code coming from http://stackoverflow.com/questions/18868576/udid-replacement-in-ios7
 // No license specified, considered public domain
-- (NSString *)uniqueID
+- (NSString *)or_uniqueID
 {
     NSString *uniqueIdentifier = nil;
     if ([UIDevice instancesRespondToSelector:@selector(identifierForVendor)]) {

@@ -34,7 +34,7 @@
 		911392E7189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */; };
 		911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */; };
 		911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */ = {isa = PBXBuildFile; fileRef = 911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */; };
-		9117549D190E4FD700B20448 /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9117549C190E4FD700B20448 /* UIDevice+UDID.m */; };
+		911754A0190E505100B20448 /* UIDevice+ORUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9117549F190E505100B20448 /* UIDevice+ORUDID.m */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
 		91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */; };
 		91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
@@ -363,8 +363,8 @@
 		911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_0_0.m; sourceTree = "<group>"; };
 		911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButtonParser_2_0_0Test.m; sourceTree = "<group>"; };
 		911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_0_0Test.h; sourceTree = "<group>"; };
-		9117549B190E4FD700B20448 /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
-		9117549C190E4FD700B20448 /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
+		9117549E190E505100B20448 /* UIDevice+ORUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ORUDID.h"; sourceTree = "<group>"; };
+		9117549F190E505100B20448 /* UIDevice+ORUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ORUDID.m"; sourceTree = "<group>"; };
 		91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBindingTest.m; sourceTree = "<group>"; };
 		91222D7D18912FED00BA0B96 /* ORDeferredBindingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeferredBindingTest.h; sourceTree = "<group>"; };
 		91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORImageLabelDeferredBindingTest.m; sourceTree = "<group>"; };
@@ -1083,8 +1083,6 @@
 		9193330A1799822A0086FEE7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				9117549B190E4FD700B20448 /* UIDevice+UDID.h */,
-				9117549C190E4FD700B20448 /* UIDevice+UDID.m */,
 				9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */,
 				9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */,
 				9193330F179982630086FEE7 /* ORRuntimeUtils.h */,
@@ -1093,6 +1091,8 @@
 				9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */,
 				9178DF961844D46500E862DF /* UIColor+ORAdditions.h */,
 				9178DF971844D46500E862DF /* UIColor+ORAdditions.m */,
+				9117549E190E505100B20448 /* UIDevice+ORUDID.h */,
+				9117549F190E505100B20448 /* UIDevice+ORUDID.m */,
 				9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */,
 				9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */,
 			);
@@ -1450,6 +1450,7 @@
 				917BA54418C2343E006006E9 /* ORGroup.m in Sources */,
 				91C3DF2F18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m in Sources */,
 				91A4A23F18D5E3560070F823 /* ORModelObject.m in Sources */,
+				911754A0190E505100B20448 /* UIDevice+ORUDID.m in Sources */,
 				91222D881892659E00BA0B96 /* ORSensorStatesMapping.m in Sources */,
 				9193335A179E9BD00086FEE7 /* ORColorPicker.m in Sources */,
 				91B357DA18BB8D6B00ADED24 /* ORScreenNavigation.m in Sources */,
@@ -1458,7 +1459,6 @@
 				91B72FAD189035B7000B7552 /* ORImageLabelDeferredBinding.m in Sources */,
 				9193335D179E9BD00086FEE7 /* Definition.m in Sources */,
 				9193335F179E9BD00086FEE7 /* ORGridCell.m in Sources */,
-				9117549D190E4FD700B20448 /* UIDevice+UDID.m in Sources */,
 				91933360179E9BD00086FEE7 /* ORGridLayoutContainer.m in Sources */,
 				91933364179E9BD00086FEE7 /* ORLayoutContainer.m in Sources */,
 				91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */,
