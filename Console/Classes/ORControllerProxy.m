@@ -89,15 +89,6 @@
 
 #pragma mark -
 
-- (ORControllerStatusRequestSender *)requestStatusForIds:(NSString *)ids delegate:(NSObject <ORControllerPollingSenderDelegate> *)delegate
-{
-    ORControllerStatusRequestSender *statusRequestSender = [[ORControllerStatusRequestSender alloc] initWithController:self.controller ids:ids];
-    statusRequestSender.delegate = delegate;
-    [self queueCommand:statusRequestSender];
-    [self processQueue];
-    return statusRequestSender;
-}
-
 - (ORControllerCapabilitiesFetcher *)fetchCapabilitiesWithDelegate:(NSObject <ORControllerCapabilitiesFetcherDelegate> *)delegate
 {
     ORControllerCapabilitiesFetcher *capabilitiesFetcher = [[ORControllerCapabilitiesFetcher alloc] initWithController:self.controller];
@@ -106,11 +97,6 @@
     [self processQueue];
     return capabilitiesFetcher;
 }
-
-
-
-
-
 
 - (ORControllerGroupMembersFetcher *)fetchGroupMembersWithDelegate:(NSObject <ORControllerGroupMembersFetcherDelegate> *)delegate
 {
