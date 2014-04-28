@@ -38,6 +38,7 @@
 		911754A1190E525500B20448 /* ORColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ORColorPicker.m */; };
 		911754A3190E52EB00B20448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911754A2190E52EB00B20448 /* CoreGraphics.framework */; };
 		911754A4190E52F300B20448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911754A2190E52EB00B20448 /* CoreGraphics.framework */; };
+		911754A5190E575000B20448 /* UIDevice+ORUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9117549F190E505100B20448 /* UIDevice+ORUDID.m */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
 		91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */; };
 		91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
@@ -1543,6 +1544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911754A5190E575000B20448 /* UIDevice+ORUDID.m in Sources */,
 				911754A1190E525500B20448 /* ORColorPicker.m in Sources */,
 				91222D911892AEE000BA0B96 /* ORSensor.m in Sources */,
 				9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */,

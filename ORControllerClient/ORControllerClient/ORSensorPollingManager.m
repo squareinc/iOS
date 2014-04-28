@@ -27,6 +27,7 @@
 #import "ORSensorStatesMapping.h"
 #import "ORRESTCall.h"
 #import "ORControllerRESTAPI.h"
+#import "UIDevice+ORUDID.h"
 
 typedef void (^PollingBlock)();
 
@@ -72,7 +73,7 @@ typedef void (^PollingBlock)();
     
     self.sensorPollingBlock = ^{
         weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
-                                fromDeviceWithIdentifier:@"TODO"
+                                fromDeviceWithIdentifier:[[UIDevice currentDevice] or_uniqueID]
                                                atBaseURL:weakSelf._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
                                           
