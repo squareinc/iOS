@@ -34,9 +34,13 @@
 
 - (void)testSuccessfulResponse
 {
+    NSCondition *callbackDone = [[NSCondition alloc] init];
     __block BOOL successHandlerCalled = NO;
     void (^successHandler)(NSArray *) = ^(NSArray *panels) {
+        [callbackDone lock];
         successHandlerCalled = YES;
+        [callbackDone signal];
+        [callbackDone unlock];
         [[[ORPanelsParserTest alloc] init] assertValidResponse:panels];
     };
     PanelIdentityListResponseHandler_2_0_0 *responseHandler = [[PanelIdentityListResponseHandler_2_0_0 alloc]
@@ -49,6 +53,11 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     [responseHandler connectionDidFinishLoading:nil receivedData:data];
+    
+    // Success handler now called in the background, so should wait before doing the assertion
+    [callbackDone lock];
+    [callbackDone waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5.0]];
+    [callbackDone unlock];
     
     STAssertTrue(successHandlerCalled, @"Success handler should have been called upon receiving response with valid data");
 }
