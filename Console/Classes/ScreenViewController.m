@@ -30,13 +30,11 @@
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
 #import "ScreenSubController.h"
-#import "PollingHelper.h"
 
 @interface ScreenViewController ()
 
 @property (nonatomic, strong) ScreenSubController *screenSubController;
 @property (nonatomic, weak) ORControllerConfig *controller;
-@property (nonatomic, strong) PollingHelper *polling;
 
 @property (nonatomic, strong) NSMutableArray *gestureRecognizers;
 
@@ -58,7 +56,6 @@
 {
     [self cleanupGestureRecognizers];
     [self stopPolling];
-    self.polling = nil;
 	self.screenSubController = nil;
     self.controller = nil;
     self.imageCache = nil;
@@ -81,11 +78,12 @@
 
 - (void)startPolling
 {
-	[self.polling requestCurrentStatusAndStartPolling];
+    // TODO: check if anything required here
 }
+
 - (void)stopPolling
 {
-	[self.polling cancelPolling];
+    // TODO: check if anything required here
 }
 
 #pragma mark - Gesture Recognizers handling
@@ -154,7 +152,6 @@
 }
 
 @synthesize screen;
-@synthesize polling;
 @synthesize screenSubController;
 
 // TODO: don't re-implement setter but use KVO + setter is not implementing memory management correctly
@@ -168,7 +165,8 @@
     [self setupGestureRecognizers];
     /*
      
-     // TODO: double check, but PollingHelper should not be required anymore
+     // TODO: review, PollingHelper is not used for remote sensors anyway
+     // see what needs to be done to handle local sensors
      
 	if ([[screen pollingComponentsIds] count] > 0 ) {
 		self.polling = [[PollingHelper alloc] initWithController:self.controller

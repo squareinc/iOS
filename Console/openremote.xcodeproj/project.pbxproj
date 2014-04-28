@@ -79,7 +79,6 @@
 		60366BA4144DCB9C004FED3B /* CheckNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F2B109562D200C7A686 /* CheckNetwork.m */; };
 		60366BA5144DCB9C004FED3B /* NotificationConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F3F109563E100C7A686 /* NotificationConstant.m */; };
 		60366BA6144DCB9C004FED3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F5B109564D000C7A686 /* AppDelegate.m */; };
-		60366BA8144DCB9C004FED3B /* PollingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6502E1109809EC006FC19F /* PollingHelper.m */; };
 		60366BA9144DCB9C004FED3B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEB81A10A6B25B0051C827 /* LoginViewController.m */; };
 		60366BAA144DCB9C004FED3B /* LogoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB4E7E10B2827200A67721 /* LogoutHelper.m */; };
 		60366BAB144DCB9C004FED3B /* ChoosePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5341E10B64C1900C52FB0 /* ChoosePanelViewController.m */; };
@@ -519,8 +518,6 @@
 		8C5796F3116B9DD000ED63EA /* panel_local_tabbar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = panel_local_tabbar.xml; path = Test/fixture/xml/panel_local_tabbar.xml; sourceTree = "<group>"; };
 		8C5796F4116B9DD000ED63EA /* panel_portrait_landscape.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = panel_portrait_landscape.xml; path = Test/fixture/xml/panel_portrait_landscape.xml; sourceTree = "<group>"; };
 		8C5796F5116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = panel_relative_screen_backgroundimage.xml; path = Test/fixture/xml/panel_relative_screen_backgroundimage.xml; sourceTree = "<group>"; };
-		8C6502E0109809EC006FC19F /* PollingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollingHelper.h; sourceTree = "<group>"; };
-		8C6502E1109809EC006FC19F /* PollingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PollingHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8C72E7140F541FAB006CC0DF /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		8C72E7150F541FAB006CC0DF /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		8C7BE4210FA0395F00F18AA1 /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
@@ -1047,8 +1044,6 @@
 				916B6B9A17FDC298000CB0CA /* ImageCache.m */,
 				8C7BE4210FA0395F00F18AA1 /* ViewHelper.h */,
 				8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */,
-				8C6502E0109809EC006FC19F /* PollingHelper.h */,
-				8C6502E1109809EC006FC19F /* PollingHelper.m */,
 				8CEB4E7D10B2827200A67721 /* LogoutHelper.h */,
 				8CEB4E7E10B2827200A67721 /* LogoutHelper.m */,
 				33267E6F10E47C5B00E3AE42 /* NSDateHelper.h */,
@@ -1499,7 +1494,6 @@
 				60366BA5144DCB9C004FED3B /* NotificationConstant.m in Sources */,
 				916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */,
 				60366BA6144DCB9C004FED3B /* AppDelegate.m in Sources */,
-				60366BA8144DCB9C004FED3B /* PollingHelper.m in Sources */,
 				60366BA9144DCB9C004FED3B /* LoginViewController.m in Sources */,
 				60366BAA144DCB9C004FED3B /* LogoutHelper.m in Sources */,
 				60366BAB144DCB9C004FED3B /* ChoosePanelViewController.m in Sources */,
