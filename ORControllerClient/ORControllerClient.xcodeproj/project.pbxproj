@@ -35,6 +35,9 @@
 		911392E9189C018D00B7D79D /* ORButtonParser_2_0_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E8189C018D00B7D79D /* ORButtonParser_2_0_0Test.m */; };
 		911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */ = {isa = PBXBuildFile; fileRef = 911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */; };
 		911754A0190E505100B20448 /* UIDevice+ORUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9117549F190E505100B20448 /* UIDevice+ORUDID.m */; };
+		911754A1190E525500B20448 /* ORColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933324179E9BCF0086FEE7 /* ORColorPicker.m */; };
+		911754A3190E52EB00B20448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911754A2190E52EB00B20448 /* CoreGraphics.framework */; };
+		911754A4190E52F300B20448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911754A2190E52EB00B20448 /* CoreGraphics.framework */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
 		91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */; };
 		91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
@@ -365,6 +368,7 @@
 		911392EA189C019C00B7D79D /* ORButtonParser_2_0_0Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButtonParser_2_0_0Test.h; sourceTree = "<group>"; };
 		9117549E190E505100B20448 /* UIDevice+ORUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ORUDID.h"; sourceTree = "<group>"; };
 		9117549F190E505100B20448 /* UIDevice+ORUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ORUDID.m"; sourceTree = "<group>"; };
+		911754A2190E52EB00B20448 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeferredBindingTest.m; sourceTree = "<group>"; };
 		91222D7D18912FED00BA0B96 /* ORDeferredBindingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeferredBindingTest.h; sourceTree = "<group>"; };
 		91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORImageLabelDeferredBindingTest.m; sourceTree = "<group>"; };
@@ -691,6 +695,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911754A4190E52F300B20448 /* CoreGraphics.framework in Frameworks */,
 				91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */,
 				9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */,
 			);
@@ -700,6 +705,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911754A3190E52EB00B20448 /* CoreGraphics.framework in Frameworks */,
 				9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */,
 				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
@@ -987,6 +993,7 @@
 		9190D4A61790140A00667A7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				911754A2190E52EB00B20448 /* CoreGraphics.framework */,
 				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A71790140A00667A7C /* Foundation.framework */,
 				9190D4B61790140A00667A7C /* SenTestingKit.framework */,
@@ -1536,6 +1543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911754A1190E525500B20448 /* ORColorPicker.m in Sources */,
 				91222D911892AEE000BA0B96 /* ORSensor.m in Sources */,
 				9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */,
 				91222D891892659E00BA0B96 /* ORSensorStatesMapping.m in Sources */,
