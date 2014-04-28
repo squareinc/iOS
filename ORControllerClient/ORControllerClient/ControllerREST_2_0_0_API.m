@@ -141,6 +141,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[[baseURL URLByAppendingPathComponent:@"/rest/control/"]
                                                                          URLByAppendingPathComponent:[widget.identifier stringValue]]
                                                                         URLByAppendingPathComponent:action]];
+    [request setHTTPMethod:@"POST"];
     return [self callForRequest:request delegate:nil]; // TODO: delegate
 }
 
