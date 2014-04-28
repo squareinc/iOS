@@ -28,6 +28,8 @@
 #import "ORRESTCall.h"
 #import "ORControllerRESTAPI.h"
 
+typedef void (^PollingBlock)();
+
 @interface ORSensorPollingManager ()
 
 @property (nonatomic, strong) ORControllerRESTAPI *_controllerAPI;
@@ -35,6 +37,8 @@
 @property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
 
 @property (nonatomic, strong) ORRESTCall *_currentCall;
+
+@property (nonatomic, strong) PollingBlock sensorPollingBlock;
 
 @end
 
@@ -63,24 +67,27 @@
     if (![[self._sensorRegistry sensorIdentifiers] count]) {
         return;
     }
-    __block void (^sensorPollingBlock)() = ^{
-        self._currentCall = [self._controllerAPI pollSensorIdentifiers:[self._sensorRegistry sensorIdentifiers]
+
+    __weak typeof(self)weakSelf = self;
+    
+    self.sensorPollingBlock = ^{
+        weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
                                 fromDeviceWithIdentifier:@"TODO"
-                                               atBaseURL:self._controllerAddress.primaryURL
+                                               atBaseURL:weakSelf._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
                                           
-                                          [self updateComponentsWithSensorValues:sensorValues];
+                                          [weakSelf updateComponentsWithSensorValues:sensorValues];
                                           
                                           NSLog(@"poll got values");
                                           
                                           // TODO: fix the memory management issue
                                           
-                                          sensorPollingBlock();
+                                          weakSelf.sensorPollingBlock();
                                       } errorHandler:^(NSError *error) {
                                           // Timeout is "mechanism" used by server push, simply poll again
                                           if ([kORClientErrorDomain isEqualToString:error.domain]) {
                                               if (error.code == 504) { // HTTP timeout
-                                                  sensorPollingBlock();
+                                                  weakSelf.sensorPollingBlock();
                                               }
                                           } else {
                                               NSLog(@"poll error %@", error);
@@ -88,11 +95,11 @@
                                       }];
     };
 
-    self._currentCall = [self._controllerAPI statusForSensorIdentifiers:[self._sensorRegistry sensorIdentifiers]
-                            atBaseURL:self._controllerAddress.primaryURL
+    self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
+                            atBaseURL:weakSelf._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
-                       [self updateComponentsWithSensorValues:sensorValues];
-                       sensorPollingBlock();
+                       [weakSelf updateComponentsWithSensorValues:sensorValues];
+                       weakSelf.sensorPollingBlock();
                    }
                          errorHandler:^(NSError *error) {
                          }];
@@ -103,6 +110,7 @@
     [self._currentCall cancel];
     self._currentCall = nil;
     // TODO: make sure we don't loop -> cancel might be enough if we make sure we don't restart polling (e.g. have a Cancelled error)
+    self.sensorPollingBlock = nil;
 }
 
 - (void)updateComponentsWithSensorValues:(NSDictionary *)sensorValues
