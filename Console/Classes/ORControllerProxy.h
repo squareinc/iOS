@@ -19,7 +19,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import <Foundation/Foundation.h>
-#import "ORControllerStatusRequestSender.h"
 #import "ORControllerCapabilitiesFetcher.h"
 #import "ORControllerGroupMembersFetcher.h"
 
