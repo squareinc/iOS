@@ -1,3 +1,16 @@
+Version 0.4.1
+=============
+
+- When connecting to the controller, re-start polling if a panel definition is alread attached to the controller.
+
+Bug fixes
+---------
+
+- ensure a unique ID is sent when polling for sensor values
+- control REST calls where incorrectly using GET instead of POST
+- fixed a memory leak in the sensor polling code
+- fixed failing unit tests
+
 Version 0.4.0
 =============
 
