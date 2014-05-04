@@ -34,12 +34,8 @@
 		60366B6E144DCB9C004FED3B /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 8CECF3E010E9DD1400C0E1BB /* database.db */; };
 		60366B6F144DCB9C004FED3B /* btn_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3001163492C00DD4EE7 /* btn_green.png */; };
 		60366B70144DCB9C004FED3B /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3011163492C00DD4EE7 /* button.png */; };
-		60366B72144DCB9C004FED3B /* global.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3031163492C00DD4EE7 /* global.logo.png */; };
-		60366B74144DCB9C004FED3B /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3051163492C00DD4EE7 /* loading.png */; };
 		60366B75144DCB9C004FED3B /* repair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3061163492C00DD4EE7 /* repair.png */; };
 		60366B76144DCB9C004FED3B /* slider_tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3071163492C00DD4EE7 /* slider_tip.png */; };
-		60366B78144DCB9C004FED3B /* loading~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C89707311B05BD200655CA5 /* loading~iPad.png */; };
-		60366B79144DCB9C004FED3B /* global.logo~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C89707511B05C8A00655CA5 /* global.logo~iPad.png */; };
 		60366B7D144DCB9C004FED3B /* InitViewController~iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C49724011B20D660039A293 /* InitViewController~iPhone.xib */; };
 		60366B7E144DCB9C004FED3B /* InitViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C49725211B20E080039A293 /* InitViewController~iPad.xib */; };
 		60366B80144DCB9C004FED3B /* ErrorViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C49746711B242290039A293 /* ErrorViewController~iPad.xib */; };
@@ -186,8 +182,6 @@
 		60FAD4851540571E008DA70E /* ControllerVersionSelectAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD4831540571E008DA70E /* ControllerVersionSelectAPI.m */; };
 		8C3DE3101163492C00DD4EE7 /* btn_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3001163492C00DD4EE7 /* btn_green.png */; };
 		8C3DE3111163492C00DD4EE7 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3011163492C00DD4EE7 /* button.png */; };
-		8C3DE3131163492C00DD4EE7 /* global.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3031163492C00DD4EE7 /* global.logo.png */; };
-		8C3DE3151163492C00DD4EE7 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3051163492C00DD4EE7 /* loading.png */; };
 		8C3DE3161163492C00DD4EE7 /* repair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3061163492C00DD4EE7 /* repair.png */; };
 		8C3DE3171163492C00DD4EE7 /* slider_tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3071163492C00DD4EE7 /* slider_tip.png */; };
 		8C460F99109566B800C7A686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -443,8 +437,6 @@
 		8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8C3DE3001163492C00DD4EE7 /* btn_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_green.png; path = image/btn_green.png; sourceTree = "<group>"; };
 		8C3DE3011163492C00DD4EE7 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = image/button.png; sourceTree = "<group>"; };
-		8C3DE3031163492C00DD4EE7 /* global.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = global.logo.png; path = image/global.logo.png; sourceTree = "<group>"; };
-		8C3DE3051163492C00DD4EE7 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading.png; path = image/loading.png; sourceTree = "<group>"; };
 		8C3DE3061163492C00DD4EE7 /* repair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = repair.png; path = image/repair.png; sourceTree = "<group>"; };
 		8C3DE3071163492C00DD4EE7 /* slider_tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slider_tip.png; path = image/slider_tip.png; sourceTree = "<group>"; };
 		8C460E4B109552C800C7A686 /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
@@ -519,8 +511,6 @@
 		8C7BE4890FA0431700F18AA1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8C7BE48A0FA0431700F18AA1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8C7BE4F50FA0471F00F18AA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8C89707311B05BD200655CA5 /* loading~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading~iPad.png"; path = "image/loading~iPad.png"; sourceTree = "<group>"; };
-		8C89707511B05C8A00655CA5 /* global.logo~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "global.logo~iPad.png"; path = "image/global.logo~iPad.png"; sourceTree = "<group>"; };
 		8CA75EC40F579B4C00ADF0C0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8CAEB81910A6B25B0051C827 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8CAEB81A10A6B25B0051C827 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -752,8 +742,6 @@
 				60FA5DC4153C506500FA245E /* delete_button.png */,
 				8C3DE3001163492C00DD4EE7 /* btn_green.png */,
 				8C3DE3011163492C00DD4EE7 /* button.png */,
-				8C3DE3031163492C00DD4EE7 /* global.logo.png */,
-				8C3DE3051163492C00DD4EE7 /* loading.png */,
 				8C3DE3061163492C00DD4EE7 /* repair.png */,
 				8C3DE3071163492C00DD4EE7 /* slider_tip.png */,
 				8CECF3E010E9DD1400C0E1BB /* database.db */,
@@ -1025,8 +1013,6 @@
 				9123A13B19167D50005E0D79 /* Default7-Landscape@2x.png */,
 				9123A13C19167D50005E0D79 /* Default7-Portrait.png */,
 				9123A13D19167D50005E0D79 /* Default7-Portrait@2x.png */,
-				8C89707511B05C8A00655CA5 /* global.logo~iPad.png */,
-				8C89707311B05BD200655CA5 /* loading~iPad.png */,
 				8C49725211B20E080039A293 /* InitViewController~iPad.xib */,
 				8C49746711B242290039A293 /* ErrorViewController~iPad.xib */,
 			);
@@ -1363,17 +1349,13 @@
 				912E1E3E19019435009BA1D6 /* OR-76.png in Resources */,
 				9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */,
 				912E1E3919019435009BA1D6 /* OR-144.png in Resources */,
-				60366B72144DCB9C004FED3B /* global.logo.png in Resources */,
 				912E1E4419019435009BA1D6 /* OR-29.png in Resources */,
 				9123A13719167D39005E0D79 /* Default7@2x.png in Resources */,
-				60366B74144DCB9C004FED3B /* loading.png in Resources */,
 				60366B75144DCB9C004FED3B /* repair.png in Resources */,
 				60366B76144DCB9C004FED3B /* slider_tip.png in Resources */,
-				60366B78144DCB9C004FED3B /* loading~iPad.png in Resources */,
 				9123A14319167D50005E0D79 /* Default7-Portrait@2x.png in Resources */,
 				9123A14919167D83005E0D79 /* Default.png in Resources */,
 				912E1E3819019435009BA1D6 /* OR-152.png in Resources */,
-				60366B79144DCB9C004FED3B /* global.logo~iPad.png in Resources */,
 				9123A14019167D50005E0D79 /* Default7-Landscape.png in Resources */,
 				912E1E3D19019435009BA1D6 /* OR-80.png in Resources */,
 				60366B7D144DCB9C004FED3B /* InitViewController~iPhone.xib in Resources */,
@@ -1424,8 +1406,6 @@
 				8CECF3E210E9DD1400C0E1BB /* database.db in Resources */,
 				8C3DE3101163492C00DD4EE7 /* btn_green.png in Resources */,
 				8C3DE3111163492C00DD4EE7 /* button.png in Resources */,
-				8C3DE3131163492C00DD4EE7 /* global.logo.png in Resources */,
-				8C3DE3151163492C00DD4EE7 /* loading.png in Resources */,
 				8C3DE3161163492C00DD4EE7 /* repair.png in Resources */,
 				8C3DE3171163492C00DD4EE7 /* slider_tip.png in Resources */,
 				8C5796D9116B9D8200ED63EA /* 300X300.png in Resources */,
