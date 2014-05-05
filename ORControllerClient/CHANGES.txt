@@ -1,3 +1,11 @@
+Version 0.4.2
+=============
+
+Bug fixes
+---------
+
+- Fixed : KVO notifications for changes on ORSlider value where not correctly sent
+
 Version 0.4.1
 =============
 

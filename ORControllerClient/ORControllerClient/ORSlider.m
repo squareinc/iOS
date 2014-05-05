@@ -65,4 +65,18 @@
     return self._value;
 }
 
+// Using a separate property to store the value received back from controller.
+// This avoids looping because the setValue: method would send a command back to controller
+// when it gets called by a status update.
+// However, we must ensure that the KVO notification on property value is fired when there is a status update.
+
+@synthesize _value;
+
+- (void)set_value:(float)aValue
+{
+    [self willChangeValueForKey:@"value"];
+    _value = aValue;
+    [self didChangeValueForKey:@"value"];
+}
+
 @end
