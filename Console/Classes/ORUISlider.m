@@ -298,7 +298,7 @@ void printBounds(NSString *comment, UIView *v)
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	UITouch *touch = [touches anyObject];
-	// If the touch was in the thumn, move the thumb accordingly, staying within limits
+	// If the touch was in the thumb, move the thumb accordingly, staying within limits
 	if ([touch view] == self.thumbView) {
 		CGPoint location = [touch locationInView:self];
         
