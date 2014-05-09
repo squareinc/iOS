@@ -27,7 +27,7 @@
 /**
  * It's responsible for control render of screenView with screen model data.
  */
-@interface ScreenViewController : UIViewController
+@interface ScreenViewController : UIViewController <UIGestureRecognizerDelegate>
 
 - (id)initWithController:(ORControllerConfig *)aController;
 

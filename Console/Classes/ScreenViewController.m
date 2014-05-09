@@ -29,6 +29,7 @@
 #import "ControllerException.h"
 #import "ORControllerConfig.h"
 #import "ORControllerProxy.h"
+#import "ORUISlider.h"
 #import "ScreenSubController.h"
 
 @interface ScreenViewController ()
@@ -95,8 +96,8 @@
     for (ORGesture *gesture in self.screen.gestures) {
         UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
         recognizer.direction = [self convertGestureTypeToGestureRecognizerDirection:gesture.gestureType];
-        
         recognizer.numberOfTouchesRequired = 1;
+        recognizer.delegate = self;
         
         [self.view addGestureRecognizer:recognizer];
         [self.gestureRecognizers addObject:recognizer];
@@ -141,6 +142,17 @@
     }
 }
 
+#pragma mark - Gesture Recognizers delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // This makes sure that any swipe gesture do not interfere with sliders operation
+    if ([touch.view.superview isKindOfClass:[ORUISlider class]]) {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - Gesture Recognizers action
 
 - (void)handleGesture:(UISwipeGestureRecognizer *)recognizer
@@ -155,7 +167,7 @@
 @synthesize screenSubController;
 
 // TODO: don't re-implement setter but use KVO + setter is not implementing memory management correctly
-
+// TODO: seems screen property can just be read-only and screen is set in init -> simplifies code
 /**
  * Assign parameter screen model data to screenViewController.
  */
