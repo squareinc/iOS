@@ -27,7 +27,6 @@
 #import "LogoutHelper.h"
 #import "ORControllerClient/ORTabBarItem.h"
 #import "ORControllerClient/Definition.h"
-#import "UpdateController.h"
 #import "InitViewController.h"
 
 @class ImageCache;
@@ -46,7 +45,6 @@
 @interface DefaultViewController : UIViewController <LoginViewControllerDelegate> {	
 	InitViewController *initViewController;
 	ErrorViewController* errorViewController;
-	UpdateController *updateController;
 }
 
 - (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(NSObject <DefaultViewControllerDelegate> *)delegate;
