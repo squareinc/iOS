@@ -22,7 +22,6 @@
 #import "ORGroupParser.h"
 #import "ORScreenParser.h"
 #import "ORTabBarParser.h"
-#import "LocalParser.h"
 #import "Definition.h"
 #import "DefinitionElementParserRegister.h"
 
@@ -41,7 +40,6 @@
         [self addKnownTag:@"screen"];
         [self addKnownTag:@"group"];
         [self addKnownTag:@"tabbar"];
-        [self addKnownTag:@"local"];
         self.definition = [[Definition alloc] init];
         aRegister.definition = self.definition;
     }
@@ -61,11 +59,6 @@
 - (void)endTabBarElement:(ORTabBarParser *)tabBarParser
 {
     self.definition.tabBar = tabBarParser.tabBar;
-}
-
-- (void)endLocalElement:(LocalParser *)localParser
-{
-    self.definition.localController = localParser.localController;
 }
 
 - (NSString *)handledTag

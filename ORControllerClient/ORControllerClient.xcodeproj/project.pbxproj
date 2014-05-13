@@ -164,13 +164,6 @@
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
-		9193340A179EA2DE0086FEE7 /* LocalParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E3179EA2DD0086FEE7 /* LocalParser.m */; };
-		9193340B179EA2DE0086FEE7 /* CommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E5179EA2DD0086FEE7 /* CommandParser.m */; };
-		9193340C179EA2DE0086FEE7 /* PropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E7179EA2DD0086FEE7 /* PropertyParser.m */; };
-		9193340D179EA2DE0086FEE7 /* SensorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333E9179EA2DD0086FEE7 /* SensorParser.m */; };
-		9193340E179EA2DE0086FEE7 /* ControllerButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333EB179EA2DD0086FEE7 /* ControllerButtonParser.m */; };
-		9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */; };
-		91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */; };
 		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		919DDF3917E8A77C00EFDCCA /* ORLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */; };
 		91A4A23218D5D81B0070F823 /* ORNavigationParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */; };
@@ -530,20 +523,6 @@
 		919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarParser.m; sourceTree = "<group>"; };
 		919333DA179EA2DB0086FEE7 /* ORTabBarItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTabBarItemParser.h; sourceTree = "<group>"; };
 		919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTabBarItemParser.m; sourceTree = "<group>"; };
-		919333E2179EA2DD0086FEE7 /* LocalParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalParser.h; sourceTree = "<group>"; };
-		919333E3179EA2DD0086FEE7 /* LocalParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalParser.m; sourceTree = "<group>"; };
-		919333E4179EA2DD0086FEE7 /* CommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandParser.h; sourceTree = "<group>"; };
-		919333E5179EA2DD0086FEE7 /* CommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandParser.m; sourceTree = "<group>"; };
-		919333E6179EA2DD0086FEE7 /* PropertyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyParser.h; sourceTree = "<group>"; };
-		919333E7179EA2DD0086FEE7 /* PropertyParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyParser.m; sourceTree = "<group>"; };
-		919333E8179EA2DD0086FEE7 /* SensorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorParser.h; sourceTree = "<group>"; };
-		919333E9179EA2DD0086FEE7 /* SensorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorParser.m; sourceTree = "<group>"; };
-		919333EA179EA2DD0086FEE7 /* ControllerButtonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerButtonParser.h; sourceTree = "<group>"; };
-		919333EB179EA2DD0086FEE7 /* ControllerButtonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerButtonParser.m; sourceTree = "<group>"; };
-		919333EC179EA2DE0086FEE7 /* ControllerSwitchParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSwitchParser.h; sourceTree = "<group>"; };
-		919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSwitchParser.m; sourceTree = "<group>"; };
-		919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSliderParser.h; sourceTree = "<group>"; };
-		919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerSliderParser.m; sourceTree = "<group>"; };
 		919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabelTest.m; sourceTree = "<group>"; };
 		91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNavigationParserTest.m; sourceTree = "<group>"; };
 		91A4A23318D5D8340070F823 /* ORNavigationParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORNavigationParserTest.h; sourceTree = "<group>"; };
@@ -1148,20 +1127,6 @@
 				919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */,
 				919333B4179EA2D50086FEE7 /* DefinitionParser.h */,
 				919333B5179EA2D50086FEE7 /* DefinitionParser.m */,
-				919333E2179EA2DD0086FEE7 /* LocalParser.h */,
-				919333E3179EA2DD0086FEE7 /* LocalParser.m */,
-				919333E4179EA2DD0086FEE7 /* CommandParser.h */,
-				919333E5179EA2DD0086FEE7 /* CommandParser.m */,
-				919333E6179EA2DD0086FEE7 /* PropertyParser.h */,
-				919333E7179EA2DD0086FEE7 /* PropertyParser.m */,
-				919333E8179EA2DD0086FEE7 /* SensorParser.h */,
-				919333E9179EA2DD0086FEE7 /* SensorParser.m */,
-				919333EA179EA2DD0086FEE7 /* ControllerButtonParser.h */,
-				919333EB179EA2DD0086FEE7 /* ControllerButtonParser.m */,
-				919333EC179EA2DE0086FEE7 /* ControllerSwitchParser.h */,
-				919333ED179EA2DE0086FEE7 /* ControllerSwitchParser.m */,
-				919333EE179EA2DE0086FEE7 /* ControllerSliderParser.h */,
-				919333EF179EA2DE0086FEE7 /* ControllerSliderParser.m */,
 				9193339E179EA2170086FEE7 /* DeferredBinding */,
 			);
 			name = Legacy;
@@ -1367,6 +1332,7 @@
 		9190D49C1790140A00667A7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = OpenRemote;
 			};
@@ -1507,16 +1473,9 @@
 				91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */,
 				91A4A26F18DB09BD0070F823 /* ORScreenParser.m in Sources */,
 				91B72FA41890308F000B7552 /* ORImage.m in Sources */,
-				9193340A179EA2DE0086FEE7 /* LocalParser.m in Sources */,
 				91B72FA818903402000B7552 /* ORImageParser.m in Sources */,
-				9193340B179EA2DE0086FEE7 /* CommandParser.m in Sources */,
-				9193340C179EA2DE0086FEE7 /* PropertyParser.m in Sources */,
-				9193340D179EA2DE0086FEE7 /* SensorParser.m in Sources */,
-				9193340E179EA2DE0086FEE7 /* ControllerButtonParser.m in Sources */,
 				913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */,
-				9193340F179EA2DE0086FEE7 /* ControllerSwitchParser.m in Sources */,
 				91222D941892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
-				91933410179EA2DE0086FEE7 /* ControllerSliderParser.m in Sources */,
 				91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */,
 				91E794D717A9054900FE9E83 /* PanelLayoutResponseHandler_2_0_0.m in Sources */,
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
