@@ -106,7 +106,6 @@
 		60366C13144DCB9C004FED3B /* LabelSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7FB140E8EA30001B78F /* LabelSubController.m */; };
 		60366C14144DCB9C004FED3B /* ComponentSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC7FF140E912F0001B78F /* ComponentSubController.m */; };
 		60366C16144DCB9C004FED3B /* ImageSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC807140EA7510001B78F /* ImageSubController.m */; };
-		60366C17144DCB9C004FED3B /* ControlSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC82E140EC3770001B78F /* ControlSubController.m */; };
 		60366C18144DCB9C004FED3B /* ButtonSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFC832140EC38C0001B78F /* ButtonSubController.m */; };
 		60366C19144DCB9C004FED3B /* GridLayoutContainerSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DEC3C1140FA6FD000FF863 /* GridLayoutContainerSubController.m */; };
 		60366C1A144DCB9C004FED3B /* ORImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DEC3C5140FB62F000FF863 /* ORImageView.m */; };
@@ -356,8 +355,6 @@
 		60AFC7FF140E912F0001B78F /* ComponentSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentSubController.m; sourceTree = "<group>"; };
 		60AFC806140EA7500001B78F /* ImageSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSubController.h; sourceTree = "<group>"; };
 		60AFC807140EA7510001B78F /* ImageSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSubController.m; sourceTree = "<group>"; };
-		60AFC82D140EC3760001B78F /* ControlSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSubController.h; sourceTree = "<group>"; };
-		60AFC82E140EC3770001B78F /* ControlSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlSubController.m; sourceTree = "<group>"; };
 		60AFC831140EC38B0001B78F /* ButtonSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSubController.h; sourceTree = "<group>"; };
 		60AFC832140EC38C0001B78F /* ButtonSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSubController.m; sourceTree = "<group>"; };
 		60AFCECE1371787200A811D4 /* ORControllerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerProxy.h; sourceTree = "<group>"; };
@@ -843,8 +840,6 @@
 				60AFC7FB140E8EA30001B78F /* LabelSubController.m */,
 				60AFC806140EA7500001B78F /* ImageSubController.h */,
 				60AFC807140EA7510001B78F /* ImageSubController.m */,
-				60AFC82D140EC3760001B78F /* ControlSubController.h */,
-				60AFC82E140EC3770001B78F /* ControlSubController.m */,
 				60AFC831140EC38B0001B78F /* ButtonSubController.h */,
 				60AFC832140EC38C0001B78F /* ButtonSubController.m */,
 				60DEC3C8140FC07F000FF863 /* WebSubController.h */,
@@ -1521,7 +1516,6 @@
 				60366C13144DCB9C004FED3B /* LabelSubController.m in Sources */,
 				60366C14144DCB9C004FED3B /* ComponentSubController.m in Sources */,
 				60366C16144DCB9C004FED3B /* ImageSubController.m in Sources */,
-				60366C17144DCB9C004FED3B /* ControlSubController.m in Sources */,
 				60366C18144DCB9C004FED3B /* ButtonSubController.m in Sources */,
 				60366C19144DCB9C004FED3B /* GridLayoutContainerSubController.m in Sources */,
 				60366C1A144DCB9C004FED3B /* ORImageView.m in Sources */,
