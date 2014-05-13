@@ -286,6 +286,40 @@
     [self.controller performGesture:sender];
 }
 
+/*
+TODO:
+ 
+ Idea would be that all above methods can check for local vs remote protocol and direct appropriately
+ to either self.controller or self.console
+ Implementation can be based on something similar to below methods.
+ 
+ With regard to supporting different API version
+ Idea is that code in the console is always implementing latest "local controller API".
+ There will be parsing code for different API versions and it should always be maintained to
+ understand that particular version but "interface" to latest local controller API.
+
+
+- (void)sendCommandRequest:(NSString *)commandType {
+    NSLog(@"commandType %@", commandType);
+    
+	// Check for local command first
+	NSArray *localCommands = [self localCommandsForCommandType:commandType];
+    if (localCommands && ([localCommands count] > 0)) {
+        [self.clientSideRuntime executeCommands:localCommands commandType:commandType];
+	} else {
+        @throw [[NSException alloc] initWithName:NSInternalInconsistencyException
+                                          reason:@"Only local commands should be handeld this way"
+                                        userInfo:@{ @"commandType" : commandType }];
+	}
+}
+
+- (NSArray *)localCommandsForCommandType:(NSString *)commandType
+{
+	return [self.controller.definition.localController commandsForComponentIdentifier:self.component.identifier action:commandType];
+}
+
+*/
+
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
 
 @end
