@@ -39,17 +39,14 @@
 
 @property (strong) UIView *maskView;
 
-@property (nonatomic, weak) ORControllerConfig *controller;
-
 @end
 
 @implementation GroupController
 
-- (id)initWithController:(ORControllerConfig *)aController group:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC
+- (id)initWithGroup:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC
 {
     self = [super init];
 	if (self) {
-        self.controller = aController;
 		self.group = newGroup;
         self.parentViewController = aVC;
 	}
@@ -59,7 +56,6 @@
 - (void)dealloc
 {
     self.parentViewController = nil;
-    self.controller = nil;
     self.imageCache = nil;
 }
 
@@ -126,7 +122,7 @@
 	if (isLandscape) {
 		if (landscapePaginationController == nil) {
 			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                 tabBar:self.controller.definition.tabBar];
+                                                                                 tabBar:self.group.definition.tabBar];
             landscapePaginationController.imageCache = self.imageCache;
 			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}
@@ -147,7 +143,7 @@
 	} else {
 		if (portraitPaginationController == nil) {
 			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                tabBar:self.controller.definition.tabBar];
+                                                                                tabBar:self.group.definition.tabBar];
             portraitPaginationController.imageCache = self.imageCache;
 			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
 		}

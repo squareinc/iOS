@@ -157,15 +157,12 @@
 			}
 		}
 		if (lastGroup) {
-			gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                       group:lastGroup parentViewController:self];
+			gc = [[GroupController alloc] initWithGroup:lastGroup parentViewController:self];
 		} else {
-			gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                       group:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
+			gc = [[GroupController alloc] initWithGroup:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
 		}
 	} else {
-		gc = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                   group:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
+		gc = [[GroupController alloc] initWithGroup:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
 	}
     gc.imageCache = self.imageCache;
 	return gc;
@@ -275,8 +272,7 @@
 	//if screenId is specified, and is not in current group, jump to that group
 	if (group && isAnotherGroup) {
 		if (targetGroupController == nil) {
-            targetGroupController = [[GroupController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
-                                                                          group:group parentViewController:self];
+            targetGroupController = [[GroupController alloc] initWithGroup:group parentViewController:self];
             targetGroupController.imageCache = self.imageCache;
 		}
 		

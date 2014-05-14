@@ -23,7 +23,6 @@
 #import "PaginationController.h"
 #import "ErrorViewController.h"
 
-@class ORControllerConfig;
 @class ImageCache;
 
 /**
@@ -39,7 +38,7 @@
 /**
  * Construct group controller with group model data.
  */
-- (id)initWithController:(ORControllerConfig *)aController group:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC;
+- (id)initWithGroup:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC;
 
 /**
  * Start polling of groupController's rendering screenView.
