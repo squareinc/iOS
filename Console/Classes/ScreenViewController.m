@@ -19,16 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ScreenViewController.h"
-#import "ViewHelper.h"
-#import "ORControllerClient/Definition.h"
-#import "ORControllerClient/ORNavigation.h"
 #import "ORControllerClient/ORGesture.h"
-#import "NotificationConstant.h"
-#import "ServerDefinition.h"
-#import "CredentialUtil.h"
-#import "ControllerException.h"
-#import "ORControllerConfig.h"
-#import "ORControllerProxy.h"
+#import "ORControllerClient/ORScreen.h"
 #import "ORUISlider.h"
 #import "ScreenSubController.h"
 
