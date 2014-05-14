@@ -59,7 +59,6 @@
 - (void)logout;
 - (void)navigateBackwardInHistory:(id)sender;
 - (void)navigateTo:(ORNavigation *)navi;
-- (void)navigateToWithHistory:(ORNavigation *)navi;
 - (void)saveLastGroupIdAndScreenId;
 - (void)rerenderTabbarWithNewOrientation;
 - (void)transformToOppositeOrientation;
@@ -157,18 +156,8 @@
 - (void)navigateFromNotification:(NSNotification *)notification {
 	if (notification) {
 		ORNavigation *navi = (ORNavigation *)[notification object];
-		[self navigateToWithHistory:navi];
+		[self navigateTo:navi];
 	}
-}
-
-- (void)navigateToWithHistory:(ORNavigation *)navi {
-    
-    // TODO EBR : Why this test ?
-	if (!self.currentGroupController.group) {
-        return;
-    }
-
-    [self navigateTo:navi];
 }
 
 - (void)saveLastGroupIdAndScreenId {
@@ -183,6 +172,11 @@
 
 - (void)navigateTo:(ORNavigation *)navi
 {
+    // TODO EBR : Why this test ?
+	if (!self.currentGroupController.group) {
+        return;
+    }
+
     ScreenReference *destination = nil;
 
     switch (navi.navigationType) {
