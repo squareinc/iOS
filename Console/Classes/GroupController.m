@@ -89,7 +89,8 @@
 	return self.group.identifier;
 }
 
-// Returns an array of ScreenViewControllers for the given Screen objects
+// Returns an array of ScreenViewControllers for the given Screen objects.
+// The view controllers are instantiated by this call, there is no cache in place.
 - (NSArray *)viewControllersForScreens:(NSArray *)screens {
 	NSMutableArray *viewControllers = [NSMutableArray arrayWithCapacity:[screens count]];
 	
@@ -197,8 +198,15 @@
     [super viewDidUnload];
 }
 
-// Show error view if some error occured.
 - (void)showErrorView {
+    
+    // TODO: handle this in an appropriate way
+    // This will now crash as assigning view from another VC to us
+    // Have an errorHandler object injected -> delegate presentation of error to it
+    // Can either present error on DefaultViewController as modal or have some non intrusive way to display error (e.g. temporary notification)
+    // can also handle log, send to controller, ...
+    // Introduce an "ORError" object, can have levels (fatal, warning, info) and decide what to do with error / how to present
+    
 	errorViewController = [[ErrorViewController alloc] initWithErrorTitle:@"No Screen Found" message:@"Please associate screens with this group of this orientation."];
 	[errorViewController.view setFrame:[self getFullFrame]];
 	[self setView:errorViewController.view];	
