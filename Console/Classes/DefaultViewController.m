@@ -58,7 +58,7 @@
 - (BOOL)navigateToNextScreen;
 - (void)logout;
 - (void)navigateBackwardInHistory:(id)sender;
-- (BOOL)navigateTo:(ORNavigation *)navi;
+- (void)navigateTo:(ORNavigation *)navi;
 - (void)navigateToWithHistory:(ORNavigation *)navi;
 - (void)saveLastGroupIdAndScreenId;
 - (void)rerenderTabbarWithNewOrientation;
@@ -181,10 +181,7 @@
 	NSLog(@"saveLastGroupIdAndScreenId : groupID %@, screenID %@", [userDefaults objectForKey:@"lastGroupId"], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
-// Returned BOOL value is whether to save history
-// if YES, should save history
-// if NO, don't save history
-- (BOOL)navigateTo:(ORNavigation *)navi
+- (void)navigateTo:(ORNavigation *)navi
 {
     ScreenReference *destination = nil;
 
@@ -212,18 +209,15 @@
         }
         case ORNavigationTypeLogin:
             [self populateLoginView:nil];
-            return NO;
-            break;
+            return;
         case ORNavigationTypeLogout:
             [self logout];
-            return NO;
-            break;
+            return;
         case ORNavigationTypeSettings:
             [self populateSettingsView:nil];
-            return NO;
-            break;
+            return;
         default:
-            return NO;
+            return;
     }
     
     
@@ -235,8 +229,6 @@
 
         // TODO: review this call, as it still does check that are not required anymore
     }
-    
-    return NO;
 }
 
 - (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController
