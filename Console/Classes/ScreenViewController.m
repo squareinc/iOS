@@ -63,13 +63,6 @@
     self.view = self.screenSubController.view;    
 }
 
-- (void)viewDidUnload
-{
-    self.screenSubController = nil;
-    self.view = nil;
-    [super viewDidUnload];
-}
-
 - (void)startPolling
 {
     // TODO: check if anything required here

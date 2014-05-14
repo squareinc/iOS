@@ -186,16 +186,22 @@
 	}
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self fixGeometryForInterfaceOrientation:self.parentViewController.interfaceOrientation];
 }
 
-- (void)viewDidUnload
+- (void)viewDidDisappear:(BOOL)animated
 {
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-    [super viewDidUnload];
+    [super viewDidDisappear:animated];
 }
 
 - (void)showErrorView {

@@ -78,21 +78,22 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateLoginView:) name:NotificationPopulateCredentialView object:nil];
-    
+
     // EBR: is this required, already set in Info.plist
     [self.navigationController setNavigationBarHidden:YES];
+
+    [super viewWillAppear:animated];
 }
 
-- (void)viewDidUnload
+- (void)viewDidDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationPopulateCredentialView object:nil];
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-    [super viewDidUnload];
+    [super viewDidDisappear:animated];
 }
 
 - (void)loadView
@@ -443,10 +444,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
 	[self resignFirstResponder];
 	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {

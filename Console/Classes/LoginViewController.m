@@ -63,12 +63,6 @@
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
 }
 
-- (void)viewDidUnload
-{
-	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
-    [super viewDidUnload];
-}
-
 // Back to the view where loginView was triggered from.
 - (void)goBack:(id)sender
 {

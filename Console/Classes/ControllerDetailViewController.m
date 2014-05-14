@@ -112,15 +112,6 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchingNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchFailedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchSucceededNotification object:nil];
-    // We don't present a login panel when on this page, user can use "regular" fields to enter credentials
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchRequiresAuthenticationNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerCapabilitiesFetchStatusChanged:) name:kORControllerCapabilitiesFetchStatusChange object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerPanelIdentitiesFetchStatusChanged:) name:kORControllerPanelIdentitiesFetchStatusChange object:nil];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
         
     UIView *footerView  = [[UIView alloc] init];
@@ -140,16 +131,6 @@
     [self updateTableViewHeaderForGroupMemberFetchStatus];
 }
 
-- (void)viewDidUnload
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.urlField = nil;
-    self.usernameField = nil;
-    self.passwordField = nil;
-
-    [super viewDidUnload];
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.managedObjectContext.undoManager endUndoGrouping];
@@ -167,12 +148,26 @@
 
     [self.controller removeObserver:self forKeyPath:@"groupMembers"];
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.urlField = nil;
+    self.usernameField = nil;
+    self.passwordField = nil;
+
     [super viewWillDisappear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchFailedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchSucceededNotification object:nil];
+    // We don't present a login panel when on this page, user can use "regular" fields to enter credentials
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerGroupMembersFetchStatusChanged:) name:kORControllerGroupMembersFetchRequiresAuthenticationNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerCapabilitiesFetchStatusChanged:) name:kORControllerCapabilitiesFetchStatusChange object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orControllerPanelIdentitiesFetchStatusChanged:) name:kORControllerPanelIdentitiesFetchStatusChange object:nil];
     
     self.doneAction = NO;
     
