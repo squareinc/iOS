@@ -34,6 +34,8 @@
 
 @interface ScreenViewController ()
 
+@property (nonatomic, strong, readwrite) ORScreen *screen;
+
 @property (nonatomic, strong) ScreenSubController *screenSubController;
 
 @property (nonatomic, strong) NSMutableArray *gestureRecognizers;
@@ -42,11 +44,13 @@
 
 @implementation ScreenViewController
 
-- (id)init
+- (id)initWithScreen:(ORScreen *)aScreen
 {
     self = [super init];
     if (self) {
+        self.screen = aScreen;
         self.gestureRecognizers = [[NSMutableArray alloc] initWithCapacity:4];
+        [self setupGestureRecognizers];
     }
     return self;
 }
@@ -162,27 +166,5 @@
 
 @synthesize screen;
 @synthesize screenSubController;
-
-// TODO: don't re-implement setter but use KVO + setter is not implementing memory management correctly
-// TODO: seems screen property can just be read-only and screen is set in init -> simplifies code
-/**
- * Assign parameter screen model data to screenViewController.
- */
-- (void)setScreen:(ORScreen *)s
-{
-	screen = s;
-    [self setupGestureRecognizers];
-    /*
-     
-     // TODO: review, PollingHelper is not used for remote sensors anyway
-     // see what needs to be done to handle local sensors
-     
-	if ([[screen pollingComponentsIds] count] > 0 ) {
-		self.polling = [[PollingHelper alloc] initWithController:self.controller
-                                                    componentIds:[[screen pollingComponentsIds] componentsJoinedByString:@","]];
-        self.polling.imageCache = self.imageCache;
-	}
-     */
-}
 
 @end

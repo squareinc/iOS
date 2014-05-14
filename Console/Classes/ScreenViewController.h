@@ -28,7 +28,7 @@
  */
 @interface ScreenViewController : UIViewController <UIGestureRecognizerDelegate>
 
-- (id)init;
+- (id)initWithScreen:(ORScreen *)aScreen;
 
 /**
  * Start polling of all sensor components in screenView.
@@ -40,7 +40,7 @@
  */
 - (void)stopPolling;
 
-@property (nonatomic, strong) ORScreen *screen;
+@property (nonatomic, strong, readonly) ORScreen *screen;
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
