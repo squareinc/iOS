@@ -31,6 +31,7 @@
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORNavigation.h"
 #import "ORControllerClient/ORScreenNavigation.h"
+#import "ORControllerClient/ORConsole.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
@@ -401,7 +402,7 @@
 {
     ORTabBarItem *tabBarItem = [self.tabBar.items objectAtIndex:item.tag];
 	if (tabBarItem && tabBarItem.navigation) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateTo object:tabBarItem.navigation];
+        [self.group.definition.console navigate:tabBarItem.navigation];
 	}
     
     // ! Do not do anything anymore here as after the navigation, self will be released if we moved to a different group
