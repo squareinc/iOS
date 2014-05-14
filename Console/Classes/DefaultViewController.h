@@ -66,12 +66,6 @@
  */
 - (void)populateSettingsView:(id)sender;
 
-/** 
- * Save id of current group and current screen while initializing groupController 
- * and navigating for recovery of lastScreenView in RootViewController.
- */
-- (void)saveLastGroupIdAndScreenId;
-
 /**
  * Check if the InitView and errorView are gone.
  */

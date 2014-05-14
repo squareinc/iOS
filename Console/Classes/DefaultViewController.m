@@ -56,7 +56,6 @@
 - (BOOL)navigateToGroup:(ORGroup *)aGroup toScreen:(ORScreen *)aScreen;
 - (void)logout;
 - (void)navigateTo:(ORNavigation *)navi;
-- (void)saveLastGroupIdAndScreenId;
 - (void)rerenderTabbarWithNewOrientation;
 - (void)transformToOppositeOrientation;
 
@@ -133,9 +132,6 @@
         GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup parentViewController:self];
         gc.imageCache = self.imageCache;
         [self switchToGroupController:gc];
-        
-        // TODO: should be handled by navigation manager
-		[self saveLastGroupIdAndScreenId];
     } else {
         // Means no group with screen does exist
         [self presentErrorViewController];
@@ -154,16 +150,6 @@
 		ORNavigation *navi = (ORNavigation *)[notification object];
 		[self navigateTo:navi];
 	}
-}
-
-- (void)saveLastGroupIdAndScreenId {
-	if (!self.currentGroupController.group.identifier || ![self.currentGroupController currentScreenIdentifier]) {
-		return;
-	}
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setObject:[self.currentGroupController.group.identifier stringValue] forKey:@"lastGroupId"];
-	[userDefaults setObject:[[self.currentGroupController currentScreenIdentifier] stringValue] forKey:@"lastScreenId"];
-	NSLog(@"saveLastGroupIdAndScreenId : groupID %@, screenID %@", [userDefaults objectForKey:@"lastGroupId"], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
 - (void)navigateTo:(ORNavigation *)navi

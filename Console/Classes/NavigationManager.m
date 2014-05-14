@@ -67,6 +67,7 @@
         }
         ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:0]).identifier];
         [self.navigationHistory push:next];
+        [self persist];
         return next;
     } else {
         // Requested screen does not exist in group, don't navigate
@@ -75,6 +76,7 @@
         }
         ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
         [self.navigationHistory push:next];
+        [self persist];
         return next;
     }
     return nil;
@@ -99,6 +101,7 @@
     if (index < [group.screens count]) {
         ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
         [self.navigationHistory push:next];
+        [self persist];
         return next;
     }
     return nil;
@@ -123,6 +126,7 @@
     if (index < [group.screens count]) {
         ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
         [self.navigationHistory push:next];
+        [self persist];
         return next;
     }
     return nil;
@@ -132,6 +136,8 @@
 {
     // Top is current screen, get rid of it
     [self.navigationHistory pop];
+
+    [self persist];
     
     // TODO: validate that top is still a valid destination
     return [self.navigationHistory top];
@@ -198,6 +204,15 @@
         return [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
     }
     return [self createValidStartReference];
+}
+
+- (void)persist
+{
+    ScreenReference *current = [self currentScreenReference];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults setObject:[current.groupIdentifier stringValue] forKey:@"lastGroupId"];
+	[userDefaults setObject:[current.screenIdentifier stringValue] forKey:@"lastScreenId"];
+	NSLog(@"Saved : groupID %@, screenID %@", [userDefaults objectForKey:@"lastGroupId"], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
 @synthesize definition;
