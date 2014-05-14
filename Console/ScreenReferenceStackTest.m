@@ -32,16 +32,24 @@
     STAssertNil([stack pop], @"Poping an empty stack should not return anything");
 }
 
-- (void)testPushAndPop
+- (void)testPushPopAndTop
 {
     ScreenReferenceStack *stack = [[ScreenReferenceStack alloc] initWithCapacity:10];
     ScreenReference *ref = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     [stack push:ref];
+    
+    ScreenReference *topRef = [stack top];
+    STAssertNotNil(topRef, @"Should be able to consult object at top of the stack when one was pushed before");
+    STAssertEquals(topRef, ref, @"Object from top of stack should be one pushed before");
+    
     ScreenReference *poppedRef = [stack pop];
     STAssertNotNil(poppedRef, @"Should be able to pop an object from a stack where one was pushed before");
     STAssertEquals(poppedRef, ref, @"Object poped from stack should be one pushed before");
+    STAssertEquals(poppedRef, topRef, @"Object poped from stack should be one returned as top of stack");
+    
     STAssertNil([stack pop], @"It should not be possible to pop a second object from the stack");
+    STAssertNil([stack top], @"Top of stack should return nil when it's empty");
 }
 
 - (void)testStackBehavesAsFIFO

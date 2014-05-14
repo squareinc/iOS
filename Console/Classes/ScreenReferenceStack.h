@@ -54,8 +54,11 @@
  */
 - (ScreenReference *)pop;
 
-
-// TODO: doc and unit tests
+/**
+ * Returns the reference from the top of the stack (if there is one), without removing it.
+ *
+ * @return ScreenReference the reference at the top of the stack, or nil if stack is empty
+ */
 - (ScreenReference *)top;
 
 @end
