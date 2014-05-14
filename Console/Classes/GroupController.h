@@ -56,16 +56,6 @@
 - (BOOL)switchToScreen:(ORScreen *)aScreen;
 
 /**
- * Swith the rendering screenView of groupController to previous screenView.
- */
-- (BOOL)previousScreen;
-
-/**
- * Swith the rendering screenView of groupController to next screenView.
- */
-- (BOOL)nextScreen;
-
-/**
  * Get the screen model data of current screenViewController in groupController.
  */
 - (ORScreen *)currentScreen;

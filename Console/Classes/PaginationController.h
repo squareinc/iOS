@@ -52,16 +52,6 @@
 - (BOOL)switchToScreen:(ORScreen *)aScreen;
 
 /**
- * Switch to the previous screen of current screen.
- */
-- (BOOL)previousScreen;
-
-/**
- * Switch to the next screen of current screen.
- */
-- (BOOL)nextScreen;
-
-/**
  * Assign the ScreenViewController array to paginationController with landscape boolean value.
  */
 - (void)setViewControllers:(NSArray *)newViewControllers isLandscape:(BOOL)isLandscapeOrientation;

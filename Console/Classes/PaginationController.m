@@ -169,28 +169,6 @@
 	return YES;
 }
 
-//Return YES if succuess
-- (BOOL)previousScreen {
-	if (selectedIndex == 0) {
-		return NO;
-	}
-	selectedIndex--;
-	[pageControl setCurrentPage:selectedIndex];
-	[self scrollToSelectedViewWithAnimation:YES];
-	return YES;
-}
-
-//Return YES if succuess
-- (BOOL)nextScreen {
-	if (selectedIndex == pageControl.numberOfPages - 1) {
-		return NO;
-	}
-	selectedIndex++;
-	[pageControl setCurrentPage:selectedIndex];
-	[self scrollToSelectedViewWithAnimation:YES];
-	return YES;
-}
-
 // Save last screen's id while switching screen view for recovery of lastScreenView in RootViewController.
 - (void)saveLastScreen {
 	if (selectedIndex < viewControllers.count) {

@@ -243,14 +243,6 @@
 	return [[self currentPaginationController] switchToScreen:aScreen];
 }
 
-- (BOOL)previousScreen {
-	return [[self currentPaginationController] previousScreen];
-}
-
-- (BOOL)nextScreen {
-	return [[self currentPaginationController] nextScreen];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	if (errorViewController.view == self.view) {
 		return YES;

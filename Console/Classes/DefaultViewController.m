@@ -54,8 +54,6 @@
 - (void)navigateFromNotification:(NSNotification *)notification;
 - (void)refreshView:(id)sender;
 - (BOOL)navigateToGroup:(ORGroup *)aGroup toScreen:(ORScreen *)aScreen;
-- (BOOL)navigateToPreviousScreen;
-- (BOOL)navigateToNextScreen;
 - (void)logout;
 - (void)navigateBackwardInHistory:(id)sender;
 - (void)navigateTo:(ORNavigation *)navi;
@@ -269,17 +267,6 @@
 		LogoutHelper *logout = [[LogoutHelper alloc] init];
 		[logout requestLogout];
 	}	
-}
-
-// TODO: follow 2 methods should not be required anymore + check for "called ones"
-- (BOOL)navigateToPreviousScreen
-{
-	return [self.currentGroupController previousScreen];
-}
-
-- (BOOL)navigateToNextScreen
-{
-	return [self.currentGroupController nextScreen];
 }
 
 // Version used by newer code using client library and authentication manager mechanism
