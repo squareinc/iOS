@@ -354,6 +354,25 @@
     }
 }
 
+
+
+
+
+
+
+
+- (void)presentGroupController:(GroupController *)groupController animated:(BOOL)flag
+{
+    // At this stage, no animation support
+    
+    [self switchToGroupController:groupController];
+}
+
+
+
+
+
+
 #pragma mark Child view controller management
 
 - (void)presentErrorViewController

@@ -87,6 +87,17 @@
 - (void)connectToController;
 - (void)disconnectFromController;
 
+
+
+
+
+
+
+
+
+- (void)presentGroupController:(GroupController *)groupController animated:(BOOL)flag;
+
+
 @property (nonatomic, weak) ImageCache *imageCache;
 
 @end
