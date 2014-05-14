@@ -43,6 +43,8 @@
 
 @property (nonatomic, strong) ORConsoleSettingsManager *settingsManager;
 
+@property (nonatomic, strong) Definition *_definition;
+
 @property (nonatomic, strong) ScreenReferenceStack *navigationHistory;
 
 @end
@@ -144,7 +146,7 @@
  *    to the destination described by groupId and screenId.
  */
 - (GroupController *)recoverLastOrCreateGroup {
-	NSArray *groups = [[self.settingsManager consoleSettings].selectedController.definition groups];
+	NSArray *groups = self._definition.groups;
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	GroupController *gc = nil;
 	if ([userDefaults objectForKey:@"lastGroupId"]) {
@@ -168,13 +170,12 @@
 	return gc;
 }
 
-- (void)initGroups {
-    [self hideErrorViewController];
-    [self hideInitViewController];
-	
-    Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
-	NSArray *groups = [definition groups];
-	NSLog(@"groups count is %d",groups.count);
+- (void)setDefinition:(Definition *)definition
+{
+    self._definition = definition;
+
+    NSArray *groups = [definition groups];
+	NSLog(@"groups count is %lu", (unsigned long)groups.count);
 	
 	if (groups.count > 0) {
         [self switchToGroupController:[self recoverLastOrCreateGroup]];
@@ -182,6 +183,13 @@
 	} else {
         [self presentErrorViewController];
 	}
+}
+
+- (void)initGroups {
+    [self hideErrorViewController];
+    [self hideInitViewController];
+	
+    [self setDefinition:[self.settingsManager consoleSettings].selectedController.definition];
 }
 
 - (void)navigateFromNotification:(NSNotification *)notification {
@@ -308,11 +316,10 @@
     ScreenReference *previousScreen = [self.navigationHistory pop];
     if (previousScreen) {
         if (previousScreen.groupIdentifier && previousScreen.screenIdentifier) {
-            Definition *definition = [self.settingsManager consoleSettings].selectedController.definition;
 
             NSLog(@"navigate back to group %@, screen %@", previousScreen.groupIdentifier, previousScreen.screenIdentifier);
-			[self navigateToGroup:[definition findGroupByIdentifier:previousScreen.groupIdentifier]
-                         toScreen:[definition findScreenByIdentifier:previousScreen.screenIdentifier]];
+			[self navigateToGroup:[self._definition findGroupByIdentifier:previousScreen.groupIdentifier]
+                         toScreen:[self._definition findScreenByIdentifier:previousScreen.screenIdentifier]];
         }
     }
 }
