@@ -23,6 +23,7 @@
 #import "PaginationController.h"
 #import "ErrorViewController.h"
 
+@class ORControllerConfig;
 @class ImageCache;
 
 /**

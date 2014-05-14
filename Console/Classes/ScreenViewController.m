@@ -35,7 +35,6 @@
 @interface ScreenViewController ()
 
 @property (nonatomic, strong) ScreenSubController *screenSubController;
-@property (nonatomic, weak) ORControllerConfig *controller;
 
 @property (nonatomic, strong) NSMutableArray *gestureRecognizers;
 
@@ -43,11 +42,10 @@
 
 @implementation ScreenViewController
 
-- (id)initWithController:(ORControllerConfig *)aController
+- (id)init
 {
     self = [super init];
     if (self) {
-        self.controller = aController;
         self.gestureRecognizers = [[NSMutableArray alloc] initWithCapacity:4];
     }
     return self;
@@ -58,7 +56,6 @@
     [self cleanupGestureRecognizers];
     [self stopPolling];
 	self.screenSubController = nil;
-    self.controller = nil;
     self.imageCache = nil;
     self.screen = nil;
 }

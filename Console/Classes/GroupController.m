@@ -99,7 +99,7 @@
 	
 	for (ORScreen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
-		ScreenViewController *viewController = [[ScreenViewController alloc] initWithController:self.controller];
+		ScreenViewController *viewController = [[ScreenViewController alloc] init];
         viewController.imageCache = self.imageCache;
 		[viewController setScreen:screen];
 		[viewControllers addObject:viewController];

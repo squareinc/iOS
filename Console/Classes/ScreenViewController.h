@@ -20,7 +20,6 @@
  */
 #import <UIKit/UIKit.h>
 #import "ORControllerClient/ORScreen.h"
-#import "ORControllerConfig.h"
 
 @class ImageCache;
 
@@ -29,7 +28,7 @@
  */
 @interface ScreenViewController : UIViewController <UIGestureRecognizerDelegate>
 
-- (id)initWithController:(ORControllerConfig *)aController;
+- (id)init;
 
 /**
  * Start polling of all sensor components in screenView.
