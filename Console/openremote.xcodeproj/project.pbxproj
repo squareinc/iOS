@@ -211,6 +211,7 @@
 		8C579704116B9DD000ED63EA /* panel_portrait_landscape.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5796F4116B9DD000ED63EA /* panel_portrait_landscape.xml */; };
 		8C579705116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5796F5116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml */; };
 		8CECF3E210E9DD1400C0E1BB /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 8CECF3E010E9DD1400C0E1BB /* database.db */; };
+		9105AB811923621700DB3861 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105AB801923621700DB3861 /* NavigationManager.m */; };
 		91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13019167D39005E0D79 /* Default-568h@2x.png */; };
@@ -536,6 +537,8 @@
 		8CF6A2B00FBD784C006ED733 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8CFDB2760FBBBF4500D204CB /* appSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appSettings.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9105AB7F1923621700DB3861 /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
+		9105AB801923621700DB3861 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9123A13019167D39005E0D79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "image/Default-568h@2x.png"; sourceTree = "<group>"; };
 		9123A13119167D39005E0D79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "image/Default@2x.png"; sourceTree = "<group>"; };
@@ -1040,6 +1043,8 @@
 				91B357CA18BB833500ADED24 /* ScreenReference.m */,
 				91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */,
 				91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */,
+				9105AB7F1923621700DB3861 /* NavigationManager.h */,
+				9105AB801923621700DB3861 /* NavigationManager.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1458,6 +1463,7 @@
 			files = (
 				60366B90144DCB9C004FED3B /* main.m in Sources */,
 				91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */,
+				9105AB811923621700DB3861 /* NavigationManager.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
 				60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */,

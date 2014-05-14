@@ -30,8 +30,8 @@
 #import "ORControllerClient/ORObjectIdentifier.h"
 #import "ORControllerClient/ORController.h"
 
+#import "NavigationManager.h"
 #import "ScreenReference.h"
-#import "ScreenReferenceStack.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -45,7 +45,7 @@
 
 @property (nonatomic, strong) Definition *_definition;
 
-@property (nonatomic, strong) ScreenReferenceStack *navigationHistory;
+@property (nonatomic, strong) NavigationManager *navigationManager;
 
 @end
 
@@ -74,7 +74,6 @@
     if (self) {
         self.settingsManager = aSettingsManager;
 			self._delegate = delegate;
-			self.navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
 			
 			//register notifications
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateFromNotification:) name:NotificationNavigateTo object:nil];
@@ -121,68 +120,31 @@
 	[self.currentGroupController startPolling];
 }
 
-/**
- * About recovering to last group and screen.
- * I)Currently, there are two use cases which relate with recovery mechanism.
- * 1) While setting.
- *    DESC: User presses setting item in tabbar or in certain screen when user had switch
- *    to certain screen of certain group. After Uesr done setting, the app must switch to 
- *    the screen which before user pressing setting.
- *    
- * 2) While switching to groupmember controller.
- *    DESC: If current controller down, app will switch to groupmember controller of crashed controller.
- *    However, the process is tranparent. That means user won't feel controller-switch. So, the app must
- *    keep the same screen before and after switching controller.
- *
- * II)Technically speaking, app will save the groupId and screenId when user switch to certain group and screen 
- * or navigage to certain screen. The follows are in detail:
- *    1)Navigate action: Append code in self method *navigateToWithHistory*
- *    2)Scroll screen action: Apend code in method *setViewControllers* and *updateViewForCurrentPageAndBothSides*
- *    of class PaginationController.
- *    3)Finished the initGroups: Append code in tail of self method *initGroups*:[self saveLastGroupIdAndScreenId];
- *
- * III)The saved groupId and screenId will be used in following situation:
- *    While app initializing groups(see method initGroups) in current classs, app gets groupId and screenId stored, and then switch
- *    to the destination described by groupId and screenId.
- */
-- (GroupController *)recoverLastOrCreateGroup {
-	NSArray *groups = self._definition.groups;
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	GroupController *gc = nil;
-	if ([userDefaults objectForKey:@"lastGroupId"]) {
-		ORObjectIdentifier *lastGroupIdentifier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastGroupId"]];
-		ORGroup *lastGroup = nil;
-		for (ORGroup *tempGroup in groups) {
-			if ([lastGroupIdentifier isEqual:tempGroup.identifier]) {
-				lastGroup = tempGroup;
-				break;
-			}
-		}
-		if (lastGroup) {
-			gc = [[GroupController alloc] initWithGroup:lastGroup parentViewController:self];
-		} else {
-			gc = [[GroupController alloc] initWithGroup:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
-		}
-	} else {
-		gc = [[GroupController alloc] initWithGroup:((ORGroup *)[groups objectAtIndex:0]) parentViewController:self];
-	}
-    gc.imageCache = self.imageCache;
-	return gc;
-}
-
 - (void)setDefinition:(Definition *)definition
 {
+    
+    // TODO: handle fact that definition instance does not change, should not trigger everything
+    // but still, definition "content" could have changed -> must validate current group / screen
     self._definition = definition;
 
-    NSArray *groups = [definition groups];
-	NSLog(@"groups count is %lu", (unsigned long)groups.count);
-	
-	if (groups.count > 0) {
-        [self switchToGroupController:[self recoverLastOrCreateGroup]];
+    self.navigationManager = [[NavigationManager alloc] initWithDefinition:definition];
+    
+    ScreenReference *screenReference = [self.navigationManager currentScreenReference];
+    
+    // Navigation manager ensures that referenced group / screen exists if it returns a screen reference
+    if (screenReference) {
+        ORGroup *currentGroup = [definition findGroupByIdentifier:screenReference.groupIdentifier];
+        
+        GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup parentViewController:self];
+        gc.imageCache = self.imageCache;
+        [self switchToGroupController:gc];
+        
+        // TODO: should be handled by navigation manager
 		[self saveLastGroupIdAndScreenId];
-	} else {
+    } else {
+        // Means no group with screen does exist
         [self presentErrorViewController];
-	}
+    }
 }
 
 - (void)initGroups {
@@ -200,17 +162,13 @@
 }
 
 - (void)navigateToWithHistory:(ORNavigation *)navi {
+    
+    // TODO EBR : Why this test ?
 	if (!self.currentGroupController.group) {
         return;
     }
 
-	// Take the reference before navigating so it references the original screen and not the destination
-    ScreenReference *currentScreen = [[ScreenReference alloc] initWithGroupIdentifier:self.currentGroupController.group.identifier
-                                                                     screenIdentifier:[self.currentGroupController currentScreenIdentifier]];
-	if ([self navigateTo:navi]) {
-		[self saveLastGroupIdAndScreenId];
-		[self.navigationHistory push:currentScreen];
-	}
+    [self navigateTo:navi];
 }
 
 - (void)saveLastGroupIdAndScreenId {
@@ -228,26 +186,30 @@
 // if NO, don't save history
 - (BOOL)navigateTo:(ORNavigation *)navi
 {
+    ScreenReference *destination = nil;
+
     switch (navi.navigationType) {
         case ORNavigationTypeToGroupOrScreen:
         {
             ORScreenNavigation *screenNavi = (ORScreenNavigation *)navi;
-            return [self navigateToGroup:screenNavi.destinationGroup toScreen:screenNavi.destinationScreen];
+            destination = [self.navigationManager navigateToGroup:screenNavi.destinationGroup toScreen:screenNavi.destinationScreen];
             break;
         }
         case ORNavigationTypePreviousScreen:
-            return [self navigateToPreviousScreen];
+        {
+            destination = [self.navigationManager navigateToPreviousScreen];
             break;
+        }
         case ORNavigationTypeNextScreen:
-            return [self navigateToNextScreen];
+        {
+            destination = [self.navigationManager navigateToNextScreen];
             break;
-            
-	// the following should not generate history record
-	
+        }
         case ORNavigationTypeBack:
-            [self navigateBackwardInHistory:nil];
-            return NO;
+        {
+            destination = [self.navigationManager back];
             break;
+        }
         case ORNavigationTypeLogin:
             [self populateLoginView:nil];
             return NO;
@@ -263,6 +225,18 @@
         default:
             return NO;
     }
+    
+    
+    // Navigate based on destination, being assured that if not nil, it exists
+    if (destination) {
+        
+        [self navigateToGroup:[self._definition findGroupByIdentifier:destination.groupIdentifier]
+                     toScreen:[self._definition findScreenByIdentifier:destination.screenIdentifier]];
+
+        // TODO: review this call, as it still does check that are not required anymore
+    }
+    
+    return NO;
 }
 
 - (void)updateGlobalOrLocalTabbarViewToGroupController:(GroupController *)targetGroupController
@@ -311,19 +285,7 @@
 	}	
 }
 
-- (void)navigateBackwardInHistory:(id)sender
-{
-    ScreenReference *previousScreen = [self.navigationHistory pop];
-    if (previousScreen) {
-        if (previousScreen.groupIdentifier && previousScreen.screenIdentifier) {
-
-            NSLog(@"navigate back to group %@, screen %@", previousScreen.groupIdentifier, previousScreen.screenIdentifier);
-			[self navigateToGroup:[self._definition findGroupByIdentifier:previousScreen.groupIdentifier]
-                         toScreen:[self._definition findScreenByIdentifier:previousScreen.screenIdentifier]];
-        }
-    }
-}
-
+// TODO: follow 2 methods should not be required anymore + check for "called ones"
 - (BOOL)navigateToPreviousScreen
 {
 	return [self.currentGroupController previousScreen];

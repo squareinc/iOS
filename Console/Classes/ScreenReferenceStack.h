@@ -54,4 +54,8 @@
  */
 - (ScreenReference *)pop;
 
+
+// TODO: doc and unit tests
+- (ScreenReference *)top;
+
 @end

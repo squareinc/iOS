@@ -59,4 +59,9 @@
     return ref;
 }
 
+- (ScreenReference *)top
+{
+    return [self.stack lastObject];
+}
+
 @end
