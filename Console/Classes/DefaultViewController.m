@@ -55,7 +55,6 @@
 - (void)refreshView:(id)sender;
 - (BOOL)navigateToGroup:(ORGroup *)aGroup toScreen:(ORScreen *)aScreen;
 - (void)logout;
-- (void)navigateBackwardInHistory:(id)sender;
 - (void)navigateTo:(ORNavigation *)navi;
 - (void)saveLastGroupIdAndScreenId;
 - (void)rerenderTabbarWithNewOrientation;
@@ -76,7 +75,6 @@
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateFromNotification:) name:NotificationNavigateTo object:nil];
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateSettingsView:) name:NotificationPopulateSettingsView object:nil];
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:) name:NotificationRefreshGroupsView object:nil];	
-			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateBackwardInHistory:) name:NotificationNavigateBack object:nil];	
     }
     return self;
 }

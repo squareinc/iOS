@@ -24,7 +24,6 @@
 @interface ErrorViewController ()
 
 - (void)gotoSettings:(id)sender;
-- (void)goBack:(id)sender;
 
 @end
 
@@ -61,11 +60,6 @@
 - (void)gotoSettings:(id)sender
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationPopulateSettingsView object:nil];
-}
-
-- (void)goBack:(id)sender
-{
-	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationNavigateBack object:nil];
 }
 
 // Enable rotating of errorView.

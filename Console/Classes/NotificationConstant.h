@@ -46,9 +46,6 @@ extern NSString *const NotificationPopulateCredentialView;
 // This notificaton will be post while needing to show appsetting view.
 extern NSString *const NotificationPopulateSettingsView;
 
-// This notificaton will be post when back navigation is triggered.
-extern NSString *const NotificationNavigateBack;
-
 // This notificaton will be post while needing to show loading view.
 extern NSString *const NotificationShowLoading;
 
