@@ -36,12 +36,12 @@
 
 @implementation AbsoluteLayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
+- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
-    self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
+    self = [super initWithImageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
         ORWidget *widget = ((ORAbsoluteLayoutContainer *)aLayoutContainer).widget;
-        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithController:self.controller imageCache:aCache component:widget];
+        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithImageCache:aCache component:widget];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }
     

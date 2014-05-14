@@ -47,9 +47,9 @@ static void * const SwitchSubControllerKVOContext = (void*)&SwitchSubControllerK
 // TODO: review this "canUseImage" thing, possible to only have 1 of the 2 images
 // also possible to have image names but never resolve to image
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
 {
-    self = [super initWithController:aController imageCache:aCache component:aComponent];
+    self = [super initWithImageCache:aCache component:aComponent];
     if (self) {
         self.view = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addTarget:self action:@selector(stateChanged:) forControlEvents:UIControlEventTouchUpInside];

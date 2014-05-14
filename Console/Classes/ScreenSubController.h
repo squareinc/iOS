@@ -26,6 +26,6 @@
 
 @interface ScreenSubController : SubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen;
+- (id)initWithImageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen;
 
 @end

@@ -28,6 +28,6 @@
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer;
+- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer;
 
 @end

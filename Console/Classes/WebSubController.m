@@ -37,9 +37,9 @@ static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOCont
 
 @implementation WebSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
 {
-    self = [super initWithController:aController imageCache:aCache component:aComponent];
+    self = [super initWithImageCache:aCache component:aComponent];
     if (self) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         self.view = webView;

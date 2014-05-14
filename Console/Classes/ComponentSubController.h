@@ -28,7 +28,7 @@
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache component:(ORWidget *)aComponent;
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent;
 
 @property (nonatomic, readonly, strong) ORWidget *component;
 

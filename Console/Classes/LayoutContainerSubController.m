@@ -27,7 +27,6 @@
 
 @interface LayoutContainerSubController()
 
-@property (nonatomic, weak) ORControllerConfig *controller;
 @property (nonatomic, strong) ORLayoutContainer *layoutContainer;
 @property (nonatomic, weak) ImageCache *imageCache;
 
@@ -35,11 +34,10 @@
 
 @implementation LayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
+- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
     self = [super init];
     if (self) {
-        self.controller = aController;
         self.layoutContainer = aLayoutContainer;
         self.imageCache = aCache;
     }    
@@ -48,7 +46,6 @@
 
 - (void)dealloc
 {
-    self.controller = nil;
     self.imageCache = nil;
 }
 

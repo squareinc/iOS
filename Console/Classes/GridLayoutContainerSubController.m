@@ -37,9 +37,9 @@
 
 @implementation GridLayoutContainerSubController
 
-- (id)initWithController:(ORControllerConfig *)aController imageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
+- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
 {
-    self = [super initWithController:aController imageCache:aCache layoutContainer:aLayoutContainer];
+    self = [super initWithImageCache:aCache layoutContainer:aLayoutContainer];
     if (self) {
         ORGridLayoutContainer *container = (ORGridLayoutContainer *)aLayoutContainer;
         self.view = [[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)];
@@ -50,7 +50,7 @@
         for (ORGridCell *cell in container.cells) {
             ORWidget *widget = cell.widget;
             ComponentSubController *ctrl;
-            ctrl = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithController:self.controller imageCache:aCache component:widget];
+            ctrl = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithImageCache:aCache component:widget];
             [self.cells addObject:ctrl];
             ctrl.view.frame = CGRectMake(cell.x * w, cell.y * h, w * cell.colspan, h * cell.rowspan);
             [self.view addSubview:ctrl.view];

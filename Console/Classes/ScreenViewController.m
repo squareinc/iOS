@@ -66,7 +66,7 @@
 // Implement loadView to create a view hierarchy programmatically.
 - (void)loadView
 {
-    self.screenSubController = [[ScreenSubController alloc] initWithController:self.controller imageCache:self.imageCache screen:self.screen];
+    self.screenSubController = [[ScreenSubController alloc] initWithImageCache:self.imageCache screen:self.screen];
     self.view = self.screenSubController.view;    
 }
 
