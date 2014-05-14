@@ -210,14 +210,10 @@
             return;
     }
     
-    
     // Navigate based on destination, being assured that if not nil, it exists
     if (destination) {
-        
         [self navigateToGroup:[self._definition findGroupByIdentifier:destination.groupIdentifier]
                      toScreen:[self._definition findScreenByIdentifier:destination.screenIdentifier]];
-
-        // TODO: review this call, as it still does check that are not required anymore
     }
 }
 
@@ -228,34 +224,19 @@
     [self switchToGroupController:targetGroupController];
 }
 
-- (BOOL)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen {
-	GroupController *targetGroupController = nil;
-	
-	BOOL isAnotherGroup = ![group.identifier isEqual:[self.currentGroupController groupIdentifier]];
-
-	//if screenId is specified, and is not in current group, jump to that group
-	if (group && isAnotherGroup) {
-		if (targetGroupController == nil) {
-            targetGroupController = [[GroupController alloc] initWithGroup:group parentViewController:self];
-            targetGroupController.imageCache = self.imageCache;
-		}
+- (BOOL)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen
+{
+    // Going to another group
+	if (![group.identifier isEqual:[self.currentGroupController groupIdentifier]]) {
+		GroupController *targetGroupController = [[GroupController alloc] initWithGroup:group parentViewController:self];
+        targetGroupController.imageCache = self.imageCache;
 		
         [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}
 	
-    ORScreen *targetScreen;
-	if (screen) {
-        // If screenId is specified, jump to that screen
-        targetScreen = screen;
-    } else {
-        //If only group is specified, then by definition we show the first screen of that group.
-        targetScreen = [self.currentGroupController.group.screens objectAtIndex:0];
-    }
-    // First check if we have a screen more appropriate for the current device orientation orientation
-    if (targetScreen) {
-        targetScreen = [targetScreen screenForOrientation:UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])?ORScreenOrientationLandscape:ORScreenOrientationPortrait];
-    }
+    // TODO: is next line really required ? Or should group controller / pagination controller take care of that ?
+    ORScreen *targetScreen = [screen screenForOrientation:UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])?ORScreenOrientationLandscape:ORScreenOrientationPortrait];
 	return [self.currentGroupController switchToScreen:targetScreen];
 }
 
