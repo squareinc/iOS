@@ -266,6 +266,9 @@
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
+		91FCBAEE1952C1A40072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
+		91FCBAF11952C2370072A831 /* ORControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF01952C2370072A831 /* ORControllerBrowser.m */; };
+		91FCBAF31952C4D40072A831 /* ORControllerInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */; };
 		91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
 		91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
 		91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */; };
@@ -658,6 +661,12 @@
 		91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorValuesResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0.h; sourceTree = "<group>"; };
 		91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0.m; sourceTree = "<group>"; };
+		91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerInfo.h; sourceTree = "<group>"; };
+		91FCBAED1952C1A40072A831 /* ORControllerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerInfo.m; sourceTree = "<group>"; };
+		91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerBrowser.h; sourceTree = "<group>"; };
+		91FCBAF01952C2370072A831 /* ORControllerBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerBrowser.m; sourceTree = "<group>"; };
+		91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerInfoTest.m; sourceTree = "<group>"; };
+		91FCBAF41952C4E60072A831 /* ORControllerInfoTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerInfoTest.h; sourceTree = "<group>"; };
 		91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistry.h; sourceTree = "<group>"; };
 		91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
 		91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistryTest.h; sourceTree = "<group>"; };
@@ -986,6 +995,8 @@
 				916D22AB18522139004D9CF4 /* Authentication */,
 				9190D4D81790172B00667A7C /* ORControllerAddress.h */,
 				9190D4D91790172B00667A7C /* ORControllerAddress.m */,
+				91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */,
+				91FCBAED1952C1A40072A831 /* ORControllerInfo.m */,
 				9190D4D21790161900667A7C /* ORController.h */,
 				9190D4D31790161900667A7C /* ORController.m */,
 				91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */,
@@ -994,6 +1005,8 @@
 				917104C017B8DC34005F9BA4 /* ORSensorLink.m */,
 				915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */,
 				915024C017B5279E005D8A02 /* ORSensorPollingManager.m */,
+				91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */,
+				91FCBAF01952C2370072A831 /* ORControllerBrowser.m */,
 				91AAFAFE18A8E52F00632C1A /* ORConsole.h */,
 				9190D4AA1790140A00667A7C /* Supporting Files */,
 			);
@@ -1019,6 +1032,8 @@
 				918604BC1794480B005DBCD9 /* Parsers */,
 				9190D4E01790533A00667A7C /* ORControllerAddressTest.h */,
 				9190D4E11790533A00667A7C /* ORControllerAddressTest.m */,
+				91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */,
+				91FCBAF41952C4E60072A831 /* ORControllerInfoTest.h */,
 				910B750317940D10005F41CF /* ORControllerTest.h */,
 				910B750417940D10005F41CF /* ORControllerTest.m */,
 				910B750017940962005F41CF /* ORControllerClientOverallTest.h */,
@@ -1452,6 +1467,7 @@
 				91B72FB1189035D6000B7552 /* ORDeferredBinding.m in Sources */,
 				91A4A26F18DB09BD0070F823 /* ORScreenParser.m in Sources */,
 				91B72FA41890308F000B7552 /* ORImage.m in Sources */,
+				91FCBAF11952C2370072A831 /* ORControllerBrowser.m in Sources */,
 				91B72FA818903402000B7552 /* ORImageParser.m in Sources */,
 				913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */,
 				91222D941892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
@@ -1469,6 +1485,7 @@
 				917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
 				91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
 				91CD6A3417C23C0A00D5EEE6 /* ORRESTErrorParser.m in Sources */,
+				91FCBAEE1952C1A40072A831 /* ORControllerInfo.m in Sources */,
 				91CD6A3817C23C9300D5EEE6 /* ORRESTError.m in Sources */,
 				91222D901892AEE000BA0B96 /* ORSensor.m in Sources */,
 				91CD6A4117C252D900D5EEE6 /* ORParser.m in Sources */,
@@ -1508,6 +1525,7 @@
 				91A4A27018DB09BD0070F823 /* ORScreenParser.m in Sources */,
 				91CC8A1218E5965D00D31A66 /* ORGroupTest.m in Sources */,
 				91C3DF2C18DB3315006FD9D4 /* ORGroupParser.m in Sources */,
+				91FCBAF31952C4D40072A831 /* ORControllerInfoTest.m in Sources */,
 				91C3DF3218DB35E0006FD9D4 /* ORGroupParserTest.m in Sources */,
 				91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */,
 				9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */,
