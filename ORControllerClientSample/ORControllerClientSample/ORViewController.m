@@ -22,15 +22,17 @@
 #import "ORViewController.h"
 #import "LoginViewController.h"
 #import "ORControllerClient/ORControllerAddress.h"
+#import "ORControllerClient/ORControllerInfo.h"
 #import "ORControllerClient/ORController.h"
 #import "ORControllerClient/ORLabel.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORUserPasswordCredential.h"
+#import "ORControllerPickerViewController.h"
 
 //#define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
 #define CONTROLLER_ADDRESS @"https://localhost:8443/controller"
 
-@interface ORViewController ()
+@interface ORViewController () <ORControllerPickerViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *labels;
 @property (nonatomic, strong) ORController *orb;
@@ -42,23 +44,23 @@
 @property (atomic) BOOL didAcceptCertificate;
 @property (atomic, strong) NSCondition *certificateCondition;
 
+@property (nonatomic, strong) NSString *controllerAddress;
+
 @end
 
 @implementation ORViewController
 
 - (void)viewDidLoad
 {
-    self.title = CONTROLLER_ADDRESS;
+    self.controllerAddress = CONTROLLER_ADDRESS;
+    self.title = self.controllerAddress;
     self.toolbarItems = @[[[UIBarButtonItem alloc] initWithTitle:@"Start" style:UIBarButtonItemStyleBordered target:self action:@selector(startPolling)],
     [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStyleBordered target:self action:@selector(stopPolling)]];
     self.navigationController.toolbarHidden = NO;
     
-    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:CONTROLLER_ADDRESS]];
-    self.orb = [[ORController alloc] initWithControllerAddress:address];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(pickController:)];
     
-    // We set ourself as the authenticationManager, we'll provide the credential by asking the user
-    // for a username / password
-    self.orb.authenticationManager = self;
+    [self createOrb];
     
     [super viewDidLoad];
 }
@@ -105,6 +107,15 @@
     return cell;
 }
 
+- (void)pickController:(id)sender
+{
+    [self stopPolling];
+
+    ORControllerPickerViewController *vc = [[ORControllerPickerViewController alloc] init];
+    vc.delegate = self;
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:vc] animated:YES completion:NULL];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     // We're not guaranteed that the value we observe is set on the main thread,
@@ -128,6 +139,16 @@
             }
         }];
     }
+}
+
+- (void)createOrb
+{
+    ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:self.controllerAddress]];
+    self.orb = [[ORController alloc] initWithControllerAddress:address];
+    
+    // We set ourself as the authenticationManager, we'll provide the credential by asking the user
+    // for a username / password
+    self.orb.authenticationManager = self;
 }
 
 - (void)startPolling
@@ -155,6 +176,22 @@
 {
     [self stopObservingLabelChanges];
     [self.orb disconnect];
+}
+
+#pragma mark - ORControllerPickerViewController delegate implementation
+
+- (void)controllerPicker:(ORControllerPickerViewController *)picker didPickController:(ORControllerInfo *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.controllerAddress = [controller.address.primaryURL description];
+        self.title = self.controllerAddress;
+        [self createOrb];
+    }];
+}
+
+- (void)controllerPickerDidCancelPick:(ORControllerPickerViewController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - ORAuthenticationManager implementation

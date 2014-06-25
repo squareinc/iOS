@@ -20,6 +20,7 @@
 		910B75401794269D005F41CF /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B753F1794269D005F41CF /* libORControllerClient.a */; };
 		9120288B185862AC008D9917 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9120288A185862AC008D9917 /* LoginViewController.xib */; };
 		9136999B1850BB7C0087A55B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9136999A1850BB7C0087A55B /* LoginViewController.m */; };
+		91EFDAC5195AFB39001A6E53 /* ORControllerPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		913699991850BB7C0087A55B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9136999A1850BB7C0087A55B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORControllerClient.xcodeproj; path = ../ORControllerClient/ORControllerClient.xcodeproj; sourceTree = "<group>"; };
+		91EFDAC2195AFB39001A6E53 /* ORControllerPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPickerViewController.h; sourceTree = "<group>"; };
+		91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				910B752B17941030005F41CF /* ORViewController.m */,
 				913699991850BB7C0087A55B /* LoginViewController.h */,
 				9136999A1850BB7C0087A55B /* LoginViewController.m */,
+				91EFDAC2195AFB39001A6E53 /* ORControllerPickerViewController.h */,
+				91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */,
 				910B751917941030005F41CF /* Supporting Files */,
 				9120288A185862AC008D9917 /* LoginViewController.xib */,
 			);
@@ -237,6 +242,7 @@
 				9136999B1850BB7C0087A55B /* LoginViewController.m in Sources */,
 				910B751F17941030005F41CF /* main.m in Sources */,
 				910B752317941030005F41CF /* ORAppDelegate.m in Sources */,
+				91EFDAC5195AFB39001A6E53 /* ORControllerPickerViewController.m in Sources */,
 				910B752C17941030005F41CF /* ORViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
