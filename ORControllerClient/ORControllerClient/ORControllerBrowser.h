@@ -87,9 +87,10 @@
  * The browser will start sending UDP broadcast to discover controllers.
  * The frequency of this broadcast decreases expentionally over time.
  *
- * Calling this method, even if a search is already in progress, resets to sending frequency to its initial value.
+ * Calling this method, even if a search is already in progress, resets the sending frequency to its initial value.
  *
  * Calling this method does not clear the list of already discovered controllers.
+ * If you want to start from scratch, instantiate a new ORControllerBrowser object.
  */
 - (void)startSearchingForORControllers;
 

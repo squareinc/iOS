@@ -192,6 +192,7 @@
 		91A4A27318DB0D250070F823 /* ORScreenScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27218DB0D250070F823 /* ORScreenScreenDeferredBinding.m */; };
 		91A4A27418DB0D250070F823 /* ORScreenScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27218DB0D250070F823 /* ORScreenScreenDeferredBinding.m */; };
 		91A4A27618DB0E850070F823 /* ORScreenParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27518DB0E850070F823 /* ORScreenParserTest.m */; };
+		91A821F319595F2B00A77FCA /* ORControllerBrowser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */; };
 		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
 		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
@@ -266,9 +267,13 @@
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
+		91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */; };
 		91FCBAEE1952C1A40072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
 		91FCBAF11952C2370072A831 /* ORControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF01952C2370072A831 /* ORControllerBrowser.m */; };
 		91FCBAF31952C4D40072A831 /* ORControllerInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */; };
+		91FCBAF51952C5B70072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
+		91FCBB011952D1040072A831 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAFE1952D1040072A831 /* AsyncSocket.m */; };
+		91FCBB021952D1040072A831 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBB001952D1040072A831 /* AsyncUdpSocket.m */; };
 		91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
 		91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
 		91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */; };
@@ -291,6 +296,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */,
+				91A821F319595F2B00A77FCA /* ORControllerBrowser.h in CopyFiles */,
 				912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */,
 				91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */,
 				91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */,
@@ -667,6 +674,10 @@
 		91FCBAF01952C2370072A831 /* ORControllerBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerBrowser.m; sourceTree = "<group>"; };
 		91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerInfoTest.m; sourceTree = "<group>"; };
 		91FCBAF41952C4E60072A831 /* ORControllerInfoTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerInfoTest.h; sourceTree = "<group>"; };
+		91FCBAFD1952D1040072A831 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		91FCBAFE1952D1040072A831 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		91FCBAFF1952D1040072A831 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		91FCBB001952D1040072A831 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistry.h; sourceTree = "<group>"; };
 		91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
 		91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistryTest.h; sourceTree = "<group>"; };
@@ -988,6 +999,7 @@
 		9190D4A91790140A00667A7C /* ORControllerClient */ = {
 			isa = PBXGroup;
 			children = (
+				91FCBAF61952CDD90072A831 /* 3rd Party */,
 				9193330A1799822A0086FEE7 /* Utility */,
 				9193330017956B7E0086FEE7 /* Network Layer */,
 				918604B5179444B0005DBCD9 /* Parsers */,
@@ -1283,6 +1295,17 @@
 			name = Mocks;
 			sourceTree = "<group>";
 		};
+		91FCBAF61952CDD90072A831 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				91FCBAFD1952D1040072A831 /* AsyncSocket.h */,
+				91FCBAFE1952D1040072A831 /* AsyncSocket.m */,
+				91FCBAFF1952D1040072A831 /* AsyncUdpSocket.h */,
+				91FCBB001952D1040072A831 /* AsyncUdpSocket.m */,
+			);
+			name = "3rd Party";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1446,6 +1469,7 @@
 				91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */,
 				91A4A23618D5D89D0070F823 /* ORNavigationParser.m in Sources */,
 				911392E6189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */,
+				91FCBB011952D1040072A831 /* AsyncSocket.m in Sources */,
 				917BA54018C2342F006006E9 /* ORScreen.m in Sources */,
 				919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */,
 				91A4A23B18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m in Sources */,
@@ -1454,6 +1478,7 @@
 				919333F3179EA2DE0086FEE7 /* DefinitionParser.m in Sources */,
 				91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */,
 				919333F6179EA2DE0086FEE7 /* ORAbsoluteLayoutContainerParser.m in Sources */,
+				91FCBB021952D1040072A831 /* AsyncUdpSocket.m in Sources */,
 				919333F7179EA2DE0086FEE7 /* ORGridLayoutContainerParser.m in Sources */,
 				9178DFA8184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
 				919333F8179EA2DE0086FEE7 /* ORGridCellParser.m in Sources */,
@@ -1499,6 +1524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FCBAF51952C5B70072A831 /* ORControllerInfo.m in Sources */,
 				911754A5190E575000B20448 /* UIDevice+ORUDID.m in Sources */,
 				911754A1190E525500B20448 /* ORColorPicker.m in Sources */,
 				91222D911892AEE000BA0B96 /* ORSensor.m in Sources */,
