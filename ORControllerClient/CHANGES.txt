@@ -1,3 +1,11 @@
+Version 0.5
+===========
+
+- Removed anything to do with "local commands", the mechanism was never fully implemented
+- Added auto-discovery mechanism in the client library.
+  Please check the ORControllerBrowser class documentation for futher details.
+  The sample application is also updated to showcase using that mechanism.
+
 Version 0.4.2
 =============
 
