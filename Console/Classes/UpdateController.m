@@ -324,6 +324,7 @@ static void * const UpdateControllerKVOContext = (void*)&UpdateControllerKVOCont
 
 -(void)dealloc
 {
+    serverAutoDiscoveryController = nil;
     self.imageCache = nil;
     [self removeObserver:self forKeyPath:@"imageCache"];
 }
