@@ -210,6 +210,7 @@
 		9105AB811923621700DB3861 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105AB801923621700DB3861 /* NavigationManager.m */; };
 		91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
+		910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 910F28DB1992635F002B65A3 /* delete_button@2x.png */; };
 		9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13019167D39005E0D79 /* Default-568h@2x.png */; };
 		9123A13519167D39005E0D79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13119167D39005E0D79 /* Default@2x.png */; };
 		9123A13619167D39005E0D79 /* Default7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13219167D39005E0D79 /* Default7-568h@2x.png */; };
@@ -532,6 +533,7 @@
 		9105AB7F1923621700DB3861 /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
 		9105AB801923621700DB3861 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		910F28DB1992635F002B65A3 /* delete_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_button@2x.png"; sourceTree = "<group>"; };
 		9123A13019167D39005E0D79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "image/Default-568h@2x.png"; sourceTree = "<group>"; };
 		9123A13119167D39005E0D79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "image/Default@2x.png"; sourceTree = "<group>"; };
 		9123A13219167D39005E0D79 /* Default7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-568h@2x.png"; path = "image/Default7-568h@2x.png"; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 				60950D9613CB115400B983E7 /* CheckMark.png */,
 				60950D9713CB115400B983E7 /* CheckMark@2x.png */,
 				60FA5DC4153C506500FA245E /* delete_button.png */,
+				910F28DB1992635F002B65A3 /* delete_button@2x.png */,
 				8C3DE3001163492C00DD4EE7 /* btn_green.png */,
 				8C3DE3011163492C00DD4EE7 /* button.png */,
 				8C3DE3061163492C00DD4EE7 /* repair.png */,
@@ -1338,6 +1341,7 @@
 				9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */,
 				912E1E3919019435009BA1D6 /* OR-144.png in Resources */,
 				912E1E4419019435009BA1D6 /* OR-29.png in Resources */,
+				910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */,
 				9123A13719167D39005E0D79 /* Default7@2x.png in Resources */,
 				60366B75144DCB9C004FED3B /* repair.png in Resources */,
 				60366B76144DCB9C004FED3B /* slider_tip.png in Resources */,

@@ -115,15 +115,26 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
         
     UIView *footerView  = [[UIView alloc] init];
-    footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 50);
-    UIButton *deleteInstallBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];     
-    [deleteInstallBtn setFrame:CGRectMake(0, 0, 280, 44)];
+    UIButton *deleteInstallBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+
     [deleteInstallBtn setTitle:@"Delete" forState:UIControlStateNormal];
     [deleteInstallBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    [deleteInstallBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    deleteInstallBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [deleteInstallBtn sizeToFit];
+
     [deleteInstallBtn addTarget:self action:@selector(deleteController:) forControlEvents:UIControlEventTouchUpInside];
-    UIImage *deleteGradient = [[UIImage imageNamed:@"delete_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 1, 5)];
-    [deleteInstallBtn setBackgroundImage:deleteGradient forState:UIControlStateNormal];    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [deleteInstallBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    } else {
+        [deleteInstallBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *deleteGradient = [[UIImage imageNamed:@"delete_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 1, 5)];
+        [deleteInstallBtn setBackgroundImage:deleteGradient forState:UIControlStateNormal];
+        CGRect frame = deleteInstallBtn.frame;
+        frame.size.height = 47.0;
+        [deleteInstallBtn setFrame:frame];
+    }
+
+    footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, deleteInstallBtn.frame.size.height + 8.0);
     [footerView addSubview:deleteInstallBtn];
     deleteInstallBtn.center = footerView.center;
     self.tableView.tableFooterView = footerView;
