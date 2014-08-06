@@ -217,6 +217,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    autoDiscoverController = nil;
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
     [super viewWillDisappear:animated];
@@ -242,9 +244,10 @@
 }
 
 // Cancle(Dismiss) appSettings view.
-- (void)cancelView:(id)sender {
+- (void)cancelView:(id)sender
+{
     [self.settingsManager cancelConsoleSettingsChanges];
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 // Persists settings info into appSettings.plist .

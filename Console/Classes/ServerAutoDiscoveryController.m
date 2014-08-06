@@ -19,100 +19,70 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #import "ServerAutoDiscoveryController.h"
-#import "AsyncSocket.h"
-#import "AsyncUdpSocket.h"
 #import "AppSettingsDefinition.h"
-#import "DirectoryDefinition.h"
-#import "NotificationConstant.h"
-#import "CheckNetwork.h"
 #import "ORConsoleSettingsManager.h"
 #import "ORConsoleSettings.h"
 #import "ORControllerConfig.h"
 
-@interface ServerAutoDiscoveryController ()
+#import "ORControllerClient/ORControllerBrowser.h"
+#import "ORControllerClient/ORControllerInfo.h"
+#import "ORControllerClient/ORControllerAddress.h"
+
+@interface ServerAutoDiscoveryController () <ORControllerBrowserDelegate>
 
 @property (nonatomic, weak) ORConsoleSettings *settings;
 
-@property (nonatomic, strong) AsyncUdpSocket *udpSocket;
-@property (nonatomic, strong) AsyncSocket *tcpSever;
-@property (nonatomic, strong) NSMutableArray *clients;
-@property (nonatomic) BOOL isReceiveServerUrl;
-@property (nonatomic, strong) NSTimer *tcpTimer;
-
-- (void)checkFindServerFail;
+@property (nonatomic, strong) ORControllerBrowser *browser;
 
 @end
 
 @implementation ServerAutoDiscoveryController
 
-//Setup autodiscovery and start. 
-// Needn't call annother method to send upd and start tcp server.
+// Setup autodiscovery and start.
 - (id)initWithConsoleSettings:(ORConsoleSettings *)theSettings delegate:(id <ServerAutoDiscoveryControllerDelagate>)aDelegate
 {
     self = [super init];
 	if (self) {
         self.settings = theSettings;
         self.delegate = aDelegate;
-
-		self.isReceiveServerUrl = NO;
-		//Store the received TcpClient sockets.
-		self.clients = [[NSMutableArray alloc] initWithCapacity:1];
-		self.udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-
-		// init the tcp server port
-		UInt16 serverPort = 2346;
-		//Setup a tcp server recevice the multicast feedback.
-		self.tcpSever = [[AsyncSocket alloc] initWithDelegate:self];
-		[self.tcpSever acceptOnPort:serverPort error:NULL];
-		
-		//Set a timer with 3 interval.
-		self.tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkFindServerFail) userInfo:nil repeats:NO];
         
-        // init the data send to multicast server
-		NSData *d = [@"openremote" dataUsingEncoding:NSUTF8StringEncoding];
-		// init the multicast ip
-		NSString *host = @"224.0.1.100";
-		// init the multicast port
-		UInt16 port = 3333;
-		// Send the data to multicast ip with timeout 3 seconds.
-		[self.udpSocket sendData:d toHost:host port:port withTimeout:3 tag:0];
-		[self.udpSocket closeAfterSending];
+        self.browser = [[ORControllerBrowser alloc] init];
+        self.browser.delegate = self;
+        [self.browser startSearchingForORControllers];
 	}
 	return self;
 }
 
 - (void)dealloc
 {
-	if (self.tcpTimer && [self.tcpTimer isValid])  {
-		[self.tcpTimer invalidate];
-	}
-
-	NSLog(@"clients count is %lu", (unsigned long)[self.clients count]);
-    [self.clients makeObjectsPerformSelector:@selector(disconnect)];
+    [self.browser stopSearchingForORControllers];
     
+    self.browser = nil;
     self.settings = nil;
-    
 }
 
-//after find server		
-- (void)onFindServer:(NSString *)serverUrl
+- (void)controllerBrowser:(ORControllerBrowser *)browser didFindController:(ORControllerInfo *)controllerInfo
 {
-	self.isReceiveServerUrl = YES;
-    
-    //Disconnect all the tcp client received
-	for(int i = 0; i < [self.clients count]; i++)
-	{
-		// Call disconnect on the socket,
-		// which will invoke the onSocketDidDisconnect: method,
-		// which will remove the socket from the list.
-		[[self.clients objectAtIndex:i] disconnect];
-		[self.clients removeObjectAtIndex:i];
-	}
-	self.clients = nil;
-	
-	[self.tcpSever disconnectAfterReading];
-	[self.tcpTimer invalidate];
+    [self controllerDiscovered:controllerInfo];
+}
 
+- (void)controllerBrowser:(ORControllerBrowser *)browser didUpdateController:(ORControllerInfo *)controllerInfo
+{
+    [self controllerDiscovered:controllerInfo];
+}
+
+- (void)controllerBrowser:(ORControllerBrowser *)browser didFail:(NSError *)error
+{
+    NSLog(@"Auto-discovery failed with error %@", error.description);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onFindServerFail:)]) {
+		[self.delegate performSelector:@selector(onFindServerFail:) withObject:@"Auto-discovery error"];
+	}
+}
+
+- (void)controllerDiscovered:(ORControllerInfo *)controllerInfo
+{
+    NSString *serverUrl = [controllerInfo.address.primaryURL description];
+    
     // Only add the server (and report) if not yet known
     for (ORControllerConfig *controller in self.settings.controllers) {
         if ([controller.primaryURL isEqualToString:serverUrl]) {
@@ -126,63 +96,6 @@
 	if (self.delegate && [self.delegate respondsToSelector:@selector(onFindServer:)]) {
         [self.delegate onFindServer:controller];
 	}
-}
-		
-//after find server fail
-- (void)onFindServerFail:(NSString *)errorMessage
-{
-	[self.tcpTimer invalidate];
-
-	if (self.delegate && [self.delegate respondsToSelector:@selector(onFindServerFail:)]) {
-		[self.delegate performSelector:@selector(onFindServerFail:) withObject:errorMessage];
-	}
-}
-
-//check where find server time out.
-- (void)checkFindServerFail
-{
-	if (!self.isReceiveServerUrl) {
-		[self onFindServerFail:@"No Controller detected."];
-	}
-	self.isReceiveServerUrl = NO;
-}
-
-#pragma mark UdpSocket delegate method
-
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag
-{
-	NSLog(@"onUdpSocket didSendData."); 
-	[sock close];
-}
-
-//Called after AsyncUdpSocket did not send data 
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
-{
-	NSLog(@"DidNotSend: %@", error);
-	[self onFindServerFail:[error localizedDescription]];
-} 
-
-#pragma mark TCPSocket delegate method
-
-- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
-{	
-	NSLog(@"receive data from server");
-	NSString *serverUrl = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSLog(@"read server url from controller %@", serverUrl);	
-	[self onFindServer:serverUrl];
-}
-
-- (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
-{
-	NSLog(@"receive new socket");
-	[self.clients addObject:newSocket];
-	[newSocket setDelegate:self];
-	[newSocket readDataWithTimeout:10 tag:0];
-}
-
-- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
-{
-	NSLog(@"receive socket host %@ port %d", host, port);
 }
 
 @synthesize delegate;

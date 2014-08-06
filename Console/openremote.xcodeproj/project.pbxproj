@@ -54,8 +54,6 @@
 		60366B93144DCB9C004FED3B /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E7150F541FAB006CC0DF /* StringUtils.m */; };
 		60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE4220FA0395F00F18AA1 /* ViewHelper.m */; };
 		60366B95144DCB9C004FED3B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BE48A0FA0431700F18AA1 /* Reachability.m */; };
-		60366B96144DCB9C004FED3B /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27D0FBD3782006ED733 /* AsyncSocket.m */; };
-		60366B97144DCB9C004FED3B /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27F0FBD3782006ED733 /* AsyncUdpSocket.m */; };
 		60366B98144DCB9C004FED3B /* CheckNetworkException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E6E109554D600C7A686 /* CheckNetworkException.m */; };
 		60366B99144DCB9C004FED3B /* AppSettingsDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E721095555500C7A686 /* AppSettingsDefinition.m */; };
 		60366B9A144DCB9C004FED3B /* DirectoryDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460E741095555500C7A686 /* DirectoryDefinition.m */; };
@@ -137,8 +135,6 @@
 		6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C460F0D1095628C00C7A686 /* ServerAutoDiscoveryController.m */; };
 		6068DE9C13744E77007746F1 /* RoundRobinException.m in Sources */ = {isa = PBXBuildFile; fileRef = 33267ED310E4895E00E3AE42 /* RoundRobinException.m */; };
 		6068DE9D13744E82007746F1 /* ORControllerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCECF1371787300A811D4 /* ORControllerProxy.m */; };
-		6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27D0FBD3782006ED733 /* AsyncSocket.m */; };
-		6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6A27F0FBD3782006ED733 /* AsyncUdpSocket.m */; };
 		6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DEA113744EBB007746F1 /* CFNetwork.framework */; };
 		6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AFCEE813729AA400A811D4 /* ControllerRequest.m */; };
 		6068DEA513744ED0007746F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068DEA413744ED0007746F1 /* SystemConfiguration.framework */; };
@@ -530,10 +526,6 @@
 		8CF5341E10B64C1900C52FB0 /* ChoosePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePanelViewController.m; sourceTree = "<group>"; };
 		8CF539A910B9359F00C52FB0 /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
 		8CF539AA10B9359F00C52FB0 /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
-		8CF6A27C0FBD3782006ED733 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		8CF6A27D0FBD3782006ED733 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		8CF6A27E0FBD3782006ED733 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		8CF6A27F0FBD3782006ED733 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		8CF6A2B00FBD784C006ED733 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8CFDB2760FBBBF4500D204CB /* appSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appSettings.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1094,10 +1086,6 @@
 			children = (
 				8CEFDA8A11BF35EE00CEDC24 /* LoadingHUDView.h */,
 				8CEFDA8B11BF35EE00CEDC24 /* LoadingHUDView.m */,
-				8CF6A27C0FBD3782006ED733 /* AsyncSocket.h */,
-				8CF6A27D0FBD3782006ED733 /* AsyncSocket.m */,
-				8CF6A27E0FBD3782006ED733 /* AsyncUdpSocket.h */,
-				8CF6A27F0FBD3782006ED733 /* AsyncUdpSocket.m */,
 				8C7BE4890FA0431700F18AA1 /* Reachability.h */,
 				8C7BE48A0FA0431700F18AA1 /* Reachability.m */,
 			);
@@ -1468,8 +1456,6 @@
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
 				60366B94144DCB9C004FED3B /* ViewHelper.m in Sources */,
 				60366B95144DCB9C004FED3B /* Reachability.m in Sources */,
-				60366B96144DCB9C004FED3B /* AsyncSocket.m in Sources */,
-				60366B97144DCB9C004FED3B /* AsyncUdpSocket.m in Sources */,
 				60366B98144DCB9C004FED3B /* CheckNetworkException.m in Sources */,
 				60366B99144DCB9C004FED3B /* AppSettingsDefinition.m in Sources */,
 				60366B9A144DCB9C004FED3B /* DirectoryDefinition.m in Sources */,
@@ -1575,8 +1561,6 @@
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
 				914198871802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m in Sources */,
-				6068DE9F13744E9F007746F1 /* AsyncSocket.m in Sources */,
-				6068DEA013744E9F007746F1 /* AsyncUdpSocket.m in Sources */,
 				6068DE9D13744E82007746F1 /* ORControllerProxy.m in Sources */,
 				6068DE9C13744E77007746F1 /* RoundRobinException.m in Sources */,
 				6068DE9B13744E6C007746F1 /* ServerAutoDiscoveryController.m in Sources */,
