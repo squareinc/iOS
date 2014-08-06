@@ -211,6 +211,7 @@
 		91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 910F28DB1992635F002B65A3 /* delete_button@2x.png */; };
+		910F28DE1992756E002B65A3 /* ScreenReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */; };
 		9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13019167D39005E0D79 /* Default-568h@2x.png */; };
 		9123A13519167D39005E0D79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13119167D39005E0D79 /* Default@2x.png */; };
 		9123A13619167D39005E0D79 /* Default7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13219167D39005E0D79 /* Default7-568h@2x.png */; };
@@ -534,6 +535,7 @@
 		9105AB801923621700DB3861 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		910F28DB1992635F002B65A3 /* delete_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_button@2x.png"; sourceTree = "<group>"; };
+		910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceTest.m; sourceTree = "<group>"; };
 		9123A13019167D39005E0D79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "image/Default-568h@2x.png"; sourceTree = "<group>"; };
 		9123A13119167D39005E0D79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "image/Default@2x.png"; sourceTree = "<group>"; };
 		9123A13219167D39005E0D79 /* Default7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-568h@2x.png"; path = "image/Default7-568h@2x.png"; sourceTree = "<group>"; };
@@ -919,6 +921,7 @@
 				914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */,
 				914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */,
 				914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */,
+				910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */,
 				91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */,
 				91B357D118BB860E00ADED24 /* ScreenReferenceStackTest.h */,
 			);
@@ -1561,6 +1564,7 @@
 				602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */,
 				60F3868D15517D120089F8BD /* Capabilities.m in Sources */,
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
+				910F28DE1992756E002B65A3 /* ScreenReferenceTest.m in Sources */,
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,

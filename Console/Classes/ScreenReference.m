@@ -20,6 +20,7 @@
  */
 
 #import "ScreenReference.h"
+#import "ORObjectIdentifier.h"
 
 @interface ScreenReference ()
 
@@ -32,12 +33,44 @@
 
 - (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier
 {
+    if (!aGroupdIdentifier) {
+        return nil;
+    }
     self = [super init];
     if (self) {
         self.groupIdentifier = aGroupdIdentifier;
         self.screenIdentifier = aScreenIdentifier;
     }
     return self;
+}
+
+- (BOOL)isEqualToScreenReference:(ScreenReference *)aScreenReference
+{
+    if (![self.groupIdentifier isEqual:aScreenReference.groupIdentifier]) {
+        return NO;
+    }
+    
+    if (!self.screenIdentifier && !aScreenReference.screenIdentifier) {
+        return YES;
+    }
+    
+    return [self.screenIdentifier isEqual:aScreenReference.screenIdentifier];
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (self == object) {
+        return YES;
+    }
+    if (![object isKindOfClass:[ScreenReference class]]) {
+        return NO;
+    }
+    return [self isEqualToScreenReference:(ScreenReference *)object];
+}
+
+- (NSUInteger)hash
+{
+    return NSUINTROTATE([self.groupIdentifier hash], NSUINT_BIT / 2) ^ [self.screenIdentifier hash];
 }
 
 @end

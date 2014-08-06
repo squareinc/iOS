@@ -32,6 +32,9 @@
 @property (copy, readonly) ORObjectIdentifier *groupIdentifier;
 @property (copy, readonly) ORObjectIdentifier *screenIdentifier;
 
+/**
+ * Group identifier might not be nil.
+ */
 - (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier;
 
 @end
