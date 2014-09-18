@@ -42,9 +42,13 @@
 
 #define OR_LogAffineTransform(message, t) NSLog(@"%@\n[%f %f 0]\n[%f %f 0]\n[%f %f 1]", message, t.a, t.b, t.c, t.d, t.tx, t.ty);
 #define OR_LogRect(message, r) NSLog(@"%@ (%f,%f)-(%f,%f)", message, r.origin.x, r.origin.y, r.size.width, r.size.height);
-#define OR_LogPoint(message, p) NSLog(@"%@ (%f,%f)", message, p.x, p.y);#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define OR_LogPoint(message, p) NSLog(@"%@ (%f,%f)", message, p.x, p.y);
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
