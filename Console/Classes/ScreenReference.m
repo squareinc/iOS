@@ -20,7 +20,7 @@
  */
 
 #import "ScreenReference.h"
-#import "ORObjectIdentifier.h"
+#import "ORControllerClient/ORObjectIdentifier.h"
 
 @interface ScreenReference ()
 
