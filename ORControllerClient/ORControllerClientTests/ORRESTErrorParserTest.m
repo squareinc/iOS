@@ -35,7 +35,7 @@
 
     STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
     STAssertNotNil(error, @"Should return parsed error when provided with valid XML data");
-    STAssertEquals(error.code, EPANEL_NAME_NOT_FOUND, @"Parsed error code should be 528");
+    STAssertEquals(error.code, (NSInteger)EPANEL_NAME_NOT_FOUND, @"Parsed error code should be 528");
     STAssertEqualObjects(error.message, @"No such Panel :NAME = panel  1", @"Parsed error message should be valid");
 }
 

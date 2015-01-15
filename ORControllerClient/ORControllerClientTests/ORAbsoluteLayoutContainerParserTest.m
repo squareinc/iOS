@@ -61,8 +61,8 @@
 {
     ORAbsoluteLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<absolute left=\"10\" top=\"20\" width=\"30\" height=\"40\"/>"];
     
-    STAssertEquals(layoutContainer.left, 10, @"Parsed absolute layout container should have 10 as left position");
-    STAssertEquals(layoutContainer.top, 20, @"Parsed absolute layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.left, (NSInteger)10, @"Parsed absolute layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, (NSInteger)20, @"Parsed absolute layout container should have 20 as top position");
     STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed absolute layout container should have 30 as width");
     STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
 
@@ -74,8 +74,8 @@
 {
     ORAbsoluteLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<absolute left=\"-10\" top=\"-20\" width=\"30\" height=\"40\"><label id=\"1\" text=\"label\"/></absolute>"];
     
-    STAssertEquals(layoutContainer.left, -10, @"Parsed absolute layout container should have -10 as left position");
-    STAssertEquals(layoutContainer.top, -20, @"Parsed absolute layout container should have -20 as top position");
+    STAssertEquals(layoutContainer.left, (NSInteger)-10, @"Parsed absolute layout container should have -10 as left position");
+    STAssertEquals(layoutContainer.top, (NSInteger)-20, @"Parsed absolute layout container should have -20 as top position");
     STAssertEquals(layoutContainer.width,(NSUInteger)30,  @"Parsed absolute layout container should have 30 as width");
     STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
     

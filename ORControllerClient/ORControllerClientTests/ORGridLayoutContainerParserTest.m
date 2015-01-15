@@ -60,8 +60,8 @@
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"/>"];
     
-    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.left, (NSInteger)10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, (NSInteger)20, @"Parsed grid layout container should have 20 as top position");
     STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
     STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
     STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
@@ -74,8 +74,8 @@
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"><cell x=\"0\" y=\"0\"/></grid>"];
     
-    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.left, (NSInteger)10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, (NSInteger)20, @"Parsed grid layout container should have 20 as top position");
     STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
     STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
     STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
@@ -88,8 +88,8 @@
 {
     ORGridLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<grid left=\"10\" top=\"20\" width=\"30\" height=\"40\" rows=\"3\" cols=\"2\"><cell x=\"0\" y=\"0\"/><cell x=\"1\" y=\"0\"/></grid>"];
     
-    STAssertEquals(layoutContainer.left, 10, @"Parsed grid layout container should have 10 as left position");
-    STAssertEquals(layoutContainer.top, 20, @"Parsed grid layout container should have 20 as top position");
+    STAssertEquals(layoutContainer.left, (NSInteger)10, @"Parsed grid layout container should have 10 as left position");
+    STAssertEquals(layoutContainer.top, (NSInteger)20, @"Parsed grid layout container should have 20 as top position");
     STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed grid layout container should have 30 as width");
     STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed grid layout container should have 40 as height");
     STAssertEquals(layoutContainer.rows, (NSUInteger)3, @"Parsed grid layout container should have 3 rows");
