@@ -549,6 +549,16 @@
 		9123A14419167D69005E0D79 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape.png"; path = "image/Default-Landscape.png"; sourceTree = "<group>"; };
 		9123A14519167D69005E0D79 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait.png"; path = "image/Default-Portrait.png"; sourceTree = "<group>"; };
 		9123A14819167D83005E0D79 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = image/Default.png; sourceTree = "<group>"; };
+		9125D6651A68235400439BE0 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		9125D6661A68235400439BE0 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		9125D6671A68235400439BE0 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		9125D6681A68235400439BE0 /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		9125D6691A68235400439BE0 /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		9125D66A1A68235400439BE0 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		9125D66B1A68235400439BE0 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		9125D66C1A68235400439BE0 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		9125D66D1A68235400439BE0 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		9125D66E1A68235400439BE0 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		912721E316C10ECE00E2D6B3 /* ORUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORUISlider.h; sourceTree = "<group>"; };
 		912721E416C10ECE00E2D6B3 /* ORUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORUISlider.m; sourceTree = "<group>"; };
 		912721ED16C1127800E2D6B3 /* ORSliderGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ORSliderGreen.png; sourceTree = "<group>"; };
@@ -576,12 +586,6 @@
 		914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockImageLoaderStoringToFile.m; sourceTree = "<group>"; };
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
-		91589DF31858AD080036B7BA /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		91589DF41858AD080036B7BA /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		91589DF51858AD080036B7BA /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		91589DF61858AD080036B7BA /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		91589DF71858AD080036B7BA /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		91589DF81858AD080036B7BA /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		91589DFA1858AD080036B7BA /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
@@ -1241,12 +1245,16 @@
 		91589DF21858AD080036B7BA /* OCMock */ = {
 			isa = PBXGroup;
 			children = (
-				91589DF31858AD080036B7BA /* NSNotificationCenter+OCMAdditions.h */,
-				91589DF41858AD080036B7BA /* OCMArg.h */,
-				91589DF51858AD080036B7BA /* OCMConstraint.h */,
-				91589DF61858AD080036B7BA /* OCMock.h */,
-				91589DF71858AD080036B7BA /* OCMockObject.h */,
-				91589DF81858AD080036B7BA /* OCMockRecorder.h */,
+				9125D6651A68235400439BE0 /* NSNotificationCenter+OCMAdditions.h */,
+				9125D6661A68235400439BE0 /* OCMArg.h */,
+				9125D6671A68235400439BE0 /* OCMConstraint.h */,
+				9125D6681A68235400439BE0 /* OCMLocation.h */,
+				9125D6691A68235400439BE0 /* OCMMacroState.h */,
+				9125D66A1A68235400439BE0 /* OCMock.h */,
+				9125D66B1A68235400439BE0 /* OCMockObject.h */,
+				9125D66C1A68235400439BE0 /* OCMockRecorder.h */,
+				9125D66D1A68235400439BE0 /* OCMRecorder.h */,
+				9125D66E1A68235400439BE0 /* OCMStubRecorder.h */,
 			);
 			path = OCMock;
 			sourceTree = "<group>";
