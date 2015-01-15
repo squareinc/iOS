@@ -235,7 +235,7 @@
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:mapping];
     
     ORSensorStatesMapping *otherMapping = [[ORSensorStatesMapping alloc] init];
-    [mapping addSensorState:[[ORSensorState alloc] initWithName:@"off" value:@"Off value"]];
+    [otherMapping addSensorState:[[ORSensorState alloc] initWithName:@"off" value:@"Off value"]];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:otherMapping];
     
     STAssertEquals([[registry sensorIdentifiers] count], (NSUInteger)1,
