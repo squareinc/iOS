@@ -1762,7 +1762,7 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/github/iOS/ORControllerClient/usr/lib,
+					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1790,7 +1790,7 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/github/iOS/ORControllerClient/usr/lib,
+					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",

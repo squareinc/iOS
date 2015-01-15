@@ -1736,7 +1736,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/ebariaux/Development/OpenRemote/github/iOS/Console/usr/lib,
+					/Users/ebariaux/Development/OpenRemote/iOS/Console/usr/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1815,7 +1815,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/ebariaux/Development/OpenRemote/github/iOS/Console/usr/lib,
+					/Users/ebariaux/Development/OpenRemote/iOS/Console/usr/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
