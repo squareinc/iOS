@@ -71,4 +71,14 @@
     STAssertFalse(id1 == id2, @"Copy should not be same instance as original");
 }
 
+- (void)testNSCoding
+{
+    ORObjectIdentifier *originalId = [[ORObjectIdentifier alloc] initWithIntegerId:1];
+    NSData *encodedId = [NSKeyedArchiver archivedDataWithRootObject:originalId];
+    STAssertNotNil(encodedId, @"Archived data should not be nil");
+    ORObjectIdentifier *decodedId = [NSKeyedUnarchiver unarchiveObjectWithData:encodedId];
+    STAssertNotNil(decodedId, @"Decoded object should not be nil");
+    STAssertEqualObjects(decodedId, originalId, @"Decoded id should be equal to original one");
+}
+
 @end

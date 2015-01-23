@@ -25,7 +25,7 @@
  * Represents unique identifier assigned to object model.
  * Using this class instead of an actual "primitive" type shields the object model from the exact implementation of the identifier.
  */
-@interface ORObjectIdentifier : NSObject <NSCopying>
+@interface ORObjectIdentifier : NSObject <NSCopying, NSCoding>
 
 /**
  * Initializes the identifier with an integer id.

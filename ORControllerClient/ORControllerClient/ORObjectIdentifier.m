@@ -27,6 +27,8 @@
 
 @end
 
+#define kIdKey       @"Id"
+
 @implementation ORObjectIdentifier
 
 - (instancetype)initWithIntegerId:(NSInteger)intId
@@ -65,6 +67,16 @@
 - (NSString *)stringValue
 {
     return [NSString stringWithFormat:@"%ld", (long)self._id];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self._id forKey:kIdKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithIntegerId:[aDecoder decodeIntegerForKey:kIdKey]];
 }
 
 @end
