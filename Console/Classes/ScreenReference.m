@@ -29,6 +29,9 @@
 
 @end
 
+#define kGroupIdentifierKey @"GroupIdentifier"
+#define kScreenIdentifierKey @"ScreenIdentifier"
+
 @implementation ScreenReference
 
 - (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier
@@ -71,6 +74,25 @@
 - (NSUInteger)hash
 {
     return NSUINTROTATE([self.groupIdentifier hash], NSUINT_BIT / 2) ^ [self.screenIdentifier hash];
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[[self class] allocWithZone:zone] initWithGroupIdentifier:[self.groupIdentifier copyWithZone:zone]
+                                                     screenIdentifier:[self.screenIdentifier copyWithZone:zone]];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.groupIdentifier forKey:kGroupIdentifierKey];
+    [aCoder encodeObject:self.screenIdentifier forKey:kScreenIdentifierKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    ORObjectIdentifier *groupId = [aDecoder decodeObjectForKey:kGroupIdentifierKey];
+    ORObjectIdentifier *screenId = [aDecoder decodeObjectForKey:kScreenIdentifierKey];
+    return [self initWithGroupIdentifier:groupId screenIdentifier:screenId];
 }
 
 @end

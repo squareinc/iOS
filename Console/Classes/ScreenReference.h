@@ -27,7 +27,7 @@
  * Object storing reference to a given screen (or group).
  * Used for navigation management.
  */
-@interface ScreenReference : NSObject
+@interface ScreenReference : NSObject <NSCopying, NSCoding>
 
 @property (copy, readonly) ORObjectIdentifier *groupIdentifier;
 @property (copy, readonly) ORObjectIdentifier *screenIdentifier;
