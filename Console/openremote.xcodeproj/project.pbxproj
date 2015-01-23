@@ -587,6 +587,7 @@
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
 		91589DFA1858AD080036B7BA /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		915F16731A726D8100F111F7 /* ScreenReferenceTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScreenReferenceTest.h; path = ../ORControllerClient/ORControllerClientTests/ScreenReferenceTest.h; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
@@ -926,6 +927,7 @@
 				914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */,
 				914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */,
 				910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */,
+				915F16731A726D8100F111F7 /* ScreenReferenceTest.h */,
 				91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */,
 				91B357D118BB860E00ADED24 /* ScreenReferenceStackTest.h */,
 			);

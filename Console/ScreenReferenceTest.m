@@ -19,13 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
 #import "ScreenReference.h"
 #import "ORObjectIdentifier.h"
-
-@interface ScreenReferenceTest : SenTestCase
-
-@end
 
 @implementation ScreenReferenceTest
 
