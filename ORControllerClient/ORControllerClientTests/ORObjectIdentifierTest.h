@@ -48,4 +48,21 @@
  */
 - (void)testInvalidStringIdReturnsZeroId;
 
+/**
+ * Validates that the string representation of an ORObjectIdentifier is correct.
+ */
+- (void)testStringValue;
+
+/**
+ * Validates that when making a copy of an ORObjectIdentifier, the copy is equal to the original.
+ * This validates that ORObjectIdentifier correctly adopts the NSCopying protocol.
+ */
+- (void)testCopy;
+
+/**
+ * Validates that an ORObjectIdentifier can be encoded and decoded and that the decoded instance is equal to the original.
+ * This validates that ORObjectIdentifier correctly adopts the NSCoding protocol.
+ */
+- (void)testNSCoding;
+
 @end
