@@ -1424,7 +1424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n--project-name ORControllerClient \\\n--project-company \"OpenRemote\" \\\n--company-id org.openremote \\\n--output doc \\\n--logformat xcode \\\n--keep-intermediate-files \\\nORControllerClient/*.h";
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name ORControllerClient \\\n--project-company \"OpenRemote\" \\\n--company-id org.openremote \\\n--output doc \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--ignore AsyncSocket.h \\\n--ignore AsyncSocket.m \\\n--ignore AsyncUdpSocket.h \\\n--ignore AsyncUdpSocket.m \\\nORControllerClient";
 		};
 /* End PBXShellScriptBuildPhase section */
 
