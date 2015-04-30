@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ORControllerBrowserDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">ORControllerClient </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">OpenRemote</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/controllerBrowser:didFail:">- controllerBrowser:didFail:</option>
+		
+		<option value="//api/name/controllerBrowser:didFindController:">- controllerBrowser:didFindController:</option>
+		
+		<option value="//api/name/controllerBrowser:didUpdateController:">- controllerBrowser:didUpdateController:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ORControllerBrowserDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>ORControllerBrowser.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The ORControllerBrowserDelegate protocol defines the optional methods that the <a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a>
+delegate object to receive notifiations about discovered controllers or issues during the discovery process.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/controllerBrowser:didFindController:" title="controllerBrowser:didFindController:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controllerBrowser:didFindController:">&ndash;&nbsp;controllerBrowser:didFindController:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reports that a new controller has been found.
+Note that if the controller does not provide a name or identifier for the controller,
+those will be set to the same value as the controller address (URL).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)controllerBrowser:(ORControllerBrowser *)<em>browser</em> didFindController:(ORControllerInfo *)<em>controllerInfo</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>browser</code></th>
+						<td><p><a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a> sending this delegate message</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>controllerInfo</code></th>
+						<td><p><a href="../Classes/ORControllerInfo.html">ORControllerInfo</a> representing a controller not yet known to the browser</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Reports that a new controller has been found.
+Note that if the controller does not provide a name or identifier for the controller,
+those will be set to the same value as the controller address (URL).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORControllerBrowser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controllerBrowser:didUpdateController:" title="controllerBrowser:didUpdateController:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controllerBrowser:didUpdateController:">&ndash;&nbsp;controllerBrowser:didUpdateController:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reports that a controller already found by the <a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a> has been updated,
+that is data was received for an already known controller identifier but with a difference in the other data.
+The delegate will have previously received a <a href="#//api/name/controllerBrowser:didFindController:">controllerBrowser:didFindController:</a> call for the same idenfier.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)controllerBrowser:(ORControllerBrowser *)<em>browser</em> didUpdateController:(ORControllerInfo *)<em>controllerInfo</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>browser</code></th>
+						<td><p><a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a> sending this delegate message</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>controllerInfo</code></th>
+						<td><p><a href="../Classes/ORControllerInfo.html">ORControllerInfo</a> that was updated</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Reports that a controller already found by the <a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a> has been updated,
+that is data was received for an already known controller identifier but with a difference in the other data.
+The delegate will have previously received a <a href="#//api/name/controllerBrowser:didFindController:">controllerBrowser:didFindController:</a> call for the same idenfier.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORControllerBrowser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controllerBrowser:didFail:" title="controllerBrowser:didFail:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controllerBrowser:didFail:">&ndash;&nbsp;controllerBrowser:didFail:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reports that an error has occured during the auto-discovery process.
+This most likely indicates an error in sending or receiving information over the network.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)controllerBrowser:(ORControllerBrowser *)<em>browser</em> didFail:(NSError *)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>browser</code></th>
+						<td><p><a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a> sending this delegate message</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>NSError that caused the failure</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Reports that an error has occured during the auto-discovery process.
+This most likely indicates an error in sending or receiving information over the network.</p>
+
+<p>This error might or might not cause the discoveery process to stop.
+This can be queried using the isSearching read-only property on the <a href="../Classes/ORControllerBrowser.html">ORControllerBrowser</a>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORControllerBrowser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-04-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
