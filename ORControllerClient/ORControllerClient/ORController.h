@@ -118,12 +118,12 @@
 
 
 /**
- * Attaches the panel layout definition to this controller, restarting polling for object model changes.
+ * Attaches the panel layout definition to this controller.
+ * If there is currently a connecting to the controller, this method restarts polling for object model changes.
+ *
  * Dettaches it from previous controller if it was already attached.
  *
  * @param panelDefinition The panel layout definition to attach to this controller.
- *
- * TODO: currently, polling is started even if not connected to controller, is that OK ?
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 

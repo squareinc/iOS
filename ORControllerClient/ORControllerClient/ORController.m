@@ -195,7 +195,9 @@
     self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
                                                               controllerAddress:self.address
                                                                  sensorRegistry:panelDefinition.sensorRegistry];
-    [self.pollingManager start];
+    if (self.isConnected) {
+      [self.pollingManager start];
+    }
 }
 
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler
