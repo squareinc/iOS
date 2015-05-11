@@ -29,8 +29,8 @@
  * Initializes the group with the given identifier and name.
  * Initialized group does not contain any screen.
  *
- * @param anIdentifier identifier of the group
- * @param aName name of the group
+ * @param anIdentifier The identifier of the group
+ * @param aName The name of the group
  *
  * @return an ORGroup object initialized with the provided values.
  */
@@ -40,7 +40,7 @@
  * Adds the given screen to this group.
  * If a screen with the same identifier already exists, it is not added to the group.
  *
- * @param ORScreen screen to add to the group.
+ * @param screen The screen to add to the group.
  */
 - (void)addScreen:(ORScreen *)screen;
 

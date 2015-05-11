@@ -49,7 +49,7 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
 /**
  * Get gesture of given type, if any registered with this screen.
  *
- * @param ORGestureType type of the gesture to return
+ * @param type The type of the gesture to return.
  *
  * @return ORGesture gesture of the given type, or nil if none is registered with this screen
  */
@@ -59,7 +59,7 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
  * Returns the screen appropriate to display content in the given orientation.
  * If a screen cannot be found for the orientation, the receiver is returned.
  *
- * @param ORScreenOrientation desired screen orientation
+ * @param anOrientation The desired screen orientation.
  *
  * @return ORScreen screen in given orientation or self if none exists
  */

@@ -60,6 +60,8 @@
 /**
  * Find a screen that is part of this group by its identifier. Returns nil if not found.
  *
+ * @param identifier The identifier of the screen to find.
+ *
  * @return ORScreen screen with given identifier or nil if none exists in this group
  */
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)identifier;

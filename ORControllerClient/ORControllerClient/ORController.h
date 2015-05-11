@@ -40,7 +40,7 @@
  * Initializes the controller with the provided address.
  * Does not try to connect to the controller.
  * 
- * @param anAddress address of the controller to connect to
+ * @param anAddress The address of the controller to connect to.
  *
  * @return An ORController object initialized with the provided address. If no address is given, returns nil.
  */
@@ -54,7 +54,7 @@
 
 /**
  * Establishes connection to the controller.
- * If the controller already has definition attached to it, this also restarts polling for model updates.
+ * If the controller already has a definition attached to it, this also restarts polling for model updates.
  * 
  * Reports success/error through provided handlers.
  * successHandler is guaranteed to be called after the connection has been established.
@@ -67,7 +67,6 @@
  */
 - (void)connectWithSuccessHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
-// TODO: what about authentication, specific handler for providing that when required ?
 // TODO: what about connection gets closed just after it is opened ?
 
 /**
@@ -129,7 +128,14 @@
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 
 /**
+ * Retrieves a resource with the given name from the controller.
  * Both handlers are guaranteed to be called on the same thread that initially called this method.
+ *
+ * @param resourceName The name of the resource to retrieve.
+ * @param successHandler A block object to be executed once the resource has been successfully retrieved from the controller.
+ * This block has no return value and takes a single NSData * argument that provides the unprocessed binary content of the resource.
+ * @param errorHandler A block object to be executed if the definition cannot be retrieved from controller.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 

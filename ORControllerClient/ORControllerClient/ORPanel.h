@@ -22,6 +22,7 @@
 #import <Foundation/Foundation.h>
 
 @class ORObjectIdentifier;
+
 /**
  * Model object representing a Panel element in the OR UI model domain.
  */
@@ -32,6 +33,9 @@
  */
 @property (nonatomic, copy, readonly) NSString *name;
 
+/**
+ * The identifier of the panel.
+ */
 @property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 
 // TODO: a panel should give access to the groups it contains

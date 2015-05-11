@@ -80,6 +80,9 @@
  * Returns the list of client side commands for a given component id and action.
  * action is dependant on the component type (e.g. for switch it can be on or off).
  * If the cache of component id -> commands is not yet build, do it know.
+ *
+ * @param anIdentifier The identifier of the component
+ * @param action The name of the action
  */
 - (NSArray *)commandsForComponentIdentifier:(ORObjectIdentifier *)anIdentifier action:(NSString *)action
 {

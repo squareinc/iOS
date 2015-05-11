@@ -36,7 +36,7 @@
 /**
  * Sends to appropriate command to the controller indicating that a particular color has been picked.
  *
- * @param UIColor picked color to send
+ * @param color The picked color to send.
  */
 - (void)sendColor:(UIColor *)color;
 
