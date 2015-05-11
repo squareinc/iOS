@@ -27,7 +27,7 @@
  * Stack of ScreenReference objects, used to manage the history of navigation within the application.
  * Size is limited to a certain number of items, older ones are discarded when stack is full.
  */
-@interface ScreenReferenceStack : NSObject
+@interface ScreenReferenceStack : NSObject <NSCoding>
 
 /**
  * Initializes a stack of ScreenReference objects with given capacity.

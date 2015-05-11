@@ -28,6 +28,9 @@
 
 @end
 
+#define kStackKey @"Stack"
+#define kCapacityKey @"Capacity"
+
 @implementation ScreenReferenceStack
 
 - (id)initWithCapacity:(int)aCapacity
@@ -62,6 +65,23 @@
 - (ScreenReference *)top
 {
     return [self.stack lastObject];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.stack forKey:kStackKey];
+    [aCoder encodeInt:self.capacity forKey:kCapacityKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    NSArray *stack = [aDecoder decodeObjectForKey:kStackKey];
+    int capacity = [aDecoder decodeIntForKey:kCapacityKey];
+    
+    ScreenReferenceStack *srStack = [[ScreenReferenceStack alloc] initWithCapacity:capacity];
+    srStack.stack = [NSMutableArray arrayWithArray:stack];
+    
+    return srStack;
 }
 
 @end

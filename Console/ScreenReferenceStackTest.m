@@ -24,6 +24,7 @@
 #import "ScreenReference.h"
 #import "ORControllerClient/ORObjectIdentifier.h"
 
+
 @implementation ScreenReferenceStackTest
 
 - (void)testPopOnEmptyStackReturnsNil
@@ -80,5 +81,27 @@
     STAssertEquals([stack pop], ref1, @"Second poped object should be the one pushed before");
     STAssertNil([stack pop], @"First pushed object should have been discarded from stack");
 }
+
+- (void)testNSCoding
+{
+    ScreenReferenceStack *stack = [[ScreenReferenceStack alloc] initWithCapacity:2];
+    [stack push:[[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]]];
+    ScreenReference *ref1 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
+    [stack push:ref1];
+    ScreenReference *ref2 = [[ScreenReference alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]
+                                                            screenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]];
+    [stack push:ref2];
+    
+    NSData *encodedStack = [NSKeyedArchiver archivedDataWithRootObject:stack];
+    STAssertNotNil(encodedStack, @"Archived data should not be nil");
+    ScreenReferenceStack *decodedStack = [NSKeyedUnarchiver unarchiveObjectWithData:encodedStack];
+    STAssertNotNil(decodedStack, @"Decoded object should not be nil");
+    
+    STAssertEqualObjects([decodedStack valueForKey:@"stack"], [stack valueForKey:@"stack"], @"Decoded stack's stack should be equal to original one");
+    STAssertEquals([decodedStack valueForKey:@"capacity"], [stack valueForKey:@"capacity"], @"Decoded stack's capacity should be equal to original one");
+}
+
 
 @end
