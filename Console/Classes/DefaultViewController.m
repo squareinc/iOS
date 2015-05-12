@@ -31,7 +31,7 @@
 #import "ORControllerClient/ORController.h"
 
 #import "NavigationManager.h"
-#import "ScreenReference.h"
+#import "ORScreenOrGroupReference.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -124,7 +124,7 @@
 
     self.navigationManager = [[NavigationManager alloc] initWithDefinition:definition];
     
-    ScreenReference *screenReference = [self.navigationManager currentScreenReference];
+    ORScreenOrGroupReference *screenReference = [self.navigationManager currentScreenReference];
     
     // Navigation manager ensures that referenced group / screen exists if it returns a screen reference
     if (screenReference) {
@@ -160,7 +160,7 @@
         return;
     }
 
-    ScreenReference *destination = nil;
+    ORScreenOrGroupReference *destination = nil;
 
     switch (navi.navigationType) {
         case ORNavigationTypeToGroupOrScreen:
