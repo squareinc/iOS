@@ -153,9 +153,6 @@
     STAssertNil([navManager currentScreenReference], @"There should be no current screen reference with an empty definition");
 }
 
-
-
-
 - (void)testNavigateToExistingGroupAndScreen
 {
     NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
@@ -166,6 +163,123 @@
     STAssertEqualObjects(screenReference.screenIdentifier, self.screen2.identifier, @"Should have navigated to requested screen");
     
     STAssertEqualObjects([navManager currentScreenReference], screenReference, @"Current screen reference should be destination of last valid navigation");
+}
+
+- (void)testNavigateToInvalidGroup
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORGroup *group = [[ORGroup alloc] initWithGroupIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:21] name:@"New group"];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+    
+    ORScreenOrGroupReference *screenReference = [navManager navigateToGroup:group toScreen:self.screen2];
+    
+    STAssertNil(screenReference, @"It should not be possible to navigate to an invalid group");
+    
+    STAssertEqualObjects([navManager currentScreenReference], originalReference, @"Current screen reference should be the one prior to invalid navigation");
+}
+
+- (void)testNavigateToInvalidScreenInValidGroup
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreen *screen = [[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:21] name:@"New screen" orientation:ORScreenOrientationLandscape];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+
+    ORScreenOrGroupReference *screenReference = [navManager navigateToGroup:self.group3 toScreen:screen];
+    
+    STAssertNil(screenReference, @"It should not be possible to navigate to an invalid screen");
+    
+    STAssertEqualObjects([navManager currentScreenReference], originalReference, @"Current screen reference should be the one prior to invalid navigation");
+}
+
+- (void)testNavigateToGroupWithNoScreenSpecified
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreenOrGroupReference *screenReference = [navManager navigateToGroup:self.group3 toScreen:nil];
+    
+    STAssertNotNil(screenReference, @"It should be possible to navigate to an existing group and screen");
+    STAssertEqualObjects(screenReference.groupIdentifier, self.group3.identifier, @"Should have navigated to requested group");
+    STAssertEqualObjects(screenReference.screenIdentifier, self.screen2.identifier, @"Should have navigated to first screen in requested group");
+    
+    STAssertEqualObjects([navManager currentScreenReference], screenReference, @"Current screen reference should be destination of last valid navigation");
+}
+
+- (void)testNavigateToEmptyGroupWithNoScreenSpecified
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+    
+    ORScreenOrGroupReference *screenReference = [navManager navigateToGroup:self.group2 toScreen:nil];
+    
+    STAssertNil(screenReference, @"It should not be possible to navigate to a group with no screen");
+    
+    STAssertEqualObjects([navManager currentScreenReference], originalReference, @"Current screen reference should be the one prior to invalid navigation");
+}
+
+- (void)testNavigateToNextScreen
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    [navManager navigateToGroup:self.group3 toScreen:nil];
+    ORScreenOrGroupReference *screenReference = [navManager navigateToNextScreen];
+    
+    STAssertNotNil(screenReference, @"It should be possible to navigate to next screen when there is one");
+    STAssertEqualObjects(screenReference.groupIdentifier, self.group3.identifier, @"Should have navigated to same group");
+    STAssertEqualObjects(screenReference.screenIdentifier, self.screen3.identifier, @"Should have navigated to next screen in group");
+}
+
+- (void)testNavigateToNextScreenNoMoreScreens
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+
+    ORScreenOrGroupReference *screenReference = [navManager navigateToNextScreen];
+    
+    
+    STAssertNil(screenReference, @"It should not be possible to navigate to next screen when already on last screen of group");
+    
+    STAssertEqualObjects([navManager currentScreenReference], originalReference, @"Current screen reference should be the one prior to invalid navigation");
+}
+
+- (void)testNavigateToPreviousScreen
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    [navManager navigateToGroup:self.group3 toScreen:self.screen3];
+    ORScreenOrGroupReference *screenReference = [navManager navigateToPreviousScreen];
+    
+    STAssertNotNil(screenReference, @"It should be possible to navigate to next screen when there is one");
+    STAssertEqualObjects(screenReference.groupIdentifier, self.group3.identifier, @"Should have navigated to same group");
+    STAssertEqualObjects(screenReference.screenIdentifier, self.screen2.identifier, @"Should have navigated to previous screen in group");
+}
+
+- (void)testNavigateToPreviousScreenNoMoreScreens
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+    
+    ORScreenOrGroupReference *screenReference = [navManager navigateToNextScreen];
+    
+    
+    STAssertNil(screenReference, @"It should not be possible to navigate to next screen when already on last screen of group");
+    
+    STAssertEqualObjects([navManager currentScreenReference], originalReference, @"Current screen reference should be the one prior to invalid navigation");
+}
+
+- (void)testNavigateBack
+{
+    NavigationManager *navManager = [[NavigationManager alloc] initWithDefinition:self.definition navigationHistoryStore:[[NavigationHistoryInMemoryStore alloc] init]];
+    ORScreenOrGroupReference *originalReference = [navManager currentScreenReference];
+    ORScreenOrGroupReference *secondScreen = [navManager navigateToGroup:self.group3 toScreen:nil];
+    [navManager navigateToNextScreen];
+    
+    ORScreenOrGroupReference *screenReference = [navManager back];
+    STAssertNotNil(screenReference, @"It should be possible to go back navigation stack when there was navigation before");
+    STAssertEqualObjects(screenReference, secondScreen, @"Should have navigated to previous screen in the navigation history");
+
+    screenReference = [navManager back];
+    STAssertNotNil(screenReference, @"It should be possible to go back navigation stack when there was navigation before");
+    STAssertEqualObjects(screenReference, originalReference, @"Should have navigated to first screen in the navigation history");
+
+    screenReference = [navManager back];
+    STAssertNil(screenReference, @"It should not be possible to navigate back before the initial screen");
 }
 
 @end

@@ -55,4 +55,55 @@
  */
 - (void)testCurrentScreenOnInitWithEmptyDefinition;
 
+/**
+ * Tests navigation to an existing group and screen in the definition.
+ */
+- (void)testNavigateToExistingGroupAndScreen;
+
+/**
+ * Tests navigation to an invalid group does not perform navigation and returns nil.
+ */
+- (void)testNavigateToInvalidGroup;
+
+/**
+ * Tests navigation to an invalid screen within a valid group does not perform navigation and returns nil.
+ */
+- (void)testNavigateToInvalidScreenInValidGroup;
+
+/**
+ * Tests navigation to a valid group without specifying any specific screen.
+ */
+- (void)testNavigateToGroupWithNoScreenSpecified;
+
+/**
+ * Tests navigation to an empty troup without specifying any specific screen does not perform navigation and returns nil.
+ */
+- (void)testNavigateToEmptyGroupWithNoScreenSpecified;
+
+
+/*
+ * Tests navigation to the next screen in a group (when there is one in the group).
+ */
+- (void)testNavigateToNextScreen;
+
+/**
+ * Tests navigation to the next screen in a group when there is none does not perform navigation and returns nil.
+ */
+- (void)testNavigateToNextScreenNoMoreScreens;
+
+/**
+ * Tests navigation to the previous screen in a group (when there is one in the group).
+ */
+- (void)testNavigateToPreviousScreen;
+
+/**
+ * Tests navigation to the previous screen in a group where there is none does not perform navigation and returns nil.
+ */
+- (void)testNavigateToPreviousScreenNoMoreScreens;
+
+/*
+ * Tests navigation back on an existing stack and that nil is returned when top of history is reached.
+ */
+- (void)testNavigateBack;
+
 @end
