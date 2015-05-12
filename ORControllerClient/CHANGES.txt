@@ -1,3 +1,9 @@
+Version 0.6
+===========
+
+- Added ORScreenOrGroupReference class to represent a specific screen or group.
+- Added utility methods on Definition to find first ORScreenOrGroupReference in model.
+
 Version 0.5
 ===========
 
