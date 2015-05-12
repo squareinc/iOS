@@ -44,6 +44,7 @@
  * Loads the persisted navigation history for this definition
  * and makes sure the currentScreenReference is valid within this definition.
  *
+ * By default, uses a NavigationHistoryUserDefaultsStore as the navigation history store implementation.
  * If no persisted navigation history exists, starts on the first screen of the first group (that has at least one screen).
  *
  * @param aDefinition Definition on which the navigation manager will work.
@@ -52,6 +53,21 @@
  */
 - (instancetype)initWithDefinition:(Definition *)aDefinition;
 
+/**
+ * Initializes a navigation manager with the given definition and store.
+ *
+ * Loads the persisted navigation history for this definition using the provided store
+ * and makes sure the currentScreenReference is valid within this definition.
+ *
+ * If no store is provided, uses a NavigationHistoryUserDefaultsStore as the navigation history store implementation.
+ *
+ * If no persisted navigation history exists, starts on the first screen of the first group (that has at least one screen).
+ *
+ * @param aDefinition The Definition on which the navigation manager will work.
+ * @param store The NavigationHistoryStore implementation to use to manage history persistence.
+ *
+ * @return A NavigationManager object initialized with given definition. If no definition was given, returns nil.
+ */
 - (instancetype)initWithDefinition:(Definition *)aDefinition navigationHistoryStore:(NSObject <NavigationHistoryStore> *)store;
 
 /**
