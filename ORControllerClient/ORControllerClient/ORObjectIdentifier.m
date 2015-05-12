@@ -79,4 +79,9 @@
     return [self initWithIntegerId:[aDecoder decodeIntegerForKey:kIdKey]];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"ORObjectIdentifier [%ld]", (long)self._id];
+}
+
 @end
