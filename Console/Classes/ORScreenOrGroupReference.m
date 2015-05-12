@@ -19,10 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ScreenReference.h"
+#import "ORScreenOrGroupReference.h"
 #import "ORControllerClient/ORObjectIdentifier.h"
 
-@interface ScreenReference ()
+@interface ORScreenOrGroupReference ()
 
 @property (copy, readwrite) ORObjectIdentifier *groupIdentifier;
 @property (copy, readwrite) ORObjectIdentifier *screenIdentifier;
@@ -32,7 +32,7 @@
 #define kGroupIdentifierKey @"GroupIdentifier"
 #define kScreenIdentifierKey @"ScreenIdentifier"
 
-@implementation ScreenReference
+@implementation ORScreenOrGroupReference
 
 - (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier
 {
@@ -47,7 +47,7 @@
     return self;
 }
 
-- (BOOL)isEqualToScreenReference:(ScreenReference *)aScreenReference
+- (BOOL)isEqualToScreenReference:(ORScreenOrGroupReference *)aScreenReference
 {
     if (![self.groupIdentifier isEqual:aScreenReference.groupIdentifier]) {
         return NO;
@@ -65,10 +65,10 @@
     if (self == object) {
         return YES;
     }
-    if (![object isKindOfClass:[ScreenReference class]]) {
+    if (![object isKindOfClass:[ORScreenOrGroupReference class]]) {
         return NO;
     }
-    return [self isEqualToScreenReference:(ScreenReference *)object];
+    return [self isEqualToScreenReference:(ORScreenOrGroupReference *)object];
 }
 
 - (NSUInteger)hash

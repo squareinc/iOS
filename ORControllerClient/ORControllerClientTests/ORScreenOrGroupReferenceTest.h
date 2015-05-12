@@ -21,7 +21,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface ScreenReferenceTest : SenTestCase
+@interface ORScreenOrGroupReferenceTest : SenTestCase
 
 /**
  * Validates that a ScreenReference can only be instantiated when the appropriate and required parameters are provided.

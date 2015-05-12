@@ -26,6 +26,7 @@
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
 #import "ORImage.h"
+#import "ORScreenOrGroupReference.h"
 
 // Import of private is required even if not directly use to make sure setController: is synthetized
 #import "Definition_Private.h"
@@ -94,6 +95,24 @@
         }
     }
     return nil;
+}
+
+- (ORScreenOrGroupReference *)findFirstScreenReference
+{
+    for (ORGroup *group in self.groups) {
+        for (ORScreen *screen in group.screens) {
+            return [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
+        }
+    }
+    return nil;
+}
+
+- (ORScreenOrGroupReference *)findFirstScreenReferenceStartingInGroup:(ORGroup *)group
+{
+    for (ORScreen *screen in group.screens) {
+        return [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
+    }
+    return [self findFirstScreenReference];
 }
 
 - (void)addGroup:(ORGroup *)group {

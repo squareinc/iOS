@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2014, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -24,16 +24,29 @@
 @class ORObjectIdentifier;
 
 /**
- * Object storing reference to a given screen (or group).
- * Used for navigation management.
+ * Object storing reference to a given screen (or group if no screen is specified).
+ * Note that an ORScreen instance does not reference its group, as it might belong to multiple ones.
  */
-@interface ScreenReference : NSObject <NSCopying, NSCoding>
+@interface ORScreenOrGroupReference : NSObject <NSCopying, NSCoding>
 
+/**
+ * Identifier of the group, might not be nil.
+ */
 @property (copy, readonly) ORObjectIdentifier *groupIdentifier;
+
+/**
+ * Identifier of the screen, might be nil if this references a group.
+ */
 @property (copy, readonly) ORObjectIdentifier *screenIdentifier;
 
 /**
- * Group identifier might not be nil.
+ * Initializes the reference with the given group and screen.
+ * If not group is provided, returns nil.
+ *
+ * @param aGroupIdentifier The identifier of the group, might not be nil.
+ * @param aScreenIdentifier The identifier of the screen, might be nil to reference the group.
+ *
+ * @return An ORScreenOrGroupReference object initialized with given identifiers. If no group identifier was given, returns nil.
  */
 - (id)initWithGroupIdentifier:(ORObjectIdentifier *)aGroupdIdentifier screenIdentifier:(ORObjectIdentifier *)aScreenIdentifier;
 

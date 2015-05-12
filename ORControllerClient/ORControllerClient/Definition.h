@@ -67,6 +67,23 @@
 - (ORScreen *)findScreenByIdentifier:(ORObjectIdentifier *)screenIdentifier;
 
 /**
+ * Finds the first screen in the model, that is the first screen in the first group that has screens.
+ * If no screen exists, returns nil.
+ *
+ * @return ORScreen first screen in model or nil if none exist.
+ */
+- (ORScreen *)findFirstScreenReference;
+
+/**
+ * Finds the first screen in the given group.
+ * If that group does not contain any screen, finds the first screen in the whole model.
+ * If no screen exists, returns nil.
+ *
+ * @return OR Screen first screen in group or in whole model if group does not contain any screen.
+ */
+- (ORScreen *)findFirstScreenReferenceStartingInGroup:(ORGroup *)group;
+
+/**
  * Add a group instance for caching.
  */
 - (void)addGroup:(ORGroup *)group;
