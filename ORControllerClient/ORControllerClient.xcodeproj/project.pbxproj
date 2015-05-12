@@ -267,6 +267,10 @@
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
+		91E7DACE1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */; };
+		91E7DACF1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */; };
+		91E7DAD21B021453000A8314 /* ORScreenOrGroupReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAD01B021453000A8314 /* ORScreenOrGroupReferenceTest.m */; };
+		91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */; };
 		91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */; };
 		91FCBAEE1952C1A40072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
 		91FCBAF11952C2370072A831 /* ORControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF01952C2370072A831 /* ORControllerBrowser.m */; };
@@ -296,6 +300,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in CopyFiles */,
 				91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */,
 				91A821F319595F2B00A77FCA /* ORControllerBrowser.h in CopyFiles */,
 				912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */,
@@ -672,6 +677,10 @@
 		91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorValuesResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusValuesParser_2_0_0.h; sourceTree = "<group>"; };
 		91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusValuesParser_2_0_0.m; sourceTree = "<group>"; };
+		91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenOrGroupReference.h; sourceTree = "<group>"; };
+		91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReference.m; sourceTree = "<group>"; };
+		91E7DAD01B021453000A8314 /* ORScreenOrGroupReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReferenceTest.m; sourceTree = "<group>"; };
+		91E7DAD11B021453000A8314 /* ORScreenOrGroupReferenceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenOrGroupReferenceTest.h; sourceTree = "<group>"; };
 		91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerInfo.h; sourceTree = "<group>"; };
 		91FCBAED1952C1A40072A831 /* ORControllerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerInfo.m; sourceTree = "<group>"; };
 		91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerBrowser.h; sourceTree = "<group>"; };
@@ -876,6 +885,8 @@
 				91A4A25718D746AD0070F823 /* ORGesture.h */,
 				91A4A25818D746AD0070F823 /* ORGesture.m */,
 				91A4A25B18D7479E0070F823 /* ORGesture_Private.h */,
+				91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */,
+				91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1273,6 +1284,8 @@
 				91099A5A18B218B5005BEBAB /* ORSwitchTest.h */,
 				91B357C518BB537900ADED24 /* ORSliderTest.m */,
 				91B357C718BB538600ADED24 /* ORSliderTest.h */,
+				91E7DAD01B021453000A8314 /* ORScreenOrGroupReferenceTest.m */,
+				91E7DAD11B021453000A8314 /* ORScreenOrGroupReferenceTest.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1351,7 +1364,7 @@
 			name = ORControllerClientTests;
 			productName = ORControllerClientTests;
 			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1482,6 +1495,7 @@
 				919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */,
 				91A4A23B18D5E17B0070F823 /* ORNavigationGroupDeferredBinding.m in Sources */,
 				919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */,
+				91E7DACE1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */,
 				919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */,
 				919333F3179EA2DE0086FEE7 /* DefinitionParser.m in Sources */,
 				91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */,
@@ -1580,7 +1594,9 @@
 				91B72FA918903402000B7552 /* ORImageParser.m in Sources */,
 				91CC89EF18E06AEA00D31A66 /* ORAbsoluteLayoutContainerParserTest.m in Sources */,
 				91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */,
+				91E7DAD21B021453000A8314 /* ORScreenOrGroupReferenceTest.m in Sources */,
 				91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */,
+				91E7DACF1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */,
 				91CC8A0C18E58DFC00D31A66 /* ORLabelParserTest.m in Sources */,
 				91CC89F718E070FC00D31A66 /* ORGridCellParserTest.m in Sources */,
 				91222D851892631700BA0B96 /* ORSensorState.m in Sources */,
