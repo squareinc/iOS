@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2014, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -20,12 +20,13 @@
  */
 
 #import "NavigationManager.h"
-#import "ScreenReference.h"
+#import "ORScreenOrGroupReference.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORObjectIdentifier.h"
 #import "ORControllerClient/ORGroup.h"
 #import "ORControllerClient/ORScreen.h"
 #import "ScreenReferenceStack.h"
+#import "NavigationHistoryUserDefaultsStore.h"
 
 @interface NavigationManager ()
 
@@ -33,20 +34,39 @@
 
 @property (nonatomic, strong) ScreenReferenceStack *navigationHistory;
 
+@property (nonatomic, strong) NSObject <NavigationHistoryStore> *navigationHistoryStore;
+
 @end
 
 @implementation NavigationManager
 
 - (instancetype)initWithDefinition:(Definition *)aDefinition
 {
+    return [self initWithDefinition:aDefinition navigationHistoryStore:nil];
+}
+
+- (instancetype)initWithDefinition:(Definition *)aDefinition navigationHistoryStore:(NSObject <NavigationHistoryStore> *)store
+{
     self = [super init];
     if (self) {
-        self.definition = aDefinition;
+        if (aDefinition) {
+            self.definition = aDefinition;
         
-        // Should it listen for changes on definition e.g. groups and screens ?
-        // This way could validate the navigation
+            // Should it listen for changes on definition e.g. groups and screens ?
+            // This way could validate the navigation
         
-        [self loadHistoryForDefinition];
+         
+            if (store) {
+                self.navigationHistoryStore = store;
+            } else {
+                // By default, use a user defaults store
+                self.navigationHistoryStore = [[NavigationHistoryUserDefaultsStore alloc] init];
+            }
+            
+            self.navigationHistory = [self.navigationHistoryStore retrieveHistoryForDefinition:self.definition];
+        } else {
+            self = nil;
+        }
     }
     return self;
 }
@@ -54,7 +74,7 @@
 // Methods will compute next screen reference or nil if navigation not possible
 // Will push on stack if possible
 
-- (ScreenReference *)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen
+- (ORScreenOrGroupReference *)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen
 {
     // Requested group does not exist, don't navigate
     if ([self.definition.groups indexOfObject:group] == NSNotFound) {
@@ -65,26 +85,26 @@
         if (![group.screens count]) {
             return nil;
         }
-        ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:0]).identifier];
+        ORScreenOrGroupReference *next = [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:0]).identifier];
         [self.navigationHistory push:next];
-        [self persist];
+        [self.navigationHistoryStore persistHistory:self.navigationHistory forDefinition:self.definition];
         return next;
     } else {
         // Requested screen does not exist in group, don't navigate
         if ([group.screens indexOfObject:screen] == NSNotFound) {
             return nil;
         }
-        ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
+        ORScreenOrGroupReference *next = [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
         [self.navigationHistory push:next];
-        [self persist];
+        [self.navigationHistoryStore persistHistory:self.navigationHistory forDefinition:self.definition];
         return next;
     }
     return nil;
 }
 
-- (ScreenReference *)navigateToPreviousScreen
+- (ORScreenOrGroupReference *)navigateToPreviousScreen
 {
-    ScreenReference *current = [self currentScreenReference];
+    ORScreenOrGroupReference *current = [self currentScreenReference];
     ORGroup *group = [self.definition findGroupByIdentifier:current.groupIdentifier];
     ORScreen *screen = [group findScreenByIdentifier:current.screenIdentifier];
     NSUInteger index = [group.screens indexOfObject:screen];
@@ -99,17 +119,17 @@
         index--;
     }
     if (index < [group.screens count]) {
-        ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
+        ORScreenOrGroupReference *next = [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
         [self.navigationHistory push:next];
-        [self persist];
+        [self.navigationHistoryStore persistHistory:self.navigationHistory forDefinition:self.definition];
         return next;
     }
     return nil;
 }
 
-- (ScreenReference *)navigateToNextScreen
+- (ORScreenOrGroupReference *)navigateToNextScreen
 {
-    ScreenReference *current = [self currentScreenReference];
+    ORScreenOrGroupReference *current = [self currentScreenReference];
     ORGroup *group = [self.definition findGroupByIdentifier:current.groupIdentifier];
     ORScreen *screen = [group findScreenByIdentifier:current.screenIdentifier];
     NSUInteger index = [group.screens indexOfObject:screen];
@@ -124,95 +144,28 @@
         index++;
     }
     if (index < [group.screens count]) {
-        ScreenReference *next = [[ScreenReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
+        ORScreenOrGroupReference *next = [[ORScreenOrGroupReference alloc] initWithGroupIdentifier:current.groupIdentifier screenIdentifier:((ORScreen *)[group.screens objectAtIndex:index]).identifier];
         [self.navigationHistory push:next];
-        [self persist];
+        [self.navigationHistoryStore persistHistory:self.navigationHistory forDefinition:self.definition];
         return next;
     }
     return nil;
 }
 
-- (ScreenReference *)back
+- (ORScreenOrGroupReference *)back
 {
     // Top is current screen, get rid of it
     [self.navigationHistory pop];
 
-    [self persist];
+    [self.navigationHistoryStore persistHistory:self.navigationHistory forDefinition:self.definition];
     
     // TODO: validate that top is still a valid destination
     return [self.navigationHistory top];
 }
 
-- (ScreenReference *)currentScreenReference
+- (ORScreenOrGroupReference *)currentScreenReference
 {
     return [self.navigationHistory top];
-}
-
-// Loads history for current definition from persistence cache
-- (void)loadHistoryForDefinition
-{
-    self.navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
-
-    // In current version, only last group / screen id are saved,
-    // so restart history from there
-    
-    ScreenReference *startReference = nil;
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"lastGroupId"]) {
-		ORObjectIdentifier *lastGroupIdentifier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastGroupId"]];
-        ORGroup *group = [self.definition findGroupByIdentifier:lastGroupIdentifier];
-        if (!group) {
-            startReference = [self createValidStartReference];
-        } else {
-            if ([userDefaults objectForKey:@"lastScreenId"]) {
-                ORObjectIdentifier *lastScreenIdenfitier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastScreenId"]];
-                ORScreen *screen = [group findScreenByIdentifier:lastScreenIdenfitier];
-                if (!screen) {
-                    startReference = [self createValidStartReferenceStartingInGroup:group];
-                } else {
-                    startReference = [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
-                }
-            } else {
-                startReference = [self createValidStartReferenceStartingInGroup:group];
-            }
-        }
-    } else {
-        startReference = [self createValidStartReference];
-    }
-    if (startReference) {
-        [self.navigationHistory push:startReference];
-    }
-}
-
-/**
- * Finds the first group with at least one screen in the current definition.
- */
-- (ScreenReference *)createValidStartReference
-{
-    for (ORGroup *group in self.definition.groups) {
-        for (ORScreen *screen in group.screens) {
-            return [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
-        }
-    }
-    return nil;
-}
-
-- (ScreenReference *)createValidStartReferenceStartingInGroup:(ORGroup *)group
-{
-    for (ORScreen *screen in group.screens) {
-        return [[ScreenReference alloc] initWithGroupIdentifier:group.identifier screenIdentifier:screen.identifier];
-    }
-    return [self createValidStartReference];
-}
-
-- (void)persist
-{
-    ScreenReference *current = [self currentScreenReference];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setObject:[current.groupIdentifier stringValue] forKey:@"lastGroupId"];
-	[userDefaults setObject:[current.screenIdentifier stringValue] forKey:@"lastScreenId"];
-	NSLog(@"Saved : groupID %@, screenID %@", [userDefaults objectForKey:@"lastGroupId"], [userDefaults objectForKey:@"lastScreenId"]);
 }
 
 @synthesize definition;

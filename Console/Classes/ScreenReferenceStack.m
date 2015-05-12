@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2014, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -43,7 +43,7 @@
     return self;
 }
 
-- (void)push:(ScreenReference *)screen
+- (void)push:(ORScreenOrGroupReference *)screen
 {
     // We should never be over capacity, but this code would take care of that situation also
     while ([self.stack count] >= self.capacity) {
@@ -52,17 +52,17 @@
     [self.stack addObject:screen];
 }
 
-- (ScreenReference *)pop
+- (ORScreenOrGroupReference *)pop
 {
     if (![self.stack count]) {
         return nil;
     }
-    ScreenReference *ref = [self.stack lastObject];
+    ORScreenOrGroupReference *ref = [self.stack lastObject];
     [self.stack removeLastObject];
     return ref;
 }
 
-- (ScreenReference *)top
+- (ORScreenOrGroupReference *)top
 {
     return [self.stack lastObject];
 }

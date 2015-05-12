@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2014, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -21,7 +21,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class ScreenReference;
+@class ORScreenOrGroupReference;
 
 /**
  * Stack of ScreenReference objects, used to manage the history of navigation within the application.
@@ -45,20 +45,20 @@
  *
  * @param screen reference to be pushed to the top of the stack
  */
-- (void)push:(ScreenReference *)screen;
+- (void)push:(ORScreenOrGroupReference *)screen;
 
 /**
  * Removes the reference from the top of the stack and returns it (if there is one).
  *
  * @return ScreenReference the reference at the top of the stack, or nil if stack is empty
  */
-- (ScreenReference *)pop;
+- (ORScreenOrGroupReference *)pop;
 
 /**
  * Returns the reference from the top of the stack (if there is one), without removing it.
  *
  * @return ScreenReference the reference at the top of the stack, or nil if stack is empty
  */
-- (ScreenReference *)top;
+- (ORScreenOrGroupReference *)top;
 
 @end

@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2014, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -22,9 +22,11 @@
 #import <Foundation/Foundation.h>
 
 @class Definition;
-@class ScreenReference;
+@class ORScreenOrGroupReference;
 @class ORGroup;
 @class ORScreen;
+
+@protocol NavigationHistoryStore;
 
 /**
  * Handles navigation, management of its history and persistence of it.
@@ -42,11 +44,15 @@
  * Loads the persisted navigation history for this definition
  * and makes sure the currentScreenReference is valid within this definition.
  *
+ * If no persisted navigation history exists, starts on the first screen of the first group (that has at least one screen).
+ *
  * @param aDefinition Definition on which the navigation manager will work.
  *
  * @return A NavigationManager object initialized with given definition. If no definition was given, returns nil.
  */
 - (instancetype)initWithDefinition:(Definition *)aDefinition;
+
+- (instancetype)initWithDefinition:(Definition *)aDefinition navigationHistoryStore:(NSObject <NavigationHistoryStore> *)store;
 
 /**
  * Returns the screen reference of the screen we're currently on.
@@ -56,7 +62,7 @@
  *
  * @return A ScreenReference representing the screen we're currently on, or nil if no valid one exists.
  */
-- (ScreenReference *)currentScreenReference;
+- (ORScreenOrGroupReference *)currentScreenReference;
 
 /**
  * Navigates to the given group and screen.
@@ -70,7 +76,7 @@
  *
  * @return A ScreenReference representing the target screen of the navigation, or nil if the navigation can't be performed.
  */
-- (ScreenReference *)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen;
+- (ORScreenOrGroupReference *)navigateToGroup:(ORGroup *)group toScreen:(ORScreen *)screen;
 
 /**
  * Navigates to the previous screen in the current group.
@@ -83,7 +89,7 @@
  *
  * @return A ScreenReference representing the target screen of the navigation, or nil if the navigation can't be performed.
  */
-- (ScreenReference *)navigateToPreviousScreen;
+- (ORScreenOrGroupReference *)navigateToPreviousScreen;
 
 /**
  * Navigates to the next screen in the current group.
@@ -96,7 +102,7 @@
  *
  * @return A ScreenReference representing the target screen of the navigation, or nil if the navigation can't be performed.
  */
-- (ScreenReference *)navigateToNextScreen;
+- (ORScreenOrGroupReference *)navigateToNextScreen;
 
 /**
  * Goes back the navigation history and navigates to the previously current screen.
@@ -110,6 +116,6 @@
  *
  * @return A ScreenReference representing the target screen of the navigation.
  */
-- (ScreenReference *)back;
+- (ORScreenOrGroupReference *)back;
 
 @end
