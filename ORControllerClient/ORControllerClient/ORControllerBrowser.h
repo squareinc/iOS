@@ -111,7 +111,7 @@
 @property (nonatomic, strong, readonly) NSArray *discoveredControllers;
 
 /**
- * A flag indicating of the search (discovery process) is currently running.
+ * A flag indicating if the search (discovery process) is currently running.
  */
 @property (nonatomic, readonly, getter = isSearching) BOOL searching;
 
