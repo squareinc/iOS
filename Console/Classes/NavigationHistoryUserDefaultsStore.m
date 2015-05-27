@@ -47,10 +47,10 @@
         navigationHistory = [userDefaults objectForKey:kNavigationHistoryUserDefaultKey];
     } else {
         ORScreenOrGroupReference *startReference = nil;
+        navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
 
         // Fall back to legacy way of storing last group / screen id and start history with that
         if ([userDefaults objectForKey:@"lastGroupId"]) {
-            navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
             ORObjectIdentifier *lastGroupIdentifier = [[ORObjectIdentifier alloc] initWithStringId:[userDefaults objectForKey:@"lastGroupId"]];
         
             ORGroup *group = [definition findGroupByIdentifier:lastGroupIdentifier];
