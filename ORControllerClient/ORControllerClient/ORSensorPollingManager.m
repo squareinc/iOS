@@ -37,9 +37,10 @@ typedef void (^PollingBlock)();
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
 @property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
 
-@property (nonatomic, strong) ORRESTCall *_currentCall;
+@property (atomic, strong) ORRESTCall *_currentCall;
 
-@property (nonatomic, strong) PollingBlock sensorPollingBlock;
+// This will be non nil when a polling is underway
+@property (atomic, strong) PollingBlock sensorPollingBlock;
 
 @end
 
@@ -64,6 +65,11 @@ typedef void (^PollingBlock)();
 
 - (void)start
 {
+    // If polling is already underway, don't start again
+    if (self.sensorPollingBlock) {
+        return;
+    }
+    
     // Only poll if there are sensors to poll
     if (![[self._sensorRegistry sensorIdentifiers] count]) {
         return;
@@ -92,6 +98,11 @@ typedef void (^PollingBlock)();
                                               }
                                           } else {
                                               NSLog(@"poll error %@", error);
+                                              
+                                              // TODO: report the error -> most probably delegate methods
+                                              
+                                              // This stops the polling, nil the block to indicate that
+                                              weakSelf.sensorPollingBlock = nil;
                                           }
                                       }];
     };
