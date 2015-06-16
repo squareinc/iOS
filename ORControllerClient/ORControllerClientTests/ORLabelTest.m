@@ -108,4 +108,18 @@
     }
 }
 
+- (void)testNSCoding
+{
+    NSData *encodedLabel = [NSKeyedArchiver archivedDataWithRootObject:self.label];
+    STAssertNotNil(encodedLabel, @"Archived data should not be nil");
+    ORLabel *decodedLabel = [NSKeyedUnarchiver unarchiveObjectWithData:encodedLabel];
+    STAssertNotNil(decodedLabel, @"Decoded object should not be nil");
+    STAssertEqualObjects(decodedLabel.identifier, self.label.identifier, @"Decoded label should have same id as original");
+    STAssertEqualObjects(decodedLabel.name, self.label.name, @"Decoded label should have same name as original");
+    STAssertEqualObjects(decodedLabel.text, self.label.text, @"Decoded label should have same text as original");
+    STAssertEqualObjects(decodedLabel.textColor, self.label.textColor, @"Decoded label should have same textColor as original");
+    STAssertEqualObjects(decodedLabel.font, self.label.font, @"Decoded label should have same font as original");
+    STAssertEqualObjects(decodedLabel.definition, self.label.definition, @"Decoded label should have same definition as original");
+}
+
 @end
