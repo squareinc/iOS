@@ -28,7 +28,7 @@
 #import "ORImage.h"
 #import "ORScreenOrGroupReference.h"
 
-// Import of private is required even if not directly use to make sure setController: is synthetized
+// Import of private is required even if not directly used to make sure setController: is synthesized
 #import "Definition_Private.h"
 
 @interface Definition ()
