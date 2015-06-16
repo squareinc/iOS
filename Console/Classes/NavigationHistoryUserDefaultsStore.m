@@ -34,7 +34,7 @@
 - (void)persistHistory:(ScreenReferenceStack *)history forDefinition:(Definition *)definition
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:history forKey:kNavigationHistoryUserDefaultKey];
+    [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:history] forKey:kNavigationHistoryUserDefaultKey];
     [userDefaults synchronize];
 }
 
@@ -44,7 +44,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     if ([userDefaults objectForKey:@"NavigationHistory"]) { // TODO: later this should include the identifier of the history, so we support multiple navigation stacks
-        navigationHistory = [userDefaults objectForKey:kNavigationHistoryUserDefaultKey];
+        navigationHistory = [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:kNavigationHistoryUserDefaultKey]];
     } else {
         ORScreenOrGroupReference *startReference = nil;
         navigationHistory = [[ScreenReferenceStack alloc] initWithCapacity:50];
