@@ -30,7 +30,7 @@
  * Sensor states are specific to the use of a sensor by a UI widget
  * and are taken care of by the ORSensorStatesMapping and ORSensorLink classes.
  */
-@interface ORSensor : NSObject
+@interface ORSensor : NSObject <NSCoding>
 
 /**
  * Initializes the sensor with the given identifier.

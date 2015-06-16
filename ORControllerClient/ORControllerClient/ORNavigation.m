@@ -21,11 +21,14 @@
 
 #import "ORNavigation_Private.h"
 
+#define kNavigationTypeKey       @"NavigationType"
+
 @interface ORNavigation ()
 
 @property (nonatomic, readwrite) ORNavigationType navigationType;
 
 @end
+
 @implementation ORNavigation
 
 - (instancetype)initWithNavigationType:(ORNavigationType)aType
@@ -33,6 +36,20 @@
     self = [super init];
     if (self) {
         self.navigationType = aType;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeInteger:self.navigationType forKey:kNavigationTypeKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.navigationType = [aDecoder decodeIntegerForKey:kNavigationTypeKey];
     }
     return self;
 }

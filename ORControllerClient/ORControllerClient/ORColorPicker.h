@@ -26,7 +26,7 @@
 /**
  * Model object representing an button element in the OR UI model domain.
  */
-@interface ORColorPicker : ORWidget
+@interface ORColorPicker : ORWidget <NSCoding>
 
 /**
  * Image to be used as the background of the color picker widget.

@@ -27,7 +27,7 @@
 /**
  * Model object representing an Image element in the OR UI model domain.
  */
-@interface ORImage : ORWidget
+@interface ORImage : ORWidget <NSCoding>
 
 /**
  * The source of the image.

@@ -22,7 +22,7 @@
 
 @class ORWidget;
 
-@interface ORAbsoluteLayoutContainer : ORLayoutContainer
+@interface ORAbsoluteLayoutContainer : ORLayoutContainer <NSCoding>
 
 @property (nonatomic, strong, readonly) ORWidget *widget;
 

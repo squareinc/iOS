@@ -31,6 +31,18 @@
 // Import of private is required even if not directly used to make sure setController: is synthesized
 #import "Definition_Private.h"
 
+#define kGroupsKey          @"Groups"
+#define kScreensKey         @"Screens"
+#define kLabelsKey          @"Labels"
+#define kImagesKey          @"Images"
+#define kButtonsKey         @"Buttons"
+#define kSwitchesKey        @"Switches"
+#define kSlidersKey         @"Sliders"
+#define kColorPickersKey    @"ColorPickers"
+#define kWebViewsKey        @"WebViews"
+#define kImageNamesKey      @"ImageNames"
+#define kSensorRegistryKey  @"SensorRegistry"
+
 @interface Definition ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *groups;
@@ -338,6 +350,40 @@ TODO:
 }
 
 */
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.groups forKey:kGroupsKey];
+    [aCoder encodeObject:self.screens forKey:kScreensKey];
+    [aCoder encodeObject:self._labels forKey:kLabelsKey];
+    [aCoder encodeObject:self._images forKey:kImagesKey];
+    [aCoder encodeObject:self._buttons forKey:kButtonsKey];
+    [aCoder encodeObject:self._switches forKey:kSwitchesKey];
+    [aCoder encodeObject:self._sliders forKey:kSlidersKey];
+    [aCoder encodeObject:self._colorPickers forKey:kColorPickersKey];
+    [aCoder encodeObject:self._webViews forKey:kWebViewsKey];
+    [aCoder encodeObject:self.imageNames forKey:kImageNamesKey];
+    [aCoder encodeObject:self.sensorRegistry forKey:kSensorRegistryKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [self init]) {
+        self.groups = [aDecoder decodeObjectForKey:kGroupsKey];
+        self.screens = [aDecoder decodeObjectForKey:kScreensKey];
+        self._labels = [aDecoder decodeObjectForKey:kLabelsKey];
+        self._images = [aDecoder decodeObjectForKey:kImagesKey];
+        self._buttons = [aDecoder decodeObjectForKey:kButtonsKey];
+        self._switches = [aDecoder decodeObjectForKey:kSwitchesKey];
+        self._sliders = [aDecoder decodeObjectForKey:kSlidersKey];
+        self._colorPickers = [aDecoder decodeObjectForKey:kColorPickersKey];
+        self._webViews = [aDecoder decodeObjectForKey:kWebViewsKey];
+        self.imageNames = [aDecoder decodeObjectForKey:kImageNamesKey];
+        self.sensorRegistry = [aDecoder decodeObjectForKey:kSensorRegistryKey];
+    }
+    return self;
+}
 
 @synthesize groups, screens, tabBar, localController, imageNames, controller;
 

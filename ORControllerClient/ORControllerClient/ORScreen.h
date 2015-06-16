@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, ORScreenOrientation) {
  * Model object representing a screen element in the OR UI model domain.
  * name property is pre-populated with value coming from model.
  */
-@interface ORScreen : ORWidget
+@interface ORScreen : ORWidget <NSCoding>
 
 /**
  * Get gesture of given type, if any registered with this screen.

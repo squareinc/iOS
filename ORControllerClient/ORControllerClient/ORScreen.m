@@ -22,6 +22,12 @@
 #import "ORScreen_Private.h"
 #import "ORWidget_Private.h"
 
+#define kOrientationKey       @"Orientation"
+#define kRotatedScreenKey     @"RotatedScreen"
+#define kBackgroundKey        @"Background"
+#define kLayoutsKey           @"Layouts"
+#define kGesturesKey          @"Gestures"
+
 @interface ORScreen ()
 
 @property (nonatomic, readwrite) ORScreenOrientation orientation;
@@ -85,6 +91,34 @@
 - (NSArray *)gestures
 {
     return [NSArray arrayWithArray:self._gestures];
+}
+
+#define kOrientationKey       @"Orientation"
+#define kRotatedScreenKey     @"RotatedScreen"
+#define kBackgroundKey        @"Background"
+#define kLayoutsKey           @"Layouts"
+#define kGesturesKey          @"Gestures"
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeInteger:self.orientation forKey:kOrientationKey];
+    [aCoder encodeObject:self.rotatedScreen forKey:kRotatedScreenKey];
+    [aCoder encodeObject:self.background forKey:kBackgroundKey];
+    [aCoder encodeObject:self._layouts forKey:kLayoutsKey];
+    [aCoder encodeObject:self._gestures forKey:kGesturesKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.orientation = [aDecoder decodeIntegerForKey:kOrientationKey];
+        self.rotatedScreen = [aDecoder decodeObjectForKey:kRotatedScreenKey];
+        self.background = [aDecoder decodeObjectForKey:kBackgroundKey];
+        self._layouts = [aDecoder decodeObjectForKey:kLayoutsKey];
+        self._gestures = [aDecoder decodeObjectForKey:kGesturesKey];
+    }
+    return self;
 }
 
 @end

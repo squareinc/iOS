@@ -28,7 +28,7 @@
  * 
  * Provides management of the identifier property that all widgets have.
  */
-@interface ORWidget : ORModelObject;
+@interface ORWidget : ORModelObject <NSCoding>
 
 /**
  * Widget identifier.

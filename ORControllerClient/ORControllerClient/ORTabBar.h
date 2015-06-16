@@ -23,7 +23,7 @@
 /**
  * Model object representing a TabBar element in the OR UI model domain.
  */
-@interface ORTabBar : ORModelObject
+@interface ORTabBar : ORModelObject <NSCoding>
 
 /**
  * Items of the tab bar, ordered from left to right.

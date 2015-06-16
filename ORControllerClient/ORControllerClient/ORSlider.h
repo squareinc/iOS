@@ -26,7 +26,7 @@
 /**
  * Model object representing a slider element in the OR UI model domain.
  */
-@interface ORSlider : ORWidget
+@interface ORSlider : ORWidget <NSCoding>
 
 /**
  * Indicates if the slider should be drawn vertically or horizontally.

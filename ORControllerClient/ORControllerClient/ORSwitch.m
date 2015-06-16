@@ -23,6 +23,10 @@
 #import "Definition.h"
 #import "ORImage.h"
 
+#define kOnImageKey     @"OnImage"
+#define kOffImageKey    @"OffImage"
+#define kStateKey       @"State"
+
 @interface ORSwitch ()
 
 @property (nonatomic, readwrite) BOOL _state;
@@ -67,6 +71,24 @@
 - (BOOL)state
 {
     return self._state;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.onImage forKey:kOnImageKey];
+    [aCoder encodeObject:self.offImage forKey:kOffImageKey];
+    [aCoder encodeBool:self._state forKey:kStateKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.onImage = [aDecoder decodeObjectForKey:kOnImageKey];
+        self.offImage = [aDecoder decodeObjectForKey:kOffImageKey];
+        self._state = [aDecoder decodeBoolForKey:kStateKey];
+    }
+    return self;
 }
 
 @end

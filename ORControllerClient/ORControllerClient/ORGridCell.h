@@ -22,7 +22,7 @@
 
 @class ORWidget;
 
-@interface ORGridCell : ORModelObject
+@interface ORGridCell : ORModelObject <NSCoding>
 
 @property (nonatomic, readonly) NSUInteger x;
 @property (nonatomic, readonly) NSUInteger y;

@@ -27,7 +27,7 @@
 /**
  * Model object representing a TabBarItem element in the OR UI model domain.
  */
-@interface ORTabBarItem : ORModelObject
+@interface ORTabBarItem : ORModelObject <NSCoding>
 
 /**
  * Label representing the text to be displayed on the tab bar item.

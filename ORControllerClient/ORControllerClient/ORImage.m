@@ -22,6 +22,9 @@
 #import "ORImage_Private.h"
 #import "ORWidget_Private.h"
 
+#define kSrcKey       @"Src"
+#define kLabelKey     @"Label"
+
 @interface ORImage ()
 
 @property (copy, nonatomic, readwrite) NSString *src;
@@ -35,6 +38,22 @@
     self = [super initWithIdentifier:anIdentifier];
     if (self) {
         self.src = aSrc;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.src forKey:kSrcKey];
+    [aCoder encodeObject:self.label forKey:kLabelKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.src = [aDecoder decodeObjectForKey:kSrcKey];
+        self.label = [aDecoder decodeObjectForKey:kLabelKey];
     }
     return self;
 }

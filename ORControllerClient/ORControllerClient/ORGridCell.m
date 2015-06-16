@@ -20,6 +20,12 @@
  */
 #import "ORGridCell_Private.h"
 
+#define kWidgetKey       @"Widget"
+#define kXKey            @"X"
+#define kYKey            @"Y"
+#define kRowSpanKey      @"RowSpan"
+#define kColSpanKey      @"ColSpan"
+
 @interface ORGridCell ()
 
 @property (nonatomic, readwrite) NSUInteger x;
@@ -41,6 +47,28 @@
         self.colspan = MAX(1, colspanValue);
     }
     return self;    
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.widget forKey:kWidgetKey];
+    [aCoder encodeInteger:self.x forKey:kXKey];
+    [aCoder encodeInteger:self.y forKey:kYKey];
+    [aCoder encodeInteger:self.rowspan forKey:kRowSpanKey];
+    [aCoder encodeInteger:self.colspan forKey:kColSpanKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.widget = [aDecoder decodeObjectForKey:kWidgetKey];
+        self.x = [aDecoder decodeIntegerForKey:kXKey];
+        self.y = [aDecoder decodeIntegerForKey:kYKey];
+        self.rowspan = [aDecoder decodeIntegerForKey:kRowSpanKey];
+        self.colspan = [aDecoder decodeIntegerForKey:kColSpanKey];
+    }
+    return self;
 }
 
 @synthesize x,y,rowspan,colspan,widget;

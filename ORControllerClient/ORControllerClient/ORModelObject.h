@@ -28,7 +28,7 @@
  *
  * Provides access to the definition all objects belong to.
  */
-@interface ORModelObject : NSObject
+@interface ORModelObject : NSObject <NSCoding>
 
 /**
  * Definition the object belongs to.

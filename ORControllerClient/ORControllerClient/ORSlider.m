@@ -24,6 +24,17 @@
 #import "ORImage_Private.h"
 #import "Definition.h"
 
+#define kVerticalKey       @"Vertical"
+#define kPassiveKey        @"Passive"
+#define kThumbImageKey     @"ThumbImage"
+#define kMinImageKey       @"MinImage"
+#define kMinTrackImageKey  @"MinTrackImage"
+#define kMaxImageKey       @"MaxImage"
+#define kMaxTrackImageKey  @"MaxTrackImage"
+#define kMinValueKey       @"MinValue"
+#define kMaxValueKey       @"MaxValueKey"
+#define kValueKey          @"Value"
+
 @interface ORSlider ()
 
 @property(nonatomic, strong, readwrite) ORImage *thumbImage;
@@ -77,6 +88,38 @@
     [self willChangeValueForKey:@"value"];
     _value = aValue;
     [self didChangeValueForKey:@"value"];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeBool:self.vertical forKey:kVerticalKey];
+    [aCoder encodeBool:self.passive forKey:kPassiveKey];
+    [aCoder encodeObject:self.thumbImage forKey:kThumbImageKey];
+    [aCoder encodeObject:self.minImage forKey:kMinImageKey];
+    [aCoder encodeObject:self.minTrackImage forKey:kMinTrackImageKey];
+    [aCoder encodeObject:self.maxImage forKey:kMaxImageKey];
+    [aCoder encodeObject:self.maxTrackImage forKey:kMaxTrackImageKey];
+    [aCoder encodeFloat:self.minValue forKey:kMinValueKey];
+    [aCoder encodeFloat:self.maxValue forKey:kMaxValueKey];
+    [aCoder encodeFloat:self._value forKey:kValueKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.vertical = [aDecoder decodeBoolForKey:kVerticalKey];
+        self.passive = [aDecoder decodeBoolForKey:kPassiveKey];
+        self.thumbImage = [aDecoder decodeObjectForKey:kThumbImageKey];
+        self.minImage = [aDecoder decodeObjectForKey:kMinImageKey];
+        self.minTrackImage = [aDecoder decodeObjectForKey:kMinTrackImageKey];
+        self.maxImage = [aDecoder decodeObjectForKey:kMaxImageKey];
+        self.maxTrackImage = [aDecoder decodeObjectForKey:kMaxTrackImageKey];
+        self.minValue = [aDecoder decodeFloatForKey:kMinValueKey];
+        self.maxValue = [aDecoder decodeFloatForKey:kMaxValueKey];
+        self._value = [aDecoder decodeFloatForKey:kValueKey];
+    }
+    return self;
 }
 
 @end

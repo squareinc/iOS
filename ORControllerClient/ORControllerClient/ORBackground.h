@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, ORWidgetUnit) {
  * Currently this includes an image and how it is positioned/sized within the screen.
  * Those options are modeled similar to CCS3 specifications.
  */
-@interface ORBackground : ORModelObject
+@interface ORBackground : ORModelObject <NSCoding>
 
 /**
  * Image to use to fill the background.

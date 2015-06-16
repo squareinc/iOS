@@ -27,7 +27,7 @@
  * An ORSensorStatesMapping is a repository for the different values a sensor
  * can have and their translations for its final value.
  */
-@interface ORSensorStatesMapping : NSObject
+@interface ORSensorStatesMapping : NSObject <NSCoding>
 
 /**
  * Adds given sensor state to this mapping.

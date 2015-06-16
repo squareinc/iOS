@@ -26,7 +26,7 @@
 /**
  * Model object representing a switch element in the OR UI model domain.
  */
-@interface ORSwitch : ORWidget
+@interface ORSwitch : ORWidget <NSCoding>
 
 /**
  * Image to be used for the on state of the switch.

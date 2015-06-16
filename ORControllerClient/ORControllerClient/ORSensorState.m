@@ -20,6 +20,9 @@
  */
 #import "ORSensorState.h"
 
+#define kNameKey       @"Name"
+#define kValueKey      @"Value"
+
 @interface ORSensorState ()
 
 @property (nonatomic, copy, readwrite) NSString *name;
@@ -60,6 +63,17 @@
 - (NSUInteger)hash
 {
     return NSUINTROTATE([self.name hash], NSUINT_BIT / 2) ^ [self.value hash];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:kNameKey];
+    [aCoder encodeObject:self.value forKey:kValueKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithName:[aDecoder decodeObjectForKey:kNameKey] value:[aDecoder decodeObjectForKey:kValueKey]];
 }
 
 @synthesize name;

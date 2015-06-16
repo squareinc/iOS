@@ -22,6 +22,10 @@
 #import "ORSensorLink.h"
 #import "ORSensorStatesMapping.h"
 
+#define kComponentKey            @"Component"
+#define kPropertyNameKey         @"PropertyName"
+#define kSensorStatesMappingKey  @"SensorStatesMapping"
+
 @interface ORSensorLink ()
 
 @property (nonatomic, strong, readwrite) NSObject *component;
@@ -68,6 +72,20 @@
     return NSUINTROTATE([self.sensorStatesMapping hash], NSUINT_BIT / 2)
                 ^ NSUINTROTATE([self.component hash], NSUINT_BIT / 2)
                 ^ [self.propertyName hash];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.component forKey:kComponentKey];
+    [aCoder encodeObject:self.propertyName forKey:kPropertyNameKey];
+    [aCoder encodeObject:self.sensorStatesMapping forKey:kSensorStatesMappingKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithComponent:[aDecoder decodeObjectForKey:kComponentKey]
+                      propertyName:[aDecoder decodeObjectForKey:kPropertyNameKey]
+               sensorStatesMapping:[aDecoder decodeObjectForKey:kSensorStatesMappingKey]];
 }
 
 @synthesize component;

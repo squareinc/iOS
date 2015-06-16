@@ -24,6 +24,11 @@
 
 NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
 
+#define kTextKey       @"Text"
+#define kTextColorKey  @"TextColor"
+#define kFontNameKey   @"FontName"
+#define kFontSizeKey   @"FontSize"
+
 @implementation ORLabel
 
 // In future version, might want to have an API to indicate if the label should be updated or not
@@ -37,6 +42,26 @@ NSString const *kORLabelTextValueChanged = @"kORLabelTextValueChanged";
         self.text = someText;
         self.textColor = [UIColor whiteColor];
         self.font = [UIFont fontWithName:@"Arial" size:14.0];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.text forKey:kTextKey];
+    [aCoder encodeObject:self.textColor forKey:kTextColorKey];
+    [aCoder encodeObject:self.font.fontName forKey:kFontNameKey];
+    [aCoder encodeFloat:self.font.pointSize forKey:kFontSizeKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.text = [aDecoder decodeObjectForKey:kTextKey];
+        self.textColor = [aDecoder decodeObjectForKey:kTextColorKey];
+        self.font = [UIFont fontWithName:[aDecoder decodeObjectForKey:kFontNameKey]
+                                    size:[aDecoder decodeFloatForKey:kFontSizeKey]];
     }
     return self;
 }

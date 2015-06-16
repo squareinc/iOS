@@ -21,6 +21,8 @@
 
 #import "ORSensor.h"
 
+#define kIdentifierKey       @"Identifier"
+
 @interface ORSensor ()
 
 @property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
@@ -36,6 +38,16 @@
         self.identifier = anIdentifier;
     }
     return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.identifier forKey:kIdentifierKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithIdentifier:[aDecoder decodeObjectForKey:kIdentifierKey]];
 }
 
 @synthesize identifier;

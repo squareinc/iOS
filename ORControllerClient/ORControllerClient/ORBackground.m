@@ -21,6 +21,15 @@
 
 #import "ORBackground_Private.h"
 
+#define kImageKey        @"Image"
+#define kRepeatKey       @"Repeat"
+#define kPositionXKey    @"PositionX"
+#define kPositionYKey    @"PositionY"
+#define kPositionUnitKey @"PositionUnit"
+#define kSizeWidthKey    @"SizeWidth"
+#define kSizeHeightKey   @"SizeHeight"
+#define kSizeUnitKey     @"SizeUnit"
+
 @implementation ORBackground
 
 - (instancetype)init
@@ -30,6 +39,32 @@
         self.repeat = ORBackgroundRepeatNoRepeat;
         self.positionUnit = ORWidgetUnitNotDefined;
         self.sizeUnit = ORWidgetUnitNotDefined;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.image forKey:kImageKey];
+    [aCoder encodeInteger:self.repeat forKey:kRepeatKey];
+    [aCoder encodeInteger:self.position.x forKey:kPositionXKey];
+    [aCoder encodeInteger:self.position.y forKey:kPositionYKey];
+    [aCoder encodeInteger:self.positionUnit forKey:kPositionUnitKey];
+    [aCoder encodeInteger:self.size.width forKey:kSizeWidthKey];
+    [aCoder encodeInteger:self.size.height forKey:kSizeHeightKey];
+    [aCoder encodeInteger:self.sizeUnit forKey:kSizeUnitKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.image = [aDecoder decodeObjectForKey:kImageKey];
+        self.repeat = [aDecoder decodeIntegerForKey:kRepeatKey];
+        self.position = CGPointMake([aDecoder decodeIntegerForKey:kPositionXKey], [aDecoder decodeIntegerForKey:kPositionYKey]);
+        self.positionUnit = [aDecoder decodeIntegerForKey:kPositionUnitKey];
+        self.size = CGSizeMake([aDecoder decodeIntegerForKey:kSizeWidthKey], [aDecoder decodeIntegerForKey:kSizeHeightKey]);
+        self.sizeUnit = [aDecoder decodeIntegerForKey:kSizeUnitKey];
     }
     return self;
 }

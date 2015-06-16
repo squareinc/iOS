@@ -22,6 +22,8 @@
 #import "ORSensorStatesMapping.h"
 #import "ORSensorState.h"
 
+#define kStatesKey      @"States"
+
 @interface ORSensorStatesMapping ()
 
 @property (nonatomic, strong) NSMutableDictionary *states;
@@ -70,6 +72,19 @@
 - (NSUInteger)hash
 {
     return [self.states hash];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.states forKey:kStatesKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [self init]) {
+        self.states = [aDecoder decodeObjectForKey:kStatesKey];
+    }
+    return self;
 }
 
 @end

@@ -25,6 +25,10 @@
 #import "ORNavigation.h"
 #import "ORConsole.h"
 
+#define kGestureTypeKey     @"GestureType"
+#define kHasCommandKey      @"HasCommand"
+#define kNavigationKey      @"Navigation"
+
 @interface ORGesture ()
 
 @property (nonatomic, readwrite) ORGestureType gestureType;
@@ -43,7 +47,6 @@
     return self;
 }
 
-
 - (void)perform
 {
     if (self.hasCommand) {
@@ -53,6 +56,24 @@
     if (self.navigation) {
         [self.definition.console navigate:self.navigation];
     }
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeInteger:self.gestureType forKey:kGestureTypeKey];
+    [aCoder encodeBool:self.hasCommand forKey:kHasCommandKey];
+    [aCoder encodeObject:self.navigation forKey:kNavigationKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.gestureType = [aDecoder decodeIntegerForKey:kGestureTypeKey];
+        self.hasCommand = [aDecoder decodeBoolForKey:kHasCommandKey];
+        self.navigation = [aDecoder decodeObjectForKey:kNavigationKey];
+    }
+    return self;
 }
 
 @end

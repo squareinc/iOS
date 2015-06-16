@@ -28,7 +28,7 @@
  * Model object representing a group element in the OR UI model domain.
  * name property is pre-populated with value coming from model.
  */
-@interface ORGroup : ORWidget
+@interface ORGroup : ORWidget <NSCoding>
 
 /**
  * Collection of all screens that are part of this group.

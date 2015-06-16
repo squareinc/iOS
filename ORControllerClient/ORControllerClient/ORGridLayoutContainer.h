@@ -20,7 +20,7 @@
  */
 #import "ORLayoutContainer.h"
 
-@interface ORGridLayoutContainer : ORLayoutContainer
+@interface ORGridLayoutContainer : ORLayoutContainer <NSCoding>
 
 @property (nonatomic, strong, readonly) NSMutableArray *cells;
 @property (nonatomic, readonly) NSUInteger rows;

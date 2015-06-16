@@ -22,11 +22,30 @@
 #import "ORScreenNavigation_Private.h"
 #import "ORNavigation_Private.h"
 
+#define kDestinationGroupKey       @"DestinationGroup"
+#define kDestinationScreenKey      @"DestinationScreen"
+
 @implementation ORScreenNavigation
 
 - (instancetype)init
 {
     self = [super initWithNavigationType:ORNavigationTypeToGroupOrScreen];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.destinationGroup forKey:kDestinationGroupKey];
+    [aCoder encodeObject:self.destinationScreen forKey:kDestinationScreenKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.destinationGroup = [aDecoder decodeObjectForKey:kDestinationGroupKey];
+        self.destinationScreen = [aDecoder decodeObjectForKey:kDestinationScreenKey];
+    }
     return self;
 }
 

@@ -25,7 +25,7 @@
  * It is a container for including widgets on screens, providing layout information.
  * This base class provides position and size of widget.
  */
-@interface ORLayoutContainer : ORModelObject
+@interface ORLayoutContainer : ORModelObject <NSCoding>
 
 @property (nonatomic, readonly) NSInteger left;
 @property (nonatomic, readonly) NSInteger top;

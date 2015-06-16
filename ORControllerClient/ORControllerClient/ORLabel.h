@@ -27,7 +27,7 @@
  * name property is pre-populated with initial text value coming from model
  * (that is before any potential update from linked sensor occurs).
  */
-@interface ORLabel : ORWidget
+@interface ORLabel : ORWidget <NSCoding>
 
 /**
  * The current text value of this label.

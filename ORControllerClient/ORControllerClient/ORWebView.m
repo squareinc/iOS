@@ -21,6 +21,10 @@
 #import "ORWebView_Private.h"
 #import "ORWidget_Private.h"
 
+#define kSrcKey       @"Src"
+#define kUsernameKey  @"Username"
+#define kPasswordKey  @"Password"
+
 @interface ORWebView ()
 
 @property (nonatomic, copy, readwrite) NSString *src;
@@ -38,6 +42,24 @@
         self.src = aSrc;
         self.username = aUsername;
         self.password = aPassword;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.src forKey:kSrcKey];
+    [aCoder encodeObject:self.username forKey:kUsernameKey];
+    [aCoder encodeObject:self.password forKey:kPasswordKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.src = [aDecoder decodeObjectForKey:kSrcKey];
+        self.username = [aDecoder decodeObjectForKey:kUsernameKey];
+        self.password = [aDecoder decodeObjectForKey:kPasswordKey];
     }
     return self;
 }

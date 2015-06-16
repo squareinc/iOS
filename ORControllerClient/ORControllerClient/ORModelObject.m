@@ -21,7 +21,25 @@
 
 #import "ORModelObject_Private.h"
 
+#define kDefinitionKey       @"Definition"
+#define kNameKey             @"Name"
+
 @implementation ORModelObject
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeConditionalObject:self.definition forKey:kDefinitionKey];
+    [aCoder encodeObject:self.name forKey:kNameKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [self init]) {
+        self.definition = [aDecoder decodeObjectForKey:kDefinitionKey];
+        self.name = [aDecoder decodeObjectForKey:kNameKey];
+    }
+    return self;
+}
 
 @synthesize definition;
 

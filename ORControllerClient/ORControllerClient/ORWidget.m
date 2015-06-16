@@ -21,6 +21,8 @@
 
 #import "ORWidget_Private.h"
 
+#define kIdentifierKey       @"Identifier"
+
 @interface ORWidget ()
 
 @property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
@@ -34,6 +36,20 @@
     self = [super init];
     if (self) {
         self.identifier = anIdentifier;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.identifier forKey:kIdentifierKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.identifier = [aDecoder decodeObjectForKey:kIdentifierKey];
     }
     return self;
 }

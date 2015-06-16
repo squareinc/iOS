@@ -22,11 +22,27 @@
 #import "ORColorPicker_Private.h"
 #import "Definition.h"
 
+#define kImageKey       @"Image"
+
 @implementation ORColorPicker
 
 - (void)sendColor:(UIColor *)color
 {
     [self.definition sendColor:color forPicker:self];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.image forKey:kImageKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.image = [aDecoder decodeObjectForKey:kImageKey];
+    }
+    return self;
 }
 
 @synthesize image;

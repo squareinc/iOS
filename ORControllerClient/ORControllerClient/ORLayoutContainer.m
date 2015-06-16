@@ -20,12 +20,46 @@
  */
 #import "ORLayoutContainer.h"
 
+#define kLeftKey       @"Left"
+#define kTopKey        @"Top"
+#define kWidthKey      @"Width"
+#define kHeightKey     @"Height"
+
+@interface ORLayoutContainer ()
+
+@property (nonatomic, readwrite) NSInteger left;
+@property (nonatomic, readwrite) NSInteger top;
+@property (nonatomic, readwrite) NSUInteger width;
+@property (nonatomic, readwrite) NSUInteger height;
+
+@end
+
 @implementation ORLayoutContainer
 
 - (NSSet *)widgets
 {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeInteger:self.left forKey:kLeftKey];
+    [aCoder encodeInteger:self.top forKey:kTopKey];
+    [aCoder encodeInteger:self.width forKey:kWidthKey];
+    [aCoder encodeInteger:self.height forKey:kHeightKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.left = [aDecoder decodeIntegerForKey:kLeftKey];
+        self.top = [aDecoder decodeIntegerForKey:kTopKey];
+        self.width = [aDecoder decodeIntegerForKey:kWidthKey];
+        self.height = [aDecoder decodeIntegerForKey:kHeightKey];
+    }
+    return self;
 }
 
 @synthesize left, top, width, height;

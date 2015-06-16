@@ -20,6 +20,8 @@
  */
 #import "ORAbsoluteLayoutContainer_Private.h"
 
+#define kWidgetKey       @"Widget"
+
 @interface ORAbsoluteLayoutContainer ()
 
 @property (nonatomic, readwrite) NSInteger left;
@@ -49,6 +51,20 @@
 - (NSSet *)widgets
 {
     return self.widget?[NSSet setWithObject:self.widget]:[NSSet set];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.widget forKey:kWidgetKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.widget = [aDecoder decodeObjectForKey:kWidgetKey];
+    }
+    return self;
 }
 
 @synthesize widget;

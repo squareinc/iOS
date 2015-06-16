@@ -30,7 +30,7 @@
  * It includes an optional sensor states mapping to should be used
  * to translate the sensor value before assignment to the Component property.
  */
-@interface ORSensorLink : NSObject
+@interface ORSensorLink : NSObject <NSCoding>
 
 /**
  * Initializes the SensorLink with the provided information.

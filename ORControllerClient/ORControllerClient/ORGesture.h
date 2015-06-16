@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, ORGestureType) {
 	ORGestureTypeSwipeRightToLeft  = 3
 };
 
-@interface ORGesture : ORWidget
+@interface ORGesture : ORWidget <NSCoding>
 
 @property (nonatomic, readonly) ORGestureType gestureType;
 

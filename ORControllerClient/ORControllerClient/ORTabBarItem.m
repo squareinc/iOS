@@ -21,6 +21,10 @@
 #import "ORTabBarItem_Private.h"
 #import "ORLabel_Private.h"
 
+#define kLabelKey       @"Label"
+#define kImageKey       @"Image"
+#define kNavigationKey  @"Navigation"
+
 @interface ORTabBarItem ()
 
 @property (nonatomic, strong, readwrite) ORLabel *label;
@@ -34,6 +38,24 @@
     self = [super init];
     if (self) {
         self.label = [[ORLabel alloc] initWithIdentifier:nil text:someText];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.label forKey:kLabelKey];
+    [aCoder encodeObject:self.image forKey:kImageKey];
+    [aCoder encodeObject:self.navigation forKey:kNavigationKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.label = [aDecoder decodeObjectForKey:kLabelKey];
+        self.image = [aDecoder decodeObjectForKey:kImageKey];
+        self.navigation = [aDecoder decodeObjectForKey:kNavigationKey];
     }
     return self;
 }

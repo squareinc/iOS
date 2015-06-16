@@ -26,6 +26,17 @@
 #import "ORConsole.h"
 #import "Definition.h"
 
+#define kLabelKey                  @"Label"
+#define kUnpressedImageKey         @"UnpressedImage"
+#define kPressedImageKey           @"PressedImage"
+#define kRepeatKey                 @"Repeat"
+#define kRepeatDelayKey            @"RepeatDelayKey"
+#define kHasPressCommandKey        @"HasPressCommand"
+#define kHasShortReleaseCommandKey @"HasShortReleaseCommand"
+#define kHasLongPressCommandKey    @"HasLongPressCommand"
+#define kHasLongReleaseCommandKey  @"HasLongReleaseCommand"
+#define kLongPressDelayKey         @"LongPressDelay"
+
 #define kMinimumRepeatDelay 100
 #define kMinimumLongPressDelay  250
 
@@ -135,6 +146,38 @@
 		[self.longPressTimer invalidate];
 	}
 	self.longPressTimer = nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.label forKey:kLabelKey];
+    [aCoder encodeObject:self.unpressedImage forKey:kUnpressedImageKey];
+    [aCoder encodeObject:self.pressedImage forKey:kPressedImageKey];
+    [aCoder encodeBool:self.repeat forKey:kRepeatKey];
+    [aCoder encodeInteger:self.repeatDelay forKey:kRepeatDelayKey];
+    [aCoder encodeBool:self.hasPressCommand forKey:kHasPressCommandKey];
+    [aCoder encodeBool:self.hasShortReleaseCommand forKey:kHasShortReleaseCommandKey];
+    [aCoder encodeBool:self.hasLongPressCommand forKey:kHasLongPressCommandKey];
+    [aCoder encodeBool:self.hasLongReleaseCommand forKey:kHasLongReleaseCommandKey];
+    [aCoder encodeInteger:self.longPressDelay forKey:kLongPressDelayKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.label = [aDecoder decodeObjectForKey:kLabelKey];
+        self.unpressedImage = [aDecoder decodeObjectForKey:kUnpressedImageKey];
+        self.pressedImage = [aDecoder decodeObjectForKey:kPressedImageKey];
+        self.repeat = [aDecoder decodeBoolForKey:kRepeatKey];
+        self.repeatDelay = [aDecoder decodeIntegerForKey:kRepeatDelayKey];
+        self.hasPressCommand = [aDecoder decodeBoolForKey:kHasPressCommandKey];
+        self.hasShortReleaseCommand = [aDecoder decodeBoolForKey:kHasShortReleaseCommandKey];
+        self.hasLongPressCommand = [aDecoder decodeBoolForKey:kHasLongPressCommandKey];
+        self.hasLongReleaseCommand = [aDecoder decodeBoolForKey:kHasLongReleaseCommandKey];
+        self.longPressDelay = [aDecoder decodeIntegerForKey:kLongPressDelayKey];
+    }
+    return self;
 }
 
 @end

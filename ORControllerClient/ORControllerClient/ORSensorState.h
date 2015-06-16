@@ -24,7 +24,7 @@
  * An ORSensorState is a key-value pair that allows translation of one sensor original value
  * (the name) to its final value (the value).
  */
-@interface ORSensorState : NSObject
+@interface ORSensorState : NSObject <NSCoding>
 
 /**
  * Initializes the sensor state with a name and a value.

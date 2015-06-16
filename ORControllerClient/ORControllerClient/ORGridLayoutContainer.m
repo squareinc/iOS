@@ -21,6 +21,10 @@
 #import "ORGridLayoutContainer_Private.h"
 #import "ORGridCell.h"
 
+#define kCellsKey       @"Cells"
+#define kRowsKey        @"Rows"
+#define kColsKey        @"Cols"
+
 @interface ORGridLayoutContainer ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *cells;
@@ -63,6 +67,24 @@
         [components addObject:cell.widget];
     }
     return [NSSet setWithSet:components];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.cells forKey:kCellsKey];
+    [aCoder encodeInteger:self.rows forKey:kRowsKey];
+    [aCoder encodeInteger:self.cols forKey:kColsKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.cells = [aDecoder decodeObjectForKey:kCellsKey];
+        self.rows = [aDecoder decodeIntegerForKey:kRowsKey];
+        self.cols = [aDecoder decodeIntegerForKey:kColsKey];
+    }
+    return self;
 }
 
 @synthesize cells, rows, cols;

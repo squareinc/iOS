@@ -28,7 +28,7 @@
 /**
  * Model object representing an button element in the OR UI model domain.
  */
-@interface ORButton : ORWidget
+@interface ORButton : ORWidget <NSCoding>
 
 /**
  * Instruct the button that it has been pressed.

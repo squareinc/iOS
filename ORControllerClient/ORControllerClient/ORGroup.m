@@ -23,6 +23,9 @@
 #import "ORWidget_Private.h"
 #import "ORScreen.h"
 
+#define kScreensKey     @"Screens"
+#define kTabBarKey      @"TabBar"
+
 @interface ORGroup ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *_screens;
@@ -67,6 +70,22 @@
 {
 	NSArray *ss = [self._screens filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier == %@", identifier]];
     return [ss lastObject];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self._screens forKey:kScreensKey];
+    [aCoder encodeObject:self.tabBar forKey:kTabBarKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self._screens = [aDecoder decodeObjectForKey:kScreensKey];
+        self.tabBar = [aDecoder decodeObjectForKey:kTabBarKey];
+    }
+    return self;
 }
 
 @synthesize tabBar;

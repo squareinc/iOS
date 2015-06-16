@@ -21,6 +21,8 @@
 #import "ORTabBar_Private.h"
 #import "ORTabBarItem.h"
 
+#define kItemsKey       @"Items"
+
 @interface ORTabBar ()
 
 @property (nonatomic, strong) NSMutableArray *_items;
@@ -45,6 +47,20 @@
 - (NSArray *)items
 {
     return [NSArray arrayWithArray:self._items];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self._items forKey:kItemsKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self._items = [aDecoder decodeObjectForKey:kItemsKey];
+    }
+    return self;
 }
 
 @synthesize _items;

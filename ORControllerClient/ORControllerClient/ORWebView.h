@@ -23,7 +23,7 @@
 /**
  * Model object representing a web view element in the OR UI model domain.
  */
-@interface ORWebView : ORWidget
+@interface ORWebView : ORWidget <NSCoding>
 
 /**
  * Source URL represented as a string for the web view.

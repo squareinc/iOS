@@ -24,6 +24,10 @@
 #import "ORSensor.h"
 #import "ORObjectIdentifier.h"
 
+#define kSensorsKey           @"Sensors"
+#define kSensorsPerIdKey      @"SensorsPerId"
+#define kLinksPerSensorIdKey  @"LinksPerSensorId"
+
 @interface ORSensorRegistry ()
 
 @property (nonatomic, strong) NSMutableSet *_sensors;
@@ -84,6 +88,23 @@
 - (NSSet *)sensorIdentifiers
 {
     return [NSSet setWithArray:[self._sensorsPerId allKeys]];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self._sensors forKey:kSensorsKey];
+    [aCoder encodeObject:self._sensorsPerId forKey:kSensorsPerIdKey];
+    [aCoder encodeObject:self._linksPerSensorId forKey:kLinksPerSensorIdKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [self init]) {
+        self._sensors = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
+        self._sensorsPerId = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
+        self._linksPerSensorId = [aDecoder decodeObjectForKey:kLinksPerSensorIdKey];
+    }
+    return self;
 }
 
 @end

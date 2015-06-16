@@ -46,7 +46,7 @@
 /**
  * This class is responsible for storing some models data (groups, screens, labels, tabBar, images and local controllers)
  */
-@interface Definition : NSObject
+@interface Definition : NSObject <NSCoding>
 
 /**
  * Clear stored models data(groups, screens, labels and tabBar).
