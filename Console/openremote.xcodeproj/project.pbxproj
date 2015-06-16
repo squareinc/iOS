@@ -211,7 +211,7 @@
 		91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 910F28DB1992635F002B65A3 /* delete_button@2x.png */; };
-		910F28DE1992756E002B65A3 /* ScreenReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */; };
+		910F28DE1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F28DD1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m */; };
 		9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13019167D39005E0D79 /* Default-568h@2x.png */; };
 		9123A13519167D39005E0D79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13119167D39005E0D79 /* Default@2x.png */; };
 		9123A13619167D39005E0D79 /* Default7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13219167D39005E0D79 /* Default7-568h@2x.png */; };
@@ -254,14 +254,17 @@
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
 		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
-		91B357CB18BB833500ADED24 /* ScreenReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CA18BB833500ADED24 /* ScreenReference.m */; };
 		91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
 		91B357D018BB85FB00ADED24 /* ScreenReferenceStackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */; };
-		91B357D218BB885700ADED24 /* ScreenReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CA18BB833500ADED24 /* ScreenReference.m */; };
 		91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
 		91B65F48179EA7EE003D4489 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		91C3994818EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3994718EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m */; };
 		91DA424D17953CDC001D39B9 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA424C17953CDC001D39B9 /* libORControllerClient.a */; };
+		91E7DAC11B00C478000A8314 /* NavigationManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAC01B00C478000A8314 /* NavigationManagerTest.m */; };
+		91E7DAC31B00C9FC000A8314 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105AB801923621700DB3861 /* NavigationManager.m */; };
+		91E7DACA1B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAC91B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m */; };
+		91E7DACB1B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAC91B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m */; };
+		91E7DAD61B021889000A8314 /* NavigationHistoryInMemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */; };
 		91F7EDA31907BC4B0047DC9B /* ORConsoleAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3994718EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m */; };
 		91F7EDA41907BD610047DC9B /* OR-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E1E3219019435009BA1D6 /* OR-72.png */; };
 /* End PBXBuildFile section */
@@ -535,7 +538,7 @@
 		9105AB801923621700DB3861 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		910F28DB1992635F002B65A3 /* delete_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_button@2x.png"; sourceTree = "<group>"; };
-		910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceTest.m; sourceTree = "<group>"; };
+		910F28DD1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReferenceTest.m; sourceTree = "<group>"; };
 		9123A13019167D39005E0D79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "image/Default-568h@2x.png"; sourceTree = "<group>"; };
 		9123A13119167D39005E0D79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "image/Default@2x.png"; sourceTree = "<group>"; };
 		9123A13219167D39005E0D79 /* Default7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-568h@2x.png"; path = "image/Default7-568h@2x.png"; sourceTree = "<group>"; };
@@ -587,7 +590,7 @@
 		914C8E3716D65780003683DE /* ORScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScrollView.h; sourceTree = "<group>"; };
 		914C8E3816D65780003683DE /* ORScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScrollView.m; sourceTree = "<group>"; };
 		91589DFA1858AD080036B7BA /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
-		915F16731A726D8100F111F7 /* ScreenReferenceTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScreenReferenceTest.h; path = ../ORControllerClient/ORControllerClientTests/ScreenReferenceTest.h; sourceTree = "<group>"; };
+		915F16731A726D8100F111F7 /* ORScreenOrGroupReferenceTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORScreenOrGroupReferenceTest.h; path = ../ORControllerClient/ORControllerClientTests/ORScreenOrGroupReferenceTest.h; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
@@ -595,8 +598,8 @@
 		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91AAFAFF18A8E9F200632C1A /* ORConsoleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleApp.h; sourceTree = "<group>"; };
 		91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleApp.m; sourceTree = "<group>"; };
-		91B357C918BB833500ADED24 /* ScreenReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReference.h; sourceTree = "<group>"; };
-		91B357CA18BB833500ADED24 /* ScreenReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReference.m; sourceTree = "<group>"; };
+		91B357C918BB833500ADED24 /* ORScreenOrGroupReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenOrGroupReference.h; sourceTree = "<group>"; };
+		91B357CA18BB833500ADED24 /* ORScreenOrGroupReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReference.m; sourceTree = "<group>"; };
 		91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReferenceStack.h; sourceTree = "<group>"; };
 		91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceStack.m; sourceTree = "<group>"; };
 		91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenReferenceStackTest.m; sourceTree = "<group>"; };
@@ -604,6 +607,13 @@
 		91C3994618EF1EB400AD1E85 /* ORConsoleAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleAuthenticationManager.h; sourceTree = "<group>"; };
 		91C3994718EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleAuthenticationManager.m; sourceTree = "<group>"; };
 		91DA424C17953CDC001D39B9 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		91E7DAC01B00C478000A8314 /* NavigationManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManagerTest.m; sourceTree = "<group>"; };
+		91E7DAC21B00C48A000A8314 /* NavigationManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManagerTest.h; sourceTree = "<group>"; };
+		91E7DAC41B00DA22000A8314 /* NavigationHistoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationHistoryStore.h; sourceTree = "<group>"; };
+		91E7DAC81B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationHistoryUserDefaultsStore.h; sourceTree = "<group>"; };
+		91E7DAC91B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationHistoryUserDefaultsStore.m; sourceTree = "<group>"; };
+		91E7DAD41B021889000A8314 /* NavigationHistoryInMemoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationHistoryInMemoryStore.h; sourceTree = "<group>"; };
+		91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationHistoryInMemoryStore.m; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -926,10 +936,14 @@
 				914198831802DA6500DE3AD6 /* MockImageLoaderWithNoStorageToFile.m */,
 				914198851802F73F00DE3AD6 /* MockImageLoaderStoringToFile.h */,
 				914198861802F73F00DE3AD6 /* MockImageLoaderStoringToFile.m */,
-				910F28DD1992756E002B65A3 /* ScreenReferenceTest.m */,
-				915F16731A726D8100F111F7 /* ScreenReferenceTest.h */,
+				910F28DD1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m */,
+				915F16731A726D8100F111F7 /* ORScreenOrGroupReferenceTest.h */,
 				91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */,
 				91B357D118BB860E00ADED24 /* ScreenReferenceStackTest.h */,
+				91E7DAC01B00C478000A8314 /* NavigationManagerTest.m */,
+				91E7DAC21B00C48A000A8314 /* NavigationManagerTest.h */,
+				91E7DAD41B021889000A8314 /* NavigationHistoryInMemoryStore.h */,
+				91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1043,12 +1057,15 @@
 				60F3867C15517AFE0089F8BD /* NSURLHelper.m */,
 				60F386E915541CE90089F8BD /* SensorStatusCache.h */,
 				60F386EA15541CE90089F8BD /* SensorStatusCache.m */,
-				91B357C918BB833500ADED24 /* ScreenReference.h */,
-				91B357CA18BB833500ADED24 /* ScreenReference.m */,
+				91B357C918BB833500ADED24 /* ORScreenOrGroupReference.h */,
+				91B357CA18BB833500ADED24 /* ORScreenOrGroupReference.m */,
 				91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */,
 				91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */,
 				9105AB7F1923621700DB3861 /* NavigationManager.h */,
 				9105AB801923621700DB3861 /* NavigationManager.m */,
+				91E7DAC41B00DA22000A8314 /* NavigationHistoryStore.h */,
+				91E7DAC81B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.h */,
+				91E7DAC91B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1468,6 +1485,7 @@
 			files = (
 				60366B90144DCB9C004FED3B /* main.m in Sources */,
 				91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */,
+				91E7DACB1B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m in Sources */,
 				9105AB811923621700DB3861 /* NavigationManager.m in Sources */,
 				60366B93144DCB9C004FED3B /* StringUtils.m in Sources */,
 				91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */,
@@ -1552,7 +1570,6 @@
 				602418B4156E4D0F004E5860 /* Capability.m in Sources */,
 				602418BA156E4D2D004E5860 /* APISecurity.m in Sources */,
 				602418BF156E531C004E5860 /* CapabilitiesParser.m in Sources */,
-				91B357CB18BB833500ADED24 /* ScreenReference.m in Sources */,
 				602418D8156E766C004E5860 /* ORTableViewController.m in Sources */,
 				602418DD156E76BE004E5860 /* ORTableViewSectionDefinition.m in Sources */,
 				602418E7156FAC6D004E5860 /* UITableViewHelper.m in Sources */,
@@ -1565,16 +1582,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E7DAC31B00C9FC000A8314 /* NavigationManager.m in Sources */,
 				91F7EDA31907BC4B0047DC9B /* ORConsoleAuthenticationManager.m in Sources */,
-				91B357D218BB885700ADED24 /* ScreenReference.m in Sources */,
 				91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */,
+				91E7DACA1B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m in Sources */,
 				91099A5718B21833005BEBAB /* ORConsoleApp.m in Sources */,
 				916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */,
 				602418CD156E558C004E5860 /* ClientSideBeanManager.m in Sources */,
 				602418CC156E5580004E5860 /* ORControllerConfig.m in Sources */,
 				60F3868D15517D120089F8BD /* Capabilities.m in Sources */,
 				60F3868C15517D020089F8BD /* ORControllerCapabilitiesFetcher.m in Sources */,
-				910F28DE1992756E002B65A3 /* ScreenReferenceTest.m in Sources */,
+				910F28DE1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m in Sources */,
 				608D985B1419091E001A7534 /* DefinitionManager.m in Sources */,
 				60A2D2271403A92100A529ED /* ORControllerGroupMembersFetcher.m in Sources */,
 				6068DEA313744EC7007746F1 /* ControllerRequest.m in Sources */,
@@ -1586,6 +1604,7 @@
 				916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */,
 				6068DE9913744E46007746F1 /* UpdateController.m in Sources */,
 				6068DE9413744E0E007746F1 /* CredentialUtil.m in Sources */,
+				91E7DAC11B00C478000A8314 /* NavigationManagerTest.m in Sources */,
 				6068DE8513744DCB007746F1 /* CheckNetworkException.m in Sources */,
 				6068DE8613744DCB007746F1 /* ControllerException.m in Sources */,
 				6068DE8713744DCB007746F1 /* ORConsoleSettingsManager.m in Sources */,
@@ -1617,6 +1636,7 @@
 				602418C3156E5383004E5860 /* CapabilitiesParserTest.m in Sources */,
 				602418D0156E6AB6004E5860 /* CapabilitiesTest.m in Sources */,
 				602418D3156E6BE4004E5860 /* CapabilitiesWithSettableConsoleVersions.m in Sources */,
+				91E7DAD61B021889000A8314 /* NavigationHistoryInMemoryStore.m in Sources */,
 				602418D7156E766C004E5860 /* ORTableViewController.m in Sources */,
 				602418DC156E76BE004E5860 /* ORTableViewSectionDefinition.m in Sources */,
 				602418E6156FAC6D004E5860 /* UITableViewHelper.m in Sources */,
