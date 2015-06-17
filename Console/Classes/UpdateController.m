@@ -149,6 +149,8 @@
             // Nothing automatic we can do, display settings screen but notify user first
             
             
+            // TODO: for now it just displays the error page
+            [self.delegate didUpdate];
             
         }
     }
