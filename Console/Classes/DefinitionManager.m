@@ -127,6 +127,52 @@
 	NSLog(@"post nofication done");
 }
 
+
+
+
+
+#pragma mark -
+
+- (void)saveDefinitionToCache
+{
+    // TODO: handle error
+    [NSKeyedArchiver archiveRootObject:self.controller.definition toFile:[self definitionCacheFilePath]];
+}
+
+- (BOOL)loadDefinitionFromCache
+{
+    if (!self.controller) {
+        return NO;
+    }
+    
+    if (!self.controller.selectedPanelIdentity) {
+        return NO;
+    }
+
+    Definition *definition = [NSKeyedUnarchiver unarchiveObjectWithFile:[self definitionCacheFilePath]];
+
+    if (definition) {
+      self.controller.definition = definition;
+      definition.console = self.console;
+        self.imageCache.loader = self.controller;
+
+        [self.controller.controller attachPanelDefinition:definition];
+        
+        [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
+
+      return YES;
+    }
+    return NO;
+}
+
+- (NSString *)definitionCacheFilePath
+{
+    // TODO: the name should really be based on the controller identity, but this is a concept we don't fully have yet
+    NSString *definitionCacheFileName = [NSString stringWithFormat:@"Definition_%@_%@_%@", [[self.controller.objectID URIRepresentation] host],
+                                         [[[self.controller.objectID URIRepresentation] path] stringByReplacingOccurrencesOfString:@"/" withString:@"_"], self.controller.selectedPanelIdentity];
+    return [[DirectoryDefinition cacheFolder] stringByAppendingPathComponent:definitionCacheFileName];
+}
+
 @synthesize isUpdating, loading;
 
 @end

@@ -93,7 +93,14 @@
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [self.defaultViewController disconnectFromController];
+    
+
+    // Persist current definition to a cache file
+    [self.definitionManager saveDefinitionToCache];
 }
+
+
+
 
 - (void)checkConfigAndUpdate {
 	[updateController checkConfigAndUpdateUsingTimeout:STARTUP_UPDATE_TIMEOUT];

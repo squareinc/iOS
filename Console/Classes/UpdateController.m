@@ -100,7 +100,13 @@
         
         if (selectedController.selectedPanelIdentity) {
             NSLog(@"Have all the information to load UI, starting update process");
-            [self.definitionManager update];
+            
+            if (![self.definitionManager loadDefinitionFromCache]) {
+                // TODO: if there is something in cache, it is used -> never updated -> how to achieve update
+                
+                [self.definitionManager update];
+            }
+            
             return;
         }
         
