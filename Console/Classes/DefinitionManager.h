@@ -31,12 +31,12 @@
 
 }
 
-- (id)initWithController:(ORControllerConfig *)aController;
-
 /**
  * Download and parse panel data.
  */
 - (void)update;
+
+@property (nonatomic, weak) ORControllerConfig *controller;
 
 @property (nonatomic,readonly) BOOL isUpdating;
 @property (nonatomic,strong) UILabel *loading;

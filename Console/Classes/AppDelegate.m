@@ -30,6 +30,7 @@
 #import "ORConsoleSettingsManager.h"
 #import "ImageCache.h"
 #import "ViewHelper.h"
+#import "DefinitionManager.h"
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
@@ -40,6 +41,7 @@
 - (void)didUpdateFail:(NSString *)errorMessage;
 
 @property (nonatomic, strong) ImageCache *imageCache;
+@property (nonatomic, strong) DefinitionManager *definitionManager;
 
 @end
 
@@ -50,7 +52,10 @@
     self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
-	self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager delegate:self];
+    self.definitionManager = [[DefinitionManager alloc] init];
+    self.definitionManager.imageCache = self.imageCache;
+    
+    self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager definitionManager:self.definitionManager delegate:self];
     self.defaultViewController.imageCache = self.imageCache;
 
 	// Default window for the app
@@ -63,7 +68,7 @@
     // - (void)didUpdate;
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
-	updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings delegate:self];
+    updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings definitionManager:self.definitionManager delegate:self];
     updateController.imageCache = self.imageCache;
 
     [updateController startup];

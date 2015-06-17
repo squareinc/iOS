@@ -51,14 +51,12 @@
 	NSObject <UpdateControllerDelegate> *delegate;
 	ServerAutoDiscoveryController *serverAutoDiscoveryController;
 	int retryTimes;
-    DefinitionManager *definitionManager;
 }
 
 // TODO EBR : should this be assign instead of retain
 @property (nonatomic, strong) NSObject <UpdateControllerDelegate> *delegate;
 
-- (id)initWithSettings:(ORConsoleSettings *)theSettings;
-- (id)initWithSettings:(ORConsoleSettings *)theSettings delegate:(NSObject <UpdateControllerDelegate> *)aDelegate;
+- (id)initWithSettings:(ORConsoleSettings *)theSettings definitionManager:(DefinitionManager *)aDefinitionManager delegate:(NSObject <UpdateControllerDelegate> *)aDelegate;
 
 
 - (void)startup;

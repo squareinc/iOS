@@ -37,20 +37,16 @@
 - (void)postNotificationToMainThread:(NSString *)notificationName;
 - (void)changeLoadingMessage:(NSString *)msg;
 
-@property (nonatomic, weak) ORControllerConfig *controller;
-
 @property (nonatomic, strong) ORConsoleApp *console;
 
 @end
 
 @implementation DefinitionManager
 
-- (id)initWithController:(ORControllerConfig *)aController
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.controller = aController;
-        
         // TODO: not sure this is the place to build this
         self.console = [[ORConsoleApp alloc] init];
     }
@@ -62,7 +58,6 @@
     self.controller = nil;
     self.imageCache = nil;
 }
-
 
 - (void)update {
     if (isUpdating) {

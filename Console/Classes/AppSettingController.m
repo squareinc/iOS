@@ -45,6 +45,8 @@
 
 @property (nonatomic, strong) AppSettingsDefinition *settingsDefinition;
 
+@property (nonatomic, weak) DefinitionManager *definitionManager;
+
 - (void)autoDiscoverChanged:(id)sender;
 - (void)saveSettings;
 - (void)updatePanelIdentityView;
@@ -71,12 +73,13 @@
 
 @implementation AppSettingController
 
-- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager definitionManager:(DefinitionManager *)aDefinitionManager
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self) {
         self.settingsManager = aSettingsManager;
-
+        self.definitionManager = aDefinitionManager;
+        
         self.settingsDefinition = [[AppSettingsDefinition alloc] init];
 
 		[self setTitle:@"Settings"];
@@ -264,7 +267,7 @@
 		if (updateController) {
 			updateController = nil;
 		}
-		updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings delegate:self];
+        updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings definitionManager:self.definitionManager delegate:self];
         updateController.imageCache = self.imageCache;
         
         // Ensure that progress indicator appears immediately but code still executed on main thread

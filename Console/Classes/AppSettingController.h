@@ -45,6 +45,6 @@
 
 @property (nonatomic, weak) ImageCache *imageCache;
 
-- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager;
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager definitionManager:(DefinitionManager *)aDefinitionManager;
 
 @end

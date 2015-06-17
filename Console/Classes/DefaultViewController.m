@@ -47,6 +47,8 @@
 
 @property (nonatomic, strong) NavigationManager *navigationManager;
 
+@property (nonatomic, weak) DefinitionManager *definitionManager;
+
 @end
 
 @interface DefaultViewController (Private)
@@ -63,11 +65,13 @@
 
 @implementation DefaultViewController
 
-- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(id)delegate
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager definitionManager:(DefinitionManager *)aDefinitionManager delegate:(id)delegate
 {
     self = [super init];
     if (self) {
         self.settingsManager = aSettingsManager;
+        self.definitionManager = aDefinitionManager;
+        
 			self._delegate = delegate;
 			
 			//register notifications
@@ -260,7 +264,7 @@
 }
 
 - (void)populateSettingsView:(id)sender {
-	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager];
+	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager definitionManager:self.definitionManager];
     settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentModalViewController:settingNavController animated:YES];

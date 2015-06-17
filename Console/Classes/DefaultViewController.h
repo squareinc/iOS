@@ -47,7 +47,7 @@
 	ErrorViewController* errorViewController;
 }
 
-- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager delegate:(NSObject <DefaultViewControllerDelegate> *)delegate;
+- (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager definitionManager:(DefinitionManager *)aDefinitionManager delegate:(NSObject <DefaultViewControllerDelegate> *)delegate;
 
 - (void)initGroups;
 
