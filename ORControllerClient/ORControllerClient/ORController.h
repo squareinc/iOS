@@ -139,7 +139,14 @@
  */
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
+/**
+ * Instructs the controller to execute press command for the given button.
+ *
+ * @param sender The button for which to execute a press command.
+ */
 - (void)sendPressCommandForButton:(ORButton *)sender;
+
+
 - (void)sendShortReleaseCommandForButton:(ORButton *)sender;
 - (void)sendLongPressCommandForButton:(ORButton *)sender;
 - (void)sendLongReleaseCommandForButton:(ORButton *)sender;
