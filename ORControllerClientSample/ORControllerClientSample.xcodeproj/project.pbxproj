@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0816CA1BE36D4C00C73EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0816C91BE36D4C00C73EC8 /* Main.storyboard */; };
 		910B751317941030005F41CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B751217941030005F41CF /* UIKit.framework */; };
 		910B751517941030005F41CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B751417941030005F41CF /* Foundation.framework */; };
 		910B751717941030005F41CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B751617941030005F41CF /* CoreGraphics.framework */; };
@@ -21,6 +22,9 @@
 		9120288B185862AC008D9917 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9120288A185862AC008D9917 /* LoginViewController.xib */; };
 		9136999B1850BB7C0087A55B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9136999A1850BB7C0087A55B /* LoginViewController.m */; };
 		91EFDAC5195AFB39001A6E53 /* ORControllerPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */; };
+		B57B44A4D5164ED775C02D79 /* ORDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B435A2A76ECC2194DE5D9 /* ORDeviceViewController.m */; };
+		B57B44FCE0AC1340B3B5A1F3 /* ORLabelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4901AB0CA20B93C21638 /* ORLabelsViewController.m */; };
+		B57B4984879511D74DE1209C /* ORDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4608F82905016A46E417 /* ORDevicesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0816C91BE36D4C00C73EC8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		910B750F17941030005F41CF /* ORControllerClientSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORControllerClientSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		910B751217941030005F41CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		910B751417941030005F41CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,6 +68,13 @@
 		917104C617B91954005F9BA4 /* ORControllerClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORControllerClient.xcodeproj; path = ../ORControllerClient/ORControllerClient.xcodeproj; sourceTree = "<group>"; };
 		91EFDAC2195AFB39001A6E53 /* ORControllerPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerPickerViewController.h; sourceTree = "<group>"; };
 		91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerPickerViewController.m; sourceTree = "<group>"; };
+		B57B4152D628C527B1CD6248 /* ORDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceViewController.h; sourceTree = "<group>"; };
+		B57B435A2A76ECC2194DE5D9 /* ORDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceViewController.m; sourceTree = "<group>"; };
+		B57B443D8AF3EE70053342E6 /* ORDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevicesViewController.h; sourceTree = "<group>"; };
+		B57B4608F82905016A46E417 /* ORDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDevicesViewController.m; sourceTree = "<group>"; };
+		B57B46B323FA8277984E846B /* ORViewController_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORViewController_Private.h; sourceTree = "<group>"; };
+		B57B4901AB0CA20B93C21638 /* ORLabelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLabelsViewController.m; sourceTree = "<group>"; };
+		B57B4F0EAA07B43E3AD6C71F /* ORLabelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLabelsViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +134,14 @@
 				91EFDAC3195AFB39001A6E53 /* ORControllerPickerViewController.m */,
 				910B751917941030005F41CF /* Supporting Files */,
 				9120288A185862AC008D9917 /* LoginViewController.xib */,
+				1B0816C91BE36D4C00C73EC8 /* Main.storyboard */,
+				B57B4608F82905016A46E417 /* ORDevicesViewController.m */,
+				B57B443D8AF3EE70053342E6 /* ORDevicesViewController.h */,
+				B57B4901AB0CA20B93C21638 /* ORLabelsViewController.m */,
+				B57B4F0EAA07B43E3AD6C71F /* ORLabelsViewController.h */,
+				B57B46B323FA8277984E846B /* ORViewController_Private.h */,
+				B57B435A2A76ECC2194DE5D9 /* ORDeviceViewController.m */,
+				B57B4152D628C527B1CD6248 /* ORDeviceViewController.h */,
 			);
 			path = ORControllerClientSample;
 			sourceTree = "<group>";
@@ -227,6 +247,7 @@
 				910B751D17941030005F41CF /* InfoPlist.strings in Resources */,
 				9120288B185862AC008D9917 /* LoginViewController.xib in Resources */,
 				910B752517941030005F41CF /* Default.png in Resources */,
+				1B0816CA1BE36D4C00C73EC8 /* Main.storyboard in Resources */,
 				910B752717941030005F41CF /* Default@2x.png in Resources */,
 				910B752917941030005F41CF /* Default-568h@2x.png in Resources */,
 			);
@@ -244,6 +265,9 @@
 				910B752317941030005F41CF /* ORAppDelegate.m in Sources */,
 				91EFDAC5195AFB39001A6E53 /* ORControllerPickerViewController.m in Sources */,
 				910B752C17941030005F41CF /* ORViewController.m in Sources */,
+				B57B4984879511D74DE1209C /* ORDevicesViewController.m in Sources */,
+				B57B44FCE0AC1340B3B5A1F3 /* ORLabelsViewController.m in Sources */,
+				B57B44A4D5164ED775C02D79 /* ORDeviceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
