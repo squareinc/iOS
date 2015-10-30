@@ -91,4 +91,11 @@ NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
     return nil;
 }
 
+- (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL
+                 withSuccessHandler:(void (^)(NSArray *))successHandler
+                       errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
+
 @end

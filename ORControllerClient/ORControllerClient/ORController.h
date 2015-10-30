@@ -30,6 +30,7 @@
 @class ORSlider;
 @class ORColorPicker;
 @class ORGesture;
+@class ORDevice;
 
 /**
  * Represents an OpenRemote ORB
@@ -126,6 +127,16 @@
  * @param panelDefinition The panel layout definition to attach to this controller.
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
+
+/**
+ * Request the full devices list in the configuration of the controller
+ */
+- (void)requestDevicesListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
+/**
+ * Request a device
+ */
+- (void)requestDevice:(ORDevice *)device withSuccessHandler:(void (^)(ORDevice *theDevice))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * Retrieves a resource with the given name from the controller.

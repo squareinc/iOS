@@ -81,6 +81,10 @@ extern NSString *const kORClientErrorDomain;
               withSuccessHandler:(void (^)(void))successHandler // TODO: required ? anything meaningful to return ?
                     errorHandler:(void (^)(NSError *))errorHandler;
 
+- (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL
+                         withSuccessHandler:(void (^)(NSArray *))successHandler
+                               errorHandler:(void (^)(NSError *))errorHandler;
+
 /**
  * The authentication manager that can provide credential during calls.
  */

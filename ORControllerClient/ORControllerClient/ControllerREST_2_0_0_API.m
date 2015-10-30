@@ -27,6 +27,9 @@
 #import "ORRESTCall_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORWidget.h"
+#import "DeviceListResponseHandler_2_0_0.h"
+#import "ORDevice.h"
+#import "DeviceResponseHandler_2_0_0.h"
 
 @interface ControllerREST_2_0_0_API ()
 
@@ -145,4 +148,25 @@
     return [self callForRequest:request delegate:nil]; // TODO: delegate
 }
 
+- (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:@"/rest/devices"]];
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[DeviceListResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)requestDevice:(ORDevice *)device baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(ORDevice *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:[@"/rest/devices" stringByAppendingPathComponent:device.name]]];
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[DeviceResponseHandler_2_0_0 alloc] initWithDevice:device successHandler:successHandler errorHandler:errorHandler]];
+}
 @end

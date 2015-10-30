@@ -35,6 +35,7 @@
 #import "ORGesture.h"
 
 #import "ControllerREST_2_0_0_API.h"
+#import "ORDevice.h"
 
 @interface ORController ()
 
@@ -198,6 +199,55 @@
     if (self.isConnected) {
       [self.pollingManager start];
     }
+}
+
+- (void)requestDevicesListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
+    [self.controllerAPI requestDevicesListAtBaseURL:self.address.primaryURL
+                                       withSuccessHandler:^(NSArray *devices) {
+                                           dispatch_async(originalQueue, ^() {
+                                               successHandler(devices);
+                                           });
+                                       }
+                                             errorHandler:^(NSError *error) {
+                                                 if (errorHandler) {
+                                                     dispatch_async(originalQueue, ^() {
+                                                         // TODO: encapsulate error ?
+                                                         errorHandler(error);
+                                                     });
+                                                 }
+                                             }];
+
+}
+
+- (void)requestDevice:(ORDevice *)device withSuccessHandler:(void (^)(ORDevice *theDevice))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
+    [self.controllerAPI requestDevice:device
+                              baseURL:self.address.primaryURL
+                   withSuccessHandler:^(ORDevice *theDevice) {
+                       dispatch_async(originalQueue, ^() {
+                           successHandler(theDevice);
+                       });
+                   }
+                         errorHandler:^(NSError *error) {
+                             if (errorHandler) {
+                                 dispatch_async(originalQueue, ^() {
+                                     // TODO: encapsulate error ?
+                                     errorHandler(error);
+                                 });
+                             }
+                         }];
+
 }
 
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler

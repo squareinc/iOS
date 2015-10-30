@@ -19,20 +19,31 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORControllerRESTAPI.h"
+#import <Foundation/Foundation.h>
 
-@class ORDevice;
+@class ORObjectIdentifier;
+
+
+@interface ORDevice : NSObject
 
 /**
- * Encapsulates the REST API for a specific version.
- * It always connects to the provided URL, does not know anything about group members.
- *
- // What about return codes (e.g. specific code for refresh -> 506, it's an error code, same as unauthorized)
+ * The name of the device.
  */
-@interface ControllerREST_2_0_0_API : ORControllerRESTAPI
+@property (nonatomic, copy, readonly) NSString *name;
 
-// TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
-// how to get results / errors
+/**
+ * The identifier of the device.
+ */
+@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 
-- (ORRESTCall *)requestDevice:(ORDevice *)device baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(ORDevice *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+/**
+ * The commands of the device
+ */
+@property (nonatomic, strong, readonly) NSArray *commands;
+
+/**
+ * The sensors of the device
+ */
+@property (nonatomic, strong, readonly) NSArray *sensors;
+
 @end

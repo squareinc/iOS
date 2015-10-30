@@ -19,20 +19,40 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORControllerRESTAPI.h"
+#import "ORDevice_Private.h"
 
-@class ORDevice;
+@interface ORDevice ()
 
-/**
- * Encapsulates the REST API for a specific version.
- * It always connects to the provided URL, does not know anything about group members.
- *
- // What about return codes (e.g. specific code for refresh -> 506, it's an error code, same as unauthorized)
- */
-@interface ControllerREST_2_0_0_API : ORControllerRESTAPI
 
-// TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
-// how to get results / errors
+@end
 
-- (ORRESTCall *)requestDevice:(ORDevice *)device baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(ORDevice *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+@implementation ORDevice
+
+
+
+@synthesize name = _name;
+@synthesize identifier = _identifier;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.internalCommands = [[NSMutableArray alloc] init];
+        self.internalSensors = [[NSMutableArray alloc] init];
+    }
+
+    return self;
+}
+
+- (NSArray *)commands
+{
+    return [self.internalCommands copy];
+}
+
+- (NSArray *)sensors
+{
+    return [self.internalSensors copy];
+}
+
+
 @end
