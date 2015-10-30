@@ -37,7 +37,6 @@
  * - the dictionary keys and values are NSString
  * - the dictionary contains the value for each expected sensor and the value is as expected
  */
-// todo: check why this fails on XCTest
-//- (void)testValidResponseParsing;
+- (void)testValidResponseParsing;
 
 @end

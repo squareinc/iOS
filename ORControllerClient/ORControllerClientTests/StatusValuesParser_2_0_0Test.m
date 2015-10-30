@@ -23,8 +23,7 @@
 
 @implementation StatusValuesParser_2_0_0Test
 
-// todo: check why this fails on XCTest
-- (void)NOtestValidResponseParsing
+- (void)testValidResponseParsing
 {
     NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SensorValuesValidResponse_2_0_0" withExtension:@"xml"];
     NSData *data = [NSData dataWithContentsOfURL:url];

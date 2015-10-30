@@ -32,8 +32,7 @@
 
 @implementation PanelIdentityListResponseHandler_2_0_0Test
 
-// todo: check why this fails on XCTest
-- (void)NOtestSuccessfulResponse
+- (void)testSuccessfulResponse
 {
     NSCondition *callbackDone = [[NSCondition alloc] init];
     __block BOOL successHandlerCalled = NO;
@@ -42,7 +41,9 @@
         successHandlerCalled = YES;
         [callbackDone signal];
         [callbackDone unlock];
-        [[[ORPanelsParserTest alloc] init] assertValidResponse:panels];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[ORPanelsParserTest alloc] init] assertValidResponse:panels];
+        });
     };
     PanelIdentityListResponseHandler_2_0_0 *responseHandler = [[PanelIdentityListResponseHandler_2_0_0 alloc]
                                                                initWithSuccessHandler:successHandler

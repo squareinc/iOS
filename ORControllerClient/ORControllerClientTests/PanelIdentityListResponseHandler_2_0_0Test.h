@@ -30,7 +30,6 @@
  * Tests success handler block is executed and receives expected data when a valid response is received.
  * Also asserts that error handler is not called.
  */
-// todo: check failure
-//- (void)testSuccessfulResponse;
+- (void)testSuccessfulResponse;
 
 @end
