@@ -116,6 +116,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="42a-Zv-ww0" kind="show" identifier="DeviceSegue" id="vm3-SR-a5D"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -123,9 +126,6 @@
                             <outlet property="delegate" destination="KsO-mJ-RQt" id="xTR-hI-S2F"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="42a-Zv-ww0" kind="show" identifier="DeviceSegue" id="AoH-cw-VLP"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uf7-ug-AYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

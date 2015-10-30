@@ -24,14 +24,13 @@
 #import "ORDeviceViewController.h"
 #import <ORControllerClient/ORController.h>
 #import <ORControllerClient/ORDevice.h>
-#import <ORControllerClient/ORDevice.h>
-#import <ORControllerClient/ORCommand.h>
+#import <ORControllerClient/ORControllerDeviceModel.h>
+#import <ORControllerClient/ORControllerDeviceModel.h>
 
 @interface ORDevicesViewController ()
 
-@property (nonatomic, strong) NSArray *devices;
-
 @property(nonatomic, strong) ORDevice *selectedDevice;
+@property(nonatomic, strong) ORControllerDeviceModel *deviceModel;
 @end
 
 @implementation ORDevicesViewController
@@ -46,10 +45,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ORDeviceViewController *vc = (ORDeviceViewController *) segue.destinationViewController;
-    vc.device = self.selectedDevice;
+    if ([segue.identifier isEqualToString:@"DeviceSegue"]) {
+        ORDeviceViewController *vc = (ORDeviceViewController *) segue.destinationViewController;
+        vc.device = self.deviceModel.devices[(NSUInteger) [self.tableView indexPathForCell:sender].row];
+    }
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -58,43 +58,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.devices count];
+    return [self.deviceModel.devices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceCell"];
-    cell.textLabel.text = ((ORDevice *) self.devices[(NSUInteger) indexPath.row]).name;
+    cell.textLabel.text = ((ORDevice *) self.deviceModel.devices[(NSUInteger) indexPath.row]).name;
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    self.selectedDevice = self.devices[(NSUInteger) indexPath.row];
-    [self.orb requestDevice:self.selectedDevice withSuccessHandler:^(ORDevice *theDevice) {
-        [self performSegueWithIdentifier:@"DeviceSegue" sender:self];
-    } errorHandler:^(NSError *error) {
-        NSLog(@"Error %@", error);
-    }];
-
 }
 
 - (void)startPolling
 {
     [super startPolling];
     [self.orb connectWithSuccessHandler:^{
-        [self.orb requestDevicesListWithSuccessHandler:^(NSArray *array) {
-            self.devices = array;
+        [self.orb requestDeviceModelWithSuccessHandler:(^(ORControllerDeviceModel *deviceModel) {
+            self.deviceModel = deviceModel;
             [self.tableView reloadData];
-        } errorHandler:^(NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %ld", (long)[error code]]
+        })                                errorHandler:^(NSError *error) {
+            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %ld", (long) [error code]]
                                         message:[error localizedDescription]
                                        delegate:nil
                               cancelButtonTitle:nil
                               otherButtonTitles:@"OK", nil] show];
         }];
-    } errorHandler:NULL];
+    }                      errorHandler:NULL];
 }
 
 - (void)stopPolling
@@ -105,8 +94,8 @@
 
 - (void)stopObservingLabelChanges
 {
-    if (self.devices) {
-        [self.devices enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    if (self.deviceModel.devices) {
+        [self.deviceModel.devices enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             @try {
                 [obj removeObserver:self forKeyPath:@"text"];
             } @catch (NSException *e) {

@@ -19,12 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
-#import "ORViewController.h"
+#import <XCTest/XCTest.h>
 
-@class ORDevice;
-@class ORControllerDeviceModel;
-
-
-@interface ORDevicesViewController : ORViewController
+@interface ORDeviceParserTest : XCTest
 @end

@@ -31,6 +31,7 @@
 @class ORColorPicker;
 @class ORGesture;
 @class ORDevice;
+@class ORControllerDeviceModel;
 
 /**
  * Represents an OpenRemote ORB
@@ -127,6 +128,12 @@
  * @param panelDefinition The panel layout definition to attach to this controller.
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
+
+
+/**
+ * Request the devices model
+ */
+- (void)requestDeviceModelWithSuccessHandler:(void (^)(ORControllerDeviceModel *))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 /**
  * Request the full devices list in the configuration of the controller

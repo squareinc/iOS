@@ -20,11 +20,12 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "ORViewController.h"
-
-@class ORDevice;
-@class ORControllerDeviceModel;
 
 
-@interface ORDevicesViewController : ORViewController
+@interface ORControllerDeviceModel : NSObject
+
+@property (nonatomic, strong, readonly) NSArray *devices;
+
+- (instancetype)initWithDevices:(NSArray *)devices;
+
 @end

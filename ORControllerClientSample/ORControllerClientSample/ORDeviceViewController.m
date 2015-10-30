@@ -38,6 +38,8 @@
         return self.device.commands.count;
     } else if (section == 1) {
         return self.device.sensors.count;
+    } else {
+        return 0;
     }
 }
 
@@ -61,6 +63,8 @@
         return @"Commands";
     } else if (section == 1) {
         return @"Sensors";
+    } else {
+        return nil;
     }
 
 }

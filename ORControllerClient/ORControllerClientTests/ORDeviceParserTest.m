@@ -19,12 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
-#import "ORViewController.h"
-
-@class ORDevice;
-@class ORControllerDeviceModel;
+#import "ORDeviceParserTest.h"
 
 
-@interface ORDevicesViewController : ORViewController
+@implementation ORDeviceParserTest
+
+
 @end

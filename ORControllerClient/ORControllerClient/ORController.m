@@ -36,6 +36,8 @@
 
 #import "ControllerREST_2_0_0_API.h"
 #import "ORDevice.h"
+#import "Sequencer.h"
+#import "ORControllerDeviceModel.h"
 
 @interface ORController ()
 
@@ -201,6 +203,47 @@
     }
 }
 
+- (void)requestDeviceModelWithSuccessHandler:(void (^)(ORControllerDeviceModel *))successHandler errorHandler:(void (^)(NSError *error))errorHandler
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
+    Sequencer *sequencer = [[Sequencer alloc] init];
+    [sequencer enqueueStep:^(id result, SequencerCompletion completion) {
+        [self.controllerAPI requestDevicesListAtBaseURL:self.address.primaryURL
+                                     withSuccessHandler:^(NSArray *devices) {
+                                         completion(devices);
+                                     }
+                                           errorHandler:^(NSError *error) {
+                                               if (errorHandler) {
+                                                   dispatch_async(originalQueue, ^() {
+                                                       // TODO: encapsulate error ?
+                                                       errorHandler(error);
+                                                   });
+                                               }
+                                           }];
+    }];
+    [sequencer enqueueStep:^(id result, SequencerCompletion completion) {
+        ORControllerDeviceModel *deviceModel = [[ORControllerDeviceModel alloc] initWithDevices:result];
+        // queue requests for each device
+        [deviceModel.devices enumerateObjectsUsingBlock:^(ORDevice *device, NSUInteger idx, BOOL *stop) {
+            [sequencer enqueueStep:[self deviceRequestStepForDevice:device errorHandler:errorHandler originalQueue:originalQueue]];
+        }];
+        // queue request for success
+        [sequencer enqueueStep:^(id successResult, SequencerCompletion successCompletion) {
+            dispatch_async(originalQueue, ^() {
+                if (successHandler) {
+                    successHandler(deviceModel);
+                }
+            });
+        }];
+        completion(nil);
+    }];
+    [sequencer run];
+}
+
 - (void)requestDevicesListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     // Make sure we have latest version of authentication manager set on API before call
@@ -330,5 +373,26 @@
 {
     [self controlForWidget:sender action:@"swipe"];
 }
+
+#pragma mark - private
+
+- (void (^)(id, SequencerCompletion))deviceRequestStepForDevice:(ORDevice *)device errorHandler:(void (^)(NSError *))errorHandler originalQueue:(dispatch_queue_t)originalQueue
+{
+    return ^(id deviceResult, SequencerCompletion deviceCompletion) {
+        [self.controllerAPI requestDevice:device
+                                  baseURL:self.address.primaryURL
+                       withSuccessHandler:^(ORDevice *currentDevice) {
+                           deviceCompletion(nil);
+                       } errorHandler:^(NSError *error) {
+                    if (errorHandler) {
+                        dispatch_async(originalQueue, ^() {
+                            // TODO: encapsulate error ?
+                            errorHandler(error);
+                        });
+                    }
+                }];
+    };
+}
+
 
 @end

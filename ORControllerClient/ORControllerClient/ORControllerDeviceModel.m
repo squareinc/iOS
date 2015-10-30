@@ -19,12 +19,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
-#import "ORViewController.h"
-
-@class ORDevice;
-@class ORControllerDeviceModel;
+#import "ORControllerDeviceModel.h"
+#import "AsyncSocket.h"
 
 
-@interface ORDevicesViewController : ORViewController
+@interface ORControllerDeviceModel ()
+
+@property (nonatomic, strong, readwrite) NSArray *devices;
+
+@end
+
+@implementation ORControllerDeviceModel
+
+- (instancetype)initWithDevices:(NSArray *)devices
+{
+    self = [super init];
+    if (self) {
+        self.devices = devices;
+    }
+    return self;
+}
+
+
 @end
