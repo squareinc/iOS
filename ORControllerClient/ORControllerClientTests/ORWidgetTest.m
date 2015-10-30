@@ -19,11 +19,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "ORWidget_Private.h"
 #import "ORObjectIdentifier.h"
 
-@interface ORWidgetTest : SenTestCase
+@interface ORWidgetTest : XCTestCase
 
 @end
 
@@ -35,8 +35,8 @@
 - (void)testInitDoesSetTextCorrectly
 {
     ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
-    STAssertNotNil(widget, @"Widget should have been instantied correctly");
-    STAssertEqualObjects(widget.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1],
+    XCTAssertNotNil(widget, @"Widget should have been instantied correctly");
+    XCTAssertEqualObjects(widget.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1],
                          @"Identifier property of widget should be one set by initializer");
 }
 

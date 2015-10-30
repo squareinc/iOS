@@ -49,10 +49,10 @@
 - (ORWebView *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORWebViewParser class]], @"Parser used should be an ORWebViewParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORWebViewParser class]], @"Parser used should be an ORWebViewParser");
     ORWebView *webView = ((ORWebViewParser *)topLevelParser).web;
-    STAssertNotNil(webView, @"A web view should be parsed for given XML snippet");
+    XCTAssertNotNil(webView, @"A web view should be parsed for given XML snippet");
     
     return webView;
 }
@@ -61,33 +61,33 @@
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\"/>"];
     
-    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
+    XCTAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
-    STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
-    STAssertNil(webView.username, @"Parsed web view should not have a user name defined");
-    STAssertNil(webView.password, @"Parsed web view should not have a password defined");
+    XCTAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
+    XCTAssertNil(webView.username, @"Parsed web view should not have a user name defined");
+    XCTAssertNil(webView.password, @"Parsed web view should not have a password defined");
 }
 
 - (void)testParseWebViewUsernamePasswordNoSensor
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\" username=\"usr\" password=\"pwd\"/>"];
     
-    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
+    XCTAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
-    STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
-    STAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");
-    STAssertEqualObjects(webView.password, @"pwd", @"Parsed web view should have 'pwd' as password");
+    XCTAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
+    XCTAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");
+    XCTAssertEqualObjects(webView.password, @"pwd", @"Parsed web view should have 'pwd' as password");
 }
 
 - (void)testParseWebViewUsernamePasswordWithSensor
 {
     ORWebView *webView = [self parseValidXMLSnippet:@"<web id=\"10\" src=\"url\" username=\"usr\" password=\"pwd\"><link type=\"sensor\" ref=\"3\"/></web>"];
     
-    STAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
+    XCTAssertEqualObjects(webView.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed web view should have 10 as identifer");
     
-    STAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
-    STAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");
-    STAssertEqualObjects(webView.password, @"pwd", @"Parsed web view should have 'pwd' as password");
+    XCTAssertEqualObjects(webView.src, @"url", @"Parsed web view should have 'url' as src property");
+    XCTAssertEqualObjects(webView.username, @"usr", @"Parsed web view should have 'usr' as username");
+    XCTAssertEqualObjects(webView.password, @"pwd", @"Parsed web view should have 'pwd' as password");
 }
 
 @end

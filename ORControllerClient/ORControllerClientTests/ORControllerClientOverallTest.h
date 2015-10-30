@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Overall end to end testing to validate "black box" usage of the API by clients.
  */
-@interface ORControllerClientOverallTest : SenTestCase
+@interface ORControllerClientOverallTest : XCTestCase
 
 /**
  * Validates that it's possible to get a list of labels from a controller.

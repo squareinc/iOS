@@ -48,10 +48,10 @@
 - (ORColorPicker *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORColorPickerParser class]], @"Parser used should be an ORColorPickerParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORColorPickerParser class]], @"Parser used should be an ORColorPickerParser");
     ORColorPicker *colorPicker = ((ORColorPickerParser *)topLevelParser).colorPicker;
-    STAssertNotNil(colorPicker, @"A color picker should be parsed for given XML snippet");
+    XCTAssertNotNil(colorPicker, @"A color picker should be parsed for given XML snippet");
     
     return colorPicker;
 }
@@ -60,17 +60,17 @@
 {
     ORColorPicker *colorPicker = [self parseValidXMLSnippet:@"<colorpicker id=\"10\"/>"];
     
-    STAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
-    STAssertNil(colorPicker.image, @"Parsed color picker should not have an image defined");
+    XCTAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
+    XCTAssertNil(colorPicker.image, @"Parsed color picker should not have an image defined");
 }
 
 - (void)testParseColorPickerWithImage
 {
     ORColorPicker *colorPicker = [self parseValidXMLSnippet:@"<colorpicker id=\"10\"><image src=\"color.png\"/></colorpicker>"];
     
-    STAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
-    STAssertNotNil(colorPicker.image, @"Parsed color picker should have an image defined");
-    STAssertEqualObjects(colorPicker.image.src, @"color.png", @"Parsed color picker image src should be 'color.png'");
+    XCTAssertEqualObjects(colorPicker.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed color picker should have 10 as identifer");
+    XCTAssertNotNil(colorPicker.image, @"Parsed color picker should have an image defined");
+    XCTAssertEqualObjects(colorPicker.image.src, @"color.png", @"Parsed color picker image src should be 'color.png'");
 }
 
 @end

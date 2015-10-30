@@ -27,13 +27,13 @@
 - (void)testCreateWithValidIdentifier
 {
     ORControllerInfo *info = [[ORControllerInfo alloc] initWithIdentifier:@"someid"];
-    STAssertNotNil(info, @"Creating a controller info with an identifier should be possible");
-    STAssertEqualObjects(@"someid", info.identifier, @"Controller info identifier should be the given identifier");
+    XCTAssertNotNil(info, @"Creating a controller info with an identifier should be possible");
+    XCTAssertEqualObjects(@"someid", info.identifier, @"Controller info identifier should be the given identifier");
 }
 
 - (void)testCreateWithNilIdentifier
 {
-    STAssertNil([[ORControllerInfo alloc] initWithIdentifier:nil], @"Creating a controller info with no identifier should not be possible");
+    XCTAssertNil([[ORControllerInfo alloc] initWithIdentifier:nil], @"Creating a controller info with no identifier should not be possible");
 }
 
 @end

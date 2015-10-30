@@ -39,25 +39,25 @@
 - (void)testRequestPanelIdentityList
 {
     ORRestCallMock *call = (ORRestCallMock *)[self.api requestPanelIdentityListAtBaseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
-    STAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/panels", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/panels", @"URL not matching expected URL as per specifications");
 }
 
 - (void)testRequestPanelLayout
 {
     ORRestCallMock *call = (ORRestCallMock *)[self.api requestPanelLayoutWithLogicalName:@"A panel" atBaseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
-    STAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/panel/A%20panel", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/panel/A%20panel", @"URL not matching expected URL as per specifications");
 }
 
 - (void)testStatusForSensors
 {
     ORRestCallMock *call = (ORRestCallMock *)[self.api statusForSensorIds:[NSSet setWithObjects:@"1", @"2", nil] atBaseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
-    STAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/status/1,2", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/status/1,2", @"URL not matching expected URL as per specifications");
 }
 
 - (void)testPollSensors
 {
     ORRestCallMock *call = (ORRestCallMock *)[self.api pollSensorIds:[NSSet setWithObjects:@"1", @"2", nil] fromDeviceWithIdentifier:@"DevID" atBaseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
-    STAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/polling/DevID/1,2", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/polling/DevID/1,2", @"URL not matching expected URL as per specifications");
 }
 
 @end

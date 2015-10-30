@@ -19,9 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ORSensorPollingManagerTests : SenTestCase
+@interface ORSensorPollingManagerTests : XCTestCase
 
 /*
  * Test that when starting the poll manager:

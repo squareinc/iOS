@@ -37,11 +37,11 @@
     [xmlParser setDelegate:parser];
     [xmlParser parse];
     
-    STAssertNotNil(parser.topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([parser.topLevelParser isMemberOfClass:[ORSensorStateParser class]], @"Parser used should be an ORSensorStateParser");
+    XCTAssertNotNil(parser.topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([parser.topLevelParser isMemberOfClass:[ORSensorStateParser class]], @"Parser used should be an ORSensorStateParser");
     ORSensorState *parsedState = ((ORSensorStateParser *)parser.topLevelParser).sensorState;
-    STAssertEqualObjects(parsedState.name, @"Name", @"Name of parsed state should be 'Name'");
-    STAssertEqualObjects(parsedState.value, @"Value", @"Value of parsed state should be 'Value'");
+    XCTAssertEqualObjects(parsedState.name, @"Name", @"Name of parsed state should be 'Name'");
+    XCTAssertEqualObjects(parsedState.value, @"Value", @"Value of parsed state should be 'Value'");
 }
 
 @end

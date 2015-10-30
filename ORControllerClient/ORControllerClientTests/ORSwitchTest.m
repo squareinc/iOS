@@ -30,20 +30,20 @@
 - (void)testSwitchWithNoMappingStateUpdateFromString
 {
     ORSwitch *sswitch = [[ORSwitch alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
-    STAssertNotNil(sswitch, @"Switch should have been created successfully");
-    STAssertFalse(sswitch.state, @"Default state for the switch is off");
+    XCTAssertNotNil(sswitch, @"Switch should have been created successfully");
+    XCTAssertFalse(sswitch.state, @"Default state for the switch is off");
     
     [sswitch setValue:@"on" forKey:@"state"];
-    STAssertTrue(sswitch.state, @"Switch state should have been set on");
+    XCTAssertTrue(sswitch.state, @"Switch state should have been set on");
 
     [sswitch setValue:@"off" forKey:@"state"];
-    STAssertFalse(sswitch.state, @"Switch state should have been set off");
+    XCTAssertFalse(sswitch.state, @"Switch state should have been set off");
 
     [sswitch setValue:@"on" forKey:@"state"];
-    STAssertTrue(sswitch.state, @"Switch state should have been set on");
+    XCTAssertTrue(sswitch.state, @"Switch state should have been set on");
 
     [sswitch setValue:@"something else" forKey:@"state"];
-    STAssertFalse(sswitch.state, @"Switch state should have been set off");
+    XCTAssertFalse(sswitch.state, @"Switch state should have been set off");
 }
 
 - (void)testSwitchWithMappingStateUpdateFromString
@@ -51,19 +51,19 @@
     ORSwitch *sswitch = [[ORSwitch alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
     sswitch.onImage = [[ORImage alloc] initWithIdentifier:nil src:@"OnImage.png"];
     sswitch.offImage = [[ORImage alloc] initWithIdentifier:nil src:@"OffImage.png"];
-    STAssertFalse(sswitch.state, @"Default state for the switch is off");
+    XCTAssertFalse(sswitch.state, @"Default state for the switch is off");
     
     [sswitch setValue:@"OnImage.png" forKey:@"state"];
-    STAssertTrue(sswitch.state, @"Switch state should have been set on");
+    XCTAssertTrue(sswitch.state, @"Switch state should have been set on");
 
     [sswitch setValue:@"off" forKey:@"state"];
-    STAssertFalse(sswitch.state, @"Switch state should have been set off");
+    XCTAssertFalse(sswitch.state, @"Switch state should have been set off");
     
     [sswitch setValue:@"on" forKey:@"state"];
-    STAssertFalse(sswitch.state, @"Switch state should have been set off");
+    XCTAssertFalse(sswitch.state, @"Switch state should have been set off");
     
     [sswitch setValue:@"something else" forKey:@"state"];
-    STAssertFalse(sswitch.state, @"Switch state should have been set off");
+    XCTAssertFalse(sswitch.state, @"Switch state should have been set off");
 }
 
 @end

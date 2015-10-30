@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Unit tests for ControllerREST_2_0_0_API
@@ -27,6 +27,6 @@
  * It does not execute the call, validates how the returned data is processed or how how errors are handled,
  * those aspects are covered by individual tests on the ResponseHandlers objects.
  */
-@interface ControllerREST_2_0_0_APITest : SenTestCase
+@interface ControllerREST_2_0_0_APITest : XCTestCase
 
 @end

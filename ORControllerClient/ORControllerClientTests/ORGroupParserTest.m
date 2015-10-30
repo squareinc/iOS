@@ -62,10 +62,10 @@
 - (ORGroup *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORGroupParser class]], @"Parser used should be an ORGroupParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORGroupParser class]], @"Parser used should be an ORGroupParser");
     ORGroup *group = ((ORGroupParser *)topLevelParser).group;
-    STAssertNotNil(group, @"A group should be parsed for given XML snippet");
+    XCTAssertNotNil(group, @"A group should be parsed for given XML snippet");
     
     return group;
 }
@@ -74,39 +74,39 @@
 {
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"/>"];
     
-    STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
+    XCTAssertNotNil(group.identifier, @"Parsed group should have an identifier");
+    XCTAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    XCTAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
-    STAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
-    STAssertEquals([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
+    XCTAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
+    XCTAssertEqual([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
 }
 
 - (void)testParseGroupWithTabBar
 {
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"><tabbar/></group>"];
     
-    STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
+    XCTAssertNotNil(group.identifier, @"Parsed group should have an identifier");
+    XCTAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    XCTAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
-    STAssertNotNil(group.tabBar, @"Parsed group should have a tab bar");
-    STAssertEquals([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
+    XCTAssertNotNil(group.tabBar, @"Parsed group should have a tab bar");
+    XCTAssertEqual([group.screens count], (NSUInteger)0, @"Parsed group should not have any screen");
 }
 
 - (void)testParseGroupWithScreen
 {
     ORGroup *group = [self parseValidXMLSnippet:@"<group id=\"11\" name=\"Group 11\"><include type=\"screen\" ref=\"12\"/></group>"];
     
-    STAssertNotNil(group.identifier, @"Parsed group should have an identifier");
-    STAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
-    STAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
+    XCTAssertNotNil(group.identifier, @"Parsed group should have an identifier");
+    XCTAssertEqualObjects(group.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed group should have 11 as identifer");
+    XCTAssertEqualObjects(group.name, @"Group 11", @"Parsed group should be named 'Group 11'");
     
-    STAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
+    XCTAssertNil(group.tabBar, @"Parsed group should not have a tab bar");
     
-    STAssertEquals([group.screens count], (NSUInteger)1, @"Parsed group should have a screen");
+    XCTAssertEqual([group.screens count], (NSUInteger)1, @"Parsed group should have a screen");
     ORScreen *screen = [group.screens lastObject];
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Parsed group's only screen should have 12 is identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Parsed group's only screen should have 12 is identifier");
 }
 
 @end

@@ -28,14 +28,14 @@
 - (void)testSingleStateLookup
 {
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
-    STAssertNotNil(mapping, @"It should be possible to create an ORSensorStatesMapping");
+    XCTAssertNotNil(mapping, @"It should be possible to create an ORSensorStatesMapping");
     ORSensorState *state = [[ORSensorState alloc] initWithName:@"Name" value:@"Value"];
-    STAssertNotNil(state, @"It should be possible to create an ORSensorState");
+    XCTAssertNotNil(state, @"It should be possible to create an ORSensorState");
     
-    STAssertNil([mapping stateValueForName:@"Name"], @"Looking up a name of a state that has not been added to the mapping should return nil");
+    XCTAssertNil([mapping stateValueForName:@"Name"], @"Looking up a name of a state that has not been added to the mapping should return nil");
     
     [mapping addSensorState:state];
-    STAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value", @"Value for state 'Name' should be 'Value'");
+    XCTAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value", @"Value for state 'Name' should be 'Value'");
 }
 
 - (void)testRegisteringTwoTimesAStateForTheSameNameOverridesFirst
@@ -44,13 +44,13 @@
     ORSensorState *state1 = [[ORSensorState alloc] initWithName:@"Name" value:@"Value1"];
     ORSensorState *state2 = [[ORSensorState alloc] initWithName:@"Name" value:@"Value2"];
     
-    STAssertNil([mapping stateValueForName:@"Name"], @"Looking up a name of a state that has not been added to the mapping should return nil");
+    XCTAssertNil([mapping stateValueForName:@"Name"], @"Looking up a name of a state that has not been added to the mapping should return nil");
     
     [mapping addSensorState:state1];
-    STAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value1", @"Value for state 'Name' should be 'Value1'");
+    XCTAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value1", @"Value for state 'Name' should be 'Value1'");
     
     [mapping addSensorState:state2];
-    STAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value2", @"Value for state 'Name' should be 'Value2' after adding the second state");
+    XCTAssertEqualObjects([mapping stateValueForName:@"Name"], @"Value2", @"Value for state 'Name' should be 'Value2' after adding the second state");
 }
 
 - (void)testEqualityAndHash
@@ -59,26 +59,26 @@
     ORSensorState *state1 = [[ORSensorState alloc] initWithName:@"Name1" value:@"Value1"];
     [mapping addSensorState:state1];
     
-    STAssertTrue([mapping isEqual:mapping], @"Mapping should be equal to itself");
-    STAssertFalse([mapping isEqual:nil], @"Mapping should not be equal to nil");
+    XCTAssertTrue([mapping isEqual:mapping], @"Mapping should be equal to itself");
+    XCTAssertFalse([mapping isEqual:nil], @"Mapping should not be equal to nil");
     
     ORSensorStatesMapping *equalMapping = [[ORSensorStatesMapping alloc] init];
     [equalMapping addSensorState:state1];
-    STAssertTrue([equalMapping isEqual:mapping], @"Mappings created with same information should be equal");
-    STAssertEquals([equalMapping hash], [mapping hash], @"Hashses of mappings created with same information should be equal");
+    XCTAssertTrue([equalMapping isEqual:mapping], @"Mappings created with same information should be equal");
+    XCTAssertEqual([equalMapping hash], [mapping hash], @"Hashses of mappings created with same information should be equal");
     
     ORSensorStatesMapping *mappingWithDifferentState = [[ORSensorStatesMapping alloc] init];
     ORSensorState *state2 = [[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"];
     [mappingWithDifferentState addSensorState:state2];
-    STAssertFalse([mappingWithDifferentState isEqual:mapping], @"Mappings with different state should not be equal");
+    XCTAssertFalse([mappingWithDifferentState isEqual:mapping], @"Mappings with different state should not be equal");
     
     ORSensorStatesMapping *mappingWithNoState = [[ORSensorStatesMapping alloc] init];
-    STAssertFalse([mappingWithNoState isEqual:mapping], @"Mappings with different number of states should not be equal");
+    XCTAssertFalse([mappingWithNoState isEqual:mapping], @"Mappings with different number of states should not be equal");
     
     ORSensorStatesMapping *mappingWithMoreStates = [[ORSensorStatesMapping alloc] init];
     [mappingWithMoreStates addSensorState:state1];
     [mappingWithMoreStates addSensorState:state2];
-    STAssertFalse([mappingWithMoreStates isEqual:mapping], @"Mappings with different number of states should not be equal");
+    XCTAssertFalse([mappingWithMoreStates isEqual:mapping], @"Mappings with different number of states should not be equal");
 }
 
 - (void)testEqualityAndHashWithTwoStates
@@ -89,15 +89,15 @@
     [mappingWithTwoStates addSensorState:state1];
     [mappingWithTwoStates addSensorState:state2];
 
-    STAssertTrue([mappingWithTwoStates isEqual:mappingWithTwoStates], @"Mapping should be equal to itself");
-    STAssertFalse([mappingWithTwoStates isEqual:nil], @"Mapping should not be equal to nil");
+    XCTAssertTrue([mappingWithTwoStates isEqual:mappingWithTwoStates], @"Mapping should be equal to itself");
+    XCTAssertFalse([mappingWithTwoStates isEqual:nil], @"Mapping should not be equal to nil");
     
     ORSensorStatesMapping *mappingWithTwoStatesInDifferentOrder = [[ORSensorStatesMapping alloc] init];
     [mappingWithTwoStatesInDifferentOrder addSensorState:state2];
     [mappingWithTwoStatesInDifferentOrder addSensorState:state1];
     
-    STAssertTrue([mappingWithTwoStatesInDifferentOrder isEqual:mappingWithTwoStates], @"Mappings created with same states in different order should be equal");
-    STAssertEquals([mappingWithTwoStatesInDifferentOrder hash], [mappingWithTwoStates hash], @"Hashses of mappings created with same states in different order should be equal");
+    XCTAssertTrue([mappingWithTwoStatesInDifferentOrder isEqual:mappingWithTwoStates], @"Mappings created with same states in different order should be equal");
+    XCTAssertEqual([mappingWithTwoStatesInDifferentOrder hash], [mappingWithTwoStates hash], @"Hashses of mappings created with same states in different order should be equal");
 }
 
 - (void)testStateValues
@@ -106,11 +106,11 @@
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name1" value:@"Value1"]];
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"]];
     
-    STAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
+    XCTAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
                          @"Mapping should return all values for states it contains");
     
     [mappingWithTwoStates addSensorState:[[ORSensorState alloc] initWithName:@"Name1" value:@"New value 1"]];
-    STAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"New value 1", @"Value2", nil]),
+    XCTAssertEqualObjects([mappingWithTwoStates stateValues], ([NSSet setWithObjects:@"New value 1", @"Value2", nil]),
                          @"Mapping should return all values for states it contains");
 }
 
@@ -121,7 +121,7 @@
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"Name2" value:@"Value2"]];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"Name3" value:@"Value1"]];
     
-    STAssertEqualObjects([mapping stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
+    XCTAssertEqualObjects([mapping stateValues], ([NSSet setWithObjects:@"Value1", @"Value2", nil]),
                          @"Mapping should return all values for states it contains");
 }
 

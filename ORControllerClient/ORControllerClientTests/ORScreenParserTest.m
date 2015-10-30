@@ -70,10 +70,10 @@
 - (ORScreen *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORScreenParser class]], @"Parser used should be an ORScreenParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORScreenParser class]], @"Parser used should be an ORScreenParser");
     ORScreen *screen = ((ORScreenParser *)topLevelParser).screen;
-    STAssertNotNil(screen, @"A screen should be parsed for given XML snippet");
+    XCTAssertNotNil(screen, @"A screen should be parsed for given XML snippet");
     
     return screen;
 }
@@ -82,110 +82,110 @@
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\"/>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
     
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
 }
 
 - (void)testParseLandscapeScreen
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\" landscape=\"true\"/>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationLandscape, @"Parsed screen should be in landscape orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationLandscape, @"Parsed screen should be in landscape orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
 
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
 }
 
 - (void)testParseLandscapeScreenWithLinkToOtherOrientationScreen
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\" landscape=\"true\" inverseScreenId=\"12\"/>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationLandscape, @"Parsed screen should be in landscape orientation");
-    STAssertNotNil(screen.rotatedScreen, @"Parsed screen should be linked to a screen for other orientation");
-    STAssertEqualObjects(screen.rotatedScreen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12],
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationLandscape, @"Parsed screen should be in landscape orientation");
+    XCTAssertNotNil(screen.rotatedScreen, @"Parsed screen should be linked to a screen for other orientation");
+    XCTAssertEqualObjects(screen.rotatedScreen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12],
                          @"Parsed screen should be link to screen with id 12 for other orientation");
 
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
 }
 
 - (void)testParseScreenWithBackground
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\"><background image=\"bg.png\"/></screen>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
 
-    STAssertNotNil(screen.background, @"Parsed screen should have a background");
+    XCTAssertNotNil(screen.background, @"Parsed screen should have a background");
     
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
 }
 
 - (void)testParseScreenWithAbsoluteLayout
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\"><absolute left=\"0\" top=\"0\" width=\"10\" height=\"10\"/></screen>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
     
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)1, @"Parsed screen should contain one layout");
-    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORAbsoluteLayoutContainer class]], @"Parsed screen should contain one absolute layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)1, @"Parsed screen should contain one layout");
+    XCTAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORAbsoluteLayoutContainer class]], @"Parsed screen should contain one absolute layout");
 }
 
 - (void)testParseScreenWithGridLayout
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\"><grid/></screen>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
     
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)1, @"Parsed screen should contain one layout");
-    STAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORGridLayoutContainer class]], @"Parsed screen should contain one grid layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)0, @"Parsed screen should not have any gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)1, @"Parsed screen should contain one layout");
+    XCTAssertTrue([[screen.layouts lastObject] isKindOfClass:[ORGridLayoutContainer class]], @"Parsed screen should contain one grid layout");
 }
 
 - (void)testParseScreenWithGesture
 {
     ORScreen *screen = [self parseValidXMLSnippet:@"<screen id=\"11\" name=\"Screen 11\"><gesture id=\"1\" type=\"swipe-top-to-bottom\"/></screen>"];
     
-    STAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
-    STAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
-    STAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
-    STAssertEquals(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
-    STAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
+    XCTAssertNotNil(screen.identifier, @"Parsed screen should have an identifier");
+    XCTAssertEqualObjects(screen.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Parsed screen should have 11 as identifer");
+    XCTAssertEqualObjects(screen.name, @"Screen 11", @"Parsed screen should be named 'Screen 11'");
+    XCTAssertEqual(screen.orientation, ORScreenOrientationPortrait, @"Parsed screen should be in portrait orientation");
+    XCTAssertNil(screen.rotatedScreen, @"Parsed screen should not be linked to any screen for other orientation");
     
-    STAssertNil(screen.background, @"Parsed screen should not have a background");
-    STAssertEquals([screen.gestures count], (NSUInteger)1, @"Parsed screen should have a gesture");
-    STAssertEquals([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
+    XCTAssertNil(screen.background, @"Parsed screen should not have a background");
+    XCTAssertEqual([screen.gestures count], (NSUInteger)1, @"Parsed screen should have a gesture");
+    XCTAssertEqual([screen.layouts count], (NSUInteger)0, @"Parsed screen should not contain any layout");
 }
 
 @end

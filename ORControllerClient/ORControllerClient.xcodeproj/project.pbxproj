@@ -106,7 +106,6 @@
 		918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */; };
 		918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604BF17944828005DBCD9 /* ORPanelsParserTest.m */; };
 		9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
-		9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B61790140A00667A7C /* SenTestingKit.framework */; };
 		9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
 		9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A41790140A00667A7C /* libORControllerClient.a */; };
 		9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9190D4C11790140A00667A7C /* InfoPlist.strings */; };
@@ -472,8 +471,7 @@
 		9190D4A41790140A00667A7C /* libORControllerClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libORControllerClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4A71790140A00667A7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORControllerClient-Prefix.pch"; sourceTree = "<group>"; };
-		9190D4B51790140A00667A7C /* ORControllerClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORControllerClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9190D4B61790140A00667A7C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORControllerClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4B81790140A00667A7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ORControllerClientTests-Info.plist"; sourceTree = "<group>"; };
 		9190D4C21790140A00667A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -738,7 +736,6 @@
 			files = (
 				911754A3190E52EB00B20448 /* CoreGraphics.framework in Frameworks */,
 				9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */,
-				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
 				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,
 				913699961850A4F50087A55B /* libOCMock.a in Frameworks */,
@@ -1030,7 +1027,7 @@
 			isa = PBXGroup;
 			children = (
 				9190D4A41790140A00667A7C /* libORControllerClient.a */,
-				9190D4B51790140A00667A7C /* ORControllerClientTests.octest */,
+				9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1041,7 +1038,6 @@
 				911754A2190E52EB00B20448 /* CoreGraphics.framework */,
 				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A71790140A00667A7C /* Foundation.framework */,
-				9190D4B61790140A00667A7C /* SenTestingKit.framework */,
 				9190D4B81790140A00667A7C /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -1417,8 +1413,8 @@
 			);
 			name = ORControllerClientTests;
 			productName = ORControllerClientTests;
-			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1827,6 +1823,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
@@ -1838,14 +1835,13 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1855,6 +1851,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
@@ -1866,14 +1863,13 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

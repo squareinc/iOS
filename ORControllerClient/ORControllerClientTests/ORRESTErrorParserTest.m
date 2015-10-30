@@ -33,10 +33,10 @@
     ORRESTErrorParser *parser = [[ORRESTErrorParser alloc] initWithData:data];
     ORRESTError *error = [parser parseRESTError];
 
-    STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
-    STAssertNotNil(error, @"Should return parsed error when provided with valid XML data");
-    STAssertEquals(error.code, (NSInteger)EPANEL_NAME_NOT_FOUND, @"Parsed error code should be 528");
-    STAssertEqualObjects(error.message, @"No such Panel :NAME = panel  1", @"Parsed error message should be valid");
+    XCTAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
+    XCTAssertNotNil(error, @"Should return parsed error when provided with valid XML data");
+    XCTAssertEqual(error.code, (NSInteger)EPANEL_NAME_NOT_FOUND, @"Parsed error code should be 528");
+    XCTAssertEqualObjects(error.message, @"No such Panel :NAME = panel  1", @"Parsed error message should be valid");
 }
 
 - (void)testInvalidXMLParsing
@@ -46,9 +46,9 @@
     
     ORRESTErrorParser *parser = [[ORRESTErrorParser alloc] initWithData:data];
     ORRESTError *error = [parser parseRESTError];
-    STAssertNil(error, @"Invalid XML should not return any panels");
-    STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
-    STAssertEqualObjects([parser.parseError domain], NSXMLParserErrorDomain, @"Underlying XML parser error is propagated for malformed XML");
+    XCTAssertNil(error, @"Invalid XML should not return any panels");
+    XCTAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
+    XCTAssertEqualObjects([parser.parseError domain], NSXMLParserErrorDomain, @"Underlying XML parser error is propagated for malformed XML");
 }
 
 @end

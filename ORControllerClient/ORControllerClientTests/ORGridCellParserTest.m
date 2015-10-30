@@ -50,10 +50,10 @@
 - (ORGridCell*)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORGridCellParser class]], @"Parser used should be an ORGridCellParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORGridCellParser class]], @"Parser used should be an ORGridCellParser");
     ORGridCell *cell = ((ORGridCellParser *)topLevelParser).cell;
-    STAssertNotNil(cell, @"A grid layout container should be parsed for given XML snippet");
+    XCTAssertNotNil(cell, @"A grid layout container should be parsed for given XML snippet");
     
     return cell;
 }
@@ -62,13 +62,13 @@
 {
     ORGridCell *cell = [self parseValidXMLSnippet:@"<cell x=\"1\" y=\"2\"><label id=\"1\" text=\"label\"/></cell>"];
     
-    STAssertEquals(cell.x, (NSUInteger)1, @"Parsed grid cell should have 1 as x coordinate");
-    STAssertEquals(cell.y, (NSUInteger)2, @"Parsed grid cell should have 2 as y coordinate");
+    XCTAssertEqual(cell.x, (NSUInteger)1, @"Parsed grid cell should have 1 as x coordinate");
+    XCTAssertEqual(cell.y, (NSUInteger)2, @"Parsed grid cell should have 2 as y coordinate");
     
-    STAssertNotNil(cell.widget, @"Parsed cell should contain a widget");
+    XCTAssertNotNil(cell.widget, @"Parsed cell should contain a widget");
     ORLabel *label = (ORLabel *)cell.widget;
-    STAssertNotNil(label.identifier, @"Included label should have an identifier");
-    STAssertEqualObjects(label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Included label should have 1 as identifer");
+    XCTAssertNotNil(label.identifier, @"Included label should have an identifier");
+    XCTAssertEqualObjects(label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Included label should have 1 as identifer");
 }
 
 @end

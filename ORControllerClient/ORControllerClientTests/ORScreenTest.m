@@ -56,30 +56,30 @@
     ORScreen *portraitScreen = [[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]
                                                                          name:@"Portrait screen"
                                                                   orientation:ORScreenOrientationPortrait];
-    STAssertEquals([portraitScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
+    XCTAssertEqual([portraitScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
                    @"Screen for portrait orientation should be target itself");
-    STAssertEquals([portraitScreen screenForOrientation:ORScreenOrientationLandscape], portraitScreen,
+    XCTAssertEqual([portraitScreen screenForOrientation:ORScreenOrientationLandscape], portraitScreen,
                    @"Screen for landscape orientation should be target itself as there is no specific screen for landscape");
     
     ORScreen *landscapeScreen = [[ORScreen alloc] initWithScreenIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:3]
                                                                           name:@"Landscape screen"
                                                                    orientation:ORScreenOrientationLandscape];
-    STAssertEquals([landscapeScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
+    XCTAssertEqual([landscapeScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
                    @"Screen for landscape orientation should be target itself");
-    STAssertEquals([landscapeScreen screenForOrientation:ORScreenOrientationPortrait], landscapeScreen,
+    XCTAssertEqual([landscapeScreen screenForOrientation:ORScreenOrientationPortrait], landscapeScreen,
                    @"Screen for portrait orientation should be target itself as there is no specific screen for portrait");
     
     portraitScreen.rotatedScreen = landscapeScreen;
     landscapeScreen.rotatedScreen = portraitScreen;
     
-    STAssertEquals([portraitScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
+    XCTAssertEqual([portraitScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
                    @"Screen for portrait orientation should be target itself");
-    STAssertEquals([portraitScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
+    XCTAssertEqual([portraitScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
                    @"Screen for landscape orientation should be landscape screen");
 
-    STAssertEquals([landscapeScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
+    XCTAssertEqual([landscapeScreen screenForOrientation:ORScreenOrientationLandscape], landscapeScreen,
                    @"Screen for landscape orientation should be target itself");
-    STAssertEquals([landscapeScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
+    XCTAssertEqual([landscapeScreen screenForOrientation:ORScreenOrientationPortrait], portraitScreen,
                    @"Screen for portrait orientation should be portrait screen");
 }
 
@@ -91,12 +91,12 @@
 
     [self.testScreen addGesture:newGesture];
     
-    STAssertEquals((NSUInteger)1, [self.testScreen.gestures count], @"There is still 1 gesture in the screen");
+    XCTAssertEqual((NSUInteger)1, [self.testScreen.gestures count], @"There is still 1 gesture in the screen");
 
     ORGesture *gesture = [self.testScreen.gestures lastObject];
-    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Tested gesture id is not correct");
-    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Gesture type has not been updated");
-    STAssertFalse(gesture.hasCommand, @"Gesture hasCommand property has not been updated");
+    XCTAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Tested gesture id is not correct");
+    XCTAssertEqual(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Gesture type has not been updated");
+    XCTAssertFalse(gesture.hasCommand, @"Gesture hasCommand property has not been updated");
 }
 
 
@@ -108,49 +108,49 @@
     
     [self.testScreen addGesture:newGesture];
     
-    STAssertEquals((NSUInteger)1, [self.testScreen.gestures count], @"There is still 1 gesture in the screen");
+    XCTAssertEqual((NSUInteger)1, [self.testScreen.gestures count], @"There is still 1 gesture in the screen");
     
     ORGesture *gesture = [self.testScreen.gestures lastObject];
-    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Gesture id has not been updated");
-    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Gesture type has not been updated");
-    STAssertFalse(gesture.hasCommand, @"Gesture hasCommand property has not been updated");
+    XCTAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Gesture id has not been updated");
+    XCTAssertEqual(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Gesture type has not been updated");
+    XCTAssertFalse(gesture.hasCommand, @"Gesture hasCommand property has not been updated");
 }
 
 - (void)testGestureForType
 {
     ORGesture *gesture = [self.testScreen gestureForType:ORGestureTypeSwipeLeftToRight];
-    STAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Returned gesture should have id 11");
-    STAssertEquals(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Returned gesture should have swipe left to right type");
-    STAssertFalse(gesture.hasCommand, @"Returned gesture should have hasCommand property set to false");
+    XCTAssertEqualObjects(gesture.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:11], @"Returned gesture should have id 11");
+    XCTAssertEqual(gesture.gestureType, ORGestureTypeSwipeLeftToRight, @"Returned gesture should have swipe left to right type");
+    XCTAssertFalse(gesture.hasCommand, @"Returned gesture should have hasCommand property set to false");
     
-    STAssertNil([self.testScreen gestureForType:ORGestureTypeSwipeTopToBottom], @"Screen should not have any top to bottom gesture registed");
+    XCTAssertNil([self.testScreen gestureForType:ORGestureTypeSwipeTopToBottom], @"Screen should not have any top to bottom gesture registed");
 }
 
 - (void)testAddGesture
 {
-    STAssertEquals((NSUInteger)1, [self.testScreen.gestures count], @"There should be 1 gesture in test screen");
-    STAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], [self.testScreen.gestures[0] identifier],
+    XCTAssertEqual((NSUInteger)1, [self.testScreen.gestures count], @"There should be 1 gesture in test screen");
+    XCTAssertEqualObjects([[ORObjectIdentifier alloc] initWithIntegerId:11], [self.testScreen.gestures[0] identifier],
                          @"First gesture in screen should have id 11");
 
     [self.testScreen addGesture:[[ORGesture alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:13]
                                                           gestureType:ORGestureTypeSwipeBottomToTop
                                                            hasCommand:YES]];
     
-    STAssertEquals((NSUInteger)2, [self.testScreen.gestures count], @"There should be 2 gestures in test screen");
+    XCTAssertEqual((NSUInteger)2, [self.testScreen.gestures count], @"There should be 2 gestures in test screen");
 }
 
 - (void)testLayoutsCollectionOrderCorrect
 {
-    STAssertEquals((NSUInteger)2, [self.testScreen.layouts count], @"There should be 2 layouts in test screen");
-    STAssertEquals(self.testScreen.layouts[0], self.layout1, @"First layout is not in first position in collection");
-    STAssertEquals(self.testScreen.layouts[1], self.layout2, @"Second layout is not in second position in collection");
+    XCTAssertEqual((NSUInteger)2, [self.testScreen.layouts count], @"There should be 2 layouts in test screen");
+    XCTAssertEqual(self.testScreen.layouts[0], self.layout1, @"First layout is not in first position in collection");
+    XCTAssertEqual(self.testScreen.layouts[1], self.layout2, @"Second layout is not in second position in collection");
 
     ORLayoutContainer *layout = [[ORAbsoluteLayoutContainer alloc] initWithLeft:21 top:22 width:23 height:24];
     [self.testScreen addLayout:layout];
-    STAssertEquals((NSUInteger)3, [self.testScreen.layouts count], @"There should be 3 layouts in test screen");
-    STAssertEquals(self.testScreen.layouts[0], self.layout1, @"First layout is not in first position in collection");
-    STAssertEquals(self.testScreen.layouts[1], self.layout2, @"Second layout is not in second position in collection");
-    STAssertEquals(self.testScreen.layouts[2], layout, @"Newly added layout is not in third position in collection");
+    XCTAssertEqual((NSUInteger)3, [self.testScreen.layouts count], @"There should be 3 layouts in test screen");
+    XCTAssertEqual(self.testScreen.layouts[0], self.layout1, @"First layout is not in first position in collection");
+    XCTAssertEqual(self.testScreen.layouts[1], self.layout2, @"Second layout is not in second position in collection");
+    XCTAssertEqual(self.testScreen.layouts[2], layout, @"Newly added layout is not in third position in collection");
 }
 
 @end

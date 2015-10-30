@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Unit tests for ORObjectIdentifier
  */
-@interface ORObjectIdentifierTest : SenTestCase
+@interface ORObjectIdentifierTest : XCTestCase
 
 /**
  * Validates that 2 ORObjectIdentifier instances initiliazed with the same integer id are considered equal

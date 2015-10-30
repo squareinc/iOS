@@ -54,10 +54,10 @@
 - (ORButton *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORButtonParser_2_1_0 class]], @"Parser used should be an ORButtonParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORButtonParser_2_1_0 class]], @"Parser used should be an ORButtonParser");
     ORButton *button = ((ORButtonParser_2_1_0 *)topLevelParser).button;
-    STAssertNotNil(button, @"A button should be parsed for given XML snippet");
+    XCTAssertNotNil(button, @"A button should be parsed for given XML snippet");
     
     return button;
 }
@@ -66,230 +66,230 @@
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"false\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithShortPressActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithShortReleaseActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasShortReleaseCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
-    STAssertTrue([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
+    XCTAssertTrue([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithLongPressActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasLongPressCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertTrue([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should have a long press command");
-    STAssertEquals([[button valueForKey:@"longPressDelay"] intValue], 250, @"Parsed button should have default long press delay");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertTrue([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should have a long press command");
+    XCTAssertEqual([[button valueForKey:@"longPressDelay"] intValue], 250, @"Parsed button should have default long press delay");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithLongReleaseActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasLongReleaseCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertTrue([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertTrue([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithRepeatingShortPressActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
+    XCTAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertEqual([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
-    STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithCustomDelayRepeatingShortPressActionNoNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" repeatDelay=\"500\" hasPressCommand=\"true\"/>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 500, @"Parsed button should have a 500 ms repeat rate");
+    XCTAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertEqual([[button valueForKey:@"repeatDelay"] intValue], 500, @"Parsed button should have a 500 ms repeat rate");
     
-    STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.navigation, @"Parsed button should have no navigation associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageNoActionWithNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"false\" hasPressCommand=\"false\"><navigate to=\"back\"/></button>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertFalse([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertFalse([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should not have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
+    XCTAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    XCTAssertEqual(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
     
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithNoImageWithRepeatingActionAndNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"><navigate to=\"back\"/></button>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
+    XCTAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertEqual([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
-    STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
+    XCTAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    XCTAssertEqual(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
     
-    STAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
-    STAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
+    XCTAssertNil(button.unpressedImage, @"Parsed button should have no unpressed image associated with it");
+    XCTAssertNil(button.pressedImage, @"Parsed button should have no pressed image associated with it");
 }
 
 - (void)testParseButtonWithImagesWithRepeatingActionAndNavigate
 {
     ORButton *button = [self parseValidXMLSnippet:@"<button id=\"10\" name=\"Label 1\" repeat=\"true\" hasPressCommand=\"true\"><default><image src=\"default image\"/></default><pressed><image src=\"pressed image\"/></pressed><navigate to=\"back\"/></button>"];
     
-    STAssertNotNil(button.identifier, @"Parsed button should have an identifier");
-    STAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
+    XCTAssertNotNil(button.identifier, @"Parsed button should have an identifier");
+    XCTAssertEqualObjects(button.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed button should have 10 as identifer");
     
-    STAssertNotNil(button.label, @"Parsed button should have a label");
-    STAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
+    XCTAssertNotNil(button.label, @"Parsed button should have a label");
+    XCTAssertEqualObjects(button.label.text, @"Label 1", @"Parsed button label should be 'Label 1'");
     
-    STAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
-    STAssertEquals([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
+    XCTAssertTrue([[button valueForKey:@"repeat"] boolValue], @"Parsed button should not repeat");
+    XCTAssertEqual([[button valueForKey:@"repeatDelay"] intValue], 300, @"Parsed button should have default repeat rate");
     
-    STAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
-    STAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
-    STAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
-    STAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
+    XCTAssertTrue([[button valueForKey:@"hasPressCommand"] boolValue], @"Parsed button should have a press command");
+    XCTAssertFalse([[button valueForKey:@"hasShortReleaseCommand"] boolValue], @"Parsed button should not have a short release command");
+    XCTAssertFalse([[button valueForKey:@"hasLongPressCommand"] boolValue], @"Parsed button should not have a long press command");
+    XCTAssertFalse([[button valueForKey:@"hasLongReleaseCommand"] boolValue], @"Parsed button should not have a long release command");
     
-    STAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
-    STAssertEquals(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
+    XCTAssertNotNil(button.navigation, @"Parsed button should have a navigation associated with it");
+    XCTAssertEqual(button.navigation.navigationType, ORNavigationTypeBack, @"Parsed button navigation should navigate back");
     
-    STAssertNotNil(button.unpressedImage, @"Parsed button should have an unpressed image associated with it");
-    STAssertTrue([button.unpressedImage isMemberOfClass:[ORImage class]], @"Parsed button unpressed image should be an ORImage");
-    STAssertEqualObjects(button.unpressedImage.src, @"default image", @"Parsed button unpressed image src should be 'default image'");
+    XCTAssertNotNil(button.unpressedImage, @"Parsed button should have an unpressed image associated with it");
+    XCTAssertTrue([button.unpressedImage isMemberOfClass:[ORImage class]], @"Parsed button unpressed image should be an ORImage");
+    XCTAssertEqualObjects(button.unpressedImage.src, @"default image", @"Parsed button unpressed image src should be 'default image'");
     
-    STAssertNotNil(button.pressedImage, @"Parsed button should have a pressed image associated with it");
-    STAssertTrue([button.pressedImage isMemberOfClass:[ORImage class]], @"Parsed button pressed image should be an ORImage");
-    STAssertEqualObjects(button.pressedImage.src, @"pressed image", @"Parsed button pressed image src should be 'pressed image'");
+    XCTAssertNotNil(button.pressedImage, @"Parsed button should have a pressed image associated with it");
+    XCTAssertTrue([button.pressedImage isMemberOfClass:[ORImage class]], @"Parsed button pressed image should be an ORImage");
+    XCTAssertEqualObjects(button.pressedImage.src, @"pressed image", @"Parsed button pressed image src should be 'pressed image'");
 }
 
 @end

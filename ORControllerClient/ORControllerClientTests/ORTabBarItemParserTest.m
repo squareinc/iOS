@@ -52,10 +52,10 @@
 - (ORTabBarItem *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORTabBarItemParser class]], @"Parser used should be an ORTabBarItemParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORTabBarItemParser class]], @"Parser used should be an ORTabBarItemParser");
     ORTabBarItem *tabBarItem = ((ORTabBarItemParser *)topLevelParser).tabBarItem;
-    STAssertNotNil(tabBarItem, @"A tab bar item should be parsed for given XML snippet");
+    XCTAssertNotNil(tabBarItem, @"A tab bar item should be parsed for given XML snippet");
     
     return tabBarItem;
 }
@@ -64,40 +64,40 @@
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"/>"];
     
-    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
-    STAssertNil(item.image, @"Parsed tab bar item should not have an image");
-    STAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
+    XCTAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
+    XCTAssertNil(item.image, @"Parsed tab bar item should not have an image");
+    XCTAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
 }
 
 - (void)testParseItemWithImageNoNavigation
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><image src=\"item.png\"/></item>"];
     
-    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
-    STAssertNotNil(item.image, @"Parsed tab bar item should have an image");
-    STAssertEqualObjects(item.image.src, @"item.png", @"Parsed tab bar item image src should be 'item.png'");
-    STAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
+    XCTAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
+    XCTAssertNotNil(item.image, @"Parsed tab bar item should have an image");
+    XCTAssertEqualObjects(item.image.src, @"item.png", @"Parsed tab bar item image src should be 'item.png'");
+    XCTAssertNil(item.navigation, @"Parsed tab bar item should not have a navigation");
 }
 
 - (void)testParseItemNoImageWithNavigation
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><navigate to=\"setting\"/></item>"];
     
-    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
-    STAssertNil(item.image, @"Parsed tab bar item should not have an image");
-    STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
-    STAssertEquals(item.navigation.navigationType, ORNavigationTypeSettings, @"Parsed tab bar item should navigate to settings");
+    XCTAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
+    XCTAssertNil(item.image, @"Parsed tab bar item should not have an image");
+    XCTAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
+    XCTAssertEqual(item.navigation.navigationType, ORNavigationTypeSettings, @"Parsed tab bar item should navigate to settings");
 }
 
 - (void)testParseItemWithImageAndNavigation
 {
     ORTabBarItem *item = [self parseValidXMLSnippet:@"<item name=\"item1\"><image src=\"item.png\"/><navigate to=\"back\"/></item>"];
     
-    STAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
-    STAssertNotNil(item.image, @"Parsed tab bar item should have an image");
-    STAssertEqualObjects(item.image.src, @"item.png", @"Parsed tab bar item image src should be 'item.png'");
-    STAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
-    STAssertEquals(item.navigation.navigationType, ORNavigationTypeBack, @"Parsed tab bar item should navigate back");
+    XCTAssertNotNil(item.label.text, @"Parsed tab bar item should have 'item1' as text");
+    XCTAssertNotNil(item.image, @"Parsed tab bar item should have an image");
+    XCTAssertEqualObjects(item.image.src, @"item.png", @"Parsed tab bar item image src should be 'item.png'");
+    XCTAssertNotNil(item.navigation, @"Parsed tab bar item should have a navigation");
+    XCTAssertEqual(item.navigation.navigationType, ORNavigationTypeBack, @"Parsed tab bar item should navigate back");
 }
 
 @end

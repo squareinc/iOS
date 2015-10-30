@@ -19,8 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ORButtonParser_2_1_0Test : SenTestCase
+@interface ORButtonParser_2_1_0Test : XCTestCase
 
 @end
