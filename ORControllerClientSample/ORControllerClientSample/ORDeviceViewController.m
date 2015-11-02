@@ -20,7 +20,8 @@
  */
 
 #import <ORControllerClient/ORDevice.h>
-#import <ORControllerClient/ORCommand.h>
+#import <ORControllerClient/ORDeviceCommand.h>
+#import <ORControllerClient/ORDeviceSensor.h>
 #import "ORDeviceViewController.h"
 
 
@@ -48,11 +49,14 @@
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommandCell"];
-        ORCommand *command = self.device.commands[(NSUInteger) indexPath.row];
+        ORDeviceCommand *command = self.device.commands[(NSUInteger) indexPath.row];
         cell.textLabel.text = command.name;
         cell.detailTextLabel.text = command.protocol;
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"SensorCell"];
+        ORDeviceSensor *sensor = self.device.sensors[(NSUInteger) indexPath.row];
+        cell.textLabel.text = sensor.name;
+        cell.detailTextLabel.text = sensor.type;
     }
     return cell;
 }

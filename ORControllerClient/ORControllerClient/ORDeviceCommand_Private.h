@@ -19,14 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORCommand_Private.h"
-#import "ORObjectIdentifier.h"
+#import "ORDeviceCommand.h"
 
+@interface ORDeviceCommand ()
 
-@implementation ORCommand
-
-@synthesize name;
-@synthesize identifier;
-@synthesize protocol;
-
+@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
+@property (nonatomic, strong, readwrite) NSString *name;
+@property (nonatomic, strong, readwrite) NSString *protocol;
+@property (nonatomic, weak, readwrite) ORDevice *device;
 @end

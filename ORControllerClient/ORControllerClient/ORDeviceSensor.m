@@ -19,22 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-@class ORObjectIdentifier;
+#import "ORDeviceSensor_Private.h"
 
-#import "ORDevice.h"
+@implementation ORDeviceSensor
 
-@interface ORDevice ()
-
-@property (nonatomic, copy, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
-@property (nonatomic, strong) NSMutableArray *internalCommands;
-@property (nonatomic, strong) NSMutableArray *internalSensors;
-
-- (void)addCommand:(ORDeviceCommand *)command;
-
-- (void)addSensor:(ORDeviceSensor *)sensor;
-
-- (ORDeviceCommand *)commandWithId:(ORObjectIdentifier *)identifier;
+@synthesize identifier;
+@synthesize name;
+@synthesize type;
+@synthesize device;
+@synthesize command;
 
 @end
-

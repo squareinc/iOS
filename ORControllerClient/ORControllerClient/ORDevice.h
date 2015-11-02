@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 
 @class ORObjectIdentifier;
+@class ORDeviceCommand;
+@class ORDeviceSensor;
 
 
 @interface ORDevice : NSObject

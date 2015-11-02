@@ -20,6 +20,10 @@
  */
 
 #import "ORDevice_Private.h"
+#import "ORDeviceCommand_Private.h"
+#import "ORDeviceSensor_Private.h"
+#import "ORObjectIdentifier.h"
+#import "ORDeviceSensor.h"
 
 @interface ORDevice ()
 
@@ -37,12 +41,35 @@
 {
     self = [super init];
     if (self) {
-        self.internalCommands = [[NSMutableArray alloc] init];
-        self.internalSensors = [[NSMutableArray alloc] init];
     }
 
     return self;
 }
+
+- (void)addCommand:(ORDeviceCommand *)command
+{
+    command.device = self;
+    [self.internalCommands addObject:command];
+}
+
+
+- (void)addSensor:(ORDeviceSensor *)sensor
+{
+    sensor.device = self;
+    [self.internalSensors addObject:sensor];
+}
+
+- (ORDeviceCommand *)commandWithId:(ORObjectIdentifier *)identifier
+{
+    for (ORDeviceCommand *command in self.internalCommands) {
+        if ([command.identifier isEqual:identifier]) {
+            return command;
+        }
+    }
+    return nil;
+}
+
+#pragma mark - getters/setter
 
 - (NSArray *)commands
 {
@@ -54,5 +81,20 @@
     return [self.internalSensors copy];
 }
 
+- (NSMutableArray *)internalCommands
+{
+    if (!_internalCommands) {
+        _internalCommands = [[NSMutableArray alloc] init];
+    }
+    return _internalCommands;
+}
+
+- (NSMutableArray *)internalSensors
+{
+    if (!_internalSensors) {
+        _internalSensors = [[NSMutableArray alloc] init];
+    }
+    return _internalSensors;
+}
 
 @end

@@ -19,22 +19,38 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <Foundation/Foundation.h>
+
 @class ORObjectIdentifier;
+@class ORDevice;
+@class ORDeviceCommand;
 
-#import "ORDevice.h"
 
-@interface ORDevice ()
+@interface ORDeviceSensor : NSObject
 
-@property (nonatomic, copy, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
-@property (nonatomic, strong) NSMutableArray *internalCommands;
-@property (nonatomic, strong) NSMutableArray *internalSensors;
+/**
+ * The identifier of the sensor.
+ */
+@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
 
-- (void)addCommand:(ORDeviceCommand *)command;
+/**
+ * The name of the sensor
+ */
+@property (nonatomic, strong, readonly) NSString *name;
 
-- (void)addSensor:(ORDeviceSensor *)sensor;
+/**
+ * The type of the command
+ */
+@property (nonatomic, strong, readonly) NSString *type;
 
-- (ORDeviceCommand *)commandWithId:(ORObjectIdentifier *)identifier;
+/**
+ * The owner device
+ */
+@property (nonatomic, weak, readonly) ORDevice *device;
+
+/**
+ * The associated command
+ */
+@property (nonatomic, weak, readonly) ORDeviceCommand *command;
 
 @end
-

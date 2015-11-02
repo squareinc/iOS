@@ -23,8 +23,10 @@
 #import "ORDevice_Private.h"
 #import "ORParser_Private.h"
 #import "ORObjectIdentifier.h"
-#import "ORCommand.h"
-#import "ORCommand_Private.h"
+#import "ORDeviceCommand.h"
+#import "ORDeviceCommand_Private.h"
+#import "ORDeviceSensor.h"
+#import "ORDeviceSensor_Private.h"
 
 @interface ORDeviceParser ()
 
@@ -46,14 +48,24 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
     if ([elementName isEqualToString:@"device"]) {
+        if (!self.device) {
+            self.device = [[ORDevice alloc] init];
+        }
         self.device.name = [attributeDict valueForKey:@"name"];
         self.device.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
     } else if ([elementName isEqualToString:@"command"]) {
-        ORCommand *command = [[ORCommand alloc] init];
+        ORDeviceCommand *command = [[ORDeviceCommand alloc] init];
         command.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
         command.name = attributeDict[@"name"];
         command.protocol = attributeDict[@"protocol"];
-        [self.device.internalCommands addObject:command];
+        [self.device addCommand:command];
+    } else if ([elementName isEqualToString:@"sensor"]) {
+        ORDeviceSensor *sensor = [[ORDeviceSensor alloc] init];
+        sensor.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
+        sensor.name = attributeDict[@"name"];
+        sensor.type = attributeDict[@"type"];
+        sensor.command = [self.device commandWithId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"command_id"]]];
+        [self.device addSensor:sensor];
     }
 }
 

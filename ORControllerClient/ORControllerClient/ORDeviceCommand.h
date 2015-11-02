@@ -19,12 +19,31 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORCommand.h"
+#import <Foundation/Foundation.h>
 
-@interface ORCommand ()
+@class ORObjectIdentifier;
+@class ORDevice;
 
-@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
-@property (nonatomic, strong, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) NSString *protocol;
+@interface ORDeviceCommand : NSObject
+
+/**
+ * The identifier of the command.
+ */
+@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+
+/**
+ * The name of the command
+ */
+@property (nonatomic, strong, readonly) NSString *name;
+
+/**
+ * The protocol of the command
+ */
+@property (nonatomic, strong, readonly) NSString *protocol;
+
+/**
+ * The owner device
+ */
+@property (nonatomic, weak, readonly) ORDevice *device;
 
 @end

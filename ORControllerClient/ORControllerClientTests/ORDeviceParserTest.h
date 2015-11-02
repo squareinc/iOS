@@ -21,5 +21,5 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ORDeviceParserTest : XCTest
+@interface ORDeviceParserTest : XCTestCase
 @end
