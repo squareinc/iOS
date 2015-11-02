@@ -292,6 +292,7 @@
 		B57B428C46ED80BD1C6AC5C7 /* ORDeviceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */; };
 		B57B447EF11C633943A0C285 /* ORDeviceCommandResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */; };
 		B57B4584875B13A10E706D0F /* Sequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B469C9EBF12C2AE381381 /* Sequencer.m */; };
+		B57B46F3BEE83F723DE9F73A /* DevicesTest.xml in Resources */ = {isa = PBXBuildFile; fileRef = B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */; };
 		B57B47414A4DB5FD2E4277B8 /* ORDevicesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */; };
 		B57B4C692AF6342E32717F39 /* DeviceResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */; };
 		B57B4DA111EC7418285520E2 /* ORDeviceListParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */; };
@@ -714,6 +715,7 @@
 		91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
 		91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistryTest.h; sourceTree = "<group>"; };
 		91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistryTest.m; sourceTree = "<group>"; };
+		B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DevicesTest.xml; sourceTree = "<group>"; };
 		B57B425DBAC54565FF98C0EC /* ORDevice_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevice_Private.h; sourceTree = "<group>"; };
 		B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceParser.m; sourceTree = "<group>"; };
 		B57B432C696CFE3188D0AC8E /* DeviceListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
@@ -1031,6 +1033,7 @@
 				B57B43B7FBF38A26831B790A /* ORDeviceParserTest.h */,
 				B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */,
 				B57B4A2D345C61BFE514DD33 /* ORDeviceListParserTest.h */,
+				B57B4F2A35E7B88489E1A623 /* Data */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1422,6 +1425,14 @@
 			path = Sequencer;
 			sourceTree = "<group>";
 		};
+		B57B4F2A35E7B88489E1A623 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1502,6 +1513,7 @@
 				911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */,
 				91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */,
 				91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */,
+				B57B46F3BEE83F723DE9F73A /* DevicesTest.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

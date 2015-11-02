@@ -30,6 +30,11 @@
 
 @interface ORDeviceParser ()
 
+@property (nonatomic, strong) NSMutableString *tagBuffer;
+@property (nonatomic, strong) NSMutableData *tagDataBuffer;
+@property (nonatomic, strong) ORDeviceCommand *currentCommand;
+@property (nonatomic, assign) BOOL inTag;
+
 @end
 
 @implementation ORDeviceParser
@@ -59,6 +64,7 @@
         command.name = attributeDict[@"name"];
         command.protocol = attributeDict[@"protocol"];
         [self.device addCommand:command];
+        self.currentCommand = command;
     } else if ([elementName isEqualToString:@"sensor"]) {
         ORDeviceSensor *sensor = [[ORDeviceSensor alloc] init];
         sensor.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
@@ -66,6 +72,44 @@
         sensor.type = attributeDict[@"type"];
         sensor.command = [self.device commandWithId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"command_id"]]];
         [self.device addSensor:sensor];
+    } else if ([elementName isEqualToString:@"tag"]) {
+        self.tagBuffer = [[NSMutableString alloc] init];
+        self.tagDataBuffer = [[NSMutableData alloc] init];
+        self.inTag = YES;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if ([elementName isEqualToString:@"tag"]) {
+        if (self.tagBuffer.length) {
+            [self.currentCommand addTag:[self.tagBuffer copy]];
+        } else if (self.tagDataBuffer.length) {
+            [self.currentCommand addTag:[[NSString alloc] initWithData:self.tagDataBuffer encoding:NSUTF8StringEncoding]];
+        }
+        self.tagBuffer = nil;
+        self.tagDataBuffer = nil;
+        self.inTag = NO;
+    } else if ([elementName isEqualToString:@"command"]) {
+        self.currentCommand = nil;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if (self.inTag) {
+        if (string.length) {
+            [self.tagBuffer appendString:string];
+        }
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
+{
+    if (self.inTag) {
+        if (CDATABlock.length) {
+            [self.tagDataBuffer appendData:CDATABlock];
+        }
     }
 }
 

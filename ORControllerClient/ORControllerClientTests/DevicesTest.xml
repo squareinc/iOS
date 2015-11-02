@@ -1,0 +1,11 @@
+<device id="12345" name="DeviceName">
+    <commands>
+        <command id="1234" name="CommandName" protocol="ProtocolName">
+            <tag>tag 1</tag>
+            <tag><![CDATA[<tag & 2>]]></tag>
+        </command>
+    </commands>
+    <sensors>
+        <sensor id="123" type="SensorType" name="SensorName" command_id="1234"/>
+    </sensors>
+</device>

@@ -52,7 +52,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommandCell"];
         ORDeviceCommand *command = self.device.commands[(NSUInteger) indexPath.row];
         cell.textLabel.text = command.name;
-        cell.detailTextLabel.text = command.protocol;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Protocol: %@. Tags: %@", command.protocol, [[command.tags allObjects] componentsJoinedByString:@", "]];
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"SensorCell"];
         ORDeviceSensor *sensor = self.device.sensors[(NSUInteger) indexPath.row];

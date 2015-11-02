@@ -42,6 +42,11 @@
 @property (nonatomic, strong, readonly) NSString *protocol;
 
 /**
+ * The tags of the command
+ */
+@property (nonatomic, strong, readonly) NSSet *tags;
+
+/**
  * The owner device
  */
 @property (nonatomic, weak, readonly) ORDevice *device;

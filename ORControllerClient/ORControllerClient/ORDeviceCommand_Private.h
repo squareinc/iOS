@@ -27,4 +27,8 @@
 @property (nonatomic, strong, readwrite) NSString *name;
 @property (nonatomic, strong, readwrite) NSString *protocol;
 @property (nonatomic, weak, readwrite) ORDevice *device;
+@property (nonatomic, strong, readwrite) NSSet *tags;
+
+- (void)addTag:(NSString *)tag;
+
 @end

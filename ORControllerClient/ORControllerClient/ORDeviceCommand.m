@@ -22,6 +22,11 @@
 #import "ORDeviceCommand_Private.h"
 #import "ORObjectIdentifier.h"
 
+@interface ORDeviceCommand ()
+
+@property (nonatomic, strong) NSMutableSet *internalTags;
+
+@end
 
 @implementation ORDeviceCommand
 
@@ -29,5 +34,29 @@
 @synthesize identifier;
 @synthesize protocol;
 @synthesize device;
+@synthesize tags;
+
+- (void)addTag:(NSString *)tag
+{
+    if (tag) {
+        [self.internalTags addObject:tag];
+    }
+}
+
+#pragma mark - getters/setters
+
+- (NSMutableSet *)internalTags
+{
+    if (!_internalTags) {
+        _internalTags = [[NSMutableSet alloc] init];
+    }
+    return _internalTags;
+}
+
+- (NSSet *)tags
+{
+    return [self.internalTags copy];
+}
+
 
 @end

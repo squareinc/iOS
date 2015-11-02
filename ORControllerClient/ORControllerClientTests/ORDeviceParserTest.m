@@ -33,8 +33,8 @@
 
 - (void)testParseDevice
 {
-    NSString *xml = @"<device id=\"12345\" name=\"DeviceName\"><commands><command id=\"1234\" name=\"CommandName\" protocol=\"ProtocolName\"/></commands><sensors><sensor id=\"123\" type=\"SensorType\" name=\"SensorName\" command_id=\"1234\"/></sensors></device>";
-    ORDeviceParser *parser = [[ORDeviceParser alloc] initWithData:[xml dataUsingEncoding:NSUTF8StringEncoding]];
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"DevicesTest" ofType:@"xml"]];
+    ORDeviceParser *parser = [[ORDeviceParser alloc] initWithData:xmlData];
     ORDevice *device = [parser parseDevice];
     XCTAssertNotNil(device);
     NSString *correctName = @"DeviceName";
@@ -49,6 +49,11 @@
     XCTAssertEqualObjects(command.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1234], @"Command identifier (%@) is not correct. It should be %d", command.identifier, 1234);
     XCTAssertEqualObjects(command.protocol, @"ProtocolName", @"Command protocol (%@) is not correct. It should be %@", command.protocol, @"ProtocolName");
     XCTAssertEqual(command.device, device, @"Owner device is not correct");
+
+    int commandTagsCorrectCount = 2;
+    XCTAssertEqual(command.tags.count, commandTagsCorrectCount, @"Command tags count (%d) is not correct. It should be %d", command.tags.count, commandTagsCorrectCount);
+    XCTAssertTrue([command.tags containsObject:@"tag 1"], @"Tag with value \"tag 1\" not found");
+    XCTAssertTrue([command.tags containsObject:@"<tag & 2>"], @"Tag with value \"<tag & 2>\" not found");
 
     int sensorsCorrectCount = 1;
     XCTAssertEqual(device.sensors.count, sensorsCorrectCount, @"Device commands count (%d) is not correct. It should be %d", device.sensors.count, sensorsCorrectCount);
