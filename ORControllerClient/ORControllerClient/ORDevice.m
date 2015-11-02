@@ -48,15 +48,19 @@
 
 - (void)addCommand:(ORDeviceCommand *)command
 {
-    command.device = self;
-    [self.internalCommands addObject:command];
+    if (command) {
+        command.device = self;
+        [self.internalCommands addObject:command];
+    }
 }
 
 
 - (void)addSensor:(ORDeviceSensor *)sensor
 {
-    sensor.device = self;
-    [self.internalSensors addObject:sensor];
+    if (sensor) {
+        sensor.device = self;
+        [self.internalSensors addObject:sensor];
+    }
 }
 
 - (ORDeviceCommand *)commandWithId:(ORObjectIdentifier *)identifier
