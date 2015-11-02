@@ -6,6 +6,11 @@
         </command>
     </commands>
     <sensors>
-        <sensor id="123" type="SensorType" name="SensorName" command_id="1234"/>
+        <sensor id="123" type="switch" name="SensorName1" command_id="1234"/>
+        <sensor id="456" type="level" name="SensorName2" command_id="1234"/>
+        <sensor id="789" type="range" name="SensorName3" command_id="1234"/>
+        <sensor id="123" type="color" name="SensorName4" command_id="1234"/>
+        <sensor id="234" type="custom" name="SensorName5" command_id="1234"/>
+        <sensor id="111" type="wrong" name="SensorName6" command_id="1234"/>
     </sensors>
 </device>

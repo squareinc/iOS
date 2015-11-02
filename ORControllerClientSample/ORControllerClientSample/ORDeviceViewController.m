@@ -57,9 +57,27 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"SensorCell"];
         ORDeviceSensor *sensor = self.device.sensors[(NSUInteger) indexPath.row];
         cell.textLabel.text = sensor.name;
-        cell.detailTextLabel.text = sensor.type;
+        cell.detailTextLabel.text = [self valueForSensorType:sensor.type];
     }
     return cell;
+}
+
+- (NSString *)valueForSensorType:(SensorType)type
+{
+    switch(type) {
+        case SensorTypeUnknown:
+            return @"Unknown";
+        case SensorTypeSwitch:
+            return @"Switch";
+        case SensorTypeLevel:
+            return @"Level";
+        case SensorTypeRange:
+            return @"Range";
+        case SensorTypeColor:
+            return @"Color";
+        case SensorTypeCustom:
+            return @"Custom";
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

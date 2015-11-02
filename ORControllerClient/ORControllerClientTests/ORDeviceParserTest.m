@@ -55,15 +55,23 @@
     XCTAssertTrue([command.tags containsObject:@"tag 1"], @"Tag with value \"tag 1\" not found");
     XCTAssertTrue([command.tags containsObject:@"<tag & 2>"], @"Tag with value \"<tag & 2>\" not found");
 
-    int sensorsCorrectCount = 1;
+    int sensorsCorrectCount = 6;
     XCTAssertEqual(device.sensors.count, sensorsCorrectCount, @"Device commands count (%d) is not correct. It should be %d", device.sensors.count, sensorsCorrectCount);
-    ORDeviceSensor *sensor = [device.sensors firstObject];
-    XCTAssertEqualObjects(sensor.name, @"SensorName", @"Sensor name (%@) is not correct. It should be %@", command.name, @"SensorName");
-    XCTAssertEqualObjects(sensor.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:123], @"Command identifier (%@) is not correct. It should be %d", command.identifier, 123);
-    XCTAssertEqualObjects(sensor.type, @"SensorType", @"Sensor type (%@) is not correct. It should be %@", sensor.type, @"SensorType");
+    [self checkSensor:device.sensors[0] correctName:@"SensorName1" correctType:SensorTypeSwitch correctIdentifier:123 correctCommand:command correctDevice:device];
+    [self checkSensor:device.sensors[1] correctName:@"SensorName2" correctType:SensorTypeLevel correctIdentifier:456 correctCommand:command correctDevice:device];
+    [self checkSensor:device.sensors[2] correctName:@"SensorName3" correctType:SensorTypeRange correctIdentifier:789 correctCommand:command correctDevice:device];
+    [self checkSensor:device.sensors[3] correctName:@"SensorName4" correctType:SensorTypeColor correctIdentifier:123 correctCommand:command correctDevice:device];
+    [self checkSensor:device.sensors[4] correctName:@"SensorName5" correctType:SensorTypeCustom correctIdentifier:234 correctCommand:command correctDevice:device];
+    [self checkSensor:device.sensors[5] correctName:@"SensorName6" correctType:SensorTypeUnknown correctIdentifier:111 correctCommand:command correctDevice:device];
+}
+
+- (void)checkSensor:(ORDeviceSensor *)sensor correctName:(NSString *)sensorName correctType:(SensorType)sensorType correctIdentifier:(int)sensorIdentifier correctCommand:(ORDeviceCommand *)command correctDevice:(ORDevice *)device
+{
+    XCTAssertEqualObjects(sensor.name, sensorName, @"Sensor name (%@) is not correct. It should be %@", sensor.name, sensorName);
+    XCTAssertEqualObjects(sensor.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:sensorIdentifier], @"Command identifier (%@) is not correct. It should be %d", sensor.identifier, sensorIdentifier);
+    XCTAssertEqual(sensor.type, sensorType, @"Sensor type (%d) is not correct. It should be %d", sensor.type, sensorType);
     XCTAssertEqualObjects(sensor.command, command, @"Sensor command is not correct.");
     XCTAssertEqual(sensor.device, device, @"Owner device is not correct");
-
 }
 
 @end

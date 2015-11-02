@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
 @property (nonatomic, strong, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) NSString *type;
+@property (nonatomic, assign, readwrite) SensorType type;
 @property (nonatomic, weak, readwrite) ORDevice *device;
 @property (nonatomic, weak, readwrite) ORDeviceCommand *command;
 

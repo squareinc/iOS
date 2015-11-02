@@ -69,13 +69,30 @@
         ORDeviceSensor *sensor = [[ORDeviceSensor alloc] init];
         sensor.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
         sensor.name = attributeDict[@"name"];
-        sensor.type = attributeDict[@"type"];
+        sensor.type = [self typeForValue:attributeDict[@"type"]];
         sensor.command = [self.device commandWithId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"command_id"]]];
         [self.device addSensor:sensor];
     } else if ([elementName isEqualToString:@"tag"]) {
         self.tagBuffer = [[NSMutableString alloc] init];
         self.tagDataBuffer = [[NSMutableData alloc] init];
         self.inTag = YES;
+    }
+}
+
+- (SensorType)typeForValue:(NSString *)typeString
+{
+    if ([typeString isEqualToString:@"switch"]) {
+        return SensorTypeSwitch;
+    } else if ([typeString isEqualToString:@"level"]) {
+        return SensorTypeLevel;
+    } else if ([typeString isEqualToString:@"range"]) {
+        return SensorTypeRange;
+    } else if ([typeString isEqualToString:@"color"]) {
+        return SensorTypeColor;
+    } else if ([typeString isEqualToString:@"custom"]) {
+        return SensorTypeCustom;
+    } else {
+        return SensorTypeUnknown;
     }
 }
 

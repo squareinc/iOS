@@ -25,6 +25,14 @@
 @class ORDevice;
 @class ORDeviceCommand;
 
+typedef NS_ENUM(NSInteger, SensorType) {
+    SensorTypeUnknown = -1,
+    SensorTypeSwitch,
+    SensorTypeLevel,
+    SensorTypeRange,
+    SensorTypeColor,
+    SensorTypeCustom
+};
 
 @interface ORDeviceSensor : NSObject
 
@@ -41,7 +49,7 @@
 /**
  * The type of the command
  */
-@property (nonatomic, strong, readonly) NSString *type;
+@property (nonatomic, assign, readonly) SensorType type;
 
 /**
  * The owner device
