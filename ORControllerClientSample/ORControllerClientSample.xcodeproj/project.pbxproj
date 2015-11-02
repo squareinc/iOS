@@ -233,7 +233,7 @@
 		917104CF17B91954005F9BA4 /* ORControllerClientTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = ORControllerClientTests.octest;
+			path = ORControllerClientTests.xctest;
 			remoteRef = 917104CE17B91954005F9BA4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -347,6 +347,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClientSample/ORControllerClientSample-Prefix.pch";
 				INFOPLIST_FILE = "ORControllerClientSample/ORControllerClientSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ./**";
@@ -360,6 +361,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClientSample/ORControllerClientSample-Prefix.pch";
 				INFOPLIST_FILE = "ORControllerClientSample/ORControllerClientSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ./**";

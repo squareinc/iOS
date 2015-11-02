@@ -22,6 +22,7 @@
 #import "ORControllerRESTAPI.h"
 
 @class ORDevice;
+@class ORDeviceCommand;
 
 /**
  * Encapsulates the REST API for a specific version.
@@ -34,5 +35,4 @@
 // TODO: how to specify credentials -> inject an authentication manager, has to authenticate request before sending
 // how to get results / errors
 
-- (ORRESTCall *)requestDevice:(ORDevice *)device baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(ORDevice *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 @end

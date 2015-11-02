@@ -22,6 +22,7 @@
 #import <ORControllerClient/ORDevice.h>
 #import <ORControllerClient/ORDeviceCommand.h>
 #import <ORControllerClient/ORDeviceSensor.h>
+#import <ORControllerClient/ORController.h>
 #import "ORDeviceViewController.h"
 
 
@@ -59,6 +60,24 @@
         cell.detailTextLabel.text = sensor.type;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        ORDeviceCommand *command = self.device.commands[(NSUInteger) indexPath.row];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.orb executeCommand:command withSuccessHandler:^{
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } errorHandler:^(NSError *error) {
+            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Error" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+            [ac addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:ac animated:YES completion:nil];
+        }];
+    }
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

@@ -38,6 +38,7 @@
 #import "ORDevice.h"
 #import "Sequencer.h"
 #import "ORControllerDeviceModel.h"
+#import "ORDeviceCommand.h"
 
 @interface ORController ()
 
@@ -292,6 +293,33 @@
                          }];
 
 }
+
+- (void)executeCommand:(ORDeviceCommand *)command withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    // Make sure we have latest version of authentication manager set on API before call
+    self.controllerAPI.authenticationManager = self.authenticationManager;
+
+    dispatch_queue_t originalQueue = dispatch_get_current_queue();
+
+    [self.controllerAPI executeCommand:command
+                               baseURL:self.address.primaryURL
+                    withSuccessHandler:^(NSArray *array) {
+                        if (successHandler) {
+                            dispatch_async(originalQueue, ^{
+                                successHandler();
+                            });
+                        }
+                    }
+                          errorHandler:^(NSError *error) {
+                              if (errorHandler) {
+                                  dispatch_async(originalQueue, ^{
+                                      errorHandler(error);
+                                  });
+                              }
+
+                          }];
+}
+
 
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler
 {

@@ -22,7 +22,8 @@
 #import "ControllerREST_2_0_0_APITest.h"
 #import "ControllerREST_2_0_0_API_NonConnectingMock.h"
 #import "ORRestCallMock.h"
-#import "ORDevice_Private.h"
+#import "ORDevice.h"
+#import "ORDeviceCommand.h"
 #import "OCMock.h"
 
 @interface ControllerREST_2_0_0_APITest ()
@@ -74,6 +75,18 @@
     [OCMStub([device name]) andReturn:@"deviceName"];
     ORRestCallMock *call = (ORRestCallMock *)[self.api requestDevice:device baseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
     XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName", @"URL not matching expected URL as per specifications");
+}
+
+- (void)testExecuteCommand
+{
+    id device = OCMClassMock([ORDevice class]);
+    id command = OCMClassMock([ORDeviceCommand class]);
+
+    [OCMStub([device name]) andReturn:@"deviceName"];
+    [OCMStub([command device]) andReturn:device];
+    [OCMStub([command name]) andReturn:@"CommandName"];
+    ORRestCallMock *call = (ORRestCallMock *)[self.api executeCommand:command baseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName?name=CommandName", @"URL not matching expected URL as per specifications");
 }
 
 @end

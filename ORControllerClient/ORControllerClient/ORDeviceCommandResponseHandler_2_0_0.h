@@ -19,13 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
-
-@class ORDevice;
-@class ORController;
+#import <Foundation/Foundation.h>
+#import "ORResponseHandler.h"
 
 
-@interface ORDeviceViewController : UITableViewController
-@property (nonatomic, strong) ORDevice *device;
-@property(nonatomic, strong) ORController *orb;
+@interface ORDeviceCommandResponseHandler_2_0_0 : ORResponseHandler
+
+- (instancetype)initWithSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
 @end

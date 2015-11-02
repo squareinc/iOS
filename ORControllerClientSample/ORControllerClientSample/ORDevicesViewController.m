@@ -48,6 +48,7 @@
     if ([segue.identifier isEqualToString:@"DeviceSegue"]) {
         ORDeviceViewController *vc = (ORDeviceViewController *) segue.destinationViewController;
         vc.device = self.deviceModel.devices[(NSUInteger) [self.tableView indexPathForCell:sender].row];
+        vc.orb = self.orb;
     }
 }
 

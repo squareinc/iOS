@@ -32,6 +32,7 @@
 @class ORGesture;
 @class ORDevice;
 @class ORControllerDeviceModel;
+@class ORDeviceCommand;
 
 /**
  * Represents an OpenRemote ORB
@@ -145,6 +146,10 @@
  */
 - (void)requestDevice:(ORDevice *)device withSuccessHandler:(void (^)(ORDevice *theDevice))successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
+/**
+ * Execute a command
+ */
+- (void)executeCommand:(ORDeviceCommand *)command withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
 /**
  * Retrieves a resource with the given name from the controller.
  * Both handlers are guaranteed to be called on the same thread that initially called this method.

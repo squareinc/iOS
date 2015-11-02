@@ -26,6 +26,8 @@
 @class ORRESTCall;
 @class Definition;
 @class ORWidget;
+@class ORDevice;
+@class ORDeviceCommand;
 
 /**
  * Error domain used for NSError specific to the ORClient library.
@@ -84,6 +86,16 @@ extern NSString *const kORClientErrorDomain;
 - (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL
                          withSuccessHandler:(void (^)(NSArray *))successHandler
                                errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)requestDevice:(ORDevice *)device
+                      baseURL:(NSURL *)baseURL
+           withSuccessHandler:(void (^)(ORDevice *))successHandler
+                 errorHandler:(void (^)(NSError *))errorHandler;
+
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command
+                       baseURL:(NSURL *)baseURL
+            withSuccessHandler:(void (^)())successHandler
+                  errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * The authentication manager that can provide credential during calls.

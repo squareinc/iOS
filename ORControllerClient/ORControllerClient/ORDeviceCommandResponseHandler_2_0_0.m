@@ -19,13 +19,34 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import "ORDeviceCommandResponseHandler_2_0_0.h"
+#import "ORResponseHandler_Private.h"
 
-@class ORDevice;
-@class ORController;
+@interface ORDeviceCommandResponseHandler_2_0_0 ()
+
+@property (strong, nonatomic) void (^_successHandler)();
+
+@end
+
+@implementation ORDeviceCommandResponseHandler_2_0_0
+
+- (instancetype)initWithSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    self = [super init];
+    if (self) {
+        self._successHandler = successHandler;
+        self._errorHandler = errorHandler;
+    }
+    return self;
+}
+
+- (void)processValidResponseData:(NSData *)receivedData
+{
+    // nothing to parse, a successful response return with a NO_CONTENT (204) response code
+    if (self._successHandler) {
+        self._successHandler();
+    }
+}
 
 
-@interface ORDeviceViewController : UITableViewController
-@property (nonatomic, strong) ORDevice *device;
-@property(nonatomic, strong) ORController *orb;
 @end

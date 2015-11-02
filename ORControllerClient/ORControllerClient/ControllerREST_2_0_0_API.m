@@ -30,6 +30,8 @@
 #import "DeviceListResponseHandler_2_0_0.h"
 #import "ORDevice.h"
 #import "DeviceResponseHandler_2_0_0.h"
+#import "ORDeviceCommand.h"
+#import "ORDeviceCommandResponseHandler_2_0_0.h"
 
 @interface ControllerREST_2_0_0_API ()
 
@@ -168,5 +170,20 @@
     // TODO: check for nil return value -> error
     // TODO: should someone keep the connection pointer and "nilify" when done ?
     return [self callForRequest:request delegate:[[DeviceResponseHandler_2_0_0 alloc] initWithDevice:device successHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSString *urlString = [NSString stringWithFormat:@"/rest/devices/%@?name=%@", command.device.name, command.name];
+    NSURL *url = [NSURL URLWithString:[[baseURL absoluteString] stringByAppendingString:urlString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    request.HTTPMethod = @"POST";
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[ORDeviceCommandResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 @end
