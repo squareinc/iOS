@@ -70,7 +70,7 @@
         sensor.identifier = [[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"id"]];
         sensor.name = attributeDict[@"name"];
         sensor.type = [self typeForValue:attributeDict[@"type"]];
-        sensor.command = [self.device commandWithId:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"command_id"]]];
+        sensor.command = [self.device findCommandById:[[ORObjectIdentifier alloc] initWithStringId:[attributeDict valueForKey:@"command_id"]]];
         [self.device addSensor:sensor];
     } else if ([elementName isEqualToString:@"tag"]) {
         self.tagBuffer = [[NSMutableString alloc] init];

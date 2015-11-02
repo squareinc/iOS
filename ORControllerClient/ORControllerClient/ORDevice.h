@@ -41,11 +41,46 @@
 /**
  * The commands of the device
  */
-@property (nonatomic, strong, readonly) NSArray *commands;
+@property (nonatomic, strong, readonly) NSArray<ORDeviceCommand *> *commands;
 
 /**
  * The sensors of the device
  */
-@property (nonatomic, strong, readonly) NSArray *sensors;
+@property (nonatomic, strong, readonly) NSArray<ORDeviceCommand *> *sensors;
+
+/**
+ * Find a device command by its id
+ *
+ * @return a device or nil if no device was found
+ */
+- (ORDeviceCommand *)findCommandById:(ORObjectIdentifier *)id;
+
+/**
+ * Find a device command by its name
+ *
+ * @return a device or nil if no device was found
+ */
+- (ORDeviceCommand *)findCommandByName:(NSString *)name;
+
+/**
+ * Find device commands by its tag(s)
+ *
+ * @return a NSSet of devices. The set can be empty
+ */
+- (NSSet<ORDeviceCommand *> *)findCommandsByTags:(NSSet<NSString *>*)tags;
+
+/**
+ * Find a device sensor by its id
+ *
+ * @return a sensor or nil if no device was found
+ */
+- (ORDeviceSensor *)findSensorById:(ORObjectIdentifier *)id;
+
+/**
+ * Find a device sensor by its name
+ *
+ * @return a sensor or nil if no device was found
+ */
+- (ORDeviceSensor *)findSensorByName:(NSString *)name;
 
 @end

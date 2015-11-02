@@ -37,7 +37,7 @@
 #import "ControllerREST_2_0_0_API.h"
 #import "ORDevice.h"
 #import "Sequencer.h"
-#import "ORControllerDeviceModel.h"
+#import "ORControllerDeviceModel_Private.h"
 #import "ORDeviceCommand.h"
 
 @interface ORController ()

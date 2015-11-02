@@ -27,6 +27,8 @@
 
 @interface ORDevice ()
 
+@property (nonatomic, strong) NSMutableArray<ORDeviceCommand *> *internalCommands;
+@property (nonatomic, strong) NSMutableArray<ORDeviceSensor *> *internalSensors;
 
 @end
 
@@ -63,15 +65,61 @@
     }
 }
 
-- (ORDeviceCommand *)commandWithId:(ORObjectIdentifier *)identifier
+- (ORDeviceCommand *)findCommandById:(ORObjectIdentifier *)id
 {
     for (ORDeviceCommand *command in self.internalCommands) {
-        if ([command.identifier isEqual:identifier]) {
+        if ([command.identifier isEqual:id]) {
             return command;
         }
     }
     return nil;
 }
+
+- (ORDeviceCommand *)findCommandByName:(NSString *)name
+{
+    for (ORDeviceCommand *command in self.internalCommands) {
+        if ([command.name isEqualToString:name]) {
+            return command;
+        }
+    }
+    return nil;
+}
+
+- (NSSet<ORDeviceCommand *> *)findCommandsByTags:(NSSet<NSString *> *)tags
+{
+    NSArray *commands = [self.internalCommands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORDeviceCommand *command, NSDictionary *bindings) {
+        BOOL commandHasTag = NO;
+        for (NSString *tag in tags) {
+            if ([command.tags containsObject:tag]) {
+                commandHasTag = YES;
+                break;
+            }
+        }
+        return commandHasTag;
+    }]];
+    return [NSSet setWithArray:commands];
+}
+
+- (ORDeviceSensor *)findSensorById:(ORObjectIdentifier *)id
+{
+    for (ORDeviceSensor *sensor in self.internalSensors) {
+        if ([sensor.identifier isEqual:id]) {
+            return sensor;
+        }
+    }
+    return nil;
+}
+
+- (ORDeviceSensor *)findSensorByName:(NSString *)name
+{
+    for (ORDeviceSensor *sensor in self.internalSensors) {
+        if ([sensor.name isEqualToString:name]) {
+            return sensor;
+        }
+    }
+    return nil;
+}
+
 
 #pragma mark - getters/setter
 

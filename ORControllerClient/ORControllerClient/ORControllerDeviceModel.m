@@ -20,7 +20,8 @@
  */
 
 #import "ORControllerDeviceModel.h"
-#import "AsyncSocket.h"
+#import "ORDevice.h"
+#import "ORObjectIdentifier.h"
 
 
 @interface ORControllerDeviceModel ()
@@ -38,6 +39,26 @@
         self.devices = devices;
     }
     return self;
+}
+
+- (ORDevice *)findDeviceById:(ORObjectIdentifier *)id
+{
+    for (ORDevice *device in self.devices) {
+        if ([device.identifier isEqual:id]) {
+            return device;
+        }
+    }
+    return nil;
+}
+
+- (ORDevice *)findDeviceByName:(NSString *)name
+{
+    for (ORDevice *device in self.devices) {
+        if ([device.name isEqualToString:name]) {
+            return device;
+        }
+    }
+    return nil;
 }
 
 

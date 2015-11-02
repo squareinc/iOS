@@ -21,11 +21,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORDevice;
+@class ORObjectIdentifier;
+
 
 @interface ORControllerDeviceModel : NSObject
 
 @property (nonatomic, strong, readonly) NSArray *devices;
 
-- (instancetype)initWithDevices:(NSArray *)devices;
+- (ORDevice *)findDeviceById:(ORObjectIdentifier *)id;
+
+- (ORDevice *)findDeviceByName:(NSString *)name;
 
 @end

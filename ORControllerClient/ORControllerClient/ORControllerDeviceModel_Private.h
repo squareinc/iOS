@@ -19,18 +19,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-@class ORObjectIdentifier;
+#import "ORControllerDeviceModel.h"
 
-#import "ORDevice.h"
+@interface ORControllerDeviceModel ()
 
-@interface ORDevice ()
-
-@property (nonatomic, copy, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
-
-- (void)addCommand:(ORDeviceCommand *)command;
-
-- (void)addSensor:(ORDeviceSensor *)sensor;
+- (instancetype)initWithDevices:(NSArray *)devices;
 
 @end
-

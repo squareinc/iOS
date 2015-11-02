@@ -19,18 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-@class ORObjectIdentifier;
+#import <XCTest/XCTest.h>
 
-#import "ORDevice.h"
 
-@interface ORDevice ()
-
-@property (nonatomic, copy, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) ORObjectIdentifier *identifier;
-
-- (void)addCommand:(ORDeviceCommand *)command;
-
-- (void)addSensor:(ORDeviceSensor *)sensor;
-
+@interface ORControllerDeviceModelTest : XCTestCase
 @end
-
