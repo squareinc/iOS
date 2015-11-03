@@ -133,4 +133,26 @@
     XCTAssertNil(sensor);
 }
 
+- (void)testNSCoding
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.device];
+    XCTAssertNotNil(data);
+    ORDevice *device = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    XCTAssertNotNil(device);
+    XCTAssertEqualObjects(device, self.device);
+    for (ORDeviceCommand *command in device.commands) {
+        XCTAssertEqualObjects(command.device, device);
+    }
+    for (ORDeviceSensor *sensor in device.sensors) {
+        XCTAssertEqualObjects(sensor.device, device);
+    }
+    ORDeviceSensor *sensor1 = device.sensors[0];
+    BOOL sensorHasCorrectCommand = NO;
+    for (ORDeviceCommand *command in device.commands) {
+        if (sensor1.command == command) {
+            sensorHasCorrectCommand = YES;
+        }
+    }
+    XCTAssertTrue(sensorHasCorrectCommand, @"Sensor has not correct command associated");
+}
 @end

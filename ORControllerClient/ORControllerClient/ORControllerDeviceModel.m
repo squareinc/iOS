@@ -32,6 +32,8 @@
 
 @implementation ORControllerDeviceModel
 
+static NSString * const kDeviceKey = @"Devices";
+
 - (instancetype)initWithDevices:(NSArray *)devices
 {
     self = [super init];
@@ -61,5 +63,40 @@
     return nil;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.devices forKey:kDeviceKey];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder
+{
+    return [self initWithDevices:[coder decodeObjectForKey:kDeviceKey]];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToModel:other];
+}
+
+- (BOOL)isEqualToModel:(ORControllerDeviceModel *)model
+{
+    if (self == model)
+        return YES;
+    if (model == nil)
+        return NO;
+    if (self.devices != model.devices && ![self.devices isEqualToArray:model.devices])
+        return NO;
+    return YES;
+}
+
+- (NSUInteger)hash
+{
+    return [self.devices hash];
+}
 
 @end

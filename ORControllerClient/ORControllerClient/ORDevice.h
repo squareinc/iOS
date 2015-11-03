@@ -26,7 +26,7 @@
 @class ORDeviceSensor;
 
 
-@interface ORDevice : NSObject
+@interface ORDevice : NSObject <NSCoding>
 
 /**
  * The name of the device.
@@ -46,7 +46,7 @@
 /**
  * The sensors of the device
  */
-@property (nonatomic, strong, readonly) NSArray<ORDeviceCommand *> *sensors;
+@property (nonatomic, strong, readonly) NSArray<ORDeviceSensor *> *sensors;
 
 /**
  * Find a device command by its id
@@ -83,4 +83,5 @@
  */
 - (ORDeviceSensor *)findSensorByName:(NSString *)name;
 
+- (BOOL)isEqualToDevice:(ORDevice *)other;
 @end

@@ -74,4 +74,13 @@
 
 }
 
+- (void)testNSCoding
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.model];
+    XCTAssertNotNil(data);
+    ORControllerDeviceModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    XCTAssertNotNil(model);
+    XCTAssertEqualObjects(self.model, model);
+}
+
 @end

@@ -25,12 +25,14 @@
 @class ORObjectIdentifier;
 
 
-@interface ORControllerDeviceModel : NSObject
+@interface ORControllerDeviceModel : NSObject <NSCoding>
 
 @property (nonatomic, strong, readonly) NSArray *devices;
 
 - (ORDevice *)findDeviceById:(ORObjectIdentifier *)id;
 
 - (ORDevice *)findDeviceByName:(NSString *)name;
+
+- (BOOL)isEqualToModel:(ORControllerDeviceModel *)model;
 
 @end

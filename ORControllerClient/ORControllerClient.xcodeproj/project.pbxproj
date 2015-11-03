@@ -297,6 +297,8 @@
 		B57B47414A4DB5FD2E4277B8 /* ORDevicesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */; };
 		B57B4C2BB02A3C49C8565DDF /* ORControllerDeviceModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B49222B357A2D11983111 /* ORControllerDeviceModelTest.m */; };
 		B57B4C692AF6342E32717F39 /* DeviceResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */; };
+		B57B4C704F2B6EAE8313FD2D /* ORDeviceSensorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */; };
+		B57B4D6FFD154DC0FBB9AB13 /* ORDeviceCommandTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */; };
 		B57B4DA111EC7418285520E2 /* ORDeviceListParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */; };
 		B57B4EBB1053E0BAC22D0F8A /* ORDeviceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B464A34AC6CA9D0279879 /* ORDeviceCommand.m */; };
 /* End PBXBuildFile section */
@@ -722,6 +724,7 @@
 		B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceParser.m; sourceTree = "<group>"; };
 		B57B432C696CFE3188D0AC8E /* DeviceListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDevicesParser.m; sourceTree = "<group>"; };
+		B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceSensorTest.m; sourceTree = "<group>"; };
 		B57B43B7FBF38A26831B790A /* ORDeviceParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceParserTest.h; sourceTree = "<group>"; };
 		B57B43C06332943D6D39381C /* ORDeviceCommandResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommandResponseHandler_2_0_0.h; sourceTree = "<group>"; };
 		B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceResponseHandler_2_0_0.m; sourceTree = "<group>"; };
@@ -731,6 +734,7 @@
 		B57B469C9EBF12C2AE381381 /* Sequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequencer.m; sourceTree = "<group>"; };
 		B57B46BD79F411481BD67D5A /* ORControllerDeviceModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerDeviceModel_Private.h; sourceTree = "<group>"; };
 		B57B46DE9A80496292273F52 /* ORControllerDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerDeviceModel.h; sourceTree = "<group>"; };
+		B57B47C7462C04CE6E5D7865 /* ORDeviceSensorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensorTest.h; sourceTree = "<group>"; };
 		B57B47DA83C49D1597BD0F19 /* ORDeviceSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensor.h; sourceTree = "<group>"; };
 		B57B48738BD61D2802916A39 /* ORDeviceCommand_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommand_Private.h; sourceTree = "<group>"; };
 		B57B48A9A80981641E9A2BC4 /* ORDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDevice.m; sourceTree = "<group>"; };
@@ -741,11 +745,13 @@
 		B57B4996C9A89DE02BD9B828 /* Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequencer.h; sourceTree = "<group>"; };
 		B57B4A2D345C61BFE514DD33 /* ORDeviceListParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceListParserTest.h; sourceTree = "<group>"; };
 		B57B4B04BF35DA2BEF7D543A /* ORDeviceSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceSensor.m; sourceTree = "<group>"; };
+		B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceCommandTest.m; sourceTree = "<group>"; };
 		B57B4B774EF57D82D4F6FC34 /* ORControllerDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerDeviceModel.m; sourceTree = "<group>"; };
 		B57B4BDE8DC6AADF8F960207 /* ORDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceParser.h; sourceTree = "<group>"; };
 		B57B4D0FD148A08E5F2E637F /* ORDeviceSensor_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensor_Private.h; sourceTree = "<group>"; };
 		B57B4D57CE92A4CA0EAFDC72 /* ORDevicesParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevicesParser.h; sourceTree = "<group>"; };
 		B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceCommandResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		B57B4E6D580B29C87C387322 /* ORDeviceCommandTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommandTest.h; sourceTree = "<group>"; };
 		B57B4E748E211515F2527A1D /* ORDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevice.h; sourceTree = "<group>"; };
 		B57B4ED28B23678FE2151596 /* ORDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceTest.h; sourceTree = "<group>"; };
 		B57B4EEA2DD0183AFD87F240 /* ORDeviceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommand.h; sourceTree = "<group>"; };
@@ -1369,6 +1375,10 @@
 				B57B4ED28B23678FE2151596 /* ORDeviceTest.h */,
 				B57B49222B357A2D11983111 /* ORControllerDeviceModelTest.m */,
 				B57B48BB8ABCC4ADAFE651A7 /* ORControllerDeviceModelTest.h */,
+				B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */,
+				B57B4E6D580B29C87C387322 /* ORDeviceCommandTest.h */,
+				B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */,
+				B57B47C7462C04CE6E5D7865 /* ORDeviceSensorTest.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1782,6 +1792,8 @@
 				B57B4DA111EC7418285520E2 /* ORDeviceListParserTest.m in Sources */,
 				B57B40AD491C35F93ADEDD8F /* ORDeviceTest.m in Sources */,
 				B57B4C2BB02A3C49C8565DDF /* ORControllerDeviceModelTest.m in Sources */,
+				B57B4D6FFD154DC0FBB9AB13 /* ORDeviceCommandTest.m in Sources */,
+				B57B4C704F2B6EAE8313FD2D /* ORDeviceSensorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

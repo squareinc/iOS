@@ -19,8 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import "ORDeviceCommand.h"
 #import "ORDeviceCommand_Private.h"
 #import "ORObjectIdentifier.h"
+#import "ORDevice_Private.h"
+
+static NSString *const KTagsKeys = @"self.internalTags";
+static NSString *const kNameKey = @"name";
+static NSString *const kIdentifierKey = @"identifier";
+static NSString *const kProtocolKey = @"protocol";
 
 @interface ORDeviceCommand ()
 
@@ -30,11 +37,10 @@
 
 @implementation ORDeviceCommand
 
-@synthesize name;
-@synthesize identifier;
-@synthesize protocol;
-@synthesize device;
-@synthesize tags;
+@synthesize name = _name;
+@synthesize identifier = _identifier;
+@synthesize protocol = _protocol;
+@synthesize device = _device;
 
 - (void)addTag:(NSString *)tag
 {
@@ -58,5 +64,67 @@
     return [self.internalTags copy];
 }
 
+#pragma mark - NSCoding
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.internalTags = [coder decodeObjectForKey:KTagsKeys];
+        _name = [coder decodeObjectForKey:kNameKey];
+        _identifier = [coder decodeObjectForKey:kIdentifierKey];
+        _protocol = [coder decodeObjectForKey:kProtocolKey];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.internalTags forKey:KTagsKeys];
+    [coder encodeObject:self.name forKey:kNameKey];
+    [coder encodeObject:self.identifier forKey:kIdentifierKey];
+    [coder encodeObject:self.protocol forKey:kProtocolKey];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToCommand:other];
+}
+
+- (BOOL)isEqualToCommand:(ORDeviceCommand *)command
+{
+    if (self == command)
+        return YES;
+    if (command == nil)
+        return NO;
+    if (self.tags != command.tags && ![self.tags isEqualToSet:command.tags])
+        return NO;
+    if (self.internalTags != command.internalTags && ![self.internalTags isEqualToSet:command.internalTags])
+        return NO;
+    if (self.name != command.name && ![self.name isEqualToString:command.name])
+        return NO;
+    if (self.identifier != command.identifier && ![self.identifier isEqual:command.identifier])
+        return NO;
+    if (self.protocol != command.protocol && ![self.protocol isEqualToString:command.protocol])
+        return NO;
+    return YES;
+}
+
+- (NSUInteger)hash
+{
+    NSUInteger hash = [self.tags hash];
+    hash = hash * 31u + [self.internalTags hash];
+    hash = hash * 31u + [self.name hash];
+    hash = hash * 31u + [self.identifier hash];
+    hash = hash * 31u + [self.protocol hash];
+    hash = hash * 31u + [self.device hash];
+    return hash;
+}
 
 @end

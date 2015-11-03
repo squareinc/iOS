@@ -25,6 +25,7 @@
 #import "ORObjectIdentifier.h"
 #import "ORDeviceSensor.h"
 
+
 @interface ORDevice ()
 
 @property (nonatomic, strong) NSMutableArray<ORDeviceCommand *> *internalCommands;
@@ -34,7 +35,10 @@
 
 @implementation ORDevice
 
-
+static NSString *const kNameKey = @"_name";
+static NSString *const kIdentifierKey = @"_identifier";
+static NSString *const kCommandsKey = @"self.internalCommands";
+static NSString *const kSensorsKey = @"self.internalSensors";
 
 @synthesize name = _name;
 @synthesize identifier = _identifier;
@@ -147,6 +151,77 @@
         _internalSensors = [[NSMutableArray alloc] init];
     }
     return _internalSensors;
+}
+
+#pragma mark - NSCoding
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.internalCommands = [coder decodeObjectForKey:kCommandsKey];
+        [self.internalCommands enumerateObjectsUsingBlock:^(ORDeviceCommand *command, NSUInteger idx, BOOL *stop) {
+            command.device = self;
+        }];
+        self.internalSensors = [coder decodeObjectForKey:kSensorsKey];
+        [self.internalSensors enumerateObjectsUsingBlock:^(ORDeviceSensor *sensor, NSUInteger idx, BOOL *stop) {
+            sensor.device = self;
+            if (sensor.commandIdentifier) {
+                [self.internalCommands enumerateObjectsUsingBlock:^(ORDeviceCommand *command, NSUInteger idxCommand, BOOL *stopCommand) {
+                    if ([command.identifier isEqual:sensor.commandIdentifier]) {
+                        sensor.command = command;
+                        *stopCommand = YES;
+                    }
+                }];
+            }
+        }];
+        _name = [coder decodeObjectForKey:kNameKey];
+        _identifier = [coder decodeObjectForKey:kIdentifierKey];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.internalCommands forKey:kCommandsKey];
+    [coder encodeObject:self.internalSensors forKey:kSensorsKey];
+    [coder encodeObject:self.name forKey:kNameKey];
+    [coder encodeObject:self.identifier forKey:kIdentifierKey];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToDevice:other];
+}
+
+- (BOOL)isEqualToDevice:(ORDevice *)device
+{
+    if (self == device)
+        return YES;
+    if (device == nil)
+        return NO;
+    if (self.internalCommands != device.internalCommands && ![self.internalCommands isEqualToArray:device.internalCommands])
+        return NO;
+    if (self.internalSensors != device.internalSensors && ![self.internalSensors isEqualToArray:device.internalSensors])
+        return NO;
+    if (self.name != device.name && ![self.name isEqualToString:device.name])
+        return NO;
+    return YES;
+}
+
+- (NSUInteger)hash
+{
+    NSUInteger hash = [self.internalCommands hash];
+    hash = hash * 31u + [self.internalSensors hash];
+    hash = hash * 31u + [self.name hash];
+    hash = hash * 31u + [self.identifier hash];
+    return hash;
 }
 
 @end

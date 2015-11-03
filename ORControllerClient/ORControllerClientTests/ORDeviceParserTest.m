@@ -40,7 +40,7 @@
     NSString *correctName = @"DeviceName";
     XCTAssertEqualObjects(device.name, correctName, @"Device name (%@) is not correct. It should be %@", device.name, correctName);
     int correctId = 12345;
-    XCTAssertEqualObjects(device.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:correctId], @"Device identifier (%d) is not correct. It should be %d", device.identifier, correctId);
+    XCTAssertEqualObjects(device.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:correctId], @"Device identifier (%@) is not correct. It should be %d", device.identifier, correctId);
 
     int commandCorrectCount = 1;
     XCTAssertEqual(device.commands.count, commandCorrectCount, @"Device commands count (%d) is not correct. It should be %d", device.commands.count, commandCorrectCount);

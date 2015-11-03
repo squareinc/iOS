@@ -28,5 +28,6 @@
 @property (nonatomic, assign, readwrite) SensorType type;
 @property (nonatomic, weak, readwrite) ORDevice *device;
 @property (nonatomic, weak, readwrite) ORDeviceCommand *command;
+@property (nonatomic, strong) ORObjectIdentifier *commandIdentifier;
 
 @end

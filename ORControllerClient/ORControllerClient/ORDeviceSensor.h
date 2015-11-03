@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, SensorType) {
     SensorTypeCustom
 };
 
-@interface ORDeviceSensor : NSObject
+@interface ORDeviceSensor : NSObject <NSCoding>
 
 /**
  * The identifier of the sensor.

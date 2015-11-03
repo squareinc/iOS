@@ -19,37 +19,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORDeviceCommandTest.h"
+#import "ORDeviceCommand_Private.h"
+#import "ORObjectIdentifier.h"
 
-@class ORObjectIdentifier;
-@class ORDevice;
 
-@interface ORDeviceCommand : NSObject <NSCoding>
+@implementation ORDeviceCommandTest
 
-/**
- * The identifier of the command.
- */
-@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
+- (void)testNSCoding
+{
+    ORDeviceCommand *command = [[ORDeviceCommand alloc] init];
+    command.identifier = [[ORObjectIdentifier alloc] initWithIntegerId:123];
+    command.name = @"CommandName";
+    [command addTag:@"Tag1"];
+    [command addTag:@"Tag2"];
 
-/**
- * The name of the command
- */
-@property (nonatomic, strong, readonly) NSString *name;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:command];
+    XCTAssertNotNil(data);
+    ORDeviceCommand *newCommand = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    XCTAssertNotNil(newCommand);
+    XCTAssertEqualObjects(newCommand, command);
+}
 
-/**
- * The protocol of the command
- */
-@property (nonatomic, strong, readonly) NSString *protocol;
-
-/**
- * The tags of the command
- */
-@property (nonatomic, strong, readonly) NSSet *tags;
-
-/**
- * The owner device
- */
-@property (nonatomic, weak, readonly) ORDevice *device;
-
-- (BOOL)isEqualToCommand:(ORDeviceCommand *)other;
 @end

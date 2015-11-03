@@ -19,37 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@class ORObjectIdentifier;
-@class ORDevice;
 
-@interface ORDeviceCommand : NSObject <NSCoding>
-
-/**
- * The identifier of the command.
- */
-@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier;
-
-/**
- * The name of the command
- */
-@property (nonatomic, strong, readonly) NSString *name;
-
-/**
- * The protocol of the command
- */
-@property (nonatomic, strong, readonly) NSString *protocol;
-
-/**
- * The tags of the command
- */
-@property (nonatomic, strong, readonly) NSSet *tags;
-
-/**
- * The owner device
- */
-@property (nonatomic, weak, readonly) ORDevice *device;
-
-- (BOOL)isEqualToCommand:(ORDeviceCommand *)other;
+@interface ORDeviceCommandTest : XCTestCase
 @end
