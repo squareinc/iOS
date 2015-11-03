@@ -32,6 +32,7 @@
 #import "DeviceResponseHandler_2_0_0.h"
 #import "ORDeviceCommand.h"
 #import "ORDeviceCommandResponseHandler_2_0_0.h"
+#import "NSStringAdditions.h"
 
 @interface ControllerREST_2_0_0_API ()
 
@@ -172,13 +173,15 @@
     return [self callForRequest:request delegate:[[DeviceResponseHandler_2_0_0 alloc] initWithDevice:device successHandler:successHandler errorHandler:errorHandler]];
 }
 
-- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command parameter:(NSString *)parameter baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
-    NSString *urlString = [NSString stringWithFormat:@"/rest/devices/%@?name=%@", command.device.name, command.name];
+    NSString *urlString = [NSString stringWithFormat:@"/rest/devices/%@/commands?name=%@", command.device.name, command.name];
     NSURL *url = [NSURL URLWithString:[[baseURL absoluteString] stringByAppendingString:urlString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
     request.HTTPMethod = @"POST";
+    if (parameter) {
+        request.HTTPBody = [[NSString stringWithFormat:@"<parameter>%@</parameter>", [parameter escapeXmlEntities]] dataUsingEncoding:NSUTF8StringEncoding];
+    }
 
 // TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
 

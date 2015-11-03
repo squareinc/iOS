@@ -149,7 +149,7 @@
 /**
  * Execute a command
  */
-- (void)executeCommand:(ORDeviceCommand *)command withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
+- (void)executeCommand:(ORDeviceCommand *)command withParameter:(NSString *)parameter successHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
 /**
  * Retrieves a resource with the given name from the controller.
  * Both handlers are guaranteed to be called on the same thread that initially called this method.

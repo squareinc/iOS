@@ -77,7 +77,7 @@
     XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName", @"URL not matching expected URL as per specifications");
 }
 
-- (void)testExecuteCommand
+- (void)testExecuteCommandWithNoParameter
 {
     id device = OCMClassMock([ORDevice class]);
     id command = OCMClassMock([ORDeviceCommand class]);
@@ -85,8 +85,24 @@
     [OCMStub([device name]) andReturn:@"deviceName"];
     [OCMStub([command device]) andReturn:device];
     [OCMStub([command name]) andReturn:@"CommandName"];
-    ORRestCallMock *call = (ORRestCallMock *)[self.api executeCommand:command baseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
-    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName?name=CommandName", @"URL not matching expected URL as per specifications");
+    ORRestCallMock *call = (ORRestCallMock *) [self.api executeCommand:command parameter:nil baseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName/commands?name=CommandName", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.request.HTTPMethod, @"POST");
+    XCTAssertNil(call.request.HTTPBody);
+}
+
+- (void)testExecuteCommandWithParameter
+{
+    id device = OCMClassMock([ORDevice class]);
+    id command = OCMClassMock([ORDeviceCommand class]);
+
+    [OCMStub([device name]) andReturn:@"deviceName"];
+    [OCMStub([command device]) andReturn:device];
+    [OCMStub([command name]) andReturn:@"CommandName"];
+    ORRestCallMock *call = (ORRestCallMock *) [self.api executeCommand:command parameter:@"parameterValue" baseURL:[NSURL URLWithString:@"http://localhost:8688/controller"] withSuccessHandler:NULL errorHandler:NULL];
+    XCTAssertEqualObjects(call.requestURL, @"http://localhost:8688/controller/rest/devices/deviceName/commands?name=CommandName", @"URL not matching expected URL as per specifications");
+    XCTAssertEqualObjects(call.request.HTTPMethod, @"POST");
+    XCTAssertEqualObjects([[NSString alloc] initWithData:call.request.HTTPBody encoding:NSUTF8StringEncoding], @"<parameter>parameterValue</parameter>");
 }
 
 @end

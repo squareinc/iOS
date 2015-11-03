@@ -92,10 +92,7 @@ extern NSString *const kORClientErrorDomain;
            withSuccessHandler:(void (^)(ORDevice *))successHandler
                  errorHandler:(void (^)(NSError *))errorHandler;
 
-- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command
-                       baseURL:(NSURL *)baseURL
-            withSuccessHandler:(void (^)())successHandler
-                  errorHandler:(void (^)(NSError *))errorHandler;
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command parameter:(NSString *)parameter baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
 
 /**
  * The authentication manager that can provide credential during calls.

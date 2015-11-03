@@ -108,10 +108,7 @@ NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
     return nil;
 }
 
-- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command
-                       baseURL:(NSURL *)baseURL
-            withSuccessHandler:(void (^)())successHandler
-                  errorHandler:(void (^)(NSError *))errorHandler
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command parameter:(NSString *)parameter baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     return nil;
 }

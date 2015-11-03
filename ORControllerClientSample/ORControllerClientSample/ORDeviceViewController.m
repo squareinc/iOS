@@ -87,9 +87,9 @@
         ORDeviceCommand *command = self.device.commands[(NSUInteger) indexPath.row];
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.orb executeCommand:command withSuccessHandler:^{
+        [self.orb executeCommand:command withParameter:nil successHandler:^{
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } errorHandler:^(NSError *error) {
+        }           errorHandler:^(NSError *error) {
             UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Error" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
             [ac addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:ac animated:YES completion:nil];

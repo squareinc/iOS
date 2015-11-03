@@ -294,7 +294,7 @@
 
 }
 
-- (void)executeCommand:(ORDeviceCommand *)command withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+- (void)executeCommand:(ORDeviceCommand *)command withParameter:(NSString *)parameter successHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
 {
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
@@ -302,22 +302,22 @@
     dispatch_queue_t originalQueue = dispatch_get_current_queue();
 
     [self.controllerAPI executeCommand:command
+                             parameter:parameter
                                baseURL:self.address.primaryURL
                     withSuccessHandler:^(NSArray *array) {
-                        if (successHandler) {
-                            dispatch_async(originalQueue, ^{
-                                successHandler();
-                            });
-                        }
-                    }
-                          errorHandler:^(NSError *error) {
-                              if (errorHandler) {
-                                  dispatch_async(originalQueue, ^{
-                                      errorHandler(error);
-                                  });
-                              }
+        if (successHandler) {
+            dispatch_async(originalQueue, ^{
+                successHandler();
+            });
+        }
+    }                     errorHandler:^(NSError *error) {
+        if (errorHandler) {
+            dispatch_async(originalQueue, ^{
+                errorHandler(error);
+            });
+        }
 
-                          }];
+    }];
 }
 
 
