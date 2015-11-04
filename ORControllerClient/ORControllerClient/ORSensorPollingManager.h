@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 
 @class ORControllerAddress;
-@class ORSensorRegistry;
+@class ORPanelDefinitionSensorRegistry;
 @class ORControllerRESTAPI;
 
 /**
@@ -45,7 +45,7 @@
  */
 - (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
                     controllerAddress:(ORControllerAddress *)controllerAddress
-                       sensorRegistry:(ORSensorRegistry *)sensorRegistry;
+                       sensorRegistry:(ORPanelDefinitionSensorRegistry *)sensorRegistry;
 
 /*
  * Requests current value of sensors registered in registry, then polling mechanism to receive updates to those value.

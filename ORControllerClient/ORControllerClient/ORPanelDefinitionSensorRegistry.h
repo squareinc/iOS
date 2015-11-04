@@ -30,7 +30,7 @@
  * Class is responsible to manage the list of known sensors
  * and the UI widgets dependency on those sensors.
  */
-@interface ORSensorRegistry : NSObject <NSCoding>
+@interface ORPanelDefinitionSensorRegistry : NSObject <NSCoding>
 
 /**
  * Fully clears the registry of all information it contains.

@@ -21,7 +21,7 @@
 
 #import "ORController.h"
 #import "ORControllerAddress.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORSensorPollingManager.h"
 #import "ORPanel.h"
 #import "Definition.h"

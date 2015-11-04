@@ -21,7 +21,7 @@
 #import "Definition.h"
 #import "ORGroup.h"
 #import "ORScreen.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORController.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel.h"
@@ -62,7 +62,7 @@
 @property (nonatomic, strong) NSMutableArray *_colorPickers;
 @property (nonatomic, strong) NSMutableArray *_webViews;
 
-@property (nonatomic, strong, readwrite) ORSensorRegistry *sensorRegistry;
+@property (nonatomic, strong, readwrite) ORPanelDefinitionSensorRegistry *sensorRegistry;
 
 @property (nonatomic, strong, readwrite) NSMutableArray *imageNames;
 
@@ -84,7 +84,7 @@
         self._colorPickers = [NSMutableArray array];
         self._webViews = [NSMutableArray array];
 		self.imageNames = [NSMutableArray array];
-        self.sensorRegistry = [[ORSensorRegistry alloc] init];
+        self.sensorRegistry = [[ORPanelDefinitionSensorRegistry alloc] init];
 	}
 	return self;
 }

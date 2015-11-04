@@ -21,7 +21,7 @@
 
 #import "ORSensorPollingManager.h"
 #import "ORControllerAddress.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORSensorLink.h"
 #import "ORObjectIdentifier.h"
 #import "ORSensorStatesMapping.h"
@@ -35,7 +35,7 @@ typedef void (^PollingBlock)();
 
 @property (nonatomic, strong) ORControllerRESTAPI *_controllerAPI;
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
-@property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
+@property (nonatomic, strong) ORPanelDefinitionSensorRegistry *_sensorRegistry;
 
 @property (atomic, strong) ORRESTCall *_currentCall;
 
@@ -48,7 +48,7 @@ typedef void (^PollingBlock)();
 
 - (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
                     controllerAddress:(ORControllerAddress *)controllerAddress
-                       sensorRegistry:(ORSensorRegistry *)sensorRegistry
+                       sensorRegistry:(ORPanelDefinitionSensorRegistry *)sensorRegistry
 {
     self = [super init];
     if (self) {

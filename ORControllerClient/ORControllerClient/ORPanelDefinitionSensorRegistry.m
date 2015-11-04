@@ -19,7 +19,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORSensorLink.h"
 #import "ORSensor.h"
 #import "ORObjectIdentifier.h"
@@ -28,7 +28,7 @@
 #define kSensorsPerIdKey      @"SensorsPerId"
 #define kLinksPerSensorIdKey  @"LinksPerSensorId"
 
-@interface ORSensorRegistry ()
+@interface ORPanelDefinitionSensorRegistry ()
 
 @property (nonatomic, strong) NSMutableSet *_sensors;
 @property (nonatomic, strong) NSMutableDictionary *_sensorsPerId;
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation ORSensorRegistry
+@implementation ORPanelDefinitionSensorRegistry
 
 - (instancetype)init
 {

@@ -27,7 +27,7 @@
 @class Screen;
 @class LocalController;
 
-@class ORSensorRegistry;
+@class ORPanelDefinitionSensorRegistry;
 @class ORController;
 @class ORObjectIdentifier;
 @class ORButton;
@@ -168,7 +168,7 @@
 @property (nonatomic, strong) LocalController *localController;
 @property (nonatomic, strong, readonly) NSMutableArray *imageNames;
 
-@property (nonatomic, strong, readonly) ORSensorRegistry *sensorRegistry;
+@property (nonatomic, strong, readonly) ORPanelDefinitionSensorRegistry *sensorRegistry;
 
 /**
  * Controller the Definition is attached to.

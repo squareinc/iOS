@@ -20,7 +20,7 @@
  */
 
 #import "ORSensorRegistryTest.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORSensorLink.h"
 #import "ORSensor.h"
 #import "ORSensorStatesMapping.h"
@@ -35,7 +35,7 @@
 
 - (void)testRegistryCreation
 {
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     XCTAssertNotNil([registry sensorIdentifiers], @"Newly created registry should still return a collection of sensor identifiers");
     XCTAssertEqual([[registry sensorIdentifiers] count], (NSUInteger)0, @"No sensors should exist in a newly created registry");
     XCTAssertNotNil([registry sensorLinksForSensorIdentifier:SENSOR_ID_12], @"Newly created should still return a collection of links for a non registered sensor");
@@ -45,7 +45,7 @@
 
 - (void)testRegister
 {
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
@@ -73,7 +73,7 @@
 
 - (void)testMultipleRegister
 {
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
@@ -227,7 +227,7 @@
 
 - (void)testMultipleRegisterWithDifferentMappingsOverrideMapping
 {
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
@@ -256,7 +256,7 @@
 
 - (void)testClearRegistry
 {
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:SENSOR_ID_12];
     ORLabel *label = [[ORLabel alloc] init];
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];

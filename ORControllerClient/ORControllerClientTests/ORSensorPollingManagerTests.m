@@ -21,7 +21,7 @@
 
 #import "ORSensorPollingManagerTests.h"
 #import "ORSensorPollingManager.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 #import "ORLabel_Private.h"
 #import "ORSensor.h"
@@ -42,7 +42,7 @@
 {
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:11] text:@"Initial text"];
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:[[ControllerREST_2_0_0_API alloc] init]
                                                                                  controllerAddress:nil
@@ -76,7 +76,7 @@
     
     ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] text:@"Initial text"];
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
                                                                                  controllerAddress:nil
@@ -95,7 +95,7 @@
     api.sensorPollResult = @{@"1": @"on"};
     api.sensorPollMaxCall = 3;
     
-    ORSensorRegistry *registry = [[ORSensorRegistry alloc] init];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
                                                                                  controllerAddress:nil
                                                                                     sensorRegistry:registry];
