@@ -80,4 +80,6 @@
  */
 - (NSSet *)sensorIdentifiers;
 
+- (void)updateWithSensorValues:(NSDictionary *)sensorValues;
+
 @end

@@ -25,7 +25,7 @@
 #import "ORSensor.h"
 #import "ORSensorStatesMapping.h"
 #import "ORSensorState.h"
-#import "ORLabel.h"
+#import "ORLabel_Private.h"
 #import "ORObjectIdentifier.h"
 
 #define SENSOR_ID_12 [[ORObjectIdentifier alloc] initWithIntegerId:12]
@@ -269,5 +269,33 @@
     XCTAssertEqual([[registry sensorLinksForSensorIdentifier:SENSOR_ID_12] count], (NSUInteger)0, @"No components should be linked to a non existent sensor");
     XCTAssertNil([registry sensorWithIdentifier:SENSOR_ID_12], @"Registry should return nil for a non registered sensor identifier");
 }
+
+- (void)testUpdateComponentsWithSensorValues
+{
+    ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
+    ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:11] text:@"Initial text"];
+    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
+    
+    XCTAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value before any sensor update has been done");
+    
+    [registry updateWithSensorValues:@{@"2" : @"Some sensor value"}];
+    XCTAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value after update for other sensor");
+    
+    [registry updateWithSensorValues:@{@"1" : @"New sensor value"}];
+    XCTAssertEqualObjects(label.text, @"New sensor value", @"Label text should be updated with sensor value");
+    
+    ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
+    [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On Value"]];
+    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:mapping];
+    
+    [registry updateWithSensorValues:@{@"1" : @"off"}];
+    XCTAssertEqualObjects(label.text, @"off", @"Label text should be sensor value when no sensor state matches sensor value");
+    
+    [registry updateWithSensorValues:@{@"1" : @"on"}];
+    XCTAssertEqualObjects(label.text, @"On Value", @"Label text should be state value when sensor state matches sensor value");
+}
+
+
 
 @end

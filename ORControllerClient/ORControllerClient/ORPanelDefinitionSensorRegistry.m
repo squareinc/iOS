@@ -23,6 +23,7 @@
 #import "ORSensorLink.h"
 #import "ORSensor.h"
 #import "ORObjectIdentifier.h"
+#import "ORSensorStatesMapping.h"
 
 #define kSensorsKey           @"Sensors"
 #define kSensorsPerIdKey      @"SensorsPerId"
@@ -88,6 +89,25 @@
 - (NSSet *)sensorIdentifiers
 {
     return [NSSet setWithArray:[self._sensorsPerId allKeys]];
+}
+
+- (void)updateWithSensorValues:(NSDictionary *)sensorValues
+{
+    // Update properties of linked element
+    [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
+        ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithStringId:sensorId];
+        NSSet *sensorLinks = [self sensorLinksForSensorIdentifier:sensorIdentifier];
+        
+        [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
+            // "Map" given sensor value according to defined sensor states
+            NSString *mappedSensorValue = [link.sensorStatesMapping stateValueForName:sensorValue];
+            // If no mapping, use received sensor value as is
+            if (!mappedSensorValue) {
+                mappedSensorValue = sensorValue;
+            }
+            [link.component setValue:mappedSensorValue forKey:link.propertyName];
+        }];
+    }];
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

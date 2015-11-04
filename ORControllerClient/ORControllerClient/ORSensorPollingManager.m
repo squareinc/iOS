@@ -83,7 +83,7 @@ typedef void (^PollingBlock)();
                                                atBaseURL:weakSelf._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
                                           
-                                          [weakSelf updateComponentsWithSensorValues:sensorValues];
+                                          [weakSelf._sensorRegistry updateWithSensorValues:sensorValues];
                                           
                                           NSLog(@"poll got values");
                                           
@@ -110,7 +110,7 @@ typedef void (^PollingBlock)();
     self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
                             atBaseURL:weakSelf._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
-                       [weakSelf updateComponentsWithSensorValues:sensorValues];
+                       [weakSelf._sensorRegistry updateWithSensorValues:sensorValues];
                        weakSelf.sensorPollingBlock();
                    }
                          errorHandler:^(NSError *error) {
@@ -123,25 +123,6 @@ typedef void (^PollingBlock)();
     self._currentCall = nil;
     // TODO: make sure we don't loop -> cancel might be enough if we make sure we don't restart polling (e.g. have a Cancelled error)
     self.sensorPollingBlock = nil;
-}
-
-- (void)updateComponentsWithSensorValues:(NSDictionary *)sensorValues
-{
-    // Update properties of linked element
-    [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-        ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithStringId:sensorId];
-        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorIdentifier:sensorIdentifier];
-
-        [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
-            // "Map" given sensor value according to defined sensor states
-            NSString *mappedSensorValue = [link.sensorStatesMapping stateValueForName:sensorValue];
-            // If no mapping, use received sensor value as is
-            if (!mappedSensorValue) {
-                mappedSensorValue = sensorValue;
-            }
-            [link.component setValue:mappedSensorValue forKey:link.propertyName];
-        }];
-    }];
 }
 
 @end

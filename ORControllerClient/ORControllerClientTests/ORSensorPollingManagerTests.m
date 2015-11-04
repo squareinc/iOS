@@ -38,35 +38,6 @@
 
 @implementation ORSensorPollingManagerTests
 
-- (void)testUpdateComponentsWithSensorValues
-{
-    ORSensor *sensor = [[ORSensor alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:1]];
-    ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:11] text:@"Initial text"];
-    ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
-    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:[[ControllerREST_2_0_0_API alloc] init]
-                                                                                 controllerAddress:nil
-                                                                                    sensorRegistry:registry];
-    
-    XCTAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value before any sensor update has been done");
- 
-    [pollingManager updateComponentsWithSensorValues:@{@"2" : @"Some sensor value"}];
-    XCTAssertEqualObjects(label.text, @"Initial text", @"Label text should be its initial value after update for other sensor");
-
-    [pollingManager updateComponentsWithSensorValues:@{@"1" : @"New sensor value"}];    
-    XCTAssertEqualObjects(label.text, @"New sensor value", @"Label text should be updated with sensor value");
-    
-    ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
-    [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On Value"]];
-    [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:mapping];
-        
-    [pollingManager updateComponentsWithSensorValues:@{@"1" : @"off"}];
-    XCTAssertEqualObjects(label.text, @"off", @"Label text should be sensor value when no sensor state matches sensor value");
-
-    [pollingManager updateComponentsWithSensorValues:@{@"1" : @"on"}];
-    XCTAssertEqualObjects(label.text, @"On Value", @"Label text should be state value when sensor state matches sensor value");
-}
-
 - (void)testAppropriateAPIMethodsCalledOnStart
 {
     ORControllerRESTAPI_ScriptableMock *api = [[ORControllerRESTAPI_ScriptableMock alloc] init];
