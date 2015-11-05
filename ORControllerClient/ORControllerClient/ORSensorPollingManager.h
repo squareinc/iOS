@@ -22,15 +22,16 @@
 #import <Foundation/Foundation.h>
 
 @class ORControllerAddress;
-@class ORPanelDefinitionSensorRegistry;
+@class ORSensorRegistry;
 @class ORControllerRESTAPI;
 
 /**
  * Manages the sensor polling loop with an OpenRemote controller.
  * Updates the object model attributes based on the information received.
  *
- * Sensors polled are the one registered in the sensor registry.
- * Information on what/how to update is taken from provided Sensor Registry.
+ * Sensors polled are the one registered in the sensor registries.
+ *
+ * WARNING: This implementation is not thread-safe and should be accessed from only one thread at a time.
  */
 @interface ORSensorPollingManager : NSObject
 
@@ -39,13 +40,26 @@
  *
  * @param api controller api to use to talk to controller
  * @param controllerAddress address of the controller to connect to
- * @param sensorRegistry registry defining what information in the object model needs updating (and how to update)
  *
- * @return An ORSensorPollingManager object initialized with the provided address and registry.
+ * @return An ORSensorPollingManager object initialized with the provided address.
  */
 - (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
-                    controllerAddress:(ORControllerAddress *)controllerAddress
-                       sensorRegistry:(ORPanelDefinitionSensorRegistry *)sensorRegistry;
+                    controllerAddress:(ORControllerAddress *)controllerAddress;
+
+/**
+ * Adds a sensor registry so that its registered sensor are polled for updates.
+ * The poll mechanism is restarted to ensure that the registry's sensor initial value is fetched.
+ *
+ * @param sensorRegistry registry defining what information in the object model needs updating (and how to update)
+ */
+- (void)addSensorRegistry:(ORSensorRegistry *)sensorRegistry;
+
+/**
+ * Removes a sensor registry so its sensor values are not updated anymore.
+ *
+ * @param sensorRegistry registry to remove from list of known registry
+ */
+- (void)removeSensorRegistry:(ORSensorRegistry *)sensorRegistry;
 
 /*
  * Requests current value of sensors registered in registry, then polling mechanism to receive updates to those value.

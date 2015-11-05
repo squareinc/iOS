@@ -49,9 +49,8 @@
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] text:@"Initial text"];
     ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
     [registry registerSensor:sensor linkedToComponent:label property:@"text" sensorStatesMapping:nil];
-    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
-                                                                                 controllerAddress:nil
-                                                                                    sensorRegistry:registry];
+    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api controllerAddress:nil];
+    [pollingManager addSensorRegistry:registry];
     
     [pollingManager start];
     
@@ -67,9 +66,8 @@
     api.sensorPollMaxCall = 3;
     
     ORPanelDefinitionSensorRegistry *registry = [[ORPanelDefinitionSensorRegistry alloc] init];
-    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api
-                                                                                 controllerAddress:nil
-                                                                                    sensorRegistry:registry];
+    ORSensorPollingManager *pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:api controllerAddress:nil];
+    [pollingManager addSensorRegistry:registry];
 
     [pollingManager start];
     

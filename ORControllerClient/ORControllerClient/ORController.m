@@ -88,9 +88,8 @@
         // Make sure we have latest version of authentication manager set on API before call
         self.controllerAPI.authenticationManager = self.authenticationManager;
         
-        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
-                                                                  controllerAddress:self.address
-                                                                     sensorRegistry:self.lastPanelDefinition.sensorRegistry];
+        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI controllerAddress:self.address];
+        [self.pollingManager addSensorRegistry:self.lastPanelDefinition.sensorRegistry];
     }
     if (self.pollingManager) {
         [self.pollingManager start];
@@ -192,13 +191,14 @@
     panelDefinition.controller = self;
     if (self.pollingManager) {
         [self.pollingManager stop];
+        [self.pollingManager removeSensorRegistry:self.lastPanelDefinition.sensorRegistry];
+    } else {
+        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI controllerAddress:self.address];
     }
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
 
-    self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI
-                                                              controllerAddress:self.address
-                                                                 sensorRegistry:panelDefinition.sensorRegistry];
+    [self.pollingManager addSensorRegistry:panelDefinition.sensorRegistry];
     if (self.isConnected) {
       [self.pollingManager start];
     }

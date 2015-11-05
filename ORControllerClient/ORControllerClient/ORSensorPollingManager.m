@@ -48,17 +48,42 @@ typedef void (^PollingBlock)();
 
 - (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
                     controllerAddress:(ORControllerAddress *)controllerAddress
-                       sensorRegistry:(ORPanelDefinitionSensorRegistry *)sensorRegistry
 {
     self = [super init];
     if (self) {
         self._controllerAPI = api;
         self._controllerAddress = controllerAddress;
         self._sensorRegistries = [[NSMutableArray alloc] init];
-        [self._sensorRegistries addObject:sensorRegistry];
     }
     return self;
 }
+
+- (void)addSensorRegistry:(ORSensorRegistry *)sensorRegistry
+{
+    BOOL needsRestart = NO;
+    if (self.sensorPollingBlock) {
+       [self stop];
+        needsRestart = YES;
+    }
+    [self._sensorRegistries addObject:sensorRegistry];
+    if (needsRestart) {
+      [self start];
+    }
+}
+
+- (void)removeSensorRegistry:(ORSensorRegistry *)sensorRegistry
+{
+    BOOL needsRestart = NO;
+    if (self.sensorPollingBlock) {
+        [self stop];
+        needsRestart = YES;
+    }
+    [self._sensorRegistries removeObject:sensorRegistry];
+    if (needsRestart) {
+        [self start];
+    }
+}
+
 
 // TODO: Q ? how are error reported on start, during poll ?
 // delegate ?
