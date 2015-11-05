@@ -28,6 +28,29 @@
 
 @implementation ORDeviceViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // Register on all model objects to observe any change on their value
+    [self.device.sensors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj addObserver:self forKeyPath:@"value" options:NSKeyValueObservingOptionNew context:NULL];
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.device.sensors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        @try {
+            [obj removeObserver:self forKeyPath:@"value"];
+        } @catch(NSException *e) {
+            // Ignore NSRangeException, would mean we already removed ourself as observer
+            if (![@"NSRangeException" isEqualToString:e.name]) {
+                @throw e;
+            }
+        }
+    }];
+    [super viewWillDisappear:animated];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -57,26 +80,26 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"SensorCell"];
         ORDeviceSensor *sensor = self.device.sensors[(NSUInteger) indexPath.row];
         cell.textLabel.text = sensor.name;
-        cell.detailTextLabel.text = [self valueForSensorType:sensor.type];
+        cell.detailTextLabel.text = [self valueForSensorType:sensor];
     }
     return cell;
 }
 
-- (NSString *)valueForSensorType:(SensorType)type
+- (NSString *)valueForSensorType:(ORDeviceSensor *)sensor
 {
-    switch(type) {
+    switch(sensor.type) {
         case SensorTypeUnknown:
-            return @"Unknown";
+            return [NSString stringWithFormat:@"Unknown: %@", sensor.value];
         case SensorTypeSwitch:
-            return @"Switch";
+            return [NSString stringWithFormat:@"Switch: %@", [(NSNumber *)sensor.value boolValue]?@"on":@"off"];
         case SensorTypeLevel:
-            return @"Level";
+            return [NSString stringWithFormat:@"Level: %ld", (long)[(NSNumber *)sensor.value integerValue]];
         case SensorTypeRange:
-            return @"Range";
+            return [NSString stringWithFormat:@"Range: %ld", (long)[(NSNumber *)sensor.value integerValue]];
         case SensorTypeColor:
-            return @"Color";
+            return [NSString stringWithFormat:@"Color: %@", sensor.value];
         case SensorTypeCustom:
-            return @"Custom";
+            return [NSString stringWithFormat:@"Custom: %@", sensor.value];
     }
 }
 
@@ -89,6 +112,9 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.orb executeCommand:command withParameter:nil successHandler:^{
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            });
         }           errorHandler:^(NSError *error) {
             UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Error" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
             [ac addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil]];
@@ -107,7 +133,15 @@
     } else {
         return nil;
     }
+}
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // We're not guaranteed that the value we observe is set on the main thread,
+    // so ensure we're updating our UI on the main thread here
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 @end
