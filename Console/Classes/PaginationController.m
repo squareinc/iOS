@@ -323,6 +323,10 @@
 //	[scrollView setContentSize:CGSizeMake(frameWidth * pageControl.numberOfPages, frameHeight)];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [UIViewController attemptRotationToDeviceOrientation];
+}
+
 - (void)pageControlValueDidChange:(id)sender {
     NSLog(@"current selected index %d", self.selectedIndex);
     self.selectedIndex = self.pageControl.currentPage;
@@ -385,13 +389,11 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    NSLog(@"will rotate %x", self);
     self.inRotation = YES;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     self.inRotation = NO;
-    NSLog(@"did rotate %x", self);
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
