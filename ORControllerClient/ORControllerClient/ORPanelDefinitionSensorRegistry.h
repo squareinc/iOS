@@ -19,23 +19,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Foundation/Foundation.h>
+#import "ORSensorRegistry.h"
 
-@class ORSensor;
 @class ORSensorLink;
 @class ORSensorStatesMapping;
-@class ORObjectIdentifier;
 
 /**
  * Class is responsible to manage the list of known sensors
  * and the UI widgets dependency on those sensors.
  */
-@interface ORPanelDefinitionSensorRegistry : NSObject <NSCoding>
-
-/**
- * Fully clears the registry of all information it contains.
- */
-- (void)clearRegistry;
+@interface ORPanelDefinitionSensorRegistry : ORSensorRegistry <NSCoding>
 
 /**
  * Adds a sensor to the registry, keeping track of the relationship to the component.
@@ -61,25 +54,5 @@
  * @return The list of all ORSensorLink registered for the sensor with given id.
  */
 - (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier;
-
-/**
- * Returns the sensor with the given identifier.
- * This works only for sensors that have been registered with this registry,
- * i.e. it will not work for a sensor that is not linked to any component as it will not have been registered here.
- *
- * @param sensorIdentifier identifier of sensor to lookup
- *
- * @return Sensor sensor with given it or nil if no such sensor is registered
- */
-- (ORSensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier;
-
-/**
- * Returns identifiers of all registered sensors (ORObjectIdentifier instances).
- *
- * @return NSSet set with ORObjectIdentifiers of all registered sensors
- */
-- (NSSet *)sensorIdentifiers;
-
-- (void)updateWithSensorValues:(NSDictionary *)sensorValues;
 
 @end

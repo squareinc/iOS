@@ -25,14 +25,10 @@
 #import "ORObjectIdentifier.h"
 #import "ORSensorStatesMapping.h"
 
-#define kSensorsKey           @"Sensors"
-#define kSensorsPerIdKey      @"SensorsPerId"
 #define kLinksPerSensorIdKey  @"LinksPerSensorId"
 
 @interface ORPanelDefinitionSensorRegistry ()
 
-@property (nonatomic, strong) NSMutableSet *_sensors;
-@property (nonatomic, strong) NSMutableDictionary *_sensorsPerId;
 @property (nonatomic, strong) NSMutableDictionary *_linksPerSensorId;
 
 @end
@@ -43,9 +39,7 @@
 {
     self = [super init];
     if (self) {
-        self._sensors = [NSMutableSet set];
         self._linksPerSensorId = [NSMutableDictionary dictionary];
-        self._sensorsPerId = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -53,8 +47,7 @@
 - (void)clearRegistry
 {
     [self._linksPerSensorId removeAllObjects];
-    [self._sensorsPerId removeAllObjects];
-    [self._sensors removeAllObjects];
+    [super clearRegistry];
 }
 
 - (void)registerSensor:(ORSensor *)sensor
@@ -62,8 +55,7 @@
               property:(NSString *)propertyName
    sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
-    [self._sensors addObject:sensor];
-    [self._sensorsPerId setObject:sensor forKey:sensor.identifier];
+    [super registerSensor:sensor];
     NSMutableSet *components = [self._linksPerSensorId objectForKey:sensor.identifier];
     if (!components) {
         components = [NSMutableSet setWithCapacity:1];
@@ -79,16 +71,6 @@
 - (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier
 {
     return [NSSet setWithSet:[self._linksPerSensorId objectForKey:sensorIdentifier]];
-}
-
-- (ORSensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier
-{
-    return [self._sensorsPerId objectForKey:sensorIdentifier];
-}
-
-- (NSSet *)sensorIdentifiers
-{
-    return [NSSet setWithArray:[self._sensorsPerId allKeys]];
 }
 
 - (void)updateWithSensorValues:(NSDictionary *)sensorValues
@@ -112,16 +94,13 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self._sensors forKey:kSensorsKey];
-    [aCoder encodeObject:self._sensorsPerId forKey:kSensorsPerIdKey];
+    [super encodeWithCoder:aCoder];
     [aCoder encodeObject:self._linksPerSensorId forKey:kLinksPerSensorIdKey];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self = [self init]) {
-        self._sensors = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
-        self._sensorsPerId = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
+    if (self = [super initWithCoder:aDecoder]) {
         self._linksPerSensorId = [aDecoder decodeObjectForKey:kLinksPerSensorIdKey];
     }
     return self;
