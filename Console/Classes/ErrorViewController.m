@@ -63,7 +63,7 @@
 }
 
 // Enable rotating of errorView.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+- (BOOL)shouldAutorotate
 {
 	return YES;
 }

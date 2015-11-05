@@ -260,14 +260,14 @@
                                                                                   delegate:self
                                                                                    context:[notification.userInfo objectForKey:kAuthenticationRequiredControllerRequest]];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
-	[self presentModalViewController:loginNavController animated:NO];
+	[self presentViewController:loginNavController animated:NO completion:nil];
 }
 
 - (void)populateSettingsView:(id)sender {
 	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager definitionManager:self.definitionManager];
     settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
-	[self presentModalViewController:settingNavController animated:YES];
+	[self presentViewController:settingNavController animated:YES completion:nil];
 }
 
 - (void)refreshView:(id)sender {
@@ -275,7 +275,7 @@
 
 	if (self.currentGroupController) {
 		[self.currentGroupController stopPolling];
-        self.currentGroupController = nil;
+//        self.currentGroupController = nil;
 	}
 	
 	[self initGroups];
@@ -294,7 +294,7 @@
 
 - (void)loginViewControllerDidCancelLogin:(LoginViewController *)controller
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 	[self._delegate updateDidFinish];
 }
@@ -311,7 +311,7 @@
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
     [self.settingsManager saveConsoleSettings];
     
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
     
 	[self.currentGroupController stopPolling];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
@@ -321,16 +321,22 @@
 
 #pragma mark Rotation handling
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotate
 {
-    return YES;
+    // delegate rotation to the group controller
+    return [self.currentGroupController shouldAutorotate];
 }
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return [self.currentGroupController supportedInterfaceOrientations];
+}
+
 
 // Because this VC is installed at root, it needs to forward those messages to the VC it contains
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	if ([self isLoadingViewGone]) {
-		[self.currentGroupController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//		[self.currentGroupController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	} else {
 		[initViewController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	}
@@ -339,7 +345,7 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if ([self isLoadingViewGone]) {
-		[self.currentGroupController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+//		[self.currentGroupController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     } else {
         [initViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     }
@@ -409,6 +415,7 @@
         [self.view addSubview:gc.view];
         [gc didMoveToParentViewController:self];
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -

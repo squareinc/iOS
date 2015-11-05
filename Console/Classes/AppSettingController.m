@@ -131,7 +131,7 @@
                                                                                   delegate:self
                                                                                    context:context];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
-	[self presentModalViewController:loginNavController animated:NO];
+	[self presentViewController:loginNavController animated:NO completion:nil];
 }
 
 // Check if the section parameter indexPath specified is auto discovery section.
@@ -187,7 +187,7 @@
     
     UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     versionLabel.text = [NSString stringWithFormat:@"OpenRemote iOS Console version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-    versionLabel.textAlignment = UITextAlignmentCenter;
+    versionLabel.textAlignment = NSTextAlignmentCenter;
     versionLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     versionLabel.textColor = [UIColor darkGrayColor];
     versionLabel.backgroundColor = [UIColor clearColor];
@@ -302,12 +302,12 @@
 #pragma mark Delegate method of UpdateController
 
 - (void)didUpdate {
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissViewControllerAnimated:YES completion:nil];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationRefreshGroupsView object:nil];
 }
 
 - (void)didUseLocalCache:(NSString *)errorMessage {
-	[self dismissModalViewControllerAnimated:NO];
+	[self dismissViewControllerAnimated:NO completion:nil];
 	if ([errorMessage isEqualToString:@"401"]) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationPopulateCredentialView object:nil];
 	} else {
@@ -316,7 +316,7 @@
 }
 
 - (void)didUpdateFail:(NSString *)errorMessage {
-	[self dismissModalViewControllerAnimated:NO];
+	[self dismissViewControllerAnimated:NO completion:nil];
 	if ([errorMessage isEqualToString:@"401"]) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:NotificationPopulateCredentialView object:nil];
 	} else {
@@ -542,7 +542,7 @@
 	} 
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+- (BOOL)shouldAutorotate {
 	return YES;
 }
 
@@ -617,7 +617,7 @@
     // TODO: Is this still required ?
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)loginViewController:(LoginViewController *)controller didProvideUserName:(NSString *)username password:(NSString *)password
@@ -638,7 +638,7 @@
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
     [self.settingsManager saveConsoleSettings];
     
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
     
     if ([context isMemberOfClass:[ControllerRequest class]]) {
         [(ControllerRequest *)controller.context retry];
