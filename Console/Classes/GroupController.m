@@ -136,9 +136,6 @@
         // Resize view to fill screen in appropriate orientation
         landscapePaginationController.view.frame = self.view.bounds;
 
-        landscapePaginationController.view.layer.borderColor = [UIColor blueColor].CGColor;
-        landscapePaginationController.view.layer.borderWidth = 1;
-
 		[[portraitPaginationController currentScreenViewController] stopPolling];
         portraitPaginationController.view.hidden = YES;
 		[[landscapePaginationController currentScreenViewController] startPolling];
@@ -157,9 +154,6 @@
 
         // Resize view to fill screen in appropriate orientation
         portraitPaginationController.view.frame = self.view.bounds;
-
-        portraitPaginationController.view.layer.borderColor = [UIColor redColor].CGColor;
-        portraitPaginationController.view.layer.borderWidth = 1;
 
         [[landscapePaginationController currentScreenViewController] stopPolling];
         landscapePaginationController.view.hidden = YES;
