@@ -22,7 +22,9 @@
 #import "ORController.h"
 #import "ORControllerAddress.h"
 #import "ORPanelDefinitionSensorRegistry.h"
+#import "ORDeviceModelSensorRegistry.h"
 #import "ORSensorPollingManager.h"
+#import "ORSensor.h"
 #import "ORPanel.h"
 #import "Definition.h"
 #import "Definition_Private.h"
@@ -36,6 +38,7 @@
 
 #import "ControllerREST_2_0_0_API.h"
 #import "ORDevice.h"
+#import "ORDeviceSensor.h"
 #import "Sequencer.h"
 #import "ORControllerDeviceModel_Private.h"
 #import "ORDeviceCommand.h"
@@ -67,6 +70,8 @@
             // TODO: later based on information gathered during connect, would select the appropriate API/Object Model version
             // at that time, this should move to connect method
             self.controllerAPI = [[ControllerREST_2_0_0_API alloc] init];
+            
+            self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI controllerAddress:self.address];
         } else {
             return nil;
         }
@@ -84,16 +89,13 @@
     self.connected = YES;
     
     // If we have a panel definition, (re-)start polling for model changes
-    if (self.lastPanelDefinition && !self.pollingManager) {
+    if (self.lastPanelDefinition) {
         // Make sure we have latest version of authentication manager set on API before call
         self.controllerAPI.authenticationManager = self.authenticationManager;
         
-        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI controllerAddress:self.address];
         [self.pollingManager addSensorRegistry:self.lastPanelDefinition.sensorRegistry];
     }
-    if (self.pollingManager) {
-        [self.pollingManager start];
-    }
+    [self.pollingManager start];
     if (successHandler) {
         successHandler();
     }
@@ -101,9 +103,7 @@
 
 - (void)disconnect
 {
-    if (self.pollingManager) {
-        [self.pollingManager stop];
-    }
+    [self.pollingManager stop];
     
     self.connected = NO;
 }
@@ -189,12 +189,8 @@
     }
     self.lastPanelDefinition = panelDefinition;
     panelDefinition.controller = self;
-    if (self.pollingManager) {
-        [self.pollingManager stop];
-        [self.pollingManager removeSensorRegistry:self.lastPanelDefinition.sensorRegistry];
-    } else {
-        self.pollingManager = [[ORSensorPollingManager alloc] initWithControllerAPI:self.controllerAPI controllerAddress:self.address];
-    }
+    [self.pollingManager stop];
+    [self.pollingManager removeSensorRegistry:self.lastPanelDefinition.sensorRegistry];
     // Make sure we have latest version of authentication manager set on API before call
     self.controllerAPI.authenticationManager = self.authenticationManager;
 
@@ -234,6 +230,20 @@
         }];
         // queue request for success
         [sequencer enqueueStep:^(id successResult, SequencerCompletion successCompletion) {
+            
+            // Create registry for all sensors and start the polling manager if required
+            
+            ORDeviceModelSensorRegistry *registry = [[ORDeviceModelSensorRegistry alloc] init];
+            for (ORDevice *device in deviceModel.devices) {
+                for (ORDeviceSensor *deviceSensor in device.sensors) {
+                    [registry registerSensor:[[ORSensor alloc] initWithIdentifier:deviceSensor.identifier] linkedToORDeviceSensor:deviceSensor];
+                }
+            }
+            [self.pollingManager addSensorRegistry:registry];
+            if (self.isConnected) {
+                [self.pollingManager start];
+            }
+            
             dispatch_async(originalQueue, ^() {
                 if (successHandler) {
                     successHandler(deviceModel);
