@@ -193,24 +193,6 @@
 	}
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-//    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-//    [UIViewController attemptRotationToDeviceOrientation];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-//    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-    [super viewDidDisappear:animated];
-}
-
 - (void)showErrorView {
     
     // TODO: handle this in an appropriate way

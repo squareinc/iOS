@@ -195,7 +195,6 @@
 		CGRect frame = self.scrollView.bounds;
 		frame.origin.x = self.view.frame.size.width * page;
 		[controller.view setFrame:frame];
-        NSLog(@"here %p %@", self, NSStringFromCGPoint(frame.origin));
 		self.scrollView.contentOffset = CGPointMake(frame.origin.x, 0);
 		[self.scrollView addSubview:controller.view];
 	}
@@ -311,12 +310,8 @@
     // don't handle scrolling while rotating, it messes up selectedIndex
     if (!self.inRotation) {
         // Switch the indicator when more than 50% of the previous/next page is visible
-        NSLog(@"did scroll %x", self);
-        NSLog(@"Content offset %@", NSStringFromCGPoint(self.scrollView.contentOffset));
         int calculatedIndex = (int) (floor((self.scrollView.contentOffset.x - self.view.frame.size.width / 2) / self.view.frame.size.width) + 1);
-        NSLog(@"did scroll selected index %d", self.selectedIndex);
         self.selectedIndex = MIN(MAX(0, calculatedIndex), [self.viewControllers count] - 1);
-        NSLog(@"did scroll changed? index %d", self.selectedIndex);
         [self updateViewForCurrentPageAndBothSides];
     }
 }

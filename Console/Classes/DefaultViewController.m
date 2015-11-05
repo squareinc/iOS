@@ -335,18 +335,14 @@
 // Because this VC is installed at root, it needs to forward those messages to the VC it contains
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-	if ([self isLoadingViewGone]) {
-//		[self.currentGroupController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-	} else {
+	if (![self isLoadingViewGone]) {
 		[initViewController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	}
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    if ([self isLoadingViewGone]) {
-//		[self.currentGroupController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    } else {
+    if (![self isLoadingViewGone]) {
         [initViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     }
 }
