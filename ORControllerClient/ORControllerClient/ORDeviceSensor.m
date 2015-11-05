@@ -37,6 +37,7 @@ static NSString *const kCommandIdentifierKey = @"commandIdentifier";
 @synthesize type = _type;
 @synthesize device = _device;
 @synthesize command = _command;
+@synthesize value = _value;
 
 #pragma mark - getter/setters
 

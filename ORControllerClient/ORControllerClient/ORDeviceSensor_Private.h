@@ -29,5 +29,6 @@
 @property (nonatomic, weak, readwrite) ORDevice *device;
 @property (nonatomic, weak, readwrite) ORDeviceCommand *command;
 @property (nonatomic, strong) ORObjectIdentifier *commandIdentifier;
+@property (nonatomic, strong, readwrite) NSObject *value;
 
 @end

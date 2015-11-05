@@ -61,4 +61,13 @@ typedef NS_ENUM(NSInteger, SensorType) {
  */
 @property (nonatomic, weak, readonly) ORDeviceCommand *command;
 
+/**
+ * The value of this sensor.
+ * Actual class depends on the sensor type:
+ * NSString for Custom sensors
+ * NSNumber for Switch, Range and Level sensors
+ * UIColor for Color sensors
+ */
+@property (nonatomic, strong, readonly) NSObject *value;
+
 @end
