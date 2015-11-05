@@ -21,7 +21,7 @@
 
 #import "ORSensorPollingManager.h"
 #import "ORControllerAddress.h"
-#import "ORPanelDefinitionSensorRegistry.h"
+#import "ORSensorRegistry.h"
 #import "ORSensorLink.h"
 #import "ORObjectIdentifier.h"
 #import "ORSensorStatesMapping.h"
@@ -35,7 +35,7 @@ typedef void (^PollingBlock)();
 
 @property (nonatomic, strong) ORControllerRESTAPI *_controllerAPI;
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
-@property (nonatomic, strong) ORPanelDefinitionSensorRegistry *_sensorRegistry;
+@property (nonatomic, strong) NSMutableArray *_sensorRegistries;
 
 @property (atomic, strong) ORRESTCall *_currentCall;
 
@@ -54,7 +54,8 @@ typedef void (^PollingBlock)();
     if (self) {
         self._controllerAPI = api;
         self._controllerAddress = controllerAddress;
-        self._sensorRegistry = sensorRegistry;
+        self._sensorRegistries = [[NSMutableArray alloc] init];
+        [self._sensorRegistries addObject:sensorRegistry];
     }
     return self;
 }
@@ -71,19 +72,20 @@ typedef void (^PollingBlock)();
     }
     
     // Only poll if there are sensors to poll
-    if (![[self._sensorRegistry sensorIdentifiers] count]) {
+    if (![[self allSensorIdentifiers] count]) {
         return;
     }
 
     __weak typeof(self)weakSelf = self;
     
     self.sensorPollingBlock = ^{
-        weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
+        weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf allSensorIdentifiers]
                                 fromDeviceWithIdentifier:[[UIDevice currentDevice] or_uniqueID]
                                                atBaseURL:weakSelf._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
-                                          
-                                          [weakSelf._sensorRegistry updateWithSensorValues:sensorValues];
+                                          for (ORSensorRegistry *sensorRegistry in weakSelf._sensorRegistries) {
+                                              [sensorRegistry updateWithSensorValues:sensorValues];
+                                          }
                                           
                                           NSLog(@"poll got values");
                                           
@@ -107,10 +109,12 @@ typedef void (^PollingBlock)();
                                       }];
     };
 
-    self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
+    self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf allSensorIdentifiers]
                             atBaseURL:weakSelf._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
-                       [weakSelf._sensorRegistry updateWithSensorValues:sensorValues];
+                       for (ORSensorRegistry *sensorRegistry in weakSelf._sensorRegistries) {
+                           [sensorRegistry updateWithSensorValues:sensorValues];
+                       }
                        weakSelf.sensorPollingBlock();
                    }
                          errorHandler:^(NSError *error) {
@@ -123,6 +127,15 @@ typedef void (^PollingBlock)();
     self._currentCall = nil;
     // TODO: make sure we don't loop -> cancel might be enough if we make sure we don't restart polling (e.g. have a Cancelled error)
     self.sensorPollingBlock = nil;
+}
+
+- (NSSet *)allSensorIdentifiers
+{
+    NSMutableSet *allSensorIdentifiers = [[NSMutableSet alloc] init];
+    for (ORSensorRegistry *sensorRegistry in self._sensorRegistries) {
+        [allSensorIdentifiers unionSet:[sensorRegistry sensorIdentifiers]];
+    }
+    return allSensorIdentifiers;
 }
 
 @end
