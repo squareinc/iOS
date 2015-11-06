@@ -566,11 +566,14 @@
 
 - (void)didDeleteController:(ORControllerConfig *)controller
 {
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        NSUInteger controllerIndex = [self.settingsManager.consoleSettings.controllers indexOfObject:controller];
+        [self.settingsManager.consoleSettings removeControllerAtIndex:controllerIndex];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:controllerIndex inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
+    }];
     [self.navigationController popViewControllerAnimated:YES];
-
-    NSUInteger controllerIndex = [self.settingsManager.consoleSettings.controllers indexOfObject:controller];
-    [self.settingsManager.consoleSettings removeControllerAtIndex:controllerIndex];
-    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:controllerIndex inSection:CONTROLLER_URLS_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
+    [CATransaction commit];
 }
 
 - (void)didFailToAddController
