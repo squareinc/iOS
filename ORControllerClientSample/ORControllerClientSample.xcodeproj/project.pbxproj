@@ -128,6 +128,7 @@
 				910B752217941030005F41CF /* ORAppDelegate.m */,
 				910B752A17941030005F41CF /* ORViewController.h */,
 				910B752B17941030005F41CF /* ORViewController.m */,
+				B57B46B323FA8277984E846B /* ORViewController_Private.h */,
 				913699991850BB7C0087A55B /* LoginViewController.h */,
 				9136999A1850BB7C0087A55B /* LoginViewController.m */,
 				91EFDAC2195AFB39001A6E53 /* ORControllerPickerViewController.h */,
@@ -135,11 +136,10 @@
 				910B751917941030005F41CF /* Supporting Files */,
 				9120288A185862AC008D9917 /* LoginViewController.xib */,
 				1B0816C91BE36D4C00C73EC8 /* Main.storyboard */,
-				B57B4608F82905016A46E417 /* ORDevicesViewController.m */,
-				B57B443D8AF3EE70053342E6 /* ORDevicesViewController.h */,
 				B57B4901AB0CA20B93C21638 /* ORLabelsViewController.m */,
 				B57B4F0EAA07B43E3AD6C71F /* ORLabelsViewController.h */,
-				B57B46B323FA8277984E846B /* ORViewController_Private.h */,
+				B57B4608F82905016A46E417 /* ORDevicesViewController.m */,
+				B57B443D8AF3EE70053342E6 /* ORDevicesViewController.h */,
 				B57B435A2A76ECC2194DE5D9 /* ORDeviceViewController.m */,
 				B57B4152D628C527B1CD6248 /* ORDeviceViewController.h */,
 			);
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				917104CD17B91954005F9BA4 /* libORControllerClient.a */,
-				917104CF17B91954005F9BA4 /* ORControllerClientTests.octest */,
+				917104CF17B91954005F9BA4 /* ORControllerClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			remoteRef = 917104CC17B91954005F9BA4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		917104CF17B91954005F9BA4 /* ORControllerClientTests.octest */ = {
+		917104CF17B91954005F9BA4 /* ORControllerClientTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ORControllerClientTests.xctest;
