@@ -93,16 +93,12 @@
 //				UIViewController *vc = [viewControllers objectAtIndex:i];
                 // TODO: ebr : check why this is ???
 //				vc.view.bounds = scrollView.bounds;
-                NSLog(@"set view controller changed index from %d", self.selectedIndex);
                 self.selectedIndex = i;
-                NSLog(@"set view controller changed index to %d", self.selectedIndex);
 				break;
 			}
 		}
 	} else {
-        NSLog(@"set view controller changed forced from %d", self.selectedIndex);
         self.selectedIndex = 0;
-        NSLog(@"set view controller changed forced to %d", self.selectedIndex);
 	}
 }
 
@@ -142,7 +138,6 @@
 		}
 	}
 	if (index != -1) {//found screen in current orientation
-        NSLog(@"switch from screen index = %lu, id = %@ animation=%d", (unsigned long)self.selectedIndex, aScreen.identifier, withAnimation);
         self.selectedIndex = (NSUInteger) index;
 		NSLog(@"switch to screen index = %lu, id = %@ animation=%d", (unsigned long)self.selectedIndex, aScreen.identifier, withAnimation);
 		[self.pageControl setCurrentPage:self.selectedIndex];
@@ -328,9 +323,7 @@
 }
 
 - (void)pageControlValueDidChange:(id)sender {
-    NSLog(@"current selected index %d", self.selectedIndex);
     self.selectedIndex = self.pageControl.currentPage;
-    NSLog(@"changed selected index %d", self.selectedIndex);
 	[self updateViewForCurrentPageAndBothSides];
 	
 	CGRect frame = self.scrollView.bounds;
