@@ -56,6 +56,16 @@
 
 - (void)controlForWidget:(ORWidget *)widget action:(NSString *)action;
 
+/**
+ * Request the full devices list in the configuration of the controller
+ */
+- (void)requestDevicesListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
+/**
+ * Request a device
+ */
+- (void)requestDevice:(ORDevice *)device withSuccessHandler:(void (^)(ORDevice *theDevice))successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
 @end
 
 @implementation ORController

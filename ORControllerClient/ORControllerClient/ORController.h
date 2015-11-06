@@ -137,16 +137,6 @@
 - (void)requestDeviceModelWithSuccessHandler:(void (^)(ORControllerDeviceModel *))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 /**
- * Request the full devices list in the configuration of the controller
- */
-- (void)requestDevicesListWithSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
-
-/**
- * Request a device
- */
-- (void)requestDevice:(ORDevice *)device withSuccessHandler:(void (^)(ORDevice *theDevice))successHandler errorHandler:(void (^)(NSError *))errorHandler;
-
-/**
  * Execute a command
  */
 - (void)executeCommand:(ORDeviceCommand *)command withParameter:(NSString *)parameter successHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
