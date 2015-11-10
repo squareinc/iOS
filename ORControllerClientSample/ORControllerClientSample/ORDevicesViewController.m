@@ -64,6 +64,7 @@
 
 - (void)startPolling
 {
+    [self stopPolling];
     [super startPolling];
     [self.orb connectWithSuccessHandler:^{
         [self.orb requestDeviceModelWithSuccessHandler:(^(ORControllerDeviceModel *deviceModel) {

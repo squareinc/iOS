@@ -61,6 +61,7 @@
 
 - (void)startPolling
 {
+    [self stopPolling];
     [super startPolling];
     [self.orb connectWithSuccessHandler:^{
         [self.orb requestPanelUILayout:@"panel1" successHandler:^(Definition *definition) {
