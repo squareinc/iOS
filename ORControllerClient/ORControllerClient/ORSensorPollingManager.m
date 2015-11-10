@@ -63,7 +63,7 @@ typedef void (^PollingBlock)();
     BOOL needsRestart = NO;
     if (self.sensorPollingBlock) {
        [self stop];
-        needsRestart = YES;
+       needsRestart = YES;
     }
     [self._sensorRegistries addObject:sensorRegistry];
     if (needsRestart) {
