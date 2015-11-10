@@ -130,16 +130,32 @@
  */
 - (void)attachPanelDefinition:(Definition *)panelDefinition;
 
-
 /**
- * Request the devices model
+ * Request the devices model known by this controller.
+ * Both handlers are guaranteed to be called on the same thread that initially called this method.
+ *
+ * The returned model contains all known devices, their commands and sensors.
+ * After this call, the values of the sensors will be updated based on the controller feedback,
+ * for as long as connection to the controller stays open.
+ *
+ * @param successHandler A block object to be executed once the complete devices model has been successfully read from the controller.
+ * This block has no return value and takes a single ORControllerDeviceModel * argument that provides back the devices model read.
+ * @param errorHandler A block object to be executed if the model cannot be retrieved from controller.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)requestDeviceModelWithSuccessHandler:(void (^)(ORControllerDeviceModel *))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 /**
- * Execute a command
+ * Instructs the controller to execute the given command, optionally with a parameter.
+ *
+ * @param command The command to execute, must be part of a previously retrieved devices model.
+ * @param parameter An optional parameter value to be provided for command execution.
+ * @param successHandler A block object to be executed once the command has been successfully executed by the controller.
+ * @param errorHandler A block object to be executed if the command cannot be executed by controller.
+ * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)executeCommand:(ORDeviceCommand *)command withParameter:(NSString *)parameter successHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler;
+
 /**
  * Retrieves a resource with the given name from the controller.
  * Both handlers are guaranteed to be called on the same thread that initially called this method.
@@ -147,7 +163,7 @@
  * @param resourceName The name of the resource to retrieve.
  * @param successHandler A block object to be executed once the resource has been successfully retrieved from the controller.
  * This block has no return value and takes a single NSData * argument that provides the unprocessed binary content of the resource.
- * @param errorHandler A block object to be executed if the definition cannot be retrieved from controller.
+ * @param errorHandler A block object to be executed if the resource cannot be retrieved from controller.
  * This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.
  */
 - (void)retrieveResourceNamed:(NSString *)resourceName successHandler:(void (^)(NSData *))successHandler errorHandler:(void (^)(NSError *))errorHandler;
