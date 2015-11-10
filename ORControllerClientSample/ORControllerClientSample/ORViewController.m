@@ -59,9 +59,26 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(pickController:)];
     
-    [self createOrb];
-    
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.isMovingToParentViewController) {
+        // Appearing because we're coming form top level menu, create an ORB
+        [self createOrb];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if (self.isMovingFromParentViewController) {
+        // Disappearing because we're going back to top level menu, get rid of ORB
+        [self stopPolling];
+        self.orb = nil;
+    }
+    [super viewDidDisappear:animated];
 }
 
 - (void)pickController:(id)sender
