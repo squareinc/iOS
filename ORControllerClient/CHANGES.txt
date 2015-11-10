@@ -1,3 +1,14 @@
+Version 0.7
+===========
+
+- Added ORControllerDeviceModel and dependant classes to represent controller configuration,
+  added methods on ORController to retrieve it (requires controller with extended API, ORCJAVA-492)
+- Internal refactoring on ORSensorPollingManager to support new ORControllerDeviceModel
+- Updated sample application to show example of using new API
+- All model classes are now NSCoding compliant
+- Updated for Xcode 7, all unit tests are now XCTests
+- Fixed : Multiple polling thread could be started for same ORSensorPollingManager
+
 Version 0.6
 ===========
 
