@@ -422,6 +422,11 @@
     [self controlForWidget:sender action:@"swipe"];
 }
 
+- (void)dealloc
+{
+    [self disconnect];
+}
+
 #pragma mark - private
 
 - (void (^)(id, SequencerCompletion))deviceRequestStepForDevice:(ORDevice *)device errorHandler:(void (^)(NSError *))errorHandler originalQueue:(dispatch_queue_t)originalQueue
