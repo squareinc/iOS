@@ -62,13 +62,13 @@
 		
 		<option value="//api/name/clearRegistry">- clearRegistry</option>
 		
-		<option value="//api/name/registerSensor:linkedToComponent:property:sensorStatesMapping:">- registerSensor:linkedToComponent:property:sensorStatesMapping:</option>
+		<option value="//api/name/registerSensor:">- registerSensor:</option>
 		
 		<option value="//api/name/sensorIdentifiers">- sensorIdentifiers</option>
 		
-		<option value="//api/name/sensorLinksForSensorIdentifier:">- sensorLinksForSensorIdentifier:</option>
-		
 		<option value="//api/name/sensorWithIdentifier:">- sensorWithIdentifier:</option>
+		
+		<option value="//api/name/updateWithSensorValues:">- updateWithSensorValues:</option>
 		
 	</optgroup>
 	
@@ -93,6 +93,9 @@
 	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
+	<th>Conforms to</th>
+	<td>NSCoding</td>
+</tr><tr>
 	<th>Declared in</th>
 	<td>ORSensorRegistry.h<br />ORSensorRegistry.m</td>
 </tr>
@@ -105,7 +108,10 @@
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>Class is responsible to manage the list of known sensors
-and the UI widgets dependency on those sensors.</p>
+and appropriately react to sensor values update.</p>
+
+<p>This class does not perform any specific logic on update,
+subclasses will implement appropriate logic.</p>
 					</div>
 					
 					
@@ -167,8 +173,8 @@ and the UI widgets dependency on those sensors.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/registerSensor:linkedToComponent:property:sensorStatesMapping:" title="registerSensor:linkedToComponent:property:sensorStatesMapping:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/registerSensor:linkedToComponent:property:sensorStatesMapping:">&ndash;&nbsp;registerSensor:linkedToComponent:property:sensorStatesMapping:</a></code>
+	<a name="//api/name/registerSensor:" title="registerSensor:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerSensor:">&ndash;&nbsp;registerSensor:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -178,14 +184,12 @@ and the UI widgets dependency on those sensors.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a sensor to the registry, keeping track of the relationship to the component.
-If sensor exists not linked to that component, dependency is added.
-If sensor exists and component is already linked to it, mapping is updated with new value.</p>
+				<p>Adds a sensor to the registry.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)registerSensor:(ORSensor *)<em>sensor</em> linkedToComponent:(NSObject *)<em>component</em> property:(NSString *)<em>propertyName</em> sensorStatesMapping:(ORSensorStatesMapping *)<em>mapping</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)registerSensor:(ORSensor *)<em>sensor</em></code></div>
 
 		    
 			
@@ -195,23 +199,7 @@ If sensor exists and component is already linked to it, mapping is updated with 
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>sensor</code></th>
-						<td><p>Sensor linked to component</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>component</code></th>
-						<td><p>Component sensor is linked to and will update
-TODO: for now, component is an NSObject and not a Component because of Label vs <a href="../Classes/ORLabel.html">ORLabel</a> dichotomy, should fix in the future.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>propertyName</code></th>
-						<td><p>name of property on component whose value is updated by sensor</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>mapping</code></th>
-						<td><p>sensor states mapping to use to translate sensor value when assigned to component property</p></td>
+						<td><p>Sensor to add</p></td>
 					</tr>
 				
 				</table>
@@ -225,72 +213,7 @@ TODO: for now, component is an NSObject and not a Component because of Label vs 
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Adds a sensor to the registry, keeping track of the relationship to the component.
-If sensor exists not linked to that component, dependency is added.
-If sensor exists and component is already linked to it, mapping is updated with new value.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ORSensorRegistry.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/sensorLinksForSensorIdentifier:" title="sensorLinksForSensorIdentifier:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/sensorLinksForSensorIdentifier:">&ndash;&nbsp;sensorLinksForSensorIdentifier:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the list of all links that are registered for a given sensor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)<em>sensorIdentifier</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sensorIdentifier</code></th>
-						<td><p>identifier of sensor</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The list of all <a href="../Classes/ORSensorLink.html">ORSensorLink</a> registered for the sensor with given id.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Returns the list of all links that are registered for a given sensor.</p>
+				<p>Adds a sensor to the registry.</p>
 			</div>
 			
 
@@ -320,8 +243,7 @@ If sensor exists and component is already linked to it, mapping is updated with 
 			
 			<div class="method-subsection brief-description">
 				<p>Returns the sensor with the given identifier.
-This works only for sensors that have been registered with this registry,
-i.e. it will not work for a sensor that is not linked to any component as it will not have been registered here.</p>
+This works only for sensors that have been registered with this registry.</p>
 			</div>
 			
 		    
@@ -356,8 +278,7 @@ i.e. it will not work for a sensor that is not linked to any component as it wil
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Returns the sensor with the given identifier.
-This works only for sensors that have been registered with this registry,
-i.e. it will not work for a sensor that is not linked to any component as it will not have been registered here.</p>
+This works only for sensors that have been registered with this registry.</p>
 			</div>
 			
 
@@ -425,6 +346,67 @@ i.e. it will not work for a sensor that is not linked to any component as it wil
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateWithSensorValues:" title="updateWithSensorValues:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateWithSensorValues:">&ndash;&nbsp;updateWithSensorValues:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Perform appropriate logic based on provided updated sensor values.
+Implementation in this class does not perform any operation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateWithSensorValues:(NSDictionary *)<em>sensorValues</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sensorValues</code></th>
+						<td><p>NSDictionary with key being an NSString containing sensorId
+and value being the last raw (NSString) sensor value read.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Perform appropriate logic based on provided updated sensor values.
+Implementation in this class does not perform any operation.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORSensorRegistry.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -438,7 +420,7 @@ i.e. it will not work for a sensor that is not linked to any component as it wil
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-04-30</p>
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

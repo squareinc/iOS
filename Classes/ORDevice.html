@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ORDevice Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">ORControllerClient </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">OpenRemote</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/commands">commands</option>
+		
+		<option value="//api/name/identifier">identifier</option>
+		
+		<option value="//api/name/name">name</option>
+		
+		<option value="//api/name/sensors">sensors</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/findCommandById:">- findCommandById:</option>
+		
+		<option value="//api/name/findCommandByName:">- findCommandByName:</option>
+		
+		<option value="//api/name/findCommandsByTags:">- findCommandsByTags:</option>
+		
+		<option value="//api/name/findSensorById:">- findSensorById:</option>
+		
+		<option value="//api/name/findSensorByName:">- findSensorByName:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ORDevice Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>NSCoding</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ORDevice.h<br />ORDevice.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The name of the device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSString *name</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The name of the device.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/identifier" title="identifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/identifier">&nbsp;&nbsp;identifier</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The identifier of the device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) ORObjectIdentifier *identifier</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The identifier of the device.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/commands" title="commands"></a>
+	<h3 class="method-title"><code><a href="#//api/name/commands">&nbsp;&nbsp;commands</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The commands of the device</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSArray&lt;ORDeviceCommand*&gt; *commands</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The commands of the device</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sensors" title="sensors"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sensors">&nbsp;&nbsp;sensors</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The sensors of the device</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSArray&lt;ORDeviceSensor*&gt; *sensors</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The sensors of the device</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findCommandById:" title="findCommandById:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findCommandById:">&ndash;&nbsp;findCommandById:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Find a device command by its id</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ORDeviceCommand *)findCommandById:(ORObjectIdentifier *)<em>id</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a device or nil if no device was found</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Find a device command by its id</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findCommandByName:" title="findCommandByName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findCommandByName:">&ndash;&nbsp;findCommandByName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Find a device command by its <a href="#//api/name/name">name</a></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ORDeviceCommand *)findCommandByName:(NSString *)<em>name</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a device or nil if no device was found</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Find a device command by its <a href="#//api/name/name">name</a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findCommandsByTags:" title="findCommandsByTags:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findCommandsByTags:">&ndash;&nbsp;findCommandsByTags:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Find device <a href="#//api/name/commands">commands</a> by its tag(s)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSSet&lt;ORDeviceCommand*&gt; *)findCommandsByTags:(NSSet&lt;NSString*&gt; *)<em>tags</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a NSSet of devices. The set can be empty</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Find device <a href="#//api/name/commands">commands</a> by its tag(s)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findSensorById:" title="findSensorById:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findSensorById:">&ndash;&nbsp;findSensorById:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Find a device sensor by its id</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ORDeviceSensor *)findSensorById:(ORObjectIdentifier *)<em>id</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a sensor or nil if no device was found</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Find a device sensor by its id</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findSensorByName:" title="findSensorByName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findSensorByName:">&ndash;&nbsp;findSensorByName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Find a device sensor by its <a href="#//api/name/name">name</a></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ORDeviceSensor *)findSensorByName:(NSString *)<em>name</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a sensor or nil if no device was found</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Find a device sensor by its <a href="#//api/name/name">name</a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDevice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

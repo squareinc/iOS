@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ORDeviceModelSensorRegistry Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">ORControllerClient </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">OpenRemote</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/clearRegistry">- clearRegistry</option>
+		
+		<option value="//api/name/registerSensor:linkedToORDeviceSensor:">- registerSensor:linkedToORDeviceSensor:</option>
+		
+		<option value="//api/name/updateWithSensorValues:">- updateWithSensorValues:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ORDeviceModelSensorRegistry Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/ORSensorRegistry.html">ORSensorRegistry</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ORDeviceModelSensorRegistry.h<br />ORDeviceModelSensorRegistry.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Class is responsible to manage the list of known sensors
+and the <a href="../Classes/ORDeviceSensor.html">ORDeviceSensor</a> dependency on those sensors.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/registerSensor:linkedToORDeviceSensor:" title="registerSensor:linkedToORDeviceSensor:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerSensor:linkedToORDeviceSensor:">&ndash;&nbsp;registerSensor:linkedToORDeviceSensor:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a sensor to the registry, keeping track of the relationship to the component.
+If sensor exists not linked to that component, dependency is added.
+If sensor exists and component is already linked to it, mapping is updated with new value.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)registerSensor:(ORSensor *)<em>sensor</em> linkedToORDeviceSensor:(ORDeviceSensor *)<em>deviceSensor</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sensor</code></th>
+						<td><p>Sensor linked to component</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>component</code></th>
+						<td><p>Component sensor is linked to and will update
+TODO: for now, component is an NSObject and not a Component because of Label vs <a href="../Classes/ORLabel.html">ORLabel</a> dichotomy, should fix in the future.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>mapping</code></th>
+						<td><p>sensor states mapping to use to translate sensor value when assigned to component property</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>propertyName</code></th>
+						<td><p>name of property on component whose value is updated by sensor</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Adds a sensor to the registry, keeping track of the relationship to the component.
+If sensor exists not linked to that component, dependency is added.
+If sensor exists and component is already linked to it, mapping is updated with new value.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORDeviceModelSensorRegistry.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/clearRegistry" title="clearRegistry"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearRegistry">&ndash;&nbsp;clearRegistry</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Fully clears the registry of all information it contains.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearRegistry</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Fully clears the registry of all information it contains.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORSensorRegistry.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateWithSensorValues:" title="updateWithSensorValues:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateWithSensorValues:">&ndash;&nbsp;updateWithSensorValues:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Perform appropriate logic based on provided updated sensor values.
+Implementation in this class does not perform any operation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateWithSensorValues:(NSDictionary *)<em>sensorValues</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sensorValues</code></th>
+						<td><p>NSDictionary with key being an NSString containing sensorId
+and value being the last raw (NSString) sensor value read.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Perform appropriate logic based on provided updated sensor values.
+Implementation in this class does not perform any operation.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORSensorRegistry.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

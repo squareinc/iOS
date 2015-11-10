@@ -72,15 +72,25 @@
 		
 		<option value="//api/name/disconnect">- disconnect</option>
 		
+		<option value="//api/name/executeCommand:withParameter:successHandler:errorHandler:">- executeCommand:withParameter:successHandler:errorHandler:</option>
+		
 		<option value="//api/name/initWithControllerAddress:">- initWithControllerAddress:</option>
 		
 		<option value="//api/name/isConnected">- isConnected</option>
+		
+		<option value="//api/name/requestDevice:withSuccessHandler:errorHandler:">- requestDevice:withSuccessHandler:errorHandler:</option>
+		
+		<option value="//api/name/requestDeviceModelWithSuccessHandler:errorHandler:">- requestDeviceModelWithSuccessHandler:errorHandler:</option>
+		
+		<option value="//api/name/requestDevicesListWithSuccessHandler:errorHandler:">- requestDevicesListWithSuccessHandler:errorHandler:</option>
 		
 		<option value="//api/name/requestPanelIdentityListWithSuccessHandler:errorHandler:">- requestPanelIdentityListWithSuccessHandler:errorHandler:</option>
 		
 		<option value="//api/name/requestPanelUILayout:successHandler:errorHandler:">- requestPanelUILayout:successHandler:errorHandler:</option>
 		
 		<option value="//api/name/retrieveResourceNamed:successHandler:errorHandler:">- retrieveResourceNamed:successHandler:errorHandler:</option>
+		
+		<option value="//api/name/sendPressCommandForButton:">- sendPressCommandForButton:</option>
 		
 	</optgroup>
 	
@@ -128,7 +138,7 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -159,7 +169,7 @@ Does not try to connect to the controller.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>anAddress</code></th>
-						<td><p><a href="#//api/name/address">address</a> of the controller to connect to</p></td>
+						<td><p>The <a href="#//api/name/address">address</a> of the controller to connect to.</p></td>
 					</tr>
 				
 				</table>
@@ -209,7 +219,7 @@ Does not try to connect to the controller.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>Establishes connection to the controller.
-If the controller already has definition attached to it, this also restarts polling for model updates.</p>
+If the controller already has a definition attached to it, this also restarts polling for model updates.</p>
 			</div>
 			
 		    
@@ -246,7 +256,7 @@ This block has no return value and takes a single NSError * argument indicating 
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Establishes connection to the controller.
-If the controller already has definition attached to it, this also restarts polling for model updates.</p>
+If the controller already has a definition attached to it, this also restarts polling for model updates.</p>
 
 <p>Reports success/error through provided handlers.
 successHandler is guaranteed to be called after the connection has been established.
@@ -525,8 +535,8 @@ for as long as connection to the controller stays open.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Attaches the panel layout definition to this controller, restarting polling for object model changes.
-Dettaches it from previous controller if it was already attached.</p>
+				<p>Attaches the panel layout definition to this controller.
+If there is currently a connecting to the controller, this method restarts polling for object model changes.</p>
 			</div>
 			
 		    
@@ -541,9 +551,7 @@ Dettaches it from previous controller if it was already attached.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>panelDefinition</code></th>
-						<td><p>The panel layout definition to attach to this controller.</p>
-
-<p>TODO: currently, polling is started even if not <a href="#//api/name/connected">connected</a> to controller, is that OK ?</p></td>
+						<td><p>The panel layout definition to attach to this controller.</p></td>
 					</tr>
 				
 				</table>
@@ -557,8 +565,155 @@ Dettaches it from previous controller if it was already attached.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Attaches the panel layout definition to this controller, restarting polling for object model changes.
-Dettaches it from previous controller if it was already attached.</p>
+				<p>Attaches the panel layout definition to this controller.
+If there is currently a connecting to the controller, this method restarts polling for object model changes.</p>
+
+<p>Dettaches it from previous controller if it was already attached.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestDeviceModelWithSuccessHandler:errorHandler:" title="requestDeviceModelWithSuccessHandler:errorHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestDeviceModelWithSuccessHandler:errorHandler:">&ndash;&nbsp;requestDeviceModelWithSuccessHandler:errorHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the devices model known by this controller.
+Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestDeviceModelWithSuccessHandler:(void ( ^ ) ( ORControllerDeviceModel *))<em>successHandler</em> errorHandler:(void ( ^ ) ( NSError *error ))<em>errorHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>successHandler</code></th>
+						<td><p>A block object to be executed once the complete devices model has been successfully read from the controller.
+This block has no return value and takes a single <a href="../Classes/ORControllerDeviceModel.html">ORControllerDeviceModel</a> * argument that provides back the devices model read.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>A block object to be executed if the model cannot be retrieved from controller.
+This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Request the devices model known by this controller.
+Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
+
+<p>The returned model contains all known devices, their commands and sensors.
+After this call, the values of the sensors will be updated based on the controller feedback,
+for as long as connection to the controller stays open.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/executeCommand:withParameter:successHandler:errorHandler:" title="executeCommand:withParameter:successHandler:errorHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/executeCommand:withParameter:successHandler:errorHandler:">&ndash;&nbsp;executeCommand:withParameter:successHandler:errorHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Instructs the controller to execute the given command, optionally with a parameter.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)executeCommand:(ORDeviceCommand *)<em>command</em> withParameter:(NSString *)<em>parameter</em> successHandler:(void ( ^ ) ( ))<em>successHandler</em> errorHandler:(void ( ^ ) ( NSError *))<em>errorHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>command</code></th>
+						<td><p>The command to execute, must be part of a previously retrieved devices model.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>parameter</code></th>
+						<td><p>An optional parameter value to be provided for command execution.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>successHandler</code></th>
+						<td><p>A block object to be executed once the command has been successfully executed by the controller.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>A block object to be executed if the command cannot be executed by controller.
+This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Instructs the controller to execute the given command, optionally with a parameter.</p>
 			</div>
 			
 
@@ -587,7 +742,8 @@ Dettaches it from previous controller if it was already attached.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
+				<p>Retrieves a resource with the given name from the controller.
+Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
 			</div>
 			
 		    
@@ -595,6 +751,30 @@ Dettaches it from previous controller if it was already attached.</p>
 			<div class="method-subsection method-declaration"><code>- (void)retrieveResourceNamed:(NSString *)<em>resourceName</em> successHandler:(void ( ^ ) ( NSData *))<em>successHandler</em> errorHandler:(void ( ^ ) ( NSError *))<em>errorHandler</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>resourceName</code></th>
+						<td><p>The name of the resource to retrieve.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>successHandler</code></th>
+						<td><p>A block object to be executed once the resource has been successfully retrieved from the controller.
+This block has no return value and takes a single NSData * argument that provides the unprocessed binary content of the resource.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>A block object to be executed if the resource cannot be retrieved from controller.
+This block has no return value and takes a single NSError * argument indicating the error that occurred. This parameter may be NULL.</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -604,7 +784,66 @@ Dettaches it from previous controller if it was already attached.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
+				<p>Retrieves a resource with the given name from the controller.
+Both handlers are guaranteed to be called on the same thread that initially called this method.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendPressCommandForButton:" title="sendPressCommandForButton:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendPressCommandForButton:">&ndash;&nbsp;sendPressCommandForButton:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Instructs the controller to execute press command for the given button.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)sendPressCommandForButton:(ORButton *)<em>sender</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sender</code></th>
+						<td><p>The button for which to execute a press command.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Instructs the controller to execute press command for the given button.</p>
 			</div>
 			
 
@@ -670,6 +909,106 @@ Dettaches it from previous controller if it was already attached.</p>
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/requestDevicesListWithSuccessHandler:errorHandler:" title="requestDevicesListWithSuccessHandler:errorHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestDevicesListWithSuccessHandler:errorHandler:">&ndash;&nbsp;requestDevicesListWithSuccessHandler:errorHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the full devices list in the configuration of the controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestDevicesListWithSuccessHandler:(void ( ^ ) ( NSArray *))<em>successHandler</em> errorHandler:(void ( ^ ) ( NSError *))<em>errorHandler</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Request the full devices list in the configuration of the controller</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORController.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestDevice:withSuccessHandler:errorHandler:" title="requestDevice:withSuccessHandler:errorHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestDevice:withSuccessHandler:errorHandler:">&ndash;&nbsp;requestDevice:withSuccessHandler:errorHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request a device</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestDevice:(ORDevice *)<em>device</em> withSuccessHandler:(void ( ^ ) ( ORDevice *theDevice ))<em>successHandler</em> errorHandler:(void ( ^ ) ( NSError *))<em>errorHandler</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Request a device</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORController.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -680,7 +1019,7 @@ Dettaches it from previous controller if it was already attached.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-04-30</p>
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

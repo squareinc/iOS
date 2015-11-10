@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ORScreenOrGroupReference Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">ORControllerClient </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">OpenRemote</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/groupIdentifier">groupIdentifier</option>
+		
+		<option value="//api/name/screenIdentifier">screenIdentifier</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithGroupIdentifier:screenIdentifier:">- initWithGroupIdentifier:screenIdentifier:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ORScreenOrGroupReference Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>NSCoding<br />NSCopying</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ORScreenOrGroupReference.h<br />ORScreenOrGroupReference.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Object storing reference to a given screen (or group if no screen is specified).
+Note that an <a href="../Classes/ORScreen.html">ORScreen</a> instance does not reference its group, as it might belong to multiple ones.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/groupIdentifier" title="groupIdentifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/groupIdentifier">&nbsp;&nbsp;groupIdentifier</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Identifier of the group, might not be nil.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, readonly) ORObjectIdentifier *groupIdentifier</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Identifier of the group, might not be nil.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORScreenOrGroupReference.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/screenIdentifier" title="screenIdentifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/screenIdentifier">&nbsp;&nbsp;screenIdentifier</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Identifier of the screen, might be nil if this references a group.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, readonly) ORObjectIdentifier *screenIdentifier</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Identifier of the screen, might be nil if this references a group.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORScreenOrGroupReference.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithGroupIdentifier:screenIdentifier:" title="initWithGroupIdentifier:screenIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithGroupIdentifier:screenIdentifier:">&ndash;&nbsp;initWithGroupIdentifier:screenIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes the reference with the given group and screen.
+If not group is provided, returns nil.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id)initWithGroupIdentifier:(ORObjectIdentifier *)<em>aGroupdIdentifier</em> screenIdentifier:(ORObjectIdentifier *)<em>aScreenIdentifier</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aScreenIdentifier</code></th>
+						<td><p>The identifier of the screen, might be nil to reference the group.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aGroupIdentifier</code></th>
+						<td><p>The identifier of the group, might not be nil.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An ORScreenOrGroupReference object initialized with given identifiers. If no group identifier was given, returns nil.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes the reference with the given group and screen.
+If not group is provided, returns nil.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORScreenOrGroupReference.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

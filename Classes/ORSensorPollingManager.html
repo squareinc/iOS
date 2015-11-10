@@ -60,7 +60,11 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithControllerAPI:controllerAddress:sensorRegistry:">- initWithControllerAPI:controllerAddress:sensorRegistry:</option>
+		<option value="//api/name/addSensorRegistry:">- addSensorRegistry:</option>
+		
+		<option value="//api/name/initWithControllerAPI:controllerAddress:">- initWithControllerAPI:controllerAddress:</option>
+		
+		<option value="//api/name/removeSensorRegistry:">- removeSensorRegistry:</option>
 		
 	</optgroup>
 	
@@ -99,8 +103,9 @@
 						<p>Manages the sensor polling loop with an OpenRemote controller.
 Updates the object model attributes based on the information received.</p>
 
-<p>Sensors polled are the one registered in the sensor registry.
-Information on what/how to update is taken from provided Sensor Registry.</p>
+<p>Sensors polled are the one registered in the sensor registries.</p>
+
+<p>WARNING: This implementation is not thread-safe and should be accessed from only one thread at a time.</p>
 					</div>
 					
 					
@@ -116,8 +121,8 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithControllerAPI:controllerAddress:sensorRegistry:" title="initWithControllerAPI:controllerAddress:sensorRegistry:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithControllerAPI:controllerAddress:sensorRegistry:">&ndash;&nbsp;initWithControllerAPI:controllerAddress:sensorRegistry:</a></code>
+	<a name="//api/name/initWithControllerAPI:controllerAddress:" title="initWithControllerAPI:controllerAddress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithControllerAPI:controllerAddress:">&ndash;&nbsp;initWithControllerAPI:controllerAddress:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -132,7 +137,7 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)<em>api</em> controllerAddress:(ORControllerAddress *)<em>controllerAddress</em> sensorRegistry:(ORSensorRegistry *)<em>sensorRegistry</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)<em>api</em> controllerAddress:(ORControllerAddress *)<em>controllerAddress</em></code></div>
 
 		    
 			
@@ -150,6 +155,65 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 						<td><p>address of the controller to connect to</p></td>
 					</tr>
 				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An ORSensorPollingManager object initialized with the provided address.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes the manager to poll from controller at given address and use provided registry to update object model.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORSensorPollingManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addSensorRegistry:" title="addSensorRegistry:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addSensorRegistry:">&ndash;&nbsp;addSensorRegistry:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a sensor registry so that its registered sensor are polled for updates.
+The poll mechanism is restarted to ensure that the registry&rsquo;s sensor initial value is fetched.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addSensorRegistry:(ORSensorRegistry *)<em>sensorRegistry</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
 					<tr>
 						<th scope="row" class="argument-name"><code>sensorRegistry</code></th>
 						<td><p>registry defining what information in the object model needs updating (and how to update)</p></td>
@@ -160,10 +224,64 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 			
 
 			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An ORSensorPollingManager object initialized with the provided address and registry.</p>
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Adds a sensor registry so that its registered sensor are polled for updates.
+The poll mechanism is restarted to ensure that the registry&rsquo;s sensor initial value is fetched.</p>
 			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ORSensorPollingManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeSensorRegistry:" title="removeSensorRegistry:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeSensorRegistry:">&ndash;&nbsp;removeSensorRegistry:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a sensor registry so its sensor values are not updated anymore.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeSensorRegistry:(ORSensorRegistry *)<em>sensorRegistry</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sensorRegistry</code></th>
+						<td><p>registry to remove from list of known registry</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
 			
 
 			
@@ -171,7 +289,7 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Initializes the manager to poll from controller at given address and use provided registry to update object model.</p>
+				<p>Removes a sensor registry so its sensor values are not updated anymore.</p>
 			</div>
 			
 
@@ -201,7 +319,7 @@ Information on what/how to update is taken from provided Sensor Registry.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-04-30</p>
+						<p class="copyright">Copyright &copy; 2015 OpenRemote. All rights reserved. Updated: 2015-11-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
