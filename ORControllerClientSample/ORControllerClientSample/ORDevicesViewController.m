@@ -35,14 +35,6 @@
 
 @implementation ORDevicesViewController
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-
-    // If we did register previously to observe on model objects, un-register
-    [self stopObservingLabelChanges];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"DeviceSegue"]) {
@@ -85,28 +77,6 @@
                               otherButtonTitles:@"OK", nil] show];
         }];
     }                      errorHandler:NULL];
-}
-
-- (void)stopPolling
-{
-//    [self stopObservingLabelChanges];
-    [super stopPolling];
-}
-
-- (void)stopObservingLabelChanges
-{
-    if (self.deviceModel.devices) {
-        [self.deviceModel.devices enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            @try {
-                [obj removeObserver:self forKeyPath:@"text"];
-            } @catch (NSException *e) {
-                // Ignore NSRangeException, would mean we already removed ourself as observer
-                if (![@"NSRangeException" isEqualToString:e.name]) {
-                    @throw e;
-                }
-            }
-        }];
-    }
 }
 
 @end
