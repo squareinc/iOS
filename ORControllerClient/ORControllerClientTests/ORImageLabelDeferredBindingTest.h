@@ -19,9 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ORImageLabelDeferredBindingTest : SenTestCase
+@interface ORImageLabelDeferredBindingTest : XCTestCase
 
 /**
  * Validates that an ORImageLabelDeferredBinding instance can be instantiated when giving a non nil identifier

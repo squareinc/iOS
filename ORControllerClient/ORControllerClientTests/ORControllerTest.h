@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Unit tests for ORController
  */
-@interface ORControllerTest : SenTestCase
+@interface ORControllerTest : XCTestCase
 
 /**
  * Initiliazes the ORController with a valid address.

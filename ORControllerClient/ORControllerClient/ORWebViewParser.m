@@ -23,7 +23,7 @@
 #import "ORModelObject_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORSensorLinkParser.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "XMLEntity.h"

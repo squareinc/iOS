@@ -15,5 +15,7 @@
  */
 + (NSString *) base64StringFromData: (NSData *)data length: (int)length;
 
+- (NSString *)escapeXmlEntities;
 
+- (NSString *)unescapeXmlEntities;
 @end

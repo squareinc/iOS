@@ -29,14 +29,14 @@
 {
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"http://localhost:8688/controller"]];
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
-    STAssertNotNil(orb, @"Creating an ORController with a valid ORControllerAddress should be possible");
-    STAssertFalse([orb isConnected], @"Newly created ORController should not be connected");
+    XCTAssertNotNil(orb, @"Creating an ORController with a valid ORControllerAddress should be possible");
+    XCTAssertFalse([orb isConnected], @"Newly created ORController should not be connected");
 }
 
 - (void)testCreateWithNilAddress
 {
     ORController *orb = [[ORController alloc] initWithControllerAddress:nil];
-    STAssertNil(orb, @"Creating an ORController with no address should not be possible");
+    XCTAssertNil(orb, @"Creating an ORController with no address should not be possible");
 }
 
 @end

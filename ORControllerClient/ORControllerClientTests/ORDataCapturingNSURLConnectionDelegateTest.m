@@ -19,11 +19,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "ORDataCapturingNSURLConnectionDelegate.h"
 
-@interface ORDataCapturingNSURLConnectionDelegateTest : SenTestCase
+@interface ORDataCapturingNSURLConnectionDelegateTest : XCTestCase
 
 @end
 
@@ -51,7 +51,7 @@
     ORDataCapturingNSURLConnectionDelegate *capturingDelegate = [[ORDataCapturingNSURLConnectionDelegate alloc] initWithNSURLConnectionDelegate:mockDelegate];
     
     [[mockDelegate expect] connection:connection didFailWithError:[OCMArg any]];
-    [capturingDelegate connection:connection didFailWithError:NULL];
+    [capturingDelegate connection:connection didFailWithError:[NSError errorWithDomain:@"Test" code:0 userInfo:nil]];
     [mockDelegate verify];
     
     [[mockDelegate expect] connectionShouldUseCredentialStorage:connection];

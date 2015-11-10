@@ -31,9 +31,9 @@
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
-    STAssertNotNil(binding, @"Creating a deferred binding should be possible");
-    STAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
-    STAssertEqualObjects(binding.enclosingObject, widget, @"Enclosing object should be one used to create binding");
+    XCTAssertNotNil(binding, @"Creating a deferred binding should be possible");
+    XCTAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
+    XCTAssertEqualObjects(binding.enclosingObject, widget, @"Enclosing object should be one used to create binding");
 }
 
 - (void)testFailCreateBindingWithNilParameters
@@ -41,13 +41,13 @@
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORWidget *widget = [[ORWidget alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2]];
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:nil enclosingObject:nil];
-    STAssertNil(binding, @"It should not be possible to create a binding with nil parameters");
+    XCTAssertNil(binding, @"It should not be possible to create a binding with nil parameters");
     
     binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:nil];
-    STAssertNil(binding, @"It should not be possible to create a binding with nil identifier");
+    XCTAssertNil(binding, @"It should not be possible to create a binding with nil identifier");
 
     binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:nil enclosingObject:widget];
-    STAssertNil(binding, @"It should not be possible to create a binding with nil enclosing object");
+    XCTAssertNil(binding, @"It should not be possible to create a binding with nil enclosing object");
 }
 
 - (void)testBindIsAbstract
@@ -57,7 +57,7 @@
     ORDeferredBinding *binding = [[ORDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:widget];
     @try {
         [binding bind];
-        STFail(@"bind method is abstract and should not be executed correctly");
+        XCTFail(@"bind method is abstract and should not be executed correctly");
     } @catch (NSException *e) {
         if (![NSInvalidArgumentException isEqualToString:e.name]) {
             @throw e;

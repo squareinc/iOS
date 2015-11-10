@@ -27,11 +27,11 @@
 - (void)testDefaultValuesOnInit
 {
     ORBackground *background = [[ORBackground alloc] init];
-    STAssertNotNil(background, @"Should be possible to initiliaze a background");
+    XCTAssertNotNil(background, @"Should be possible to initiliaze a background");
     
-    STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Default repeat is to not repeat");
-    STAssertEquals(background.positionUnit, ORWidgetUnitNotDefined, @"Default is for position units not to be defined");
-    STAssertEquals(background.sizeUnit, ORWidgetUnitNotDefined, @"Default is for size units not to be defined");
+    XCTAssertEqual(background.repeat, ORBackgroundRepeatNoRepeat, @"Default repeat is to not repeat");
+    XCTAssertEqual(background.positionUnit, ORWidgetUnitNotDefined, @"Default is for position units not to be defined");
+    XCTAssertEqual(background.sizeUnit, ORWidgetUnitNotDefined, @"Default is for size units not to be defined");
 }
 
 @end

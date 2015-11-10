@@ -43,14 +43,14 @@
     [xmlParser setDelegate:parser];
     [xmlParser parse];
     
-    STAssertNotNil(parser.topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([parser.topLevelParser isMemberOfClass:[ORSensorLinkParser class]], @"Parser used should be an ORSensorLinkParser");
+    XCTAssertNotNil(parser.topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([parser.topLevelParser isMemberOfClass:[ORSensorLinkParser class]], @"Parser used should be an ORSensorLinkParser");
     ORSensorLinkParser *sensorLinkParser = (ORSensorLinkParser *)parser.topLevelParser;
-    STAssertNotNil(sensorLinkParser.sensor, @"A sensor should be parsed for given XML snippet");
-    STAssertEqualObjects(sensorLinkParser.sensor.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Sensor with id 12 should have been parsed");
-    STAssertNotNil(sensorLinkParser.sensorStatesMapping, @"A sensor states mapping should be parsed for given XML snipper");
-    STAssertEqualObjects([sensorLinkParser.sensorStatesMapping stateValueForName:@"Name1"], @"Value1", @"Name1/Value2 state should have been parsed");
-    STAssertEqualObjects([sensorLinkParser.sensorStatesMapping stateValueForName:@"Name2"], @"Value2", @"Name2/Value2 state should have been parsed");
+    XCTAssertNotNil(sensorLinkParser.sensor, @"A sensor should be parsed for given XML snippet");
+    XCTAssertEqualObjects(sensorLinkParser.sensor.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:12], @"Sensor with id 12 should have been parsed");
+    XCTAssertNotNil(sensorLinkParser.sensorStatesMapping, @"A sensor states mapping should be parsed for given XML snipper");
+    XCTAssertEqualObjects([sensorLinkParser.sensorStatesMapping stateValueForName:@"Name1"], @"Value1", @"Name1/Value2 state should have been parsed");
+    XCTAssertEqualObjects([sensorLinkParser.sensorStatesMapping stateValueForName:@"Name2"], @"Value2", @"Name2/Value2 state should have been parsed");
 }
 
 @end

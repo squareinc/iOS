@@ -27,7 +27,7 @@
 #import "DefinitionElementParserRegister.h"
 #import "Definition.h"
 #import "XMLEntity.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORSensorStatesMapping.h"
 #import "ORImage_Private.h"
 

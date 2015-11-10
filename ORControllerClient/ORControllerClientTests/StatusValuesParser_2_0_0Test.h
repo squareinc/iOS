@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Unit tests for StatusValuesParser_2_0_0Test
  */
-@interface StatusValuesParser_2_0_0Test : SenTestCase
+@interface StatusValuesParser_2_0_0Test : XCTestCase
 
 /**
  * Tests that parsing works and provides expected values when provided with correct data.

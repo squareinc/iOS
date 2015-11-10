@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -20,19 +20,16 @@
  */
 
 #import "ORSensorRegistry.h"
-#import "ORSensorLink.h"
 #import "ORSensor.h"
 #import "ORObjectIdentifier.h"
 
 #define kSensorsKey           @"Sensors"
 #define kSensorsPerIdKey      @"SensorsPerId"
-#define kLinksPerSensorIdKey  @"LinksPerSensorId"
 
 @interface ORSensorRegistry ()
 
 @property (nonatomic, strong) NSMutableSet *_sensors;
 @property (nonatomic, strong) NSMutableDictionary *_sensorsPerId;
-@property (nonatomic, strong) NSMutableDictionary *_linksPerSensorId;
 
 @end
 
@@ -43,7 +40,6 @@
     self = [super init];
     if (self) {
         self._sensors = [NSMutableSet set];
-        self._linksPerSensorId = [NSMutableDictionary dictionary];
         self._sensorsPerId = [NSMutableDictionary dictionary];
     }
     return self;
@@ -51,33 +47,14 @@
 
 - (void)clearRegistry
 {
-    [self._linksPerSensorId removeAllObjects];
     [self._sensorsPerId removeAllObjects];
     [self._sensors removeAllObjects];
 }
 
 - (void)registerSensor:(ORSensor *)sensor
-     linkedToComponent:(NSObject *)component
-              property:(NSString *)propertyName
-   sensorStatesMapping:(ORSensorStatesMapping *)mapping
 {
     [self._sensors addObject:sensor];
     [self._sensorsPerId setObject:sensor forKey:sensor.identifier];
-    NSMutableSet *components = [self._linksPerSensorId objectForKey:sensor.identifier];
-    if (!components) {
-        components = [NSMutableSet setWithCapacity:1];
-        [self._linksPerSensorId setObject:components forKey:sensor.identifier];
-    }
-    NSSet *existingLinks = [components filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"component = %@ AND propertyName = %@", component, propertyName]];
-    if ([existingLinks count]) {
-        [components minusSet:existingLinks];
-    }
-    [components addObject:[[ORSensorLink alloc] initWithComponent:component propertyName:propertyName sensorStatesMapping:mapping]];
-}
-
-- (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier
-{
-    return [NSSet setWithSet:[self._linksPerSensorId objectForKey:sensorIdentifier]];
 }
 
 - (ORSensor *)sensorWithIdentifier:(ORObjectIdentifier *)sensorIdentifier
@@ -90,11 +67,14 @@
     return [NSSet setWithArray:[self._sensorsPerId allKeys]];
 }
 
+- (void)updateWithSensorValues:(NSDictionary *)sensorValues
+{
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self._sensors forKey:kSensorsKey];
     [aCoder encodeObject:self._sensorsPerId forKey:kSensorsPerIdKey];
-    [aCoder encodeObject:self._linksPerSensorId forKey:kLinksPerSensorIdKey];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -102,7 +82,6 @@
     if (self = [self init]) {
         self._sensors = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
         self._sensorsPerId = [aDecoder decodeObjectForKey:kSensorsPerIdKey];
-        self._linksPerSensorId = [aDecoder decodeObjectForKey:kLinksPerSensorIdKey];
     }
     return self;
 }

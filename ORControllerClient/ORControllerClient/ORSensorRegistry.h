@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2013, OpenRemote Inc.
+ * Copyright 2008-2015, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -22,13 +22,14 @@
 #import <Foundation/Foundation.h>
 
 @class ORSensor;
-@class ORSensorLink;
-@class ORSensorStatesMapping;
 @class ORObjectIdentifier;
 
 /**
  * Class is responsible to manage the list of known sensors
- * and the UI widgets dependency on those sensors.
+ * and appropriately react to sensor values update.
+ *
+ * This class does not perform any specific logic on update,
+ * subclasses will implement appropriate logic.
  */
 @interface ORSensorRegistry : NSObject <NSCoding>
 
@@ -38,34 +39,15 @@
 - (void)clearRegistry;
 
 /**
- * Adds a sensor to the registry, keeping track of the relationship to the component.
- * If sensor exists not linked to that component, dependency is added.
- * If sensor exists and component is already linked to it, mapping is updated with new value.
+ * Adds a sensor to the registry.
  *
- * @param sensor Sensor linked to component
- * @param component Component sensor is linked to and will update
- * TODO: for now, component is an NSObject and not a Component because of Label vs ORLabel dichotomy, should fix in the future.
- * @param propertyName name of property on component whose value is updated by sensor
- * @param mapping sensor states mapping to use to translate sensor value when assigned to component property
+ * @param sensor Sensor to add
  */
-- (void)registerSensor:(ORSensor *)sensor
-     linkedToComponent:(NSObject *)component
-              property:(NSString *)propertyName
-   sensorStatesMapping:(ORSensorStatesMapping *)mapping;
-
-/**
- * Returns the list of all links that are registered for a given sensor.
- *
- * @param sensorIdentifier identifier of sensor
- *
- * @return The list of all ORSensorLink registered for the sensor with given id.
- */
-- (NSSet *)sensorLinksForSensorIdentifier:(ORObjectIdentifier *)sensorIdentifier;
+- (void)registerSensor:(ORSensor *)sensor;
 
 /**
  * Returns the sensor with the given identifier.
- * This works only for sensors that have been registered with this registry,
- * i.e. it will not work for a sensor that is not linked to any component as it will not have been registered here.
+ * This works only for sensors that have been registered with this registry.
  *
  * @param sensorIdentifier identifier of sensor to lookup
  *
@@ -79,5 +61,15 @@
  * @return NSSet set with ORObjectIdentifiers of all registered sensors
  */
 - (NSSet *)sensorIdentifiers;
+
+
+/**
+ * Perform appropriate logic based on provided updated sensor values.
+ * Implementation in this class does not perform any operation.
+ *
+ * @param sensorValues NSDictionary with key being an NSString containing sensorId
+  *       and value being the last raw (NSString) sensor value read.
+ */
+- (void)updateWithSensorValues:(NSDictionary *)sensorValues;
 
 @end

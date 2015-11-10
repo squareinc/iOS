@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1B0816D21BE374AF00C73EC8 /* ORDevice.h in Copy Files */ = {isa = PBXBuildFile; fileRef = B57B4E748E211515F2527A1D /* ORDevice.h */; };
+		1B0816D41BE3854900C73EC8 /* ORDeviceCommand.h in Copy Files */ = {isa = PBXBuildFile; fileRef = B57B4EEA2DD0183AFD87F240 /* ORDeviceCommand.h */; };
+		1BFEF6071BE3B28800784F29 /* ORControllerDeviceModel.h in Copy Files */ = {isa = PBXBuildFile; fileRef = B57B46DE9A80496292273F52 /* ORControllerDeviceModel.h */; };
+		1BFEF6081BE3B2C600784F29 /* ORDeviceParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B46741082444EDD96B9EB /* ORDeviceParserTest.m */; };
+		1BFEF6091BE7693400784F29 /* ORDeviceSensor.h in Copy Files */ = {isa = PBXBuildFile; fileRef = B57B47DA83C49D1597BD0F19 /* ORDeviceSensor.h */; };
 		9108160917BA5D3000BAB9CE /* ORSensorPollingManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9108160817BA5D3000BAB9CE /* ORSensorPollingManagerTests.m */; };
 		91099A5218B20F7E005BEBAB /* ORSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91099A5118B20F7E005BEBAB /* ORSwitchParser.m */; };
 		91099A5318B20F7E005BEBAB /* ORSwitchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91099A5118B20F7E005BEBAB /* ORSwitchParser.m */; };
@@ -41,7 +46,7 @@
 		911754A5190E575000B20448 /* UIDevice+ORUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9117549F190E505100B20448 /* UIDevice+ORUDID.m */; };
 		91222D7C18912FC000BA0B96 /* ORDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7B18912FC000BA0B96 /* ORDeferredBindingTest.m */; };
 		91222D7F189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D7E189162F500BA0B96 /* ORImageLabelDeferredBindingTest.m */; };
-		91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
+		91222D8118916FA200BA0B96 /* ORImage.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91B72FA21890308F000B7552 /* ORImage.h */; };
 		91222D841892631700BA0B96 /* ORSensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D831892631700BA0B96 /* ORSensorState.m */; };
 		91222D851892631700BA0B96 /* ORSensorState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D831892631700BA0B96 /* ORSensorState.m */; };
 		91222D881892659E00BA0B96 /* ORSensorStatesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D871892659E00BA0B96 /* ORSensorStatesMapping.m */; };
@@ -57,18 +62,20 @@
 		91222D9D1892BD5D00BA0B96 /* ORSensorLinkParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222D9C1892BD5D00BA0B96 /* ORSensorLinkParserTest.m */; };
 		91222DA11892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
 		91222DA21892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91222DA01892BE0300BA0B96 /* ORSensorLinkParser.m */; };
-		912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CC8A0418E2E33000D31A66 /* ORSwitch.h */; };
+		912E1E4519019753009BA1D6 /* ORSwitch.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91CC8A0418E2E33000D31A66 /* ORSwitch.h */; };
+		913559591BEB66B4006CF380 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 913559581BEB66B4006CF380 /* ORSensorRegistry.m */; };
+		9135595D1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9135595C1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.m */; };
 		913699961850A4F50087A55B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913699951850A4F50087A55B /* libOCMock.a */; };
 		913699A11850BF310087A55B /* ORUserPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 913699A01850BF310087A55B /* ORUserPasswordCredential.m */; };
-		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
-		913699A71850C28D0087A55B /* ORAuthenticationManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 913699A21850BF6E0087A55B /* ORAuthenticationManager.h */; };
+		913699A61850C28D0087A55B /* ORUserPasswordCredential.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9136999F1850BF310087A55B /* ORUserPasswordCredential.h */; };
+		913699A71850C28D0087A55B /* ORAuthenticationManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 913699A21850BF6E0087A55B /* ORAuthenticationManager.h */; };
 		915024B217B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B117B50A7A005D8A02 /* ControllerREST_2_0_0_APITest.m */; };
 		915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024B617B50D2D005D8A02 /* ORRESTCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B417B50D2D005D8A02 /* ORRESTCall.m */; };
 		915024BB17B515FF005D8A02 /* ORRestCallMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024B917B515FF005D8A02 /* ORRestCallMock.m */; };
 		915024BE17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024BD17B51686005D8A02 /* ControllerREST_2_0_0_API_NonConnectingMock.m */; };
 		915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 915024C017B5279E005D8A02 /* ORSensorPollingManager.m */; };
-		916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 916D22AC18522158004D9CF4 /* ORCredential.h */; };
+		916D22AD185222B5004D9CF4 /* ORCredential.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 916D22AC18522158004D9CF4 /* ORCredential.h */; };
 		916D63B118B24B9F00AD781D /* ORButtonParser_2_1_0Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B018B24B9F00AD781D /* ORButtonParser_2_1_0Test.m */; };
 		916D63B618B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */; };
 		916D63B718B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 916D63B518B24C1E00AD781D /* ORButtonParser_2_1_0.m */; };
@@ -77,25 +84,25 @@
 		917104C517B8F513005F9BA4 /* ORSensorLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 917104C417B8F513005F9BA4 /* ORSensorLinkTest.m */; };
 		9178DF8D1844A31A00E862DF /* ORLabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF8C1844A31A00E862DF /* ORLabelParser.m */; };
 		9178DF8E1844A31A00E862DF /* ORLabelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF8C1844A31A00E862DF /* ORLabelParser.m */; };
-		9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9183056B17E8AC40002E9EF7 /* ORWidget.h */; };
+		9178DF8F1844C0D900E862DF /* ORWidget.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9183056B17E8AC40002E9EF7 /* ORWidget.h */; };
 		9178DF981844D46500E862DF /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF971844D46500E862DF /* UIColor+ORAdditions.m */; };
 		9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DF971844D46500E862DF /* UIColor+ORAdditions.m */; };
-		9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DF961844D46500E862DF /* UIColor+ORAdditions.h */; };
+		9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9178DF961844D46500E862DF /* UIColor+ORAdditions.h */; };
 		9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
 		9178DFA3184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
 		9178DFA4184CCBBD00E862DF /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA2184CCBBD00E862DF /* NSStringAdditions.m */; };
-		9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */; };
+		9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9178DFA1184CCBBD00E862DF /* NSStringAdditions.h */; };
 		9178DFA8184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
 		9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFA7184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m */; };
-		9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */; };
+		9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9178DFA6184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.h */; };
 		9178DFAD18508A3D00E862DF /* ORDataCapturingNSURLConnectionDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9178DFAC18508A3D00E862DF /* ORDataCapturingNSURLConnectionDelegateTest.m */; };
 		917BA54018C2342F006006E9 /* ORScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BA53F18C2342F006006E9 /* ORScreen.m */; };
 		917BA54118C2342F006006E9 /* ORScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BA53F18C2342F006006E9 /* ORScreen.m */; };
 		917BA54418C2343E006006E9 /* ORGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BA54318C2343E006006E9 /* ORGroup.m */; };
 		917BA54518C2343E006006E9 /* ORGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BA54318C2343E006006E9 /* ORGroup.m */; };
-		917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
-		917CC44017942B59007F2F2E /* ORController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
-		917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
+		917CC43F17942B59007F2F2E /* ORControllerAddress.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9190D4D81790172B00667A7C /* ORControllerAddress.h */; };
+		917CC44017942B59007F2F2E /* ORController.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9190D4D21790161900667A7C /* ORController.h */; };
+		917CC44117942B59007F2F2E /* ORLabel.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9190D4CF1790143000667A7C /* ORLabel.h */; };
 		9183056D17E8AC40002E9EF7 /* ORWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183056C17E8AC40002E9EF7 /* ORWidget.m */; };
 		9184CA3E18B3A37A0058A09F /* ORSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9184CA3D18B3A37A0058A09F /* ORSlider.m */; };
 		9184CA3F18B3A37A0058A09F /* ORSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9184CA3D18B3A37A0058A09F /* ORSlider.m */; };
@@ -104,7 +111,6 @@
 		918604BB179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 918604BA179447F9005DBCD9 /* RequestPanelIdentityListValidResponse.xml */; };
 		918604C017944828005DBCD9 /* ORPanelsParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 918604BF17944828005DBCD9 /* ORPanelsParserTest.m */; };
 		9190D4A81790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
-		9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4B61790140A00667A7C /* SenTestingKit.framework */; };
 		9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A71790140A00667A7C /* Foundation.framework */; };
 		9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9190D4A41790140A00667A7C /* libORControllerClient.a */; };
 		9190D4C31790140A00667A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9190D4C11790140A00667A7C /* InfoPlist.strings */; };
@@ -113,13 +119,13 @@
 		9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4D91790172B00667A7C /* ORControllerAddress.m */; };
 		9190D4E21790533A00667A7C /* ORControllerAddressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190D4E11790533A00667A7C /* ORControllerAddressTest.m */; };
 		9193330317956BB10086FEE7 /* ControllerREST_2_0_0_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330217956BB10086FEE7 /* ControllerREST_2_0_0_API.m */; };
-		91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */; };
+		91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193330117956BB10086FEE7 /* ControllerREST_2_0_0_API.h */; };
 		9193330D179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */; };
 		9193330E179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193330C179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.m */; };
 		91933311179982630086FEE7 /* ORRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933310179982630086FEE7 /* ORRuntimeUtils.m */; };
 		91933312179982630086FEE7 /* ORRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933310179982630086FEE7 /* ORRuntimeUtils.m */; };
 		91933316179983FC0086FEE7 /* ORRuntimeUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933315179983FC0086FEE7 /* ORRuntimeUtilsTest.m */; };
-		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
+		919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193330B179982440086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h */; };
 		9193331A179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		9193331B179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933319179E87AE0086FEE7 /* PanelIdentityListResponseHandler_2_0_0.m */; };
 		91933357179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193331E179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.m */; };
@@ -137,20 +143,20 @@
 		91933372179E9BD00086FEE7 /* LocalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933354179E9BCF0086FEE7 /* LocalController.m */; };
 		91933373179E9BD00086FEE7 /* ControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 91933356179E9BCF0086FEE7 /* ControllerComponent.m */; };
 		91933375179E9E920086FEE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91933374179E9E7E0086FEE7 /* UIKit.framework */; };
-		91933376179E9EB10086FEE7 /* ORLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */; };
-		91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */; };
-		9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ORColorPicker.h */; };
-		9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
-		9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* ORGridCell.h */; };
-		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
-		9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* ORTabBar.h */; };
-		9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* ORTabBarItem.h */; };
-		9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
-		9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* ORWebView.h */; };
-		9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9193334F179E9BCF0086FEE7 /* LocalSensor.h */; };
-		91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933351179E9BCF0086FEE7 /* LocalCommand.h */; };
-		91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933353179E9BCF0086FEE7 /* LocalController.h */; };
-		91933392179E9EB10086FEE7 /* ControllerComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91933355179E9BCF0086FEE7 /* ControllerComponent.h */; };
+		91933376179E9EB10086FEE7 /* ORLayoutContainer.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933337179E9BCF0086FEE7 /* ORLayoutContainer.h */; };
+		91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193331D179E9BCF0086FEE7 /* ORAbsoluteLayoutContainer.h */; };
+		9193337A179E9EB10086FEE7 /* ORColorPicker.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933323179E9BCF0086FEE7 /* ORColorPicker.h */; };
+		9193337D179E9EB10086FEE7 /* Definition.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933329179E9BCF0086FEE7 /* Definition.h */; };
+		9193337F179E9EB10086FEE7 /* ORGridCell.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193332D179E9BCF0086FEE7 /* ORGridCell.h */; };
+		91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193332F179E9BCF0086FEE7 /* ORGridLayoutContainer.h */; };
+		9193338B179E9EB10086FEE7 /* ORTabBar.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933347179E9BCF0086FEE7 /* ORTabBar.h */; };
+		9193338C179E9EB10086FEE7 /* ORTabBarItem.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933349179E9BCF0086FEE7 /* ORTabBarItem.h */; };
+		9193338D179E9EB10086FEE7 /* XMLEntity.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193334B179E9BCF0086FEE7 /* XMLEntity.h */; };
+		9193338E179E9EB10086FEE7 /* ORWebView.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193334D179E9BCF0086FEE7 /* ORWebView.h */; };
+		9193338F179E9EB10086FEE7 /* LocalSensor.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9193334F179E9BCF0086FEE7 /* LocalSensor.h */; };
+		91933390179E9EB10086FEE7 /* LocalCommand.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933351179E9BCF0086FEE7 /* LocalCommand.h */; };
+		91933391179E9EB10086FEE7 /* LocalController.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933353179E9BCF0086FEE7 /* LocalController.h */; };
+		91933392179E9EB10086FEE7 /* ControllerComponent.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91933355179E9BCF0086FEE7 /* ControllerComponent.h */; };
 		919333F0179EA2DE0086FEE7 /* PanelDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333AF179EA2D40086FEE7 /* PanelDefinitionParser.m */; };
 		919333F1179EA2DE0086FEE7 /* DefinitionElementParserRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B1179EA2D40086FEE7 /* DefinitionElementParserRegister.m */; };
 		919333F2179EA2DE0086FEE7 /* DefinitionElementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333B3179EA2D50086FEE7 /* DefinitionElementParser.m */; };
@@ -162,7 +168,7 @@
 		91933401179EA2DE0086FEE7 /* ORColorPickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D1179EA2DA0086FEE7 /* ORColorPickerParser.m */; };
 		91933405179EA2DE0086FEE7 /* ORTabBarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333D9179EA2DB0086FEE7 /* ORTabBarParser.m */; };
 		91933406179EA2DE0086FEE7 /* ORTabBarItemParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 919333DB179EA2DB0086FEE7 /* ORTabBarItemParser.m */; };
-		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
+		91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 919333AE179EA2D40086FEE7 /* PanelDefinitionParser.h */; };
 		919DDF3917E8A77C00EFDCCA /* ORLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DDF3817E8A77C00EFDCCA /* ORLabelTest.m */; };
 		91A4A23218D5D81B0070F823 /* ORNavigationParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23118D5D81B0070F823 /* ORNavigationParserTest.m */; };
 		91A4A23618D5D89D0070F823 /* ORNavigationParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23518D5D89D0070F823 /* ORNavigationParser.m */; };
@@ -173,35 +179,35 @@
 		91A4A24018D5E3560070F823 /* ORModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A23E18D5E3560070F823 /* ORModelObject.m */; };
 		91A4A24318D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
 		91A4A24418D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24218D5E71B0070F823 /* ORNavigationScreenDeferredBinding.m */; };
-		91A4A24618D6F23E0070F823 /* ORModelObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91A4A23D18D5E3560070F823 /* ORModelObject.h */; };
+		91A4A24618D6F23E0070F823 /* ORModelObject.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91A4A23D18D5E3560070F823 /* ORModelObject.h */; };
 		91A4A24818D6F36D0070F823 /* ORColorPickerParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24718D6F36D0070F823 /* ORColorPickerParserTest.m */; };
 		91A4A24C18D703840070F823 /* ORWebViewParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24B18D703840070F823 /* ORWebViewParserTest.m */; };
 		91A4A25018D733F20070F823 /* ORTabBarItemParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A24F18D733F20070F823 /* ORTabBarItemParserTest.m */; };
-		91A4A25318D739A30070F823 /* ORNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B357D418BB8D5B00ADED24 /* ORNavigation.h */; };
-		91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91B357D818BB8D6B00ADED24 /* ORScreenNavigation.h */; };
-		91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA53E18C2342F006006E9 /* ORScreen.h */; };
-		91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 917BA54218C2343E006006E9 /* ORGroup.h */; };
+		91A4A25318D739A30070F823 /* ORNavigation.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91B357D418BB8D5B00ADED24 /* ORNavigation.h */; };
+		91A4A25418D739EF0070F823 /* ORScreenNavigation.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91B357D818BB8D6B00ADED24 /* ORScreenNavigation.h */; };
+		91A4A25518D739EF0070F823 /* ORScreen.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 917BA53E18C2342F006006E9 /* ORScreen.h */; };
+		91A4A25618D739F60070F823 /* ORGroup.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 917BA54218C2343E006006E9 /* ORGroup.h */; };
 		91A4A25918D746AD0070F823 /* ORGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25818D746AD0070F823 /* ORGesture.m */; };
 		91A4A25A18D746AD0070F823 /* ORGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25818D746AD0070F823 /* ORGesture.m */; };
 		91A4A25E18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
 		91A4A25F18D749700070F823 /* ORGestureParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A25D18D749700070F823 /* ORGestureParser.m */; };
 		91A4A26918DAD6E80070F823 /* ORGestureParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */; };
-		91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91A4A25718D746AD0070F823 /* ORGesture.h */; };
+		91A4A26B18DADEEF0070F823 /* ORGesture.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91A4A25718D746AD0070F823 /* ORGesture.h */; };
 		91A4A26F18DB09BD0070F823 /* ORScreenParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A26E18DB09BD0070F823 /* ORScreenParser.m */; };
 		91A4A27018DB09BD0070F823 /* ORScreenParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A26E18DB09BD0070F823 /* ORScreenParser.m */; };
 		91A4A27318DB0D250070F823 /* ORScreenScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27218DB0D250070F823 /* ORScreenScreenDeferredBinding.m */; };
 		91A4A27418DB0D250070F823 /* ORScreenScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27218DB0D250070F823 /* ORScreenScreenDeferredBinding.m */; };
 		91A4A27618DB0E850070F823 /* ORScreenParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A4A27518DB0E850070F823 /* ORScreenParserTest.m */; };
-		91A821F319595F2B00A77FCA /* ORControllerBrowser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */; };
-		91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
-		91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
+		91A821F319595F2B00A77FCA /* ORControllerBrowser.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91FCBAEF1952C2370072A831 /* ORControllerBrowser.h */; };
+		91AAFAFD18A8D77900632C1A /* ORButton.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 911392DF189BE94E00B7D79D /* ORButton.h */; };
+		91AAFB0218A8EA0F00632C1A /* ORConsole.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91AAFAFE18A8E52F00632C1A /* ORConsole.h */; };
 		91AAFB0718A9083C00632C1A /* ORButtonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0618A9083C00632C1A /* ORButtonParser.m */; };
 		91AD7101189653800050EB0A /* ORSensorStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD7100189653800050EB0A /* ORSensorStateTest.m */; };
 		91B357C018BB47B400ADED24 /* ORSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357BF18BB47B400ADED24 /* ORSliderParser.m */; };
 		91B357C118BB47B400ADED24 /* ORSliderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357BF18BB47B400ADED24 /* ORSliderParser.m */; };
 		91B357C318BB4B8800ADED24 /* ORSliderParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357C218BB4B8800ADED24 /* ORSliderParserTest.m */; };
 		91B357C618BB537900ADED24 /* ORSliderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357C518BB537900ADED24 /* ORSliderTest.m */; };
-		91B357C818BB577400ADED24 /* ORSlider.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9184CA3C18B3A37A0058A09F /* ORSlider.h */; };
+		91B357C818BB577400ADED24 /* ORSlider.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 9184CA3C18B3A37A0058A09F /* ORSlider.h */; };
 		91B357D618BB8D5B00ADED24 /* ORNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357D518BB8D5B00ADED24 /* ORNavigation.m */; };
 		91B357D718BB8D5B00ADED24 /* ORNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357D518BB8D5B00ADED24 /* ORNavigation.m */; };
 		91B357DA18BB8D6B00ADED24 /* ORScreenNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357D918BB8D6B00ADED24 /* ORScreenNavigation.m */; };
@@ -223,8 +229,8 @@
 		91BCD6811899435400EC8AEE /* ORBackgroundParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD67F1899435400EC8AEE /* ORBackgroundParser.m */; };
 		91BCD68318994BF500EC8AEE /* ORBackgroundParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD68218994BF500EC8AEE /* ORBackgroundParserTest.m */; };
 		91BCD6861899540600EC8AEE /* ORBackgroundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCD6851899540600EC8AEE /* ORBackgroundTest.m */; };
-		91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91BCD67A189806E000EC8AEE /* ORBackground.h */; };
-		91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */; };
+		91BCD6881899599900EC8AEE /* ORBackground.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91BCD67A189806E000EC8AEE /* ORBackground.h */; };
+		91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91CD6A4917C271C500D5EEE6 /* ORObjectIdentifier.h */; };
 		91C3DF2B18DB3315006FD9D4 /* ORGroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF2A18DB3315006FD9D4 /* ORGroupParser.m */; };
 		91C3DF2C18DB3315006FD9D4 /* ORGroupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF2A18DB3315006FD9D4 /* ORGroupParser.m */; };
 		91C3DF2F18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3DF2E18DB34FD006FD9D4 /* ORGroupScreenDeferredBinding.m */; };
@@ -250,10 +256,10 @@
 		91CD6A4B17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
 		91CD6A4C17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4A17C271C500D5EEE6 /* ORObjectIdentifier.m */; };
 		91CD6A5017C35D5E00D5EEE6 /* ORObjectIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD6A4F17C35D5E00D5EEE6 /* ORObjectIdentifierTest.m */; };
-		91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */; };
-		91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91CD6A3F17C252D800D5EEE6 /* ORParser.h */; };
-		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
-		91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
+		91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91DC690C17BE68670099B11E /* ORControllerRESTAPI.h */; };
+		91CD6A5217C364B700D5EEE6 /* ORParser.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91CD6A3F17C252D800D5EEE6 /* ORParser.h */; };
+		91DA424E17953F0A001D39B9 /* ORPanelsParser.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 918604B7179444D2005DBCD9 /* ORPanelsParser.h */; };
+		91DA424F17953F0A001D39B9 /* ORPanel.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 918604B21794435E005DBCD9 /* ORPanel.h */; };
 		91DC690E17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
 		91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC690D17BE68670099B11E /* ORControllerRESTAPI.m */; };
 		91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC691117BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m */; };
@@ -266,21 +272,37 @@
 		91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */; };
 		91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
 		91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E794E717A9358200FE9E83 /* StatusValuesParser_2_0_0.m */; };
-		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
+		91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91E794E617A9358200FE9E83 /* StatusValuesParser_2_0_0.h */; };
 		91E7DACE1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */; };
 		91E7DACF1B0212A7000A8314 /* ORScreenOrGroupReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */; };
 		91E7DAD21B021453000A8314 /* ORScreenOrGroupReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAD01B021453000A8314 /* ORScreenOrGroupReferenceTest.m */; };
-		91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */; };
-		91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */; };
+		91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */; };
+		91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 91FCBAEC1952C1A40072A831 /* ORControllerInfo.h */; };
 		91FCBAEE1952C1A40072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
 		91FCBAF11952C2370072A831 /* ORControllerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF01952C2370072A831 /* ORControllerBrowser.m */; };
 		91FCBAF31952C4D40072A831 /* ORControllerInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAF21952C4D40072A831 /* ORControllerInfoTest.m */; };
 		91FCBAF51952C5B70072A831 /* ORControllerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAED1952C1A40072A831 /* ORControllerInfo.m */; };
 		91FCBB011952D1040072A831 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBAFE1952D1040072A831 /* AsyncSocket.m */; };
 		91FCBB021952D1040072A831 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FCBB001952D1040072A831 /* AsyncUdpSocket.m */; };
-		91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
-		91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */; };
+		91FDDCED17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m */; };
+		91FDDCEE17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCEC17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m */; };
 		91FDDCF117AAAFCD009A61B2 /* ORSensorRegistryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */; };
+		B57B40AD491C35F93ADEDD8F /* ORDeviceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B48F265EDBA060E4E8E56 /* ORDeviceTest.m */; };
+		B57B40B0593357D06641D7ED /* ORControllerDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4B774EF57D82D4F6FC34 /* ORControllerDeviceModel.m */; };
+		B57B40D55094B0C9FD53A1D0 /* ORDeviceSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4B04BF35DA2BEF7D543A /* ORDeviceSensor.m */; };
+		B57B41E1B07A16835CF16744 /* DeviceListResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4422C9A58312B3AB4431 /* DeviceListResponseHandler_2_0_0.m */; };
+		B57B41E875147FA13EDC98B9 /* ORDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B48A9A80981641E9A2BC4 /* ORDevice.m */; };
+		B57B428C46ED80BD1C6AC5C7 /* ORDeviceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */; };
+		B57B447EF11C633943A0C285 /* ORDeviceCommandResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */; };
+		B57B4584875B13A10E706D0F /* Sequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B469C9EBF12C2AE381381 /* Sequencer.m */; };
+		B57B46F3BEE83F723DE9F73A /* DevicesTest.xml in Resources */ = {isa = PBXBuildFile; fileRef = B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */; };
+		B57B47414A4DB5FD2E4277B8 /* ORDevicesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */; };
+		B57B4C2BB02A3C49C8565DDF /* ORControllerDeviceModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B49222B357A2D11983111 /* ORControllerDeviceModelTest.m */; };
+		B57B4C692AF6342E32717F39 /* DeviceResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */; };
+		B57B4C704F2B6EAE8313FD2D /* ORDeviceSensorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */; };
+		B57B4D6FFD154DC0FBB9AB13 /* ORDeviceCommandTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */; };
+		B57B4DA111EC7418285520E2 /* ORDeviceListParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */; };
+		B57B4EBB1053E0BAC22D0F8A /* ORDeviceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B464A34AC6CA9D0279879 /* ORDeviceCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -294,61 +316,66 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9190D4A21790140A00667A7C /* CopyFiles */ = {
+		9190D4A21790140A00667A7C /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in CopyFiles */,
-				91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in CopyFiles */,
-				91A821F319595F2B00A77FCA /* ORControllerBrowser.h in CopyFiles */,
-				912E1E4519019753009BA1D6 /* ORSwitch.h in CopyFiles */,
-				91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in CopyFiles */,
-				91A4A26B18DADEEF0070F823 /* ORGesture.h in CopyFiles */,
-				91A4A25618D739F60070F823 /* ORGroup.h in CopyFiles */,
-				91A4A25418D739EF0070F823 /* ORScreenNavigation.h in CopyFiles */,
-				91A4A25518D739EF0070F823 /* ORScreen.h in CopyFiles */,
-				91A4A25318D739A30070F823 /* ORNavigation.h in CopyFiles */,
-				91A4A24618D6F23E0070F823 /* ORModelObject.h in CopyFiles */,
-				91B357C818BB577400ADED24 /* ORSlider.h in CopyFiles */,
-				91AAFB0218A8EA0F00632C1A /* ORConsole.h in CopyFiles */,
-				91AAFAFD18A8D77900632C1A /* ORButton.h in CopyFiles */,
-				91BCD6881899599900EC8AEE /* ORBackground.h in CopyFiles */,
-				91222D8118916FA200BA0B96 /* ORImage.h in CopyFiles */,
-				916D22AD185222B5004D9CF4 /* ORCredential.h in CopyFiles */,
-				913699A61850C28D0087A55B /* ORUserPasswordCredential.h in CopyFiles */,
-				913699A71850C28D0087A55B /* ORAuthenticationManager.h in CopyFiles */,
-				9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in CopyFiles */,
-				9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in CopyFiles */,
-				9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in CopyFiles */,
-				9178DF8F1844C0D900E862DF /* ORWidget.h in CopyFiles */,
-				91CD6A5217C364B700D5EEE6 /* ORParser.h in CopyFiles */,
-				91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in CopyFiles */,
-				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in CopyFiles */,
-				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in CopyFiles */,
-				91933376179E9EB10086FEE7 /* ORLayoutContainer.h in CopyFiles */,
-				91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in CopyFiles */,
-				9193337A179E9EB10086FEE7 /* ORColorPicker.h in CopyFiles */,
-				9193337D179E9EB10086FEE7 /* Definition.h in CopyFiles */,
-				9193337F179E9EB10086FEE7 /* ORGridCell.h in CopyFiles */,
-				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in CopyFiles */,
-				9193338B179E9EB10086FEE7 /* ORTabBar.h in CopyFiles */,
-				9193338C179E9EB10086FEE7 /* ORTabBarItem.h in CopyFiles */,
-				9193338D179E9EB10086FEE7 /* XMLEntity.h in CopyFiles */,
-				9193338E179E9EB10086FEE7 /* ORWebView.h in CopyFiles */,
-				9193338F179E9EB10086FEE7 /* LocalSensor.h in CopyFiles */,
-				91933390179E9EB10086FEE7 /* LocalCommand.h in CopyFiles */,
-				91933391179E9EB10086FEE7 /* LocalController.h in CopyFiles */,
-				91933392179E9EB10086FEE7 /* ControllerComponent.h in CopyFiles */,
-				919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in CopyFiles */,
-				91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in CopyFiles */,
-				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in CopyFiles */,
-				91DA424F17953F0A001D39B9 /* ORPanel.h in CopyFiles */,
-				917CC43F17942B59007F2F2E /* ORControllerAddress.h in CopyFiles */,
-				917CC44017942B59007F2F2E /* ORController.h in CopyFiles */,
-				917CC44117942B59007F2F2E /* ORLabel.h in CopyFiles */,
+				1BFEF6091BE7693400784F29 /* ORDeviceSensor.h in Copy Files */,
+				1BFEF6071BE3B28800784F29 /* ORControllerDeviceModel.h in Copy Files */,
+				1B0816D41BE3854900C73EC8 /* ORDeviceCommand.h in Copy Files */,
+				1B0816D21BE374AF00C73EC8 /* ORDevice.h in Copy Files */,
+				91E7DAD31B0215F1000A8314 /* ORScreenOrGroupReference.h in Copy Files */,
+				91EFDAC7195B02F7001A6E53 /* ORControllerInfo.h in Copy Files */,
+				91A821F319595F2B00A77FCA /* ORControllerBrowser.h in Copy Files */,
+				912E1E4519019753009BA1D6 /* ORSwitch.h in Copy Files */,
+				91C3DF2718DB20D6006FD9D4 /* ORObjectIdentifier.h in Copy Files */,
+				91A4A26B18DADEEF0070F823 /* ORGesture.h in Copy Files */,
+				91A4A25618D739F60070F823 /* ORGroup.h in Copy Files */,
+				91A4A25418D739EF0070F823 /* ORScreenNavigation.h in Copy Files */,
+				91A4A25518D739EF0070F823 /* ORScreen.h in Copy Files */,
+				91A4A25318D739A30070F823 /* ORNavigation.h in Copy Files */,
+				91A4A24618D6F23E0070F823 /* ORModelObject.h in Copy Files */,
+				91B357C818BB577400ADED24 /* ORSlider.h in Copy Files */,
+				91AAFB0218A8EA0F00632C1A /* ORConsole.h in Copy Files */,
+				91AAFAFD18A8D77900632C1A /* ORButton.h in Copy Files */,
+				91BCD6881899599900EC8AEE /* ORBackground.h in Copy Files */,
+				91222D8118916FA200BA0B96 /* ORImage.h in Copy Files */,
+				916D22AD185222B5004D9CF4 /* ORCredential.h in Copy Files */,
+				913699A61850C28D0087A55B /* ORUserPasswordCredential.h in Copy Files */,
+				913699A71850C28D0087A55B /* ORAuthenticationManager.h in Copy Files */,
+				9178DFAA184CCFB700E862DF /* NSMutableURLRequest+ORAdditions.h in Copy Files */,
+				9178DFA5184CCCBA00E862DF /* NSStringAdditions.h in Copy Files */,
+				9178DF9A1844D59A00E862DF /* UIColor+ORAdditions.h in Copy Files */,
+				9178DF8F1844C0D900E862DF /* ORWidget.h in Copy Files */,
+				91CD6A5217C364B700D5EEE6 /* ORParser.h in Copy Files */,
+				91CD6A5117C3647800D5EEE6 /* ORControllerRESTAPI.h in Copy Files */,
+				91E794EA17A93C9400FE9E83 /* StatusValuesParser_2_0_0.h in Copy Files */,
+				91933411179EA6B10086FEE7 /* PanelDefinitionParser.h in Copy Files */,
+				91933376179E9EB10086FEE7 /* ORLayoutContainer.h in Copy Files */,
+				91933377179E9EB10086FEE7 /* ORAbsoluteLayoutContainer.h in Copy Files */,
+				9193337A179E9EB10086FEE7 /* ORColorPicker.h in Copy Files */,
+				9193337D179E9EB10086FEE7 /* Definition.h in Copy Files */,
+				9193337F179E9EB10086FEE7 /* ORGridCell.h in Copy Files */,
+				91933380179E9EB10086FEE7 /* ORGridLayoutContainer.h in Copy Files */,
+				9193338B179E9EB10086FEE7 /* ORTabBar.h in Copy Files */,
+				9193338C179E9EB10086FEE7 /* ORTabBarItem.h in Copy Files */,
+				9193338D179E9EB10086FEE7 /* XMLEntity.h in Copy Files */,
+				9193338E179E9EB10086FEE7 /* ORWebView.h in Copy Files */,
+				9193338F179E9EB10086FEE7 /* LocalSensor.h in Copy Files */,
+				91933390179E9EB10086FEE7 /* LocalCommand.h in Copy Files */,
+				91933391179E9EB10086FEE7 /* LocalController.h in Copy Files */,
+				91933392179E9EB10086FEE7 /* ControllerComponent.h in Copy Files */,
+				919333171799924B0086FEE7 /* ORDataCapturingNSURLConnectionDelegate.h in Copy Files */,
+				91933304179574130086FEE7 /* ControllerREST_2_0_0_API.h in Copy Files */,
+				91DA424E17953F0A001D39B9 /* ORPanelsParser.h in Copy Files */,
+				91DA424F17953F0A001D39B9 /* ORPanel.h in Copy Files */,
+				917CC43F17942B59007F2F2E /* ORControllerAddress.h in Copy Files */,
+				917CC44017942B59007F2F2E /* ORController.h in Copy Files */,
+				917CC44117942B59007F2F2E /* ORLabel.h in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -408,6 +435,10 @@
 		9125D6621A68233400439BE0 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		9125D6631A68233400439BE0 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
 		9125D6641A68233400439BE0 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
+		913559581BEB66B4006CF380 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
+		9135595A1BEB66DD006CF380 /* ORSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistry.h; sourceTree = "<group>"; };
+		9135595B1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceModelSensorRegistry.h; sourceTree = "<group>"; };
+		9135595C1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceModelSensorRegistry.m; sourceTree = "<group>"; };
 		913699951850A4F50087A55B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		913699971850B15F0087A55B /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = "<group>"; };
 		9136999F1850BF310087A55B /* ORUserPasswordCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORUserPasswordCredential.h; sourceTree = "<group>"; };
@@ -462,8 +493,7 @@
 		9190D4A41790140A00667A7C /* libORControllerClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libORControllerClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4A71790140A00667A7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9190D4AB1790140A00667A7C /* ORControllerClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORControllerClient-Prefix.pch"; sourceTree = "<group>"; };
-		9190D4B51790140A00667A7C /* ORControllerClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORControllerClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9190D4B61790140A00667A7C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORControllerClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9190D4B81790140A00667A7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		9190D4C01790140A00667A7C /* ORControllerClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ORControllerClientTests-Info.plist"; sourceTree = "<group>"; };
 		9190D4C21790140A00667A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -691,10 +721,47 @@
 		91FCBAFE1952D1040072A831 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		91FCBAFF1952D1040072A831 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		91FCBB001952D1040072A831 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistry.h; sourceTree = "<group>"; };
-		91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistry.m; sourceTree = "<group>"; };
+		91FDDCEB17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanelDefinitionSensorRegistry.h; sourceTree = "<group>"; };
+		91FDDCEC17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanelDefinitionSensorRegistry.m; sourceTree = "<group>"; };
 		91FDDCEF17AAAFCD009A61B2 /* ORSensorRegistryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSensorRegistryTest.h; sourceTree = "<group>"; };
 		91FDDCF017AAAFCD009A61B2 /* ORSensorRegistryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSensorRegistryTest.m; sourceTree = "<group>"; };
+		B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DevicesTest.xml; sourceTree = "<group>"; };
+		B57B425DBAC54565FF98C0EC /* ORDevice_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevice_Private.h; sourceTree = "<group>"; };
+		B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceParser.m; sourceTree = "<group>"; };
+		B57B432C696CFE3188D0AC8E /* DeviceListResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDevicesParser.m; sourceTree = "<group>"; };
+		B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceSensorTest.m; sourceTree = "<group>"; };
+		B57B43B7FBF38A26831B790A /* ORDeviceParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceParserTest.h; sourceTree = "<group>"; };
+		B57B43C06332943D6D39381C /* ORDeviceCommandResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommandResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		B57B4422C9A58312B3AB4431 /* DeviceListResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		B57B464A34AC6CA9D0279879 /* ORDeviceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceCommand.m; sourceTree = "<group>"; };
+		B57B46741082444EDD96B9EB /* ORDeviceParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceParserTest.m; sourceTree = "<group>"; };
+		B57B469C9EBF12C2AE381381 /* Sequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequencer.m; sourceTree = "<group>"; };
+		B57B46BD79F411481BD67D5A /* ORControllerDeviceModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerDeviceModel_Private.h; sourceTree = "<group>"; };
+		B57B46DE9A80496292273F52 /* ORControllerDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerDeviceModel.h; sourceTree = "<group>"; };
+		B57B47C7462C04CE6E5D7865 /* ORDeviceSensorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensorTest.h; sourceTree = "<group>"; };
+		B57B47DA83C49D1597BD0F19 /* ORDeviceSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensor.h; sourceTree = "<group>"; };
+		B57B48738BD61D2802916A39 /* ORDeviceCommand_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommand_Private.h; sourceTree = "<group>"; };
+		B57B48A9A80981641E9A2BC4 /* ORDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDevice.m; sourceTree = "<group>"; };
+		B57B48BB8ABCC4ADAFE651A7 /* ORControllerDeviceModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerDeviceModelTest.h; sourceTree = "<group>"; };
+		B57B48F265EDBA060E4E8E56 /* ORDeviceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceTest.m; sourceTree = "<group>"; };
+		B57B4913D9DECC47802E202B /* DeviceResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		B57B49222B357A2D11983111 /* ORControllerDeviceModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerDeviceModelTest.m; sourceTree = "<group>"; };
+		B57B4996C9A89DE02BD9B828 /* Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequencer.h; sourceTree = "<group>"; };
+		B57B4A2D345C61BFE514DD33 /* ORDeviceListParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceListParserTest.h; sourceTree = "<group>"; };
+		B57B4B04BF35DA2BEF7D543A /* ORDeviceSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceSensor.m; sourceTree = "<group>"; };
+		B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceCommandTest.m; sourceTree = "<group>"; };
+		B57B4B774EF57D82D4F6FC34 /* ORControllerDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerDeviceModel.m; sourceTree = "<group>"; };
+		B57B4BDE8DC6AADF8F960207 /* ORDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceParser.h; sourceTree = "<group>"; };
+		B57B4D0FD148A08E5F2E637F /* ORDeviceSensor_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceSensor_Private.h; sourceTree = "<group>"; };
+		B57B4D57CE92A4CA0EAFDC72 /* ORDevicesParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevicesParser.h; sourceTree = "<group>"; };
+		B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceCommandResponseHandler_2_0_0.m; sourceTree = "<group>"; };
+		B57B4E6D580B29C87C387322 /* ORDeviceCommandTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommandTest.h; sourceTree = "<group>"; };
+		B57B4E748E211515F2527A1D /* ORDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDevice.h; sourceTree = "<group>"; };
+		B57B4ED28B23678FE2151596 /* ORDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceTest.h; sourceTree = "<group>"; };
+		B57B4EEA2DD0183AFD87F240 /* ORDeviceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORDeviceCommand.h; sourceTree = "<group>"; };
+		B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORDeviceListParserTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -714,7 +781,6 @@
 			files = (
 				911754A3190E52EB00B20448 /* CoreGraphics.framework in Frameworks */,
 				9178DF9B1844DAFB00E862DF /* UIKit.framework in Frameworks */,
-				9190D4B71790140A00667A7C /* SenTestingKit.framework in Frameworks */,
 				9190D4BA1790140A00667A7C /* Foundation.framework in Frameworks */,
 				9190D4BD1790140A00667A7C /* libORControllerClient.a in Frameworks */,
 				913699961850A4F50087A55B /* libOCMock.a in Frameworks */,
@@ -887,6 +953,18 @@
 				91A4A25B18D7479E0070F823 /* ORGesture_Private.h */,
 				91E7DACC1B0212A7000A8314 /* ORScreenOrGroupReference.h */,
 				91E7DACD1B0212A7000A8314 /* ORScreenOrGroupReference.m */,
+				B57B48A9A80981641E9A2BC4 /* ORDevice.m */,
+				B57B4E748E211515F2527A1D /* ORDevice.h */,
+				B57B425DBAC54565FF98C0EC /* ORDevice_Private.h */,
+				B57B464A34AC6CA9D0279879 /* ORDeviceCommand.m */,
+				B57B4EEA2DD0183AFD87F240 /* ORDeviceCommand.h */,
+				B57B48738BD61D2802916A39 /* ORDeviceCommand_Private.h */,
+				B57B4B774EF57D82D4F6FC34 /* ORControllerDeviceModel.m */,
+				B57B46DE9A80496292273F52 /* ORControllerDeviceModel.h */,
+				B57B4B04BF35DA2BEF7D543A /* ORDeviceSensor.m */,
+				B57B47DA83C49D1597BD0F19 /* ORDeviceSensor.h */,
+				B57B4D0FD148A08E5F2E637F /* ORDeviceSensor_Private.h */,
+				B57B46BD79F411481BD67D5A /* ORControllerDeviceModel_Private.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -907,6 +985,8 @@
 				91222D921892B07A00BA0B96 /* ORSensorStateParser.h */,
 				91222D931892B07A00BA0B96 /* ORSensorStateParser.m */,
 				91933393179E9F5A0086FEE7 /* Legacy */,
+				B57B4846EAF23278B78F0850 /* Devices List */,
+				B57B4114CB983D1763283FA4 /* Device */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -969,6 +1049,11 @@
 				91A4A23318D5D8340070F823 /* ORNavigationParserTest.h */,
 				91A4A26818DAD6E80070F823 /* ORGestureParserTest.m */,
 				91A4A26A18DAD7060070F823 /* ORGestureParserTest.h */,
+				B57B46741082444EDD96B9EB /* ORDeviceParserTest.m */,
+				B57B43B7FBF38A26831B790A /* ORDeviceParserTest.h */,
+				B57B4F81849AEF57051051C7 /* ORDeviceListParserTest.m */,
+				B57B4A2D345C61BFE514DD33 /* ORDeviceListParserTest.h */,
+				B57B4F2A35E7B88489E1A623 /* Data */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -991,6 +1076,7 @@
 				9136998A1850A4DA0087A55B /* OCMock */,
 				9190D4A61790140A00667A7C /* Frameworks */,
 				9190D4A51790140A00667A7C /* Products */,
+				B57B4AF94A4A6B4443A1ABFB /* Sequencer */,
 			);
 			sourceTree = "<group>";
 		};
@@ -998,7 +1084,7 @@
 			isa = PBXGroup;
 			children = (
 				9190D4A41790140A00667A7C /* libORControllerClient.a */,
-				9190D4B51790140A00667A7C /* ORControllerClientTests.octest */,
+				9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1009,7 +1095,6 @@
 				911754A2190E52EB00B20448 /* CoreGraphics.framework */,
 				91933374179E9E7E0086FEE7 /* UIKit.framework */,
 				9190D4A71790140A00667A7C /* Foundation.framework */,
-				9190D4B61790140A00667A7C /* SenTestingKit.framework */,
 				9190D4B81790140A00667A7C /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -1030,8 +1115,12 @@
 				91FCBAED1952C1A40072A831 /* ORControllerInfo.m */,
 				9190D4D21790161900667A7C /* ORController.h */,
 				9190D4D31790161900667A7C /* ORController.m */,
-				91FDDCEB17AAA30B009A61B2 /* ORSensorRegistry.h */,
-				91FDDCEC17AAA30B009A61B2 /* ORSensorRegistry.m */,
+				9135595A1BEB66DD006CF380 /* ORSensorRegistry.h */,
+				913559581BEB66B4006CF380 /* ORSensorRegistry.m */,
+				91FDDCEB17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.h */,
+				91FDDCEC17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m */,
+				9135595B1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.h */,
+				9135595C1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.m */,
 				917104BF17B8DC34005F9BA4 /* ORSensorLink.h */,
 				917104C017B8DC34005F9BA4 /* ORSensorLink.m */,
 				915024BF17B5279D005D8A02 /* ORSensorPollingManager.h */,
@@ -1259,6 +1348,12 @@
 				91E794E417A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m */,
 				91BAE7BB18EAD65900C24F92 /* RetrieveResourceResponseHandler.h */,
 				91BAE7BC18EAD65900C24F92 /* RetrieveResourceResponseHandler.m */,
+				B57B4422C9A58312B3AB4431 /* DeviceListResponseHandler_2_0_0.m */,
+				B57B432C696CFE3188D0AC8E /* DeviceListResponseHandler_2_0_0.h */,
+				B57B441588FC7CCCB11314E2 /* DeviceResponseHandler_2_0_0.m */,
+				B57B4913D9DECC47802E202B /* DeviceResponseHandler_2_0_0.h */,
+				B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */,
+				B57B43C06332943D6D39381C /* ORDeviceCommandResponseHandler_2_0_0.h */,
 			);
 			name = "Response Handler";
 			sourceTree = "<group>";
@@ -1286,6 +1381,14 @@
 				91B357C718BB538600ADED24 /* ORSliderTest.h */,
 				91E7DAD01B021453000A8314 /* ORScreenOrGroupReferenceTest.m */,
 				91E7DAD11B021453000A8314 /* ORScreenOrGroupReferenceTest.h */,
+				B57B48F265EDBA060E4E8E56 /* ORDeviceTest.m */,
+				B57B4ED28B23678FE2151596 /* ORDeviceTest.h */,
+				B57B49222B357A2D11983111 /* ORControllerDeviceModelTest.m */,
+				B57B48BB8ABCC4ADAFE651A7 /* ORControllerDeviceModelTest.h */,
+				B57B4B3F4DDB339121511EB9 /* ORDeviceCommandTest.m */,
+				B57B4E6D580B29C87C387322 /* ORDeviceCommandTest.h */,
+				B57B43A8133998E9914228DD /* ORDeviceSensorTest.m */,
+				B57B47C7462C04CE6E5D7865 /* ORDeviceSensorTest.h */,
 			);
 			name = "Object Model";
 			sourceTree = "<group>";
@@ -1327,6 +1430,41 @@
 			name = "3rd Party";
 			sourceTree = "<group>";
 		};
+		B57B4114CB983D1763283FA4 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				B57B42CEE72A885548F0AE41 /* ORDeviceParser.m */,
+				B57B4BDE8DC6AADF8F960207 /* ORDeviceParser.h */,
+			);
+			name = Device;
+			sourceTree = "<group>";
+		};
+		B57B4846EAF23278B78F0850 /* Devices List */ = {
+			isa = PBXGroup;
+			children = (
+				B57B437BDA51E17EC32E96D5 /* ORDevicesParser.m */,
+				B57B4D57CE92A4CA0EAFDC72 /* ORDevicesParser.h */,
+			);
+			name = "Devices List";
+			sourceTree = "<group>";
+		};
+		B57B4AF94A4A6B4443A1ABFB /* Sequencer */ = {
+			isa = PBXGroup;
+			children = (
+				B57B4996C9A89DE02BD9B828 /* Sequencer.h */,
+				B57B469C9EBF12C2AE381381 /* Sequencer.m */,
+			);
+			path = Sequencer;
+			sourceTree = "<group>";
+		};
+		B57B4F2A35E7B88489E1A623 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B57B425BE4AB85BF677B1C91 /* DevicesTest.xml */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1336,7 +1474,7 @@
 			buildPhases = (
 				9190D4A01790140A00667A7C /* Sources */,
 				9190D4A11790140A00667A7C /* Frameworks */,
-				9190D4A21790140A00667A7C /* CopyFiles */,
+				9190D4A21790140A00667A7C /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -1363,8 +1501,8 @@
 			);
 			name = ORControllerClientTests;
 			productName = ORControllerClientTests;
-			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 9190D4B51790140A00667A7C /* ORControllerClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1407,6 +1545,7 @@
 				911392EB189C019C00B7D79D /* ORButtonParser_2_0_0Test.h in Resources */,
 				91CD6A3117C23BCC00D5EEE6 /* RESTCallErrorResponse.xml in Resources */,
 				91CD6A3E17C249E300D5EEE6 /* InvalidXML.xml in Resources */,
+				B57B46F3BEE83F723DE9F73A /* DevicesTest.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1447,6 +1586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9190D4D11790143000667A7C /* ORLabel.m in Sources */,
+				9135595D1BEB6C67006CF380 /* ORDeviceModelSensorRegistry.m in Sources */,
 				9190D4D41790161900667A7C /* ORController.m in Sources */,
 				9190D4DA1790172B00667A7C /* ORControllerAddress.m in Sources */,
 				91222DA11892BE0300BA0B96 /* ORSensorLinkParser.m in Sources */,
@@ -1523,10 +1663,11 @@
 				91E794E517A933E200FE9E83 /* SensorValuesResponseHandler_2_0_0.m in Sources */,
 				911392E1189BE94E00B7D79D /* ORButton.m in Sources */,
 				91E794E817A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
-				91FDDCED17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
+				91FDDCED17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m in Sources */,
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
 				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
 				91B357D618BB8D5B00ADED24 /* ORNavigation.m in Sources */,
+				913559591BEB66B4006CF380 /* ORSensorRegistry.m in Sources */,
 				916D63B618B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
 				91222D841892631700BA0B96 /* ORSensorState.m in Sources */,
 				917104C117B8DC34005F9BA4 /* ORSensorLink.m in Sources */,
@@ -1539,6 +1680,16 @@
 				91CD6A4717C26AAC00D5EEE6 /* ORResponseHandler.m in Sources */,
 				91A4A27318DB0D250070F823 /* ORScreenScreenDeferredBinding.m in Sources */,
 				91CD6A4B17C271C600D5EEE6 /* ORObjectIdentifier.m in Sources */,
+				B57B41E1B07A16835CF16744 /* DeviceListResponseHandler_2_0_0.m in Sources */,
+				B57B47414A4DB5FD2E4277B8 /* ORDevicesParser.m in Sources */,
+				B57B41E875147FA13EDC98B9 /* ORDevice.m in Sources */,
+				B57B4EBB1053E0BAC22D0F8A /* ORDeviceCommand.m in Sources */,
+				B57B4C692AF6342E32717F39 /* DeviceResponseHandler_2_0_0.m in Sources */,
+				B57B428C46ED80BD1C6AC5C7 /* ORDeviceParser.m in Sources */,
+				B57B4584875B13A10E706D0F /* Sequencer.m in Sources */,
+				B57B40B0593357D06641D7ED /* ORControllerDeviceModel.m in Sources */,
+				B57B40D55094B0C9FD53A1D0 /* ORDeviceSensor.m in Sources */,
+				B57B447EF11C633943A0C285 /* ORDeviceCommandResponseHandler_2_0_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,7 +1735,7 @@
 				9178DF991844D46500E862DF /* UIColor+ORAdditions.m in Sources */,
 				91E794E917A9358200FE9E83 /* StatusValuesParser_2_0_0.m in Sources */,
 				9178DFA9184CCDD100E862DF /* NSMutableURLRequest+ORAdditions.m in Sources */,
-				91FDDCEE17AAA30B009A61B2 /* ORSensorRegistry.m in Sources */,
+				91FDDCEE17AAA30B009A61B2 /* ORPanelDefinitionSensorRegistry.m in Sources */,
 				91BCD6811899435400EC8AEE /* ORBackgroundParser.m in Sources */,
 				91222D951892B07A00BA0B96 /* ORSensorStateParser.m in Sources */,
 				91A4A23718D5D89D0070F823 /* ORNavigationParser.m in Sources */,
@@ -1631,6 +1782,7 @@
 				91CC8A0F18E592F900D31A66 /* ORImageParserTest.m in Sources */,
 				91DC690F17BE68670099B11E /* ORControllerRESTAPI.m in Sources */,
 				9178DF8E1844A31A00E862DF /* ORLabelParser.m in Sources */,
+				1BFEF6081BE3B2C600784F29 /* ORDeviceParserTest.m in Sources */,
 				91B72FA51890308F000B7552 /* ORImage.m in Sources */,
 				91A4A25018D733F20070F823 /* ORTabBarItemParserTest.m in Sources */,
 				91DC691217BE6BA30099B11E /* ORControllerRESTAPI_ScriptableMock.m in Sources */,
@@ -1649,6 +1801,11 @@
 				91CD6A5017C35D5E00D5EEE6 /* ORObjectIdentifierTest.m in Sources */,
 				91B357C118BB47B400ADED24 /* ORSliderParser.m in Sources */,
 				91099A5518B2122D005BEBAB /* ORSwitchParserTest.m in Sources */,
+				B57B4DA111EC7418285520E2 /* ORDeviceListParserTest.m in Sources */,
+				B57B40AD491C35F93ADEDD8F /* ORDeviceTest.m in Sources */,
+				B57B4C2BB02A3C49C8565DDF /* ORControllerDeviceModelTest.m in Sources */,
+				B57B4D6FFD154DC0FBB9AB13 /* ORDeviceCommandTest.m in Sources */,
+				B57B4C704F2B6EAE8313FD2D /* ORDeviceSensorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1767,6 +1924,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
@@ -1778,14 +1936,13 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1795,6 +1952,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORControllerClient/ORControllerClient-Prefix.pch";
@@ -1806,14 +1964,13 @@
 				INFOPLIST_FILE = "ORControllerClientTests/ORControllerClientTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ebariaux/Development/OpenRemote/iOS/ORControllerClient/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

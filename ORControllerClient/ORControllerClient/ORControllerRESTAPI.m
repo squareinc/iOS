@@ -20,6 +20,8 @@
  */
 
 #import "ORControllerRESTAPI.h"
+#import "ORDevice.h"
+#import "ORDeviceCommand.h"
 
 NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
 
@@ -90,5 +92,26 @@ NSString *const kORClientErrorDomain = @"org.openremote.ORClientDomain";
 {
     return nil;
 }
+
+- (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL
+                 withSuccessHandler:(void (^)(NSArray *))successHandler
+                       errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
+
+- (ORRESTCall *)requestDevice:(ORDevice *)device
+                      baseURL:(NSURL *)baseURL
+           withSuccessHandler:(void (^)(ORDevice *))successHandler
+                 errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
+
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command parameter:(NSString *)parameter baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    return nil;
+}
+
 
 @end

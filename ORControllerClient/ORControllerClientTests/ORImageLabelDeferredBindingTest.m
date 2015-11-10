@@ -33,9 +33,9 @@
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORImage *image = [[ORImage alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] src:@""];
     ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:image];
-    STAssertNotNil(binding, @"Creating a deferred binding should be possible");
-    STAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
-    STAssertEqualObjects(binding.enclosingObject, image, @"Enclosing object should be one used to create binding");
+    XCTAssertNotNil(binding, @"Creating a deferred binding should be possible");
+    XCTAssertEqualObjects(binding.boundComponentId, identifier, @"Bound component identifier should be one used to create binding");
+    XCTAssertEqualObjects(binding.enclosingObject, image, @"Enclosing object should be one used to create binding");
 }
 
 - (void)testFailCreateBindingWithIncorrectEnclosingObjectClass
@@ -43,7 +43,7 @@
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORLabel *label = [[ORLabel alloc] initWithIdentifier:[[ORObjectIdentifier alloc] initWithIntegerId:2] text:@""];
     ORDeferredBinding *binding = [[ORImageLabelDeferredBinding alloc] initWithBoundComponentIdentifier:identifier enclosingObject:label];
-    STAssertNil(binding, @"It should not be possible to create an ORImageLabelDeferredBinding with an enclosing object that is not an image");
+    XCTAssertNil(binding, @"It should not be possible to create an ORImageLabelDeferredBinding with an enclosing object that is not an image");
 }
 
 - (void)testBindingIsEstablished
@@ -59,7 +59,7 @@
     [definition addLabel:label];
 
     [binding bind];
-    STAssertEqualObjects(image.label, label, @"Binding should have set label link on image");
+    XCTAssertEqualObjects(image.label, label, @"Binding should have set label link on image");
 }
 
 @end

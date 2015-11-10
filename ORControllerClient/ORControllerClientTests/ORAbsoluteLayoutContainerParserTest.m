@@ -49,10 +49,10 @@
 - (ORAbsoluteLayoutContainer *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORAbsoluteLayoutContainerParser class]], @"Parser used should be an ORAbsoluteLayoutContainerParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORAbsoluteLayoutContainerParser class]], @"Parser used should be an ORAbsoluteLayoutContainerParser");
     ORAbsoluteLayoutContainer *layoutContainer = ((ORAbsoluteLayoutContainerParser *)topLevelParser).layoutContainer;
-    STAssertNotNil(layoutContainer, @"An absolute layout container should be parsed for given XML snippet");
+    XCTAssertNotNil(layoutContainer, @"An absolute layout container should be parsed for given XML snippet");
     
     return layoutContainer;
 }
@@ -61,31 +61,31 @@
 {
     ORAbsoluteLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<absolute left=\"10\" top=\"20\" width=\"30\" height=\"40\"/>"];
     
-    STAssertEquals(layoutContainer.left, (NSInteger)10, @"Parsed absolute layout container should have 10 as left position");
-    STAssertEquals(layoutContainer.top, (NSInteger)20, @"Parsed absolute layout container should have 20 as top position");
-    STAssertEquals(layoutContainer.width, (NSUInteger)30, @"Parsed absolute layout container should have 30 as width");
-    STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
+    XCTAssertEqual(layoutContainer.left, (NSInteger)10, @"Parsed absolute layout container should have 10 as left position");
+    XCTAssertEqual(layoutContainer.top, (NSInteger)20, @"Parsed absolute layout container should have 20 as top position");
+    XCTAssertEqual(layoutContainer.width, (NSUInteger)30, @"Parsed absolute layout container should have 30 as width");
+    XCTAssertEqual(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
 
-    STAssertNil(layoutContainer.widget, @"Parsed absolute layout container should not contain any widget");
-    STAssertEquals([layoutContainer.widgets count], (NSUInteger)0, @"Parsed absolute layout container should not contain any widget");
+    XCTAssertNil(layoutContainer.widget, @"Parsed absolute layout container should not contain any widget");
+    XCTAssertEqual([layoutContainer.widgets count], (NSUInteger)0, @"Parsed absolute layout container should not contain any widget");
 }
 
 - (void)testParseAbsoluteIncludeLabel
 {
     ORAbsoluteLayoutContainer *layoutContainer = [self parseValidXMLSnippet:@"<absolute left=\"-10\" top=\"-20\" width=\"30\" height=\"40\"><label id=\"1\" text=\"label\"/></absolute>"];
     
-    STAssertEquals(layoutContainer.left, (NSInteger)-10, @"Parsed absolute layout container should have -10 as left position");
-    STAssertEquals(layoutContainer.top, (NSInteger)-20, @"Parsed absolute layout container should have -20 as top position");
-    STAssertEquals(layoutContainer.width,(NSUInteger)30,  @"Parsed absolute layout container should have 30 as width");
-    STAssertEquals(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
+    XCTAssertEqual(layoutContainer.left, (NSInteger)-10, @"Parsed absolute layout container should have -10 as left position");
+    XCTAssertEqual(layoutContainer.top, (NSInteger)-20, @"Parsed absolute layout container should have -20 as top position");
+    XCTAssertEqual(layoutContainer.width,(NSUInteger)30,  @"Parsed absolute layout container should have 30 as width");
+    XCTAssertEqual(layoutContainer.height, (NSUInteger)40, @"Parsed absolute layout container should have 40 as height");
     
-    STAssertNotNil(layoutContainer.widget, @"Parsed absolute layout container should contain a widget");
+    XCTAssertNotNil(layoutContainer.widget, @"Parsed absolute layout container should contain a widget");
     ORLabel *label = (ORLabel *)layoutContainer.widget;
-    STAssertNotNil(label.identifier, @"Included label should have an identifier");
-    STAssertEqualObjects(label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Included label should have 1 as identifer");
+    XCTAssertNotNil(label.identifier, @"Included label should have an identifier");
+    XCTAssertEqualObjects(label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Included label should have 1 as identifer");
     
-    STAssertEquals([layoutContainer.widgets count], (NSUInteger)1, @"Parsed absolute layout container should contain a widget");
-    STAssertEqualObjects([layoutContainer.widgets anyObject], label, @"Parsed absolute widgets collection should contain parsed label");
+    XCTAssertEqual([layoutContainer.widgets count], (NSUInteger)1, @"Parsed absolute layout container should contain a widget");
+    XCTAssertEqualObjects([layoutContainer.widgets anyObject], label, @"Parsed absolute widgets collection should contain parsed label");
 }
 
 @end

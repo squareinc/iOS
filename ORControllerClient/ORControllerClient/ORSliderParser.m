@@ -22,7 +22,7 @@
 #import "ORSliderParser.h"
 #import "DefinitionElementParserRegister.h"
 #import "ORModelObject_Private.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "Definition.h"
 #import "ORSensorLinkParser.h"
 #import "ORSlider_Private.h"

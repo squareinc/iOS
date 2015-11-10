@@ -27,6 +27,12 @@
 #import "ORRESTCall_Private.h"
 #import "ORObjectIdentifier.h"
 #import "ORWidget.h"
+#import "DeviceListResponseHandler_2_0_0.h"
+#import "ORDevice.h"
+#import "DeviceResponseHandler_2_0_0.h"
+#import "ORDeviceCommand.h"
+#import "ORDeviceCommandResponseHandler_2_0_0.h"
+#import "NSStringAdditions.h"
 
 @interface ControllerREST_2_0_0_API ()
 
@@ -145,4 +151,42 @@
     return [self callForRequest:request delegate:nil]; // TODO: delegate
 }
 
+- (ORRESTCall *)requestDevicesListAtBaseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(NSArray *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:@"/rest/devices"]];
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[DeviceListResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)requestDevice:(ORDevice *)device baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)(ORDevice *))successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:[@"/rest/devices" stringByAppendingPathComponent:device.name]]];
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[DeviceResponseHandler_2_0_0 alloc] initWithDevice:device successHandler:successHandler errorHandler:errorHandler]];
+}
+
+- (ORRESTCall *)executeCommand:(ORDeviceCommand *)command parameter:(NSString *)parameter baseURL:(NSURL *)baseURL withSuccessHandler:(void (^)())successHandler errorHandler:(void (^)(NSError *))errorHandler
+{
+    NSString *urlString = [NSString stringWithFormat:@"/rest/devices/%@/commands?name=%@", command.device.name, command.name];
+    NSURL *url = [NSURL URLWithString:[[baseURL absoluteString] stringByAppendingString:urlString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    if (parameter) {
+        request.HTTPBody = [[NSString stringWithFormat:@"<parameter>%@</parameter>", [parameter escapeXmlEntities]] dataUsingEncoding:NSUTF8StringEncoding];
+    }
+
+// TODO    [CredentialUtil addCredentialToNSMutableURLRequest:request withUserName:userName password:password];
+
+    // TODO: check for nil return value -> error
+    // TODO: should someone keep the connection pointer and "nilify" when done ?
+    return [self callForRequest:request delegate:[[ORDeviceCommandResponseHandler_2_0_0 alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
+}
 @end

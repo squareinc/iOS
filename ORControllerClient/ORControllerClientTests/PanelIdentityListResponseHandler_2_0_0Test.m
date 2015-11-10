@@ -41,12 +41,14 @@
         successHandlerCalled = YES;
         [callbackDone signal];
         [callbackDone unlock];
-        [[[ORPanelsParserTest alloc] init] assertValidResponse:panels];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[ORPanelsParserTest alloc] init] assertValidResponse:panels];
+        });
     };
     PanelIdentityListResponseHandler_2_0_0 *responseHandler = [[PanelIdentityListResponseHandler_2_0_0 alloc]
                                                                initWithSuccessHandler:successHandler
                                                                errorHandler:^(NSError *error) {
-                                                                   STFail(@"No error should be reported");
+                                                                   XCTFail(@"No error should be reported");
                                                                }];
     
     NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"RequestPanelIdentityListValidResponse" withExtension:@"xml"];
@@ -59,7 +61,7 @@
     [callbackDone waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5.0]];
     [callbackDone unlock];
     
-    STAssertTrue(successHandlerCalled, @"Success handler should have been called upon receiving response with valid data");
+    XCTAssertTrue(successHandlerCalled, @"Success handler should have been called upon receiving response with valid data");
 }
 
 @end

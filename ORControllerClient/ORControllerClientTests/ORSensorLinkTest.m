@@ -34,21 +34,21 @@
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On value"]];
     
     ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertNotNil(link, @"Link with component, property name and mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with component, property name and mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
-    STAssertNotNil(link, @"Link with component, property name and nil mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with component, property name and nil mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:nil propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertNotNil(link, @"Link with nil component, property name and mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with nil component, property name and mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:nil propertyName:@"text" sensorStatesMapping:nil];
-    STAssertNotNil(link, @"Link with nil component, property name and nil mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with nil component, property name and nil mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:label propertyName:nil sensorStatesMapping:mapping];
-    STAssertNotNil(link, @"Link with component, nil property name and mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with component, nil property name and mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:label propertyName:nil sensorStatesMapping:nil];
-    STAssertNotNil(link, @"Link with component, nil property name and nil mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with component, nil property name and nil mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:nil propertyName:nil sensorStatesMapping:mapping];
-    STAssertNotNil(link, @"Link with nil component, nil property name and mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with nil component, nil property name and mapping should be instiantiated");
     link = [[ORSensorLink alloc] initWithComponent:nil propertyName:nil sensorStatesMapping:nil];
-    STAssertNotNil(link, @"Link with nil component, nil property name and nil mapping should be instiantiated");
+    XCTAssertNotNil(link, @"Link with nil component, nil property name and nil mapping should be instiantiated");
 }
 
 - (void)testValuesStoredCorrectly
@@ -57,9 +57,9 @@
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On value"]];
     ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertEquals(link.component, label, @"Link component should be label used to create link");
-    STAssertEquals(link.propertyName, @"text", @"Link property name should be one used to create link");
-    STAssertEqualObjects(link.sensorStatesMapping, mapping, @"Link sensorStatesMapping should be mapping used to create link");
+    XCTAssertEqual(link.component, label, @"Link component should be label used to create link");
+    XCTAssertEqual(link.propertyName, @"text", @"Link property name should be one used to create link");
+    XCTAssertEqualObjects(link.sensorStatesMapping, mapping, @"Link sensorStatesMapping should be mapping used to create link");
 }
 
 - (void)testEqualityAndHash
@@ -69,60 +69,60 @@
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On value"]];
     ORSensorLink *link = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
     
-    STAssertTrue([link isEqual:link], @"Link should be equal to itself");
-    STAssertFalse([link isEqual:nil], @"Link should not be equal to nil");
+    XCTAssertTrue([link isEqual:link], @"Link should be equal to itself");
+    XCTAssertFalse([link isEqual:nil], @"Link should not be equal to nil");
     
     ORSensorLink *equalLink = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertTrue([equalLink isEqual:link], @"Links created with same information should be equal");
-    STAssertEquals([equalLink hash], [link hash], @"Hashses of links created with same information should be equal");
+    XCTAssertTrue([equalLink isEqual:link], @"Links created with same information should be equal");
+    XCTAssertEqual([equalLink hash], [link hash], @"Hashses of links created with same information should be equal");
     
     ORLabel *otherLabel = [[ORLabel alloc] init];
     ORSensorLink *linkWithDifferentComponent = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertFalse([linkWithDifferentComponent isEqual:link], @"Links with different component should not be equal");
+    XCTAssertFalse([linkWithDifferentComponent isEqual:link], @"Links with different component should not be equal");
     
     ORSensorLink *linkWithDifferentPropertyName = [[ORSensorLink alloc] initWithComponent:label propertyName:@"other" sensorStatesMapping:mapping];
-    STAssertFalse([linkWithDifferentPropertyName isEqual:link], @"Links with different property name should not be equal");
+    XCTAssertFalse([linkWithDifferentPropertyName isEqual:link], @"Links with different property name should not be equal");
 
     ORSensorStatesMapping *otherMapping = [[ORSensorStatesMapping alloc] init];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"off" value:@"Off value"]];
 
     ORSensorLink *linkWithDifferentMapping = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:otherMapping];
-    STAssertFalse([linkWithDifferentMapping isEqual:link], @"Links with different mapping should not be equal");
+    XCTAssertFalse([linkWithDifferentMapping isEqual:link], @"Links with different mapping should not be equal");
 
     ORSensorLink *linkWithDifferentComponentAndPropertyName = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"other" sensorStatesMapping:mapping];
-    STAssertFalse([linkWithDifferentComponentAndPropertyName isEqual:link], @"Links with different component and property name should not be equal");
+    XCTAssertFalse([linkWithDifferentComponentAndPropertyName isEqual:link], @"Links with different component and property name should not be equal");
     
     ORSensorLink *linkWithEverythingDifferent = [[ORSensorLink alloc] initWithComponent:otherLabel propertyName:@"other" sensorStatesMapping:otherMapping];
-    STAssertFalse([linkWithEverythingDifferent isEqual:link], @"Links with different component, property name and mapping should not be equal");
+    XCTAssertFalse([linkWithEverythingDifferent isEqual:link], @"Links with different component, property name and mapping should not be equal");
 }
 
 - (void)testEqualityAndHashForNilProperties
 {
     ORSensorLink *linkWithEverythingNil = [[ORSensorLink alloc] initWithComponent:nil propertyName:nil sensorStatesMapping:nil];
     
-    STAssertTrue([linkWithEverythingNil isEqual:linkWithEverythingNil], @"Link should be equal to itself");
-    STAssertFalse([linkWithEverythingNil isEqual:nil], @"Link should not be equal to nil");
+    XCTAssertTrue([linkWithEverythingNil isEqual:linkWithEverythingNil], @"Link should be equal to itself");
+    XCTAssertFalse([linkWithEverythingNil isEqual:nil], @"Link should not be equal to nil");
 
     ORLabel *label = [[ORLabel alloc] init];
     ORSensorStatesMapping *mapping = [[ORSensorStatesMapping alloc] init];
     [mapping addSensorState:[[ORSensorState alloc] initWithName:@"on" value:@"On value"]];
 
     ORSensorLink *linkWithNilComponent = [[ORSensorLink alloc] initWithComponent:nil propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertTrue([linkWithNilComponent isEqual:linkWithNilComponent], @"Link should be equal to itself");
-    STAssertFalse([linkWithNilComponent isEqual:nil], @"Link should not be equal to nil");
+    XCTAssertTrue([linkWithNilComponent isEqual:linkWithNilComponent], @"Link should be equal to itself");
+    XCTAssertFalse([linkWithNilComponent isEqual:nil], @"Link should not be equal to nil");
     
     ORSensorLink *linkWithAllProperties = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:mapping];
-    STAssertFalse([linkWithNilComponent isEqual:linkWithAllProperties], @"Links with different component should not be equal");
+    XCTAssertFalse([linkWithNilComponent isEqual:linkWithAllProperties], @"Links with different component should not be equal");
     
     ORSensorLink *linkWithNilPropertyName = [[ORSensorLink alloc] initWithComponent:label propertyName:nil sensorStatesMapping:mapping];
-    STAssertTrue([linkWithNilPropertyName isEqual:linkWithNilPropertyName], @"Link should be equal to itself");
-    STAssertFalse([linkWithNilPropertyName isEqual:nil], @"Link should not be equal to nil");
-    STAssertFalse([linkWithNilPropertyName isEqual:linkWithAllProperties], @"Links with different property name should not be equal");
+    XCTAssertTrue([linkWithNilPropertyName isEqual:linkWithNilPropertyName], @"Link should be equal to itself");
+    XCTAssertFalse([linkWithNilPropertyName isEqual:nil], @"Link should not be equal to nil");
+    XCTAssertFalse([linkWithNilPropertyName isEqual:linkWithAllProperties], @"Links with different property name should not be equal");
 
     ORSensorLink *linkWithNilMapping = [[ORSensorLink alloc] initWithComponent:label propertyName:@"text" sensorStatesMapping:nil];
-    STAssertTrue([linkWithNilMapping isEqual:linkWithNilMapping], @"Link should be equal to itself");
-    STAssertFalse([linkWithNilMapping isEqual:nil], @"Link should not be equal to nil");
-    STAssertFalse([linkWithNilMapping isEqual:linkWithAllProperties], @"Links with different mapping should not be equal");
+    XCTAssertTrue([linkWithNilMapping isEqual:linkWithNilMapping], @"Link should be equal to itself");
+    XCTAssertFalse([linkWithNilMapping isEqual:nil], @"Link should not be equal to nil");
+    XCTAssertFalse([linkWithNilMapping isEqual:linkWithAllProperties], @"Links with different mapping should not be equal");
 }
 
 @end

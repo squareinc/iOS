@@ -46,10 +46,10 @@
 - (ORBackground *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORBackgroundParser class]], @"Parser used should be an ORBackgroundParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORBackgroundParser class]], @"Parser used should be an ORBackgroundParser");
     ORBackground *background = ((ORBackgroundParser *)topLevelParser).background;
-    STAssertNotNil(background, @"A background should be parsed for given XML snippet");
+    XCTAssertNotNil(background, @"A background should be parsed for given XML snippet");
 
     return background;
 }
@@ -58,37 +58,37 @@
 {
     ORBackground *background = [self parseValidXMLSnippet:@"<background fillScreen=\"true\"><image src=\"test.png\"/></background>"];
     
-    STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
+    XCTAssertNotNil(background.image, @"Parsed background should have an image");
+    XCTAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
-    STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
-    STAssertEquals(background.size, CGSizeMake(100.0, 100.0), @"Parsed background image must fill container");
-    STAssertEquals(background.sizeUnit, ORWidgetUnitPercentage, @"Parsed background image size must be relative to its container");
+    XCTAssertEqual(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
+    XCTAssertTrue(CGSizeEqualToSize(background.size, CGSizeMake(100.0, 100.0)), @"Parsed background image must fill container");
+    XCTAssertEqual(background.sizeUnit, ORWidgetUnitPercentage, @"Parsed background image size must be relative to its container");
 }
 
 - (void)testParseFillScreenDefaultsToTrue
 {
     ORBackground *background = [self parseValidXMLSnippet:@"<background><image src=\"test.png\"/></background>"];
     
-    STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
+    XCTAssertNotNil(background.image, @"Parsed background should have an image");
+    XCTAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
-    STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
-    STAssertEquals(background.size, CGSizeMake(100.0, 100.0), @"Parsed background image must fill container");
-    STAssertEquals(background.sizeUnit, ORWidgetUnitPercentage, @"Parsed background image size must be relative to its container");
+    XCTAssertEqual(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
+    XCTAssertTrue(CGSizeEqualToSize(background.size, CGSizeMake(100.0, 100.0)), @"Parsed background image must fill container");
+    XCTAssertEqual(background.sizeUnit, ORWidgetUnitPercentage, @"Parsed background image size must be relative to its container");
 }
 
 - (void)validateExpectedRelativePosition:(CGPoint)expectedPosition
                              description:(NSString *)expectedPositionStr
                            forBackground:(ORBackground *)background
 {
-    STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
+    XCTAssertNotNil(background.image, @"Parsed background should have an image");
+    XCTAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
-    STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
-    STAssertEquals(background.position, expectedPosition, @"Parsed background image must be %@ positioned", expectedPositionStr);
-    STAssertEquals(background.positionUnit, ORWidgetUnitPercentage, @"Parsed background image position must be relative");
-    STAssertEquals(background.sizeUnit, ORWidgetUnitNotDefined, @"Parsed background image size must not be defined");
+    XCTAssertEqual(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
+    XCTAssertTrue(CGPointEqualToPoint(background.position, expectedPosition), @"Parsed background image must be %@ positioned", expectedPositionStr);
+    XCTAssertEqual(background.positionUnit, ORWidgetUnitPercentage, @"Parsed background image position must be relative");
+    XCTAssertEqual(background.sizeUnit, ORWidgetUnitNotDefined, @"Parsed background image size must not be defined");
 }
 
 - (void)testParseRelativeScreenBackgrounds
@@ -125,13 +125,13 @@
 {
     ORBackground *background = [self parseValidXMLSnippet:@"<background fillScreen=\"false\" absolute=\"20,30\"><image src=\"test.png\"/></background>"];
     
-    STAssertNotNil(background.image, @"Parsed background should have an image");
-    STAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
+    XCTAssertNotNil(background.image, @"Parsed background should have an image");
+    XCTAssertEqualObjects(background.image.src, @"test.png", @"Parsed background image src shoud be 'test.png'");
     
-    STAssertEquals(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
-    STAssertEquals(background.position, CGPointMake(20.0, 30.0), @"Parsed background image must be positioned at 20,30");
-    STAssertEquals(background.positionUnit, ORWidgetUnitLength, @"Parsed background image position must be absolute");
-    STAssertEquals(background.sizeUnit, ORWidgetUnitNotDefined, @"Parsed background image size must not be defined");
+    XCTAssertEqual(background.repeat, ORBackgroundRepeatNoRepeat, @"Parsed background image should not repeat");
+    XCTAssertTrue(CGPointEqualToPoint(background.position, CGPointMake(20.0, 30.0)), @"Parsed background image must be positioned at 20,30");
+    XCTAssertEqual(background.positionUnit, ORWidgetUnitLength, @"Parsed background image position must be absolute");
+    XCTAssertEqual(background.sizeUnit, ORWidgetUnitNotDefined, @"Parsed background image size must not be defined");
 }
 
 @end

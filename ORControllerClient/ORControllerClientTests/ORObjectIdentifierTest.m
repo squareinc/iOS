@@ -29,8 +29,8 @@
     ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     
-    STAssertEqualObjects(id1, id2, @"Ids with same integer id should be equal");
-    STAssertTrue([id1 hash] == [id2 hash], @"Ids with same integer id should have same hash");
+    XCTAssertEqualObjects(id1, id2, @"Ids with same integer id should be equal");
+    XCTAssertTrue([id1 hash] == [id2 hash], @"Ids with same integer id should have same hash");
 }
 
 - (void)testIdsWithDifferentIntegerIdsAreNotEqual
@@ -38,7 +38,7 @@
     ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithIntegerId:2];
 
-    STAssertFalse([id1 isEqual:id2], @"Ids with different integer id should not be equal");
+    XCTAssertFalse([id1 isEqual:id2], @"Ids with different integer id should not be equal");
 }
 
 - (void)testIntegerAndStringInitEquivalentForSameInput
@@ -46,39 +46,39 @@
     ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORObjectIdentifier *id2 = [[ORObjectIdentifier alloc] initWithStringId:@"1"];
     
-    STAssertEqualObjects(id1, id2, @"Ids with same id should be equal");
-    STAssertTrue([id1 hash] == [id2 hash], @"Ids with same id should have same hash");
+    XCTAssertEqualObjects(id1, id2, @"Ids with same id should be equal");
+    XCTAssertTrue([id1 hash] == [id2 hash], @"Ids with same id should have same hash");
 }
 
 - (void)testInvalidStringIdReturnsZeroId
 {
     ORObjectIdentifier *zeroId = [[ORObjectIdentifier alloc] initWithStringId:@"invalid"];
-    STAssertEqualObjects(zeroId, [[ORObjectIdentifier alloc] initWithIntegerId:0], @"Id initiliazed with invalid string should be 0");
+    XCTAssertEqualObjects(zeroId, [[ORObjectIdentifier alloc] initWithIntegerId:0], @"Id initiliazed with invalid string should be 0");
 }
 
 - (void)testStringValue
 {
     ORObjectIdentifier *identifier = [[ORObjectIdentifier alloc] initWithIntegerId:1];
-    STAssertEqualObjects([identifier stringValue], @"1", @"String representation of identifier should be '1'");
+    XCTAssertEqualObjects([identifier stringValue], @"1", @"String representation of identifier should be '1'");
 }
 
 - (void)testCopy
 {
     ORObjectIdentifier *id1 = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     ORObjectIdentifier *id2 = [id1 copy];
-    STAssertNotNil(id2, @"Copy should create a valid instance");
-    STAssertEqualObjects(id2, id1, @"Copy should be equal to original");
-    STAssertFalse(id1 == id2, @"Copy should not be same instance as original");
+    XCTAssertNotNil(id2, @"Copy should create a valid instance");
+    XCTAssertEqualObjects(id2, id1, @"Copy should be equal to original");
+    XCTAssertFalse(id1 == id2, @"Copy should not be same instance as original");
 }
 
 - (void)testNSCoding
 {
     ORObjectIdentifier *originalId = [[ORObjectIdentifier alloc] initWithIntegerId:1];
     NSData *encodedId = [NSKeyedArchiver archivedDataWithRootObject:originalId];
-    STAssertNotNil(encodedId, @"Archived data should not be nil");
+    XCTAssertNotNil(encodedId, @"Archived data should not be nil");
     ORObjectIdentifier *decodedId = [NSKeyedUnarchiver unarchiveObjectWithData:encodedId];
-    STAssertNotNil(decodedId, @"Decoded object should not be nil");
-    STAssertEqualObjects(decodedId, originalId, @"Decoded id should be equal to original one");
+    XCTAssertNotNil(decodedId, @"Decoded object should not be nil");
+    XCTAssertEqualObjects(decodedId, originalId, @"Decoded id should be equal to original one");
 }
 
 @end

@@ -30,6 +30,7 @@
 {
     ORRestCallMock *call = [[ORRestCallMock alloc] init];
     call.requestURL = [[request URL] absoluteString];
+    call.request = request;
     return (ORRESTCall *)call;
 }
 

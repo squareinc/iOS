@@ -35,7 +35,7 @@ typedef void (^PollingBlock)();
 
 @property (nonatomic, strong) ORControllerRESTAPI *_controllerAPI;
 @property (nonatomic, strong) ORControllerAddress *_controllerAddress;
-@property (nonatomic, strong) ORSensorRegistry *_sensorRegistry;
+@property (nonatomic, strong) NSMutableArray *_sensorRegistries;
 
 @property (atomic, strong) ORRESTCall *_currentCall;
 
@@ -48,16 +48,42 @@ typedef void (^PollingBlock)();
 
 - (instancetype)initWithControllerAPI:(ORControllerRESTAPI *)api
                     controllerAddress:(ORControllerAddress *)controllerAddress
-                       sensorRegistry:(ORSensorRegistry *)sensorRegistry
 {
     self = [super init];
     if (self) {
         self._controllerAPI = api;
         self._controllerAddress = controllerAddress;
-        self._sensorRegistry = sensorRegistry;
+        self._sensorRegistries = [[NSMutableArray alloc] init];
     }
     return self;
 }
+
+- (void)addSensorRegistry:(ORSensorRegistry *)sensorRegistry
+{
+    BOOL needsRestart = NO;
+    if (self.sensorPollingBlock) {
+       [self stop];
+       needsRestart = YES;
+    }
+    [self._sensorRegistries addObject:sensorRegistry];
+    if (needsRestart) {
+      [self start];
+    }
+}
+
+- (void)removeSensorRegistry:(ORSensorRegistry *)sensorRegistry
+{
+    BOOL needsRestart = NO;
+    if (self.sensorPollingBlock) {
+        [self stop];
+        needsRestart = YES;
+    }
+    [self._sensorRegistries removeObject:sensorRegistry];
+    if (needsRestart) {
+        [self start];
+    }
+}
+
 
 // TODO: Q ? how are error reported on start, during poll ?
 // delegate ?
@@ -71,19 +97,20 @@ typedef void (^PollingBlock)();
     }
     
     // Only poll if there are sensors to poll
-    if (![[self._sensorRegistry sensorIdentifiers] count]) {
+    if (![[self allSensorIdentifiers] count]) {
         return;
     }
 
     __weak typeof(self)weakSelf = self;
     
     self.sensorPollingBlock = ^{
-        weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
+        weakSelf._currentCall = [weakSelf._controllerAPI pollSensorIdentifiers:[weakSelf allSensorIdentifiers]
                                 fromDeviceWithIdentifier:[[UIDevice currentDevice] or_uniqueID]
                                                atBaseURL:weakSelf._controllerAddress.primaryURL
                                       withSuccessHandler:^(NSDictionary *sensorValues) {
-                                          
-                                          [weakSelf updateComponentsWithSensorValues:sensorValues];
+                                          for (ORSensorRegistry *sensorRegistry in weakSelf._sensorRegistries) {
+                                              [sensorRegistry updateWithSensorValues:sensorValues];
+                                          }
                                           
                                           NSLog(@"poll got values");
                                           
@@ -107,10 +134,12 @@ typedef void (^PollingBlock)();
                                       }];
     };
 
-    self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf._sensorRegistry sensorIdentifiers]
+    self._currentCall = [weakSelf._controllerAPI statusForSensorIdentifiers:[weakSelf allSensorIdentifiers]
                             atBaseURL:weakSelf._controllerAddress.primaryURL
                    withSuccessHandler:^(NSDictionary *sensorValues) {
-                       [weakSelf updateComponentsWithSensorValues:sensorValues];
+                       for (ORSensorRegistry *sensorRegistry in weakSelf._sensorRegistries) {
+                           [sensorRegistry updateWithSensorValues:sensorValues];
+                       }
                        weakSelf.sensorPollingBlock();
                    }
                          errorHandler:^(NSError *error) {
@@ -125,23 +154,13 @@ typedef void (^PollingBlock)();
     self.sensorPollingBlock = nil;
 }
 
-- (void)updateComponentsWithSensorValues:(NSDictionary *)sensorValues
+- (NSSet *)allSensorIdentifiers
 {
-    // Update properties of linked element
-    [sensorValues enumerateKeysAndObjectsUsingBlock:^(NSString *sensorId, id sensorValue, BOOL *stop) {
-        ORObjectIdentifier *sensorIdentifier = [[ORObjectIdentifier alloc] initWithStringId:sensorId];
-        NSSet *sensorLinks = [self._sensorRegistry sensorLinksForSensorIdentifier:sensorIdentifier];
-
-        [sensorLinks enumerateObjectsUsingBlock:^(ORSensorLink *link, BOOL *stop) {
-            // "Map" given sensor value according to defined sensor states
-            NSString *mappedSensorValue = [link.sensorStatesMapping stateValueForName:sensorValue];
-            // If no mapping, use received sensor value as is
-            if (!mappedSensorValue) {
-                mappedSensorValue = sensorValue;
-            }
-            [link.component setValue:mappedSensorValue forKey:link.propertyName];
-        }];
-    }];
+    NSMutableSet *allSensorIdentifiers = [[NSMutableSet alloc] init];
+    for (ORSensorRegistry *sensorRegistry in self._sensorRegistries) {
+        [allSensorIdentifiers unionSet:[sensorRegistry sensorIdentifiers]];
+    }
+    return allSensorIdentifiers;
 }
 
 @end

@@ -19,12 +19,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 /**
  * Unit tests for PanelIdentityListResponseHandler_2_0_0
  */
-@interface PanelIdentityListResponseHandler_2_0_0Test : SenTestCase
+@interface PanelIdentityListResponseHandler_2_0_0Test : XCTestCase
 
 /**
  * Tests success handler block is executed and receives expected data when a valid response is received.

@@ -36,18 +36,18 @@
     ORControllerAddress *address = [[ORControllerAddress alloc] initWithPrimaryURL:[NSURL URLWithString:@"orbmock://controller"]];
     ORController *orb = [[ORController alloc] initWithControllerAddress:address];
     [orb connectWithSuccessHandler:^{
-        STAssertTrue([orb isConnected], @"ORB should now be connected");
+        XCTAssertTrue([orb isConnected], @"ORB should now be connected");
         [orb requestPanelUILayout:@"toto" successHandler:^(Definition *definition) {
             NSSet *labels = definition.labels;
-            STAssertNotNil(labels, @"ORB should return a collection of labels");
-            STAssertEquals([labels count], (NSUInteger)1, @"ORB should return one label in collection");
-            STAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
-            STAssertEqualObjects(((ORLabel *)[labels anyObject]).text, @"Test label 1", @"Text of label should be 'Test label 1'");
+            XCTAssertNotNil(labels, @"ORB should return a collection of labels");
+            XCTAssertEqual([labels count], (NSUInteger)1, @"ORB should return one label in collection");
+            XCTAssertTrue([[labels anyObject] isMemberOfClass:[ORLabel class]], @"Domain object should be an ORLabel");
+            XCTAssertEqualObjects(((ORLabel *)[labels anyObject]).text, @"Test label 1", @"Text of label should be 'Test label 1'");
         } errorHandler:^(NSError *error) {
-            STFail(@"Test failed with error %@", error);
+            XCTFail(@"Test failed with error %@", error);
         }];
     } errorHandler:^(NSError *error) {
-        STFail(@"Test failed with error %@", error);
+        XCTFail(@"Test failed with error %@", error);
     }];
 }
 

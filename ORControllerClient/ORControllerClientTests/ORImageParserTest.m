@@ -62,10 +62,10 @@
 - (ORImage *)parseValidXMLSnippet:(NSString *)snippet
 {
     DefinitionElementParser *topLevelParser = [self parseXMLSnippet:snippet];
-    STAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
-    STAssertTrue([topLevelParser isMemberOfClass:[ORImageParser class]], @"Parser used should be an ORImageParser");
+    XCTAssertNotNil(topLevelParser, @"Valid XML snippet should be parsed correctly");
+    XCTAssertTrue([topLevelParser isMemberOfClass:[ORImageParser class]], @"Parser used should be an ORImageParser");
     ORImage *image = ((ORImageParser *)topLevelParser).image;
-    STAssertNotNil(image, @"A label should be parsed for given XML snippet");
+    XCTAssertNotNil(image, @"A label should be parsed for given XML snippet");
     
     return image;
 }
@@ -74,35 +74,35 @@
 {
     ORImage *image = [self parseValidXMLSnippet:@"<image id=\"10\" src=\"img.png\"/>"];
     
-    STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
-    STAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
+    XCTAssertNotNil(image.identifier, @"Parsed image should have an identifier");
+    XCTAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
+    XCTAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
 
-    STAssertNil(image.label, @"Parsed image should not have a fallback label");
+    XCTAssertNil(image.label, @"Parsed image should not have a fallback label");
 }
 
 - (void)testParseImageWithFallbackLabel
 {
     ORImage *image = [self parseValidXMLSnippet:@"<image id=\"10\" src=\"img.png\"><include type=\"label\" ref=\"1\"/></image>"];
     
-    STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
-    STAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
+    XCTAssertNotNil(image.identifier, @"Parsed image should have an identifier");
+    XCTAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
+    XCTAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
     
-    STAssertNotNil(image.label, @"Parsed image should have a fallback label");
-    STAssertEqualObjects(image.label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Parsed image fallback label identifier should be 1");
+    XCTAssertNotNil(image.label, @"Parsed image should have a fallback label");
+    XCTAssertEqualObjects(image.label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Parsed image fallback label identifier should be 1");
 }
 
 - (void)testParseImageWithFallbackLabelAndSensor
 {
     ORImage *image = [self parseValidXMLSnippet:@"<image id=\"10\" src=\"img.png\"><include type=\"label\" ref=\"1\"/><link type=\"sensor\" ref=\"3\"/></image>"];
     
-    STAssertNotNil(image.identifier, @"Parsed image should have an identifier");
-    STAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
-    STAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
+    XCTAssertNotNil(image.identifier, @"Parsed image should have an identifier");
+    XCTAssertEqualObjects(image.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:10], @"Parsed image should have 10 as identifer");
+    XCTAssertEqualObjects(image.src, @"img.png", @"Parsed image src should be 'img.png'");
     
-    STAssertNotNil(image.label, @"Parsed image should have a fallback label");
-    STAssertEqualObjects(image.label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Parsed image fallback label identifier should be 1");
+    XCTAssertNotNil(image.label, @"Parsed image should have a fallback label");
+    XCTAssertEqualObjects(image.label.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1], @"Parsed image fallback label identifier should be 1");
 }
 
 @end

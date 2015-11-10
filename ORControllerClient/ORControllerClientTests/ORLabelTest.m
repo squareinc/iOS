@@ -19,14 +19,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "ORObjectIdentifier.h"
 #import "ORLabel_Private.h"
 
 #define SOME_TEXT @"Some text"
 #define SOME_OTHER_TEXT @"Some other text"
 
-@interface ORLabelTest : SenTestCase
+@interface ORLabelTest : XCTestCase
 
 @property (nonatomic, strong) ORLabel *label;
 
@@ -49,8 +49,8 @@
  */
 - (void)testInitDoesSetTextCorrectly
 {
-    STAssertNotNil(self.label, @"Label should have been instantied correctly");
-    STAssertEqualObjects(self.label.text, SOME_TEXT, @"Text property of label should be one set by initializer");
+    XCTAssertNotNil(self.label, @"Label should have been instantied correctly");
+    XCTAssertEqualObjects(self.label.text, SOME_TEXT, @"Text property of label should be one set by initializer");
 }
 
 /**
@@ -58,9 +58,9 @@
  */
 - (void)testInitDoesSetDefaultValuesCorrectly
 {
-    STAssertNotNil(self.label, @"Label should have been instantied correctly");
-    STAssertEqualObjects(self.label.textColor, [UIColor whiteColor], @"Default textColor should be white");
-    STAssertEqualObjects(self.label.font, [UIFont fontWithName:@"Arial" size:14.0], @"Default font should be Arial 14pt");
+    XCTAssertNotNil(self.label, @"Label should have been instantied correctly");
+    XCTAssertEqualObjects(self.label.textColor, [UIColor whiteColor], @"Default textColor should be white");
+    XCTAssertEqualObjects(self.label.font, [UIFont fontWithName:@"Arial" size:14.0], @"Default font should be Arial 14pt");
 }
 
 /**
@@ -95,15 +95,15 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    STAssertEqualObjects(self.label, object, @"Should observe change for label");
+    XCTAssertEqualObjects(self.label, object, @"Should observe change for label");
     if ([@"text" isEqualToString:keyPath]) {
-        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], SOME_OTHER_TEXT,
+        XCTAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], SOME_OTHER_TEXT,
                              @"Observed new value should be newly set label text");
     } else if ([@"textColor" isEqualToString:keyPath]) {
-        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIColor redColor],
+        XCTAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIColor redColor],
                              @"Observed new value should be newly set label textColor");
     } else if ([@"font" isEqualToString:keyPath]) {
-        STAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIFont fontWithName:@"Helvetica" size:2.0],
+        XCTAssertEqualObjects([change valueForKey:NSKeyValueChangeNewKey], [UIFont fontWithName:@"Helvetica" size:2.0],
                              @"Observed new value should be newly set label font");
     }
 }
@@ -111,15 +111,15 @@
 - (void)testNSCoding
 {
     NSData *encodedLabel = [NSKeyedArchiver archivedDataWithRootObject:self.label];
-    STAssertNotNil(encodedLabel, @"Archived data should not be nil");
+    XCTAssertNotNil(encodedLabel, @"Archived data should not be nil");
     ORLabel *decodedLabel = [NSKeyedUnarchiver unarchiveObjectWithData:encodedLabel];
-    STAssertNotNil(decodedLabel, @"Decoded object should not be nil");
-    STAssertEqualObjects(decodedLabel.identifier, self.label.identifier, @"Decoded label should have same id as original");
-    STAssertEqualObjects(decodedLabel.name, self.label.name, @"Decoded label should have same name as original");
-    STAssertEqualObjects(decodedLabel.text, self.label.text, @"Decoded label should have same text as original");
-    STAssertEqualObjects(decodedLabel.textColor, self.label.textColor, @"Decoded label should have same textColor as original");
-    STAssertEqualObjects(decodedLabel.font, self.label.font, @"Decoded label should have same font as original");
-    STAssertEqualObjects(decodedLabel.definition, self.label.definition, @"Decoded label should have same definition as original");
+    XCTAssertNotNil(decodedLabel, @"Decoded object should not be nil");
+    XCTAssertEqualObjects(decodedLabel.identifier, self.label.identifier, @"Decoded label should have same id as original");
+    XCTAssertEqualObjects(decodedLabel.name, self.label.name, @"Decoded label should have same name as original");
+    XCTAssertEqualObjects(decodedLabel.text, self.label.text, @"Decoded label should have same text as original");
+    XCTAssertEqualObjects(decodedLabel.textColor, self.label.textColor, @"Decoded label should have same textColor as original");
+    XCTAssertEqualObjects(decodedLabel.font, self.label.font, @"Decoded label should have same font as original");
+    XCTAssertEqualObjects(decodedLabel.definition, self.label.definition, @"Decoded label should have same definition as original");
 }
 
 @end

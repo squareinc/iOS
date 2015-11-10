@@ -19,23 +19,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <ORControllerClient/ORController.h>
 #import "ORViewController.h"
+#import "ORViewController_Private.h"
 #import "LoginViewController.h"
 #import "ORControllerClient/ORControllerAddress.h"
 #import "ORControllerClient/ORControllerInfo.h"
 #import "ORControllerClient/ORController.h"
-#import "ORControllerClient/ORLabel.h"
 #import "ORControllerClient/Definition.h"
 #import "ORControllerClient/ORUserPasswordCredential.h"
 #import "ORControllerPickerViewController.h"
 
-//#define CONTROLLER_ADDRESS @"http://localhost:8688/controller"
-#define CONTROLLER_ADDRESS @"https://localhost:8443/controller"
+#define CONTROLLER_ADDRESS @"http://localhost:8080/controller"
+//#define CONTROLLER_ADDRESS @"https://localhost:8443/controller"
 
 @interface ORViewController () <ORControllerPickerViewControllerDelegate>
 
-@property (nonatomic, strong) NSArray *labels;
-@property (nonatomic, strong) ORController *orb;
 
 @property (atomic) BOOL gotLogin;
 @property (atomic, strong) NSObject <ORCredential> *_credentials;
@@ -54,57 +53,32 @@
 {
     self.controllerAddress = CONTROLLER_ADDRESS;
     self.title = self.controllerAddress;
-    self.toolbarItems = @[[[UIBarButtonItem alloc] initWithTitle:@"Start" style:UIBarButtonItemStyleBordered target:self action:@selector(startPolling)],
-    [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStyleBordered target:self action:@selector(stopPolling)]];
+    self.toolbarItems = @[[[UIBarButtonItem alloc] initWithTitle:@"Start" style:UIBarButtonItemStylePlain target:self action:@selector(startPolling)],
+    [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStylePlain target:self action:@selector(stopPolling)]];
     self.navigationController.toolbarHidden = NO;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(pickController:)];
-    
-    [self createOrb];
     
     [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-//    [self performSelector:@selector(startPolling) withObject:nil afterDelay:2.01];
     [super viewWillAppear:animated];
+    if (self.isMovingToParentViewController) {
+        // Appearing because we're coming form top level menu, create an ORB
+        [self createOrb];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    
-    // If we did register previously to observe on model objects, un-register
-    [self stopObservingLabelChanges];
-    self.labels = nil;
-}
-
-- (id)init
-{
-    self = [super initWithStyle:UITableViewStylePlain];
-    return self;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.labels count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    if (self.isMovingFromParentViewController) {
+        // Disappearing because we're going back to top level menu, get rid of ORB
+        [self stopPolling];
+        self.orb = nil;
     }
-    cell.textLabel.text = ((ORLabel *)[self.labels objectAtIndex:indexPath.row]).text;
-    return cell;
+    [super viewDidDisappear:animated];
 }
 
 - (void)pickController:(id)sender
@@ -125,21 +99,6 @@
     });
 }
 
-- (void)stopObservingLabelChanges
-{
-    if (self.labels) {
-        [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            @try {
-                [obj removeObserver:self forKeyPath:@"text"];
-            } @catch(NSException *e) {
-                // Ignore NSRangeException, would mean we already removed ourself as observer
-                if (![@"NSRangeException" isEqualToString:e.name]) {
-                    @throw e;
-                }
-            }
-        }];
-    }
-}
 
 - (void)createOrb
 {
@@ -153,28 +112,10 @@
 
 - (void)startPolling
 {
-    [self.orb connectWithSuccessHandler:^{
-        [self.orb requestPanelUILayout:@"panel1" successHandler:^(Definition *definition) {
-            self.labels = [definition.labels allObjects];
-            // Register on all model objects to observe any change on their value
-            [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [obj addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
-            }];
-            [self.tableView reloadData];
-            
-        } errorHandler:^(NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error %ld", (long)[error code]]
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"OK", nil] show];
-        }];
-    } errorHandler:NULL];
 }
 
 - (void)stopPolling
 {
-    [self stopObservingLabelChanges];
     [self.orb disconnect];
 }
 

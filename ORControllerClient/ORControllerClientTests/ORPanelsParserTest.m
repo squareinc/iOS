@@ -33,7 +33,7 @@
     
     ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
     NSArray *panels = [parser parsePanels];
-    STAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
+    XCTAssertNil(parser.parseError, @"There should be no parsing error for valid XML");
     [self assertValidResponse:panels];
 }
 
@@ -44,9 +44,9 @@
     
     ORPanelsParser *parser = [[ORPanelsParser alloc] initWithData:data];
     NSArray *panels = [parser parsePanels];
-    STAssertNil(panels, @"Invalid XML should not return any panels");
-    STAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
-    STAssertEqualObjects([parser.parseError domain], NSXMLParserErrorDomain, @"Underlying XML parser error is propagated for malformed XML");
+    XCTAssertNil(panels, @"Invalid XML should not return any panels");
+    XCTAssertNotNil(parser.parseError, @"A parsing error should be reported for invalid XML");
+    XCTAssertEqualObjects([parser.parseError domain], NSXMLParserErrorDomain, @"Underlying XML parser error is propagated for malformed XML");
 }
 
 /*
@@ -78,30 +78,30 @@
 
 - (void)assertValidResponse:(id)panels
 {
-    STAssertNotNil(panels, @"Should provide list of panels when passed in valid data");
-    STAssertTrue([panels isKindOfClass:[NSArray class]], @"Parsing result should be an NSArray");
-    STAssertEquals([panels count], (NSUInteger)3, @"Fixture declares 3 panels");
+    XCTAssertNotNil(panels, @"Should provide list of panels when passed in valid data");
+    XCTAssertTrue([panels isKindOfClass:[NSArray class]], @"Parsing result should be an NSArray");
+    XCTAssertEqual([panels count], (NSUInteger)3, @"Fixture declares 3 panels");
     for (ORPanel *panel in panels) {
-        STAssertTrue([panel isKindOfClass:[ORPanel class]], @"Elements of the returned array should be ORPanel objects");
+        XCTAssertTrue([panel isKindOfClass:[ORPanel class]], @"Elements of the returned array should be ORPanel objects");
     }
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).name,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).name,
                          @"Dad's iPhone",
                          @"Name of first panel should be equal to the one defined in the fixture");
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).identifier,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:0]).identifier,
                          [[ORObjectIdentifier alloc] initWithIntegerId:1],
                          @"Id of first panel should be equal to the one defined in the fixture");
     
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).name,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).name,
                          @"Mom's iPad",
                          @"Name of second panel should be equal to the one defined in the fixture");
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).identifier,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:1]).identifier,
                          [[ORObjectIdentifier alloc] initWithIntegerId:141],
                          @"Id of second panel should be equal to the one defined in the fixture");
     
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).name,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).name,
                          @"My iPod touch",
                          @"Name of third panel should be equal to the one defined in the fixture");
-    STAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).identifier,
+    XCTAssertEqualObjects(((ORPanel *)[panels objectAtIndex:2]).identifier,
                          [[ORObjectIdentifier alloc] initWithIntegerId:263],
                          @"Id of third panel should be equal to the one defined in the fixture");
 }

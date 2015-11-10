@@ -21,6 +21,9 @@
 
 #import "ORControllerRESTAPI.h"
 
+@class ORDevice;
+@class ORDeviceCommand;
+
 /**
  * Encapsulates the REST API for a specific version.
  * It always connects to the provided URL, does not know anything about group members.

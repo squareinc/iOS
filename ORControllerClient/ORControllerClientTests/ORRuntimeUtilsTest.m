@@ -74,55 +74,55 @@
 - (void)testOneInstanceMethodNoParameterFromProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneInstanceMethodNoParameterTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)1, @"Protocol has one method defined");
-    STAssertEquals((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethodWithNoParameter), @"Returned selector should be the one from the method in the given protocol");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)1, @"Protocol has one method defined");
+    XCTAssertEqual((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethodWithNoParameter), @"Returned selector should be the one from the method in the given protocol");
 }
 
 - (void)testOneInstanceMethodOneParameterFromProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneInstanceMethodOneParameterTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)1, @"Protocol has one method defined");
-    STAssertEquals((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethodWithOneParameter:), @"Returned selector should be the one from the method in the given protocol");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)1, @"Protocol has one method defined");
+    XCTAssertEqual((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethodWithOneParameter:), @"Returned selector should be the one from the method in the given protocol");
 }
 
 - (void)testOneClassMethodNoParameterFromProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneClassMethodNoParameterTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)0, @"Protocol has no instance method defined");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)0, @"Protocol has no instance method defined");
 }
 
 - (void)testOneClassMethodOneParameterFromProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneClassMethodOneParameterTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)0, @"Protocol has no instance method defined");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)0, @"Protocol has no instance method defined");
 }
 
 - (void)testOneInstanceMethodFromProtocolWithMultipleClassMethods
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneInstanceMethodAndSomeClassMethodsTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)1, @"Protocol has one method defined");
-    STAssertEquals((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethod), @"Returned selector should be the one from the method in the given protocol");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)1, @"Protocol has one method defined");
+    XCTAssertEqual((SEL)[[selectors lastObject] pointerValue], @selector(anInstanceMethod), @"Returned selector should be the one from the method in the given protocol");
 }
 
 - (void)testOneOptionalInstanceMethodFromProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_OneOptionalInstanceMethodTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)1, @"Protocol has one method defined");
-    STAssertEquals((SEL)[[selectors lastObject] pointerValue], @selector(anOptionalInstanceMethod), @"Returned selector should be the one from the method in the given protocol");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)1, @"Protocol has one method defined");
+    XCTAssertEqual((SEL)[[selectors lastObject] pointerValue], @selector(anOptionalInstanceMethod), @"Returned selector should be the one from the method in the given protocol");
 }
 
 - (void)testOneInstanceMethodFromChildProtocol
 {
     NSArray *selectors = [ORRuntimeUtils instanceMethodsSelectorsFromProtocol:@protocol(ORRuntimeUtils_AChildTestProtocol)];
-    STAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
-    STAssertEquals([selectors count], (NSUInteger)1, @"Protocol has one method defined");
-    STAssertEquals((SEL)[[selectors lastObject] pointerValue], @selector(aMethodFromChildProtocol), @"Returned selector should be the one from the method in the child protocol only");
+    XCTAssertNotNil(selectors, @"Should be able to retrieve selectors from protocol");
+    XCTAssertEqual([selectors count], (NSUInteger)1, @"Protocol has one method defined");
+    XCTAssertEqual((SEL)[[selectors lastObject] pointerValue], @selector(aMethodFromChildProtocol), @"Returned selector should be the one from the method in the child protocol only");
 }
 
 @end

@@ -24,5 +24,5 @@
 @interface ORRestCallMock : NSObject
 
 @property (nonatomic, strong) NSString *requestURL;
-
+@property (nonatomic, strong) NSURLRequest *request;
 @end

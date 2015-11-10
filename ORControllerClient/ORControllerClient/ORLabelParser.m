@@ -22,7 +22,7 @@
 #import "ORLabelParser.h"
 #import "ORLabel_Private.h"
 #import "ORModelObject_Private.h"
-#import "ORSensorRegistry.h"
+#import "ORPanelDefinitionSensorRegistry.h"
 #import "ORObjectIdentifier.h"
 
 #import "UIColor+ORAdditions.h"

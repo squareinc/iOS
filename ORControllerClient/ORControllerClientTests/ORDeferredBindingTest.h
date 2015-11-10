@@ -19,9 +19,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ORDeferredBindingTest : SenTestCase
+@interface ORDeferredBindingTest : XCTestCase
 
 /**
  * Validates that an ORDeferredBinding instance can be instantiated when giving non nil parameters
