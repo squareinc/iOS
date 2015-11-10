@@ -33,7 +33,7 @@
     NSString *xml = @"<devices><device id=\"123\" name=\"Device1\"/><device id=\"456\" name=\"Device2\"/></devices>";
     ORDevicesParser *parser = [[ORDevicesParser alloc] initWithData:[xml dataUsingEncoding:NSUTF8StringEncoding]];
     NSArray *devices = [parser parseDevices];
-    XCTAssertEqual(devices.count, 2, @"Device count (%d) is not correct. It should be 2", devices.count);
+    XCTAssertEqual(devices.count, 2, @"Device count (%lu) is not correct. It should be 2", (unsigned long)devices.count);
     [self checkDevice:devices[0] identifier:123 name:@"Device1"];
     [self checkDevice:devices[1] identifier:456 name:@"Device2"];
 }

@@ -43,7 +43,7 @@
     XCTAssertEqualObjects(device.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:correctId], @"Device identifier (%@) is not correct. It should be %d", device.identifier, correctId);
 
     int commandCorrectCount = 1;
-    XCTAssertEqual(device.commands.count, commandCorrectCount, @"Device commands count (%d) is not correct. It should be %d", device.commands.count, commandCorrectCount);
+    XCTAssertEqual(device.commands.count, commandCorrectCount, @"Device commands count (%lu) is not correct. It should be %d", (unsigned long)device.commands.count, commandCorrectCount);
     ORDeviceCommand *command = [device.commands firstObject];
     XCTAssertEqualObjects(command.name, @"CommandName", @"Command name (%@) is not correct. It should be %@", command.name, @"CommandName");
     XCTAssertEqualObjects(command.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:1234], @"Command identifier (%@) is not correct. It should be %d", command.identifier, 1234);
@@ -51,12 +51,12 @@
     XCTAssertEqual(command.device, device, @"Owner device is not correct");
 
     int commandTagsCorrectCount = 2;
-    XCTAssertEqual(command.tags.count, commandTagsCorrectCount, @"Command tags count (%d) is not correct. It should be %d", command.tags.count, commandTagsCorrectCount);
+    XCTAssertEqual(command.tags.count, commandTagsCorrectCount, @"Command tags count (%lu) is not correct. It should be %d", (unsigned long)command.tags.count, commandTagsCorrectCount);
     XCTAssertTrue([command.tags containsObject:@"tag 1"], @"Tag with value \"tag 1\" not found");
     XCTAssertTrue([command.tags containsObject:@"<tag & 2>"], @"Tag with value \"<tag & 2>\" not found");
 
     int sensorsCorrectCount = 6;
-    XCTAssertEqual(device.sensors.count, sensorsCorrectCount, @"Device commands count (%d) is not correct. It should be %d", device.sensors.count, sensorsCorrectCount);
+    XCTAssertEqual(device.sensors.count, sensorsCorrectCount, @"Device commands count (%lu) is not correct. It should be %d", (unsigned long)device.sensors.count, sensorsCorrectCount);
     [self checkSensor:device.sensors[0] correctName:@"SensorName1" correctType:SensorTypeSwitch correctIdentifier:123 correctCommand:command correctDevice:device];
     [self checkSensor:device.sensors[1] correctName:@"SensorName2" correctType:SensorTypeLevel correctIdentifier:456 correctCommand:command correctDevice:device];
     [self checkSensor:device.sensors[2] correctName:@"SensorName3" correctType:SensorTypeRange correctIdentifier:789 correctCommand:command correctDevice:device];
@@ -69,7 +69,7 @@
 {
     XCTAssertEqualObjects(sensor.name, sensorName, @"Sensor name (%@) is not correct. It should be %@", sensor.name, sensorName);
     XCTAssertEqualObjects(sensor.identifier, [[ORObjectIdentifier alloc] initWithIntegerId:sensorIdentifier], @"Command identifier (%@) is not correct. It should be %d", sensor.identifier, sensorIdentifier);
-    XCTAssertEqual(sensor.type, sensorType, @"Sensor type (%d) is not correct. It should be %d", sensor.type, sensorType);
+    XCTAssertEqual(sensor.type, sensorType, @"Sensor type (%ld) is not correct. It should be %ld", (long)sensor.type, (long)sensorType);
     XCTAssertEqualObjects(sensor.command, command, @"Sensor command is not correct.");
     XCTAssertEqual(sensor.device, device, @"Owner device is not correct");
 }
