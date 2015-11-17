@@ -36,12 +36,14 @@
 @property (weak) PaginationController *currentPaginationController;
 @property (strong) UIView *maskView;
 
+@property (nonatomic, strong) PaginationController *portraitPaginationController;
+@property (nonatomic, strong) PaginationController *landscapePaginationController;
+@property (nonatomic, strong) ErrorViewController *errorViewController;
 @end
 
 @implementation GroupController
 
-- (id)initWithGroup:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC
-{
+- (id)initWithGroup:(ORGroup *)newGroup {
     self = [super init];
 	if (self) {
 		self.group = newGroup;
@@ -56,7 +58,6 @@
 
 - (void)dealloc
 {
-    self.imageCache = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -98,7 +99,6 @@
 	for (ORScreen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
 		ScreenViewController *viewController = [[ScreenViewController alloc] initWithScreen:screen];
-        viewController.imageCache = self.imageCache;
 		[viewControllers addObject:viewController];
 	}
 	return [NSArray arrayWithArray:viewControllers];
@@ -121,44 +121,27 @@
 	}
 	
 	if (isLandscape) {
-		if (landscapePaginationController == nil) {
-			landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                 tabBar:self.group.definition.tabBar];
-            landscapePaginationController.imageCache = self.imageCache;
-			[landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
-            [self addChildViewController:landscapePaginationController];
-            [self.view addSubview:landscapePaginationController.view];
-        }
-
-        self.currentPaginationController = landscapePaginationController;
-        landscapePaginationController.view.hidden = NO;
+        self.currentPaginationController = self.landscapePaginationController;
+        self.landscapePaginationController.view.hidden = NO;
 
         // Resize view to fill screen in appropriate orientation
-        landscapePaginationController.view.frame = self.view.bounds;
+        self.landscapePaginationController.view.frame = self.view.bounds;
 
-		[[portraitPaginationController currentScreenViewController] stopPolling];
-        portraitPaginationController.view.hidden = YES;
-		[[landscapePaginationController currentScreenViewController] startPolling];
+		[[self.portraitPaginationController currentScreenViewController] stopPolling];
+        self.portraitPaginationController.view.hidden = YES;
+		[[self.landscapePaginationController currentScreenViewController] startPolling];
 	} else {
-		if (portraitPaginationController == nil) {
-			portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
-                                                                                tabBar:self.group.definition.tabBar];
-            portraitPaginationController.imageCache = self.imageCache;
-			[portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:isLandscape];
-            [self addChildViewController:portraitPaginationController];
-            [self.view addSubview:portraitPaginationController.view];
-		}
-
-        self.currentPaginationController = portraitPaginationController;
-        portraitPaginationController.view.hidden = NO;
+        self.currentPaginationController = self.portraitPaginationController;
+        self.portraitPaginationController.view.hidden = NO;
 
         // Resize view to fill screen in appropriate orientation
-        portraitPaginationController.view.frame = self.view.bounds;
+        self.portraitPaginationController.view.frame = self.view.bounds;
 
-        [[landscapePaginationController currentScreenViewController] stopPolling];
-        landscapePaginationController.view.hidden = YES;
-		[[portraitPaginationController currentScreenViewController] startPolling];
+        [[self.landscapePaginationController currentScreenViewController] stopPolling];
+        self.landscapePaginationController.view.hidden = YES;
+		[[self.portraitPaginationController currentScreenViewController] startPolling];
 	}
+    [UIViewController attemptRotationToDeviceOrientation];
 }
 
 // Show portrait orientation view.
@@ -175,7 +158,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-//    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [self setupPortraitPaginationController];
+    [self setupLandscapePaginationController];
 	[self.navigationController setNavigationBarHidden:YES];
 
     if (UIInterfaceOrientationIsLandscape(self.parentViewController.interfaceOrientation)) {
@@ -196,9 +180,9 @@
     // can also handle log, send to controller, ...
     // Introduce an "ORError" object, can have levels (fatal, warning, info) and decide what to do with error / how to present
     
-	errorViewController = [[ErrorViewController alloc] initWithErrorTitle:@"No Screen Found" message:@"Please associate screens with this group of this orientation."];
-	[errorViewController.view setFrame:[self getFullFrame]];
-	[self setView:errorViewController.view];	
+	self.errorViewController = [[ErrorViewController alloc] initWithErrorTitle:@"No Screen Found" message:@"Please associate screens with this group of this orientation."];
+	self.errorViewController.view.frame = [self getFullFrame];
+	self.view = self.errorViewController.view;
 }
 
 - (ScreenViewController *)currentScreenViewController {
@@ -229,7 +213,18 @@
 
 - (BOOL)switchToScreen:(ORScreen *)aScreen {
 	NSLog(@"switch to screen %@", aScreen.identifier);
-	return [[self currentPaginationController] switchToScreen:aScreen];
+	BOOL switchToScreen = [[self currentPaginationController] switchToScreen:aScreen];
+    if (!switchToScreen) {
+        switchToScreen = [[self otherPaginationController] switchToScreen:aScreen];
+        if (switchToScreen) {
+            if (self.currentPaginationController == self.portraitPaginationController) {
+                [self showLandscape];
+            } else {
+                [self showPortrait];
+            }
+        }
+    }
+    return switchToScreen;
 }
 
 - (BOOL)shouldAutorotate {
@@ -284,8 +279,27 @@
     [self.maskView removeFromSuperview];
 }
 
-@synthesize group;
-@synthesize currentPaginationController;
-@synthesize maskView;
+- (void)setupPortraitPaginationController {
+    NSArray *screens = [self.group portraitScreens];
+    self.portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
+                                                                             tabBar:self.group.definition.tabBar];
+    [self.portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:NO];
+    [self addChildViewController:self.portraitPaginationController];
+    [self.view addSubview:self.portraitPaginationController.view];
+}
+
+- (void)setupLandscapePaginationController {
+    NSArray *screens = [self.group landscapeScreens];
+    self.landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
+                                                                              tabBar:self.group.definition.tabBar];
+    [self.landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:YES];
+    [self addChildViewController:self.landscapePaginationController];
+    [self.view addSubview:self.landscapePaginationController.view];
+}
+
+- (PaginationController *)otherPaginationController
+{
+    return self.currentPaginationController == self.portraitPaginationController ? self.landscapePaginationController : self.portraitPaginationController;
+}
 
 @end

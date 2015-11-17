@@ -32,6 +32,7 @@
 
 #import "NavigationManager.h"
 #import "ORScreenOrGroupReference.h"
+#import "AppDelegate.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -134,8 +135,7 @@
     if (screenReference) {
         ORGroup *currentGroup = [definition findGroupByIdentifier:screenReference.groupIdentifier];
         
-        GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup parentViewController:self];
-        gc.imageCache = self.imageCache;
+        GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup];
         [self switchToGroupController:gc];
     } else {
         // Means no group with screen does exist
@@ -203,8 +203,16 @@
     
     // Navigate based on destination, being assured that if not nil, it exists
     if (destination) {
-        [self navigateToGroup:[self._definition findGroupByIdentifier:destination.groupIdentifier]
-                     toScreen:[self._definition findScreenByIdentifier:destination.screenIdentifier]];
+        ORScreen *screen = [self._definition findScreenByIdentifier:destination.screenIdentifier];
+        ORGroup *group = [self._definition findGroupByIdentifier:destination.groupIdentifier];
+        if (screen.orientation == self.currentGroupController.currentScreen.orientation) {
+            [self navigateToGroup:group toScreen:screen];
+        } else {
+            DefaultViewController *dvc = [[DefaultViewController alloc] initWithSettingsManager:self.settingsManager definitionManager:self.definitionManager delegate:[UIApplication sharedApplication].delegate];
+            [dvc initGroups];
+            [dvc navigateToGroup:group toScreen:screen];
+            [((AppDelegate *) [UIApplication sharedApplication].delegate) replaceDefaultViewController:dvc];
+        }
     }
 }
 
@@ -219,9 +227,8 @@
 {
     // Going to another group
 	if (![group.identifier isEqual:[self.currentGroupController groupIdentifier]]) {
-		GroupController *targetGroupController = [[GroupController alloc] initWithGroup:group parentViewController:self];
-        targetGroupController.imageCache = self.imageCache;
-		
+		GroupController *targetGroupController = [[GroupController alloc] initWithGroup:group];
+
         [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}
@@ -265,7 +272,6 @@
 
 - (void)populateSettingsView:(id)sender {
 	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager definitionManager:self.definitionManager];
-    settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentViewController:settingNavController animated:YES completion:nil];
 }

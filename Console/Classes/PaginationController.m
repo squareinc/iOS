@@ -67,7 +67,6 @@
 {
     self.uiTabBar.delegate = nil;
     self.uiTabBar = nil;
-    self.imageCache = nil;
 }
 
 /**
@@ -266,21 +265,52 @@
 	}
     // Tab bar added latest so it sits on top of other views
     if (self.tabBar) {
-        UITabBar *tmpBar = [[UITabBar alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height - kTabBarHeight, self.view.frame.size.width, kTabBarHeight)];
+        UITabBar *tmpBar = [[UITabBar alloc] initWithFrame:CGRectZero];
         self.uiTabBar = tmpBar;
+        self.uiTabBar.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:self.uiTabBar];
+        [self.view addConstraints:@[
+                [NSLayoutConstraint constraintWithItem:self.uiTabBar
+                                             attribute:NSLayoutAttributeBottom
+                                             relatedBy:NSLayoutRelationEqual
+                                                toItem:self.view
+                                             attribute:NSLayoutAttributeBottom
+                                            multiplier:1
+                                              constant:0],
+                [NSLayoutConstraint constraintWithItem:self.uiTabBar
+                                             attribute:NSLayoutAttributeLeading
+                                             relatedBy:NSLayoutRelationEqual
+                                                toItem:self.view
+                                             attribute:NSLayoutAttributeLeading
+                                            multiplier:1
+                                              constant:0],
+                [NSLayoutConstraint constraintWithItem:self.uiTabBar
+                                             attribute:NSLayoutAttributeTrailing
+                                             relatedBy:NSLayoutRelationEqual
+                                                toItem:self.view
+                                             attribute:NSLayoutAttributeTrailing
+                                            multiplier:1
+                                              constant:0],
+                [NSLayoutConstraint constraintWithItem:self.uiTabBar
+                                             attribute:NSLayoutAttributeHeight
+                                             relatedBy:NSLayoutRelationEqual
+                                                toItem:nil
+                                             attribute:NSLayoutAttributeNotAnAttribute
+                                            multiplier:1
+                                              constant:kTabBarHeight]
+        ]];
         NSMutableArray *tmpItems = [NSMutableArray arrayWithCapacity:[self.tabBar.items count]];
         // Not using fast iteration but standard for loop to have access to object index
         for (unsigned int i = 0; i < [self.tabBar.items count]; i++) {
             ORTabBarItem *item = self.tabBar.items[i];
             UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.label.text image:nil tag:i];
-            UIImage *itemImage = [self.imageCache getImageNamed:item.image.src finalImageAvailable:^(UIImage *image) {
+            UIImage *itemImage = [[ImageCache sharedInstance] getImageNamed:item.image.src finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     uiItem.image = image;
                 });
             }];
             if (itemImage) {
-                uiItem.image = itemImage;
+                uiItem.image = [itemImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             }
             [tmpItems addObject:uiItem];
         }
@@ -340,6 +370,12 @@
     [self initView];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * [self.viewControllers count], self.view.frame.size.height);
+}
+
+
 /**
  * Verify that the screen that is current displayed is the target of the navigation of an item in the tab bar.
  * If it is, select that item. Items are search in order and the first one matching is selected.
@@ -387,6 +423,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     self.inRotation = NO;
+    [self initView];
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 

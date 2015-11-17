@@ -91,11 +91,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-    self.imageCache = nil;
-}
-
 // Show spinner after title of "Choose Controller" while auto discovery running.
 - (void)showSpinner {
 	spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(210, 113, 44, 44)];
@@ -268,8 +263,7 @@
 			updateController = nil;
 		}
         updateController = [[UpdateController alloc] initWithSettings:self.settingsManager.consoleSettings definitionManager:self.definitionManager delegate:self];
-        updateController.imageCache = self.imageCache;
-        
+
         // Ensure that progress indicator appears immediately but code still executed on main thread
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             dispatch_sync(dispatch_get_main_queue(), ^{
@@ -538,7 +532,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-        [self.imageCache forgetAllImages];
+        [[ImageCache sharedInstance] forgetAllImages];
 	} 
 }
 

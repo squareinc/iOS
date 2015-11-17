@@ -98,9 +98,8 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @implementation SliderSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
-{
-    self = [super initWithImageCache:aCache component:aComponent];
+- (id)initWithComponent:(ORWidget *)aComponent {
+    self = [super initWithComponent:aComponent];
     if (self) {
         ORUISlider *uiSlider = [[ORUISlider alloc] initWithFrame:CGRectZero];
         

@@ -23,22 +23,17 @@
 #import "PaginationController.h"
 #import "ErrorViewController.h"
 
-@class ImageCache;
-
 /**
  * Control presentation of group view with group model data.
  */
-@interface GroupController : UIViewController {
-	PaginationController *portraitPaginationController;
-	PaginationController *landscapePaginationController;
-	ErrorViewController *errorViewController;
-	UIInterfaceOrientation currentOrientation;
-}
+@interface GroupController : UIViewController
+
+@property (nonatomic, strong) ORGroup *group;
 
 /**
  * Construct group controller with group model data.
  */
-- (id)initWithGroup:(ORGroup *)newGroup parentViewController:(UIViewController *)aVC;
+- (id)initWithGroup:(ORGroup *)newGroup;
 
 /**
  * Start polling of groupController's rendering screenView.
@@ -76,9 +71,5 @@
  * and the height of returned frame is width of portrait screen.
  */
 - (CGRect)getFullFrame;
-
-@property (nonatomic, strong) ORGroup *group;
-
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

@@ -49,14 +49,11 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
-    self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
     
     self.definitionManager = [[DefinitionManager alloc] init];
-    self.definitionManager.imageCache = self.imageCache;
-    
+
     self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager definitionManager:self.definitionManager delegate:self];
-    self.defaultViewController.imageCache = self.imageCache;
 
 	// Default window for the app
 	window = [[GestureWindow alloc] init];
@@ -69,7 +66,6 @@
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
     updateController = [[UpdateController alloc] initWithSettings:settingsManager.consoleSettings definitionManager:self.definitionManager delegate:self];
-    updateController.imageCache = self.imageCache;
 
     [updateController startup];
     
@@ -153,5 +149,11 @@
 }
 
 @synthesize defaultViewController;
+
+- (void)replaceDefaultViewController:(DefaultViewController *)newDefaultViewController {
+    self.defaultViewController = newDefaultViewController;
+    window.rootViewController = newDefaultViewController;
+}
+
 
 @end

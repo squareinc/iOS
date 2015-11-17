@@ -33,7 +33,6 @@
 @property (nonatomic, strong) ORScreen *screen;
 @property (nonatomic, strong) NSMutableArray *layoutContainers;
 
-@property (nonatomic, weak) ImageCache *imageCache;
 
 - (void)createView;
 - (void)createSubControllersForLayoutContainers;
@@ -42,28 +41,21 @@
 
 @implementation ScreenSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen
-{
+- (id)initWithScreen:(ORScreen *)aScreen {
     self = [super init];
     if (self) {
         self.screen = aScreen;
-        self.imageCache = aCache;
         [self createView];
         [self createSubControllersForLayoutContainers];
     }    
     return self;
 }
 
-- (void)dealloc
-{
-    self.imageCache = nil;
-}
-
 - (void)createSubControllersForLayoutContainers
 {
     self.layoutContainers = [NSMutableArray arrayWithCapacity:[self.screen.layouts count]];
     for (ORLayoutContainer *layout in self.screen.layouts) {
-        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithImageCache:self.imageCache layoutContainer:layout];
+        LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithLayoutContainer:layout];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];
     }
@@ -87,7 +79,7 @@
     self.view.backgroundColor = [UIColor blackColor];
 
 	if (self.screen.background.image.src) {
-		UIImage *backgroundImage = [self.imageCache getImageNamed:self.screen.background.image.src
+		UIImage *backgroundImage = [[ImageCache sharedInstance] getImageNamed:self.screen.background.image.src
                                               finalImageAvailable:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setBackgroundImage:image];

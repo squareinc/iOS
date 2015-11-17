@@ -28,7 +28,6 @@
 // TODO: have properties from superclass in specific .h
 @property (nonatomic, strong) ORLayoutContainer *layoutContainer;
 @property (nonatomic, weak) ORControllerConfig *controller;
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @property (nonatomic, strong) ComponentSubController *componentSubController;
 
@@ -36,12 +35,11 @@
 
 @implementation AbsoluteLayoutContainerSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
-{
-    self = [super initWithImageCache:aCache layoutContainer:aLayoutContainer];
+- (id)initWithLayoutContainer:(ORLayoutContainer *)aLayoutContainer {
+    self = [super initWithLayoutContainer:aLayoutContainer];
     if (self) {
         ORWidget *widget = ((ORAbsoluteLayoutContainer *)aLayoutContainer).widget;
-        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithImageCache:aCache component:widget];
+        self.componentSubController = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithComponent:widget];
         self.componentSubController.view.frame = CGRectMake(self.layoutContainer.left, self.layoutContainer.top, self.layoutContainer.width, self.layoutContainer.height);
     }
     

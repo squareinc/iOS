@@ -34,9 +34,8 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 
 @implementation LabelSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
-{
-    self = [super initWithImageCache:aCache component:aComponent];
+- (id)initWithComponent:(ORWidget *)aComponent {
+    self = [super initWithComponent:aComponent];
     if (self) {
         UILabel *uiLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         uiLabel.backgroundColor = [UIColor clearColor];

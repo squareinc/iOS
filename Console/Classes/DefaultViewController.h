@@ -29,8 +29,6 @@
 #import "ORControllerClient/Definition.h"
 #import "InitViewController.h"
 
-@class ImageCache;
-
 @protocol DefaultViewControllerDelegate <NSObject>
 
 - (void)updateDidFinish;
@@ -91,7 +89,5 @@
 
 - (void)presentGroupController:(GroupController *)groupController animated:(BOOL)flag;
 
-
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

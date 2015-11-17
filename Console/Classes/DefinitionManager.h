@@ -21,7 +21,6 @@
 #import <Foundation/Foundation.h>
 
 @class ORControllerConfig;
-@class ImageCache;
 
 @interface DefinitionManager : NSObject {
     BOOL isUpdating;
@@ -46,7 +45,5 @@
 
 @property (nonatomic,readonly) BOOL isUpdating;
 @property (nonatomic,strong) UILabel *loading;
-
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

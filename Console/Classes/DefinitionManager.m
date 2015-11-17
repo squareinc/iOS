@@ -56,7 +56,6 @@
 - (void)dealloc
 {
     self.controller = nil;
-    self.imageCache = nil;
 }
 
 - (void)update {
@@ -71,10 +70,8 @@
         [self.controller.controller requestPanelUILayout:self.controller.selectedPanelIdentity successHandler:^(Definition *definition) {
             self.controller.definition = definition;
             definition.console = self.console;
-            
-            NSLog(@"ImageCache %@", self.imageCache);
-            
-            self.imageCache.loader = self.controller;
+
+            [ImageCache sharedInstance].loader = self.controller;
             
             [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
         } errorHandler:^(NSError *error) {
@@ -154,7 +151,7 @@
     if (definition) {
       self.controller.definition = definition;
       definition.console = self.console;
-        self.imageCache.loader = self.controller;
+        [ImageCache sharedInstance].loader = self.controller;
 
         [self.controller.controller attachPanelDefinition:definition];
         

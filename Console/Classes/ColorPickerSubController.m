@@ -34,9 +34,8 @@
 
 @implementation ColorPickerSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
-{
-    self = [super initWithImageCache:aCache component:aComponent];
+- (id)initWithComponent:(ORWidget *)aComponent {
+    self = [super initWithComponent:aComponent];
     if (self) {
         ColorPickerImageView *imageView = [[ColorPickerImageView alloc] initWithImage:nil];
         UIImage *uiImage = [self.imageCache getImageNamed:self.colorPicker.image.src finalImageAvailable:^(UIImage *image) {

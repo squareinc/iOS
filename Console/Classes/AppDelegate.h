@@ -36,5 +36,7 @@
 
 @property (nonatomic, strong) DefaultViewController *defaultViewController;
 
+- (void)replaceDefaultViewController:(DefaultViewController *)newDefaultViewController;
+
 @end
 

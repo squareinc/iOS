@@ -22,12 +22,11 @@
 
 @class ORLayoutContainer;
 @class ORControllerConfig;
-@class ImageCache;
 
 @interface LayoutContainerSubController : SubController
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer;
+- (id)initWithLayoutContainer:(ORLayoutContainer *)aLayoutContainer;
 
 @end

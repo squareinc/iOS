@@ -28,7 +28,6 @@
 
 // TODO: have properties from superclass in specific .h
 @property (nonatomic, weak) ORControllerConfig *controller;
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @property (nonatomic, readwrite, strong) UIView *view;
 @property (nonatomic, strong) NSMutableArray *cells;
@@ -37,9 +36,8 @@
 
 @implementation GridLayoutContainerSubController
 
-- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
-{
-    self = [super initWithImageCache:aCache layoutContainer:aLayoutContainer];
+- (id)initWithLayoutContainer:(ORLayoutContainer *)aLayoutContainer {
+    self = [super initWithLayoutContainer:aLayoutContainer];
     if (self) {
         ORGridLayoutContainer *container = (ORGridLayoutContainer *)aLayoutContainer;
         self.view = [[UIView alloc] initWithFrame:CGRectMake(container.left, container.top, container.width, container.height)];
@@ -50,7 +48,7 @@
         for (ORGridCell *cell in container.cells) {
             ORWidget *widget = cell.widget;
             ComponentSubController *ctrl;
-            ctrl = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithImageCache:aCache component:widget];
+            ctrl = [[[ComponentSubController subControllerClassForModelObject:widget] alloc] initWithComponent:widget];
             [self.cells addObject:ctrl];
             ctrl.view.frame = CGRectMake(cell.x * w, cell.y * h, w * cell.colspan, h * cell.rowspan);
             [self.view addSubview:ctrl.view];

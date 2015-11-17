@@ -52,14 +52,13 @@
     [self cleanupGestureRecognizers];
     [self stopPolling];
 	self.screenSubController = nil;
-    self.imageCache = nil;
     self.screen = nil;
 }
 
 // Implement loadView to create a view hierarchy programmatically.
 - (void)loadView
 {
-    self.screenSubController = [[ScreenSubController alloc] initWithImageCache:self.imageCache screen:self.screen];
+    self.screenSubController = [[ScreenSubController alloc] initWithScreen:self.screen];
     self.view = self.screenSubController.view;    
 }
 

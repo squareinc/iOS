@@ -37,7 +37,6 @@
 @interface ComponentSubController()
 
 @property (nonatomic, readwrite, strong) ORWidget *component;
-@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
@@ -59,19 +58,12 @@ static NSMutableDictionary *modelObjectToSubControllerClassMapping;
                                               nil];
 }
 
-- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
-{
+- (id)initWithComponent:(ORWidget *)aComponent {
     self = [super init];
     if (self) {
         self.component = aComponent;
-        self.imageCache = aCache;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    self.imageCache = nil;
 }
 
 + (Class)subControllerClassForModelObject:(id)modelObject
