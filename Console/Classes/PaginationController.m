@@ -106,7 +106,11 @@
 }
 
 - (ScreenViewController *)currentScreenViewController {
-	return self.viewControllers[self.selectedIndex];
+    if (self.viewControllers.count) {
+        return self.viewControllers[self.selectedIndex];
+    } else {
+        return nil;
+    }
 }
 
 - (void)initView {
