@@ -49,8 +49,6 @@ typedef void (^ImageAvailableBlock)(UIImage *);
  */
 @interface ImageCache : NSObject
 
-+ (instancetype)sharedInstance;
-
 /**
  * Initializes the image cache, indicating folder where images should be persisted.
  * If folder does not exist, it (and all required paths level) will get created.

@@ -23,6 +23,7 @@
 
 @class ORGroup;
 @class ORTabBar;
+@class ImageCache;
 
 /**
  * This class is mainly responsible for switching screenView in groupController's screenViews.
@@ -31,6 +32,7 @@
 
 @property(nonatomic,copy) NSArray *viewControllers;
 @property(nonatomic,readonly) NSUInteger selectedIndex;
+@property (nonatomic, weak) ImageCache *imageCache;
 @property (nonatomic) BOOL isLandscape;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;

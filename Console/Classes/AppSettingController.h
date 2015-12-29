@@ -26,6 +26,7 @@
 #import "LoginViewController.h"
 
 @class ORConsoleSettingsManager;
+@class ImageCache;
 
 /**
  * Render the UI of AppSetting view and provide functions of setting about panel client.
@@ -41,6 +42,8 @@
 	UIActivityIndicatorView *spinner;
 	UITextField *portField;	
 }
+
+@property (nonatomic, weak) ImageCache *imageCache;
 
 - (id)initWithSettingsManager:(ORConsoleSettingsManager *)aSettingsManager definitionManager:(DefinitionManager *)aDefinitionManager;
 

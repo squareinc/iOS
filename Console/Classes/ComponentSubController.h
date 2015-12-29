@@ -22,12 +22,13 @@
 
 @class ORWidget;
 @class ORControllerConfig;
+@class ImageCache;
 
 @interface ComponentSubController : SubController
 
 + (Class)subControllerClassForModelObject:(id)modelObject;
 
-- (id)initWithComponent:(ORWidget *)aComponent;
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent;
 
 @property (nonatomic, readonly, strong) ORWidget *component;
 

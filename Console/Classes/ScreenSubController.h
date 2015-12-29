@@ -22,9 +22,10 @@
 
 @class ORScreen;
 @class ORControllerConfig;
+@class ImageCache;
 
 @interface ScreenSubController : SubController
 
-- (id)initWithScreen:(ORScreen *)aScreen;
+- (id)initWithImageCache:(ImageCache *)aCache screen:(ORScreen *)aScreen;
 
 @end

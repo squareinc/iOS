@@ -34,14 +34,15 @@ static void * const LabelSubControllerKVOContext = (void*)&LabelSubControllerKVO
 
 @implementation LabelSubController
 
-- (id)initWithComponent:(ORWidget *)aComponent {
-    self = [super initWithComponent:aComponent];
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
+{
+    self = [super initWithImageCache:aCache component:aComponent];
     if (self) {
         UILabel *uiLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         uiLabel.backgroundColor = [UIColor clearColor];
         uiLabel.adjustsFontSizeToFitWidth = NO;
-        uiLabel.textAlignment = UITextAlignmentCenter;
-        uiLabel.lineBreakMode = UILineBreakModeWordWrap;
+        uiLabel.textAlignment = NSTextAlignmentCenter;
+        uiLabel.lineBreakMode = NSLineBreakByWordWrapping;
         uiLabel.numberOfLines = 50;
         uiLabel.text = self.label.text;
         

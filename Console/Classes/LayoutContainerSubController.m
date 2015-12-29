@@ -28,17 +28,25 @@
 @interface LayoutContainerSubController()
 
 @property (nonatomic, strong) ORLayoutContainer *layoutContainer;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end
 
 @implementation LayoutContainerSubController
 
-- (id)initWithLayoutContainer:(ORLayoutContainer *)aLayoutContainer {
+- (id)initWithImageCache:(ImageCache *)aCache layoutContainer:(ORLayoutContainer *)aLayoutContainer
+{
     self = [super init];
     if (self) {
         self.layoutContainer = aLayoutContainer;
+        self.imageCache = aCache;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    self.imageCache = nil;
 }
 
 + (Class)subControllerClassForModelObject:(id)modelObject

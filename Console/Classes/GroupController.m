@@ -99,6 +99,7 @@
 	for (ORScreen *screen in screens) {
 		NSLog(@"init screen = %@", screen.name);
 		ScreenViewController *viewController = [[ScreenViewController alloc] initWithScreen:screen];
+        viewController.imageCache = self.imageCache;
 		[viewControllers addObject:viewController];
 	}
 	return [NSArray arrayWithArray:viewControllers];
@@ -283,6 +284,7 @@
     NSArray *screens = [self.group portraitScreens];
     self.portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                              tabBar:self.group.definition.tabBar];
+    self.portraitPaginationController.imageCache = self.imageCache;
     [self.portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:NO];
     [self addChildViewController:self.portraitPaginationController];
     [self.view addSubview:self.portraitPaginationController.view];
@@ -292,6 +294,7 @@
     NSArray *screens = [self.group landscapeScreens];
     self.landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                               tabBar:self.group.definition.tabBar];
+    self.portraitPaginationController.imageCache = self.imageCache;
     [self.landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:YES];
     [self addChildViewController:self.landscapePaginationController];
     [self.view addSubview:self.landscapePaginationController.view];

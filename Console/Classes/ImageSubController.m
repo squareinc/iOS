@@ -37,8 +37,9 @@ static void * const ImageSubControllerKVOContext = (void*)&ImageSubControllerKVO
 
 @implementation ImageSubController
 
-- (id)initWithComponent:(ORWidget *)aComponent {
-    self = [super initWithComponent:aComponent];
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
+{
+    self = [super initWithImageCache:aCache component:aComponent];
     if (self) {
         self.view = [[ORImageView alloc] initWithFrame:CGRectZero];
         [self setImageNamed:self.image.src];

@@ -67,6 +67,7 @@
 {
     self.uiTabBar.delegate = nil;
     self.uiTabBar = nil;
+    self.imageCache = nil;
 }
 
 /**
@@ -308,7 +309,7 @@
         for (unsigned int i = 0; i < [self.tabBar.items count]; i++) {
             ORTabBarItem *item = self.tabBar.items[i];
             UITabBarItem *uiItem = [[UITabBarItem alloc] initWithTitle:item.label.text image:nil tag:i];
-            UIImage *itemImage = [[ImageCache sharedInstance] getImageNamed:item.image.src finalImageAvailable:^(UIImage *image) {
+            UIImage *itemImage = [self.imageCache getImageNamed:item.image.src finalImageAvailable:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     uiItem.image = image;
                 });

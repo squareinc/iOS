@@ -56,6 +56,7 @@
 - (void)dealloc
 {
     self.controller = nil;
+    self.imageCache = nil;
 }
 
 - (void)update {
@@ -71,7 +72,7 @@
             self.controller.definition = definition;
             definition.console = self.console;
 
-            [ImageCache sharedInstance].loader = self.controller;
+            self.imageCache.loader = self.controller;
             
             [self postNotificationToMainThread:DefinitionUpdateDidFinishNotification];
         } errorHandler:^(NSError *error) {
@@ -151,7 +152,7 @@
     if (definition) {
       self.controller.definition = definition;
       definition.console = self.console;
-        [ImageCache sharedInstance].loader = self.controller;
+        self.imageCache.loader = self.controller;
 
         [self.controller.controller attachPanelDefinition:definition];
         

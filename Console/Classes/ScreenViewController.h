@@ -21,6 +21,7 @@
 #import <UIKit/UIKit.h>
 
 @class ORScreen;
+@class ImageCache;
 
 /**
  * It's responsible for control render of screenView with screen model data.
@@ -40,5 +41,6 @@
 - (void)stopPolling;
 
 @property (nonatomic, strong, readonly) ORScreen *screen;
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

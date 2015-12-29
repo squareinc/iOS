@@ -23,6 +23,7 @@
 
 @class DefinitionManager;
 @class ORConsoleSettings;
+@class ImageCache;
 
 @protocol UpdateControllerDelegate <NSObject>
 
@@ -65,5 +66,7 @@
 
 - (void)checkConfigAndUpdate;
 - (void)checkConfigAndUpdateUsingTimeout:(NSTimeInterval)timeoutInterval;
+
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

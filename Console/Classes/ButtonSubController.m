@@ -45,8 +45,9 @@
 
 @implementation ButtonSubController
 
-- (id)initWithComponent:(ORWidget *)aComponent {
-    self = [super initWithComponent:aComponent];
+- (id)initWithImageCache:(ImageCache *)aCache component:(ORWidget *)aComponent
+{
+    self = [super initWithImageCache:aCache component:aComponent];
     if (self) {
         UIButton *uiButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [uiButton addTarget:self action:@selector(controlButtonDown:) forControlEvents:UIControlEventTouchDown];	
@@ -56,7 +57,7 @@
         /* Observing the frame so the displayed image can be resized to appear centered in the button */
         [uiButton addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:NULL];
         uiButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-        uiButton.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
+        uiButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         [uiButton setTitle:self.button.label.text forState:UIControlStateNormal];
         self.view = uiButton;
     }

@@ -136,6 +136,7 @@
         ORGroup *currentGroup = [definition findGroupByIdentifier:screenReference.groupIdentifier];
         
         GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup];
+        gc.imageCache = self.imageCache;
         [self switchToGroupController:gc];
     } else {
         // Means no group with screen does exist

@@ -23,6 +23,8 @@
 #import "PaginationController.h"
 #import "ErrorViewController.h"
 
+@class ImageCache;
+
 /**
  * Control presentation of group view with group model data.
  */
@@ -71,5 +73,7 @@
  * and the height of returned frame is width of portrait screen.
  */
 - (CGRect)getFullFrame;
+
+@property (nonatomic, weak) ImageCache *imageCache;
 
 @end

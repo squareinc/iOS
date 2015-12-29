@@ -20,7 +20,6 @@
  */
 
 #import "ImageCache.h"
-#import "DirectoryDefinition.h"
 
 @interface ImageCache ()
 
@@ -39,15 +38,6 @@
 @end
 
 @implementation ImageCache
-
-+ (instancetype)sharedInstance {
-    static ImageCache *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
-    });
-    return instance;
-}
 
 - (id)initWithCachePath:(NSString *)path
 {
