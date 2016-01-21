@@ -29,7 +29,7 @@
 
 @interface ScreenSubController() 
 
-@property (nonatomic, readwrite, strong) UIView *view;
+@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) ORScreen *screen;
 @property (nonatomic, strong) NSMutableArray *layoutContainers;
 
@@ -64,6 +64,7 @@
     self.layoutContainers = [NSMutableArray arrayWithCapacity:[self.screen.layouts count]];
     for (ORLayoutContainer *layout in self.screen.layouts) {
         LayoutContainerSubController *ctrl = [[[LayoutContainerSubController subControllerClassForModelObject:layout] alloc] initWithImageCache:self.imageCache layoutContainer:layout];
+        [self addChildViewController:ctrl];
         [self.view addSubview:ctrl.view];
         [self.layoutContainers addObject:ctrl];
     }
@@ -82,8 +83,10 @@
         screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.height;
     }
 
-    self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
-    [self.view setUserInteractionEnabled:YES];
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
+    [self.view addSubview:self.imageView];
+//    [self.view setUserInteractionEnabled:YES];
     self.view.backgroundColor = [UIColor blackColor];
 
 	if (self.screen.background.image.src) {
@@ -105,7 +108,7 @@
         return;
     }
 
-    UIImageView *backgroundImageView = (UIImageView *)self.view;
+    UIImageView *backgroundImageView = (UIImageView *)self.imageView;
     CGFloat viewWidth = backgroundImageView.bounds.size.width;
     CGFloat viewHeight = backgroundImageView.bounds.size.height;
 
@@ -193,7 +196,6 @@
     }
 }
 
-@synthesize view;
 @synthesize screen;
 @synthesize layoutContainers;
 

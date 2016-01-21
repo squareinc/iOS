@@ -195,7 +195,8 @@
 		frame.origin.x = self.view.frame.size.width * page;
 		[controller.view setFrame:frame];
 		self.scrollView.contentOffset = CGPointMake(frame.origin.x, 0);
-		[self.scrollView addSubview:controller.view];
+        [self addChildViewController:controller];
+        [self.scrollView addSubview:controller.view];
 	}
 	
 	if (page == self.selectedIndex) {
@@ -214,7 +215,8 @@
 	frame.origin.x = self.view.frame.size.width * page;
 	[controller.view setFrame:frame];
 	if (controller.view.superview != self.scrollView) {
-		[self.scrollView addSubview:controller.view];
+        [self addChildViewController:controller];
+        [self.scrollView addSubview:controller.view];
 	}
 	
 	if (page == self.selectedIndex) {
