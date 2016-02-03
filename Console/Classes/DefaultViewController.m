@@ -273,6 +273,7 @@
 
 - (void)populateSettingsView:(id)sender {
 	AppSettingController *settingController = [[AppSettingController alloc] initWithSettingsManager:self.settingsManager definitionManager:self.definitionManager];
+    settingController.imageCache = self.imageCache;
 	UINavigationController *settingNavController = [[UINavigationController alloc] initWithRootViewController:settingController];
 	[self presentViewController:settingNavController animated:YES completion:nil];
 }
