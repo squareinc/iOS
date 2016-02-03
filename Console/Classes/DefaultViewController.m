@@ -229,7 +229,7 @@
     // Going to another group
 	if (![group.identifier isEqual:[self.currentGroupController groupIdentifier]]) {
 		GroupController *targetGroupController = [[GroupController alloc] initWithGroup:group];
-
+        targetGroupController.imageCache = self.imageCache;
         [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}
