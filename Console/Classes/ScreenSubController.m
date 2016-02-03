@@ -72,17 +72,9 @@
 
 - (void)createView
 {
-    int screenBackgroundImageViewWidth = 0;
-    int screenBackgroundImageViewHeight = 0;
+    int screenBackgroundImageViewWidth = (int) [UIScreen mainScreen].bounds.size.width;
+    int screenBackgroundImageViewHeight = (int) [UIScreen mainScreen].bounds.size.height;
     
-    if (self.screen.orientation == ORScreenOrientationLandscape) {
-        screenBackgroundImageViewWidth = [UIScreen mainScreen].bounds.size.height;
-        screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.width;
-    } else {
-        screenBackgroundImageViewWidth = [UIScreen mainScreen].bounds.size.width;
-        screenBackgroundImageViewHeight = [UIScreen mainScreen].bounds.size.height;
-    }
-
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBackgroundImageViewWidth, screenBackgroundImageViewHeight)];
     [self.view addSubview:self.imageView];
