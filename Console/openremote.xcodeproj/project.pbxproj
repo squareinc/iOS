@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BB32B261C6B379600659B79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B251C6B379600659B79 /* Images.xcassets */; };
+		1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B271C6B476800659B79 /* Launch Screen.storyboard */; };
 		331A591710AD6D21001AB869 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331A591510AD6D21001AB869 /* SenTestingKit.framework */; };
 		602418B3156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B4156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
@@ -213,19 +214,6 @@
 		910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B74FE1794075E005F41CF /* CoreData.framework */; };
 		910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 910F28DB1992635F002B65A3 /* delete_button@2x.png */; };
 		910F28DE1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F28DD1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m */; };
-		9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13019167D39005E0D79 /* Default-568h@2x.png */; };
-		9123A13519167D39005E0D79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13119167D39005E0D79 /* Default@2x.png */; };
-		9123A13619167D39005E0D79 /* Default7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13219167D39005E0D79 /* Default7-568h@2x.png */; };
-		9123A13719167D39005E0D79 /* Default7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13319167D39005E0D79 /* Default7@2x.png */; };
-		9123A13E19167D50005E0D79 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13819167D50005E0D79 /* Default-Landscape@2x.png */; };
-		9123A13F19167D50005E0D79 /* Default-Portrai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13919167D50005E0D79 /* Default-Portrai@2x.png */; };
-		9123A14019167D50005E0D79 /* Default7-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13A19167D50005E0D79 /* Default7-Landscape.png */; };
-		9123A14119167D50005E0D79 /* Default7-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13B19167D50005E0D79 /* Default7-Landscape@2x.png */; };
-		9123A14219167D50005E0D79 /* Default7-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13C19167D50005E0D79 /* Default7-Portrait.png */; };
-		9123A14319167D50005E0D79 /* Default7-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A13D19167D50005E0D79 /* Default7-Portrait@2x.png */; };
-		9123A14619167D69005E0D79 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A14419167D69005E0D79 /* Default-Landscape.png */; };
-		9123A14719167D69005E0D79 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A14519167D69005E0D79 /* Default-Portrait.png */; };
-		9123A14919167D83005E0D79 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9123A14819167D83005E0D79 /* Default.png */; };
 		912721E616C10ECE00E2D6B3 /* ORUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 912721E416C10ECE00E2D6B3 /* ORUISlider.m */; };
 		912721F416C1127800E2D6B3 /* ORSliderGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721ED16C1127800E2D6B3 /* ORSliderGreen.png */; };
 		912721F616C1127800E2D6B3 /* ORSliderGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 912721EE16C1127800E2D6B3 /* ORSliderGreen@2x.png */; };
@@ -258,6 +246,7 @@
 
 /* Begin PBXFileReference section */
 		1BB32B251C6B379600659B79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OpenRemote/Images.xcassets; sourceTree = "<group>"; };
+		1BB32B271C6B476800659B79 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -527,19 +516,6 @@
 		910B74FE1794075E005F41CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		910F28DB1992635F002B65A3 /* delete_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_button@2x.png"; sourceTree = "<group>"; };
 		910F28DD1992756E002B65A3 /* ORScreenOrGroupReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReferenceTest.m; sourceTree = "<group>"; };
-		9123A13019167D39005E0D79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "image/Default-568h@2x.png"; sourceTree = "<group>"; };
-		9123A13119167D39005E0D79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "image/Default@2x.png"; sourceTree = "<group>"; };
-		9123A13219167D39005E0D79 /* Default7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-568h@2x.png"; path = "image/Default7-568h@2x.png"; sourceTree = "<group>"; };
-		9123A13319167D39005E0D79 /* Default7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7@2x.png"; path = "image/Default7@2x.png"; sourceTree = "<group>"; };
-		9123A13819167D50005E0D79 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x.png"; path = "image/Default-Landscape@2x.png"; sourceTree = "<group>"; };
-		9123A13919167D50005E0D79 /* Default-Portrai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrai@2x.png"; path = "image/Default-Portrai@2x.png"; sourceTree = "<group>"; };
-		9123A13A19167D50005E0D79 /* Default7-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-Landscape.png"; path = "image/Default7-Landscape.png"; sourceTree = "<group>"; };
-		9123A13B19167D50005E0D79 /* Default7-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-Landscape@2x.png"; path = "image/Default7-Landscape@2x.png"; sourceTree = "<group>"; };
-		9123A13C19167D50005E0D79 /* Default7-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-Portrait.png"; path = "image/Default7-Portrait.png"; sourceTree = "<group>"; };
-		9123A13D19167D50005E0D79 /* Default7-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default7-Portrait@2x.png"; path = "image/Default7-Portrait@2x.png"; sourceTree = "<group>"; };
-		9123A14419167D69005E0D79 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape.png"; path = "image/Default-Landscape.png"; sourceTree = "<group>"; };
-		9123A14519167D69005E0D79 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait.png"; path = "image/Default-Portrait.png"; sourceTree = "<group>"; };
-		9123A14819167D83005E0D79 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = image/Default.png; sourceTree = "<group>"; };
 		9125D6651A68235400439BE0 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		9125D6661A68235400439BE0 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		9125D6671A68235400439BE0 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -704,11 +680,6 @@
 			isa = PBXGroup;
 			children = (
 				1BB32B251C6B379600659B79 /* Images.xcassets */,
-				9123A14819167D83005E0D79 /* Default.png */,
-				9123A13019167D39005E0D79 /* Default-568h@2x.png */,
-				9123A13119167D39005E0D79 /* Default@2x.png */,
-				9123A13219167D39005E0D79 /* Default7-568h@2x.png */,
-				9123A13319167D39005E0D79 /* Default7@2x.png */,
 				912721ED16C1127800E2D6B3 /* ORSliderGreen.png */,
 				912721EE16C1127800E2D6B3 /* ORSliderGreen@2x.png */,
 				912721EF16C1127800E2D6B3 /* ORSliderThumb.png */,
@@ -740,6 +711,7 @@
 				8C4974C111B24B020039A293 /* ErrorViewController~iPhone.xib */,
 				60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */,
 				60BC25951559682C0048A2BD /* ClientSideProtocols.plist */,
+				1BB32B271C6B476800659B79 /* Launch Screen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -996,14 +968,6 @@
 		8C896B9911AE637400655CA5 /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
-				9123A14419167D69005E0D79 /* Default-Landscape.png */,
-				9123A14519167D69005E0D79 /* Default-Portrait.png */,
-				9123A13819167D50005E0D79 /* Default-Landscape@2x.png */,
-				9123A13919167D50005E0D79 /* Default-Portrai@2x.png */,
-				9123A13A19167D50005E0D79 /* Default7-Landscape.png */,
-				9123A13B19167D50005E0D79 /* Default7-Landscape@2x.png */,
-				9123A13C19167D50005E0D79 /* Default7-Portrait.png */,
-				9123A13D19167D50005E0D79 /* Default7-Portrait@2x.png */,
 				8C49725211B20E080039A293 /* InitViewController~iPad.xib */,
 				8C49746711B242290039A293 /* ErrorViewController~iPad.xib */,
 			);
@@ -1315,47 +1279,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				60366B6B144DCB9C004FED3B /* Entitlements.plist in Resources */,
-				9123A13619167D39005E0D79 /* Default7-568h@2x.png in Resources */,
-				9123A13E19167D50005E0D79 /* Default-Landscape@2x.png in Resources */,
 				60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */,
 				60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */,
 				60366B6E144DCB9C004FED3B /* database.db in Resources */,
 				60366B6F144DCB9C004FED3B /* btn_green.png in Resources */,
 				60366B70144DCB9C004FED3B /* button.png in Resources */,
-				9123A13419167D39005E0D79 /* Default-568h@2x.png in Resources */,
+				1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */,
 				910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */,
-				9123A13719167D39005E0D79 /* Default7@2x.png in Resources */,
 				60366B75144DCB9C004FED3B /* repair.png in Resources */,
 				60366B76144DCB9C004FED3B /* slider_tip.png in Resources */,
-				9123A14319167D50005E0D79 /* Default7-Portrait@2x.png in Resources */,
-				9123A14919167D83005E0D79 /* Default.png in Resources */,
-				9123A14019167D50005E0D79 /* Default7-Landscape.png in Resources */,
 				60366B7D144DCB9C004FED3B /* InitViewController~iPhone.xib in Resources */,
 				60366B7E144DCB9C004FED3B /* InitViewController~iPad.xib in Resources */,
 				60366B80144DCB9C004FED3B /* ErrorViewController~iPad.xib in Resources */,
 				60366B81144DCB9C004FED3B /* ErrorViewController~iPhone.xib in Resources */,
-				9123A14719167D69005E0D79 /* Default-Portrait.png in Resources */,
 				60366B85144DCB9C004FED3B /* CheckMark.png in Resources */,
 				60366B86144DCB9C004FED3B /* CheckMark@2x.png in Resources */,
 				60366B87144DCB9C004FED3B /* CheckMarkBlankPlaceHolder.png in Resources */,
-				9123A13F19167D50005E0D79 /* Default-Portrai@2x.png in Resources */,
 				60366B88144DCB9C004FED3B /* CheckMarkBlankPlaceHolder@2x.png in Resources */,
 				60366B89144DCB9C004FED3B /* ControllerOK.png in Resources */,
 				60366B8A144DCB9C004FED3B /* ControllerOK@2x.png in Resources */,
-				9123A13519167D39005E0D79 /* Default@2x.png in Resources */,
 				60366B8B144DCB9C004FED3B /* ControllerNOK.png in Resources */,
 				60366B8C144DCB9C004FED3B /* ControllerNOK@2x.png in Resources */,
 				60366B8D144DCB9C004FED3B /* ControllerRequiresAuthentication.png in Resources */,
 				60366B8E144DCB9C004FED3B /* ControllerRequiresAuthentication@2x.png in Resources */,
-				9123A14219167D50005E0D79 /* Default7-Portrait.png in Resources */,
 				60FA5DC6153C506500FA245E /* delete_button.png in Resources */,
 				60BC25971559682C0048A2BD /* ClientSideProtocols.plist in Resources */,
 				1BB32B261C6B379600659B79 /* Images.xcassets in Resources */,
 				912721F416C1127800E2D6B3 /* ORSliderGreen.png in Resources */,
 				912721F616C1127800E2D6B3 /* ORSliderGreen@2x.png in Resources */,
-				9123A14619167D69005E0D79 /* Default-Landscape.png in Resources */,
 				912721F816C1127800E2D6B3 /* ORSliderThumb.png in Resources */,
-				9123A14119167D50005E0D79 /* Default7-Landscape@2x.png in Resources */,
 				912721FA16C1127800E2D6B3 /* ORSliderThumb@2x.png in Resources */,
 				912721FC16C1127800E2D6B3 /* ORSliderWhite.png in Resources */,
 				912721FE16C1127800E2D6B3 /* ORSliderWhite@2x.png in Resources */,
@@ -1594,6 +1546,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
@@ -1638,6 +1591,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
