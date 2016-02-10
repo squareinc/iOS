@@ -9,42 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>OR-80</string>
-				<string>OR-58</string>
-				<string>OR-29</string>
-				<string>OR-120</string>
-				<string>OR-114</string>
-				<string>OR-57</string>
-			</array>
-		</dict>
-	</dict>
+	<dict/>
 	<key>CFBundleIcons~ipad</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>OR-58</string>
-				<string>OR-29</string>
-				<string>OR-80</string>
-				<string>OR-100</string>
-				<string>OR-40</string>
-				<string>OR-50</string>
-				<string>OR</string>
-				<string>OR-152</string>
-				<string>OR-76</string>
-				<string>OR-144</string>
-				<string>OR-120</string>
-				<string>OR-114</string>
-				<string>OR-57</string>
-			</array>
-		</dict>
-	</dict>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>org.openremote.iPad</string>
 	<key>CFBundleInfoDictionaryVersion</key>
