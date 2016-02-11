@@ -332,11 +332,11 @@
 - (BOOL)shouldAutorotate
 {
     // delegate rotation to the group controller
-    return [self.currentGroupController shouldAutorotate];
+    return self.currentGroupController != nil ? [self.currentGroupController shouldAutorotate] : YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return [self.currentGroupController supportedInterfaceOrientations];
+    return self.currentGroupController != nil ? [self.currentGroupController supportedInterfaceOrientations] : UIInterfaceOrientationMaskAll;
 }
 
 
@@ -420,6 +420,7 @@
         [gc didMoveToParentViewController:self];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+    [UIViewController attemptRotationToDeviceOrientation];
 }
 
 #pragma mark -

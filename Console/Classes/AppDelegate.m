@@ -47,24 +47,24 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
-{
+// when it's launched by other apps.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
     ORConsoleSettingsManager *settingsManager = [[ORConsoleSettingsManager alloc] init];
-    
+
     self.definitionManager = [[DefinitionManager alloc] init];
     self.definitionManager.imageCache = self.imageCache;
-    
+
     self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager definitionManager:self.definitionManager delegate:self];
     self.defaultViewController.imageCache = self.imageCache;
 
-	// Default window for the app
-	window = [[GestureWindow alloc] init];
-	[window makeKeyAndVisible];
-	
+    // Default window for the app
+    window = [[GestureWindow alloc] init];
+    [window makeKeyAndVisible];
+
     window.rootViewController = self.defaultViewController;
-	
-	//Init UpdateController and set delegate to this class, it have three delegate methods
+
+    //Init UpdateController and set delegate to this class, it have three delegate methods
     // - (void)didUpdate;
     // - (void)didUseLocalCache:(NSString *)errorMessage;
     // - (void)didUpdateFail:(NSString *)errorMessage;
@@ -72,13 +72,8 @@
     updateController.imageCache = self.imageCache;
 
     [updateController startup];
-    
-    // settings manager is not retained by this class, objects using it must have a strong reference to it
-}
 
-// when it's launched by other apps.
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	[self applicationDidFinishLaunching:application];
+    // settings manager is not retained by this class, objects using it must have a strong reference to it
 	return YES;
 }
 

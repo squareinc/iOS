@@ -48,7 +48,7 @@
     handler.authenticationManager = self.authenticationManager;
     ORRESTCall *call = [[ORRESTCall alloc] initWithRequest:request handler:handler];
     [call start];
-    NSLog(@"Started call for request %@", request);
+//    NSLog(@"Started call for request %@", request);
     return call;
 }
 

@@ -157,8 +157,10 @@
 	[self showLandscapeOrientation:YES];
 }
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+- (void)viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
     [self setupPortraitPaginationController];
     [self setupLandscapePaginationController];
 	[self.navigationController setNavigationBarHidden:YES];
