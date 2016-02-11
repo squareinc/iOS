@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1BB32B261C6B379600659B79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B251C6B379600659B79 /* Images.xcassets */; };
 		1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B271C6B476800659B79 /* Launch Screen.storyboard */; };
-		331A591710AD6D21001AB869 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331A591510AD6D21001AB869 /* SenTestingKit.framework */; };
 		602418B3156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B4156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B9156E4D2D004E5860 /* APISecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B7156E4D2D004E5860 /* APISecurity.m */; };
@@ -242,6 +241,7 @@
 		91E7DACB1B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAC91B0200E9000A8314 /* NavigationHistoryUserDefaultsStore.m */; };
 		91E7DAD61B021889000A8314 /* NavigationHistoryInMemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */; };
 		91F7EDA31907BC4B0047DC9B /* ORConsoleAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3994718EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m */; };
+		B57B40DBD7FD866A6626D400 /* openremote.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B4FAA939510A880D8636B /* openremote.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,7 +251,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* openremote_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openremote_Prefix.pch; sourceTree = "<group>"; };
-		331A591510AD6D21001AB869 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		33267E6F10E47C5B00E3AE42 /* NSDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateHelper.h; sourceTree = "<group>"; };
 		33267E7010E47C5B00E3AE42 /* NSDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateHelper.m; sourceTree = "<group>"; };
 		33267ED210E4895E00E3AE42 /* RoundRobinException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundRobinException.h; sourceTree = "<group>"; };
@@ -450,7 +449,7 @@
 		8C49725211B20E080039A293 /* InitViewController~iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "InitViewController~iPad.xib"; sourceTree = "<group>"; };
 		8C49746711B242290039A293 /* ErrorViewController~iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "ErrorViewController~iPad.xib"; sourceTree = "<group>"; };
 		8C4974C111B24B020039A293 /* ErrorViewController~iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "ErrorViewController~iPhone.xib"; sourceTree = "<group>"; };
-		8C4DFC66115414B300C2C7EE /* UnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4DFC66115414B300C2C7EE /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5796CD116B9D7200ED63EA /* ClippedUIImageViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClippedUIImageViewTest.h; path = Test/ClippedUIImageViewTest.h; sourceTree = "<group>"; };
 		8C5796CE116B9D7200ED63EA /* ClippedUIImageViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClippedUIImageViewTest.m; path = Test/ClippedUIImageViewTest.m; sourceTree = "<group>"; };
 		8C5796D0116B9D8200ED63EA /* 300X300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 300X300.png; path = Test/fixture/image/300X300.png; sourceTree = "<group>"; };
@@ -567,6 +566,7 @@
 		91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationHistoryInMemoryStore.m; sourceTree = "<group>"; };
 		974DAC871063ADEF00B1B04B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		97B0011F106127AF00C31E4A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		B57B4FAA939510A880D8636B /* openremote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openremote.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,7 +595,6 @@
 				6068DEA213744EBB007746F1 /* CFNetwork.framework in Frameworks */,
 				6068DE6D13744BF5007746F1 /* CoreGraphics.framework in Frameworks */,
 				6068DE6B13744BC8007746F1 /* QuartzCore.framework in Frameworks */,
-				331A591710AD6D21001AB869 /* SenTestingKit.framework in Frameworks */,
 				8C460F99109566B800C7A686 /* UIKit.framework in Frameworks */,
 				8C460F9A109566B800C7A686 /* Foundation.framework in Frameworks */,
 				91589DFB1858AD080036B7BA /* libOCMock.a in Frameworks */,
@@ -635,7 +634,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C4DFC66115414B300C2C7EE /* UnitTest.octest */,
+				8C4DFC66115414B300C2C7EE /* UnitTest.xctest */,
 				60366C42144DCB9C004FED3B /* OpenRemote.app */,
 			);
 			name = Products;
@@ -720,7 +719,6 @@
 			isa = PBXGroup;
 			children = (
 				33981B3410B119BC0076DB59 /* libsqlite3.dylib */,
-				331A591510AD6D21001AB869 /* SenTestingKit.framework */,
 				8CB33E4D0FCA4AE400B010DF /* CoreGraphics.framework */,
 				8CA75EC40F579B4C00ADF0C0 /* QuartzCore.framework */,
 				8C7BE4F50FA0471F00F18AA1 /* SystemConfiguration.framework */,
@@ -891,6 +889,7 @@
 				91E7DAC21B00C48A000A8314 /* NavigationManagerTest.h */,
 				91E7DAD41B021889000A8314 /* NavigationHistoryInMemoryStore.h */,
 				91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */,
+				B57B4FAA939510A880D8636B /* openremote.png */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1232,7 +1231,6 @@
 				8C460E45109552C800C7A686 /* Resources */,
 				8C460E46109552C800C7A686 /* Sources */,
 				8C460E47109552C800C7A686 /* Frameworks */,
-				8C460E48109552C800C7A686 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1240,8 +1238,8 @@
 			);
 			name = UnitTest;
 			productName = UnitTest;
-			productReference = 8C4DFC66115414B300C2C7EE /* UnitTest.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 8C4DFC66115414B300C2C7EE /* UnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1351,26 +1349,11 @@
 				8C579705116B9DD000ED63EA /* panel_relative_screen_backgroundimage.xml in Resources */,
 				602418C5156E53EB004E5860 /* CompleteCapabilities.xml in Resources */,
 				602418C7156E5474004E5860 /* APIVersionsOnlyCapabilities.xml in Resources */,
+				B57B40DBD7FD866A6626D400 /* openremote.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8C460E48109552C800C7A686 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60366B8F144DCB9C004FED3B /* Sources */ = {
@@ -1641,6 +1624,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1656,7 +1640,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/ebariaux/Development/OpenRemote/iOS/Console/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1668,7 +1652,6 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1720,6 +1703,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1735,7 +1719,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/ebariaux/Development/OpenRemote/iOS/Console/usr/lib,
+					"$(SRCROOT)/usr/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1747,7 +1731,6 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

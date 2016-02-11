@@ -77,7 +77,8 @@
 // TODO: will fail if not image -> should inform user about it -> return NO ? exception ?
 - (void)storeImage:(UIImage *)image named:(NSString *)name
 {
-    [UIImagePNGRepresentation(image) writeToFile:[self cacheFilePathForName:name] atomically:YES];
+    BOOL v = [UIImagePNGRepresentation(image) writeToFile:[self cacheFilePathForName:name] atomically:YES];
+    NSLog(v ? @"YES" : @"NO");
 }
 
 - (UIImage *)getImageNamed:(NSString *)name
