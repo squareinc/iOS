@@ -55,8 +55,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "openremote_29.png",
       "scale" : "1x"
     },
     {
