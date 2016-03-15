@@ -84,7 +84,6 @@
 		60366BCD144DCB9C004FED3B /* LoadingHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEFDA8B11BF35EE00CEDC24 /* LoadingHUDView.m */; };
 		60366BD4144DCB9C004FED3B /* NSString+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A6195A1354A24A00A7C87E /* NSString+ORAdditions.m */; };
 		60366BD7144DCB9C004FED3B /* ColorPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7A8E613696C8B00EA107A /* ColorPickerImageView.m */; };
-		60366BD8144DCB9C004FED3B /* ORConsoleSettings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */; };
 		60366BD9144DCB9C004FED3B /* ORControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D977136ADB31009EECA3 /* ORControllerConfig.m */; };
 		60366BDA144DCB9C004FED3B /* ORGroupMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D97B136ADB8A009EECA3 /* ORGroupMember.m */; };
 		60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D97F136ADB8B009EECA3 /* ORConsoleSettings.m */; };
@@ -229,6 +228,7 @@
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
 		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		91AAFB0118A8E9F200632C1A /* ORConsoleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */; };
+		91AD515B1C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91AD51591C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld */; };
 		91B357CE18BB836000ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
 		91B357D018BB85FB00ADED24 /* ScreenReferenceStackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CF18BB85FB00ADED24 /* ScreenReferenceStackTest.m */; };
 		91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B357CD18BB836000ADED24 /* ScreenReferenceStack.m */; };
@@ -357,7 +357,6 @@
 		60C2F956135F3748000824A5 /* ScreenTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenTest.h; sourceTree = "<group>"; };
 		60C2F957135F3748000824A5 /* ScreenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenTest.m; sourceTree = "<group>"; };
 		60C2F959135F37FE000824A5 /* panel_screenIdForOrientation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = panel_screenIdForOrientation.xml; sourceTree = "<group>"; };
-		60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings.xcdatamodel; sourceTree = "<group>"; };
 		60C9D976136ADB31009EECA3 /* ORControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerConfig.h; sourceTree = "<group>"; };
 		60C9D977136ADB31009EECA3 /* ORControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerConfig.m; sourceTree = "<group>"; };
 		60C9D97A136ADB89009EECA3 /* ORGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGroupMember.h; sourceTree = "<group>"; };
@@ -545,9 +544,9 @@
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheTest.m; sourceTree = "<group>"; };
-		918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings_2.2.xcdatamodel; sourceTree = "<group>"; };
 		91AAFAFF18A8E9F200632C1A /* ORConsoleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORConsoleApp.h; sourceTree = "<group>"; };
 		91AAFB0018A8E9F200632C1A /* ORConsoleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORConsoleApp.m; sourceTree = "<group>"; };
+		91AD515A1C9859DB004752B8 /* ORConsoleSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ORConsoleSettings.xcdatamodel; sourceTree = "<group>"; };
 		91B357C918BB833500ADED24 /* ORScreenOrGroupReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORScreenOrGroupReference.h; sourceTree = "<group>"; };
 		91B357CA18BB833500ADED24 /* ORScreenOrGroupReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORScreenOrGroupReference.m; sourceTree = "<group>"; };
 		91B357CC18BB836000ADED24 /* ScreenReferenceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenReferenceStack.h; sourceTree = "<group>"; };
@@ -708,9 +707,9 @@
 				8CFDB2760FBBBF4500D204CB /* appSettings.plist */,
 				8C49724011B20D660039A293 /* InitViewController~iPhone.xib */,
 				8C4974C111B24B020039A293 /* ErrorViewController~iPhone.xib */,
-				60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */,
 				60BC25951559682C0048A2BD /* ClientSideProtocols.plist */,
 				1BB32B271C6B476800659B79 /* Launch Screen.storyboard */,
+				91AD51591C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1391,6 +1390,7 @@
 				60366BAD144DCB9C004FED3B /* CredentialUtil.m in Sources */,
 				60366BAF144DCB9C004FED3B /* ControllerException.m in Sources */,
 				60366BB0144DCB9C004FED3B /* GestureWindow.m in Sources */,
+				91AD515B1C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld in Sources */,
 				60366BB1144DCB9C004FED3B /* ClippedUIImage.m in Sources */,
 				60366BB3144DCB9C004FED3B /* DefaultViewController.m in Sources */,
 				60366BB4144DCB9C004FED3B /* NSDateHelper.m in Sources */,
@@ -1398,7 +1398,6 @@
 				60366BCD144DCB9C004FED3B /* LoadingHUDView.m in Sources */,
 				60366BD4144DCB9C004FED3B /* NSString+ORAdditions.m in Sources */,
 				60366BD7144DCB9C004FED3B /* ColorPickerImageView.m in Sources */,
-				60366BD8144DCB9C004FED3B /* ORConsoleSettings.xcdatamodeld in Sources */,
 				60366BD9144DCB9C004FED3B /* ORControllerConfig.m in Sources */,
 				60366BDA144DCB9C004FED3B /* ORGroupMember.m in Sources */,
 				60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */,
@@ -1767,13 +1766,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		60C9D972136AD43E009EECA3 /* ORConsoleSettings.xcdatamodeld */ = {
+		91AD51591C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */,
-				60C9D973136AD43E009EECA3 /* ORConsoleSettings.xcdatamodel */,
+				91AD515A1C9859DB004752B8 /* ORConsoleSettings.xcdatamodel */,
 			);
-			currentVersion = 918604C11795381C005DBCD9 /* ORConsoleSettings_2.2.xcdatamodel */;
+			currentVersion = 91AD515A1C9859DB004752B8 /* ORConsoleSettings.xcdatamodel */;
 			path = ORConsoleSettings.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
