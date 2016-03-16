@@ -199,7 +199,7 @@
 		self.title = [NSString stringWithFormat:@"Editing %@", self.controller.primaryURL];
 	} else {
         NSAssert(self.managedObjectContext, @"If no controller was specified, a managed object context must be");
-        self.controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORControllerConfig" inManagedObjectContext:self.managedObjectContext];
+        self.controller = [NSEntityDescription insertNewObjectForEntityForName:@"ORController" inManagedObjectContext:self.managedObjectContext];
         self.creating = YES;
 		self.title = @"Add a Controller";
 	}
