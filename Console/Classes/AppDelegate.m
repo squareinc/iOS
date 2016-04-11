@@ -31,6 +31,7 @@
 #import "ImageCache.h"
 #import "ViewHelper.h"
 #import "DefinitionManager.h"
+#import "SplashScreenViewController.h"
 
 #define STARTUP_UPDATE_TIMEOUT 10
 
@@ -43,6 +44,7 @@
 @property (nonatomic, strong) ImageCache *imageCache;
 @property (nonatomic, strong) DefinitionManager *definitionManager;
 
+@property (nonatomic, strong) SplashScreenViewController *splashScreenViewController;
 @end
 
 @implementation AppDelegate
@@ -62,7 +64,9 @@
     window = [[GestureWindow alloc] init];
     [window makeKeyAndVisible];
 
-    window.rootViewController = self.defaultViewController;
+    self.splashScreenViewController = [[SplashScreenViewController alloc] init];
+
+    window.rootViewController = self.splashScreenViewController;
 
     //Init UpdateController and set delegate to this class, it have three delegate methods
     // - (void)didUpdate;
@@ -115,6 +119,7 @@
 	} else {//blocked from sending command, should refresh command.
 		[self.defaultViewController refreshPolling];
 	}
+    window.rootViewController = self.defaultViewController;
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 }
 

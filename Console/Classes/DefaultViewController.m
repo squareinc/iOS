@@ -50,6 +50,9 @@
 
 @property (nonatomic, weak) DefinitionManager *definitionManager;
 
+@property (nonatomic, assign) UIInterfaceOrientationMask defaultOrientationMask;
+
+
 @end
 
 @interface DefaultViewController (Private)
@@ -72,7 +75,7 @@
     if (self) {
         self.settingsManager = aSettingsManager;
         self.definitionManager = aDefinitionManager;
-        
+        self.defaultOrientationMask = UIInterfaceOrientationMaskAll;
 			self._delegate = delegate;
 			
 			//register notifications
@@ -80,6 +83,8 @@
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateSettingsView:) name:NotificationPopulateSettingsView object:nil];
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:) name:NotificationRefreshGroupsView object:nil];	
     }
+    [self loadView];
+
     return self;
 }
 
@@ -134,20 +139,39 @@
     // Navigation manager ensures that referenced group / screen exists if it returns a screen reference
     if (screenReference) {
         ORGroup *currentGroup = [definition findGroupByIdentifier:screenReference.groupIdentifier];
-        
+
+        [self setDefaultOrientationFromGroup:currentGroup];
+
         GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup];
         gc.imageCache = self.imageCache;
         [self switchToGroupController:gc];
     } else {
         // Means no group with screen does exist
+        [self setDefaultOrientationFromGroup:nil];
         [self presentErrorViewController];
+    }
+}
+
+- (void)setDefaultOrientationFromGroup:(ORGroup *)group {
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        if (group.portraitScreens.count) {
+            self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+        } else {
+            self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
+        }
+    } else {
+        if (group.landscapeScreens.count) {
+            self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
+        } else {
+            self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+        }
     }
 }
 
 - (void)initGroups {
     [self hideErrorViewController];
     [self hideInitViewController];
-	
+
     [self setDefinition:[self.settingsManager consoleSettings].selectedController.definition];
 }
 
@@ -201,7 +225,7 @@
         default:
             return;
     }
-    
+
     // Navigate based on destination, being assured that if not nil, it exists
     if (destination) {
         ORScreen *screen = [self._definition findScreenByIdentifier:destination.screenIdentifier];
@@ -233,7 +257,7 @@
         [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}
-	
+
     // TODO: is next line really required ? Or should group controller / pagination controller take care of that ?
     ORScreen *targetScreen = [screen screenForOrientation:UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])?ORScreenOrientationLandscape:ORScreenOrientationPortrait];
 	return [self.currentGroupController switchToScreen:targetScreen];
@@ -244,7 +268,7 @@
 	if (self.settingsManager.consoleSettings.selectedController.password) {
 		LogoutHelper *logout = [[LogoutHelper alloc] init];
 		[logout requestLogout];
-	}	
+	}
 }
 
 // Version used by newer code using client library and authentication manager mechanism
@@ -255,7 +279,7 @@
                                                                                   delegate:delegate
                                                                                    context:NULL];
 	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
-    
+
     // If we are already presenting a VC (e.g. Settings), this one must present the login panel
 	[((self.presentedViewController)?self.presentedViewController:self) presentViewController:loginNavController animated:YES completion:NULL];
 }
@@ -285,7 +309,7 @@
 		[self.currentGroupController stopPolling];
 //        self.currentGroupController = nil;
 	}
-	
+
 	[self initGroups];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 }
@@ -315,16 +339,16 @@
     }
     orController.userName = username;
 	orController.password = password;
-    
+
     // TODO: we might not want to save here, maybe have a method to set this and save in dedicated MOC
     [self.settingsManager saveConsoleSettings];
-    
+
 	[self dismissViewControllerAnimated:YES completion:nil];
-    
+
 	[self.currentGroupController stopPolling];
 	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowLoading object:nil];
 	[self._delegate checkConfigAndUpdate];
-	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];    
+	[[NSNotificationCenter defaultCenter] postNotificationName:NotificationHideLoading object:nil];
 }
 
 #pragma mark Rotation handling
@@ -336,7 +360,7 @@
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return self.currentGroupController != nil ? [self.currentGroupController supportedInterfaceOrientations] : UIInterfaceOrientationMaskAll;
+    return self.currentGroupController != nil ? [self.currentGroupController supportedInterfaceOrientations] : self.defaultOrientationMask;
 }
 
 
@@ -365,7 +389,7 @@
 - (void)presentGroupController:(GroupController *)groupController animated:(BOOL)flag
 {
     // At this stage, no animation support
-    
+
     [self switchToGroupController:groupController];
 }
 
@@ -453,7 +477,7 @@
     if ([self isLoadingViewGone]) {
 		[self.currentGroupController viewDidAppear:animated];
     }
-    
+
 	[self becomeFirstResponder];
 }
 

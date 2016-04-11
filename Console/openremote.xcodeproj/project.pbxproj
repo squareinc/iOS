@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B144BAE1CBBCE04006905C0 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B144BAC1CBBCE04006905C0 /* SplashScreenViewController.m */; };
+		1B144BAF1CBBCE04006905C0 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */; };
 		1BB32B261C6B379600659B79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B251C6B379600659B79 /* Images.xcassets */; };
 		1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B271C6B476800659B79 /* Launch Screen.storyboard */; };
 		602418B3156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
@@ -245,6 +247,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B144BAB1CBBCE04006905C0 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		1B144BAC1CBBCE04006905C0 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		1BB32B251C6B379600659B79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OpenRemote/Images.xcassets; sourceTree = "<group>"; };
 		1BB32B271C6B476800659B79 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -710,6 +715,9 @@
 				60BC25951559682C0048A2BD /* ClientSideProtocols.plist */,
 				1BB32B271C6B476800659B79 /* Launch Screen.storyboard */,
 				91AD51591C9859DB004752B8 /* ORConsoleSettings.xcdatamodeld */,
+				1B144BAB1CBBCE04006905C0 /* SplashScreenViewController.h */,
+				1B144BAC1CBBCE04006905C0 /* SplashScreenViewController.m */,
+				1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1302,6 +1310,7 @@
 				60FA5DC6153C506500FA245E /* delete_button.png in Resources */,
 				60BC25971559682C0048A2BD /* ClientSideProtocols.plist in Resources */,
 				1BB32B261C6B379600659B79 /* Images.xcassets in Resources */,
+				1B144BAF1CBBCE04006905C0 /* SplashScreenViewController.xib in Resources */,
 				912721F416C1127800E2D6B3 /* ORSliderGreen.png in Resources */,
 				912721F616C1127800E2D6B3 /* ORSliderGreen@2x.png in Resources */,
 				912721F816C1127800E2D6B3 /* ORSliderThumb.png in Resources */,
@@ -1401,6 +1410,7 @@
 				60366BD9144DCB9C004FED3B /* ORControllerConfig.m in Sources */,
 				60366BDA144DCB9C004FED3B /* ORGroupMember.m in Sources */,
 				60366BDB144DCB9C004FED3B /* ORConsoleSettings.m in Sources */,
+				1B144BAE1CBBCE04006905C0 /* SplashScreenViewController.m in Sources */,
 				60366BDC144DCB9C004FED3B /* ORConsoleSettingsManager.m in Sources */,
 				60366BDD144DCB9C004FED3B /* ORControllerProxy.m in Sources */,
 				60366BDF144DCB9C004FED3B /* ControllerRequest.m in Sources */,

@@ -237,7 +237,13 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     UIInterfaceOrientationMask mask;
     if (self.currentScreen.rotatedScreen != nil || self.currentScreen == nil) {
-        mask = UIInterfaceOrientationMaskAll;
+        if (self.group.landscapeScreens.count) {
+            mask = UIInterfaceOrientationMaskLandscape;
+        } else if (self.group.portraitScreens.count) {
+            mask = UIInterfaceOrientationMaskPortrait;
+        } else {
+            mask = UIInterfaceOrientationMaskAll;
+        }
     } else if (self.currentScreen.orientation == ORScreenOrientationLandscape) {
         mask =  UIInterfaceOrientationMaskLandscape;
     } else {

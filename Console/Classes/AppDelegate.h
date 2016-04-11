@@ -23,6 +23,8 @@
 #import "UpdateController.h"
 #import "DefaultViewController.h"
 
+@class SplashScreenViewController;
+
 /*
  * This is the entrypoint of the application.
  *  After application have been started applicationDidFinishLaunching method will be called.
