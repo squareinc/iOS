@@ -188,6 +188,15 @@
     }
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    self.view.frame = CGRectMake(0, 0, size.width, size.height);
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    UIView *parentView = self.parentViewController.view;
+    self.view.frame = CGRectMake(0, 0, parentView.bounds.size.width, parentView.bounds.size.height);
+}
+
 @synthesize screen;
 @synthesize layoutContainers;
 
