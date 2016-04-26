@@ -33,6 +33,7 @@
 		91099A5918B2189E005BEBAB /* ORSwitchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91099A5818B2189E005BEBAB /* ORSwitchTest.m */; };
 		910B750217940962005F41CF /* ORControllerClientOverallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750117940962005F41CF /* ORControllerClientOverallTest.m */; };
 		910B750517940D10005F41CF /* ORControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B750417940D10005F41CF /* ORControllerTest.m */; };
+		9111EE2A1CCF52D8002B915E /* ControlResponseHandler_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 9111EE291CCF52D8002B915E /* ControlResponseHandler_2_0_0.m */; };
 		911392E1189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
 		911392E2189BE94E00B7D79D /* ORButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E0189BE94E00B7D79D /* ORButton.m */; };
 		911392E6189BFEF500B7D79D /* ORButtonParser_2_0_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 911392E5189BFEF500B7D79D /* ORButtonParser_2_0_0.m */; };
@@ -393,6 +394,8 @@
 		910B750117940962005F41CF /* ORControllerClientOverallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerClientOverallTest.m; sourceTree = "<group>"; };
 		910B750317940D10005F41CF /* ORControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORControllerTest.h; sourceTree = "<group>"; };
 		910B750417940D10005F41CF /* ORControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORControllerTest.m; sourceTree = "<group>"; };
+		9111EE281CCF52D8002B915E /* ControlResponseHandler_2_0_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlResponseHandler_2_0_0.h; sourceTree = "<group>"; };
+		9111EE291CCF52D8002B915E /* ControlResponseHandler_2_0_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlResponseHandler_2_0_0.m; sourceTree = "<group>"; };
 		911392DF189BE94E00B7D79D /* ORButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton.h; sourceTree = "<group>"; };
 		911392E0189BE94E00B7D79D /* ORButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORButton.m; sourceTree = "<group>"; };
 		911392E3189BE9F300B7D79D /* ORButton_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORButton_Private.h; sourceTree = "<group>"; };
@@ -1354,6 +1357,8 @@
 				B57B4913D9DECC47802E202B /* DeviceResponseHandler_2_0_0.h */,
 				B57B4E2A2CA67C24047896B8 /* ORDeviceCommandResponseHandler_2_0_0.m */,
 				B57B43C06332943D6D39381C /* ORDeviceCommandResponseHandler_2_0_0.h */,
+				9111EE281CCF52D8002B915E /* ControlResponseHandler_2_0_0.h */,
+				9111EE291CCF52D8002B915E /* ControlResponseHandler_2_0_0.m */,
 			);
 			name = "Response Handler";
 			sourceTree = "<group>";
@@ -1653,6 +1658,7 @@
 				915024B517B50D2D005D8A02 /* ORRESTCall.m in Sources */,
 				915024C117B5279E005D8A02 /* ORSensorPollingManager.m in Sources */,
 				91B357D618BB8D5B00ADED24 /* ORNavigation.m in Sources */,
+				9111EE2A1CCF52D8002B915E /* ControlResponseHandler_2_0_0.m in Sources */,
 				913559591BEB66B4006CF380 /* ORSensorRegistry.m in Sources */,
 				916D63B618B24C1E00AD781D /* ORButtonParser_2_1_0.m in Sources */,
 				91222D841892631700BA0B96 /* ORSensorState.m in Sources */,
