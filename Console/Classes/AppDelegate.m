@@ -77,6 +77,8 @@
 
     [updateController startup];
 
+    [[UITabBar appearance] setBarStyle:UIBarStyleBlackOpaque];
+
     // settings manager is not retained by this class, objects using it must have a strong reference to it
 	return YES;
 }
