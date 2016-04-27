@@ -47,6 +47,8 @@
     self = [super init];
 	if (self) {
 		self.group = newGroup;
+        [self createPortraitPaginationController];
+        [self createLandscapePaginationController];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdate) name:DefinitionUpdateDidFinishNotification object:nil];
     }
 	return self;
@@ -161,6 +163,8 @@
 //    [super viewDidLoad];
 - (void)viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
+    [self createLandscapePaginationController];
+    [self setupLandscapePaginationController];
     [self setupPortraitPaginationController];
     [self setupLandscapePaginationController];
 	[self.navigationController setNavigationBarHidden:YES];
@@ -273,7 +277,7 @@
                 [self showLandscape];
                 [[self currentPaginationController] switchToScreen:landscapeScreen];
             }
-        }        
+        }
     } else {
         if ([self currentScreen].orientation == ORScreenOrientationLandscape) {
             // Going to portrait and not currently showing a portrait screen
@@ -288,22 +292,28 @@
     [self.maskView removeFromSuperview];
 }
 
-- (void)setupPortraitPaginationController {
+- (void)createPortraitPaginationController {
     NSArray *screens = [self.group portraitScreens];
     self.portraitPaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                              tabBar:self.group.definition.tabBar];
     self.portraitPaginationController.imageCache = self.imageCache;
     [self.portraitPaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:NO];
+}
+
+- (void)setupPortraitPaginationController {
     [self addChildViewController:self.portraitPaginationController];
     [self.view addSubview:self.portraitPaginationController.view];
 }
 
-- (void)setupLandscapePaginationController {
+- (void)createLandscapePaginationController {
     NSArray *screens = [self.group landscapeScreens];
     self.landscapePaginationController = [[PaginationController alloc] initWithGroup:self.group
                                                                               tabBar:self.group.definition.tabBar];
     self.portraitPaginationController.imageCache = self.imageCache;
     [self.landscapePaginationController setViewControllers:[self viewControllersForScreens:screens] isLandscape:YES];
+}
+
+- (void)setupLandscapePaginationController {
     [self addChildViewController:self.landscapePaginationController];
     [self.view addSubview:self.landscapePaginationController.view];
 }
