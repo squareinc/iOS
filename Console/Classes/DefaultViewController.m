@@ -142,8 +142,7 @@
 
         [self setDefaultOrientationFromGroup:currentGroup];
 
-        GroupController *gc = [[GroupController alloc] initWithGroup:currentGroup];
-        gc.imageCache = self.imageCache;
+        GroupController *gc = [[GroupController alloc] initWithImageCache:self.imageCache group:currentGroup];
         [self switchToGroupController:gc];
     } else {
         // Means no group with screen does exist
@@ -252,8 +251,7 @@
 {
     // Going to another group
 	if (![group.identifier isEqual:[self.currentGroupController groupIdentifier]]) {
-		GroupController *targetGroupController = [[GroupController alloc] initWithGroup:group];
-        targetGroupController.imageCache = self.imageCache;
+        GroupController *targetGroupController = [[GroupController alloc] initWithImageCache:self.imageCache group:group];
         [self.currentGroupController stopPolling];
 		[self updateGlobalOrLocalTabbarViewToGroupController:targetGroupController];
 	}

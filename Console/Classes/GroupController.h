@@ -33,9 +33,9 @@
 @property (nonatomic, strong) ORGroup *group;
 
 /**
- * Construct group controller with group model data.
+ * Construct group controller with group model data and image cache.
  */
-- (id)initWithGroup:(ORGroup *)newGroup;
+- (id)initWithImageCache:(ImageCache *)aCache group:(ORGroup *)newGroup;
 
 /**
  * Start polling of groupController's rendering screenView.
@@ -74,6 +74,6 @@
  */
 - (CGRect)getFullFrame;
 
-@property (nonatomic, weak) ImageCache *imageCache;
+@property (nonatomic, weak, readonly) ImageCache *imageCache;
 
 @end

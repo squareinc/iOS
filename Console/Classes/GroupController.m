@@ -39,14 +39,18 @@
 @property (nonatomic, strong) PaginationController *portraitPaginationController;
 @property (nonatomic, strong) PaginationController *landscapePaginationController;
 @property (nonatomic, strong) ErrorViewController *errorViewController;
+
+@property (nonatomic, weak, readwrite) ImageCache *imageCache;
+
 @end
 
 @implementation GroupController
 
-- (id)initWithGroup:(ORGroup *)newGroup {
+- (id)initWithImageCache:(ImageCache *)aCache group:(ORGroup *)newGroup {
     self = [super init];
 	if (self) {
 		self.group = newGroup;
+        self.imageCache = aCache;
         [self createPortraitPaginationController];
         [self createLandscapePaginationController];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdate) name:DefinitionUpdateDidFinishNotification object:nil];
