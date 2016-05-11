@@ -162,4 +162,8 @@
 }
 
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return self.defaultViewController.supportedInterfaceOrientations;
+}
+
 @end

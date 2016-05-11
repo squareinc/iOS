@@ -152,17 +152,19 @@
 }
 
 - (void)setDefaultOrientationFromGroup:(ORGroup *)group {
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-        if (group.portraitScreens.count) {
-            self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+    if (group) {
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+            if (group.portraitScreens.count) {
+                self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+            } else {
+                self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
+            }
         } else {
-            self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
-        }
-    } else {
-        if (group.landscapeScreens.count) {
-            self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
-        } else {
-            self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+            if (group.landscapeScreens.count) {
+                self.defaultOrientationMask = UIInterfaceOrientationMaskLandscape;
+            } else {
+                self.defaultOrientationMask = UIInterfaceOrientationMaskPortrait;
+            }
         }
     }
 }
