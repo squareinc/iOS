@@ -100,7 +100,7 @@
         return;
     }
 
-    UIImageView *backgroundImageView = (UIImageView *)self.imageView;
+    UIImageView *backgroundImageView = self.imageView;
     CGFloat viewWidth = backgroundImageView.bounds.size.width;
     CGFloat viewHeight = backgroundImageView.bounds.size.height;
 
@@ -165,8 +165,8 @@
                 height = backgroundImage.size.height;
             }
 
-            CGFloat xEmptySpace = MAX(0.0, viewWidth - backgroundImage.size.width);
-            CGFloat yEmptySpace = MAX(0.0, viewHeight - backgroundImage.size.height);
+            CGFloat xEmptySpace = MAX(0, viewWidth - backgroundImage.size.width);
+            CGFloat yEmptySpace = MAX(0, viewHeight - backgroundImage.size.height);
             
             drawRect = CGRectMake(xEmptySpace * (self.screen.background.position.x / 100.0),
                                   yEmptySpace * (self.screen.background.position.y / 100.0),
@@ -182,9 +182,9 @@
         [backgroundImageView setImage:[ClippedUIImage imageFromImage:image size:backgroundImageView.bounds.size sourceRect:drawRect]];
     } else {
         // fillscreen is true
-        [backgroundImageView setFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
-        [backgroundImageView setImage:backgroundImage];
-        [backgroundImageView sizeToFit];
+        backgroundImageView.frame = CGRectMake(0, 0, viewWidth, viewHeight);
+        backgroundImageView.image = backgroundImage;
+        backgroundImageView.contentMode = UIViewContentModeScaleToFill;
     }
 }
 
