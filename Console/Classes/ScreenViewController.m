@@ -42,7 +42,6 @@
     if (self) {
         self.screen = aScreen;
         self.gestureRecognizers = [[NSMutableArray alloc] initWithCapacity:4];
-        [self setupGestureRecognizers];
     }
     return self;
 }
@@ -61,6 +60,7 @@
     self.screenSubController = [[ScreenSubController alloc] initWithImageCache:self.imageCache screen:self.screen];
     [self addChildViewController:self.screenSubController];
     [self.view addSubview:self.screenSubController.view];
+    [self setupGestureRecognizers];
 }
 
 - (void)startPolling
