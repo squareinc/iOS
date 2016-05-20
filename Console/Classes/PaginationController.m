@@ -317,7 +317,8 @@
                 });
             }];
             if (itemImage) {
-                uiItem.image = [itemImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                uiItem.image = itemImage;
+                uiItem.selectedImage = itemImage;
             }
             [tmpItems addObject:uiItem];
         }
