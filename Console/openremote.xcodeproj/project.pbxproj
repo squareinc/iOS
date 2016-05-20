@@ -11,6 +11,7 @@
 		1B144BAF1CBBCE04006905C0 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */; };
 		1BB32B261C6B379600659B79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B251C6B379600659B79 /* Images.xcassets */; };
 		1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B271C6B476800659B79 /* Launch Screen.storyboard */; };
+		1BE5BE781CEF37A100A28087 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BE5BE761CEF37A100A28087 /* LoginViewController.xib */; };
 		602418B3156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B4156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B9156E4D2D004E5860 /* APISecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B7156E4D2D004E5860 /* APISecurity.m */; };
@@ -35,7 +36,6 @@
 		60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CFDB2760FBBBF4500D204CB /* appSettings.plist */; };
 		60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 97B0011F106127AF00C31E4A /* iTunesArtwork */; };
 		60366B6E144DCB9C004FED3B /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 8CECF3E010E9DD1400C0E1BB /* database.db */; };
-		60366B6F144DCB9C004FED3B /* btn_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3001163492C00DD4EE7 /* btn_green.png */; };
 		60366B70144DCB9C004FED3B /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3011163492C00DD4EE7 /* button.png */; };
 		60366B75144DCB9C004FED3B /* repair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3061163492C00DD4EE7 /* repair.png */; };
 		60366B76144DCB9C004FED3B /* slider_tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3071163492C00DD4EE7 /* slider_tip.png */; };
@@ -177,7 +177,6 @@
 		60FAD471153EFCF8008DA70E /* ORControllerCapabilitiesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD46F153EFCF7008DA70E /* ORControllerCapabilitiesFetcher.m */; };
 		60FAD480154050B1008DA70E /* Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD47E154050B1008DA70E /* Capabilities.m */; };
 		60FAD4851540571E008DA70E /* ControllerVersionSelectAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD4831540571E008DA70E /* ControllerVersionSelectAPI.m */; };
-		8C3DE3101163492C00DD4EE7 /* btn_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3001163492C00DD4EE7 /* btn_green.png */; };
 		8C3DE3111163492C00DD4EE7 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3011163492C00DD4EE7 /* button.png */; };
 		8C3DE3161163492C00DD4EE7 /* repair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3061163492C00DD4EE7 /* repair.png */; };
 		8C3DE3171163492C00DD4EE7 /* slider_tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3DE3071163492C00DD4EE7 /* slider_tip.png */; };
@@ -252,6 +251,7 @@
 		1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		1BB32B251C6B379600659B79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OpenRemote/Images.xcassets; sourceTree = "<group>"; };
 		1BB32B271C6B476800659B79 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1BE5BE761CEF37A100A28087 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Classes/LoginViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -414,7 +414,6 @@
 		60FAD4831540571E008DA70E /* ControllerVersionSelectAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerVersionSelectAPI.m; sourceTree = "<group>"; };
 		8C09E76210BA838800A475D8 /* ControllerException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerException.h; sourceTree = "<group>"; };
 		8C3B6D3C0FA006D00004A7E8 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		8C3DE3001163492C00DD4EE7 /* btn_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_green.png; path = image/btn_green.png; sourceTree = "<group>"; };
 		8C3DE3011163492C00DD4EE7 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = image/button.png; sourceTree = "<group>"; };
 		8C3DE3061163492C00DD4EE7 /* repair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = repair.png; path = image/repair.png; sourceTree = "<group>"; };
 		8C3DE3071163492C00DD4EE7 /* slider_tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slider_tip.png; path = image/slider_tip.png; sourceTree = "<group>"; };
@@ -682,6 +681,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BE5BE761CEF37A100A28087 /* LoginViewController.xib */,
 				1BB32B251C6B379600659B79 /* Images.xcassets */,
 				912721ED16C1127800E2D6B3 /* ORSliderGreen.png */,
 				912721EE16C1127800E2D6B3 /* ORSliderGreen@2x.png */,
@@ -701,7 +701,6 @@
 				60950D9713CB115400B983E7 /* CheckMark@2x.png */,
 				60FA5DC4153C506500FA245E /* delete_button.png */,
 				910F28DB1992635F002B65A3 /* delete_button@2x.png */,
-				8C3DE3001163492C00DD4EE7 /* btn_green.png */,
 				8C3DE3011163492C00DD4EE7 /* button.png */,
 				8C3DE3061163492C00DD4EE7 /* repair.png */,
 				8C3DE3071163492C00DD4EE7 /* slider_tip.png */,
@@ -1285,9 +1284,9 @@
 			files = (
 				60366B6B144DCB9C004FED3B /* Entitlements.plist in Resources */,
 				60366B6C144DCB9C004FED3B /* appSettings.plist in Resources */,
+				1BE5BE781CEF37A100A28087 /* LoginViewController.xib in Resources */,
 				60366B6D144DCB9C004FED3B /* iTunesArtwork in Resources */,
 				60366B6E144DCB9C004FED3B /* database.db in Resources */,
-				60366B6F144DCB9C004FED3B /* btn_green.png in Resources */,
 				60366B70144DCB9C004FED3B /* button.png in Resources */,
 				1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */,
 				910F28DC1992635F002B65A3 /* delete_button@2x.png in Resources */,
@@ -1326,7 +1325,6 @@
 			files = (
 				60C2F95B135F39E7000824A5 /* panel_screenIdForOrientation.xml in Resources */,
 				8CECF3E210E9DD1400C0E1BB /* database.db in Resources */,
-				8C3DE3101163492C00DD4EE7 /* btn_green.png in Resources */,
 				8C3DE3111163492C00DD4EE7 /* button.png in Resources */,
 				8C3DE3161163492C00DD4EE7 /* repair.png in Resources */,
 				8C3DE3171163492C00DD4EE7 /* slider_tip.png in Resources */,
