@@ -439,7 +439,7 @@
             l.font = [UIFont boldSystemFontOfSize:17];
             l.textColor = [UIColor redColor];
             l.backgroundColor = [UIColor clearColor];
-            l.textAlignment = UITextAlignmentRight;
+            l.textAlignment = NSTextAlignmentRight;
             [v addSubview:l];
             self.controllerErrorLabel = l;
             self.controllerSectionHeaderView = v;
