@@ -21,7 +21,6 @@
 #import "WebSubController.h"
 #import "ORControllerClient/ORWebView.h"
 #import "SensorStatusCache.h"
-#import "ORControllerClient/NSStringAdditions.h"
 
 static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOContext;
 
@@ -70,7 +69,7 @@ static void * const WebSubControllerKVOContext = (void*)&WebSubControllerKVOCont
 	// If a username if provided in the config, use that for authentication
 	if (webModel.username != nil && ![@"" isEqualToString:webModel.username]) {
 		NSData *authData = [[NSString stringWithFormat:@"%@:%@", webModel.username, webModel.password] dataUsingEncoding:NSUTF8StringEncoding];
-		NSString *authString = [NSString base64StringFromData:authData length:[authData length]];
+		NSString *authString = [authData base64EncodedStringWithOptions:0];
 		authString = [NSString stringWithFormat: @"Basic %@", authString];
 		[request setValue:authString forHTTPHeaderField:@"Authorization"];
 	}
