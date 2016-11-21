@@ -36,7 +36,7 @@
 		[toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 
 		UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
-                                                                 style:UIBarButtonItemStyleBordered
+                                                                 style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(gotoSettings:)];
 		[toolbar setItems:@[item]];
