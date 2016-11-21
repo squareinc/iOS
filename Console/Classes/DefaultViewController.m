@@ -273,15 +273,21 @@
 
 // Version used by newer code using client library and authentication manager mechanism
 
-- (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate
+- (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate forController:(ORControllerConfig *)controller
 {
-    LoginViewController *loginController = [[LoginViewController alloc] initWithController:self.settingsManager.consoleSettings.selectedController
+    LoginViewController *loginController = [[LoginViewController alloc] initWithController:controller
                                                                                   delegate:delegate
                                                                                    context:NULL];
-	UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
+    UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginController];
 
     // If we are already presenting a VC (e.g. Settings), this one must present the login panel
-	[((self.presentedViewController)?self.presentedViewController:self) presentViewController:loginNavController animated:YES completion:NULL];
+    [((self.presentedViewController)?self.presentedViewController:self) presentViewController:loginNavController animated:YES completion:NULL];
+}
+
+
+- (void)presentLoginViewWithDelegate:(id <LoginViewControllerDelegate>)delegate
+{
+    [self presentLoginViewWithDelegate:delegate forController:self.settingsManager.consoleSettings.selectedController];
 }
 
 // Version used by legacy code, to eventually go away

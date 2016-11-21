@@ -446,8 +446,9 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == CONTROLLER_URLS_SECTION) {
-        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *)[self.settingsManager.consoleSettings.controllers objectAtIndex:indexPath.row])];
+        ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithController:((ORControllerConfig *) self.settingsManager.consoleSettings.controllers[indexPath.row])];
         cdvc.delegate = self;
+        cdvc.creating = NO;
 		[[self navigationController] pushViewController:cdvc animated:YES];
     }
 }
@@ -480,6 +481,7 @@
 	if ([self isAddCustomServerRow:indexPath]) {
         ControllerDetailViewController *cdvc = [[ControllerDetailViewController alloc] initWithManagedObjectContext:self.settingsManager.managedObjectContext];
         cdvc.delegate = self;
+        cdvc.creating = YES;
 		[[self navigationController] pushViewController:cdvc animated:YES];
 		return;
 	} else if (indexPath.section == PANEL_IDENTITY_SECTION) {
