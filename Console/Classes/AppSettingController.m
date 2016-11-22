@@ -33,6 +33,7 @@
 #import "ORControllerGroupMembersFetchStatusIconProvider.h"
 #import "TableViewCellWithSelectionAndIndicator.h"
 #import "ImageCache.h"
+#import "UIDevice+ORAdditions.h"
 
 @interface AppSettingController ()
 
@@ -604,15 +605,53 @@
         // If there is only one panel available, it is automatically selected.
         UITableViewCell *identityCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:PANEL_IDENTITY_SECTION]];
         if (panels.count == 1) {
-            self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = [panels objectAtIndex:0];
+            self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = panels[0];
             identityCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
         } else {
-            if (![panels containsObject:self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity]) {
+            // if there are than one panel, try to select one by matching the panel identity with the device
+            NSArray<NSString *> *candidates = [self selectPanelsByDevice:panels];
+            if (candidates.count == 1) {
+                self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = candidates[0];
+                identityCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
+            } else if (![panels containsObject:self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity]) {
                 self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = nil;
                 identityCell.textLabel.text = @"None";
             }
         }
     }
+}
+
+/**
+ * Match the panel identities with the device info
+ * @return A NSArray of matching candidates
+ */
+- (NSArray<NSString *> *)selectPanelsByDevice:(NSArray *) panelIdentities {
+    NSString *autoSelectPrefix = [[UIDevice currentDevice] autoSelectPrefix];
+    NSMutableArray<NSString *> *candidates;
+    if (autoSelectPrefix) {
+        candidates = [[NSMutableArray alloc] init];
+        // get all identities matching the prefix
+        [panelIdentities enumerateObjectsUsingBlock:^(NSString *identity, NSUInteger idx, BOOL *stop) {
+            if ([identity.lowercaseString rangeOfString:autoSelectPrefix.lowercaseString].location != NSNotFound) {
+                [candidates addObject:identity];
+            }
+        }];
+
+        // remove identities matching another prefix
+        NSMutableArray *otherPrefixes = [[UIDevice allAutoSelectPrefixes] mutableCopy];
+        [otherPrefixes removeObject:autoSelectPrefix];
+
+        [otherPrefixes enumerateObjectsUsingBlock:^(NSString *prefix, NSUInteger idxPrefix, BOOL *stopPrefix) {
+            __block NSMutableArray<NSString *> *candidatesToRemove = [[NSMutableArray alloc] init];
+            [candidates enumerateObjectsUsingBlock:^(NSString *candidate, NSUInteger idxCandidate, BOOL *stopCandidate) {
+                if ([candidate.lowercaseString rangeOfString:prefix.lowercaseString].location != NSNotFound) {
+                    [candidatesToRemove addObject:candidate];
+                }
+            }];
+            [candidates removeObjectsInArray:candidatesToRemove];
+        }];
+    }
+    return [candidates copy];
 }
 
 #pragma mark LoginViewControllerDelegate implementation
