@@ -91,7 +91,8 @@
                    withSuccessHandler:(void (^)(NSData *))successHandler
                          errorHandler:(void (^)(NSError *))errorHandler
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[baseURL URLByAppendingPathComponent:resourceName]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[[baseURL URLByAppendingPathComponent:@"/resources"]
+                                                                        URLByAppendingPathComponent:resourceName]];
     return [self callForRequest:request delegate:[[RetrieveResourceResponseHandler alloc] initWithSuccessHandler:successHandler errorHandler:errorHandler]];
 }
 
