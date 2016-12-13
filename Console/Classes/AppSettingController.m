@@ -236,7 +236,7 @@
     [super viewDidAppear:animated];
 }
 
-// Updates panel identity view, but not persistes identity data into appSettings.plist.
+// Updates panel identity view, but not persists identity data into appSettings.plist.
 - (void)updatePanelIdentityView {
 	UITableView *tv = (UITableView *)self.view;
 	UITableViewCell *identityCell = [tv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:PANEL_IDENTITY_SECTION]];
