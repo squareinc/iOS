@@ -34,6 +34,7 @@
 #import "TableViewCellWithSelectionAndIndicator.h"
 #import "ImageCache.h"
 #import "UIDevice+ORAdditions.h"
+#import "PanelMatcher.h"
 
 @interface AppSettingController ()
 
@@ -608,8 +609,8 @@
             self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = panels[0];
             identityCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
         } else {
-            // if there are than one panel, try to select one by matching the panel identity with the device
-            NSArray<NSString *> *candidates = [self selectPanelsByDevice:panels];
+            // If there are more than one panel, try to select one by matching the panel identity with the device
+            NSArray<NSString *> *candidates = [PanelMatcher filterPanelIdentities:panels forDevicePrefix:[[UIDevice currentDevice] autoSelectPrefix]];
             if (candidates.count == 1) {
                 self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity = candidates[0];
                 identityCell.textLabel.text = self.settingsManager.consoleSettings.selectedController.selectedPanelIdentity;
@@ -619,39 +620,6 @@
             }
         }
     }
-}
-
-/**
- * Match the panel identities with the device info
- * @return A NSArray of matching candidates
- */
-- (NSArray<NSString *> *)selectPanelsByDevice:(NSArray *) panelIdentities {
-    NSString *autoSelectPrefix = [[UIDevice currentDevice] autoSelectPrefix];
-    NSMutableArray<NSString *> *candidates;
-    if (autoSelectPrefix) {
-        candidates = [[NSMutableArray alloc] init];
-        // get all identities matching the prefix
-        [panelIdentities enumerateObjectsUsingBlock:^(NSString *identity, NSUInteger idx, BOOL *stop) {
-            if ([identity.lowercaseString rangeOfString:autoSelectPrefix.lowercaseString].location != NSNotFound) {
-                [candidates addObject:identity];
-            }
-        }];
-
-        // remove identities matching another prefix
-        NSMutableArray *otherPrefixes = [[UIDevice allAutoSelectPrefixes] mutableCopy];
-        [otherPrefixes removeObject:autoSelectPrefix];
-
-        [otherPrefixes enumerateObjectsUsingBlock:^(NSString *prefix, NSUInteger idxPrefix, BOOL *stopPrefix) {
-            __block NSMutableArray<NSString *> *candidatesToRemove = [[NSMutableArray alloc] init];
-            [candidates enumerateObjectsUsingBlock:^(NSString *candidate, NSUInteger idxCandidate, BOOL *stopCandidate) {
-                if ([candidate.lowercaseString rangeOfString:prefix.lowercaseString].location != NSNotFound) {
-                    [candidatesToRemove addObject:candidate];
-                }
-            }];
-            [candidates removeObjectsInArray:candidatesToRemove];
-        }];
-    }
-    return [candidates copy];
 }
 
 #pragma mark LoginViewControllerDelegate implementation

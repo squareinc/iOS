@@ -225,6 +225,12 @@
 		914C8E3A16D65780003683DE /* ORScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914C8E3816D65780003683DE /* ORScrollView.m */; };
 		91589DFB1858AD080036B7BA /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91589DFA1858AD080036B7BA /* libOCMock.a */; };
 		91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91672BD417954422004EF0D6 /* libORControllerClient.a */; };
+		916B4AA21E00470C006E7DFC /* PanelMatcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AA11E00470C006E7DFC /* PanelMatcherTest.m */; };
+		916B4AA81E00474F006E7DFC /* PanelMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AA71E00474F006E7DFC /* PanelMatcher.m */; };
+		916B4AA91E00474F006E7DFC /* PanelMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B4AA71E00474F006E7DFC /* PanelMatcher.m */; };
+		916B4AAA1E0048FC006E7DFC /* UIDevice+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B45458722B1C0AA6619B6 /* UIDevice+ORAdditions.m */; };
+		916B4AAB1E004957006E7DFC /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B49C491C98CA417481E15 /* GBDeviceInfo_iOS.m */; };
+		916B4AAC1E004957006E7DFC /* GBDeviceInfo_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4286395D42CC096E0E49 /* GBDeviceInfo_Common.m */; };
 		916B6B9B17FDC298000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
 		916B6B9F17FDC2C8000CB0CA /* ImageCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */; };
 		916B6BA017FDC320000CB0CA /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B6B9A17FDC298000CB0CA /* ImageCache.m */; };
@@ -548,6 +554,9 @@
 		91589DFA1858AD080036B7BA /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		915F16731A726D8100F111F7 /* ORScreenOrGroupReferenceTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORScreenOrGroupReferenceTest.h; path = ../ORControllerClient/ORControllerClientTests/ORScreenOrGroupReferenceTest.h; sourceTree = "<group>"; };
 		91672BD417954422004EF0D6 /* libORControllerClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libORControllerClient.a; path = "../ORControllerClient/build/Release-iphoneos/libORControllerClient.a"; sourceTree = "<group>"; };
+		916B4AA11E00470C006E7DFC /* PanelMatcherTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelMatcherTest.m; path = Test/PanelMatcherTest.m; sourceTree = "<group>"; };
+		916B4AA61E00474F006E7DFC /* PanelMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelMatcher.h; sourceTree = "<group>"; };
+		916B4AA71E00474F006E7DFC /* PanelMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelMatcher.m; sourceTree = "<group>"; };
 		916B6B9917FDC298000CB0CA /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		916B6B9A17FDC298000CB0CA /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		916B6B9E17FDC2C8000CB0CA /* ImageCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheTest.m; sourceTree = "<group>"; };
@@ -983,6 +992,8 @@
 				602418E4156FAC6D004E5860 /* UITableViewHelper.m */,
 				B57B45458722B1C0AA6619B6 /* UIDevice+ORAdditions.m */,
 				B57B407D41A3A83C24398752 /* UIDevice+ORAdditions.h */,
+				916B4AA61E00474F006E7DFC /* PanelMatcher.h */,
+				916B4AA71E00474F006E7DFC /* PanelMatcher.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -1067,6 +1078,7 @@
 				8CEFDAF611BF446B00CEDC24 /* StringUtilsTest.m */,
 				60F386F6155503820089F8BD /* SensorStatusCacheTest.h */,
 				60F386F7155503820089F8BD /* SensorStatusCacheTest.m */,
+				916B4AA11E00470C006E7DFC /* PanelMatcherTest.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -1501,6 +1513,7 @@
 				912721E616C10ECE00E2D6B3 /* ORUISlider.m in Sources */,
 				914C8E3A16D65780003683DE /* ORScrollView.m in Sources */,
 				B57B4E61F12C0F19B8882E4C /* GBDeviceInfo_iOS.m in Sources */,
+				916B4AA91E00474F006E7DFC /* PanelMatcher.m in Sources */,
 				B57B4C0A93EE5F75F2752202 /* GBDeviceInfo_Common.m in Sources */,
 				B57B4BF51A9C4DE95D962C13 /* UIDevice+ORAdditions.m in Sources */,
 			);
@@ -1510,6 +1523,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916B4AAB1E004957006E7DFC /* GBDeviceInfo_iOS.m in Sources */,
+				916B4AAC1E004957006E7DFC /* GBDeviceInfo_Common.m in Sources */,
+				916B4AAA1E0048FC006E7DFC /* UIDevice+ORAdditions.m in Sources */,
 				91E7DAC31B00C9FC000A8314 /* NavigationManager.m in Sources */,
 				91F7EDA31907BC4B0047DC9B /* ORConsoleAuthenticationManager.m in Sources */,
 				91B357D318BB885700ADED24 /* ScreenReferenceStack.m in Sources */,
@@ -1549,12 +1565,14 @@
 				609C57DB137430F60093C03A /* NSString+ORAdditionsTest.m in Sources */,
 				609C57DC137430F60093C03A /* StringUtilsTest.m in Sources */,
 				609C57DD137430F60093C03A /* ClippedUIImageViewTest.m in Sources */,
+				916B4AA81E00474F006E7DFC /* PanelMatcher.m in Sources */,
 				609C57DE137430F60093C03A /* PanelXMLParsingTests.m in Sources */,
 				609C57DF137430F60093C03A /* ScreenTest.m in Sources */,
 				60F3867E15517AFE0089F8BD /* NSURLHelper.m in Sources */,
 				60F3868415517C030089F8BD /* NSURLHelperTest.m in Sources */,
 				60F386E2155401AC0089F8BD /* ClientSideRuntime.m in Sources */,
 				60F386E71554034D0089F8BD /* SIPProtocol.m in Sources */,
+				916B4AA21E00470C006E7DFC /* PanelMatcherTest.m in Sources */,
 				60F386EC15541CE90089F8BD /* SensorStatusCache.m in Sources */,
 				60F386F8155503820089F8BD /* SensorStatusCacheTest.m in Sources */,
 				609AAFD9156A61F7000DA1F9 /* ORControllerSender.m in Sources */,
