@@ -233,6 +233,7 @@
 {
     [self autodiscoverControllersIfRequired];
     [self fetchGroupMembersForAllControllers];
+    [self updatePanelIdentityView];
     [super viewDidAppear:animated];
 }
 
