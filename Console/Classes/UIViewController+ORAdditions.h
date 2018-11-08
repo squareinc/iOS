@@ -1,6 +1,6 @@
 /*
  * OpenRemote, the Home of the Digital Home.
- * Copyright 2008-2012, OpenRemote Inc.
+ * Copyright 2008-2018, OpenRemote Inc.
  *
  * See the contributors.txt file in the distribution for a
  * full listing of individual contributors.
@@ -18,28 +18,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#import <UIKit/UIKit.h>
-#import "GestureWindow.h"
-#import "UpdateController.h"
-#import "DefaultViewController.h"
 
-@class SplashScreenViewController;
+#import <Foundation/Foundation.h>
 
-/*
- * This is the entrypoint of the application.
- *  After application have been started applicationDidFinishLaunching method will be called.
- */
-@interface AppDelegate : NSObject <UIApplicationDelegate, UpdateControllerDelegate, DefaultViewControllerDelegate> {
-	
-	GestureWindow *window;
-	UpdateController *updateController;
+@interface UIViewController (ORAdditions)
 
-}
-
-@property (nonatomic, strong) DefaultViewController *defaultViewController;
-@property (nonatomic, strong, readonly) UIWindow *mainWindow;
-
-- (void)replaceDefaultViewController:(DefaultViewController *)newDefaultViewController;
+@property (nonatomic, assign, readonly) BOOL hasTopNotch;
 
 @end
-

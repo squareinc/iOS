@@ -49,6 +49,8 @@
 
 @implementation AppDelegate
 
+
+
 // when it's launched by other apps.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.imageCache = [[ImageCache alloc] initWithCachePath:[DirectoryDefinition imageCacheFolder]];
@@ -57,11 +59,12 @@
     self.definitionManager = [[DefinitionManager alloc] init];
     self.definitionManager.imageCache = self.imageCache;
 
+    // Default window for the app
+    window = [[GestureWindow alloc] init];
+
     self.defaultViewController = [[DefaultViewController alloc] initWithSettingsManager:settingsManager definitionManager:self.definitionManager delegate:self];
     self.defaultViewController.imageCache = self.imageCache;
 
-    // Default window for the app
-    window = [[GestureWindow alloc] init];
     [window makeKeyAndVisible];
 
     self.splashScreenViewController = [[SplashScreenViewController alloc] init];
@@ -155,6 +158,10 @@
 }
 
 @synthesize defaultViewController;
+
+- (UIWindow *)mainWindow {
+    return window;
+}
 
 - (void)replaceDefaultViewController:(DefaultViewController *)newDefaultViewController {
     self.defaultViewController = newDefaultViewController;
