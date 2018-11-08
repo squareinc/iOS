@@ -33,7 +33,7 @@
 - (id)initWithErrorTitle:(NSString *)title message:(NSString *)message
 {
 	if (self = [super initWithNibName: UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"ErrorViewController~iPad" : @"ErrorViewController~iPhone" bundle:nil]) {
-		UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44 + (self.hasTopNotch ? 20 : 0))];
+		UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44 + self.safeAreaTop)];
 		[toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 
 		UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Settings"

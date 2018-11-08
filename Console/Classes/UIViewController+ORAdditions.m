@@ -31,4 +31,20 @@
     return NO;
 }
 
+- (CGFloat)safeAreaTop {
+    UIWindow *window = [((AppDelegate *)[[UIApplication sharedApplication] delegate]) mainWindow];
+    if ([window respondsToSelector:@selector(safeAreaInsets)]) {
+        return window.safeAreaInsets.top;
+    }
+    return 0;
+}
+
+- (CGFloat)safeAreaBottom {
+    UIWindow *window = [((AppDelegate *)[[UIApplication sharedApplication] delegate]) mainWindow];
+    if ([window respondsToSelector:@selector(safeAreaInsets)]) {
+        return window.safeAreaInsets.bottom;
+    }
+    return 0;
+}
+
 @end

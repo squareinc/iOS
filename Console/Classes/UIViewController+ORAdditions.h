@@ -24,5 +24,7 @@
 @interface UIViewController (ORAdditions)
 
 @property (nonatomic, assign, readonly) BOOL hasTopNotch;
+@property (nonatomic, assign, readonly) CGFloat safeAreaTop;
+@property (nonatomic, assign, readonly) CGFloat safeAreaBottom;
 
 @end
