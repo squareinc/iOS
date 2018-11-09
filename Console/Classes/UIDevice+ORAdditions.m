@@ -21,15 +21,20 @@
 
 #import "UIDevice+ORAdditions.h"
 #import "GBDeviceInfo.h"
+#import "DevicePrefixer.h"
 
-NSString *const DEVICE_TYPE_IPAD_PRO_12 = @"iPadPro12";
-NSString *const DEVICE_TYPE_IPAD = @"iPad";
-NSString *const DEVICE_TYPE_IPAD3 = @"iPad3";
-NSString *const DEVICE_TYPE_IPHONE_6_PLUS = @"iPhone6Plus";
-NSString *const DEVICE_TYPE_IPHONE6 = @"iPhone6";
-NSString *const DEVICE_TYPE_IPHONE_5 = @"iPhone5";
-NSString *const DEVICE_TYPE_IPHONE_4 = @"iPhone4";
-NSString *const DEVICE_TYPE_IPHONE = @"iPhone";
+NSString *const DEVICE_TYPE_IPAD_PRO_12 = PREFIX_IPAD_PRO_12;
+NSString *const DEVICE_TYPE_IPAD_PRO_11 = PREFIX_IPAD_PRO_11;
+NSString *const DEVICE_TYPE_IPAD = PREFIX_IPAD;
+NSString *const DEVICE_TYPE_IPAD3 = PREFIX_IPAD3;
+NSString *const DEVICE_TYPE_IPHONE_XSMAX = PREFIX_IPHONE_XSMAX;
+NSString *const DEVICE_TYPE_IPHONE_XR = PREFIX_IPHONE_XR;
+NSString *const DEVICE_TYPE_IPHONE_X = PREFIX_IPHONE_X;
+NSString *const DEVICE_TYPE_IPHONE_6_PLUS = PREFIX_IPHONE_6_PLUS;
+NSString *const DEVICE_TYPE_IPHONE6 = PREFIX_IPHONE6;
+NSString *const DEVICE_TYPE_IPHONE_5 = PREFIX_IPHONE_5;
+NSString *const DEVICE_TYPE_IPHONE_4 = PREFIX_IPHONE_4;
+NSString *const DEVICE_TYPE_IPHONE = PREFIX_IPHONE;
 
 @implementation UIDevice (ORAdditions)
 
@@ -41,81 +46,35 @@ NSString *const DEVICE_TYPE_IPHONE = @"iPhone";
  * "iPhone5" -> all 4" screens
  * "iPhone6" -> all 4.7" screens
  * "iPhone6Plus" -> all 5.5" screens
- * "iPad" -> all non retina iPads
- * "iPad3" -> all non 12.9" retina iPads
+ * "iPhoneX" ->  all 5.8" screens
+ * "iPhoneXSMax" -> all 6.5" screens
+ * "iPhoneXR" -> all 6.1" screens
+ * "iPad" -> all non retina iPads with a 4:3 ratio
+ * "iPad3" -> all retina iPads with a 4:3 ratio (except iPad Pro 12.9)
+ * "iPadPro11" -> iPad Pro 11" (4.3:3 ratio)
  * "iPadPro12" -> iPad Pro 12.9"
  * nil otherwise
  */
 - (NSString *)autoSelectPrefix {
-    NSString *autoSelectPrefix;
-
-    GBDeviceInfo *deviceInfo = [GBDeviceInfo deviceInfo];
-
-    switch (deviceInfo.model) {
-        case GBDeviceModeliPadPro12p9Inch:
-            autoSelectPrefix = DEVICE_TYPE_IPAD_PRO_12;
-            break;
-        case GBDeviceModeliPad1:
-        case GBDeviceModeliPad2:
-        case GBDeviceModeliPadMini1:
-            autoSelectPrefix = DEVICE_TYPE_IPAD;
-            break;
-        case GBDeviceModeliPad3:
-        case GBDeviceModeliPad4:
-        case GBDeviceModeliPadMini2:
-        case GBDeviceModeliPadMini3:
-        case GBDeviceModeliPadMini4:
-        case GBDeviceModeliPadAir1:
-        case GBDeviceModeliPadAir2:
-        case GBDeviceModeliPadPro9p7Inch:
-            autoSelectPrefix = DEVICE_TYPE_IPAD3;
-            break;
-        case GBDeviceModeliPhone6Plus:
-            break;
-        case GBDeviceModeliPhone6sPlus:
-        case GBDeviceModeliPhone7Plus:
-            autoSelectPrefix = DEVICE_TYPE_IPHONE_6_PLUS;
-            break;
-        case GBDeviceModeliPhone6:
-        case GBDeviceModeliPhone6s:
-        case GBDeviceModeliPhone7:
-            autoSelectPrefix = DEVICE_TYPE_IPHONE6;
-            break;
-        case GBDeviceModeliPhone5:
-        case GBDeviceModeliPhone5c:
-        case GBDeviceModeliPhone5s:
-        case GBDeviceModeliPhoneSE:
-        case GBDeviceModeliPod5:
-        case GBDeviceModeliPod6:
-            autoSelectPrefix = DEVICE_TYPE_IPHONE_5;
-            break;
-        case GBDeviceModeliPod4:
-        case GBDeviceModeliPhone4:
-        case GBDeviceModeliPhone4S:
-            autoSelectPrefix = DEVICE_TYPE_IPHONE_4;
-            break;
-        case GBDeviceModeliPod1:
-        case GBDeviceModeliPod2:
-        case GBDeviceModeliPod3:
-            autoSelectPrefix = DEVICE_TYPE_IPHONE;
-            break;
-        default:
-            break;
-    }
-
-    return autoSelectPrefix;
+    DevicePrefixer *prefixer = [[DevicePrefixer alloc] init];
+    GBDeviceInfo *deviceInfo = [[GBDeviceInfo alloc] init];
+    return [prefixer prefixForModel:deviceInfo.model];
 }
 
 + (NSArray<NSString *> *)allAutoSelectPrefixes {
     return @[
             DEVICE_TYPE_IPAD_PRO_12,
+            DEVICE_TYPE_IPAD_PRO_11,
             DEVICE_TYPE_IPAD,
             DEVICE_TYPE_IPAD3,
+            DEVICE_TYPE_IPHONE_XSMAX,
+            DEVICE_TYPE_IPHONE_XR,
+            DEVICE_TYPE_IPHONE_X,
             DEVICE_TYPE_IPHONE_6_PLUS,
             DEVICE_TYPE_IPHONE6,
             DEVICE_TYPE_IPHONE_5,
             DEVICE_TYPE_IPHONE_4,
-            DEVICE_TYPE_IPHONE,
+            DEVICE_TYPE_IPHONE
     ];
 }
 
