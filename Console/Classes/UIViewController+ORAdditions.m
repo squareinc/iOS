@@ -25,24 +25,30 @@
 
 - (BOOL)hasTopNotch {
     UIWindow *window = [((AppDelegate *)[[UIApplication sharedApplication] delegate]) mainWindow];
-    if ([window respondsToSelector:@selector(safeAreaInsets)]) {
-        return window.safeAreaInsets.top > 20;
+    if (@available(iOS 11.0, *)) {
+        if ([window respondsToSelector:@selector(safeAreaInsets)]) {
+            return window.safeAreaInsets.top > 20;
+        }
     }
     return NO;
 }
 
 - (CGFloat)safeAreaTop {
     UIWindow *window = [((AppDelegate *)[[UIApplication sharedApplication] delegate]) mainWindow];
-    if ([window respondsToSelector:@selector(safeAreaInsets)]) {
-        return window.safeAreaInsets.top;
+    if (@available(iOS 11.0, *)) {
+        if ([window respondsToSelector:@selector(safeAreaInsets)]) {
+            return window.safeAreaInsets.top;
+        }
     }
     return 0;
 }
 
 - (CGFloat)safeAreaBottom {
     UIWindow *window = [((AppDelegate *)[[UIApplication sharedApplication] delegate]) mainWindow];
-    if ([window respondsToSelector:@selector(safeAreaInsets)]) {
-        return window.safeAreaInsets.bottom;
+    if (@available(iOS 11.0, *)) {
+        if ([window respondsToSelector:@selector(safeAreaInsets)]) {
+            return window.safeAreaInsets.bottom;
+        }
     }
     return 0;
 }
