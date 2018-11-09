@@ -48,6 +48,8 @@
 // TODO: the parsing "factory" should be injected based on the configuration retrieved from the controller
 // TODO: note: the openremote tag presence is not checked, is this an issue ?
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 @interface PanelDefinitionParser()
 
 @property (nonatomic, retain) DefinitionElementParserRegister *depRegistry;
@@ -117,3 +119,5 @@
 @synthesize depRegistry;
 
 @end
+
+#pragma clang diagnostic pop
