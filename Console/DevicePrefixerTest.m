@@ -153,7 +153,7 @@
 }
 
 - (void)testPrefixForiPadPro10p5Inch {
-    XCTAssertEqual([self.devicePrefixer prefixForModel:GBDeviceModeliPadPro10p5Inch], PREFIX_IPAD3);
+    XCTAssertEqual([self.devicePrefixer prefixForModel:GBDeviceModeliPadPro10p5Inch], PREFIX_IPAD_PRO_10_5);
 }
 
 - (void)testPrefixForiPadPro12p9Inch {
@@ -161,7 +161,7 @@
 }
 
 - (void)testPrefixForiPadPro10p5Inch2 {
-    XCTAssertEqual([self.devicePrefixer prefixForModel:GBDeviceModeliPadPro10p5Inch2], PREFIX_IPAD3);
+    XCTAssertEqual([self.devicePrefixer prefixForModel:GBDeviceModeliPadPro10p5Inch2], PREFIX_IPAD_PRO_10_5);
 }
 
 - (void)testPrefixForiPadPro12p9Inch2 {
@@ -220,6 +220,7 @@
     NSArray<NSString *> *expected = @[
             PREFIX_IPAD_PRO_12,
             PREFIX_IPAD_PRO_11,
+            PREFIX_IPAD_PRO_10_5,
             PREFIX_IPAD,
             PREFIX_IPAD3,
             PREFIX_IPHONE_XSMAX,

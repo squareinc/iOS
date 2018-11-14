@@ -24,6 +24,7 @@
 
 #define PREFIX_IPAD_PRO_12 @"iPadPro12"
 #define PREFIX_IPAD_PRO_11 @"iPadPro11"
+#define PREFIX_IPAD_PRO_10_5 @"iPadPro105"
 #define PREFIX_IPAD @"iPad"
 #define PREFIX_IPAD3 @"iPad3"
 #define PREFIX_IPHONE_XSMAX @"iPhoneXSMax"

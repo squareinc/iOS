@@ -25,6 +25,7 @@
 
 NSString *const DEVICE_TYPE_IPAD_PRO_12 = PREFIX_IPAD_PRO_12;
 NSString *const DEVICE_TYPE_IPAD_PRO_11 = PREFIX_IPAD_PRO_11;
+NSString *const DEVICE_TYPE_IPAD_PRO_10_5 = PREFIX_IPAD_PRO_10_5;
 NSString *const DEVICE_TYPE_IPAD = PREFIX_IPAD;
 NSString *const DEVICE_TYPE_IPAD3 = PREFIX_IPAD3;
 NSString *const DEVICE_TYPE_IPHONE_XSMAX = PREFIX_IPHONE_XSMAX;
@@ -51,6 +52,7 @@ NSString *const DEVICE_TYPE_IPHONE = PREFIX_IPHONE;
  * "iPhoneXR" -> all 6.1" screens
  * "iPad" -> all non retina iPads with a 4:3 ratio
  * "iPad3" -> all retina iPads with a 4:3 ratio (except iPad Pro 12.9)
+ * "iPadPro105" -> iPad Pro 10.5"
  * "iPadPro11" -> iPad Pro 11" (4.3:3 ratio)
  * "iPadPro12" -> iPad Pro 12.9"
  * nil otherwise
@@ -65,6 +67,7 @@ NSString *const DEVICE_TYPE_IPHONE = PREFIX_IPHONE;
     return @[
             DEVICE_TYPE_IPAD_PRO_12,
             DEVICE_TYPE_IPAD_PRO_11,
+            DEVICE_TYPE_IPAD_PRO_10_5,
             DEVICE_TYPE_IPAD,
             DEVICE_TYPE_IPAD3,
             DEVICE_TYPE_IPHONE_XSMAX,

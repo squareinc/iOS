@@ -36,6 +36,10 @@
         case GBDeviceModeliPadPro11p1TB:
             prefix = PREFIX_IPAD_PRO_11;
             break;
+        case GBDeviceModeliPadPro10p5Inch:
+        case GBDeviceModeliPadPro10p5Inch2:
+            prefix = PREFIX_IPAD_PRO_10_5;
+            break;
         case GBDeviceModeliPad1:
         case GBDeviceModeliPad2:
         case GBDeviceModeliPadMini1:
@@ -51,8 +55,6 @@
         case GBDeviceModeliPadAir1:
         case GBDeviceModeliPadAir2:
         case GBDeviceModeliPadPro9p7Inch:
-        case GBDeviceModeliPadPro10p5Inch:
-        case GBDeviceModeliPadPro10p5Inch2:
             prefix = PREFIX_IPAD3;
             break;
         case GBDeviceModeliPhone6Plus:
@@ -105,6 +107,7 @@
     return @[
             PREFIX_IPAD_PRO_12,
             PREFIX_IPAD_PRO_11,
+            PREFIX_IPAD_PRO_10_5,
             PREFIX_IPAD,
             PREFIX_IPAD3,
             PREFIX_IPHONE_XSMAX,

@@ -249,6 +249,7 @@
 		91E7DAD61B021889000A8314 /* NavigationHistoryInMemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7DAD51B021889000A8314 /* NavigationHistoryInMemoryStore.m */; };
 		91F7EDA31907BC4B0047DC9B /* ORConsoleAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3994718EF1EB400AD1E85 /* ORConsoleAuthenticationManager.m */; };
 		B57B40DBD7FD866A6626D400 /* openremote.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B4FAA939510A880D8636B /* openremote.png */; };
+		B57B429FAAFAE91C23F70BA9 /* UIDeviceORAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4CAC51DA390A268F3EDB /* UIDeviceORAdditionsTests.m */; };
 		B57B43D02FD32DDB846CF790 /* DevicePrefixer.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B4D76A3FEA33A420A910B /* DevicePrefixer.m */; };
 		B57B49253D7FC896DBE0FA87 /* DevicePrefixerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B482D7683AF6F33148630 /* DevicePrefixerTest.m */; };
 		B57B4BF51A9C4DE95D962C13 /* UIDevice+ORAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B45458722B1C0AA6619B6 /* UIDevice+ORAdditions.m */; };
@@ -602,6 +603,8 @@
 		B57B49C491C98CA417481E15 /* GBDeviceInfo_iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_iOS.m; sourceTree = "<group>"; };
 		B57B49C661C55FB9991AF61F /* UIViewController+ORAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ORAdditions.h"; sourceTree = "<group>"; };
 		B57B4A0C3EF4B5820F475C1A /* GBDeviceInfo_Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_Subclass.h; sourceTree = "<group>"; };
+		B57B4CAC51DA390A268F3EDB /* UIDeviceORAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceORAdditionsTests.m; sourceTree = "<group>"; };
+		B57B4D15C94EEBDD08BD5538 /* UIDeviceORAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceORAdditionsTests.h; sourceTree = "<group>"; };
 		B57B4D76A3FEA33A420A910B /* DevicePrefixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevicePrefixer.m; sourceTree = "<group>"; };
 		B57B4FAA939510A880D8636B /* openremote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openremote.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1096,6 +1099,8 @@
 				916B4AA11E00470C006E7DFC /* PanelMatcherTest.m */,
 				B57B482D7683AF6F33148630 /* DevicePrefixerTest.m */,
 				B57B42482213E5BBF77BC5A9 /* DevicePrefixerTest.h */,
+				B57B4CAC51DA390A268F3EDB /* UIDeviceORAdditionsTests.m */,
+				B57B4D15C94EEBDD08BD5538 /* UIDeviceORAdditionsTests.h */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -1609,6 +1614,7 @@
 				602418EB156FAD40004E5860 /* UITableViewHelperTest.m in Sources */,
 				B57B43D02FD32DDB846CF790 /* DevicePrefixer.m in Sources */,
 				B57B49253D7FC896DBE0FA87 /* DevicePrefixerTest.m in Sources */,
+				B57B429FAAFAE91C23F70BA9 /* UIDeviceORAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
