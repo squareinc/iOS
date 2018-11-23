@@ -11,6 +11,7 @@
 		1B144BAF1CBBCE04006905C0 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */; };
 		1BB32B261C6B379600659B79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B251C6B379600659B79 /* Images.xcassets */; };
 		1BB32B281C6B476800659B79 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB32B271C6B476800659B79 /* Launch Screen.storyboard */; };
+		1BBB8D7521A838B400CD84C8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBB8D7421A838B400CD84C8 /* WebKit.framework */; };
 		1BE5BE781CEF37A100A28087 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BE5BE761CEF37A100A28087 /* LoginViewController.xib */; };
 		602418B3156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
 		602418B4156E4D0F004E5860 /* Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = 602418B1156E4D0F004E5860 /* Capability.m */; };
@@ -265,6 +266,7 @@
 		1B144BAD1CBBCE04006905C0 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		1BB32B251C6B379600659B79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OpenRemote/Images.xcassets; sourceTree = "<group>"; };
 		1BB32B271C6B476800659B79 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1BBB8D7421A838B400CD84C8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1BE5BE761CEF37A100A28087 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Classes/LoginViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -613,6 +615,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BBB8D7521A838B400CD84C8 /* WebKit.framework in Frameworks */,
 				91672BD517954422004EF0D6 /* libORControllerClient.a in Frameworks */,
 				910B74FF1794075E005F41CF /* CoreData.framework in Frameworks */,
 				60366C27144DCB9C004FED3B /* CoreGraphics.framework in Frameworks */,
@@ -761,6 +764,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BBB8D7421A838B400CD84C8 /* WebKit.framework */,
 				33981B3410B119BC0076DB59 /* libsqlite3.dylib */,
 				8CB33E4D0FCA4AE400B010DF /* CoreGraphics.framework */,
 				8CA75EC40F579B4C00ADF0C0 /* QuartzCore.framework */,
