@@ -425,7 +425,7 @@
 - (void)presentInitViewController
 {
     [self addChildViewController:initViewController];
-    initViewController.view.frame = [self frameWithNotchFrom:self.view.bounds];
+    initViewController.view.frame = self.view.bounds;
     [self.view addSubview:initViewController.view];
     [initViewController didMoveToParentViewController:self];
 }
@@ -435,10 +435,6 @@
     [initViewController willMoveToParentViewController:nil];
     [initViewController.view removeFromSuperview];
     [initViewController removeFromParentViewController];
-}
-
-- (CGRect)frameWithNotchFrom:(CGRect)bounds {
-    return CGRectMake(bounds.origin.x, bounds.origin.y + self.safeAreaTop, bounds.size.width, bounds.size.height - self.safeAreaTop - self.safeAreaBottom);
 }
 
 - (void)switchToGroupController:(GroupController *)gc
@@ -451,7 +447,6 @@
     self.currentGroupController = gc;
     if (gc) {
         [self addChildViewController:gc];
-        gc.view.frame = [self frameWithNotchFrom:gc.view.bounds];
         [self.view addSubview:gc.view];
         [gc didMoveToParentViewController:self];
     }
